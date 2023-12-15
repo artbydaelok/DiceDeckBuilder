@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp6gwawuteplg"]
+
+[ext_resource type="Script" path="res://player/Player.gd" id="1_1u8nn"]
+[ext_resource type="Texture2D" uid="uid://ca24nlmt4o5bj" path="res://player/pixel_dice_tex.png" id="2_6chk0"]
+[ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ru3w"]
+albedo_texture = ExtResource("2_6chk0")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2jhj"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_1u8nn")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_2ru3w")
+mesh = ExtResource("3_fgjie")
+
+[node name="SideOne" type="Marker3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="SideTwo" type="Marker3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="SideThree" type="Marker3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="SideFour" type="Marker3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="SideFive" type="Marker3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="SideSix" type="Marker3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_f2jhj")

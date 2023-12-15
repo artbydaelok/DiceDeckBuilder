@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bemy0a2yj6na1"]
+
+[ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="1_8na6s"]
+[ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/inventory.tscn" id="1_yb0n1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hjcl6"]
+sky_material = SubResource("ProceduralSkyMaterial_7uuse")
+
+[sub_resource type="Environment" id="Environment_bfiuj"]
+background_mode = 2
+sky = SubResource("Sky_hjcl6")
+tonemap_mode = 2
+
+[node name="Main" type="Node"]
+
+[node name="Game" type="CanvasLayer" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="Game"]
+
+[node name="Inventory" parent="Game/UI" instance=ExtResource("1_yb0n1")]
+
+[node name="Board" type="Node3D" parent="Game"]
+
+[node name="Player" parent="Game/Board" instance=ExtResource("1_8na6s")]
+
+[node name="Camera3D" type="Camera3D" parent="Game/Board"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3, 7)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Game/Board"]
+environment = SubResource("Environment_bfiuj")
