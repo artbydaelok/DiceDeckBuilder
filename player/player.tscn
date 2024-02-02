@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp6gwawuteplg"]
+[gd_scene load_steps=8 format=3 uid="uid://cp6gwawuteplg"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_1u8nn"]
 [ext_resource type="Texture2D" uid="uid://ca24nlmt4o5bj" path="res://player/pixel_dice_tex.png" id="2_6chk0"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
+[ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="4_yunej"]
+[ext_resource type="Script" path="res://player/SideSprite.gd" id="5_v808x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ru3w"]
 albedo_texture = ExtResource("2_6chk0")
@@ -23,20 +25,56 @@ mesh = ExtResource("3_fgjie")
 [node name="SideOne" type="Marker3D" parent="Pivot/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
+[node name="SideOneSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideOne"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.05, 0, 0)
+texture = ExtResource("4_yunej")
+script = ExtResource("5_v808x")
+side = 1
+
 [node name="SideTwo" type="Marker3D" parent="Pivot/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="SideTwoSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideTwo"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, 0)
+texture = ExtResource("4_yunej")
+script = ExtResource("5_v808x")
+side = 2
 
 [node name="SideThree" type="Marker3D" parent="Pivot/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
+[node name="SideThreeSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideThree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+texture = ExtResource("4_yunej")
+script = ExtResource("5_v808x")
+side = 3
+
 [node name="SideFour" type="Marker3D" parent="Pivot/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="SideFourSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+texture = ExtResource("4_yunej")
+script = ExtResource("5_v808x")
+side = 4
 
 [node name="SideFive" type="Marker3D" parent="Pivot/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
+[node name="SideFiveSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFive"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.05, 0)
+texture = ExtResource("4_yunej")
+script = ExtResource("5_v808x")
+side = 5
+
 [node name="SideSix" type="Marker3D" parent="Pivot/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="SideSixSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideSix"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.05, 0, 0)
+texture = ExtResource("4_yunej")
+script = ExtResource("5_v808x")
+side = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_f2jhj")
