@@ -2,40 +2,31 @@
 
 [ext_resource type="Script" path="res://card/inventory.gd" id="1_7n1xt"]
 
-[node name="Inventory" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_7n1xt")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="HBoxContainer" type="HBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_7n1xt")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="HBoxContainer"]
+[node name="ColorRect2" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
-[node name="ColorRect3" type="ColorRect" parent="HBoxContainer"]
+[node name="ColorRect3" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
-[node name="ColorRect4" type="ColorRect" parent="HBoxContainer"]
+[node name="ColorRect4" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
-[node name="ColorRect5" type="ColorRect" parent="HBoxContainer"]
+[node name="ColorRect5" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
-[node name="ColorRect6" type="ColorRect" parent="HBoxContainer"]
+[node name="ColorRect6" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2

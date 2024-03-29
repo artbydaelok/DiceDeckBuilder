@@ -23,10 +23,11 @@ var y_grid_pos = 0
 
 var grid_pos : Vector2
 
+var health : int = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grid_pos = Vector2(x_gris_pos, y_grid_pos)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -65,8 +66,6 @@ func roll(dir):
 	mesh.position = Vector3(0, cube_size / 2, 0)
 	mesh.global_transform.basis = b
 	rolling = false
-	
-	print(grid_pos)
 	
 	detect_side_up()
 

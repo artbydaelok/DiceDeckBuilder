@@ -22,13 +22,21 @@ tonemap_mode = 2
 [node name="UI" type="CanvasLayer" parent="Game"]
 
 [node name="Inventory" parent="Game/UI" instance=ExtResource("1_yb0n1")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -82.0
+offset_right = 298.0
+offset_bottom = -42.0
+grow_vertical = 0
 
 [node name="Board" type="Node3D" parent="Game"]
 
 [node name="Player" parent="Game/Board" instance=ExtResource("1_8na6s")]
 
 [node name="Camera3D" type="Camera3D" parent="Game/Board"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3, 7)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Game/Board"]
 environment = SubResource("Environment_bfiuj")
