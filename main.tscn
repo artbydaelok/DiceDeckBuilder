@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bemy0a2yj6na1"]
+[gd_scene load_steps=7 format=3 uid="uid://bemy0a2yj6na1"]
 
 [ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="1_8na6s"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/inventory.tscn" id="1_yb0n1"]
+[ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_r1re5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,11 +26,17 @@ tonemap_mode = 2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 34.0
-offset_top = -82.0
-offset_right = 298.0
-offset_bottom = -42.0
+offset_left = 29.0
+offset_top = -135.0
+offset_right = 293.0
+offset_bottom = -95.0
 grow_vertical = 0
+
+[node name="PlayerHealthDisplay" parent="Game/UI" instance=ExtResource("2_r1re5")]
+offset_left = 26.0
+offset_top = 566.0
+offset_right = 447.0
+offset_bottom = 603.0
 
 [node name="Board" type="Node3D" parent="Game"]
 
