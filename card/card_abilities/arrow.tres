@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bkjxoqabvrexm"]
+
+[ext_resource type="Texture2D" uid="uid://cr1i0upoarsp4" path="res://assets/card_artwork/bow_arrow.png" id="1_are7e"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="1_spfas"]
+
+[resource]
+script = ExtResource("1_spfas")
+card_name = "Bow & Arrow"
+card_description = "Shoots an arrow at the boss."
+card_artwork = ExtResource("1_are7e")
+cost = 0

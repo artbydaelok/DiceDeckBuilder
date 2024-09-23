@@ -1,23 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://glmod5s7viyk"]
+[gd_scene load_steps=4 format=3 uid="uid://glmod5s7viyk"]
+
+[ext_resource type="Texture2D" uid="uid://dtblpldfgv44q" path="res://assets/life_icon.png" id="1_ttukg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1juv"]
 bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_850im"]
-bg_color = Color(0.733333, 0.0862745, 0.172549, 1)
+bg_color = Color(0.544669, 0.0491302, 0.11697, 1)
+corner_radius_top_left = 12
 
 [node name="PlayerHealthDisplay" type="ProgressBar"]
+custom_minimum_size = Vector2(0, 50)
 offset_right = 421.0
 offset_bottom = 37.0
 theme_override_styles/background = SubResource("StyleBoxFlat_m1juv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_850im")
-value = 15.0
+value = 74.98
+show_percentage = false
 
-[node name="HealthNumbers" type="Label" parent="."]
+[node name="LifeIcon" type="TextureRect" parent="."]
 layout_mode = 1
-offset_left = 2.0
-offset_top = 37.0
-offset_right = 274.0
-offset_bottom = 71.0
-theme_override_font_sizes/font_size = 24
-text = "HP: 100/100"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ttukg")
+stretch_mode = 3

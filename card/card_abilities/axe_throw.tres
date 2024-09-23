@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cwh8hm762xo3n"]
+
+[ext_resource type="Script" path="res://card/card_data.gd" id="1_bd04v"]
+[ext_resource type="Texture2D" uid="uid://dln6eyq2dee81" path="res://assets/card_artwork/axe.png" id="1_o2a5u"]
+
+[resource]
+script = ExtResource("1_bd04v")
+card_name = "Axe Throw"
+card_description = "Throws an axe  forward that damages enemies and breaks obstacles."
+card_artwork = ExtResource("1_o2a5u")
+cost = 0

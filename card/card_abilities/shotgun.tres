@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://0r7dm6i2h71g"]
+
+[ext_resource type="Script" path="res://card/card_data.gd" id="1_0bbsv"]
+[ext_resource type="Texture2D" uid="uid://b7xppkavjut8u" path="res://assets/card_artwork/shotgun.png" id="1_2dyou"]
+
+[resource]
+script = ExtResource("1_0bbsv")
+card_name = "Shotgun"
+card_description = "Blasts an enemy with pellets."
+card_artwork = ExtResource("1_2dyou")
+cost = 2

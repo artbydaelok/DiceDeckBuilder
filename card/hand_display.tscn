@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0a58rwgat4m0"]
+
+[ext_resource type="Script" path="res://card/hand_display.gd" id="1_7n1xt"]
+[ext_resource type="PackedScene" uid="uid://cqoia3gxdnqoh" path="res://card/card_display.tscn" id="2_6hgps"]
+
+[node name="HandDisplay" type="HBoxContainer"]
+custom_minimum_size = Vector2(540, 120)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = -80.0
+offset_bottom = 120.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_7n1xt")
+
+[node name="Card" parent="." instance=ExtResource("2_6hgps")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card2" parent="." instance=ExtResource("2_6hgps")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card3" parent="." instance=ExtResource("2_6hgps")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card4" parent="." instance=ExtResource("2_6hgps")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card5" parent="." instance=ExtResource("2_6hgps")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card6" parent="." instance=ExtResource("2_6hgps")]
+layout_mode = 2
+size_flags_vertical = 4

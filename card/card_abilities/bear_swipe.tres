@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c7ntxb6pa62ms"]
+
+[ext_resource type="Texture2D" uid="uid://dpjsqhmxsjhy7" path="res://assets/card_artwork/BearSwipe.png" id="1_7yriy"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="1_a6t5g"]
+
+[resource]
+script = ExtResource("1_a6t5g")
+card_name = "Bear Swipe"
+card_description = "Frontal swipe that pushes enemies back. "
+card_artwork = ExtResource("1_7yriy")
+cost = 0

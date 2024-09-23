@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/MeshInstance3D
@@ -18,7 +19,7 @@ var cube_size = 2.0
 var speed = 4.0
 var rolling = false
 
-var x_gris_pos = 0
+var x_grid_pos = 0
 var y_grid_pos = 0
 
 var grid_pos : Vector2
@@ -27,7 +28,7 @@ var health : int = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	grid_pos = Vector2(x_gris_pos, y_grid_pos)
+	grid_pos = Vector2(x_grid_pos, y_grid_pos)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -42,12 +43,33 @@ func _physics_process(delta):
 		roll(-forward.cross(Vector3.UP))
 
 
+func update_side_icon(side : int, new_icon : Texture2D):
+	match side:
+		1:
+			side_one.get_child(0).set_sprite(new_icon)
+		2:
+			side_two.get_child(0).set_sprite(new_icon)
+		3:
+			side_three.get_child(0).set_sprite(new_icon)
+		4:
+			side_four.get_child(0).set_sprite(new_icon)
+		5:
+			side_five.get_child(0).set_sprite(new_icon)
+		6:
+			side_six.get_child(0).set_sprite(new_icon)
+
 func roll(dir):
 	# Do nothing if we're currently rolling.
 	if rolling:
 		return
 	rolling = true
 
+	var test_dir = grid_pos + Vector2(dir.x, dir.z)
+
+	if abs(test_dir.x) > 2 or abs(test_dir.y) > 2: 
+		rolling = false
+		return
+		
 	# Step 1: Offset the pivot.
 	pivot.translate(dir * cube_size / 2)
 	mesh.global_translate(-dir * cube_size / 2)
@@ -66,6 +88,11 @@ func roll(dir):
 	mesh.position = Vector3(0, cube_size / 2, 0)
 	mesh.global_transform.basis = b
 	rolling = false
+	
+	
+	x_grid_pos += dir.x
+	y_grid_pos += dir.z
+	grid_pos = Vector2(x_grid_pos, y_grid_pos)
 	
 	detect_side_up()
 
