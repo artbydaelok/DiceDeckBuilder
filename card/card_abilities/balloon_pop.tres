@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_42h2g")
 card_name = "Balloon Pop"
+ability_id = "balloon"
 card_description = "Pops a magic balloon that makes all enemy projectiles disappear."
 card_artwork = ExtResource("1_4jhwv")
 cost = 1

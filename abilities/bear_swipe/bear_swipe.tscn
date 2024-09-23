@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dta1m3obwjty7"]
+
+[ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_2cui7"]
+
+[node name="BearSwipe" instance=ExtResource("1_2cui7")]
