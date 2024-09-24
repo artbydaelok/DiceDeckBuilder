@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbpslj16s4nmt"]
+
+[ext_resource type="PackedScene" uid="uid://csth3bndxcg43" path="res://abilities/bow_and_arrow/Arrow.glb" id="1_reqdr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_up5jb"]
+size = Vector3(11.9797, 1, 1)
+
+[node name="ArrowProjectile" type="RigidBody3D"]
+
+[node name="Arrow" parent="." instance=ExtResource("1_reqdr")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138794, 0, 0)
+shape = SubResource("BoxShape3D_up5jb")

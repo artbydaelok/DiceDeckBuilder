@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7an33sw0g7q4"]
+
+[ext_resource type="PackedScene" uid="uid://c7fvhtmydt1fh" path="res://abilities/bow_and_arrow/bow_and_arrow_animation.tscn" id="1_rtor1"]
+
+[node name="BowAndArrowMesh" type="Node3D"]
+
+[node name="BowAndArrowAnimation" parent="." instance=ExtResource("1_rtor1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

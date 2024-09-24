@@ -24,3 +24,6 @@ func on_dice_moved(_index):
 # This function updates the data of a card in the hand.
 func update_index(index, card_data):
 	card_slots[index].setup(card_data)
+
+func on_played_card(index: int):
+	get_child(index).card_selected()

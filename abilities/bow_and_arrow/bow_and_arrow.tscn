@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbcuojkfjxtac"]
+
+[ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_s0pve"]
+[ext_resource type="Script" path="res://abilities/bow_and_arrow/bow_and_arrow.gd" id="2_yb0sv"]
+
+[node name="BowAndArrow" instance=ExtResource("1_s0pve")]
+script = ExtResource("2_yb0sv")

@@ -24,6 +24,12 @@ GameEvents="*res://game_events/game_events.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[global_group]
+
+entities_layer=""
+player=""
+boss=""
+
 [importer_defaults]
 
 texture={

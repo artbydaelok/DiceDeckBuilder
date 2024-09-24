@@ -14,7 +14,7 @@ size = Vector3(1.9, 1.9, 1.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f2jhj"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_1u8nn")
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -46,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="SideTwoSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideTwo"]
 transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 0, 0.05, 0)
+texture_filter = 0
 script = ExtResource("5_v808x")
 side = 2
 
@@ -64,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="SideFourSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFour"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0.05)
+texture_filter = 0
 region_rect = Rect2(323, 498, 10, 12)
 script = ExtResource("5_v808x")
 side = 4
@@ -73,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="SideFiveSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFive"]
 transform = Transform3D(4.9989, -2.27033e-09, -0.104705, -0.104705, -2.16767e-07, -4.9989, -2.27033e-09, 5, -2.16767e-07, 0, -0.05, 0)
+texture_filter = 0
 script = ExtResource("5_v808x")
 side = 5
 
@@ -88,3 +91,4 @@ side = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_f2jhj")
+disabled = true

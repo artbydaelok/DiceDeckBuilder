@@ -1,6 +1,6 @@
 extends Node
 
-@export var hand : Array[Card]
+@export var hand : Array[Card] = [null, null, null, null, null, null]
 @export var deck : Array[Card]
 @export var discard_pile : Array[Card]
 
@@ -8,9 +8,12 @@ extends Node
 
 @export var player : Player 
 
+@export var global_cooldown : float = 0.8
+var system_disabled = false
+
 # Match the Ability ID.
 const CARD_ABILITIES = {
-	"arrow" : preload("res://abilities/arrow/bow_and_arrow.tscn"),
+	"arrow" : preload("res://abilities/bow_and_arrow/bow_and_arrow.tscn"),
 	"axe" : preload("res://abilities/axe_throw/axe_throw.tscn"),
 	"balloon" : preload("res://abilities/balloon/balloon_pop.tscn"),
 	"swipe" : preload("res://abilities/bear_swipe/bear_swipe.tscn"),
@@ -23,18 +26,25 @@ func _ready() -> void:
 	# Test Draw At Start
 	shuffle_deck()
 	for i in range(6):
-		print(i)
 		draw_card(i)
 		
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("use_ability"):
-		play_ability(hand[player.up_side].ability_id)
+	if Input.is_action_just_pressed("use_ability") and not player.rolling:
+		play_ability()
 		
 func draw_card(index: int):
+	# If deck is empty, shuffle the discard pile into the deck.
+	if deck.size() == 0:
+		shuffle_discard_into_deck()
+	
 	# Move card from deck to hand.
 	var card_to_draw = deck[0]
-	hand.insert(index, card_to_draw)
+	#hand.insert(index, card_to_draw)
+	hand[index] = card_to_draw
 	deck.remove_at(0)
+	
+	if hand_display.get_child(player.up_side).animation_player.is_playing():
+		await hand_display.get_child(player.up_side).animation_player.animation_finished
 	
 	# Update the UI
 	hand_display.update_index(index, card_to_draw)
@@ -42,16 +52,37 @@ func draw_card(index: int):
 	# Update Player's Icons
 	player.update_side_icon(index + 1, hand[index].card_artwork)
 
-func play_ability(ability_id: String):
-	var ability_instance = CARD_ABILITIES[ability_id].instantiate()
+func play_ability():
+	if system_disabled == true: return
+	
+	system_disabled = true
+	
+	# Gets the ability ID and instantiates it.
+	var id = hand[player.up_side].ability_id
+	var ability_instance = CARD_ABILITIES[id].instantiate()
 	player.add_child(ability_instance)
-	print(ability_instance)
+	
+	
+	# This triggers the animations for the Card UI Element
+	hand_display.on_played_card(player.up_side)
+	
+	# Using the index, we determine which card to discard in the arrays.
+	discard_card(player.up_side)
+	
+	await get_tree().create_timer(global_cooldown).timeout
+	system_disabled = false
 
 func shuffle_deck():
 	deck.shuffle()
 
-func discard_card():
-	pass
+func discard_card(index : int):
+	# Adds it to the discard pile array
+	discard_pile.append(hand[index])
+	
+	# After discarding the played card, replace it.
+	draw_card(index)
 
-func draw_full_hand():
-	pass
+func shuffle_discard_into_deck():
+	deck = discard_pile
+	shuffle_deck()
+	discard_pile = []

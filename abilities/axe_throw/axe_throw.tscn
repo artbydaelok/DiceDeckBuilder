@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://uirr1b52iwjm"]
+[gd_scene load_steps=3 format=3 uid="uid://uirr1b52iwjm"]
 
 [ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_fhl1x"]
+[ext_resource type="Script" path="res://abilities/axe_throw/axe_throw.gd" id="2_arvfb"]
 
 [node name="AxeThrow" instance=ExtResource("1_fhl1x")]
+script = ExtResource("2_arvfb")

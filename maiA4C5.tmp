@@ -79,9 +79,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 size = Vector3(10, 0.5, 10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Game/Board"]
-transform = Transform3D(0.435568, 0.704341, -0.560521, -0.5, 0.707107, 0.5, 0.748519, 0.0624771, 0.660164, 0, 7.85563, 0)
+transform = Transform3D(0.0794593, 0.612372, -0.786566, -0.5, 0.707107, 0.5, 0.862372, 0.353553, 0.362372, 0, 4.28602, 0)
 light_color = Color(0.92549, 1, 1, 1)
-light_energy = 0.15
+light_energy = 0.1
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Game/Board"]
 transform = Transform3D(0.967752, 0.00623584, 0.251826, -0.25, 0.146447, 0.957107, -0.0309107, -0.989199, 0.143283, 3.03067, 7.31669, -1.80642e-07)

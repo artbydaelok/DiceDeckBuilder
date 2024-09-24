@@ -13,7 +13,7 @@ class_name Player
 
 @onready var sides = [side_one, side_two, side_three, side_four, side_five, side_six]
 enum SIDES_STATE {ONE, TWO, THREE, FOUR, FIVE, SIX}
-var up_side = SIDES_STATE.ONE
+var up_side = SIDES_STATE.TWO
 
 var cube_size = 2.0
 var speed = 4.0
@@ -98,7 +98,6 @@ func roll(dir):
 
 func detect_side_up():
 	for s in sides:
-		#print(s.name + " " + str(sides[0].global_translation))
 		var s_pos = s.global_position
 		if s_pos.y == 2:
 			match s:

@@ -1,13 +1,15 @@
 extends Control
 
 var current_card_data : Card
-@onready var card_hover_animation: AnimationPlayer = $CardHoverAnimation
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var hovered = false
 
 @onready var card_name: Label = %CardName
 @onready var card_art: TextureRect = %CardArt
 @onready var description_label: Label = %DescriptionLabel
+
+var disabled = false
 
 func setup(card_data):
 	current_card_data = card_data
@@ -16,10 +18,25 @@ func setup(card_data):
 	card_art.texture = current_card_data.card_artwork
 
 func hover():
-	hovered = true
-	card_hover_animation.play("on_hover")
+	if not disabled:
+		hovered = true
+		animation_player.play("on_hover")
 
 func undo_hover():
-	if hovered == true:
+	if not disabled:
 		hovered = false
-		card_hover_animation.play_backwards("on_hover")
+		animation_player.play_backwards("on_hover")
+
+func card_selected():
+	disabled = true
+	animation_player.play("card_selected")
+	await animation_player.animation_finished
+	draw_card_animation()
+	
+func draw_card_animation():
+	disabled = false
+	animation_player.play("draw_card")
+	await animation_player.animation_finished
+	if hovered:
+		animation_player.play("on_hover")
+		
