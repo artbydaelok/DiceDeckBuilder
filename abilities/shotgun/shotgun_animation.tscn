@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4yidxdgci5nj"]
+
+[ext_resource type="PackedScene" uid="uid://dw2tgrac2ejrc" path="res://assets/3d_models/Shotgun.glb" id="1_ao2v6"]
+
+[sub_resource type="Animation" id="Animation_2yo0r"]
+resource_name = "shoot"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shotgun:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.4, 0.4, 0.4), Vector3(0.3, 0.3, 0.3), Vector3(0.3, 0.3, 0.3), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.366667, 0.433333, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.91986, 0, 0), Vector3(0.291791, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.946457, 0, 0), Vector3(-0.012968, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gat5b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shotgun:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.91986, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_df5l2"]
+_data = {
+"RESET": SubResource("Animation_gat5b"),
+"shoot": SubResource("Animation_2yo0r")
+}
+
+[node name="ShotgunAnimation" type="Node3D"]
+
+[node name="Shotgun" parent="." instance=ExtResource("1_ao2v6")]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_df5l2")
+}
+autoplay = "shoot"

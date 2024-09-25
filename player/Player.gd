@@ -24,11 +24,17 @@ var y_grid_pos = 0
 
 var grid_pos : Vector2
 
+
+# Health Variables
 var health : int = 100
+signal player_damaged(damage_amount : float)
+signal player_healed(heal_amount : float)
+signal player_health_updated(new_health : float)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
+	player_health_updated.emit(health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -116,3 +122,19 @@ func detect_side_up():
 			
 			# Send the signal to Game Events
 			GameEvents.emit_signal("dice_moved", up_side + 1)
+
+func heal_player(amount : float):
+	health += amount
+	health = clampf(health, 0, 100)
+	player_healed.emit(amount)
+	player_health_updated.emit(health)
+
+func damage_player(amount : float):
+	health -= amount
+	health = clampf(health, 0, 100)
+	player_damaged.emit(amount)
+	player_health_updated.emit(health)
+	
+	if health == 0:
+		print("Player Died")
+	
