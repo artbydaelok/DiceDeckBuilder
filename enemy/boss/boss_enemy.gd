@@ -1,6 +1,8 @@
 extends Node3D
 class_name Enemy
 
+const FLOOR_INDICATOR = preload("res://enemy/boss/floor_indicator.tscn")
+
 @export var max_health = 100
 var current_health
 signal health_updated(health_change, new_current_health)

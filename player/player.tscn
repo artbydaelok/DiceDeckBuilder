@@ -20,7 +20,7 @@ script = ExtResource("1_1u8nn")
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("2_knvy0")]
 collision_layer = 8
-collision_mask = 0
+collision_mask = 4
 hurtbox_owner = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]

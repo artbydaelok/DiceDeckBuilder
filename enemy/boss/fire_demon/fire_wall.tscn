@@ -441,7 +441,7 @@ script = ExtResource("1_xn4mw")
 [node name="Hitbox" parent="." instance=ExtResource("1_j4oks")]
 collision_layer = 4
 collision_mask = 8
-damage = 2
+damage = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49801, 0)

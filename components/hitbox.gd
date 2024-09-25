@@ -5,4 +5,5 @@ class_name Hitbox
 
 
 func _on_area_entered(area: Area3D) -> void:
+	print(area)
 	area.hurtbox_owner.apply_damage(damage as float)

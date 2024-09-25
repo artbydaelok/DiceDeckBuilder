@@ -93,6 +93,7 @@ shadow_enabled = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
 material_override = SubResource("StandardMaterial3D_l525f")
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -100,6 +101,7 @@ size = Vector3(10, 0.5, 10)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
 material_override = SubResource("StandardMaterial3D_8v75t")
+use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344601, 0)

@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=3 uid="uid://ccbcl7w5wt4ig"]
+
+[ext_resource type="Script" path="res://enemy/boss/fire_demon/flaming_meteor.gd" id="1_kfmb3"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_rtlne"]
+
+[sub_resource type="Gradient" id="Gradient_tu1gi"]
+offsets = PackedFloat32Array(0, 0.0647482, 0.2494, 0.275779, 0.47482, 0.484412, 0.494005, 1)
+colors = PackedColorArray(0.484884, 0.2345, 0.096679, 1, 0.434138, 0.176449, 0.106054, 1, 0.428267, 0.169733, 0.107138, 1, 0.425937, 0.167068, 0.107569, 1, 0.391594, 0.127781, 0.113913, 1, 0.381342, 0.116054, 0.115807, 1, 0.544828, 0.315398, 0.262212, 1, 0.85, 0.687508, 0.5355, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_smsna"]
+noise_type = 3
+frequency = 0.0075
+fractal_lacunarity = 1.6
+fractal_gain = 1.88
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pkhl3"]
+seamless = true
+color_ramp = SubResource("Gradient_tu1gi")
+noise = SubResource("FastNoiseLite_smsna")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0fg3"]
+shading_mode = 0
+albedo_color = Color(0.45, 0.3006, 0.0765, 1)
+albedo_texture = SubResource("NoiseTexture2D_pkhl3")
+
+[sub_resource type="Gradient" id="Gradient_0brgs"]
+offsets = PackedFloat32Array(0, 0.350617, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.2, 0.2, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1jgah"]
+gradient = SubResource("Gradient_0brgs")
+
+[sub_resource type="Curve" id="Curve_ds3q5"]
+_data = [Vector2(0, 0), 0.0, 18.1811, 0, 0, Vector2(0.115473, 0.988646), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m67bq"]
+curve = SubResource("Curve_ds3q5")
+
+[sub_resource type="Curve" id="Curve_ehvru"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3f48x"]
+curve = SubResource("Curve_ehvru")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mq5ci"]
+lifetime_randomness = 0.1
+emission_shape_offset = Vector3(0, -0.5, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_m67bq")
+color_ramp = SubResource("GradientTexture1D_1jgah")
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+turbulence_enabled = true
+turbulence_noise_strength = 0.2
+turbulence_noise_scale = 16.205
+turbulence_initial_displacement_min = -0.999999
+turbulence_initial_displacement_max = 1.0
+turbulence_influence_over_life = SubResource("CurveTexture_3f48x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqvi6"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_l5aso"]
+material = SubResource("StandardMaterial3D_tqvi6")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_celdc"]
+radius = 1.0
+
+[node name="FlamingMeteor" type="RigidBody3D"]
+gravity_scale = 0.1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_kfmb3")
+
+[node name="Mesh" type="CSGSphere3D" parent="."]
+material_override = SubResource("StandardMaterial3D_a0fg3")
+cast_shadow = 0
+radius = 1.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 100
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_mq5ci")
+draw_pass_1 = SubResource("SphereMesh_l5aso")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_celdc")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_rtlne")]
+collision_layer = 4
+collision_mask = 8
+damage = 10
+
+[node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_celdc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
