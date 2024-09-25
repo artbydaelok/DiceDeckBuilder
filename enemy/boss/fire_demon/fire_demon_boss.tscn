@@ -5,6 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://b41triouirt77" path="res://assets/boss_sprites/fire_boss_mask.png" id="2_els1n"]
 [ext_resource type="Texture2D" uid="uid://011ffbakv0au" path="res://assets/boss_sprites/fire_boss_hand.png" id="3_7mf8p"]
 
+[sub_resource type="Animation" id="Animation_ggoxh"]
+resource_name = "Fireball"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(12, 12, 12), Vector3(10, 10, 10), Vector3(13, 13, 13), Vector3(12, 12, 12)]
+}
+
 [sub_resource type="Animation" id="Animation_h5qqb"]
 resource_name = "LeftFirst"
 length = 2.0
@@ -87,22 +103,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(12, 12, 12)]
-}
-
-[sub_resource type="Animation" id="Animation_ggoxh"]
-resource_name = "Fireball"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.333333, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(12, 12, 12), Vector3(10, 10, 10), Vector3(13, 13, 13), Vector3(12, 12, 12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_spa3b"]

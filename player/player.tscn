@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://player/SideSprite.gd" id="5_v808x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgilg"]
-size = Vector3(1, 2, 2)
+size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ru3w"]
 albedo_texture = ExtResource("2_7sfox")
@@ -18,16 +18,16 @@ texture_filter = 0
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_1u8nn")
 
-[node name="Pivot" type="Node3D" parent="."]
-
-[node name="Hurtbox" parent="Pivot" node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("2_knvy0")]
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("2_knvy0")]
 collision_layer = 8
 collision_mask = 0
-hurtbox_owner = NodePath("../..")
+hurtbox_owner = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hurtbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_vgilg")
+
+[node name="Pivot" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
