@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dah1i2tgfmh21"]
+[gd_scene load_steps=10 format=3 uid="uid://dah1i2tgfmh21"]
 
 [ext_resource type="Script" path="res://abilities/bear_swipe/bear_swipe_animation.gd" id="1_seaue"]
 [ext_resource type="PackedScene" uid="uid://dryy2250jf4vo" path="res://assets/3d_models/BearSwipe.glb" id="2_0bpbk"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_0xag4"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://player/hitbox.tscn" id="4_ft45p"]
 
 [sub_resource type="Animation" id="Animation_gpubr"]
 length = 0.001
@@ -30,32 +31,17 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_1lw0q"]
-resource_name = "swipe_right"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BearSwipe:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.266667, 0.466667, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-2.25459e-08, 8.3345e-08, -0.62865), Vector3(9.34507e-08, 0.901323, -0.892841), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BearSwipe:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.466667, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.5), Vector3(0, 0, 0)]
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_gru57"]
@@ -84,6 +70,57 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -1.5), Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_1lw0q"]
+resource_name = "swipe_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BearSwipe:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.266667, 0.466667, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-2.25459e-08, 8.3345e-08, -0.62865), Vector3(9.34507e-08, 0.901323, -0.892841), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BearSwipe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.466667, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.5), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lpisk"]
 _data = {
@@ -91,6 +128,9 @@ _data = {
 "swipe_left": SubResource("Animation_gru57"),
 "swipe_right": SubResource("Animation_1lw0q")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akqon"]
+size = Vector3(3.4, 2.3, 3.05444)
 
 [node name="BearSwipeAnimation" type="Node3D"]
 script = ExtResource("1_seaue")
@@ -105,3 +145,11 @@ duration = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_lpisk")
 }
+
+[node name="Hitbox" parent="." instance=ExtResource("4_ft45p")]
+damage = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79, 1.48242, 6.95011e-08)
+shape = SubResource("BoxShape3D_akqon")
+disabled = true

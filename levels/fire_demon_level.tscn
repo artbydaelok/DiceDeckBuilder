@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5lyk0s0rvu5i"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
+[ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon_boss.tscn" id="2_0fa53"]
+[ext_resource type="Texture2D" uid="uid://b0ctakhn3omws" path="res://assets/spritesheets/firepillar.png" id="3_is2ff"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
+sky_top_color = Color(0.168175, 0.000273918, 0.146432, 1)
+sky_horizon_color = Color(0.721486, 0.273713, 0.169699, 1)
+ground_bottom_color = Color(0.128428, 0.00558035, 0.0140841, 1)
+ground_horizon_color = Color(0.670281, 0.29446, 0.15787, 1)
+
+[sub_resource type="Sky" id="Sky_hjcl6"]
+sky_material = SubResource("ProceduralSkyMaterial_7uuse")
+
+[sub_resource type="Environment" id="Environment_b37ao"]
+background_mode = 2
+background_color = Color(0.14902, 0.0313726, 0.00784314, 1)
+sky = SubResource("Sky_hjcl6")
+tonemap_mode = 2
+fog_light_color = Color(0.843062, 0.399308, 0.284986, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47vsk"]
+albedo_color = Color(0.485588, 0.140781, 0.182533, 1)
+metallic = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa7y8"]
+atlas = ExtResource("3_is2ff")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w513w"]
+atlas = ExtResource("3_is2ff")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxbct"]
+atlas = ExtResource("3_is2ff")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtqes"]
+atlas = ExtResource("3_is2ff")
+region = Rect2(192, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfqfa"]
+atlas = ExtResource("3_is2ff")
+region = Rect2(256, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eppn7"]
+atlas = ExtResource("3_is2ff")
+region = Rect2(320, 0, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcfgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa7y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w513w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxbct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtqes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfqfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eppn7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="FireDemonLevel" instance=ExtResource("1_ekkb5")]
+
+[node name="FireDemonBoss" parent="BaseLevel" index="1" instance=ExtResource("2_0fa53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0019, -7.29429)
+
+[node name="WorldEnvironment" parent="BaseLevel" index="3"]
+environment = SubResource("Environment_b37ao")
+
+[node name="Columns" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
+material_override = SubResource("StandardMaterial3D_47vsk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.5, 1.5, 5.5)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="1"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5.5, 1.5, 5.5)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="2"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -5.5, 1.3, -5.5)
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="3"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 5.5, 1.3, -5.5)
+
+[node name="FireBorder" type="AnimatedSprite3D" parent="BaseLevel" index="7"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -6, 2, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_pcfgg")
+autoplay = "default"
+frame_progress = 0.147483
+
+[node name="FireBorder2" type="AnimatedSprite3D" parent="BaseLevel" index="8"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -6, 2, 3.2)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_pcfgg")
+autoplay = "default"
+frame_progress = 0.378012
+
+[node name="FireBorder3" type="AnimatedSprite3D" parent="BaseLevel" index="9"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -6, 2, -3.2)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_pcfgg")
+autoplay = "default"
+frame_progress = 0.78352
+
+[node name="FireBorder4" type="AnimatedSprite3D" parent="BaseLevel" index="10"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 6, 2, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_pcfgg")
+autoplay = "default"
+frame_progress = 0.242446
+
+[node name="FireBorder5" type="AnimatedSprite3D" parent="BaseLevel" index="11"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 6, 2, 3.2)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_pcfgg")
+autoplay = "default"
+frame_progress = 0.742414
+
+[node name="FireBorder6" type="AnimatedSprite3D" parent="BaseLevel" index="12"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 6, 2, -3.2)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_pcfgg")
+autoplay = "default"
+frame_progress = 0.821863

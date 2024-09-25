@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://biwl7ql6dbwkp"]
+[gd_scene load_steps=6 format=3 uid="uid://biwl7ql6dbwkp"]
 
 [ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="1_33ehh"]
 [ext_resource type="Script" path="res://abilities/axe_throw/axe_projectile.gd" id="1_lfw1k"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_fw626"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://player/hitbox.tscn" id="3_sgtvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lopeh"]
 size = Vector3(1, 1.67993, 0.3479)
@@ -13,19 +14,22 @@ script = ExtResource("1_lfw1k")
 [node name="Axe" parent="." instance=ExtResource("1_33ehh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="Hitbox" parent="Axe" instance=ExtResource("3_sgtvi")]
+damage = 2
+
+[node name="HitboxShape" type="CollisionShape3D" parent="Axe/Hitbox"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.167039, 0.503479, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.593139, -0.125545)
 shape = SubResource("BoxShape3D_lopeh")
 disabled = true
 
-[node name="Hitbox" type="Area3D" parent="."]
-
-[node name="HitboxShape" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.167039, 0.503479, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.593139, -0.125545)
 shape = SubResource("BoxShape3D_lopeh")
 disabled = true
 
 [node name="SelfDestroyTimer" parent="." instance=ExtResource("3_fw626")]
 duration = 5.0
+
+[connection signal="area_entered" from="Axe/Hitbox" to="." method="_on_hitbox_area_entered"]

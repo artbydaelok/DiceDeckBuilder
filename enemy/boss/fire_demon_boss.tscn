@@ -1,0 +1,196 @@
+[gd_scene load_steps=12 format=3 uid="uid://dvqxwex3ww5h4"]
+
+[ext_resource type="PackedScene" uid="uid://bj0n4kvfagpx3" path="res://enemy/boss/boss_enemy.tscn" id="1_m2o5c"]
+[ext_resource type="Script" path="res://enemy/boss/fire_demon_boss.gd" id="2_0kw8k"]
+[ext_resource type="Texture2D" uid="uid://b41triouirt77" path="res://assets/boss_sprites/fire_boss_mask.png" id="2_els1n"]
+[ext_resource type="Texture2D" uid="uid://011ffbakv0au" path="res://assets/boss_sprites/fire_boss_hand.png" id="3_7mf8p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_221ti"]
+size = Vector3(11.1846, 7.16077, 1.3623)
+
+[sub_resource type="Animation" id="Animation_h5qqb"]
+resource_name = "LeftFirst"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(10, 10, 10), Vector3(12, 12, 12), Vector3(10, 10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(10, 10, 10), Vector3(12, 12, 12), Vector3(10, 10, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_wvn02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(10, 10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(10, 10, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spa3b"]
+_data = {
+"LeftFirst": SubResource("Animation_h5qqb"),
+"RESET": SubResource("Animation_wvn02")
+}
+
+[sub_resource type="Animation" id="Animation_g8e2n"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uwgp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgx17"]
+_data = {
+"RESET": SubResource("Animation_uwgp2"),
+"idle": SubResource("Animation_g8e2n")
+}
+
+[node name="FireDemonBoss" instance=ExtResource("1_m2o5c")]
+script = ExtResource("2_0kw8k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5788, 0)
+shape = SubResource("BoxShape3D_221ti")
+
+[node name="Head" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+offset = Vector2(0, 10)
+flip_h = true
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_els1n")
+
+[node name="LeftHand" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+offset = Vector2(40, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_7mf8p")
+
+[node name="RightHand" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+offset = Vector2(-40, 0)
+flip_h = true
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_7mf8p")
+
+[node name="WallSpawnAnim" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_spa3b")
+}
+
+[node name="IdleAnim" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_fgx17")
+}
+autoplay = "idle"

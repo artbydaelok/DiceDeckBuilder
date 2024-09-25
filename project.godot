@@ -68,6 +68,13 @@ use_ability={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_2="PlayerProjectiles"
+3d_physics/layer_3="EnemyProjectiles"
+3d_physics/layer_4="PlayerHurtbox"
+3d_physics/layer_5="EnemyHurtbox"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

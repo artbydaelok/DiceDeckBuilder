@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=3 uid="uid://2t64vc61c8vd"]
+
+[ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
+[ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_sei10"]
+[ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="3_cubmp"]
+[ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="4_cosan"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="5_joks6"]
+[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="6_3lakv"]
+[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="7_vv53a"]
+[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="8_umobk"]
+[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="9_seu18"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hjcl6"]
+sky_material = SubResource("ProceduralSkyMaterial_7uuse")
+
+[sub_resource type="Environment" id="Environment_bfiuj"]
+background_mode = 1
+sky = SubResource("Sky_hjcl6")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l525f"]
+albedo_color = Color(0.597176, 0.597176, 0.597176, 1)
+metallic = 1.0
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8v75t"]
+albedo_color = Color(0.306923, 0.306923, 0.306923, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhd7d"]
+albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
+
+[node name="Game" type="CanvasLayer"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="HandDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("1_wvyn2")]
+layout_mode = 2
+
+[node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("2_sei10")]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="BaseLevel" type="Node3D" parent="." groups=["entities_layer"]]
+
+[node name="Player" parent="BaseLevel" instance=ExtResource("3_cubmp")]
+
+[node name="Camera3D" type="Camera3D" parent="BaseLevel"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 10)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel"]
+environment = SubResource("Environment_bfiuj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BaseLevel"]
+transform = Transform3D(0.435568, 0.704341, -0.560521, -0.5, 0.707107, 0.5, 0.748519, 0.0624771, 0.660164, 0, 7.85563, 0)
+light_color = Color(0.92549, 1, 1, 1)
+light_energy = 0.15
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="BaseLevel"]
+transform = Transform3D(0.967752, 0.00623584, 0.251826, -0.25, 0.146447, 0.957107, -0.0309107, -0.989199, 0.143283, 3.03067, 7.31669, -1.80642e-07)
+light_color = Color(1, 0.874949, 0.999993, 1)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="CSGBoard" type="Node3D" parent="BaseLevel"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
+material_override = SubResource("StandardMaterial3D_l525f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(10, 0.5, 10)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
+material_override = SubResource("StandardMaterial3D_8v75t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344601, 0)
+size = Vector3(11, 1, 11)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.537861, 0)
+material_override = SubResource("StandardMaterial3D_dhd7d")
+operation = 2
+size = Vector3(10, 1.1, 10)
+
+[node name="CardSystem" parent="." node_paths=PackedStringArray("hand_display", "player") instance=ExtResource("4_cosan")]
+deck = Array[ExtResource("5_joks6")]([ExtResource("6_3lakv"), ExtResource("6_3lakv"), ExtResource("6_3lakv"), ExtResource("7_vv53a"), ExtResource("7_vv53a"), ExtResource("8_umobk"), ExtResource("8_umobk"), ExtResource("8_umobk"), ExtResource("8_umobk"), ExtResource("9_seu18"), ExtResource("9_seu18"), ExtResource("9_seu18")])
+hand_display = NodePath("../UI/MarginContainer/VBoxContainer/HandDisplay")
+player = NodePath("../BaseLevel/Player")
