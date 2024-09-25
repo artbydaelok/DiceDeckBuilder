@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj0n4kvfagpx3"]
+[gd_scene load_steps=3 format=3 uid="uid://bj0n4kvfagpx3"]
 
 [ext_resource type="Script" path="res://enemy/boss/boss_enemy.gd" id="1_u220c"]
+[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://components/hurtbox.tscn" id="2_4n1sm"]
 
 [node name="BossEnemy" type="Node3D" groups=["boss"]]
 script = ExtResource("1_u220c")
 
-[node name="EnemyHurtbox" type="Area3D" parent="."]
+[node name="Hurtbox" parent="." instance=ExtResource("2_4n1sm")]
 collision_layer = 16
 collision_mask = 0

@@ -11,7 +11,7 @@ var stuck = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global_position = player.global_position + Vector3(0, 2, 0)
-	linear_velocity = Vector3(0, 10, -30)
+	linear_velocity = Vector3(0, 7.5, -30)
 	
 	collision_shape.disabled = false
 	hitbox_shape.disabled = false

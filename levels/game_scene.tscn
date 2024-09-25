@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=17 format=3 uid="uid://2t64vc61c8vd"]
 
+[ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
 [ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_sei10"]
 [ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="3_cubmp"]
@@ -43,7 +44,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/MarginContainer"]
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("1_cj600")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
@@ -56,6 +64,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("2_sei10")]
+custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 size_flags_vertical = 1
 

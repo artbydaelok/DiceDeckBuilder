@@ -1,14 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbpslj16s4nmt"]
+[gd_scene load_steps=5 format=3 uid="uid://cbpslj16s4nmt"]
 
+[ext_resource type="Script" path="res://abilities/bow_and_arrow/arrow_projectile.gd" id="1_gmh72"]
 [ext_resource type="PackedScene" uid="uid://csth3bndxcg43" path="res://abilities/bow_and_arrow/Arrow.glb" id="1_reqdr"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_tqcqg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_up5jb"]
-size = Vector3(11.9797, 1, 1)
+size = Vector3(5.88037, 0.493164, 0.448364)
 
 [node name="ArrowProjectile" type="RigidBody3D"]
+script = ExtResource("1_gmh72")
 
 [node name="Arrow" parent="." instance=ExtResource("1_reqdr")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138794, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0123902, 0, -0.109619)
 shape = SubResource("BoxShape3D_up5jb")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_tqcqg")]
+damage = 2
+
+[node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.109619, 0, -0.0123902)
+shape = SubResource("BoxShape3D_up5jb")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

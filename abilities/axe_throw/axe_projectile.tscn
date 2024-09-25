@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="1_33ehh"]
 [ext_resource type="Script" path="res://abilities/axe_throw/axe_projectile.gd" id="1_lfw1k"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_fw626"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://player/hitbox.tscn" id="3_sgtvi"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_sgtvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lopeh"]
 size = Vector3(1, 1.67993, 0.3479)

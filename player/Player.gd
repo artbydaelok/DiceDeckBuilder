@@ -129,7 +129,7 @@ func heal_player(amount : float):
 	player_healed.emit(amount)
 	player_health_updated.emit(health)
 
-func damage_player(amount : float):
+func apply_damage(amount : float):
 	health -= amount
 	health = clampf(health, 0, 100)
 	player_damaged.emit(amount)

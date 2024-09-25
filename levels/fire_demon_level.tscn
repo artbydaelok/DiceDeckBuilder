@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://c5lyk0s0rvu5i"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
-[ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon_boss.tscn" id="2_0fa53"]
+[ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon/fire_demon_boss.tscn" id="2_0fa53"]
 [ext_resource type="Texture2D" uid="uid://b0ctakhn3omws" path="res://assets/spritesheets/firepillar.png" id="3_is2ff"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
@@ -76,8 +76,15 @@ animations = [{
 
 [node name="FireDemonLevel" instance=ExtResource("1_ekkb5")]
 
+[node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="0" node_paths=PackedStringArray("boss")]
+value = 100.0
+boss = NodePath("../../../BaseLevel/FireDemonBoss")
+
 [node name="FireDemonBoss" parent="BaseLevel" index="1" instance=ExtResource("2_0fa53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0019, -7.29429)
+
+[node name="Camera3D" parent="BaseLevel" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 10.5)
 
 [node name="WorldEnvironment" parent="BaseLevel" index="3"]
 environment = SubResource("Environment_b37ao")

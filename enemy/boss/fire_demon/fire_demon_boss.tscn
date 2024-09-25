@@ -1,0 +1,271 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvqxwex3ww5h4"]
+
+[ext_resource type="PackedScene" uid="uid://bj0n4kvfagpx3" path="res://enemy/boss/boss_enemy.tscn" id="1_m2o5c"]
+[ext_resource type="Script" path="res://enemy/boss/fire_demon/fire_demon_boss.gd" id="2_0kw8k"]
+[ext_resource type="Texture2D" uid="uid://b41triouirt77" path="res://assets/boss_sprites/fire_boss_mask.png" id="2_els1n"]
+[ext_resource type="Texture2D" uid="uid://011ffbakv0au" path="res://assets/boss_sprites/fire_boss_hand.png" id="3_7mf8p"]
+
+[sub_resource type="Animation" id="Animation_h5qqb"]
+resource_name = "LeftFirst"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(10, 10, 10), Vector3(12, 12, 12), Vector3(10, 10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(10, 10, 10), Vector3(12, 12, 12), Vector3(10, 10, 10)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_left_wall"
+}, {
+"args": [],
+"method": &"spawn_right_wall"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wvn02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(10, 10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(10, 10, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12, 12, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_ggoxh"]
+resource_name = "Fireball"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(12, 12, 12), Vector3(10, 10, 10), Vector3(13, 13, 13), Vector3(12, 12, 12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spa3b"]
+_data = {
+"Fireball": SubResource("Animation_ggoxh"),
+"LeftFirst": SubResource("Animation_h5qqb"),
+"RESET": SubResource("Animation_wvn02")
+}
+
+[sub_resource type="Animation" id="Animation_uwgp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g8e2n"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1), Vector3(0, 1, -0.8), Vector3(0, 0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgx17"]
+_data = {
+"RESET": SubResource("Animation_uwgp2"),
+"idle": SubResource("Animation_g8e2n")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_221ti"]
+size = Vector3(3.06665, 5.22058, 1.3623)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqmnj"]
+size = Vector3(2.45703, 4.01624, 1.3623)
+
+[node name="FireDemonBoss" instance=ExtResource("1_m2o5c")]
+script = ExtResource("2_0kw8k")
+
+[node name="Head" type="Sprite3D" parent="." index="0"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+offset = Vector2(0, 10)
+flip_h = true
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_els1n")
+
+[node name="LeftHand" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+offset = Vector2(42, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_7mf8p")
+
+[node name="RightHand" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+offset = Vector2(-42, 0)
+flip_h = true
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_7mf8p")
+
+[node name="WallSpawnAnim" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_spa3b")
+}
+
+[node name="IdleAnim" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_fgx17")
+}
+autoplay = "idle"
+
+[node name="Hurtbox" parent="." index="5" node_paths=PackedStringArray("hurtbox_owner")]
+hurtbox_owner = NodePath("..")
+
+[node name="EnemyHurtbox#CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28882, 0)
+shape = SubResource("BoxShape3D_221ti")
+
+[node name="EnemyHurtbox#CollisionShape3D2" type="CollisionShape3D" parent="Hurtbox" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20237, 0.0423088, 0)
+shape = SubResource("BoxShape3D_aqmnj")
+
+[node name="EnemyHurtbox#CollisionShape3D3" type="CollisionShape3D" parent="Hurtbox" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01587, 0.0423088, 0)
+shape = SubResource("BoxShape3D_aqmnj")
+
+[node name="FireWallSpawnRight" type="Marker3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, 0)
+
+[node name="FireBallSpawn" type="Marker3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68575e-08, -2, 0)
+
+[node name="FireWallSpawnLeft" type="Marker3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 0)
+
+[node name="AttackTimer" type="Timer" parent="." index="9"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://abilities/bear_swipe/bear_swipe_animation.gd" id="1_seaue"]
 [ext_resource type="PackedScene" uid="uid://dryy2250jf4vo" path="res://assets/3d_models/BearSwipe.glb" id="2_0bpbk"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_0xag4"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://player/hitbox.tscn" id="4_ft45p"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="4_ft45p"]
 
 [sub_resource type="Animation" id="Animation_gpubr"]
 length = 0.001
