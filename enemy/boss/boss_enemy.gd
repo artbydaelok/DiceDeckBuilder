@@ -2,10 +2,12 @@ extends Node3D
 class_name Enemy
 
 const FLOOR_INDICATOR = preload("res://enemy/boss/floor_indicator.tscn")
+const END_SCREEN = preload("res://menus/end_screen.tscn")
 
 @export var max_health = 100
 var current_health
 signal health_updated(health_change, new_current_health)
+signal died
 
 var player : Player
 var entities_layer : Node3D
@@ -25,5 +27,13 @@ func apply_damage(damage_amount):
 	health_updated.emit(damage_amount, current_health)
 	on_damage_taken(damage_amount)
 	
+	if current_health < 0:
+		died.emit()
+		on_died()
+		#queue_free()
+	
 func on_damage_taken(damage_amount):
+	pass
+
+func on_died():
 	pass
