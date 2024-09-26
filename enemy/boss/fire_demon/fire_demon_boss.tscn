@@ -1,25 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvqxwex3ww5h4"]
+[gd_scene load_steps=16 format=3 uid="uid://dvqxwex3ww5h4"]
 
 [ext_resource type="PackedScene" uid="uid://bj0n4kvfagpx3" path="res://enemy/boss/boss_enemy.tscn" id="1_m2o5c"]
 [ext_resource type="Script" path="res://enemy/boss/fire_demon/fire_demon_boss.gd" id="2_0kw8k"]
 [ext_resource type="Texture2D" uid="uid://b41triouirt77" path="res://assets/boss_sprites/fire_boss_mask.png" id="2_els1n"]
 [ext_resource type="Texture2D" uid="uid://011ffbakv0au" path="res://assets/boss_sprites/fire_boss_hand.png" id="3_7mf8p"]
-
-[sub_resource type="Animation" id="Animation_ggoxh"]
-resource_name = "Fireball"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.333333, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(12, 12, 12), Vector3(10, 10, 10), Vector3(13, 13, 13), Vector3(12, 12, 12)]
-}
 
 [sub_resource type="Animation" id="Animation_h5qqb"]
 resource_name = "LeftFirst"
@@ -107,7 +91,6 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_spa3b"]
 _data = {
-"Fireball": SubResource("Animation_ggoxh"),
 "LeftFirst": SubResource("Animation_h5qqb"),
 "RESET": SubResource("Animation_wvn02")
 }
@@ -203,6 +186,91 @@ size = Vector3(3.06665, 5.22058, 1.3623)
 [sub_resource type="BoxShape3D" id="BoxShape3D_aqmnj"]
 size = Vector3(2.45703, 4.01624, 1.3623)
 
+[sub_resource type="Animation" id="Animation_vta6j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12, 12, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftHand:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(42, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_emyin"]
+resource_name = "damaged"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(12, 12, 12), Vector3(10, 10, 10), Vector3(12, 12, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-42, 0), Vector2(-42, 5), Vector2(-42, 0), Vector2(-42, -5), Vector2(-42, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftHand:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(42, 0), Vector2(42, -5), Vector2(42, 0), Vector2(42, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a264w"]
+_data = {
+"RESET": SubResource("Animation_vta6j"),
+"damaged": SubResource("Animation_emyin")
+}
+
 [node name="FireDemonBoss" node_paths=PackedStringArray("meteor_spawn_locations") instance=ExtResource("1_m2o5c")]
 script = ExtResource("2_0kw8k")
 meteor_spawn_locations = []
@@ -257,16 +325,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01587, 0.0423088, 0)
 shape = SubResource("BoxShape3D_aqmnj")
 
 [node name="FireWallSpawnRight" type="Marker3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2, 0)
 
 [node name="FireBallSpawn" type="Marker3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68575e-08, -2, 0)
 
 [node name="FireWallSpawnLeft" type="Marker3D" parent="." index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -2, 0)
 
 [node name="AttackTimer" type="Timer" parent="." index="9"]
-wait_time = 5.0
+wait_time = 4.0
 autostart = true
+
+[node name="DamageAnimation" type="AnimationPlayer" parent="." index="10"]
+libraries = {
+"": SubResource("AnimationLibrary_a264w")
+}
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
