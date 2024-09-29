@@ -7,6 +7,7 @@
 script = ExtResource("1_0bbsv")
 card_name = "Shotgun Blast"
 ability_id = "shotgun"
-card_description = "Blasts an enemy with pellets."
+card_description = "Shoots two pellets at the enemy. Deals more damage when closer."
 card_artwork = ExtResource("1_2dyou")
 cost = 2
+commit_value = 0.75

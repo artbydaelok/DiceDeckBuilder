@@ -147,7 +147,7 @@ libraries = {
 }
 
 [node name="Hitbox" parent="." instance=ExtResource("4_ft45p")]
-damage = 6
+damage = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34, 1.48242, 6.95011e-08)

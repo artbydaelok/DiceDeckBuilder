@@ -95,3 +95,8 @@ shape = SubResource("BoxShape3D_vgilg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_f2jhj")
 disabled = true
+
+[node name="CommitLockTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CommitLockTimer" to="." method="_on_commit_lock_timer_timeout"]

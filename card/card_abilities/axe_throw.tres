@@ -10,3 +10,4 @@ ability_id = "axe"
 card_description = "Throws an axe  forward that damages enemies and breaks obstacles."
 card_artwork = ExtResource("1_o2a5u")
 cost = 0
+commit_value = 0.25

@@ -7,6 +7,7 @@
 script = ExtResource("1_a6t5g")
 card_name = "Bear Swipe"
 ability_id = "swipe"
-card_description = "Frontal swipe that pushes enemies back. "
+card_description = "Close-range frontal swipe that deals great damage."
 card_artwork = ExtResource("1_7yriy")
 cost = 0
+commit_value = 1.5

@@ -6,3 +6,4 @@ class_name Card
 @export_multiline var card_description : String = "This is where the card description goes."
 @export var card_artwork : Texture2D
 @export var cost : int = 0
+@export var commit_value : float = 0.1

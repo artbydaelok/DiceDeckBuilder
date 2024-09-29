@@ -43,6 +43,7 @@ func draw_card(index: int):
 	hand[index] = card_to_draw
 	deck.remove_at(0)
 	
+	
 	if hand_display.get_child(player.up_side).animation_player.is_playing():
 		await hand_display.get_child(player.up_side).animation_player.animation_finished
 	
@@ -62,6 +63,7 @@ func play_ability():
 	var ability_instance = CARD_ABILITIES[id].instantiate()
 	player.add_child(ability_instance)
 	
+	player.begin_attack_commit(hand[player.up_side].commit_value)
 	
 	# This triggers the animations for the Card UI Element
 	hand_display.on_played_card(player.up_side)

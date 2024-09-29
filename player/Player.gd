@@ -15,6 +15,9 @@ class_name Player
 enum SIDES_STATE {ONE, TWO, THREE, FOUR, FIVE, SIX}
 var up_side = SIDES_STATE.TWO
 
+@onready var commit_lock_timer: Timer = $CommitLockTimer
+var commit_lock = false
+
 var cube_size = 2.0
 var speed = 4.0
 var rolling = false
@@ -66,7 +69,7 @@ func update_side_icon(side : int, new_icon : Texture2D):
 
 func roll(dir):
 	# Do nothing if we're currently rolling.
-	if rolling:
+	if rolling or commit_lock:
 		return
 	rolling = true
 
@@ -138,3 +141,10 @@ func apply_damage(amount : float):
 	if health == 0:
 		print("Player Died")
 	
+func begin_attack_commit(commit_time : float):
+	commit_lock_timer.wait_time = commit_time
+	commit_lock = true
+	commit_lock_timer.start()
+
+func _on_commit_lock_timer_timeout() -> void:
+	commit_lock = false
