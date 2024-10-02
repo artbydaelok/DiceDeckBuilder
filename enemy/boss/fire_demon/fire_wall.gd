@@ -1,6 +1,6 @@
 extends Node3D
 
-var speed = 3
+var speed = 3.5
 @onready var hitbox_collision: CollisionShape3D = $Hitbox/HitboxCollision
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

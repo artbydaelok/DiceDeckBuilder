@@ -10,4 +10,4 @@ ability_id = "arrow"
 card_description = "Shoots an arrow at the boss."
 card_artwork = ExtResource("1_are7e")
 cost = 0
-commit_value = 1.25
+commit_value = 1.0

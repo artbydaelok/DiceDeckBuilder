@@ -2,7 +2,9 @@ extends Enemy
 
 # Meteors
 const FLAMING_METEOR = preload("res://enemy/boss/fire_demon/flaming_meteor.tscn")
-@export var meteor_spawn_locations : Array[Marker3D]
+
+@export var meteor_parent_node : Node3D
+var meteor_spawn_locations
 
 # Fire Wall 
 @onready var wall_spawn_anim: AnimationPlayer = $WallSpawnAnim
@@ -10,9 +12,13 @@ const FIRE_WALL = preload("res://enemy/boss/fire_demon/fire_wall.tscn")
 @onready var fire_wall_spawn_right: Marker3D = $FireWallSpawnRight
 @onready var fire_wall_spawn_left: Marker3D = $FireWallSpawnLeft
 
+@onready var attack_timer: Timer = $AttackTimer
 
 @onready var damage_animation: AnimationPlayer = $DamageAnimation
 
+func initialize():
+	meteor_spawn_locations = meteor_parent_node.get_children()
+	
 func spawn_walls(left_first: bool):
 	if left_first:
 		wall_spawn_anim.play("LeftFirst")
@@ -24,11 +30,16 @@ func on_damage_taken(damage_amount):
 	damage_animation.play("damaged")
 
 func _on_attack_timer_timeout() -> void:
-	spawn_walls(true)
-	if (current_health / max_health) < 0.80:
+	attack_timer.wait_time = randf_range(4.0, 6.5)
+	var choice = randi() % 2 == 0
+	spawn_walls(choice)
+	if (current_health / max_health) < 0.90:
 		spawn_meteor()
-		if (current_health / max_health) < 0.3:
-			await get_tree().create_timer(1.0).timeout
+		if (current_health / max_health) < 0.50:
+			await get_tree().create_timer(0.75).timeout
+			spawn_meteor()
+		if (current_health / max_health) < 0.30:
+			await get_tree().create_timer(0.5).timeout
 			spawn_meteor()
 
 func spawn_left_wall():

@@ -10,4 +10,4 @@ ability_id = "swipe"
 card_description = "Close-range frontal swipe that deals great damage."
 card_artwork = ExtResource("1_7yriy")
 cost = 0
-commit_value = 1.5
+commit_value = 1.2
