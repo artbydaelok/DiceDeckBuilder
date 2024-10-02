@@ -106,7 +106,7 @@ _data = {
 "spawn": SubResource("Animation_4h5eo")
 }
 
-[node name="FloorIndicator" type="Node3D"]
+[node name="FloorIndicator" type="Node3D" groups=["enemy_projectiles"]]
 
 [node name="Marker" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, -7.23998e-06, 2, 0, -2, -7.23998e-06, 0, 0, 0)
