@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dfrxm4hgx285b"]
 
-[ext_resource type="Texture2D" uid="uid://x3eg3ahba2b5" path="res://assets/card_artwork/red_balloon.png" id="1_4jhwv"]
+[ext_resource type="Texture2D" uid="uid://dseyxvrm5r0o2" path="res://assets/card_artwork/red_balloon.png" id="1_4jhwv"]
 [ext_resource type="Script" path="res://card/card_data.gd" id="1_42h2g"]
 
 [resource]
@@ -10,3 +10,4 @@ ability_id = "balloon"
 card_description = "Pops a magic balloon that makes all enemy projectiles disappear."
 card_artwork = ExtResource("1_4jhwv")
 cost = 1
+commit_value = 0.1

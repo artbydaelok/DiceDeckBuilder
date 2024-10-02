@@ -1,0 +1,142 @@
+[gd_scene load_steps=12 format=3 uid="uid://c1k62hph1kfbl"]
+
+[ext_resource type="PackedScene" uid="uid://dhcdnl7hi2cot" path="res://assets/3d_models/Balloon.glb" id="1_klsi1"]
+[ext_resource type="Script" path="res://abilities/balloon/balloon_pop_animation.gd" id="1_uwykc"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_4xat3"]
+
+[sub_resource type="Animation" id="Animation_bvbkj"]
+resource_name = "rise"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balloon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.135177, 0.235177, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.75, 1.75, 1.75), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Balloon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BalloonPopVFX:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_76m4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balloon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Balloon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BalloonPopVFX:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqkrw"]
+_data = {
+"RESET": SubResource("Animation_76m4h"),
+"rise": SubResource("Animation_bvbkj")
+}
+
+[sub_resource type="Curve" id="Curve_0ln3p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.645963, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qm4a5"]
+curve = SubResource("Curve_0ln3p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rpxu5"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_curve = SubResource("CurveTexture_qm4a5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwi0e"]
+albedo_color = Color(1, 0.08, 0.08, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ew0mr"]
+material = SubResource("StandardMaterial3D_nwi0e")
+size = Vector3(0.2, 0.5, 0.01)
+
+[node name="BalloonPopAnimation" type="Node3D"]
+script = ExtResource("1_uwykc")
+
+[node name="Balloon" parent="." instance=ExtResource("1_klsi1")]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xqkrw")
+}
+autoplay = "rise"
+
+[node name="SelfDestroyTimer" parent="." instance=ExtResource("3_4xat3")]
+duration = 2.0
+
+[node name="BalloonPopVFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_rpxu5")
+draw_pass_1 = SubResource("BoxMesh_ew0mr")

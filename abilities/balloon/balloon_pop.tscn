@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp5e8jdvns24s"]
+[gd_scene load_steps=3 format=3 uid="uid://bp5e8jdvns24s"]
 
 [ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_vktnf"]
+[ext_resource type="Script" path="res://abilities/balloon/balloon_pop.gd" id="2_2bl0i"]
 
 [node name="BalloonPop" instance=ExtResource("1_vktnf")]
+script = ExtResource("2_2bl0i")

@@ -35,10 +35,10 @@ func _on_attack_timer_timeout() -> void:
 	spawn_walls(choice)
 	if (current_health / max_health) < 0.90:
 		spawn_meteor()
-		if (current_health / max_health) < 0.50:
+		if (current_health / max_health) < 0.75:
 			await get_tree().create_timer(0.75).timeout
 			spawn_meteor()
-		if (current_health / max_health) < 0.30:
+		if (current_health / max_health) < 0.50:
 			await get_tree().create_timer(0.5).timeout
 			spawn_meteor()
 

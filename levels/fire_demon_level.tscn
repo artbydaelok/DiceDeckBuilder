@@ -1,13 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5lyk0s0rvu5i"]
+[gd_scene load_steps=15 format=3 uid="uid://c5lyk0s0rvu5i"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
 [ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon/fire_demon_boss.tscn" id="2_0fa53"]
 [ext_resource type="Texture2D" uid="uid://b0ctakhn3omws" path="res://assets/spritesheets/firepillar.png" id="3_is2ff"]
-[ext_resource type="Script" path="res://card/card_data.gd" id="4_arnvo"]
-[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="5_c5kby"]
-[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="6_ex3sg"]
-[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="7_xid5v"]
-[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="8_b2xov"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
 sky_top_color = Color(0.168175, 0.000273918, 0.146432, 1)
@@ -231,6 +226,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 4)
 
 [node name="MeteorSpawnCenter25" type="Marker3D" parent="BaseLevel/MeteorSpawnLocations" index="24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, 4)
-
-[node name="CardSystem" parent="." index="2"]
-deck = Array[ExtResource("4_arnvo")]([ExtResource("5_c5kby"), ExtResource("5_c5kby"), ExtResource("6_ex3sg"), ExtResource("6_ex3sg"), ExtResource("7_xid5v"), ExtResource("7_xid5v"), ExtResource("8_b2xov"), ExtResource("8_b2xov")])
