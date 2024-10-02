@@ -29,6 +29,7 @@ window/size/viewport_height=720
 entities_layer=""
 player=""
 boss=""
+enemy_projectiles=""
 
 [importer_defaults]
 

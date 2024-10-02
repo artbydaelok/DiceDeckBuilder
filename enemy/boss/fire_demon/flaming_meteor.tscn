@@ -87,7 +87,7 @@ material = SubResource("StandardMaterial3D_tqvi6")
 [sub_resource type="SphereShape3D" id="SphereShape3D_celdc"]
 radius = 0.88
 
-[node name="FlamingMeteor" type="RigidBody3D"]
+[node name="FlamingMeteor" type="RigidBody3D" groups=["enemy_projectiles"]]
 gravity_scale = 0.1
 contact_monitor = true
 max_contacts_reported = 1

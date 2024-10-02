@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 	if start_rotating:
 		balloon.rotate(rotation_axis , rotation_amount * delta)
 		
+func pop_projectiles():
+	for proj in get_tree().get_nodes_in_group("enemy_projectiles"):
+		proj.queue_free()

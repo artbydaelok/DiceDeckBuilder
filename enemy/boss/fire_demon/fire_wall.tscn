@@ -435,7 +435,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="FireWall" type="Node3D"]
+[node name="FireWall" type="Node3D" groups=["enemy_projectiles"]]
 script = ExtResource("1_xn4mw")
 
 [node name="Hitbox" parent="." instance=ExtResource("1_j4oks")]
