@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://dd8vt81hhot3u"]
+
+[ext_resource type="Script" path="res://enemy/boss/jim_and_jam/column_shatter_vfx.gd" id="1_nduqo"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_t1lit"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_flobq"]
+
+[sub_resource type="Gradient" id="Gradient_wauki"]
+offsets = PackedFloat32Array(0, 0.740659, 1)
+colors = PackedColorArray(0.439125, 0.45, 0.3195, 1, 0.758987, 0.76366, 0.707584, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dh46p"]
+gradient = SubResource("Gradient_wauki")
+
+[sub_resource type="Curve" id="Curve_pwan4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.169772, 1), 0.0, 0.0, 0, 0, Vector2(0.677019, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), -8.43808, -8.43808, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_j1pwm"]
+curve = SubResource("Curve_pwan4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uyysn"]
+particle_flag_align_y = true
+emission_shape_scale = Vector3(0.25, 1, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -9.99999
+angle_max = 10.0
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 4.0
+initial_velocity_max = 12.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = 5.0
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_j1pwm")
+color_ramp = SubResource("GradientTexture1D_dh46p")
+hue_variation_min = -0.02
+hue_variation_max = 0.00999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tri0q"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_tjtsv"]
+material = SubResource("StandardMaterial3D_tri0q")
+size = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjkeo"]
+size = Vector3(1, 2, 10)
+
+[node name="ColumnShatterVFX" type="GPUParticles3D"]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_uyysn")
+draw_pass_1 = SubResource("BoxMesh_tjtsv")
+script = ExtResource("1_nduqo")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_t1lit")]
+collision_layer = 4
+collision_mask = 8
+damage = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+shape = SubResource("BoxShape3D_wjkeo")
+
+[node name="SelfDestroyTimer" parent="." instance=ExtResource("3_flobq")]
+duration = 1.5

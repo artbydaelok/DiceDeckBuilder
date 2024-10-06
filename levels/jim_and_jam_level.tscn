@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://41o205menflr"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_j5545"]
+[ext_resource type="PackedScene" uid="uid://donqwnq58twjw" path="res://enemy/boss/jim_and_jam/jim_and_jam.tscn" id="2_2tkad"]
+
+[node name="JimAndJamLevel" instance=ExtResource("1_j5545")]
+
+[node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="0" node_paths=PackedStringArray("boss")]
+boss = NodePath("../../../BaseLevel/JimAndJam")
+
+[node name="JimAndJam" parent="BaseLevel" index="6" instance=ExtResource("2_2tkad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
