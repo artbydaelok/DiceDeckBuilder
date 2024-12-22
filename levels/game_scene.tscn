@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=20 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
@@ -11,6 +11,29 @@
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="8_umobk"]
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="9_seu18"]
 [ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="11_gqabv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
+bg_color = Color(0.13, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_johek"]
+bg_color = Color(0.6, 0.072, 0.072, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.336, 0.336, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -52,6 +75,9 @@ theme_override_constants/margin_bottom = 10
 custom_minimum_size = Vector2(600, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_lul2y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_johek")
+value = 28.41
 script = ExtResource("1_cj600")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
