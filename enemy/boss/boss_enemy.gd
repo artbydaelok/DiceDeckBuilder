@@ -9,7 +9,7 @@ var current_health
 signal health_updated(health_change, new_current_health)
 signal died
 
-var player : Player
+var player : Node
 var entities_layer : Node3D
 
 # Called when the node enters the scene tree for the first time.

@@ -4,7 +4,7 @@ extends RigidBody3D
 @onready var collision_shape: CollisionShape3D = %CollisionShape
 @onready var hitbox_shape: CollisionShape3D = %HitboxShape
 
-var player : Player
+var player 
 
 var stuck = false
 

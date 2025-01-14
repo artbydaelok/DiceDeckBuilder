@@ -6,7 +6,7 @@ extends Node
 
 @export var hand_display : Control
 
-@export var player : Player 
+@export var player : Node
 
 @export var global_cooldown : float = 0.8
 var system_disabled = false
