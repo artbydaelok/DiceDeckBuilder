@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://biwl7ql6dbwkp"]
+[gd_scene load_steps=8 format=3 uid="uid://biwl7ql6dbwkp"]
 
 [ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="1_33ehh"]
 [ext_resource type="Script" path="res://abilities/axe_throw/axe_projectile.gd" id="1_lfw1k"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_fw626"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_sgtvi"]
+[ext_resource type="AudioStream" uid="uid://dt5rflcx7hcoa" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 14_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="5_w8wkl"]
+[ext_resource type="AudioStream" uid="uid://5csvisk68nfn" path="res://sounds/axe_hit.wav" id="6_fpmvx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lopeh"]
 size = Vector3(1, 1.67993, 0.3479)
@@ -31,5 +33,14 @@ disabled = true
 
 [node name="SelfDestroyTimer" parent="." instance=ExtResource("3_fw626")]
 duration = 5.0
+
+[node name="AxeThrowSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_w8wkl")
+autoplay = true
+bus = &"SFX"
+
+[node name="AxeHitSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fpmvx")
+bus = &"SFX"
 
 [connection signal="area_entered" from="Axe/Hitbox" to="." method="_on_hitbox_area_entered"]

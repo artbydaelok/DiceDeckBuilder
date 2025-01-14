@@ -104,6 +104,7 @@ func roll(dir):
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
 	
 	detect_side_up()
+	$MoveSFX.play()
 
 func detect_side_up():
 	for s in sides:

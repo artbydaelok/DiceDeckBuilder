@@ -25,12 +25,15 @@ func spawn_walls(left_first: bool):
 	else:
 		wall_spawn_anim.play_backwards("LeftFirst")
 
+func play_firewall_SFX():
+	$FirewallSFX.play()
+
 func on_damage_taken(damage_amount):
 	print(name + " has been hit for " + str(damage_amount) + " damage!")
 	damage_animation.play("damaged")
 
 func _on_attack_timer_timeout() -> void:
-	attack_timer.wait_time = randf_range(4.0, 6.5)
+	attack_timer.wait_time = randf_range(5.0, 6.5)
 	var choice = randi() % 2 == 0
 	spawn_walls(choice)
 	if (current_health / max_health) < 0.90:

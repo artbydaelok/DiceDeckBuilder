@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1k62hph1kfbl"]
+[gd_scene load_steps=14 format=3 uid="uid://c1k62hph1kfbl"]
 
 [ext_resource type="PackedScene" uid="uid://dhcdnl7hi2cot" path="res://assets/3d_models/Balloon.glb" id="1_klsi1"]
 [ext_resource type="Script" path="res://abilities/balloon/balloon_pop_animation.gd" id="1_uwykc"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_4xat3"]
+[ext_resource type="AudioStream" uid="uid://ducjejj4xhqwc" path="res://sounds/balloon-pop-48030.mp3" id="4_tvmei"]
+[ext_resource type="AudioStream" uid="uid://cbcedvluolnv6" path="res://sounds/inflate.wav" id="5_i03cs"]
 
 [sub_resource type="Animation" id="Animation_76m4h"]
 length = 0.001
@@ -154,3 +156,14 @@ randomness = 1.0
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_rpxu5")
 draw_pass_1 = SubResource("BoxMesh_ew0mr")
+
+[node name="BalloonPopSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tvmei")
+volume_db = -1.0
+bus = &"SFX"
+
+[node name="InflateSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_i03cs")
+volume_db = -6.0
+autoplay = true
+bus = &"SFX"

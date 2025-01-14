@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4yidxdgci5nj"]
+[gd_scene load_steps=7 format=3 uid="uid://c4yidxdgci5nj"]
 
 [ext_resource type="PackedScene" uid="uid://dw2tgrac2ejrc" path="res://assets/3d_models/Shotgun.glb" id="1_ao2v6"]
 [ext_resource type="Script" path="res://abilities/shotgun/shotgun_animation.gd" id="1_oebue"]
+[ext_resource type="AudioStream" uid="uid://c4q7mno4u4kkj" path="res://sounds/shotgun load and shot.wav" id="3_6t5je"]
 
 [sub_resource type="Animation" id="Animation_gat5b"]
 length = 0.001
@@ -91,3 +92,8 @@ autoplay = "shoot"
 
 [node name="PelletSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -2.02611)
+
+[node name="ShotgunSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6t5je")
+autoplay = true
+bus = &"SFX"

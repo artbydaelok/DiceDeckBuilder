@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7fvhtmydt1fh"]
+[gd_scene load_steps=8 format=3 uid="uid://c7fvhtmydt1fh"]
 
 [ext_resource type="PackedScene" uid="uid://xu4iwb20htmd" path="res://assets/3d_models/BowAndArrow.glb" id="1_nnrt0"]
 [ext_resource type="Script" path="res://abilities/bow_and_arrow/bow_and_arrow_animation.gd" id="2_ppa1w"]
 [ext_resource type="PackedScene" uid="uid://csth3bndxcg43" path="res://abilities/bow_and_arrow/Arrow.glb" id="3_wbu2v"]
+[ext_resource type="AudioStream" uid="uid://cn5pdejdhph3k" path="res://sounds/bow_charge_and_shoot.wav" id="4_wvsj5"]
 
 [sub_resource type="Animation" id="Animation_e2jbb"]
 resource_name = "DrawArrow"
@@ -151,3 +152,8 @@ libraries = {
 
 [node name="Arrow" parent="." index="3" instance=ExtResource("3_wbu2v")]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="BowChargeSFX" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("4_wvsj5")
+autoplay = true
+bus = &"SFX"

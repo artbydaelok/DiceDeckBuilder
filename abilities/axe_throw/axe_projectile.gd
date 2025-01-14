@@ -26,5 +26,7 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	linear_velocity = Vector3.ZERO
 	gravity_scale = 0
 	
+	$AxeHitSFX.play()
+	
 	await get_tree().create_timer(0.35).timeout
 	queue_free()
