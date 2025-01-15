@@ -351,3 +351,13 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_wtfyh")
 expand_mode = 4
+
+[node name="CostLabel" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "2"

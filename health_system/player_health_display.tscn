@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://glmod5s7viyk"]
 
 [ext_resource type="Script" path="res://health_system/player_health_display.gd" id="1_cn3pl"]
-[ext_resource type="Texture2D" uid="uid://dtblpldfgv44q" path="res://assets/life_icon.png" id="1_ttukg"]
+[ext_resource type="Texture2D" uid="uid://dtblpldfgv44q" path="res://assets/ui/life_icon.png" id="1_ttukg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1juv"]
 bg_color = Color(0.168627, 0.168627, 0.168627, 1)

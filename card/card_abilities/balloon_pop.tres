@@ -9,5 +9,5 @@ card_name = "Balloon Pop"
 ability_id = "balloon"
 card_description = "Pops a magic balloon that makes all enemy projectiles disappear."
 card_artwork = ExtResource("1_4jhwv")
-cost = 1
+cost = 3
 commit_value = 0.1

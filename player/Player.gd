@@ -33,6 +33,11 @@ signal player_damaged(damage_amount : float)
 signal player_healed(heal_amount : float)
 signal player_health_updated(new_health : float)
 
+# Energy Variables
+var energy : int = 6
+signal energy_spent(amount : int)
+signal energy_gained(amount : int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
@@ -104,6 +109,10 @@ func roll(dir):
 	
 	detect_side_up()
 	$MoveSFX.play()
+	
+	energy += 1
+	energy = clamp(energy, 0, 6)
+	energy_gained.emit(1)
 
 func detect_side_up():
 	for s in sides:

@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=3 uid="uid://convybpr5awm3"]
+
+[ext_resource type="Script" path="res://ui/energy_meter.gd" id="1_33ov5"]
+[ext_resource type="Texture2D" uid="uid://cu2sxteptx5y2" path="res://assets/ui/EnergySlot.png" id="1_cuhyj"]
+[ext_resource type="Texture2D" uid="uid://cunxa2dv4dwp8" path="res://assets/ui/EnergySlotBall.png" id="2_3c3xm"]
+
+[node name="EnergyMeter" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_33ov5")
+
+[node name="EnergySlot1" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_cuhyj")
+stretch_mode = 2
+
+[node name="Energy1" type="TextureRect" parent="EnergySlot1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3c3xm")
+stretch_mode = 2
+
+[node name="EnergySlot2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_cuhyj")
+stretch_mode = 2
+
+[node name="Energy2" type="TextureRect" parent="EnergySlot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3c3xm")
+stretch_mode = 2
+
+[node name="EnergySlot3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_cuhyj")
+stretch_mode = 2
+
+[node name="Energy3" type="TextureRect" parent="EnergySlot3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3c3xm")
+stretch_mode = 2
+
+[node name="EnergySlot4" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_cuhyj")
+stretch_mode = 2
+
+[node name="Energy4" type="TextureRect" parent="EnergySlot4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3c3xm")
+stretch_mode = 2
+
+[node name="EnergySlot5" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_cuhyj")
+stretch_mode = 2
+
+[node name="Energy5" type="TextureRect" parent="EnergySlot5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3c3xm")
+stretch_mode = 2
+
+[node name="EnergySlot6" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_cuhyj")
+stretch_mode = 2
+
+[node name="Energy6" type="TextureRect" parent="EnergySlot6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3c3xm")
+stretch_mode = 2

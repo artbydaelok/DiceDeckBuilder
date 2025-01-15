@@ -8,6 +8,7 @@ var hovered = false
 @onready var card_name: Label = %CardName
 @onready var card_art: TextureRect = %CardArt
 @onready var description_label: Label = %DescriptionLabel
+@onready var cost_label: Label = $PanelContainer/MarginContainer/CostLabel
 
 var disabled = false
 
@@ -16,6 +17,7 @@ func setup(card_data):
 	card_name.text = current_card_data.card_name
 	description_label.text = current_card_data.card_description
 	card_art.texture = current_card_data.card_artwork
+	cost_label.text = str(current_card_data.cost)
 
 func hover():
 	if not disabled:

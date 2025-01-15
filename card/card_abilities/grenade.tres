@@ -9,5 +9,5 @@ card_name = "Grenade"
 ability_id = "grenade"
 card_description = "Throws a grenade upwards that blows up after a while. Deals massive damage to enemies but can also hurt the player."
 card_artwork = ExtResource("1_df2k0")
-cost = 0
+cost = 1
 commit_value = 0.1

@@ -57,6 +57,8 @@ func draw_card(index: int):
 func play_ability():
 	if system_disabled == true: return
 	
+	if hand[player.up_side].cost > player.energy: return
+	
 	system_disabled = true
 	
 	# Gets the ability ID and instantiates it.
@@ -65,6 +67,11 @@ func play_ability():
 	player.add_child(ability_instance)
 	
 	player.begin_attack_commit(hand[player.up_side].commit_value)
+	
+	var _cost = hand[player.up_side].cost
+	player.energy -= _cost
+	player.energy = clamp(player.energy, 0, 6)
+	player.energy_spent.emit(_cost)
 	
 	# This triggers the animations for the Card UI Element
 	hand_display.on_played_card(player.up_side)
