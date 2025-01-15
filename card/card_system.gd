@@ -18,6 +18,7 @@ const CARD_ABILITIES = {
 	"balloon" : preload("res://abilities/balloon/balloon_pop.tscn"),
 	"swipe" : preload("res://abilities/bear_swipe/bear_swipe.tscn"),
 	"shotgun" : preload("res://abilities/shotgun/shotgun_blast.tscn"),
+	"grenade" : preload("res://abilities/grenade/grenade.tscn")
 }
 
 const CARD_DISPLAY = preload("res://card/card_display.tscn")

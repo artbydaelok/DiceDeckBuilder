@@ -1,8 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5lyk0s0rvu5i"]
+[gd_scene load_steps=22 format=3 uid="uid://c5lyk0s0rvu5i"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
 [ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon/fire_demon_boss.tscn" id="2_0fa53"]
 [ext_resource type="Texture2D" uid="uid://b0ctakhn3omws" path="res://assets/spritesheets/firepillar.png" id="3_is2ff"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="4_eluih"]
+[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="5_7mayj"]
+[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="6_t23ih"]
+[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="7_ckf00"]
+[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="8_kyeh5"]
+[ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="9_6aa4o"]
+[ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="10_62a5j"]
+[ext_resource type="PackedScene" uid="uid://bxvgrbpfk5yvw" path="res://assets/3d_models/RuinedTower.glb" id="11_a0eoh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
 sky_top_color = Color(0.168175, 0.000273918, 0.146432, 1)
@@ -19,10 +27,6 @@ background_color = Color(0.14902, 0.0313726, 0.00784314, 1)
 sky = SubResource("Sky_hjcl6")
 tonemap_mode = 2
 fog_light_color = Color(0.843062, 0.399308, 0.284986, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47vsk"]
-albedo_color = Color(0.485588, 0.140781, 0.182533, 1)
-metallic = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sa7y8"]
 atlas = ExtResource("3_is2ff")
@@ -89,21 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 10.5
 
 [node name="WorldEnvironment" parent="BaseLevel" index="3"]
 environment = SubResource("Environment_b37ao")
-
-[node name="Columns" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
-material_override = SubResource("StandardMaterial3D_47vsk")
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="0"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.5, 1.5, 5.5)
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="1"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5.5, 1.5, 5.5)
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="2"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -5.5, 1.3, -5.5)
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/Columns" index="3"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 5.5, 1.3, -5.5)
 
 [node name="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" index="0"]
 flip_faces = true
@@ -226,3 +215,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 4)
 
 [node name="MeteorSpawnCenter25" type="Marker3D" parent="BaseLevel/MeteorSpawnLocations" index="24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, 4)
+
+[node name="CardSystem" parent="." index="2"]
+deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
+
+[node name="RuinedTower2" parent="." index="3" instance=ExtResource("11_a0eoh")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7, 0, -7)
+
+[node name="RuinedTower" parent="." index="4" instance=ExtResource("11_a0eoh")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7, 0, -7)
+
+[node name="RuinedTower3" parent="." index="5" instance=ExtResource("11_a0eoh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.0006, -0.0357304, 6.00886)
+
+[node name="RuinedTower4" parent="." index="6" instance=ExtResource("11_a0eoh")]
+transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 6, 0, 6)
