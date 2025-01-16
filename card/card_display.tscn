@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqoia3gxdnqoh"]
+[gd_scene load_steps=12 format=3 uid="uid://cqoia3gxdnqoh"]
 
 [ext_resource type="Script" path="res://card/card_display.gd" id="1_2e5mg"]
 [ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="2_wtfyh"]
+[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="3_0r028"]
 
 [sub_resource type="Animation" id="Animation_ykot4"]
 length = 0.001
@@ -278,6 +279,15 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 shadow_size = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvrw5"]
+bg_color = Color(0.46, 0.341933, 0.138, 0.647059)
+skew = Vector2(0.25, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.89, 0.755017, 0.3115, 1)
+
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(90, 120)
 layout_mode = 3
@@ -352,12 +362,22 @@ layout_mode = 2
 texture = ExtResource("2_wtfyh")
 expand_mode = 4
 
-[node name="CostLabel" type="Label" parent="PanelContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(18, 16)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hvrw5")
+
+[node name="CostLabel" type="Label" parent="PanelContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.757, 0.46, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_0r028")
+theme_override_font_sizes/font_size = 20
 text = "2"
+horizontal_alignment = 1

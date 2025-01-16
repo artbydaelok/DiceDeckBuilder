@@ -8,7 +8,7 @@ var hovered = false
 @onready var card_name: Label = %CardName
 @onready var card_art: TextureRect = %CardArt
 @onready var description_label: Label = %DescriptionLabel
-@onready var cost_label: Label = $PanelContainer/MarginContainer/CostLabel
+@onready var cost_label: Label = $PanelContainer/MarginContainer/PanelContainer/CostLabel
 
 var disabled = false
 
