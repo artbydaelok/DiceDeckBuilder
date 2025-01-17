@@ -37,6 +37,7 @@ signal player_health_updated(new_health : float)
 var energy : int = 6
 signal energy_spent(amount : int)
 signal energy_gained(amount : int)
+signal insufficient_energy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

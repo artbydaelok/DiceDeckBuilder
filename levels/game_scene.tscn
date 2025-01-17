@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=23 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="4_cosan"]
 [ext_resource type="PackedScene" uid="uid://convybpr5awm3" path="res://ui/energy_meter.tscn" id="4_iiuie"]
 [ext_resource type="PackedScene" uid="uid://dr5v41plmy0gi" path="res://ui/deck_viewer.tscn" id="4_qn1s2"]
+[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="4_xdqa1"]
 [ext_resource type="Script" path="res://card/card_data.gd" id="5_joks6"]
 [ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="6_3lakv"]
 [ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="7_vv53a"]
@@ -99,10 +100,29 @@ custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 size_flags_vertical = 1
 
-[node name="EnergyMeter" parent="UI/MarginContainer" node_paths=PackedStringArray("player") instance=ExtResource("4_iiuie")]
+[node name="EnergyContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
-player = NodePath("../../../BaseLevel/Player")
+
+[node name="InsufficientEnergy" type="Label" parent="UI/MarginContainer/EnergyContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xdqa1")
+theme_override_font_sizes/font_size = 32
+text = "NOT ENOUGH ENERGY!"
+
+[node name="EnergyMeter" parent="UI/MarginContainer/EnergyContainer" node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("4_iiuie")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+player = NodePath("../../../../BaseLevel/Player")
+insufficient_label = NodePath("../InsufficientEnergy")
+insufficient_timer = NodePath("../InsufficientTimer")
+
+[node name="InsufficientTimer" type="Timer" parent="UI/MarginContainer/EnergyContainer"]
+wait_time = 2.5
+one_shot = true
 
 [node name="DeckViewer" parent="UI" node_paths=PackedStringArray("card_system") instance=ExtResource("4_qn1s2")]
 visible = false
