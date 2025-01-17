@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=24 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://card/card_data.gd" id="5_joks6"]
 [ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="6_3lakv"]
 [ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="7_vv53a"]
+[ext_resource type="Script" path="res://levels/camera.gd" id="8_mpvo7"]
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="8_umobk"]
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="9_seu18"]
 [ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="11_gqabv"]
@@ -100,19 +101,27 @@ custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 size_flags_vertical = 1
 
-[node name="EnergyContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="ViewDeckKeyLabel" type="Label" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_xdqa1")
+theme_override_font_sizes/font_size = 28
+text = "[TAB] TO VIEW YOUR FULL DECK"
+
+[node name="BottomLeftHUD" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="InsufficientEnergy" type="Label" parent="UI/MarginContainer/EnergyContainer"]
+[node name="InsufficientEnergy" type="Label" parent="UI/MarginContainer/BottomLeftHUD"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xdqa1")
 theme_override_font_sizes/font_size = 32
 text = "NOT ENOUGH ENERGY!"
 
-[node name="EnergyMeter" parent="UI/MarginContainer/EnergyContainer" node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("4_iiuie")]
+[node name="EnergyMeter" parent="UI/MarginContainer/BottomLeftHUD" node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("4_iiuie")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -120,7 +129,7 @@ player = NodePath("../../../../BaseLevel/Player")
 insufficient_label = NodePath("../InsufficientEnergy")
 insufficient_timer = NodePath("../InsufficientTimer")
 
-[node name="InsufficientTimer" type="Timer" parent="UI/MarginContainer/EnergyContainer"]
+[node name="InsufficientTimer" type="Timer" parent="UI/MarginContainer/BottomLeftHUD"]
 wait_time = 2.5
 one_shot = true
 
@@ -134,6 +143,7 @@ card_system = NodePath("../../CardSystem")
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 10)
+script = ExtResource("8_mpvo7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel"]
 environment = SubResource("Environment_bfiuj")

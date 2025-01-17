@@ -148,6 +148,8 @@ func apply_damage(amount : float):
 	player_damaged.emit(amount)
 	player_health_updated.emit(health)
 	
+	$HurtSFX.play()
+	
 	if health == 0:
 		print("Player Died")
 	
