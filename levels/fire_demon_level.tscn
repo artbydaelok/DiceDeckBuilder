@@ -84,9 +84,10 @@ animations = [{
 value = 100.0
 boss = NodePath("../../../BaseLevel/FireDemonBoss")
 
-[node name="FireDemonBoss" parent="BaseLevel" index="1" node_paths=PackedStringArray("meteor_parent_node") instance=ExtResource("2_0fa53")]
+[node name="FireDemonBoss" parent="BaseLevel" index="1" node_paths=PackedStringArray("meteor_parent_node", "user_interface") instance=ExtResource("2_0fa53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0019, -7.29429)
 meteor_parent_node = NodePath("../MeteorSpawnLocations")
+user_interface = NodePath("../../UI")
 
 [node name="Camera3D" parent="BaseLevel" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 10.5)

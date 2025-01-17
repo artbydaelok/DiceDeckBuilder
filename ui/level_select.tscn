@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpgklwmdgcka1"]
+
+[ext_resource type="Script" path="res://ui/level_select.gd" id="1_41yas"]
+[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="2_o16uo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi8bc"]
+bg_color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="LevelSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41yas")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gi8bc")
+
+[node name="CloseButton" type="Button" parent="PanelContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_o16uo")
+theme_override_font_sizes/font_size = 90
+text = "X"
+icon_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="FireDemonButton" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o16uo")
+theme_override_font_sizes/font_size = 68
+text = "Fire Demon"
+autowrap_mode = 3
+
+[node name="JimJamButton" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o16uo")
+theme_override_font_sizes/font_size = 68
+text = "Jim and Jam"
+autowrap_mode = 3
+
+[node name="SaltPepperButton" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o16uo")
+theme_override_font_sizes/font_size = 68
+disabled = true
+text = "Salt and Pepper"
+autowrap_mode = 3
+
+[node name="GalaxyBossButton" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o16uo")
+theme_override_font_sizes/font_size = 68
+disabled = true
+text = "Galaxy Revenue Services"
+autowrap_mode = 3
+
+[connection signal="pressed" from="PanelContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="GridContainer/FireDemonButton" to="." method="_on_fire_demon_button_pressed"]
+[connection signal="pressed" from="GridContainer/JimJamButton" to="." method="_on_jim_jam_button_pressed"]
+[connection signal="pressed" from="GridContainer/SaltPepperButton" to="." method="_on_salt_pepper_button_pressed"]
+[connection signal="pressed" from="GridContainer/GalaxyBossButton" to="." method="_on_galaxy_boss_button_pressed"]

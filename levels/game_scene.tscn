@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=25 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="3_cubmp"]
 [ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="4_cosan"]
 [ext_resource type="PackedScene" uid="uid://convybpr5awm3" path="res://ui/energy_meter.tscn" id="4_iiuie"]
+[ext_resource type="PackedScene" uid="uid://bwy7alqls02bx" path="res://ui/center_warning_sign.tscn" id="4_qa4f1"]
 [ext_resource type="PackedScene" uid="uid://dr5v41plmy0gi" path="res://ui/deck_viewer.tscn" id="4_qn1s2"]
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="4_xdqa1"]
 [ext_resource type="Script" path="res://card/card_data.gd" id="5_joks6"]
@@ -96,10 +97,12 @@ alignment = 1
 [node name="HandDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("1_wvyn2")]
 layout_mode = 2
 
-[node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("2_sei10")]
+[node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 size_flags_vertical = 1
+center_warning_sign_scene = ExtResource("4_qa4f1")
+user_interface_layer = NodePath("../../..")
 
 [node name="ViewDeckKeyLabel" type="Label" parent="UI/MarginContainer"]
 layout_mode = 2

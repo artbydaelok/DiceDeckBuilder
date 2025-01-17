@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwy7alqls02bx"]
+
+[ext_resource type="Script" path="res://ui/center_warning_sign.gd" id="1_ecrbu"]
+[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="2_ocgxu"]
+
+[sub_resource type="Animation" id="Animation_oc1re"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e7j13"]
+resource_name = "fade_in_n_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"resolve_warning"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2254a"]
+_data = {
+"RESET": SubResource("Animation_oc1re"),
+"fade_in_n_out": SubResource("Animation_e7j13")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ly27"]
+bg_color = Color(0, 0, 0, 0.705882)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.23, 0.0644, 0.0644, 0.705882)
+border_blend = true
+corner_radius_top_left = 2
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[node name="CenterWarningSign" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ecrbu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2254a")
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ly27")
+
+[node name="WarningLabel" type="Label" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ocgxu")
+theme_override_font_sizes/font_size = 120
+text = "YOU DIED"
+horizontal_alignment = 1

@@ -33,6 +33,7 @@ var is_dead : bool = false
 signal player_damaged(damage_amount : float)
 signal player_healed(heal_amount : float)
 signal player_health_updated(new_health : float)
+signal player_died
 
 # Energy Variables
 var energy : int = 6
@@ -155,7 +156,9 @@ func apply_damage(amount : float):
 	$HurtSFX.play()
 	
 	if health == 0:
+		## CHANGING SCENE TO RESTART LEVEL/MAIN MENU IS BEING TAKEN CARE OF IN THE HEALTH BAR SCRIPT ##
 		is_dead = true
+		player_died.emit()
 		if not rolling:
 			$DeathAnimation.play("death")
 	

@@ -4,6 +4,9 @@ class_name Enemy
 const FLOOR_INDICATOR = preload("res://enemy/boss/floor_indicator.tscn")
 const END_SCREEN = preload("res://menus/end_screen.tscn")
 
+@export var user_interface : CanvasLayer
+const CENTER_WARNING_SIGN = preload("res://ui/center_warning_sign.tscn")
+
 @export var max_health = 100
 var current_health
 signal health_updated(health_change, new_current_health)
@@ -30,6 +33,12 @@ func apply_damage(damage_amount):
 	if current_health < 0:
 		died.emit()
 		on_died()
+		
+		var c = CENTER_WARNING_SIGN.instantiate()
+		user_interface.add_child(c)
+		c.setup_and_play("BOSS DEFEATED!")
+		c.menu_return = true
+
 		#queue_free()
 	
 func on_damage_taken(damage_amount):
