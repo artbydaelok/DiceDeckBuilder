@@ -66,3 +66,9 @@ func spawn_meteor():
 
 func spawn_center_fireball():
 	pass
+
+func on_died():
+	attack_timer.stop()
+	for proj in get_tree().get_nodes_in_group("enemy_projectiles"):
+		proj.queue_free()
+	$IdleAnim.play("death")

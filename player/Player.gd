@@ -29,6 +29,7 @@ var grid_pos : Vector2
 
 # Health Variables
 var health : int = 100
+var is_dead : bool = false
 signal player_damaged(damage_amount : float)
 signal player_healed(heal_amount : float)
 signal player_health_updated(new_health : float)
@@ -56,7 +57,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_left"):
 		roll(-forward.cross(Vector3.UP))
 
-
 func update_side_icon(side : int, new_icon : Texture2D):
 	match side:
 		1:
@@ -74,7 +74,7 @@ func update_side_icon(side : int, new_icon : Texture2D):
 
 func roll(dir):
 	# Do nothing if we're currently rolling.
-	if rolling or commit_lock:
+	if rolling or commit_lock or is_dead:
 		return
 	rolling = true
 
@@ -115,6 +115,10 @@ func roll(dir):
 	energy = clamp(energy, 0, 6)
 	energy_gained.emit(1)
 
+	if is_dead:
+		$DeathAnimation.play("death")
+
+
 func detect_side_up():
 	for s in sides:
 		var s_pos = s.global_position
@@ -151,7 +155,9 @@ func apply_damage(amount : float):
 	$HurtSFX.play()
 	
 	if health == 0:
-		print("Player Died")
+		is_dead = true
+		if not rolling:
+			$DeathAnimation.play("death")
 	
 func begin_attack_commit(commit_time : float):
 	commit_lock_timer.wait_time = commit_time
