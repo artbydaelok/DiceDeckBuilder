@@ -1,6 +1,8 @@
 extends Control
 
 @export var player: Node
+@export var card_system: Node
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var background: Sprite2D = $Background
@@ -15,10 +17,14 @@ extends Control
 @onready var extra_top: Sprite2D = $Background/ExtraTop
 @onready var center: Sprite2D = $Background/Center
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.player_moved.connect(play_animation)
 	player.roll_finished.connect(update_sprites)
+	card_system.card_drawn.connect(update_sprites)
+	
 	await get_tree().create_timer(0.1).timeout
 	update_sprites()
 	

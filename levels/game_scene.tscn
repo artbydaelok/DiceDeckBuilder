@@ -68,7 +68,7 @@ albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="AbilitySidesDisplay" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("1_lwuof")]
+[node name="AbilitySidesDisplay" parent="UI" node_paths=PackedStringArray("player", "card_system") instance=ExtResource("1_lwuof")]
 offset_left = 1119.0
 offset_top = 544.0
 offset_right = 1119.0
@@ -76,6 +76,7 @@ offset_bottom = 544.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 player = NodePath("../../BaseLevel/Player")
+card_system = NodePath("../../CardSystem")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 anchors_preset = 15

@@ -11,6 +11,8 @@ extends Node
 @export var global_cooldown : float = 0.8
 var system_disabled = false
 
+signal card_drawn
+
 # Match the Ability ID.
 const CARD_ABILITIES = {
 	"arrow" : preload("res://abilities/bow_and_arrow/bow_and_arrow.tscn"),
@@ -53,6 +55,8 @@ func draw_card(index: int):
 	
 	# Update Player's Icons
 	player.update_side_icon(index + 1, hand[index].card_artwork)
+	
+	card_drawn.emit()
 
 func play_ability():
 	if system_disabled == true: return
