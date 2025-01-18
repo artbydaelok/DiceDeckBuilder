@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=26 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
+[ext_resource type="PackedScene" uid="uid://ca3r7dgfvfj22" path="res://ui/ability_sides_display.tscn" id="1_lwuof"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
 [ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_sei10"]
 [ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="3_cubmp"]
@@ -67,6 +68,15 @@ albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="AbilitySidesDisplay" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("1_lwuof")]
+offset_left = 1119.0
+offset_top = 544.0
+offset_right = 1119.0
+offset_bottom = 544.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+player = NodePath("../../BaseLevel/Player")
+
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,7 +108,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
-custom_minimum_size = Vector2(0, 38)
+custom_minimum_size = Vector2(590, 38)
 layout_mode = 2
 size_flags_vertical = 1
 center_warning_sign_scene = ExtResource("4_qa4f1")

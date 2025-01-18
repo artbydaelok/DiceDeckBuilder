@@ -26,6 +26,8 @@ var y_grid_pos = 0
 
 var grid_pos : Vector2
 
+signal player_moved(direction : Vector2)
+signal roll_finished
 
 # Health Variables
 var health : int = 100
@@ -84,7 +86,9 @@ func roll(dir):
 	if abs(test_dir.x) > 2 or abs(test_dir.y) > 2: 
 		rolling = false
 		return
-		
+
+	player_moved.emit(dir)
+			
 	# Step 1: Offset the pivot.
 	pivot.translate(dir * cube_size / 2)
 	mesh.global_translate(-dir * cube_size / 2)
@@ -111,6 +115,8 @@ func roll(dir):
 	
 	detect_side_up()
 	$MoveSFX.play()
+	
+	roll_finished.emit()
 	
 	energy += 1
 	energy = clamp(energy, 0, 6)
