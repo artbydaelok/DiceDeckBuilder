@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca3r7dgfvfj22"]
+[gd_scene load_steps=11 format=3 uid="uid://ca3r7dgfvfj22"]
 
-[ext_resource type="Texture2D" uid="uid://cyos7u6pbtxid" path="res://assets/ui/DPAD.png" id="1_325es"]
 [ext_resource type="Script" path="res://ui/ability_sides_display.gd" id="1_hk5a5"]
 [ext_resource type="Texture2D" uid="uid://dln6eyq2dee81" path="res://assets/card_artwork/axe.png" id="1_iw1h7"]
+[ext_resource type="Texture2D" uid="uid://gifdeue4l0l2" path="res://player/dice_directions_clip_layer.png" id="2_a15yy"]
+[ext_resource type="Texture2D" uid="uid://bg5m3lg86cx1m" path="res://player/dice_grid.png" id="3_dm72h"]
 
 [sub_resource type="Animation" id="Animation_tcuyl"]
 length = 0.001
@@ -114,6 +115,54 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VerticalGrid:region_rect")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 64, 192)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HorizontalGrid:region_rect")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 64, 192, 64)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VerticalGrid:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("HorizontalGrid:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8mslq"]
 resource_name = "roll_backward"
@@ -165,6 +214,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 32)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VerticalGrid:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(64, 0, 64, 192), Rect2(64, -64, 64, 192)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VerticalGrid:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_oyl22"]
@@ -218,6 +291,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -32)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VerticalGrid:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(64, 0, 64, 192), Rect2(64, 64, 64, 192)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VerticalGrid:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_irep2"]
 resource_name = "roll_left"
@@ -269,6 +366,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-32, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HorizontalGrid:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 64, 192, 64), Rect2(64, 64, 192, 64)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HorizontalGrid:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_0t0sr"]
@@ -322,6 +443,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(32, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HorizontalGrid:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 64, 192, 64), Rect2(-64, 64, 192, 64)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HorizontalGrid:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nrngb"]
 _data = {
@@ -339,7 +484,24 @@ script = ExtResource("1_hk5a5")
 
 [node name="Background" type="Sprite2D" parent="."]
 clip_children = 2
-texture = ExtResource("1_325es")
+texture = ExtResource("2_a15yy")
+
+[node name="BackgroundGrid" type="Sprite2D" parent="Background"]
+texture = ExtResource("3_dm72h")
+
+[node name="HorizontalGrid" type="Sprite2D" parent="Background"]
+visible = false
+texture_repeat = 2
+texture = ExtResource("3_dm72h")
+region_enabled = true
+region_rect = Rect2(0, 64, 192, 64)
+
+[node name="VerticalGrid" type="Sprite2D" parent="Background"]
+visible = false
+texture_repeat = 2
+texture = ExtResource("3_dm72h")
+region_enabled = true
+region_rect = Rect2(64, 0, 64, 192)
 
 [node name="Left" type="Sprite2D" parent="Background"]
 position = Vector2(-64, 0)
