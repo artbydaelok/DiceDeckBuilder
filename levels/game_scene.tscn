@@ -105,6 +105,7 @@ theme_override_constants/separation = 36
 alignment = 1
 
 [node name="HandDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("1_wvyn2")]
+visible = false
 layout_mode = 2
 
 [node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]

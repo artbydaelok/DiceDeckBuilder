@@ -3,6 +3,8 @@ extends Control
 @export var player: Node
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var background: Sprite2D = $Background
+
 @onready var left: Sprite2D = $Background/Left
 @onready var extra_left: Sprite2D = $Background/ExtraLeft
 @onready var right: Sprite2D = $Background/Right
@@ -36,6 +38,9 @@ func play_animation(dir : Vector3):
 
 
 func update_sprites():
+	for child in background.get_children():
+		child.offset = Vector2.ZERO
+	
 	# Matches the active texture to the center.
 	center.texture = player.mesh.get_child(player.up_side).get_child(0).texture
 	
@@ -231,5 +236,4 @@ func update_sprites():
 	extra_right.texture = opposite_texture
 	extra_top.texture  = opposite_texture
 	
-	animation_player.play("RESET")
 	
