@@ -143,7 +143,6 @@ billboard = 2
 double_sided = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_mvvin")
-animation = &"hammer_down"
 autoplay = "default"
 
 [node name="HammerAttackTimer" type="Timer" parent="." index="2"]

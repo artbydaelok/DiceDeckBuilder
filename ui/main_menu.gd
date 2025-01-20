@@ -14,3 +14,7 @@ func _on_options_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_main_menu_music_finished() -> void:
+	$MainMenuMusic.play()

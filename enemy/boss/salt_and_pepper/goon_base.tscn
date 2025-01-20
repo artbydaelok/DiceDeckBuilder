@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg37ixy4ai1p8"]
+
+[ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/goon_base.gd" id="1_63bdl"]
+[ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="2_t4mul"]
+
+[node name="GoonBase" type="Node3D"]
+script = ExtResource("1_63bdl")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+
+[node name="TempSprite" type="Sprite3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+texture = ExtResource("2_t4mul")
+
+[node name="BulletLeftSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
+
+[node name="BulletRightSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

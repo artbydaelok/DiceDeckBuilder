@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpcrrorybckw7"]
+[gd_scene load_steps=5 format=3 uid="uid://dpcrrorybckw7"]
 
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="1_01lm7"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_s1uph"]
 [ext_resource type="PackedScene" uid="uid://dpgklwmdgcka1" path="res://ui/level_select.tscn" id="3_37t1e"]
+[ext_resource type="AudioStream" uid="uid://bfda4jk3pw1w4" path="res://music/drunk in space.wav" id="4_a18ga"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_s1uph")
@@ -71,7 +72,13 @@ text = "Exit Game"
 [node name="LevelSelectMenu" parent="UI" instance=ExtResource("3_37t1e")]
 visible = false
 
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_a18ga")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/EditDeckButton" to="." method="_on_edit_deck_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="finished" from="MainMenuMusic" to="." method="_on_main_menu_music_finished"]

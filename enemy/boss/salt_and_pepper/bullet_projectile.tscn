@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://4w0fpalmk12o"]
+
+[ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/bullet_projectile.gd" id="1_10idr"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_6y08p"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tgqrv"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bttl"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fbyvg"]
+radius = 0.1
+height = 0.5
+
+[node name="BulletProjectile" type="RigidBody3D" groups=["enemy_projectiles"]]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_10idr")
+
+[node name="BulletMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_tgqrv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.00426263, 0.999991, 0.000773302, -0.999991, -0.00426204, -0.000761044, -0.000757747, -0.000776534, 0.999999, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0bttl")
+
+[node name="SelfDestroyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Hitbox" parent="." instance=ExtResource("2_6y08p")]
+collision_layer = 4
+collision_mask = 8
+damage = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_fbyvg")
+
+[connection signal="timeout" from="SelfDestroyTimer" to="." method="_on_self_destroy_timer_timeout"]
+[connection signal="on_hit" from="Hitbox" to="." method="_on_hitbox_on_hit"]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmmljkg2cm7ni"]
+
+[ext_resource type="PackedScene" uid="uid://bj0n4kvfagpx3" path="res://enemy/boss/boss_enemy.tscn" id="1_wg6d3"]
+
+[node name="SaltAndPepper" instance=ExtResource("1_wg6d3")]

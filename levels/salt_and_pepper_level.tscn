@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://doqfy3mapatxr"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
+[ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
+[ext_resource type="PackedScene" uid="uid://dx14efl8v6d1j" path="res://enemy/boss/salt_and_pepper/salt_shaker_spawner.tscn" id="3_4ccog"]
+[ext_resource type="PackedScene" uid="uid://dg37ixy4ai1p8" path="res://enemy/boss/salt_and_pepper/goon_base.tscn" id="3_6t1ft"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_126d3"]
+size = Vector3(4, 1, 10)
+
+[node name="SaltAndPepperLevel" instance=ExtResource("1_ijhq5")]
+
+[node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="0" node_paths=PackedStringArray("boss")]
+boss = NodePath("../../../BaseLevel/SaltAndPepper")
+
+[node name="SaltAndPepper" parent="BaseLevel" index="6" node_paths=PackedStringArray("user_interface") instance=ExtResource("2_tse10")]
+user_interface = NodePath("../../UI")
+
+[node name="SaltTriggerArea" type="Area3D" parent="BaseLevel" index="7"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/SaltTriggerArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+shape = SubResource("BoxShape3D_126d3")
+
+[node name="PepperTriggerArea" type="Area3D" parent="BaseLevel" index="8"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BaseLevel/PepperTriggerArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+shape = SubResource("BoxShape3D_126d3")
+
+[node name="SaltShakerSpawner" parent="BaseLevel" index="9" node_paths=PackedStringArray("trigger_area") instance=ExtResource("3_4ccog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 10, 0)
+trigger_area = NodePath("../SaltTriggerArea")
+
+[node name="SaltGoon" parent="." index="3" node_paths=PackedStringArray("trigger_area") instance=ExtResource("3_6t1ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, -4)
+trigger_area = NodePath("../BaseLevel/PepperTriggerArea")
+
+[node name="SaltGoon2" parent="." index="4" node_paths=PackedStringArray("trigger_area") instance=ExtResource("3_6t1ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, 0)
+trigger_area = NodePath("../BaseLevel/PepperTriggerArea")
+
+[node name="PepperGoon" parent="." index="5" node_paths=PackedStringArray("trigger_area") instance=ExtResource("3_6t1ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, -2)
+shoot_left = true
+trigger_area = NodePath("../BaseLevel/SaltTriggerArea")
+
+[node name="PepperGoon2" parent="." index="6" node_paths=PackedStringArray("trigger_area") instance=ExtResource("3_6t1ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, 2)
+shoot_left = true
+trigger_area = NodePath("../BaseLevel/SaltTriggerArea")
