@@ -11,6 +11,7 @@
 size = Vector3(1, 1.67993, 0.3479)
 
 [node name="AxeProjectile" type="RigidBody3D"]
+collision_layer = 3
 script = ExtResource("1_lfw1k")
 
 [node name="Axe" parent="." instance=ExtResource("1_33ehh")]

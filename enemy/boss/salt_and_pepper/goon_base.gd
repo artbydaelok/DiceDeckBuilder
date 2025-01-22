@@ -14,12 +14,24 @@ var entities_layer
 
 var keep_shooting : bool = false
 
+@onready var attack_delay_timer: Timer = $AttackDelayTimer
+@export var shoot_time_offset : float = 0.0
+
+@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var shot_sfx: AudioStreamPlayer = $ShotSFX
+
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	if shoot_left:
+		animated_sprite_3d.flip_h = true
 	trigger_area.body_entered.connect(begin_attack)
 	trigger_area.body_exited.connect(stop_attack)
 
 func begin_attack(player):
+	if shoot_time_offset > 0.0:
+		attack_delay_timer.wait_time = shoot_time_offset
+		attack_delay_timer.start()
+		await attack_delay_timer.timeout
 	shoot_timer.start()
 	keep_shooting = true
 	
@@ -38,10 +50,17 @@ func shoot():
 		direction = Vector3.RIGHT
 		bullet.global_position = bullet_right_spawn.global_position
 	
-	bullet.shoot(direction, 12.0)
+	shot_sfx.play()
 	
+	bullet.shoot(direction, 12.0)
+	animated_sprite_3d.play("shoot")
 	if keep_shooting:
 		shoot_timer.start()
 
 func _on_shoot_timer_timeout() -> void:
 	shoot()
+
+
+func _on_animated_sprite_3d_animation_finished() -> void:
+	if animated_sprite_3d.animation == "shoot()":
+		animated_sprite_3d.play("default")

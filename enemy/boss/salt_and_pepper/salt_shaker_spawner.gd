@@ -24,7 +24,7 @@ func stop_attack(player):
 func spawn_grenade():
 	var grenade = SALT_GRENADE.instantiate()
 	entities_layer.add_child(grenade)
-	grenade.global_position = global_position + Vector3(randi_range(-1, 1), 0, randi_range(-4, 4))
+	grenade.global_position = global_position + Vector3(randi_range(-2, 2) * 2, 0, randi_range(-2, 2) * 2)
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_grenade()

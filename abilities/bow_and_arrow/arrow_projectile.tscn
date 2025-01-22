@@ -9,6 +9,7 @@
 size = Vector3(5.88037, 0.493164, 0.448364)
 
 [node name="ArrowProjectile" type="RigidBody3D"]
+collision_layer = 3
 script = ExtResource("1_gmh72")
 
 [node name="Arrow" parent="." instance=ExtResource("1_reqdr")]

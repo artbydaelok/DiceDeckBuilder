@@ -1,24 +1,91 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg37ixy4ai1p8"]
+[gd_scene load_steps=11 format=3 uid="uid://dg37ixy4ai1p8"]
 
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/goon_base.gd" id="1_63bdl"]
+[ext_resource type="Texture2D" uid="uid://dqeop0yk6vir0" path="res://assets/spritesheets/Gunslinger 48x48 Sprite Sheet GUN 1.png" id="2_ihb3b"]
 [ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="2_t4mul"]
+[ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://sounds/gunshot-1.wav" id="4_rwk4l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sryu3"]
+atlas = ExtResource("2_ihb3b")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6lwy"]
+atlas = ExtResource("2_ihb3b")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heej2"]
+atlas = ExtResource("2_ihb3b")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7183"]
+atlas = ExtResource("2_ihb3b")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joyh3"]
+atlas = ExtResource("2_ihb3b")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lf7il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sryu3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6lwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heej2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7183")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joyh3")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
 
 [node name="GoonBase" type="Node3D"]
 script = ExtResource("1_63bdl")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 4, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_lf7il")
+animation = &"shoot"
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="TempSprite" type="Sprite3D" parent="."]
 transform = Transform3D(2.5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+visible = false
 texture = ExtResource("2_t4mul")
 
 [node name="BulletLeftSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
 
 [node name="BulletRightSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="AttackDelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShotSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rwk4l")
+volume_db = -6.0
+bus = &"SFX"
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

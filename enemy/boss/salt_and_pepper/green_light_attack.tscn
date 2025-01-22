@@ -1,0 +1,160 @@
+[gd_scene load_steps=14 format=3 uid="uid://d2npjwddn3l25"]
+
+[ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/green_light_attack.gd" id="1_hrwv2"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="1_ls8fa"]
+[ext_resource type="Texture2D" uid="uid://eqniapwq4v7x" path="res://assets/3d_models/cars/car5_green.png" id="2_6d3h5"]
+[ext_resource type="ArrayMesh" uid="uid://dsmeuroytk540" path="res://assets/3d_models/cars/Car5.obj" id="2_m1cw1"]
+[ext_resource type="Texture2D" uid="uid://d2jvaroki1ewd" path="res://assets/boss_sprites/TrafficLight.png" id="5_kqshj"]
+
+[sub_resource type="Animation" id="Animation_feepl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_q86vh"]
+resource_name = "green_light_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0.5, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ejrpd"]
+_data = {
+"RESET": SubResource("Animation_feepl"),
+"green_light_attack": SubResource("Animation_q86vh")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj3m3"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_6d3h5")
+
+[sub_resource type="Curve" id="Curve_3xe14"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.16092, 1), 0.0, 0.0, 0, 0, Vector2(0.881226, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_wt20h"]
+curve = SubResource("Curve_3xe14")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3g1dt"]
+emission_shape_scale = Vector3(0.75, 0.01, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 1)
+spread = 0.0
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_wt20h")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hyy3n"]
+size = Vector3(2, 1, 6)
+
+[node name="GreenLightAttack" type="Node3D"]
+script = ExtResource("1_hrwv2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ejrpd")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_oj3m3")
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_3g1dt")
+draw_pass_1 = ExtResource("2_m1cw1")
+
+[node name="Hitbox" parent="." instance=ExtResource("1_ls8fa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_hyy3n")
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="TrafficLight" type="Sprite3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2, 0)
+texture_filter = 0
+texture = ExtResource("5_kqshj")
+hframes = 4
+region_rect = Rect2(0, 0, 64, 32)
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
