@@ -20,6 +20,8 @@ var keep_shooting : bool = false
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 @onready var shot_sfx: AudioStreamPlayer = $ShotSFX
 
+@export var traffic_light : Node3D
+
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	if shoot_left:
@@ -39,6 +41,11 @@ func stop_attack(player):
 	keep_shooting = false
 
 func shoot():
+	if not traffic_light.is_green: 
+		if keep_shooting:
+			shoot_timer.start()
+		return
+		
 	var bullet = BULLET_PROJECTILE.instantiate()
 	entities_layer.add_child(bullet)
 	

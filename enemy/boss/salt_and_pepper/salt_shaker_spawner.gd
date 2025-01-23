@@ -9,6 +9,8 @@ var active : bool = false
 
 var entities_layer
 
+@export var traffic_light : Node3D
+
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	trigger_area.body_entered.connect(begin_attack)
@@ -22,6 +24,8 @@ func stop_attack(player):
 	active = false
 
 func spawn_grenade():
+	if traffic_light.is_green:
+		return
 	var grenade = SALT_GRENADE.instantiate()
 	entities_layer.add_child(grenade)
 	grenade.global_position = global_position + Vector3(randi_range(-2, 2) * 2, 0, randi_range(-2, 2) * 2)

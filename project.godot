@@ -30,6 +30,7 @@ entities_layer=""
 player=""
 boss=""
 enemy_projectiles=""
+explosive_barrel=""
 
 [importer_defaults]
 

@@ -73,7 +73,7 @@ _data = {
 "landing": SubResource("Animation_55y3v")
 }
 
-[node name="ExplosiveBarrel" type="RigidBody3D"]
+[node name="ExplosiveBarrel" type="RigidBody3D" groups=["explosive_barrel"]]
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true

@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2npjwddn3l25"]
+[gd_scene load_steps=17 format=3 uid="uid://d2npjwddn3l25"]
 
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/green_light_attack.gd" id="1_hrwv2"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="1_ls8fa"]
 [ext_resource type="Texture2D" uid="uid://eqniapwq4v7x" path="res://assets/3d_models/cars/car5_green.png" id="2_6d3h5"]
+[ext_resource type="Texture2D" uid="uid://w14ggvti3m7v" path="res://assets/3d_models/cars/car_red.png" id="2_cubmh"]
 [ext_resource type="ArrayMesh" uid="uid://dsmeuroytk540" path="res://assets/3d_models/cars/Car5.obj" id="2_m1cw1"]
+[ext_resource type="ArrayMesh" uid="uid://xhvhtlcbax4e" path="res://assets/3d_models/cars/Car.obj" id="3_1rrop"]
 [ext_resource type="Texture2D" uid="uid://d2jvaroki1ewd" path="res://assets/boss_sprites/TrafficLight.png" id="5_kqshj"]
 
 [sub_resource type="Animation" id="Animation_feepl"]
@@ -11,7 +13,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/path = NodePath("RedCarParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,20 +46,71 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
-
-[sub_resource type="Animation" id="Animation_q86vh"]
-resource_name = "green_light_attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles3D:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TrafficLight:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TrafficLight:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4, 4, 4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GreenCarParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_to_red"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_q86vh"]
+resource_name = "green_light_attack"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RedCarParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,7 +119,7 @@ tracks/1/path = NodePath("Hitbox/CollisionShape3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(1.8, 2.13333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0.5, 0), Vector3(0, 0.5, 10)]
@@ -78,10 +131,60 @@ tracks/2/path = NodePath("Hitbox/CollisionShape3D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(1.8, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TrafficLight:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TrafficLight:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.8, 0.866667, 1, 1.6, 1.66667, 1.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(4, 4, 4), Vector3(5, 5, 5), Vector3(4, 4, 4), Vector3(4, 4, 4), Vector3(5, 5, 5), Vector3(4, 4, 4), Vector3(4, 4, 4), Vector3(5, 5, 5), Vector3(4, 4, 4), Vector3(4, 4, 4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GreenCarParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_to_green"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ejrpd"]
@@ -90,9 +193,8 @@ _data = {
 "green_light_attack": SubResource("Animation_q86vh")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj3m3"]
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_6d3h5")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8unw"]
+albedo_texture = ExtResource("2_cubmh")
 
 [sub_resource type="Curve" id="Curve_3xe14"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.16092, 1), 0.0, 0.0, 0, 0, Vector2(0.881226, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -114,8 +216,12 @@ scale_min = 0.3
 scale_max = 0.3
 scale_curve = SubResource("CurveTexture_wt20h")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj3m3"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_6d3h5")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_hyy3n"]
-size = Vector3(2, 1, 6)
+size = Vector3(2, 1, 10)
 
 [node name="GreenLightAttack" type="Node3D"]
 script = ExtResource("1_hrwv2")
@@ -125,12 +231,19 @@ libraries = {
 "": SubResource("AnimationLibrary_ejrpd")
 }
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="RedCarParticles" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_g8unw")
+emitting = false
+lifetime = 0.5
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_3g1dt")
+draw_pass_1 = ExtResource("3_1rrop")
+
+[node name="GreenCarParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_oj3m3")
 emitting = false
-amount = 16
 lifetime = 0.5
-one_shot = true
 randomness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_3g1dt")
@@ -148,13 +261,15 @@ disabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 4.0
+one_shot = true
 autostart = true
 
 [node name="TrafficLight" type="Sprite3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 3, 0)
 texture_filter = 0
 texture = ExtResource("5_kqshj")
 hframes = 4
+frame = 1
 region_rect = Rect2(0, 0, 64, 32)
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

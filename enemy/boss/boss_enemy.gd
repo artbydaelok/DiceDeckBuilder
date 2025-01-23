@@ -39,7 +39,7 @@ func apply_damage(damage_amount):
 		c.setup_and_play("BOSS DEFEATED!")
 		c.menu_return = true
 
-		#queue_free()
+		#queue_free()  
 	
 func on_damage_taken(damage_amount):
 	pass

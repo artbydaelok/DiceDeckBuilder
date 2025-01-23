@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4wqu2evrk3r2"]
+[gd_scene load_steps=11 format=3 uid="uid://c4wqu2evrk3r2"]
 
 [ext_resource type="Texture2D" uid="uid://bq1407ekglx5r" path="res://assets/floor_marker.png" id="1_hx3g5"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="2_22tkf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhpp5"]
+transparency = 4
+depth_draw_mode = 1
+albedo_texture = ExtResource("1_hx3g5")
+texture_filter = 0
 
 [sub_resource type="Animation" id="Animation_lk4ay"]
 resource_name = "Marker"
@@ -90,6 +96,7 @@ _data = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tgqd"]
 transparency = 1
+depth_draw_mode = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0.4)
 
@@ -134,6 +141,9 @@ _data = {
 
 [node name="Marker" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, -7.23998e-06, 2, 0, -2, -7.23998e-06, 0, 0, 0)
+sorting_offset = 10.0
+material_override = SubResource("StandardMaterial3D_lhpp5")
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_hx3g5")
 

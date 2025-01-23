@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=27 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="PackedScene" uid="uid://ca3r7dgfvfj22" path="res://ui/ability_sides_display.tscn" id="1_lwuof"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="8_umobk"]
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="9_seu18"]
 [ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="11_gqabv"]
+[ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
 bg_color = Color(0.13, 0, 0, 1)
@@ -177,12 +178,13 @@ shadow_enabled = true
 [node name="CSGBoard" type="Node3D" parent="BaseLevel"]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
+visible = false
 material_override = SubResource("StandardMaterial3D_l525f")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-size = Vector3(10, 0.5, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371777, 0)
+size = Vector3(10, 0.35, 10)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
 material_override = SubResource("StandardMaterial3D_8v75t")
@@ -196,7 +198,13 @@ size = Vector3(11, 1, 11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.537861, 0)
 material_override = SubResource("StandardMaterial3D_dhd7d")
 operation = 2
-size = Vector3(10, 1.1, 10)
+size = Vector3(10, 2.38, 10)
+
+[node name="ArenaGrid" type="Sprite3D" parent="BaseLevel"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, -0.05, 0)
+transparent = false
+texture_filter = 0
+texture = ExtResource("11_nanwt")
 
 [node name="CardSystem" parent="." node_paths=PackedStringArray("hand_display", "player") instance=ExtResource("4_cosan")]
 deck = Array[ExtResource("5_joks6")]([ExtResource("6_3lakv"), ExtResource("6_3lakv"), ExtResource("7_vv53a"), ExtResource("7_vv53a"), ExtResource("8_umobk"), ExtResource("8_umobk"), ExtResource("9_seu18"), ExtResource("9_seu18"), ExtResource("11_gqabv"), ExtResource("11_gqabv")])
