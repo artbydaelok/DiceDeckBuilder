@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://4w0fpalmk12o"]
+[gd_scene load_steps=9 format=3 uid="uid://4w0fpalmk12o"]
 
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/bullet_projectile.gd" id="1_10idr"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_6y08p"]
+[ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="3_kowpn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tgqrv"]
 radius = 0.1
@@ -14,6 +15,15 @@ height = 0.5
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fbyvg"]
 radius = 0.1
 height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0t5j"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+
+[sub_resource type="Curve" id="Curve_ou103"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
 
 [node name="BulletProjectile" type="RigidBody3D" groups=["enemy_projectiles"]]
 collision_layer = 4
@@ -41,6 +51,14 @@ damage = 10
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_fbyvg")
+
+[node name="Trail" parent="." instance=ExtResource("3_kowpn")]
+material_override = SubResource("StandardMaterial3D_d0t5j")
+segments = 12
+lifetime = 0.35
+base_width = 0.1
+width_profile = SubResource("Curve_ou103")
+smoothing_iterations = 1
 
 [connection signal="timeout" from="SelfDestroyTimer" to="." method="_on_self_destroy_timer_timeout"]
 [connection signal="on_hit" from="Hitbox" to="." method="_on_hitbox_on_hit"]

@@ -1,55 +1,100 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg37ixy4ai1p8"]
+[gd_scene load_steps=16 format=3 uid="uid://dg37ixy4ai1p8"]
 
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/goon_base.gd" id="1_63bdl"]
-[ext_resource type="Texture2D" uid="uid://dqeop0yk6vir0" path="res://assets/spritesheets/Gunslinger 48x48 Sprite Sheet GUN 1.png" id="2_ihb3b"]
-[ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="2_t4mul"]
+[ext_resource type="Texture2D" uid="uid://hqxc7ku06s7n" path="res://assets/spritesheets/PepperGoonSpritesheet.png" id="2_7hl3d"]
+[ext_resource type="Texture2D" uid="uid://bjimvitu5y48i" path="res://assets/spritesheets/SaltGoonSpritesheet.png" id="3_pdgbe"]
 [ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://sounds/gunshot-1.wav" id="4_rwk4l"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sryu3"]
-atlas = ExtResource("2_ihb3b")
+[sub_resource type="AtlasTexture" id="AtlasTexture_njytg"]
+atlas = ExtResource("2_7hl3d")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6lwy"]
-atlas = ExtResource("2_ihb3b")
+[sub_resource type="AtlasTexture" id="AtlasTexture_seyfx"]
+atlas = ExtResource("2_7hl3d")
 region = Rect2(0, 96, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_heej2"]
-atlas = ExtResource("2_ihb3b")
+[sub_resource type="AtlasTexture" id="AtlasTexture_46v1l"]
+atlas = ExtResource("2_7hl3d")
 region = Rect2(48, 96, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7183"]
-atlas = ExtResource("2_ihb3b")
+[sub_resource type="AtlasTexture" id="AtlasTexture_aewag"]
+atlas = ExtResource("2_7hl3d")
 region = Rect2(96, 96, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_joyh3"]
-atlas = ExtResource("2_ihb3b")
+[sub_resource type="AtlasTexture" id="AtlasTexture_soypn"]
+atlas = ExtResource("2_7hl3d")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1pdk"]
+atlas = ExtResource("3_pdgbe")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61lbg"]
+atlas = ExtResource("3_pdgbe")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f2q7"]
+atlas = ExtResource("3_pdgbe")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm0bc"]
+atlas = ExtResource("3_pdgbe")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xa07"]
+atlas = ExtResource("3_pdgbe")
 region = Rect2(144, 96, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lf7il"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sryu3")
+"texture": SubResource("AtlasTexture_njytg")
 }],
 "loop": true,
-"name": &"default",
+"name": &"pepper_default",
 "speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g6lwy")
+"texture": SubResource("AtlasTexture_seyfx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_heej2")
+"texture": SubResource("AtlasTexture_46v1l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e7183")
+"texture": SubResource("AtlasTexture_aewag")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_joyh3")
+"texture": SubResource("AtlasTexture_soypn")
 }],
 "loop": false,
-"name": &"shoot",
+"name": &"pepper_shoot",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1pdk")
+}],
+"loop": true,
+"name": &"salt_default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61lbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f2q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm0bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xa07")
+}],
+"loop": false,
+"name": &"salt_shoot",
 "speed": 12.0
 }]
 
@@ -60,15 +105,8 @@ script = ExtResource("1_63bdl")
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 4, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_lf7il")
-animation = &"shoot"
-autoplay = "default"
-frame = 3
-frame_progress = 1.0
-
-[node name="TempSprite" type="Sprite3D" parent="."]
-transform = Transform3D(2.5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-visible = false
-texture = ExtResource("2_t4mul")
+animation = &"salt_shoot"
+autoplay = "salt_default"
 
 [node name="BulletLeftSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)

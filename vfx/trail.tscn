@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brvqtcijr86gy"]
+
+[ext_resource type="Script" path="res://vfx/trail.gd" id="1_524pl"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_khf5l"]
+
+[node name="Trail" type="MeshInstance3D"]
+mesh = SubResource("ImmediateMesh_khf5l")
+script = ExtResource("1_524pl")

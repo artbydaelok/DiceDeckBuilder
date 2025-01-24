@@ -26,6 +26,7 @@ func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	if shoot_left:
 		animated_sprite_3d.flip_h = true
+		animated_sprite_3d.play("pepper_default")
 	trigger_area.body_entered.connect(begin_attack)
 	trigger_area.body_exited.connect(stop_attack)
 
@@ -60,7 +61,10 @@ func shoot():
 	shot_sfx.play()
 	
 	bullet.shoot(direction, 12.0)
-	animated_sprite_3d.play("shoot")
+	if shoot_left:
+		animated_sprite_3d.play("pepper_shoot")
+	else:
+		animated_sprite_3d.play("salt_shoot")
 	if keep_shooting:
 		shoot_timer.start()
 
@@ -69,5 +73,8 @@ func _on_shoot_timer_timeout() -> void:
 
 
 func _on_animated_sprite_3d_animation_finished() -> void:
-	if animated_sprite_3d.animation == "shoot()":
-		animated_sprite_3d.play("default")
+	if animated_sprite_3d.animation == "pepper_shoot" or animated_sprite_3d.animation == "salt_shoot":
+		if shoot_left:
+			animated_sprite_3d.play("pepper_default")
+		else:
+			animated_sprite_3d.play("salt_default")

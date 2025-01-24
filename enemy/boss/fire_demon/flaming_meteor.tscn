@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ccbcl7w5wt4ig"]
+[gd_scene load_steps=22 format=3 uid="uid://ccbcl7w5wt4ig"]
 
 [ext_resource type="Script" path="res://enemy/boss/fire_demon/flaming_meteor.gd" id="1_kfmb3"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_rtlne"]
@@ -38,6 +38,13 @@ colors = PackedColorArray(1, 1, 0, 1, 1, 0.2, 0.2, 1, 0, 0, 0, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1jgah"]
 gradient = SubResource("Gradient_0brgs")
 
+[sub_resource type="Curve" id="Curve_n2q2x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yljkr"]
+curve = SubResource("Curve_n2q2x")
+
 [sub_resource type="Curve" id="Curve_ds3q5"]
 _data = [Vector2(0, 0), 0.0, 18.1811, 0, 0, Vector2(0.115473, 0.988646), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -68,6 +75,7 @@ scale_max = 0.5
 scale_curve = SubResource("CurveTexture_m67bq")
 color_ramp = SubResource("GradientTexture1D_1jgah")
 alpha_curve = SubResource("CurveTexture_jqhgk")
+emission_curve = SubResource("CurveTexture_yljkr")
 hue_variation_min = -0.05
 hue_variation_max = 0.05
 turbulence_enabled = true
@@ -79,6 +87,7 @@ turbulence_influence_over_life = SubResource("CurveTexture_3f48x")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqvi6"]
 transparency = 1
+blend_mode = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://i2sd4y0dv6y4"]
+[gd_scene load_steps=14 format=3 uid="uid://i2sd4y0dv6y4"]
 
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/salt_grenade.gd" id="1_l41xd"]
 [ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="2_bre8e"]
 [ext_resource type="Shader" path="res://enemy/boss/salt_and_pepper/salt_grenade.gdshader" id="2_sp1wq"]
 [ext_resource type="ArrayMesh" uid="uid://cddwqj6b34jdm" path="res://assets/3d_models/Bomb.obj" id="3_j1hgj"]
+[ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="5_tpvux"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aru7e"]
 bounce = 0.7
@@ -54,6 +55,14 @@ _data = {
 "warning_flash": SubResource("Animation_omu0u")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6dd3"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Curve" id="Curve_su01k"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
 [node name="SaltGrenade" type="RigidBody3D" groups=["enemy_projectiles"]]
 physics_material_override = SubResource("PhysicsMaterial_aru7e")
 continuous_cd = true
@@ -76,5 +85,11 @@ bus = &"SFX"
 libraries = {
 "": SubResource("AnimationLibrary_8onla")
 }
+
+[node name="Trail" parent="." instance=ExtResource("5_tpvux")]
+material_override = SubResource("StandardMaterial3D_y6dd3")
+lifetime = 0.4
+base_width = 0.25
+width_profile = SubResource("Curve_su01k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

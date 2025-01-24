@@ -38,3 +38,7 @@ func _on_body_entered(body: Node) -> void:
 	if floor_indicator != null:
 		floor_indicator.queue_free()
 	animation_player.play("landing")
+
+
+func _on_other_triggers_area_entered(area: Area3D) -> void:
+	explode()
