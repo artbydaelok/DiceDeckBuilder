@@ -20,15 +20,29 @@ var keep_shooting : bool = false
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 @onready var shot_sfx: AudioStreamPlayer = $ShotSFX
 
+var player : Node3D
+
 @export var traffic_light : Node3D
+@export var boss : Node3D
 
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	player = get_tree().get_first_node_in_group("player")
+	
 	if shoot_left:
 		animated_sprite_3d.flip_h = true
 		animated_sprite_3d.play("pepper_default")
+		
 	trigger_area.body_entered.connect(begin_attack)
 	trigger_area.body_exited.connect(stop_attack)
+
+	traffic_light.red_light.connect(retry_attack)
+
+func retry_attack():
+	if not trigger_area.get_overlapping_bodies().has(player):
+		return
+	else:
+		begin_attack(null)
 
 func begin_attack(player):
 	if shoot_time_offset > 0.0:
@@ -42,9 +56,8 @@ func stop_attack(player):
 	keep_shooting = false
 
 func shoot():
-	if not traffic_light.is_green: 
-		if keep_shooting:
-			shoot_timer.start()
+	if traffic_light.is_green:
+		keep_shooting = false
 		return
 		
 	var bullet = BULLET_PROJECTILE.instantiate()

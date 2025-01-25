@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://d2npjwddn3l25"]
 
-[ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/green_light_attack.gd" id="1_hrwv2"]
+[ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/traffic_light.gd" id="1_hrwv2"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="1_ls8fa"]
 [ext_resource type="Texture2D" uid="uid://eqniapwq4v7x" path="res://assets/3d_models/cars/car5_green.png" id="2_6d3h5"]
 [ext_resource type="Texture2D" uid="uid://w14ggvti3m7v" path="res://assets/3d_models/cars/car_red.png" id="2_cubmh"]
@@ -223,7 +223,7 @@ albedo_texture = ExtResource("2_6d3h5")
 [sub_resource type="BoxShape3D" id="BoxShape3D_hyy3n"]
 size = Vector3(2, 1, 10)
 
-[node name="GreenLightAttack" type="Node3D"]
+[node name="TrafficLight" type="Node3D"]
 script = ExtResource("1_hrwv2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwypnixn8cefh"]
+
+[ext_resource type="Texture2D" uid="uid://ccxs0ddfl8hma" path="res://assets/boss_sprites/SaltAndPepper.png" id="1_mvf7l"]
+[ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/pepper_spray.gd" id="1_qdex7"]
+
+[sub_resource type="Animation" id="Animation_jey74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PepperAnim:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40]
+}
+
+[sub_resource type="Animation" id="Animation_voojb"]
+resource_name = "shots"
+length = 0.750008
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PepperAnim:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [51, 52, 53, 54, 55, 56, 57, 58, 59]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [true],
+"method": &"shoot"
+}, {
+"args": [false],
+"method": &"shoot"
+}, {
+"args": [],
+"method": &"begin_rotation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yr1fp"]
+_data = {
+"RESET": SubResource("Animation_jey74"),
+"shots": SubResource("Animation_voojb")
+}
+
+[node name="PepperSpray" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("1_qdex7")
+
+[node name="PepperAnim" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_mvf7l")
+hframes = 10
+vframes = 6
+frame = 40
+
+[node name="LeftGun" type="Marker3D" parent="PepperAnim"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.25, 0.05, 0)
+
+[node name="RightGun" type="Marker3D" parent="PepperAnim"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.25, 0.05, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yr1fp")
+}
+autoplay = "shots"

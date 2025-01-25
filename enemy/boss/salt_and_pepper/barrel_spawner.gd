@@ -16,12 +16,13 @@ var _offsets_to_ignore : Dictionary
 
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
-	trigger_area.body_entered.connect(begin_attack)
-	trigger_area.body_exited.connect(stop_attack)
+	#trigger_area.body_entered.connect(begin_attack)
+	#trigger_area.body_exited.connect(stop_attack)
+	traffic_light.green_light.connect(spawn_barrel)
 
 func spawn_barrel():
 	for i in range(spawn_amount):
-		if get_tree().get_nodes_in_group("explosive_barrel").size() > 3 or traffic_light.is_green:
+		if get_tree().get_nodes_in_group("explosive_barrel").size() > 3:
 			return
 			
 		var random_offset : Vector3 = Vector3(randi_range(1,2) * 2 * (randi() % 2 * 2 - 1), 0, randi_range(-2,1) * 2)

@@ -102,17 +102,17 @@ animations = [{
 script = ExtResource("1_63bdl")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 4, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 2, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_lf7il")
 animation = &"salt_shoot"
 autoplay = "salt_default"
 
 [node name="BulletLeftSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 
 [node name="BulletRightSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
