@@ -203,6 +203,7 @@ size = Vector3(10, 2.38, 10)
 [node name="ArenaGrid" type="Sprite3D" parent="BaseLevel"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, -0.05, 0)
 transparent = false
+shaded = true
 texture_filter = 0
 texture = ExtResource("11_nanwt")
 

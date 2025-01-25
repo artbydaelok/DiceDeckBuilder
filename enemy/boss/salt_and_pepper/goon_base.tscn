@@ -103,6 +103,7 @@ script = ExtResource("1_63bdl")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 2, 0)
+shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_lf7il")
 animation = &"salt_shoot"

@@ -36,8 +36,8 @@ func spawn_barrel():
 		entities_layer.add_child(barrel)
 		
 		barrel.exploded.connect(allow_offset)
-		
 		barrel.global_position = global_position + random_offset
+		barrel.spawn_pos = Vector3(barrel.global_position.x, 0, barrel.global_position.z)
 
 func allow_offset(barrel_to_assess):
 	_offsets_to_ignore.erase(barrel_to_assess)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ha7xmmnonvrm"]
+
+[ext_resource type="ArrayMesh" uid="uid://n3dfmxo5np3f" path="res://assets/3d_models/lamp_post.obj" id="1_er647"]
+[ext_resource type="Script" path="res://assets/3d_models/lamp_post.gd" id="1_gbsf4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajb20"]
+albedo_color = Color(0.238, 0.2397, 0.34, 1)
+metallic = 0.6
+
+[node name="LampPost" type="Node3D"]
+script = ExtResource("1_gbsf4")
+
+[node name="LampPost" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ajb20")
+mesh = ExtResource("1_er647")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.5, 4, 0)
+visible = false
+light_energy = 8.0
+spot_range = 6.0

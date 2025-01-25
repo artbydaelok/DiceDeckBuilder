@@ -24,6 +24,8 @@ var rolling = false
 var x_grid_pos = 0
 var y_grid_pos = 0
 
+var disabled_pos = []
+
 var grid_pos : Vector2
 
 signal player_moved(direction : Vector2)
@@ -82,8 +84,8 @@ func roll(dir):
 	rolling = true
 
 	var test_dir = grid_pos + Vector2(dir.x, dir.z)
-
-	if abs(test_dir.x) > 2 or abs(test_dir.y) > 2: 
+	
+	if abs(test_dir.x) > 2 or abs(test_dir.y) > 2 or disabled_pos.has(test_dir): 
 		rolling = false
 		return
 
@@ -125,6 +127,13 @@ func roll(dir):
 	if is_dead:
 		$DeathAnimation.play("death")
 
+func add_blocked_pos(blocked_pos: Vector2):
+	disabled_pos.append(blocked_pos)
+	print("Adding " + str(blocked_pos))
+	
+func remove_blocked_pos(blocked_pos: Vector2):
+	disabled_pos.erase(blocked_pos)
+	print("Removing " + str(blocked_pos))
 
 func detect_side_up():
 	for s in sides:

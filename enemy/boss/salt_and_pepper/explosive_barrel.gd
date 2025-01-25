@@ -8,6 +8,9 @@ var floor_indicator
 
 signal exploded(this_barrel)
 
+# This is used for reference to block off the tile. 
+var spawn_pos : Vector3
+
 func _ready() -> void:
 	place_warning.call_deferred()
 
@@ -24,6 +27,9 @@ func explode():
 	exploded.emit(self)
 	if floor_indicator != null:
 		floor_indicator.queue_free()
+	
+	# Remove Blocked Position from player node
+	get_tree().get_first_node_in_group("player").remove_blocked_pos(Vector2(spawn_pos.x / 2, spawn_pos.z / 2))
 	# Destroy Grenade
 	queue_free()
 
@@ -38,6 +44,7 @@ func _on_body_entered(body: Node) -> void:
 	if floor_indicator != null:
 		floor_indicator.queue_free()
 	animation_player.play("landing")
+	get_tree().get_first_node_in_group("player").add_blocked_pos(Vector2(spawn_pos.x / 2, spawn_pos.z / 2))
 
 
 func _on_other_triggers_area_entered(area: Area3D) -> void:

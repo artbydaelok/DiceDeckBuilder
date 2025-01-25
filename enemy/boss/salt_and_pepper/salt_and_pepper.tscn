@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cmmljkg2cm7ni"]
+[gd_scene load_steps=21 format=3 uid="uid://cmmljkg2cm7ni"]
 
 [ext_resource type="PackedScene" uid="uid://bj0n4kvfagpx3" path="res://enemy/boss/boss_enemy.tscn" id="1_wg6d3"]
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.gd" id="2_lxwrc"]
@@ -94,62 +94,6 @@ animations = [{
 atlas = ExtResource("3_dhkk7")
 region = Rect2(0, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4pbd"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(0, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cun74"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(64, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lprr0"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(128, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_guffj"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(192, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8etl"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(256, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4jdx"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(320, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b2e40"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(384, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_neao0"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(448, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4b05o"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(512, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufoya"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(576, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2tg3"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(0, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwbmd"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(64, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_krgva"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(128, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sdckm"]
-atlas = ExtResource("3_dhkk7")
-region = Rect2(192, 256, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_7t6ql"]
 animations = [{
 "frames": [{
@@ -159,59 +103,69 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j4pbd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cun74")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lprr0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_guffj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h8etl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b4jdx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b2e40")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_neao0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4b05o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ufoya")
-}],
-"loop": true,
-"name": &"shoot",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x2tg3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lwbmd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_krgva")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sdckm")
-}],
-"loop": false,
-"name": &"show_guns",
-"speed": 12.0
 }]
+
+[sub_resource type="Animation" id="Animation_j4he2"]
+resource_name = "PepperSpin"
+length = 2.00001
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PepperSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 80.1106, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PepperSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_livrp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PepperSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PepperSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkc8r"]
+_data = {
+"PepperSpin": SubResource("Animation_j4he2"),
+"RESET": SubResource("Animation_livrp")
+}
 
 [node name="SaltAndPepper" instance=ExtResource("1_wg6d3")]
 script = ExtResource("2_lxwrc")
@@ -242,4 +196,9 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_7t6ql")
 autoplay = "default"
 
-[connection signal="animation_finished" from="PepperSprite" to="." method="_on_pepper_sprite_animation_finished"]
+[node name="PepperAnimations" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_fkc8r")
+}
+
+[connection signal="animation_finished" from="PepperAnimations" to="." method="_on_pepper_animations_animation_finished"]

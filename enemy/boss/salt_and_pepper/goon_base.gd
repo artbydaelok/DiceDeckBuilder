@@ -25,6 +25,8 @@ var player : Node3D
 @export var traffic_light : Node3D
 @export var boss : Node3D
 
+@export var lamp_post : Node3D
+
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	player = get_tree().get_first_node_in_group("player")
@@ -45,6 +47,7 @@ func retry_attack():
 		begin_attack(null)
 
 func begin_attack(player):
+	lamp_post.turn_light_on()
 	if shoot_time_offset > 0.0:
 		attack_delay_timer.wait_time = shoot_time_offset
 		attack_delay_timer.start()
@@ -53,6 +56,7 @@ func begin_attack(player):
 	keep_shooting = true
 	
 func stop_attack(player):
+	lamp_post.turn_light_off()
 	keep_shooting = false
 
 func shoot():
