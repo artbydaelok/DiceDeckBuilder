@@ -32,10 +32,12 @@ visible = true
 [node name="CSGCombiner3D2" parent="BaseLevel/CSGBoard" index="1"]
 visible = false
 
-[node name="SaltAndPepper" parent="BaseLevel" index="6" node_paths=PackedStringArray("traffic_light", "pepper_spray", "user_interface") instance=ExtResource("2_tse10")]
+[node name="SaltAndPepper" parent="BaseLevel" index="6" node_paths=PackedStringArray("traffic_light", "salt_trigger_area", "pepper_spray", "pepper_trigger_area", "user_interface") instance=ExtResource("2_tse10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 traffic_light = NodePath("../TrafficLight")
+salt_trigger_area = NodePath("../SaltTriggerArea")
 pepper_spray = NodePath("../PepperSpray")
+pepper_trigger_area = NodePath("../PepperTriggerArea")
 user_interface = NodePath("../../UI")
 
 [node name="SaltTriggerArea" type="Area3D" parent="BaseLevel" index="7"]
@@ -109,7 +111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
 [node name="PepperSpray" parent="BaseLevel" index="18" instance=ExtResource("8_pc16s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46657, 0)
-visible = false
 
 [node name="Tunnel" type="MeshInstance3D" parent="BaseLevel" index="19"]
 transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, 0, -7.5)
