@@ -50,7 +50,7 @@ autostart = true
 [node name="Hitbox" parent="." instance=ExtResource("2_6y08p")]
 collision_layer = 4
 collision_mask = 8
-damage = 10
+damage = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)

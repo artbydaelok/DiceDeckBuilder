@@ -36,7 +36,10 @@ func shoot(left_side: bool = false):
 		bullet.global_position = right_gun.global_position
 		var direction = pepper_anim.global_position.direction_to(right_gun.global_position)
 		bullet.shoot(Vector3(direction.x, 0, direction.z), 12.0)
-		
+	
+	$ShotSFX.pitch_scale = randf_range(1.2, 1.6)
+	$ShotSFX.play()
+	
 func begin_rotation():
 	pepper_anim.rotate_y(PI/5)
 	if pepper_anim.rotation.y < 0.0:

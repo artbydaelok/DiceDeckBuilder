@@ -22,13 +22,13 @@ func _ready() -> void:
 
 func spawn_barrel():
 	for i in range(spawn_amount):
-		if get_tree().get_nodes_in_group("explosive_barrel").size() > 3:
+		if get_tree().get_nodes_in_group("explosive_barrel").size() > 2:
 			return
 			
 		var random_offset : Vector3 = Vector3(randi_range(1,2) * 2 * (randi() % 2 * 2 - 1), 0, randi_range(-2,1) * 2)
 		
 		while _offsets_to_ignore.values().has(random_offset):
-			random_offset = Vector3(randi_range(1,2) * 2 * (randi() % 2 * 2 - 1), 0, randi_range(-2,1) * 2)
+			random_offset = Vector3(randi_range(1,2) * 2 * (randi() % 2 * 2 - 1), 0, randi_range(-2,0) * 2)
 		
 		var barrel = EXPLOSIVE_BARREL.instantiate()
 		_offsets_to_ignore[barrel] = random_offset

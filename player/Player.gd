@@ -34,6 +34,7 @@ signal roll_finished
 # Health Variables
 var health : int = 100
 var is_dead : bool = false
+var invulnerable : bool = false
 signal player_damaged(damage_amount : float)
 signal player_healed(heal_amount : float)
 signal player_health_updated(new_health : float)
@@ -163,6 +164,8 @@ func heal_player(amount : float):
 	player_health_updated.emit(health)
 
 func apply_damage(amount : float):
+	if invulnerable: return
+	invulnerable = true
 	health -= amount
 	health = clampf(health, 0, 100)
 	player_damaged.emit(amount)
@@ -176,6 +179,10 @@ func apply_damage(amount : float):
 		player_died.emit()
 		if not rolling:
 			$DeathAnimation.play("death")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	invulnerable = false
 	
 func begin_attack_commit(commit_time : float):
 	commit_lock_timer.wait_time = commit_time

@@ -26,6 +26,9 @@ texture_filter = 0
 [node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="0" node_paths=PackedStringArray("boss")]
 boss = NodePath("../../../BaseLevel/SaltAndPepper")
 
+[node name="Camera3D" parent="BaseLevel" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8, 7.5)
+
 [node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
 visible = true
 

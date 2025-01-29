@@ -15,15 +15,20 @@ func _on_attack_timer_timeout() -> void:
 		attack_timer.start()
 	if is_green:
 		animation_player.play("RESET")
-		attack_timer.wait_time = 8.0
+		attack_timer.wait_time = 12.0
 		attack_timer.start()
 		
 # This function gets called in the animation player.
 func change_to_green():
 	is_green = true
 	green_light.emit()
+	$CarsSFX.play()
 	
 # This function gets called in the animation player.
 func change_to_red():
 	is_green = false
 	red_light.emit()
+
+func play_light_change_sfx(pitch : float):
+	$LightChangeSFX.pitch_scale = pitch
+	$LightChangeSFX.play()
