@@ -12,6 +12,8 @@ var entities_layer
 @export var traffic_light : Node3D
 @export var boss : Node3D
 
+var used_pos : Array[Vector3]
+
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	trigger_area.body_entered.connect(set_active)
@@ -38,12 +40,21 @@ func begin_attack():
 func stop_attack():
 	spawn_timer.stop()
 	boss.stop_salt_grenades()
+	used_pos.clear()
 
 # This instantiates grenades randomly above the arena. 
 func spawn_grenade():
 	var grenade = SALT_GRENADE.instantiate()
 	entities_layer.add_child(grenade)
-	grenade.global_position = global_position + Vector3(randi_range(-2, 2) * 2, 0, randi_range(-2, 2) * 2)
+	
+	var _pos = global_position + Vector3(randi_range(-2, 2) * 2, 0, randi_range(-2, 2) * 2)
+	
+	while used_pos.has(_pos):
+		_pos = global_position + Vector3(randi_range(-2, 2) * 2, 0, randi_range(-2, 2) * 2)
+		
+	used_pos.append(_pos)
+	
+	grenade.global_position = _pos 
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_grenade()

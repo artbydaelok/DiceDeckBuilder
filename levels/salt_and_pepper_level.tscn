@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://doqfy3mapatxr"]
+[gd_scene load_steps=15 format=3 uid="uid://doqfy3mapatxr"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
 [ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
 [ext_resource type="PackedScene" uid="uid://dx14efl8v6d1j" path="res://enemy/boss/salt_and_pepper/salt_shaker_spawner.tscn" id="3_4ccog"]
 [ext_resource type="PackedScene" uid="uid://dg37ixy4ai1p8" path="res://enemy/boss/salt_and_pepper/goon_base.tscn" id="3_6t1ft"]
-[ext_resource type="PackedScene" uid="uid://c1prtdvqibusl" path="res://enemy/boss/salt_and_pepper/barrel_spawner.tscn" id="4_g72qh"]
 [ext_resource type="PackedScene" uid="uid://d2npjwddn3l25" path="res://enemy/boss/salt_and_pepper/traffic_light.tscn" id="5_8art5"]
 [ext_resource type="Texture2D" uid="uid://lebimpirodok" path="res://assets/BasicRoad.png" id="6_o5pla"]
 [ext_resource type="AudioStream" uid="uid://dc1f2qpo2xlol" path="res://music/deep swing.wav" id="7_gj5ir"]
@@ -65,32 +64,27 @@ trigger_area = NodePath("../SaltTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 boss = NodePath("../SaltAndPepper")
 
-[node name="BarrelSpawner" parent="BaseLevel" index="10" node_paths=PackedStringArray("trigger_area", "traffic_light") instance=ExtResource("4_g72qh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-trigger_area = NodePath("../PepperTriggerArea")
-traffic_light = NodePath("../TrafficLight")
-
-[node name="SaltGoon" parent="BaseLevel" index="11" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="SaltGoon" parent="BaseLevel" index="10" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.25, -4)
 trigger_area = NodePath("../PepperTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost2")
 
-[node name="SaltGoon2" parent="BaseLevel" index="12" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="SaltGoon2" parent="BaseLevel" index="11" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.25, 2)
 trigger_area = NodePath("../PepperTriggerArea")
 shoot_time_offset = 0.5
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost")
 
-[node name="PepperGoon" parent="BaseLevel" index="13" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="PepperGoon" parent="BaseLevel" index="12" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.25, -2)
 shoot_left = true
 trigger_area = NodePath("../SaltTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost3")
 
-[node name="PepperGoon2" parent="BaseLevel" index="14" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="PepperGoon2" parent="BaseLevel" index="13" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.25, 4)
 shoot_left = true
 trigger_area = NodePath("../SaltTriggerArea")
@@ -98,41 +92,57 @@ shoot_time_offset = 0.5
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost4")
 
-[node name="ArenaGrid" parent="BaseLevel" index="15"]
+[node name="ArenaGrid" parent="BaseLevel" index="14"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -0.00170422, -0.0689066, 0.0149431)
 
-[node name="Road" type="Sprite3D" parent="BaseLevel" index="16"]
-transform = Transform3D(6, 0, 0, 0, -2.62268e-07, 6, 0, -6, -2.62268e-07, 0, 0.05, 0)
+[node name="Road" type="Sprite3D" parent="BaseLevel" index="15"]
+transform = Transform3D(6, 0, 0, 0, -2.62268e-07, 6, 0, -6, -2.62268e-07, 0, 0.015, 0)
 transparent = false
+double_sided = false
 texture_filter = 0
 texture = ExtResource("6_o5pla")
 region_enabled = true
 region_rect = Rect2(0, -136, 32, 168)
 
-[node name="TrafficLight" parent="BaseLevel" index="17" instance=ExtResource("5_8art5")]
+[node name="TrafficLight" parent="BaseLevel" index="16" instance=ExtResource("5_8art5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
-[node name="PepperSpray" parent="BaseLevel" index="18" instance=ExtResource("8_pc16s")]
+[node name="PepperSpray" parent="BaseLevel" index="17" instance=ExtResource("8_pc16s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46657, 0)
 
-[node name="Tunnel" type="MeshInstance3D" parent="BaseLevel" index="19"]
+[node name="Tunnel" type="MeshInstance3D" parent="BaseLevel" index="18"]
 transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, 0, -7.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
-[node name="LampPost" parent="BaseLevel" index="20" instance=ExtResource("11_q2b0m")]
+[node name="Tunnel2" type="MeshInstance3D" parent="BaseLevel" index="19"]
+transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, 0, -12.5)
+material_override = SubResource("StandardMaterial3D_po2fp")
+mesh = ExtResource("9_dbvqq")
+
+[node name="Tunnel3" type="MeshInstance3D" parent="BaseLevel" index="20"]
+transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, 0, -17.5)
+material_override = SubResource("StandardMaterial3D_po2fp")
+mesh = ExtResource("9_dbvqq")
+
+[node name="TunnelEnd" type="MeshInstance3D" parent="BaseLevel" index="21"]
+transform = Transform3D(1.3, 0, -8.26454e-08, 0, 1.3, 0, 8.26454e-08, 0, 1.3, 0, 0, 8.5)
+material_override = SubResource("StandardMaterial3D_po2fp")
+mesh = ExtResource("9_dbvqq")
+
+[node name="LampPost" parent="BaseLevel" index="22" instance=ExtResource("11_q2b0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -0.1, 2.2)
 
-[node name="LampPost2" parent="BaseLevel" index="21" instance=ExtResource("11_q2b0m")]
+[node name="LampPost2" parent="BaseLevel" index="23" instance=ExtResource("11_q2b0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -0.1, -3.8)
 
-[node name="LampPost3" parent="BaseLevel" index="22" instance=ExtResource("11_q2b0m")]
+[node name="LampPost3" parent="BaseLevel" index="24" instance=ExtResource("11_q2b0m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -0.1, -1.8)
 
-[node name="LampPost4" parent="BaseLevel" index="23" instance=ExtResource("11_q2b0m")]
+[node name="LampPost4" parent="BaseLevel" index="25" instance=ExtResource("11_q2b0m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -0.1, 4.2)
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" index="24"]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" index="26"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 light_energy = 0.2
 

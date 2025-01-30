@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://i2sd4y0dv6y4"]
+[gd_scene load_steps=17 format=3 uid="uid://i2sd4y0dv6y4"]
 
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/salt_grenade.gd" id="1_l41xd"]
 [ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="2_bre8e"]
 [ext_resource type="Shader" path="res://enemy/boss/salt_and_pepper/salt_grenade.gdshader" id="2_sp1wq"]
 [ext_resource type="ArrayMesh" uid="uid://cddwqj6b34jdm" path="res://assets/3d_models/Bomb.obj" id="3_j1hgj"]
 [ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="5_tpvux"]
+[ext_resource type="Shader" path="res://vfx/shaders/radius_marker.gdshader" id="6_pyxa7"]
+[ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="7_b3dtv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aru7e"]
 bounce = 0.7
@@ -63,6 +65,14 @@ vertex_color_use_as_albedo = true
 _data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
 point_count = 2
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cofy"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_pyxa7")
+shader_parameter/thickness = 0.05
+shader_parameter/radius = 0.8
+shader_parameter/color = Color(1, 0, 0, 1)
+
 [node name="SaltGrenade" type="RigidBody3D" groups=["enemy_projectiles"]]
 physics_material_override = SubResource("PhysicsMaterial_aru7e")
 continuous_cd = true
@@ -91,5 +101,17 @@ material_override = SubResource("StandardMaterial3D_y6dd3")
 lifetime = 0.4
 base_width = 0.25
 width_profile = SubResource("Curve_su01k")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, -100, 0)
+
+[node name="RadiusMarker" type="Sprite3D" parent="."]
+transform = Transform3D(4.5, 0, 0, 0, -1.96701e-07, 4.5, 0, -4.5, -1.96701e-07, 0, 0, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_0cofy")
+transparent = false
+double_sided = false
+texture = ExtResource("7_b3dtv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
