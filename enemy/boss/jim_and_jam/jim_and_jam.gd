@@ -9,6 +9,8 @@ var hammer_hit_count = 3
 
 @onready var decision_timer: Timer = $DecisionTimer
 
+@onready var dotted_line: MeshInstance3D = $AnimatedSprite3D/DottedLine
+
 func _on_hammer_attack_timer_timeout() -> void:
 	var _x = randi_range(-2, 2) * 2 - 2.5
 	animated_sprite_3d.global_position.x = _x
@@ -16,6 +18,7 @@ func _on_hammer_attack_timer_timeout() -> void:
 	
 	%JamSmallCollision.disabled = false
 	animated_sprite_3d.play("hammer_down")
+	dotted_line.visible = true
 
 func hammer_down_attack():
 	# Instantiates the hitbox and shatter vfx.
@@ -35,6 +38,8 @@ func hammer_down_attack():
 		animated_sprite_3d.play("default")
 		animated_sprite_3d.global_position.x = 0
 		hurtbox.global_position.x = 0 
+		dotted_line.visible = false
+		
 
 func _on_decision_timer_timeout() -> void:
 	# Performs one of the multiple attacks:
@@ -45,6 +50,7 @@ func _on_decision_timer_timeout() -> void:
 		0:
 			hammer_hit_count = 3
 			hammer_attack_timer.start()
+			
 
 
 func _on_animated_sprite_3d_animation_finished() -> void:

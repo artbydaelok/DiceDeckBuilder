@@ -106,7 +106,7 @@ width_profile = SubResource("Curve_su01k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, -100, 0)
 
-[node name="RadiusMarker" type="Sprite3D" parent="."]
+[node name="RadiusMarker" type="Sprite3D" parent="." groups=["enemy_projectiles"]]
 transform = Transform3D(4.5, 0, 0, 0, -1.96701e-07, 4.5, 0, -4.5, -1.96701e-07, 0, 0, 0)
 visible = false
 material_override = SubResource("ShaderMaterial_0cofy")

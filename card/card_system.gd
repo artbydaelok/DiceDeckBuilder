@@ -69,6 +69,8 @@ func play_ability():
 	
 	# Gets the ability ID and instantiates it.
 	var id = hand[player.up_side].ability_id
+	if id == "empty":
+		return
 	var ability_instance = CARD_ABILITIES[id].instantiate()
 	player.add_child(ability_instance)
 	

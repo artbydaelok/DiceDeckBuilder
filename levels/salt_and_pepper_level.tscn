@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://doqfy3mapatxr"]
+[gd_scene load_steps=22 format=3 uid="uid://doqfy3mapatxr"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
 [ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
@@ -11,7 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://cwypnixn8cefh" path="res://enemy/boss/salt_and_pepper/pepper_spray.tscn" id="8_pc16s"]
 [ext_resource type="ArrayMesh" uid="uid://r2t58r0ecff3" path="res://assets/3d_models/tunnel.obj" id="9_dbvqq"]
 [ext_resource type="Texture2D" uid="uid://chnmrbcpv2u20" path="res://assets/3d_models/TunnelUV.png" id="9_kymho"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="11_ehb7x"]
 [ext_resource type="PackedScene" uid="uid://ha7xmmnonvrm" path="res://assets/3d_models/lamp_post.tscn" id="11_q2b0m"]
+[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="12_tg5fj"]
+[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="13_xk5r6"]
+[ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="14_5t2ub"]
+[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="15_3amgk"]
+[ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="16_d4v5l"]
+[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="17_xawco"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_126d3"]
 size = Vector3(4, 1, 10)
@@ -145,6 +152,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -0.
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" index="26"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 light_energy = 0.2
+
+[node name="CardSystem" parent="." index="2"]
+deck = Array[ExtResource("11_ehb7x")]([ExtResource("12_tg5fj"), ExtResource("13_xk5r6"), ExtResource("14_5t2ub"), ExtResource("15_3amgk"), ExtResource("16_d4v5l"), ExtResource("17_xawco"), ExtResource("12_tg5fj")])
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("7_gj5ir")

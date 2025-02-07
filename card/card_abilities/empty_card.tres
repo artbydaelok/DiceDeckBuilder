@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://csjbw5er3lqoq"]
+
+[ext_resource type="Script" path="res://card/card_data.gd" id="1_wo12m"]
+
+[resource]
+script = ExtResource("1_wo12m")
+card_name = "Empty"
+ability_id = "empty"
+card_description = "Nothing has been equipped here."
+cost = 0
+commit_value = 0.1

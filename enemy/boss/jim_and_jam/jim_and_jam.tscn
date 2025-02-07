@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://donqwnq58twjw"]
+[gd_scene load_steps=25 format=3 uid="uid://donqwnq58twjw"]
 
 [ext_resource type="PackedScene" uid="uid://bj0n4kvfagpx3" path="res://enemy/boss/boss_enemy.tscn" id="1_aqoba"]
 [ext_resource type="Script" path="res://enemy/boss/jim_and_jam/jim_and_jam.gd" id="2_8xvub"]
 [ext_resource type="Texture2D" uid="uid://cjgy6kktvhyt6" path="res://assets/boss_sprites/JimAndJam_IdleAnimation.png" id="3_6dntp"]
 [ext_resource type="Texture2D" uid="uid://sbu2ynlkmbxb" path="res://assets/boss_sprites/JimAndJam_HammerAnimation.png" id="4_d1kwk"]
 [ext_resource type="Texture2D" uid="uid://e35qxpqnxqt0" path="res://assets/boss_sprites/JimAndJam_HammerAfterAnimation.png" id="5_ajaqe"]
+[ext_resource type="Shader" path="res://vfx/shaders/dotted_line.gdshader" id="6_4l5np"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wenvs"]
 size = Vector3(4.90515, 7.1217, 1)
@@ -121,6 +122,22 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpubj"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_4l5np")
+shader_parameter/dot_size = 0.657
+shader_parameter/spacing = 5.385
+shader_parameter/speed = 4.0
+shader_parameter/dot_color = Color(0.86, 0, 0.186333, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_f0sbo"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_xpubj")
+size = Vector2(1, 0.045)
+orientation = 1
+
 [node name="JimAndJam" instance=ExtResource("1_aqoba")]
 script = ExtResource("2_8xvub")
 
@@ -143,7 +160,15 @@ billboard = 2
 double_sided = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_mvvin")
+animation = &"hammer_down_after"
 autoplay = "default"
+frame = 2
+frame_progress = 1.0
+
+[node name="DottedLine" type="MeshInstance3D" parent="AnimatedSprite3D" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, -0.3, 0.8)
+visible = false
+mesh = SubResource("QuadMesh_f0sbo")
 
 [node name="HammerAttackTimer" type="Timer" parent="." index="2"]
 wait_time = 1.5

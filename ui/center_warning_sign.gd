@@ -5,9 +5,11 @@ extends Control
 
 var menu_return: bool = false
 
+const MAIN_MENU = preload("res://ui/main_menu.tscn")
+
 func resolve_warning():
 	if menu_return:
-		get_tree().change_scene_to_file("res://ui/main_menu.tscn")
+		get_tree().change_scene_to_packed(MAIN_MENU)
 	else:
 		queue_free()
 

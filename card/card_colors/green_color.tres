@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cu0r7q120yp31"]
+
+[ext_resource type="Script" path="res://card/card_data.gd" id="1_0lqwi"]
+[ext_resource type="Texture2D" uid="uid://cpt7xxjs80b4q" path="res://assets/card_artwork/GreenColorIcon.png" id="1_2p51p"]
+
+[resource]
+script = ExtResource("1_0lqwi")
+card_name = "Green"
+ability_id = "green"
+card_description = "The color Green."
+card_artwork = ExtResource("1_2p51p")
+cost = 0
+commit_value = 0.1

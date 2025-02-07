@@ -27,13 +27,22 @@ var player : Node3D
 
 @export var lamp_post : Node3D
 
+@onready var shoot_warning: AnimationPlayer = $ShootWarning
+@onready var dotted_line: MeshInstance3D = $DottedLine
+var dotted_line_offset: float = 11;
+
+
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	player = get_tree().get_first_node_in_group("player")
 	
 	if shoot_left:
+		dotted_line.position -= Vector3(dotted_line_offset, 0, 0)
 		animated_sprite_3d.flip_h = true
 		animated_sprite_3d.play("pepper_default")
+		dotted_line.get_active_material(0).set_shader_parameter("speed", -1.0)
+	else:
+		dotted_line.position += Vector3(dotted_line_offset, 0, 0)
 		
 	trigger_area.body_entered.connect(begin_attack)
 	trigger_area.body_exited.connect(stop_attack)
@@ -54,10 +63,12 @@ func begin_attack(player):
 		await attack_delay_timer.timeout
 	shoot_timer.start()
 	keep_shooting = true
+	shoot_warning.play("shoot_warning")
 	
 func stop_attack(player):
 	lamp_post.turn_light_off()
 	keep_shooting = false
+	shoot_warning.play_backwards("shoot_warning")
 
 func shoot():
 	if traffic_light.is_green:
@@ -87,7 +98,6 @@ func shoot():
 
 func _on_shoot_timer_timeout() -> void:
 	shoot()
-
 
 func _on_animated_sprite_3d_animation_finished() -> void:
 	if animated_sprite_3d.animation == "pepper_shoot" or animated_sprite_3d.animation == "salt_shoot":

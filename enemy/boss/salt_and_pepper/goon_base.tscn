@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dg37ixy4ai1p8"]
+[gd_scene load_steps=22 format=3 uid="uid://dg37ixy4ai1p8"]
 
 [ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/goon_base.gd" id="1_63bdl"]
 [ext_resource type="Texture2D" uid="uid://hqxc7ku06s7n" path="res://assets/spritesheets/PepperGoonSpritesheet.png" id="2_7hl3d"]
 [ext_resource type="Texture2D" uid="uid://bjimvitu5y48i" path="res://assets/spritesheets/SaltGoonSpritesheet.png" id="3_pdgbe"]
 [ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://sounds/gunshot-1.wav" id="4_rwk4l"]
+[ext_resource type="Shader" path="res://vfx/shaders/dotted_line.gdshader" id="5_sp4el"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njytg"]
 atlas = ExtResource("2_7hl3d")
@@ -98,6 +99,59 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfula"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_sp4el")
+shader_parameter/dot_size = 0.56
+shader_parameter/spacing = 25.0
+shader_parameter/speed = 1.0
+shader_parameter/dot_color = Color(0.86, 0, 0.186333, 0)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_m7i0w"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_dfula")
+size = Vector2(20, 0.09)
+orientation = 1
+
+[sub_resource type="Animation" id="Animation_kmxxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DottedLine:mesh:material:shader_parameter/dot_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.86, 0, 0.186333, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0wq00"]
+resource_name = "shoot_warning"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DottedLine:mesh:material:shader_parameter/dot_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.86, 0, 0.186333, 0), Color(0.86, 0, 0.186333, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qdsc3"]
+_data = {
+"RESET": SubResource("Animation_kmxxj"),
+"shoot_warning": SubResource("Animation_0wq00")
+}
+
 [node name="GoonBase" type="Node3D"]
 script = ExtResource("1_63bdl")
 
@@ -125,6 +179,14 @@ one_shot = true
 stream = ExtResource("4_rwk4l")
 volume_db = -9.0
 bus = &"SFX"
+
+[node name="DottedLine" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_m7i0w")
+
+[node name="ShootWarning" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qdsc3")
+}
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
