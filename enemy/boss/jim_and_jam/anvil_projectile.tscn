@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dacjxurxj33tm"]
+
+[ext_resource type="ArrayMesh" uid="uid://d4dbmgxomsxd5" path="res://assets/3d_models/Anvil.obj" id="1_wjvko"]
+[ext_resource type="Texture2D" uid="uid://mybl1k18o1mn" path="res://assets/3d_models/ANVIL-UV.png" id="2_b6n2u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j3fwy"]
+albedo_texture = ExtResource("2_b6n2u")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ubm3v"]
+size = Vector3(1.86621, 3.17273, 5.25488)
+
+[node name="AnvilProjectile" type="RigidBody3D"]
+
+[node name="Anvil" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = ExtResource("1_wjvko")
+surface_material_override/0 = SubResource("StandardMaterial3D_j3fwy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52782, 0)
+shape = SubResource("BoxShape3D_ubm3v")
