@@ -153,9 +153,10 @@ card_system = NodePath("../../CardSystem")
 
 [node name="Player" parent="BaseLevel" instance=ExtResource("3_cubmp")]
 
-[node name="Camera3D" type="Camera3D" parent="BaseLevel"]
+[node name="Camera3D" type="Camera3D" parent="BaseLevel" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 10)
 script = ExtResource("8_mpvo7")
+target = NodePath("../Player/Pivot/MeshInstance3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel"]
 environment = SubResource("Environment_bfiuj")
@@ -206,3 +207,5 @@ texture = ExtResource("11_nanwt")
 deck = Array[ExtResource("5_joks6")]([ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i")])
 hand_display = NodePath("../UI/MarginContainer/VBoxContainer/HandDisplay")
 player = NodePath("../BaseLevel/Player")
+
+[editable path="BaseLevel/Player"]
