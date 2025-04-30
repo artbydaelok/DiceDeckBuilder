@@ -176,7 +176,6 @@ shadow_enabled = true
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
 visible = false
 material_override = SubResource("StandardMaterial3D_l525f")
-use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371777, 0)

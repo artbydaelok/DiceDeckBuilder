@@ -46,6 +46,9 @@ signal energy_spent(amount : int)
 signal energy_gained(amount : int)
 signal insufficient_energy
 
+@onready var shape_cast: ShapeCast3D = %ShapeCast
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
@@ -82,14 +85,32 @@ func roll(dir):
 	# Do nothing if we're currently rolling.
 	if rolling or commit_lock or is_dead:
 		return
-	rolling = true
+	
 
 	var test_dir = grid_pos + Vector2(dir.x, dir.z)
 	
-	if abs(test_dir.x) > 2 or abs(test_dir.y) > 2 or disabled_pos.has(test_dir): 
-		rolling = false
+	## OLD MOVEMENT
+	## LIMITS TO 5x5 grid
+	#if abs(test_dir.x) > 2 or abs(test_dir.y) > 2 or disabled_pos.has(test_dir): 
+		#rolling = false
+		#return
+	## END OLD MOVEMENT
+	
+	## CHECK FOR COLLISION
+	var collision_test_pos = dir * cube_size
+	var initial_target_pos = shape_cast.target_position
+	shape_cast.target_position = collision_test_pos
+	shape_cast.force_shapecast_update()
+	
+	if shape_cast.is_colliding():
+		shape_cast.target_position = initial_target_pos
 		return
-
+	
+	
+	
+	rolling = true
+	
+	
 	player_moved.emit(dir)
 			
 	# Step 1: Offset the pivot.
@@ -111,6 +132,7 @@ func roll(dir):
 	mesh.global_transform.basis = b
 	rolling = false
 	
+	shape_cast.target_position = initial_target_pos
 	
 	x_grid_pos += dir.x
 	y_grid_pos += dir.z
