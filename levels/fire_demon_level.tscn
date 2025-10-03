@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5lyk0s0rvu5i"]
+[gd_scene load_steps=18 format=3 uid="uid://c5lyk0s0rvu5i"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
 [ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon/fire_demon_boss.tscn" id="2_0fa53"]
-[ext_resource type="Texture2D" uid="uid://b0ctakhn3omws" path="res://assets/spritesheets/firepillar.png" id="3_is2ff"]
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="4_eluih"]
+[ext_resource type="PackedScene" uid="uid://dyvlfu7ue375j" path="res://vfx/fire_wall_particles.tscn" id="4_v2vlt"]
 [ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="5_7mayj"]
 [ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="6_t23ih"]
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="7_ckf00"]
@@ -30,56 +30,6 @@ sky = SubResource("Sky_hjcl6")
 tonemap_mode = 2
 fog_light_color = Color(0.843062, 0.399308, 0.284986, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sa7y8"]
-atlas = ExtResource("3_is2ff")
-region = Rect2(0, 0, 64, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w513w"]
-atlas = ExtResource("3_is2ff")
-region = Rect2(64, 0, 64, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxbct"]
-atlas = ExtResource("3_is2ff")
-region = Rect2(128, 0, 64, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xtqes"]
-atlas = ExtResource("3_is2ff")
-region = Rect2(192, 0, 64, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfqfa"]
-atlas = ExtResource("3_is2ff")
-region = Rect2(256, 0, 64, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eppn7"]
-atlas = ExtResource("3_is2ff")
-region = Rect2(320, 0, 64, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pcfgg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sa7y8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w513w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxbct")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xtqes")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wfqfa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eppn7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 12.0
-}]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_xbtr0"]
 size = Vector3(2, 1, 12)
 
@@ -103,49 +53,7 @@ environment = SubResource("Environment_b37ao")
 [node name="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" index="0"]
 flip_faces = true
 
-[node name="FireBorder" type="AnimatedSprite3D" parent="BaseLevel" index="7"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -7, 2, 0)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_pcfgg")
-autoplay = "default"
-frame_progress = 0.147483
-
-[node name="FireBorder2" type="AnimatedSprite3D" parent="BaseLevel" index="8"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -7, 2, 3.2)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_pcfgg")
-autoplay = "default"
-frame_progress = 0.378012
-
-[node name="FireBorder3" type="AnimatedSprite3D" parent="BaseLevel" index="9"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -7, 2, -3.2)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_pcfgg")
-autoplay = "default"
-frame_progress = 0.78352
-
-[node name="FireBorder4" type="AnimatedSprite3D" parent="BaseLevel" index="10"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 7, 2, 0)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_pcfgg")
-autoplay = "default"
-frame_progress = 0.242446
-
-[node name="FireBorder5" type="AnimatedSprite3D" parent="BaseLevel" index="11"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 7, 2, 3.2)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_pcfgg")
-autoplay = "default"
-frame_progress = 0.742414
-
-[node name="FireBorder6" type="AnimatedSprite3D" parent="BaseLevel" index="12"]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 7, 2, -3.2)
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_pcfgg")
-autoplay = "default"
-frame_progress = 0.821863
-
-[node name="MeteorSpawnLocations" type="Node3D" parent="BaseLevel" index="13"]
+[node name="MeteorSpawnLocations" type="Node3D" parent="BaseLevel" index="7"]
 
 [node name="MeteorSpawnCenter" type="Marker3D" parent="BaseLevel/MeteorSpawnLocations" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -222,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 4)
 [node name="MeteorSpawnCenter25" type="Marker3D" parent="BaseLevel/MeteorSpawnLocations" index="24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, 4)
 
-[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="15"]
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="9"]
 
 [node name="LeftFireWallCollision" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
@@ -231,6 +139,12 @@ shape = SubResource("BoxShape3D_xbtr0")
 [node name="RightFireWallCollision" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 shape = SubResource("BoxShape3D_xbtr0")
+
+[node name="FireWallParticles" parent="BaseLevel" index="10" instance=ExtResource("4_v2vlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="FireWallParticles2" parent="BaseLevel" index="11" instance=ExtResource("4_v2vlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
 [node name="CardSystem" parent="." index="2"]
 deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
