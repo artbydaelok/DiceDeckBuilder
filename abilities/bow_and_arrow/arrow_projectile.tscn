@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbpslj16s4nmt"]
 
-[ext_resource type="Script" path="res://abilities/bow_and_arrow/arrow_projectile.gd" id="1_gmh72"]
+[ext_resource type="Script" uid="uid://by7h5aqnfo6il" path="res://abilities/bow_and_arrow/arrow_projectile.gd" id="1_gmh72"]
 [ext_resource type="PackedScene" uid="uid://csth3bndxcg43" path="res://abilities/bow_and_arrow/Arrow.glb" id="1_reqdr"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_tqcqg"]
 [ext_resource type="AudioStream" uid="uid://c1yryq3pamnl6" path="res://sounds/arrow_planted_shorter.wav" id="4_tm4vu"]
@@ -30,4 +30,10 @@ shape = SubResource("BoxShape3D_up5jb")
 stream = ExtResource("4_tm4vu")
 bus = &"SFX"
 
+[node name="SelfDestruct" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="SelfDestruct" to="." method="_on_self_destruct_timeout"]

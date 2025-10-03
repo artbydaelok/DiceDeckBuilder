@@ -47,10 +47,10 @@ func spawn_grenade():
 	var grenade = SALT_GRENADE.instantiate()
 	entities_layer.add_child(grenade)
 	
-	var _pos = global_position + Vector3(randi_range(-2, 2) * 2, 0, randi_range(-2, 2) * 2)
+	var _pos = global_position + Vector3(randi_range(-3, 3) * 2, 0, randi_range(-3, 3) * 2)
 	
 	while used_pos.has(_pos):
-		_pos = global_position + Vector3(randi_range(-2, 2) * 2, 0, randi_range(-2, 2) * 2)
+		_pos = global_position + Vector3(randi_range(-3, 3) * 2, 0, randi_range(-3, 3) * 2)
 		
 	used_pos.append(_pos)
 	

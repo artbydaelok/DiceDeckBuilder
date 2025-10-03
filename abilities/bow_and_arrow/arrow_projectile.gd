@@ -14,3 +14,7 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	
 	await get_tree().create_timer(0.35).timeout
 	queue_free()
+
+
+func _on_self_destruct_timeout() -> void:
+	queue_free()
