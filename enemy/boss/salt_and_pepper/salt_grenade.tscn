@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://i2sd4y0dv6y4"]
 
-[ext_resource type="Script" path="res://enemy/boss/salt_and_pepper/salt_grenade.gd" id="1_l41xd"]
+[ext_resource type="Script" uid="uid://b1citvaqs73t8" path="res://enemy/boss/salt_and_pepper/salt_grenade.gd" id="1_l41xd"]
 [ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="2_bre8e"]
-[ext_resource type="Shader" path="res://enemy/boss/salt_and_pepper/salt_grenade.gdshader" id="2_sp1wq"]
+[ext_resource type="Shader" uid="uid://dmb4hy7niah04" path="res://enemy/boss/salt_and_pepper/salt_grenade.gdshader" id="2_sp1wq"]
 [ext_resource type="ArrayMesh" uid="uid://cddwqj6b34jdm" path="res://assets/3d_models/Bomb.obj" id="3_j1hgj"]
 [ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="5_tpvux"]
-[ext_resource type="Shader" path="res://vfx/shaders/radius_marker.gdshader" id="6_pyxa7"]
+[ext_resource type="Shader" uid="uid://iy3qlssbl5fu" path="res://vfx/shaders/radius_marker.gdshader" id="6_pyxa7"]
 [ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="7_b3dtv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aru7e"]
@@ -53,8 +53,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8onla"]
 _data = {
-"RESET": SubResource("Animation_gpaal"),
-"warning_flash": SubResource("Animation_omu0u")
+&"RESET": SubResource("Animation_gpaal"),
+&"warning_flash": SubResource("Animation_omu0u")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6dd3"]
@@ -93,7 +93,7 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8onla")
+&"": SubResource("AnimationLibrary_8onla")
 }
 
 [node name="Trail" parent="." instance=ExtResource("5_tpvux")]

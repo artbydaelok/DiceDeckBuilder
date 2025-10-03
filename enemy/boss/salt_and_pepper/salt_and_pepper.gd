@@ -1,7 +1,5 @@
 extends Enemy
 
-
-
 @export var traffic_light : Node3D
 
 # Salt Variables
@@ -94,3 +92,6 @@ func _on_pepper_animations_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"PepperSpin":
 			pepper_spray.appear()
+
+func on_damage_taken(damage_amount):
+	pass

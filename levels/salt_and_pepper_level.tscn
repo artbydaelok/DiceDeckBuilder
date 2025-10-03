@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://doqfy3mapatxr"]
+[gd_scene load_steps=36 format=3 uid="uid://doqfy3mapatxr"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
 [ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
@@ -17,8 +17,17 @@
 [ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="13_xk5r6"]
 [ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="14_5t2ub"]
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="15_3amgk"]
+[ext_resource type="PackedScene" uid="uid://dagla3psnlmvm" path="res://assets/3d_models/psx/metal_barrel_3/stand_mx_2.glb" id="15_n306r"]
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="16_d4v5l"]
+[ext_resource type="PackedScene" uid="uid://byqqm5ew26awr" path="res://assets/3d_models/psx/jerry_can_1/jerrycan_mx_1.glb" id="16_hgnvb"]
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="17_xawco"]
+[ext_resource type="PackedScene" uid="uid://b1rx8e7i3d4u" path="res://assets/3d_models/psx/barricade/barricade_b_3.glb" id="20_mdwms"]
+[ext_resource type="PackedScene" uid="uid://dp0a62ch0fmen" path="res://assets/3d_models/psx/warehouse_mx_4/warehouse_mx_4.glb" id="21_p762q"]
+[ext_resource type="PackedScene" uid="uid://detvlvrq07m12" path="res://assets/3d_models/psx/garage_hm_1/garage_hm_1.glb" id="22_qrnf8"]
+[ext_resource type="PackedScene" uid="uid://dpqpnk2cfdypt" path="res://assets/3d_models/psx/shed_ax_2/shed_ax_2.glb" id="23_bvmuu"]
+[ext_resource type="PackedScene" uid="uid://bbddptsu0dq3a" path="res://assets/3d_models/psx/metal_barrel_3/metal_barrel_hr_3.glb" id="25_vlcso"]
+[ext_resource type="PackedScene" uid="uid://x45c3idqf46f" path="res://assets/3d_models/psx/wooden_crate/wooden_crate_hx_1_1.glb" id="26_7eebo"]
+[ext_resource type="PackedScene" uid="uid://v0fbnvjq687y" path="res://assets/3d_models/psx/metal_barrel_1/metal_barrel_hr_1.glb" id="27_ehxsn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_126d3"]
 size = Vector3(4, 1, 10)
@@ -26,6 +35,50 @@ size = Vector3(4, 1, 10)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po2fp"]
 albedo_texture = ExtResource("9_kymho")
 texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_p762q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mdwms"]
+resource_name = "rotate"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5333333, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.1816616, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrnf8"]
+_data = {
+&"RESET": SubResource("Animation_p762q"),
+&"rotate": SubResource("Animation_mdwms")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehxsn"]
+size = Vector3(6, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hgnvb"]
+size = Vector3(14, 3, 1)
 
 [node name="SaltAndPepperLevel" instance=ExtResource("1_ijhq5")]
 
@@ -38,6 +91,9 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
 visible = true
 use_collision = true
+
+[node name="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" index="0"]
+size = Vector3(14, 0.35, 14)
 
 [node name="SaltAndPepper" parent="BaseLevel" index="6" node_paths=PackedStringArray("traffic_light", "salt_trigger_area", "pepper_spray", "pepper_trigger_area", "user_interface") instance=ExtResource("2_tse10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
@@ -70,27 +126,27 @@ traffic_light = NodePath("../TrafficLight")
 boss = NodePath("../SaltAndPepper")
 
 [node name="SaltGoon" parent="BaseLevel" index="10" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.25, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.25, -4)
 trigger_area = NodePath("../PepperTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost2")
 
 [node name="SaltGoon2" parent="BaseLevel" index="11" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.25, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.25, 2)
 trigger_area = NodePath("../PepperTriggerArea")
 shoot_time_offset = 0.5
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost")
 
 [node name="PepperGoon" parent="BaseLevel" index="12" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.25, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.25, -2)
 shoot_left = true
 trigger_area = NodePath("../SaltTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost3")
 
 [node name="PepperGoon2" parent="BaseLevel" index="13" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.25, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.25, 4)
 shoot_left = true
 trigger_area = NodePath("../SaltTriggerArea")
 shoot_time_offset = 0.5
@@ -99,6 +155,7 @@ lamp_post = NodePath("../LampPost4")
 
 [node name="ArenaGrid" parent="BaseLevel" index="14"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -0.00170422, -0.0689066, 0.0149431)
+visible = false
 
 [node name="Road" type="Sprite3D" parent="BaseLevel" index="15"]
 transform = Transform3D(6, 0, 0, 0, -2.62268e-07, 6, 0, -6, -2.62268e-07, 0, 0.015, 0)
@@ -136,20 +193,71 @@ material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
 [node name="LampPost" parent="BaseLevel" index="22" instance=ExtResource("11_q2b0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -0.1, 2.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.1, 2.2)
 
 [node name="LampPost2" parent="BaseLevel" index="23" instance=ExtResource("11_q2b0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -0.1, -3.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.1, -3.8)
 
 [node name="LampPost3" parent="BaseLevel" index="24" instance=ExtResource("11_q2b0m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -0.1, -1.8)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -0.1, -1.8)
 
 [node name="LampPost4" parent="BaseLevel" index="25" instance=ExtResource("11_q2b0m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7, -0.1, 4.2)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -0.1, 4.2)
 
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" index="26"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 light_energy = 0.2
+
+[node name="barricade_b_32" parent="BaseLevel" index="27" instance=ExtResource("20_mdwms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7402735, 0, 7.03389)
+
+[node name="barricade_b_33" parent="BaseLevel" index="28" instance=ExtResource("20_mdwms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7402735, 0, 7.03389)
+
+[node name="barricade_b_34" parent="BaseLevel" index="29" instance=ExtResource("20_mdwms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.788225, 0, 7.03389)
+
+[node name="barricade_b_35" parent="BaseLevel" index="30" instance=ExtResource("20_mdwms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7882252, 0, 7.03389)
+
+[node name="warehouse_mx_42" parent="BaseLevel" index="31" instance=ExtResource("21_p762q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.351793, 0, -8.840191)
+
+[node name="warehouse_mx_43" parent="BaseLevel" index="32" instance=ExtResource("21_p762q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.395247, 0, -16.607681)
+
+[node name="garage_hm_12" parent="BaseLevel" index="33" instance=ExtResource("22_qrnf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.569603, 0, 0.57252884)
+
+[node name="shed_ax_22" parent="BaseLevel" index="34" instance=ExtResource("23_bvmuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.614982, 0, 4.312364)
+
+[node name="AnimatedLight" type="DirectionalLight3D" parent="BaseLevel" index="35"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseLevel/AnimatedLight" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_qrnf8")
+}
+autoplay = "rotate"
+
+[node name="stand_mx_22" parent="BaseLevel" index="36" instance=ExtResource("15_n306r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.421381, 0, 5.544064)
+
+[node name="stand_mx_23" parent="BaseLevel" index="37" instance=ExtResource("15_n306r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3883705, -0.19677508, 5.6118426)
+
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="38"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+shape = SubResource("BoxShape3D_ehxsn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
+shape = SubResource("BoxShape3D_hgnvb")
+
+[node name="jerrycan_mx_12" parent="BaseLevel/PlayerObstacles" index="2" instance=ExtResource("16_hgnvb")]
+transform = Transform3D(0.91113013, -0.35751152, 0.20500575, 0, 0.4974434, 0.86749643, -0.41211873, -0.7904021, 0.4532357, -2.0231485, 0.92069566, 6.437405)
 
 [node name="CardSystem" parent="." index="2"]
 deck = Array[ExtResource("11_ehb7x")]([ExtResource("12_tg5fj"), ExtResource("13_xk5r6"), ExtResource("14_5t2ub"), ExtResource("15_3amgk"), ExtResource("16_d4v5l"), ExtResource("17_xawco"), ExtResource("12_tg5fj")])
@@ -159,5 +267,17 @@ stream = ExtResource("7_gj5ir")
 autoplay = true
 bus = &"Music"
 script = ExtResource("8_kskvj")
+
+[node name="metal_barrel_hr_32" parent="." index="4" instance=ExtResource("25_vlcso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0700111, 0, 6.3900833)
+
+[node name="metal_barrel_hr_33" parent="." index="5" instance=ExtResource("25_vlcso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6388018, 0, 5.6498923)
+
+[node name="wooden_crate_hx_1_12" parent="." index="6" instance=ExtResource("26_7eebo")]
+transform = Transform3D(0.8761384, 0, -0.2058675, 0, 0.9, 0, 0.2058675, 0, 0.8761384, 2.1466663, -0.19177184, 6.1074142)
+
+[node name="metal_barrel_hr_12" parent="." index="7" instance=ExtResource("27_ehxsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4252722, -0.1967747, 5.816844)
 
 [editable path="BaseLevel/Player"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dcwhhsm30hjtg"]
 
-[ext_resource type="Script" path="res://abilities/shotgun/shotgun_pellet.gd" id="1_u1m2e"]
+[ext_resource type="Script" uid="uid://cfdbwd7ev7el5" path="res://abilities/shotgun/shotgun_pellet.gd" id="1_u1m2e"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_evym4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jj2p"]
@@ -27,3 +27,5 @@ damage = 2
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_xy3er")
+
+[connection signal="on_hit" from="Hitbox" to="." method="_on_hitbox_on_hit"]

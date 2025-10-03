@@ -319,13 +319,13 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.25, 0.05, 0)
 
 [node name="DottedLineLeft" type="MeshInstance3D" parent="PepperAnim"]
 unique_name_in_owner = true
-transform = Transform3D(0.2, -7.3615665e-06, 7.3615665e-06, 7.3615665e-06, 0.2, -3.347653e-17, -7.3615665e-06, 2.7096336e-10, 0.2, -2.2, 0, 0.01)
+transform = Transform3D(0.2, -7.3615665e-06, 7.3615665e-06, 7.3615665e-06, 0.2, -3.347653e-17, -7.3615665e-06, 2.7096336e-10, 0.2, -2.2, 0.020068169, 0.01)
 mesh = SubResource("QuadMesh_c3mea")
 skeleton = NodePath("../..")
 
 [node name="DottedLineRight" type="MeshInstance3D" parent="PepperAnim"]
 unique_name_in_owner = true
-transform = Transform3D(0.2, -7.3615665e-06, 7.3615665e-06, 7.3615665e-06, 0.2, -3.347653e-17, -7.3615665e-06, 2.7096336e-10, 0.2, 2.2, 0, 0.01)
+transform = Transform3D(0.2, -7.3615665e-06, 7.3615665e-06, 7.3615665e-06, 0.2, -3.347653e-17, -7.3615665e-06, 2.7096336e-10, 0.2, 2.2, 0.020068169, 0.01)
 mesh = SubResource("QuadMesh_yvk1g")
 skeleton = NodePath("../..")
 

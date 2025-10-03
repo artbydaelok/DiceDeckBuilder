@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://2xohkxsgtdcj"]
+
+[ext_resource type="Script" uid="uid://kmkv7um81b1x" path="res://vfx/hit_effects/blood_vfx.gd" id="1_nd0hi"]
+
+[sub_resource type="Gradient" id="Gradient_442cl"]
+colors = PackedColorArray(1, 0, 0, 1, 0.3589883, 2.8878452e-07, 1.4439226e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nd0hi"]
+gradient = SubResource("Gradient_442cl")
+
+[sub_resource type="Curve" id="Curve_bjb22"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uvseq"]
+curve = SubResource("Curve_bjb22")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3a2j6"]
+lifetime_randomness = 0.35
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 8.0
+scale_min = 0.19999999
+scale_curve = SubResource("CurveTexture_uvseq")
+scale_over_velocity_max = 1.0
+color_ramp = SubResource("GradientTexture1D_nd0hi")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.009999977
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8mis"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_d4x2b"]
+material = SubResource("StandardMaterial3D_j8mis")
+
+[node name="BloodVfx" type="Node3D"]
+script = ExtResource("1_nd0hi")
+
+[node name="BloodParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.65
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_3a2j6")
+draw_pass_1 = SubResource("SphereMesh_d4x2b")

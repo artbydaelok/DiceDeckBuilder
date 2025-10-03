@@ -15,6 +15,8 @@ var bounced : bool = false
 @onready var radius_marker: Sprite3D = $RadiusMarker
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+
 func _ready() -> void:
 	random_rotation_axis = (Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1))).normalized()
 	random_rotation_speed = randf_range(0.2, TAU)
@@ -35,6 +37,8 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	bounce_sfx.play()
 	bounced = true
+	var f = func(): collision_shape_3d.disabled = true
+	f.call_deferred()
 	animation_player.play("warning_flash")
 	await get_tree().create_timer(0.8).timeout
 	explode()
