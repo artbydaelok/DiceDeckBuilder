@@ -63,18 +63,24 @@ func begin_attack(player):
 		await attack_delay_timer.timeout
 	shoot_timer.start()
 	keep_shooting = true
-	shoot_warning.play("shoot_warning")
+	
 	
 func stop_attack(player):
 	lamp_post.turn_light_off()
 	keep_shooting = false
+
+func disable_warning_shot(delay: int = 0.0):
+	if delay > 0.0:
+		get_tree().create_timer(delay).timeout
 	shoot_warning.play_backwards("shoot_warning")
 
 func shoot():
 	if traffic_light.is_green:
 		keep_shooting = false
 		return
-		
+	
+	shoot_warning.play("shoot_warning")
+	disable_warning_shot.call_deferred(1.)
 	var bullet = BULLET_PROJECTILE.instantiate()
 	entities_layer.add_child(bullet)
 	

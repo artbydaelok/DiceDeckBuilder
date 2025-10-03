@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://d2npjwddn3l25" path="res://enemy/boss/salt_and_pepper/traffic_light.tscn" id="5_8art5"]
 [ext_resource type="Texture2D" uid="uid://lebimpirodok" path="res://assets/BasicRoad.png" id="6_o5pla"]
 [ext_resource type="AudioStream" uid="uid://dc1f2qpo2xlol" path="res://music/deep swing.wav" id="7_gj5ir"]
-[ext_resource type="Script" path="res://music/music_player.gd" id="8_kskvj"]
+[ext_resource type="Script" uid="uid://1n4g6p6jvkhx" path="res://music/music_player.gd" id="8_kskvj"]
 [ext_resource type="PackedScene" uid="uid://cwypnixn8cefh" path="res://enemy/boss/salt_and_pepper/pepper_spray.tscn" id="8_pc16s"]
 [ext_resource type="ArrayMesh" uid="uid://r2t58r0ecff3" path="res://assets/3d_models/tunnel.obj" id="9_dbvqq"]
 [ext_resource type="Texture2D" uid="uid://chnmrbcpv2u20" path="res://assets/3d_models/TunnelUV.png" id="9_kymho"]
-[ext_resource type="Script" path="res://card/card_data.gd" id="11_ehb7x"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="11_ehb7x"]
 [ext_resource type="PackedScene" uid="uid://ha7xmmnonvrm" path="res://assets/3d_models/lamp_post.tscn" id="11_q2b0m"]
 [ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="12_tg5fj"]
 [ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="13_xk5r6"]
@@ -37,9 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
 visible = true
-
-[node name="CSGCombiner3D2" parent="BaseLevel/CSGBoard" index="1"]
-visible = false
+use_collision = true
 
 [node name="SaltAndPepper" parent="BaseLevel" index="6" node_paths=PackedStringArray("traffic_light", "salt_trigger_area", "pepper_spray", "pepper_trigger_area", "user_interface") instance=ExtResource("2_tse10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
@@ -161,3 +159,5 @@ stream = ExtResource("7_gj5ir")
 autoplay = true
 bus = &"Music"
 script = ExtResource("8_kskvj")
+
+[editable path="BaseLevel/Player"]

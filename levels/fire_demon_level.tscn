@@ -239,3 +239,5 @@ stream = ExtResource("12_us50b")
 autoplay = true
 bus = &"Music"
 script = ExtResource("13_ykefy")
+
+[editable path="BaseLevel/Player"]

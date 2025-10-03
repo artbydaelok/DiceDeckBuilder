@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://icig8la8yj1t"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_d2344"]
+
+[node name="HellLevel1" instance=ExtResource("1_d2344")]
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="2"]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/CSGCombiner3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+height = 4.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/CSGCombiner3D3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+height = 4.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+size = Vector3(6, 0.5, 2)
+
+[node name="CSGCombiner3D4" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="3"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5.26655)
+size = Vector3(10, 1, 0.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0.5, -4.73345)
+size = Vector3(10, 1, 0.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, -4.73345)
+size = Vector3(10, 1, 0.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25, 0.5, 0.266545)
+size = Vector3(0.5, 1, 10.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 0.5, 0.266545)
+size = Vector3(0.5, 1, 10.5)
+
+[editable path="BaseLevel/Player"]
