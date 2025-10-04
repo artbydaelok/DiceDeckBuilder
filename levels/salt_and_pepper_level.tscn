@@ -204,7 +204,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46657, 0)
 
 [node name="Tunnel" type="MeshInstance3D" parent="BaseLevel" index="18"]
-transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, 0, -7.5)
+transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, -0.039639473, -7.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 

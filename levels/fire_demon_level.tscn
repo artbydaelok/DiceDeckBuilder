@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5lyk0s0rvu5i"]
+[gd_scene load_steps=23 format=3 uid="uid://c5lyk0s0rvu5i"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
 [ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon/fire_demon_boss.tscn" id="2_0fa53"]
+[ext_resource type="Texture2D" uid="uid://dy2ghplalbdf4" path="res://assets/3d_models/hell_rock/stone_hell_11.png" id="3_kcr7g"]
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="4_eluih"]
 [ext_resource type="PackedScene" uid="uid://dyvlfu7ue375j" path="res://vfx/fire_wall_particles.tscn" id="4_v2vlt"]
 [ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="5_7mayj"]
@@ -12,7 +13,9 @@
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="10_62a5j"]
 [ext_resource type="PackedScene" uid="uid://bxvgrbpfk5yvw" path="res://assets/3d_models/RuinedTower.glb" id="11_a0eoh"]
 [ext_resource type="AudioStream" uid="uid://b13o3b5bar26b" path="res://music/crushed ice.wav" id="12_us50b"]
+[ext_resource type="PackedScene" uid="uid://dh1xdwurvbl51" path="res://assets/3d_models/hell_rock/hell_rock_1.tscn" id="12_v2vlt"]
 [ext_resource type="Script" uid="uid://1n4g6p6jvkhx" path="res://music/music_player.gd" id="13_ykefy"]
+[ext_resource type="PackedScene" uid="uid://7aurhj4q6lr4" path="res://assets/3d_models/hell_rock/Spike.glb" id="16_m1xg1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
 sky_top_color = Color(0.168175, 0.000273918, 0.146432, 1)
@@ -30,6 +33,12 @@ sky = SubResource("Sky_hjcl6")
 tonemap_mode = 2
 fog_light_color = Color(0.843062, 0.399308, 0.284986, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_m1xg1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wan88"]
+albedo_texture = ExtResource("3_kcr7g")
+texture_filter = 0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xbtr0"]
 size = Vector3(2, 1, 12)
 
@@ -40,7 +49,7 @@ value = 100.0
 boss = NodePath("../../../BaseLevel/FireDemonBoss")
 
 [node name="FireDemonBoss" parent="BaseLevel" index="1" node_paths=PackedStringArray("meteor_parent_node", "user_interface") instance=ExtResource("2_0fa53")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0019, -7.29429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -7.3)
 meteor_parent_node = NodePath("../MeteorSpawnLocations")
 user_interface = NodePath("../../UI")
 
@@ -49,6 +58,9 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="WorldEnvironment" parent="BaseLevel" index="3"]
 environment = SubResource("Environment_b37ao")
+
+[node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
+visible = true
 
 [node name="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" index="0"]
 flip_faces = true
@@ -130,7 +142,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 4)
 [node name="MeteorSpawnCenter25" type="Marker3D" parent="BaseLevel/MeteorSpawnLocations" index="24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, 4)
 
-[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="9"]
+[node name="BossFloor" type="MeshInstance3D" parent="BaseLevel" index="8"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1, -10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor2" type="MeshInstance3D" parent="BaseLevel" index="9"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1, 10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor3" type="MeshInstance3D" parent="BaseLevel" index="10"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -1, -10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor4" type="MeshInstance3D" parent="BaseLevel" index="11"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -1, 10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor5" type="MeshInstance3D" parent="BaseLevel" index="12"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 20, -1, -10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor6" type="MeshInstance3D" parent="BaseLevel" index="13"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 20, -1, 10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="15"]
 
 [node name="LeftFireWallCollision" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
@@ -140,10 +182,10 @@ shape = SubResource("BoxShape3D_xbtr0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 shape = SubResource("BoxShape3D_xbtr0")
 
-[node name="FireWallParticles" parent="BaseLevel" index="10" instance=ExtResource("4_v2vlt")]
+[node name="FireWallParticles" parent="BaseLevel" index="16" instance=ExtResource("4_v2vlt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
-[node name="FireWallParticles2" parent="BaseLevel" index="11" instance=ExtResource("4_v2vlt")]
+[node name="FireWallParticles2" parent="BaseLevel" index="17" instance=ExtResource("4_v2vlt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
 [node name="CardSystem" parent="." index="2"]
@@ -158,13 +200,40 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7, 0, -7)
 [node name="RuinedTower3" parent="." index="5" instance=ExtResource("11_a0eoh")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.0006, -0.0357304, 6.00886)
 
-[node name="RuinedTower4" parent="." index="6" instance=ExtResource("11_a0eoh")]
+[node name="hell_rock_1" parent="." index="6" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -8, 0, -14)
+
+[node name="hell_rock_4" parent="." index="7" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(2.3674471, -1.2990379, 1.306787, 0.14210147, 2.2499998, 1.9792185, -1.8371172, -1.5, 1.8371172, -13, -3, -10)
+
+[node name="hell_rock_3" parent="." index="8" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(-2.8977776, 0, 0.77645695, 0, 3, 0, -0.77645695, 0, -2.8977776, 0, 0, -19)
+
+[node name="hell_rock_2" parent="." index="9" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(-1.3113416e-07, 3, 0, -3, -1.3113416e-07, 0, 0, 0, 3, 5, 3, -14)
+
+[node name="hell_rock_5" parent="." index="10" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(-6.556708e-08, 1.5, -2.5980766, -1.4999998, -2.2500002, -1.299038, -2.5980768, 1.299038, 0.74999994, 12, 0, -11)
+
+[node name="RuinedTower4" parent="." index="11" instance=ExtResource("11_a0eoh")]
 transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 6, 0, 6)
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="7"]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="12"]
 stream = ExtResource("12_us50b")
 autoplay = true
 bus = &"Music"
 script = ExtResource("13_ykefy")
+
+[node name="Spike" parent="." index="13" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(0.4482878, -0.9999999, 1.6730328, 0.25881907, 1.7320509, 0.96592575, -1.9318516, 7.1877544e-09, 0.5176381, -9.827845, 1, -2.3194723)
+
+[node name="Spike2" parent="." index="14" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(-0.44828773, 1, -1.6730326, 0.2588191, 1.7320511, 0.965926, 1.9318516, -1.4901161e-08, -0.5176378, 11.172155, 2, -1.3194723)
+
+[node name="Spike3" parent="." index="15" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(0.50000006, -0.51763797, 1.8660254, 0.1339746, 1.9318517, 0.4999999, -1.9318516, 1.4901161e-08, 0.5176381, -9.827845, 1, 2.6805277)
+
+[node name="Spike4" parent="." index="16" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(-0.5, 0.5176381, -1.8660254, 0.13397464, 1.9318519, 0.50000006, 1.9318516, -1.4901161e-08, -0.5176378, 11.172155, 2, 3.6805277)
 
 [editable path="BaseLevel/Player"]

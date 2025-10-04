@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://crqchyt1pne7l"]
+
+[sub_resource type="Gradient" id="Gradient_rijih"]
+colors = PackedColorArray(0.7882353, 0, 0, 1, 0.9529571, 0.5402155, 3.4269095e-05, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lotqt"]
+gradient = SubResource("Gradient_rijih")
+
+[sub_resource type="Curve" id="Curve_d8ngs"]
+_data = [Vector2(0, 0), 0.0, 18.701223, 0, 0, Vector2(0.10067114, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_olj5f"]
+curve = SubResource("Curve_d8ngs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v10vh"]
+emission_shape = 3
+emission_box_extents = Vector3(15, 0.35, 30)
+angle_min = -44.99999
+angle_max = 45.00001
+direction = Vector3(0, 5, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_olj5f")
+color_ramp = SubResource("GradientTexture1D_lotqt")
+hue_variation_min = -0.030000022
+hue_variation_max = 0.029999977
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mbng"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_tt7tp"]
+material = SubResource("StandardMaterial3D_7mbng")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rijih"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 0.35, 20)
+angle_min = -44.99999
+angle_max = 45.00001
+direction = Vector3(0, 5, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_olj5f")
+color_ramp = SubResource("GradientTexture1D_lotqt")
+hue_variation_min = -0.030000022
+hue_variation_max = 0.029999977
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7im2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xd0qt"]
+material = SubResource("StandardMaterial3D_d7im2")
+
+[node name="LavaVFX" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 600
+lifetime = 2.5
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_v10vh")
+draw_pass_1 = SubResource("SphereMesh_tt7tp")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+amount = 600
+lifetime = 3.25
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_rijih")
+draw_pass_1 = SubResource("BoxMesh_xd0qt")

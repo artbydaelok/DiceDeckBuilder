@@ -35,7 +35,8 @@ explosive_barrel=""
 [importer_defaults]
 
 texture={
-"compress/mode": 2
+&"compress/mode": 2,
+&"detect_3d/compress_to": 0
 }
 
 [input]
