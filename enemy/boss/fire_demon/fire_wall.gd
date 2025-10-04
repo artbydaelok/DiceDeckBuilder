@@ -11,7 +11,10 @@ func flip_sprite():
 	$FireSpriteFront.flip_h = bool(randi() % 2)
 	$FireSpritBack.flip_h = bool(randi() % 2)
 
-
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	await get_tree().create_timer(0.1).timeout
 	hitbox_collision.disabled = true
+
+
+func _on_self_destruct_timer_timeout() -> void:
+	queue_free()

@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh1xdwurvbl51"]
+[gd_scene load_steps=4 format=3 uid="uid://dh1xdwurvbl51"]
 
 [ext_resource type="PackedScene" uid="uid://li7n8ver3iue" path="res://assets/3d_models/hell_rock/hell_rock_1.glb" id="1_4yyyu"]
+[ext_resource type="Texture2D" uid="uid://c4vke66ggostg" path="res://assets/3d_models/hell_rock/hell_rock_1_stone_hell_5.png" id="2_yeyxp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kbtr"]
+shading_mode = 0
+albedo_texture = ExtResource("2_yeyxp")
+texture_filter = 0
 
 [node name="hell_rock_1" instance=ExtResource("1_4yyyu")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1kbtr")

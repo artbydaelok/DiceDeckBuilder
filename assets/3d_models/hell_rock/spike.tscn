@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2x0rck461il1"]
+
+[ext_resource type="PackedScene" uid="uid://7aurhj4q6lr4" path="res://assets/3d_models/hell_rock/Spike.glb" id="1_4besm"]
+[ext_resource type="Texture2D" uid="uid://dt22fkreui4li" path="res://assets/3d_models/hell_rock/Spike_stone_hell_1.png" id="2_p85hh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qbaj"]
+shading_mode = 0
+albedo_texture = ExtResource("2_p85hh")
+texture_filter = 0
+
+[node name="Spike" instance=ExtResource("1_4besm")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6qbaj")

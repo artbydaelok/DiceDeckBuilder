@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=25 format=3 uid="uid://2t64vc61c8vd"]
 
-[ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
+[ext_resource type="Script" uid="uid://t1i3t7qkwjs3" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
+[ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
 [ext_resource type="PackedScene" uid="uid://ca3r7dgfvfj22" path="res://ui/ability_sides_display.tscn" id="1_lwuof"]
 [ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="1_wvyn2"]
 [ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_sei10"]
@@ -10,10 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://bwy7alqls02bx" path="res://ui/center_warning_sign.tscn" id="4_qa4f1"]
 [ext_resource type="PackedScene" uid="uid://dr5v41plmy0gi" path="res://ui/deck_viewer.tscn" id="4_qn1s2"]
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="4_xdqa1"]
-[ext_resource type="Script" path="res://card/card_data.gd" id="5_joks6"]
-[ext_resource type="Script" path="res://levels/camera.gd" id="8_mpvo7"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="5_joks6"]
+[ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
 [ext_resource type="Resource" uid="uid://csjbw5er3lqoq" path="res://card/card_abilities/empty_card.tres" id="14_cu00i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceuhh"]
+shader = ExtResource("1_gj0fv")
+shader_parameter/viewport_size = Vector2(1280, 720)
+shader_parameter/virtual_resolution = Vector2(320, 240)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
 bg_color = Color(0.13, 0, 0, 1)
@@ -49,6 +55,7 @@ sky_material = SubResource("ProceduralSkyMaterial_7uuse")
 background_mode = 1
 sky = SubResource("Sky_hjcl6")
 tonemap_mode = 2
+volumetric_fog_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l525f"]
 albedo_color = Color(0.597176, 0.597176, 0.597176, 1)
@@ -62,6 +69,16 @@ albedo_color = Color(0.306923, 0.306923, 0.306923, 1)
 albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
 
 [node name="Game" type="CanvasLayer"]
+
+[node name="PSXShaderLayer" type="CanvasLayer" parent="."]
+
+[node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
+material = SubResource("ShaderMaterial_ceuhh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -82,14 +99,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 10
 
+[node name="PlayerHealthDisplay" parent="UI/MarginContainer" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
+custom_minimum_size = Vector2(300, 15)
+layout_mode = 2
+size_flags_horizontal = 0
+center_warning_sign_scene = ExtResource("4_qa4f1")
+user_interface_layer = NodePath("../..")
+
 [node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/MarginContainer"]
-custom_minimum_size = Vector2(600, 50)
+custom_minimum_size = Vector2(600, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_styles/background = SubResource("StyleBoxFlat_lul2y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_johek")
 value = 28.41
@@ -105,13 +130,6 @@ alignment = 1
 [node name="HandDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("1_wvyn2")]
 visible = false
 layout_mode = 2
-
-[node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
-custom_minimum_size = Vector2(590, 38)
-layout_mode = 2
-size_flags_vertical = 1
-center_warning_sign_scene = ExtResource("4_qa4f1")
-user_interface_layer = NodePath("../../..")
 
 [node name="ViewDeckKeyLabel" type="Label" parent="UI/MarginContainer"]
 layout_mode = 2
@@ -154,7 +172,7 @@ card_system = NodePath("../../CardSystem")
 [node name="Player" parent="BaseLevel" instance=ExtResource("3_cubmp")]
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 10, 6)
+transform = Transform3D(1, 0, 0, 0, 0.49999976, 0.86602557, 0, -0.86602557, 0.49999976, 0, 10, 6)
 script = ExtResource("8_mpvo7")
 target = NodePath("../Player/Pivot/MeshInstance3D")
 

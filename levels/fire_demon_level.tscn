@@ -11,11 +11,11 @@
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="8_kyeh5"]
 [ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="9_6aa4o"]
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="10_62a5j"]
-[ext_resource type="PackedScene" uid="uid://bxvgrbpfk5yvw" path="res://assets/3d_models/RuinedTower.glb" id="11_a0eoh"]
 [ext_resource type="AudioStream" uid="uid://b13o3b5bar26b" path="res://music/crushed ice.wav" id="12_us50b"]
 [ext_resource type="PackedScene" uid="uid://dh1xdwurvbl51" path="res://assets/3d_models/hell_rock/hell_rock_1.tscn" id="12_v2vlt"]
 [ext_resource type="Script" uid="uid://1n4g6p6jvkhx" path="res://music/music_player.gd" id="13_ykefy"]
-[ext_resource type="PackedScene" uid="uid://7aurhj4q6lr4" path="res://assets/3d_models/hell_rock/Spike.glb" id="16_m1xg1"]
+[ext_resource type="PackedScene" uid="uid://b2x0rck461il1" path="res://assets/3d_models/hell_rock/spike.tscn" id="16_m1xg1"]
+[ext_resource type="PackedScene" uid="uid://cb1qx6lk14w4g" path="res://assets/3d_models/hell_rock/hell_arena.tscn" id="16_wan88"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
 sky_top_color = Color(0.168175, 0.000273918, 0.146432, 1)
@@ -44,7 +44,7 @@ size = Vector3(2, 1, 12)
 
 [node name="FireDemonLevel" instance=ExtResource("1_ekkb5")]
 
-[node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="0" node_paths=PackedStringArray("boss")]
+[node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="1" node_paths=PackedStringArray("boss")]
 value = 100.0
 boss = NodePath("../../../BaseLevel/FireDemonBoss")
 
@@ -163,7 +163,7 @@ mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
 [node name="BossFloor5" type="MeshInstance3D" parent="BaseLevel" index="12"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 20, -1, -10)
+transform = Transform3D(10, 0, 0, 0, 9.998314, 0.18359832, 0, -0.18359832, 9.998314, 20, -1, -10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
@@ -172,13 +172,26 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 20, -1, 10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
+[node name="ArenaGrid" parent="BaseLevel" index="14"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.011040401, 0)
+modulate = Color(1, 1, 1, 0.3137255)
+transparent = true
+
 [node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="15"]
 
 [node name="LeftFireWallCollision" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 shape = SubResource("BoxShape3D_xbtr0")
 
-[node name="RightFireWallCollision" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="1"]
+[node name="BackWall" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -7)
+shape = SubResource("BoxShape3D_xbtr0")
+
+[node name="FrontWall" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="2"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 7)
+shape = SubResource("BoxShape3D_xbtr0")
+
+[node name="RightFireWallCollision" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 shape = SubResource("BoxShape3D_xbtr0")
 
@@ -188,52 +201,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 [node name="FireWallParticles2" parent="BaseLevel" index="17" instance=ExtResource("4_v2vlt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
-[node name="CardSystem" parent="." index="2"]
-deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
-
-[node name="RuinedTower2" parent="." index="3" instance=ExtResource("11_a0eoh")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7, 0, -7)
-
-[node name="RuinedTower" parent="." index="4" instance=ExtResource("11_a0eoh")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7, 0, -7)
-
-[node name="RuinedTower3" parent="." index="5" instance=ExtResource("11_a0eoh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.0006, -0.0357304, 6.00886)
-
-[node name="hell_rock_1" parent="." index="6" instance=ExtResource("12_v2vlt")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -8, 0, -14)
-
-[node name="hell_rock_4" parent="." index="7" instance=ExtResource("12_v2vlt")]
-transform = Transform3D(2.3674471, -1.2990379, 1.306787, 0.14210147, 2.2499998, 1.9792185, -1.8371172, -1.5, 1.8371172, -13, -3, -10)
-
-[node name="hell_rock_3" parent="." index="8" instance=ExtResource("12_v2vlt")]
-transform = Transform3D(-2.8977776, 0, 0.77645695, 0, 3, 0, -0.77645695, 0, -2.8977776, 0, 0, -19)
-
-[node name="hell_rock_2" parent="." index="9" instance=ExtResource("12_v2vlt")]
-transform = Transform3D(-1.3113416e-07, 3, 0, -3, -1.3113416e-07, 0, 0, 0, 3, 5, 3, -14)
-
-[node name="hell_rock_5" parent="." index="10" instance=ExtResource("12_v2vlt")]
-transform = Transform3D(-6.556708e-08, 1.5, -2.5980766, -1.4999998, -2.2500002, -1.299038, -2.5980768, 1.299038, 0.74999994, 12, 0, -11)
-
-[node name="RuinedTower4" parent="." index="11" instance=ExtResource("11_a0eoh")]
-transform = Transform3D(0.433013, 0, 0.25, 0, 0.5, 0, -0.25, 0, 0.433013, 6, 0, 6)
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="12"]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("12_us50b")
 autoplay = true
 bus = &"Music"
 script = ExtResource("13_ykefy")
 
-[node name="Spike" parent="." index="13" instance=ExtResource("16_m1xg1")]
-transform = Transform3D(0.4482878, -0.9999999, 1.6730328, 0.25881907, 1.7320509, 0.96592575, -1.9318516, 7.1877544e-09, 0.5176381, -9.827845, 1, -2.3194723)
+[node name="HellArena" parent="." index="4" instance=ExtResource("16_wan88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43221378, 0)
 
-[node name="Spike2" parent="." index="14" instance=ExtResource("16_m1xg1")]
-transform = Transform3D(-0.44828773, 1, -1.6730326, 0.2588191, 1.7320511, 0.965926, 1.9318516, -1.4901161e-08, -0.5176378, 11.172155, 2, -1.3194723)
+[node name="Spike" parent="." index="5" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(-1.3596264, 0.5503016, -1.3596264, 0.389122, 1.9228022, 0.389122, 1.4142135, 0, -1.4142135, 7.619665, 0.84878993, 2.9923077)
 
-[node name="Spike3" parent="." index="15" instance=ExtResource("16_m1xg1")]
-transform = Transform3D(0.50000006, -0.51763797, 1.8660254, 0.1339746, 1.9318517, 0.4999999, -1.9318516, 1.4901161e-08, 0.5176381, -9.827845, 1, 2.6805277)
+[node name="Spike4" parent="." index="6" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(-0.14314437, -0.36781657, 1.9606683, 0.38912204, 1.9228024, 0.38912204, -1.9565514, 0.40931988, -0.06605637, -8.132059, 0.05184126, 2.9923077)
 
-[node name="Spike4" parent="." index="16" instance=ExtResource("16_m1xg1")]
-transform = Transform3D(-0.5, 0.5176381, -1.8660254, 0.13397464, 1.9318519, 0.50000006, 1.9318516, -1.4901161e-08, -0.5176378, 11.172155, 2, 3.6805277)
+[node name="Spike5" parent="." index="7" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(0.8545248, -0.5232193, 1.730904, 0.38912213, 1.9228027, 0.38912204, -1.7658911, 0.17050928, 0.9233391, -8.556865, 0.84878993, -0.5559745)
+
+[node name="Spike6" parent="." index="8" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(0.8545247, -0.5232193, 1.730904, -0.18858126, 1.8782214, 0.6608505, -1.7983949, -0.44556475, 0.75315845, -9.194607, 0.84878993, -4.127233)
+
+[node name="Spike2" parent="." index="9" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(-1.3920068, -0.35303575, -1.3920068, 0.10098556, 1.9097615, -0.5853324, 1.4325218, -0.4776797, -1.3113744, 8.291985, 0.70666194, -1.0036066)
+
+[node name="Spike3" parent="." index="10" instance=ExtResource("16_m1xg1")]
+transform = Transform3D(-1.3994257, -0.28847063, -1.3994257, 0.09739557, 1.9350019, -0.49626744, 1.4255248, -0.41539383, -1.3398978, 8.291985, 0.46075797, -5.0968113)
+
+[node name="hell_rock_1" parent="." index="11" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(3, 0, 0, 0, 2.9002025, 0.7673497, 0, -0.7673497, 2.9002025, -0.8108835, 0, -13.660737)
+
+[node name="hell_rock_4" parent="." index="12" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(2, 0, 0, 0, 1.8801718, -0.6818749, 0, 0.6818749, 1.8801718, -0.67583513, -2.334198, 8.449206)
+
+[node name="hell_rock_5" parent="." index="13" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(1.9861901, -0.07999213, -0.22056684, -1.25725546e-08, 1.880172, -0.6818749, 0.23462403, 0.6771667, 1.8671894, 6.6575665, -2.334198, 8.269909)
+
+[node name="hell_rock_8" parent="." index="14" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(1.3360934, -0.23245183, -0.6409526, -1.4978767e-08, 1.4101291, -0.5114062, 0.681802, 0.4555243, 1.2560428, -6.1925454, -2.334198, 6.468547)
+
+[node name="hell_rock_6" parent="." index="15" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(0.0016406307, 0.340937, 0.9400847, -6.2862777e-09, 0.940086, -0.34093747, -0.9999986, 0.0005593466, 0.0015423361, 7.5563703, -1.5402536, 5.4493704)
+
+[node name="hell_rock_7" parent="." index="16" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(-0.29937387, -0.32530066, -0.8969698, -6.2862773e-09, 0.94008595, -0.34093744, 0.95413584, -0.102067746, -0.28143716, -7.5525575, -1.5402536, 5.4493704)
+
+[node name="hell_rock_3" parent="." index="17" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(2.3517218, 0.63215804, -1.7520792, -0.6201599, 2.926675, 0.22354999, 1.756362, 0.18694742, 2.4249213, 8.696916, -2.3215795, -11.11908)
+
+[node name="hell_rock_2" parent="." index="18" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(1.6319256, -1.7122631, 1.8452574, 0.70048964, 2.4211183, 1.6271145, -2.417878, -0.4542488, 1.7168359, -8.4177475, -1.4757895, -10.35521)
+
+[node name="CardSystem" parent="." index="19"]
+deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
 
 [editable path="BaseLevel/Player"]
