@@ -21,8 +21,9 @@ GameEvents="*res://game_events/game_events.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=720
+window/size/viewport_height=480
+window/stretch/mode="viewport"
 
 [global_group]
 

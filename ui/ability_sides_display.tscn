@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ca3r7dgfvfj22"]
 
-[ext_resource type="Script" path="res://ui/ability_sides_display.gd" id="1_hk5a5"]
+[ext_resource type="Script" uid="uid://bg5hjn6xh1tnl" path="res://ui/ability_sides_display.gd" id="1_hk5a5"]
 [ext_resource type="Texture2D" uid="uid://dln6eyq2dee81" path="res://assets/card_artwork/axe.png" id="1_iw1h7"]
 [ext_resource type="Texture2D" uid="uid://gifdeue4l0l2" path="res://player/dice_directions_clip_layer.png" id="2_a15yy"]
 [ext_resource type="Texture2D" uid="uid://bg5m3lg86cx1m" path="res://player/dice_grid.png" id="3_dm72h"]
@@ -530,20 +530,22 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nrngb"]
 _data = {
-"RESET": SubResource("Animation_tcuyl"),
-"roll_backward": SubResource("Animation_8mslq"),
-"roll_forward": SubResource("Animation_oyl22"),
-"roll_left": SubResource("Animation_irep2"),
-"roll_right": SubResource("Animation_0t0sr")
+&"RESET": SubResource("Animation_tcuyl"),
+&"roll_backward": SubResource("Animation_8mslq"),
+&"roll_forward": SubResource("Animation_oyl22"),
+&"roll_left": SubResource("Animation_irep2"),
+&"roll_right": SubResource("Animation_0t0sr")
 }
 
 [node name="AbilitySidesDisplay" type="Control"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hk5a5")
 
 [node name="Background" type="Sprite2D" parent="."]
 clip_children = 2
+position = Vector2(101, 102)
 texture = ExtResource("2_a15yy")
 
 [node name="BackgroundGrid" type="Sprite2D" parent="Background"]
@@ -610,5 +612,5 @@ texture = ExtResource("1_iw1h7")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Background")
 libraries = {
-"": SubResource("AnimationLibrary_nrngb")
+&"": SubResource("AnimationLibrary_nrngb")
 }

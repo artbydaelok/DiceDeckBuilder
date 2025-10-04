@@ -32,6 +32,8 @@ background_color = Color(0.14902, 0.0313726, 0.00784314, 1)
 sky = SubResource("Sky_hjcl6")
 tonemap_mode = 2
 fog_light_color = Color(0.843062, 0.399308, 0.284986, 1)
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(1, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m1xg1"]
 
@@ -43,10 +45,6 @@ texture_filter = 0
 size = Vector3(2, 1, 12)
 
 [node name="FireDemonLevel" instance=ExtResource("1_ekkb5")]
-
-[node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="1" node_paths=PackedStringArray("boss")]
-value = 100.0
-boss = NodePath("../../../BaseLevel/FireDemonBoss")
 
 [node name="FireDemonBoss" parent="BaseLevel" index="1" node_paths=PackedStringArray("meteor_parent_node", "user_interface") instance=ExtResource("2_0fa53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -7.3)

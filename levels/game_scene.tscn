@@ -16,11 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
 [ext_resource type="Resource" uid="uid://csjbw5er3lqoq" path="res://card/card_abilities/empty_card.tres" id="14_cu00i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceuhh"]
-shader = ExtResource("1_gj0fv")
-shader_parameter/viewport_size = Vector2(1280, 720)
-shader_parameter/virtual_resolution = Vector2(320, 240)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
 bg_color = Color(0.13, 0, 0, 1)
 corner_radius_top_left = 5
@@ -68,31 +63,16 @@ albedo_color = Color(0.306923, 0.306923, 0.306923, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhd7d"]
 albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceuhh"]
+shader = ExtResource("1_gj0fv")
+shader_parameter/viewport_size = Vector2(1280, 720)
+shader_parameter/virtual_resolution = Vector2(320, 240)
+
 [node name="Game" type="CanvasLayer"]
-
-[node name="PSXShaderLayer" type="CanvasLayer" parent="."]
-
-[node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
-material = SubResource("ShaderMaterial_ceuhh")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="AbilitySidesDisplay" parent="UI" node_paths=PackedStringArray("player", "card_system") instance=ExtResource("1_lwuof")]
-offset_left = 1119.0
-offset_top = 544.0
-offset_right = 1119.0
-offset_bottom = 544.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-player = NodePath("../../BaseLevel/Player")
-card_system = NodePath("../../CardSystem")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
+[node name="ScreenMargin1" type="MarginContainer" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,14 +83,14 @@ theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 10
 
-[node name="PlayerHealthDisplay" parent="UI/MarginContainer" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
+[node name="PlayerHealthDisplay" parent="UI/ScreenMargin1" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
 custom_minimum_size = Vector2(300, 15)
 layout_mode = 2
 size_flags_horizontal = 0
 center_warning_sign_scene = ExtResource("4_qa4f1")
 user_interface_layer = NodePath("../..")
 
-[node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/MarginContainer"]
+[node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/ScreenMargin1"]
 custom_minimum_size = Vector2(600, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -120,38 +100,30 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_johek")
 value = 28.41
 script = ExtResource("1_cj600")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScreenMargin1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 36
 alignment = 1
 
-[node name="HandDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("1_wvyn2")]
+[node name="HandDisplay" parent="UI/ScreenMargin1/VBoxContainer" instance=ExtResource("1_wvyn2")]
 visible = false
 layout_mode = 2
 
-[node name="ViewDeckKeyLabel" type="Label" parent="UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("4_xdqa1")
-theme_override_font_sizes/font_size = 28
-text = "[TAB] TO VIEW YOUR FULL DECK"
-
-[node name="BottomLeftHUD" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="BottomLeftHUD" type="VBoxContainer" parent="UI/ScreenMargin1"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="InsufficientEnergy" type="Label" parent="UI/MarginContainer/BottomLeftHUD"]
+[node name="InsufficientEnergy" type="Label" parent="UI/ScreenMargin1/BottomLeftHUD"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xdqa1")
 theme_override_font_sizes/font_size = 32
 text = "NOT ENOUGH ENERGY!"
 
-[node name="EnergyMeter" parent="UI/MarginContainer/BottomLeftHUD" node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("4_iiuie")]
+[node name="EnergyMeter" parent="UI/ScreenMargin1/BottomLeftHUD" node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("4_iiuie")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -159,13 +131,31 @@ player = NodePath("../../../../BaseLevel/Player")
 insufficient_label = NodePath("../InsufficientEnergy")
 insufficient_timer = NodePath("../InsufficientTimer")
 
-[node name="InsufficientTimer" type="Timer" parent="UI/MarginContainer/BottomLeftHUD"]
+[node name="InsufficientTimer" type="Timer" parent="UI/ScreenMargin1/BottomLeftHUD"]
 wait_time = 2.5
 one_shot = true
 
 [node name="DeckViewer" parent="UI" node_paths=PackedStringArray("card_system") instance=ExtResource("4_qn1s2")]
 visible = false
 card_system = NodePath("../../CardSystem")
+
+[node name="ScreenMargin2" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="AbilitySidesDisplay" parent="UI/ScreenMargin2" node_paths=PackedStringArray("player", "card_system") instance=ExtResource("1_lwuof")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+player = NodePath("../../../BaseLevel/Player")
+card_system = NodePath("../../../CardSystem")
 
 [node name="BaseLevel" type="Node3D" parent="." groups=["entities_layer"]]
 
@@ -223,7 +213,17 @@ texture = ExtResource("11_nanwt")
 
 [node name="CardSystem" parent="." node_paths=PackedStringArray("hand_display", "player") instance=ExtResource("4_cosan")]
 deck = Array[ExtResource("5_joks6")]([ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i")])
-hand_display = NodePath("../UI/MarginContainer/VBoxContainer/HandDisplay")
+hand_display = NodePath("../UI/ScreenMargin1/VBoxContainer/HandDisplay")
 player = NodePath("../BaseLevel/Player")
+
+[node name="PSXShaderLayer" type="CanvasLayer" parent="."]
+
+[node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
+material = SubResource("ShaderMaterial_ceuhh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="BaseLevel/Player"]
