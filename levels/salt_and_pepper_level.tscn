@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://doqfy3mapatxr"]
+[gd_scene load_steps=53 format=3 uid="uid://doqfy3mapatxr"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
 [ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
@@ -36,6 +36,21 @@
 [ext_resource type="PackedScene" uid="uid://v0fbnvjq687y" path="res://assets/3d_models/psx/metal_barrel_1/metal_barrel_hr_1.glb" id="27_ehxsn"]
 [ext_resource type="PackedScene" uid="uid://b7eo8o08fuhx0" path="res://assets/3d_models/psx/tire/tire_2.glb" id="34_rtl24"]
 [ext_resource type="PackedScene" uid="uid://rn8bv8klxw2e" path="res://assets/3d_models/psx/bucket/bucket_mx_2.glb" id="35_3onku"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hjcl6"]
+sky_material = SubResource("ProceduralSkyMaterial_7uuse")
+
+[sub_resource type="Environment" id="Environment_rtl24"]
+background_mode = 1
+sky = SubResource("Sky_hjcl6")
+tonemap_mode = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.035
+volumetric_fog_albedo = Color(0.91, 0.86905, 0.7735, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rtl24"]
 size = Vector3(6, 1, 12)
@@ -113,11 +128,15 @@ albedo_texture = ExtResource("18_47hlg")
 
 [node name="SaltAndPepperLevel" instance=ExtResource("1_ijhq5")]
 
-[node name="EnemyHealthDisplay" parent="UI/MarginContainer" index="0" node_paths=PackedStringArray("boss")]
+[node name="EnemyHealthDisplay" parent="UI/ScreenMargin1" index="1" node_paths=PackedStringArray("boss")]
+value = 100.0
 boss = NodePath("../../../BaseLevel/SaltAndPepper")
 
 [node name="Camera3D" parent="BaseLevel" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8, 7.5)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 8, 8.5)
+
+[node name="WorldEnvironment" parent="BaseLevel" index="2"]
+environment = SubResource("Environment_rtl24")
 
 [node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
 visible = true

@@ -23,6 +23,8 @@ GameEvents="*res://game_events/game_events.tscn"
 
 window/size/viewport_width=720
 window/size/viewport_height=480
+window/size/mode=2
+window/size/resizable=false
 window/stretch/mode="viewport"
 
 [global_group]

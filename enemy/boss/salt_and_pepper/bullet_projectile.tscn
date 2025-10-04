@@ -64,5 +64,8 @@ base_width = 0.12
 width_profile = SubResource("Curve_ou103")
 smoothing_iterations = 1
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+omni_range = 6.827029
+
 [connection signal="timeout" from="SelfDestroyTimer" to="." method="_on_self_destroy_timer_timeout"]
 [connection signal="on_hit" from="Hitbox" to="." method="_on_hitbox_on_hit"]

@@ -538,14 +538,15 @@ _data = {
 }
 
 [node name="AbilitySidesDisplay" type="Control"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hk5a5")
 
 [node name="Background" type="Sprite2D" parent="."]
 clip_children = 2
-position = Vector2(101, 102)
+position = Vector2(50, 50)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_a15yy")
 
 [node name="BackgroundGrid" type="Sprite2D" parent="Background"]

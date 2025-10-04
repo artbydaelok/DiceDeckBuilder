@@ -46,12 +46,12 @@ func draw_card(index: int):
 	hand[index] = card_to_draw
 	deck.remove_at(0)
 	
-	
-	if hand_display.get_child(player.up_side).animation_player.is_playing():
-		await hand_display.get_child(player.up_side).animation_player.animation_finished
-	
-	# Update the UI
-	hand_display.update_index(index, card_to_draw)
+	if hand_display != null:
+		if hand_display.get_child(player.up_side).animation_player.is_playing():
+			await hand_display.get_child(player.up_side).animation_player.animation_finished
+		
+		# Update the UI
+		hand_display.update_index(index, card_to_draw)
 	
 	# Update Player's Icons
 	player.update_side_icon(index + 1, hand[index].card_artwork)
@@ -81,8 +81,9 @@ func play_ability():
 	player.energy = clamp(player.energy, 0, 6)
 	player.energy_spent.emit(_cost)
 	
-	# This triggers the animations for the Card UI Element
-	hand_display.on_played_card(player.up_side)
+	if hand_display != null:
+		# This triggers the animations for the Card UI Element
+		hand_display.on_played_card(player.up_side)
 	
 	# Using the index, we determine which card to discard in the arrays.
 	discard_card(player.up_side)
