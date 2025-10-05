@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwyb3auunpu1r"]
+[gd_scene load_steps=7 format=3 uid="uid://bwyb3auunpu1r"]
 
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="1_j4oks"]
 [ext_resource type="Script" uid="uid://cyewp8v8b2msj" path="res://enemy/boss/fire_demon/fire_wall.gd" id="1_xn4mw"]
@@ -6,6 +6,13 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4h1h"]
 size = Vector3(0.17070313, 0.99602, 3.8596191)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji0qb"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.101960786)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x7cf6"]
+material = SubResource("StandardMaterial3D_ji0qb")
 
 [node name="FireWall" type="Node3D" groups=["enemy_projectiles"]]
 script = ExtResource("1_xn4mw")
@@ -35,6 +42,10 @@ shape = SubResource("BoxShape3D_f4h1h")
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="FloorWarning" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.6199999, 0, 0, 0, 1, 0, 0, 0, 0.67499995, 0, 0, -0.25)
+mesh = SubResource("PlaneMesh_x7cf6")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]
