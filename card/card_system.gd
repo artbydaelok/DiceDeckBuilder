@@ -13,6 +13,8 @@ var system_disabled = false
 
 signal card_drawn
 
+@export var shuffle_deck_mode : bool = false
+
 # Match the Ability ID.
 const CARD_ABILITIES = {
 	"arrow" : preload("res://abilities/bow_and_arrow/bow_and_arrow.tscn"),
@@ -85,8 +87,9 @@ func play_ability():
 		# This triggers the animations for the Card UI Element
 		hand_display.on_played_card(player.up_side)
 	
-	# Using the index, we determine which card to discard in the arrays.
-	discard_card(player.up_side)
+	if shuffle_deck_mode:
+		# Using the index, we determine which card to discard in the arrays.
+		discard_card(player.up_side)
 	
 	await get_tree().create_timer(global_cooldown).timeout
 	system_disabled = false

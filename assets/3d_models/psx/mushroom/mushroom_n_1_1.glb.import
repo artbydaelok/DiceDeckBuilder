@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8hefk5p44v6q"
-path="res://.godot/imported/stone_4.glb-97b3d51e5bed40d598109cf544317588.scn"
+uid="uid://dc80taguvbw2e"
+path="res://.godot/imported/mushroom_n_1_1.glb-969736166d94f2c8c3ab51fd18325334.scn"
 
 [deps]
 
-source_file="res://assets/3d_models/psx/stone_4/stone_4.glb"
-dest_files=["res://.godot/imported/stone_4.glb-97b3d51e5bed40d598109cf544317588.scn"]
+source_file="res://assets/3d_models/psx/mushroom/mushroom_n_1_1.glb"
+dest_files=["res://.godot/imported/mushroom_n_1_1.glb-969736166d94f2c8c3ab51fd18325334.scn"]
 
 [params]
 

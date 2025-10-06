@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://brcfgol54ge8y"]
+
+[ext_resource type="PackedScene" uid="uid://bj0n4kvfagpx3" path="res://enemy/boss/boss_enemy.tscn" id="1_e11ro"]
+[ext_resource type="Script" uid="uid://gwgl4ggxqk6x" path="res://enemy/boss/bear/bear_boss.gd" id="2_0p4xc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myki5"]
+size = Vector3(2, 2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rh7u2"]
+
+[node name="BearBoss" instance=ExtResource("1_e11ro")]
+script = ExtResource("2_0p4xc")
+
+[node name="Hurtbox" parent="." index="0" node_paths=PackedStringArray("hurtbox_owner")]
+hurtbox_owner = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_myki5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 4.5, 0, 1, 0)
+mesh = SubResource("BoxMesh_rh7u2")
+
+[editable path="Hurtbox"]

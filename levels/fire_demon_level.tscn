@@ -250,7 +250,7 @@ transform = Transform3D(2.3517218, 0.63215804, -1.7520792, -0.6201599, 2.926675,
 transform = Transform3D(1.6319256, -1.7122631, 1.8452574, 0.70048964, 2.4211183, 1.6271145, -2.417878, -0.4542488, 1.7168359, -8.4177475, -1.4757895, -10.35521)
 
 [node name="CardSystem" parent="." index="2"]
-deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
+deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("12_us50b")
