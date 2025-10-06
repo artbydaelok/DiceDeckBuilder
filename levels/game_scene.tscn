@@ -205,12 +205,12 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("11_nanwt")
 
-[node name="CardSystem" parent="." node_paths=PackedStringArray("hand_display", "player") instance=ExtResource("4_cosan")]
+[node name="CardSystem" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
 deck = Array[ExtResource("5_joks6")]([ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i")])
-hand_display = NodePath("")
 player = NodePath("../BaseLevel/Player")
 
 [node name="PSXShaderLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
 material = SubResource("ShaderMaterial_ceuhh")

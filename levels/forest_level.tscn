@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://crevw44gy8m6l"]
+[gd_scene load_steps=36 format=3 uid="uid://crevw44gy8m6l"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_04m43"]
 [ext_resource type="PackedScene" uid="uid://b4cckx4hgyro8" path="res://assets/3d_models/psx/trees/tree_6.glb" id="2_ci758"]
@@ -11,27 +11,49 @@
 [ext_resource type="PackedScene" uid="uid://cjdv6cppbxplr" path="res://assets/3d_models/psx/trees/tree_5.glb" id="7_3m0pa"]
 [ext_resource type="PackedScene" uid="uid://c0ki7tnbe2uwb" path="res://assets/3d_models/psx/stone/stone_1.glb" id="7_fwmjj"]
 [ext_resource type="PackedScene" uid="uid://brcfgol54ge8y" path="res://enemy/boss/bear/bear_boss.tscn" id="7_x1rg0"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="8_ds80v"]
 [ext_resource type="PackedScene" uid="uid://c8hefk5p44v6q" path="res://assets/3d_models/psx/stone/stone_4.glb" id="8_ji5g4"]
+[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="9_v2n4n"]
+[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="10_kbxmv"]
 [ext_resource type="PackedScene" uid="uid://dfvirkl2tsg0c" path="res://assets/3d_models/psx/grass/grass_3.glb" id="11_2avqq"]
+[ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="11_fceby"]
 [ext_resource type="PackedScene" uid="uid://dc1wy1s0lmuth" path="res://assets/3d_models/psx/grass/fern_3.glb" id="12_4eu6b"]
+[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="12_jrclq"]
 [ext_resource type="PackedScene" uid="uid://brpe3av8rjbv2" path="res://assets/3d_models/psx/grass/grass_2.glb" id="13_1wlgo"]
+[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="13_188lx"]
+[ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="14_0y6w2"]
 [ext_resource type="PackedScene" uid="uid://b53tecimrdq7m" path="res://assets/3d_models/psx/mushroom/mushroom_n_1_0.glb" id="14_caym0"]
 [ext_resource type="PackedScene" uid="uid://dc80taguvbw2e" path="res://assets/3d_models/psx/mushroom/mushroom_n_1_1.glb" id="15_2avqq"]
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="16_4eu6b"]
 [ext_resource type="PackedScene" uid="uid://c8bvxiyxtk4yr" path="res://assets/3d_models/psx/trees/tree_stump_1.glb" id="17_1wlgo"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="Gradient" id="Gradient_ds80v"]
+colors = PackedColorArray(0, 0.03529412, 0, 1, 0.1749, 0.33, 0.224015, 1)
 
-[sub_resource type="Sky" id="Sky_hjcl6"]
-sky_material = SubResource("ProceduralSkyMaterial_7uuse")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v2n4n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kbxmv"]
+noise = SubResource("FastNoiseLite_v2n4n")
+color_ramp = SubResource("Gradient_ds80v")
+seamless = true
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fceby"]
+panorama = SubResource("NoiseTexture2D_kbxmv")
+
+[sub_resource type="Sky" id="Sky_jrclq"]
+sky_material = SubResource("PanoramaSkyMaterial_fceby")
 
 [sub_resource type="Environment" id="Environment_aa8vv"]
-background_mode = 1
-sky = SubResource("Sky_hjcl6")
+background_mode = 2
+sky = SubResource("Sky_jrclq")
 tonemap_mode = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.5176471, 0.6431373, 0.60784316, 1)
+fog_density = 1.0
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_emission = Color(0.2, 0.29411766, 0.2, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8ixlj"]
 
@@ -312,8 +334,11 @@ shape = SubResource("BoxShape3D_1wlgo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
 [node name="BearBoss" parent="BaseLevel" index="58" node_paths=PackedStringArray("user_interface") instance=ExtResource("7_x1rg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21201295, 1.2779455, -5.9948373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21201295, 1.2779455, -8.994837)
 user_interface = NodePath("../../UI")
+
+[node name="CardSystem" parent="." index="2"]
+deck = Array[ExtResource("8_ds80v")]([ExtResource("9_v2n4n"), ExtResource("10_kbxmv"), ExtResource("11_fceby"), ExtResource("12_jrclq"), ExtResource("13_188lx"), ExtResource("14_0y6w2")])
 
 [node name="tree_82" parent="." index="4" instance=ExtResource("4_5r6my")]
 transform = Transform3D(0.99832976, 0.057695515, -0.0029934023, -0.057773117, 0.99698883, -0.051726528, 0, 0.051813066, 0.9986568, -4.4617863, 0, -5.1228)

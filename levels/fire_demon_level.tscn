@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c5lyk0s0rvu5i"]
+[gd_scene load_steps=24 format=3 uid="uid://c5lyk0s0rvu5i"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
 [ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon/fire_demon_boss.tscn" id="2_0fa53"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="6_t23ih"]
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="7_ckf00"]
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="8_kyeh5"]
+[ext_resource type="PackedScene" uid="uid://bhs48qnsqembh" path="res://vfx/embers_vfx.tscn" id="8_wan88"]
 [ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="9_6aa4o"]
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="10_62a5j"]
 [ext_resource type="AudioStream" uid="uid://b13o3b5bar26b" path="res://music/crushed ice.wav" id="12_us50b"]
@@ -145,42 +146,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.1, 4)
 [node name="MeteorSpawnCenter25" type="Marker3D" parent="BaseLevel/MeteorSpawnLocations" index="24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, 4)
 
-[node name="BossFloor" type="MeshInstance3D" parent="BaseLevel" index="8"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1, -10)
-mesh = SubResource("PlaneMesh_m1xg1")
-surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
-
-[node name="BossFloor2" type="MeshInstance3D" parent="BaseLevel" index="9"]
+[node name="BossFloor2" type="MeshInstance3D" parent="BaseLevel" index="8"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1, 10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
-[node name="BossFloor3" type="MeshInstance3D" parent="BaseLevel" index="10"]
+[node name="BossFloor3" type="MeshInstance3D" parent="BaseLevel" index="9"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -1, -10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
-[node name="BossFloor4" type="MeshInstance3D" parent="BaseLevel" index="11"]
+[node name="BossFloor4" type="MeshInstance3D" parent="BaseLevel" index="10"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -1, 10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
-[node name="BossFloor5" type="MeshInstance3D" parent="BaseLevel" index="12"]
+[node name="BossFloor5" type="MeshInstance3D" parent="BaseLevel" index="11"]
+transform = Transform3D(10, 0, 0, 0, 9.999999, 0, 0, 0, 9.999999, 20, -1, -10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor10" type="MeshInstance3D" parent="BaseLevel" index="12"]
+transform = Transform3D(10, 0, 0, 0, 9.999999, 0, 0, 0, 9.999999, 0, -1, -10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor11" type="MeshInstance3D" parent="BaseLevel" index="13"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -1, -30)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor15" type="MeshInstance3D" parent="BaseLevel" index="14"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -40, -1, -30)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor12" type="MeshInstance3D" parent="BaseLevel" index="15"]
+transform = Transform3D(10, 0, 0, 0, 9.999999, 0, 0, 0, 9.999999, 20, -1, -30)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor14" type="MeshInstance3D" parent="BaseLevel" index="16"]
+transform = Transform3D(10, 0, 0, 0, 9.999999, 0, 0, 0, 9.999999, 40, -1, -30)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor13" type="MeshInstance3D" parent="BaseLevel" index="17"]
+transform = Transform3D(10, 0, 0, 0, 9.999999, 0, 0, 0, 9.999999, 0, -1, -30)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor7" type="MeshInstance3D" parent="BaseLevel" index="18"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -20, -1, -10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor8" type="MeshInstance3D" parent="BaseLevel" index="19"]
 transform = Transform3D(10, 0, 0, 0, 9.998314, 0.18359832, 0, -0.18359832, 9.998314, 20, -1, -10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
-[node name="BossFloor6" type="MeshInstance3D" parent="BaseLevel" index="13"]
+[node name="BossFloor9" type="MeshInstance3D" parent="BaseLevel" index="20"]
+transform = Transform3D(10, 0, 0, 0, 9.998314, 0.18359832, 0, -0.18359832, 9.998314, 20, -1, -10)
+mesh = SubResource("PlaneMesh_m1xg1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
+
+[node name="BossFloor6" type="MeshInstance3D" parent="BaseLevel" index="21"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 20, -1, 10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 
-[node name="ArenaGrid" parent="BaseLevel" index="14"]
+[node name="ArenaGrid" parent="BaseLevel" index="22"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.011040401, 0)
 modulate = Color(1, 1, 1, 0.3137255)
 transparent = true
 
-[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="15"]
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="23"]
 
 [node name="LeftFireWallCollision" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
@@ -198,56 +239,76 @@ shape = SubResource("BoxShape3D_xbtr0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 shape = SubResource("BoxShape3D_xbtr0")
 
-[node name="FireWallParticles" parent="BaseLevel" index="16" instance=ExtResource("4_v2vlt")]
+[node name="FireWallParticles" parent="BaseLevel" index="24" instance=ExtResource("4_v2vlt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
-[node name="FireWallParticles2" parent="BaseLevel" index="17" instance=ExtResource("4_v2vlt")]
+[node name="FireWallParticles2" parent="BaseLevel" index="25" instance=ExtResource("4_v2vlt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
-[node name="HellArena" parent="BaseLevel" index="18" instance=ExtResource("16_wan88")]
+[node name="HellArena" parent="BaseLevel" index="26" instance=ExtResource("16_wan88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43221378, 0)
 
-[node name="Spike" parent="BaseLevel" index="19" instance=ExtResource("16_m1xg1")]
+[node name="Spike" parent="BaseLevel" index="27" instance=ExtResource("16_m1xg1")]
 transform = Transform3D(-1.3596264, 0.5503016, -1.3596264, 0.389122, 1.9228022, 0.389122, 1.4142135, 0, -1.4142135, 7.619665, 0.84878993, 2.9923077)
 
-[node name="Spike4" parent="BaseLevel" index="20" instance=ExtResource("16_m1xg1")]
+[node name="Spike4" parent="BaseLevel" index="28" instance=ExtResource("16_m1xg1")]
 transform = Transform3D(-0.14314437, -0.36781657, 1.9606683, 0.38912204, 1.9228024, 0.38912204, -1.9565514, 0.40931988, -0.06605637, -8.132059, 0.05184126, 2.9923077)
 
-[node name="Spike5" parent="BaseLevel" index="21" instance=ExtResource("16_m1xg1")]
+[node name="Spike5" parent="BaseLevel" index="29" instance=ExtResource("16_m1xg1")]
 transform = Transform3D(0.8545248, -0.5232193, 1.730904, 0.38912213, 1.9228027, 0.38912204, -1.7658911, 0.17050928, 0.9233391, -8.556865, 0.84878993, -0.5559745)
 
-[node name="Spike6" parent="BaseLevel" index="22" instance=ExtResource("16_m1xg1")]
+[node name="Spike6" parent="BaseLevel" index="30" instance=ExtResource("16_m1xg1")]
 transform = Transform3D(0.8545247, -0.5232193, 1.730904, -0.18858126, 1.8782214, 0.6608505, -1.7983949, -0.44556475, 0.75315845, -9.194607, 0.84878993, -4.127233)
 
-[node name="Spike2" parent="BaseLevel" index="23" instance=ExtResource("16_m1xg1")]
+[node name="Spike2" parent="BaseLevel" index="31" instance=ExtResource("16_m1xg1")]
 transform = Transform3D(-1.3920068, -0.35303575, -1.3920068, 0.10098556, 1.9097615, -0.5853324, 1.4325218, -0.4776797, -1.3113744, 8.291985, 0.70666194, -1.0036066)
 
-[node name="Spike3" parent="BaseLevel" index="24" instance=ExtResource("16_m1xg1")]
+[node name="Spike3" parent="BaseLevel" index="32" instance=ExtResource("16_m1xg1")]
 transform = Transform3D(-1.3994257, -0.28847063, -1.3994257, 0.09739557, 1.9350019, -0.49626744, 1.4255248, -0.41539383, -1.3398978, 8.291985, 0.46075797, -5.0968113)
 
-[node name="hell_rock_1" parent="BaseLevel" index="25" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_1" parent="BaseLevel" index="33" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(3, 0, 0, 0, 2.9002025, 0.7673497, 0, -0.7673497, 2.9002025, -0.8108835, 0, -13.660737)
 
-[node name="hell_rock_4" parent="BaseLevel" index="26" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_13" parent="BaseLevel" index="34" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(5, 0, 0, 0, 4.8336706, 1.2789161, 0, -1.2789161, 4.8336706, -20.53138, 0, -38.660736)
+
+[node name="hell_rock_14" parent="BaseLevel" index="35" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(5, 0, 0, 0, 4.8336706, 1.2789161, 0, -1.2789161, 4.8336706, 12.543434, 0, -38.660736)
+
+[node name="hell_rock_9" parent="BaseLevel" index="36" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(4, 0, 0, 0, 3.8669367, 1.0231329, 0, -1.0231329, 3.8669367, 41.95334, 0, -39.49494)
+
+[node name="hell_rock_10" parent="BaseLevel" index="37" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(3.6809576, 3.271299, 0.86553586, -2.8045926, 2.2337513, 3.4849129, 1.89336, -3.051058, 3.4794009, 24.808289, 0, -33.16275)
+
+[node name="hell_rock_11" parent="BaseLevel" index="38" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(4, 0, 0, 0, 3.8669367, 1.0231329, 0, -1.0231329, 3.8669367, -38.122124, 0, -39.49494)
+
+[node name="hell_rock_12" parent="BaseLevel" index="39" instance=ExtResource("12_v2vlt")]
+transform = Transform3D(3.6809576, 3.271299, 0.86553586, -2.8045926, 2.2337513, 3.4849129, 1.89336, -3.051058, 3.4794009, -55.267174, 0, -33.16275)
+
+[node name="hell_rock_4" parent="BaseLevel" index="40" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(2, 0, 0, 0, 1.8801718, -0.6818749, 0, 0.6818749, 1.8801718, -0.67583513, -2.334198, 8.449206)
 
-[node name="hell_rock_5" parent="BaseLevel" index="27" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_5" parent="BaseLevel" index="41" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(1.9861901, -0.07999213, -0.22056684, -1.25725546e-08, 1.880172, -0.6818749, 0.23462403, 0.6771667, 1.8671894, 6.6575665, -2.334198, 8.269909)
 
-[node name="hell_rock_8" parent="BaseLevel" index="28" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_8" parent="BaseLevel" index="42" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(1.3360934, -0.23245183, -0.6409526, -1.4978767e-08, 1.4101291, -0.5114062, 0.681802, 0.4555243, 1.2560428, -6.1925454, -2.334198, 6.468547)
 
-[node name="hell_rock_6" parent="BaseLevel" index="29" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_6" parent="BaseLevel" index="43" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(0.0016406307, 0.340937, 0.9400847, -6.2862777e-09, 0.940086, -0.34093747, -0.9999986, 0.0005593466, 0.0015423361, 7.5563703, -1.5402536, 5.4493704)
 
-[node name="hell_rock_7" parent="BaseLevel" index="30" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_7" parent="BaseLevel" index="44" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(-0.29937387, -0.32530066, -0.8969698, -6.2862773e-09, 0.94008595, -0.34093744, 0.95413584, -0.102067746, -0.28143716, -7.5525575, -1.5402536, 5.4493704)
 
-[node name="hell_rock_3" parent="BaseLevel" index="31" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_3" parent="BaseLevel" index="45" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(2.3517218, 0.63215804, -1.7520792, -0.6201599, 2.926675, 0.22354999, 1.756362, 0.18694742, 2.4249213, 8.696916, -2.3215795, -11.11908)
 
-[node name="hell_rock_2" parent="BaseLevel" index="32" instance=ExtResource("12_v2vlt")]
+[node name="hell_rock_2" parent="BaseLevel" index="46" instance=ExtResource("12_v2vlt")]
 transform = Transform3D(1.6319256, -1.7122631, 1.8452574, 0.70048964, 2.4211183, 1.6271145, -2.417878, -0.4542488, 1.7168359, -8.4177475, -1.4757895, -10.35521)
+
+[node name="FirefliesVFX" parent="BaseLevel" index="47" instance=ExtResource("8_wan88")]
 
 [node name="CardSystem" parent="." index="2"]
 deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])

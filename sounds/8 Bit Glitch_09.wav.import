@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6uwji44un5ef"
+path="res://.godot/imported/8 Bit Glitch_09.wav-bbe8c0358619a7a610e82d81028ea5a1.sample"
+
+[deps]
+
+source_file="res://sounds/8 Bit Glitch_09.wav"
+dest_files=["res://.godot/imported/8 Bit Glitch_09.wav-bbe8c0358619a7a610e82d81028ea5a1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

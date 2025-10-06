@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://convybpr5awm3"]
+[gd_scene load_steps=5 format=3 uid="uid://convybpr5awm3"]
 
-[ext_resource type="Script" path="res://ui/energy_meter.gd" id="1_33ov5"]
+[ext_resource type="Script" uid="uid://yans6r2pg0ek" path="res://ui/energy_meter.gd" id="1_33ov5"]
 [ext_resource type="Texture2D" uid="uid://cu2sxteptx5y2" path="res://assets/ui/EnergySlot.png" id="1_cuhyj"]
 [ext_resource type="Texture2D" uid="uid://cunxa2dv4dwp8" path="res://assets/ui/EnergySlotBall.png" id="2_3c3xm"]
+[ext_resource type="AudioStream" uid="uid://6uwji44un5ef" path="res://sounds/8 Bit Glitch_09.wav" id="4_maj57"]
 
 [node name="EnergyMeter" type="HBoxContainer"]
 offset_right = 40.0
@@ -30,6 +31,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_3c3xm")
 stretch_mode = 2
 
@@ -53,6 +55,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_3c3xm")
 stretch_mode = 2
 
@@ -76,6 +79,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_3c3xm")
 stretch_mode = 2
 
@@ -99,6 +103,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_3c3xm")
 stretch_mode = 2
 
@@ -122,6 +127,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_3c3xm")
 stretch_mode = 2
 
@@ -145,5 +151,10 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_3c3xm")
 stretch_mode = 2
+
+[node name="InsufficientEnergySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_maj57")
+bus = &"SFX"
