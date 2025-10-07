@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://biwl7ql6dbwkp"]
+[gd_scene load_steps=11 format=3 uid="uid://biwl7ql6dbwkp"]
 
 [ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="1_33ehh"]
 [ext_resource type="Script" uid="uid://d3msu6krrt5ra" path="res://abilities/axe_throw/axe_projectile.gd" id="1_lfw1k"]
@@ -6,6 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_sgtvi"]
 [ext_resource type="AudioStream" uid="uid://dt5rflcx7hcoa" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 14_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="5_w8wkl"]
 [ext_resource type="AudioStream" uid="uid://5csvisk68nfn" path="res://sounds/axe_hit.wav" id="6_fpmvx"]
+[ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="7_qpden"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpden"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="Curve" id="Curve_qpden"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20000002, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lopeh"]
 size = Vector3(1, 1.67993, 0.3479)
@@ -13,6 +22,14 @@ size = Vector3(1, 1.67993, 0.3479)
 [node name="AxeProjectile" type="RigidBody3D"]
 collision_layer = 3
 script = ExtResource("1_lfw1k")
+
+[node name="Trail" parent="." instance=ExtResource("7_qpden")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.096004486, 0.9007598)
+material_override = SubResource("StandardMaterial3D_qpden")
+segments = 10
+lifetime = 0.115
+base_width = 0.175
+width_profile = SubResource("Curve_qpden")
 
 [node name="Axe" parent="." instance=ExtResource("1_33ehh")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -43,5 +60,11 @@ bus = &"SFX"
 [node name="AxeHitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fpmvx")
 bus = &"SFX"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31655133, 0)
+light_energy = 2.75
+
+[node name="BreakSFX" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="Axe/Hitbox" to="." method="_on_hitbox_area_entered"]

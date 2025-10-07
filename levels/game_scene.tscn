@@ -210,7 +210,6 @@ deck = Array[ExtResource("5_joks6")]([ExtResource("14_cu00i"), ExtResource("14_c
 player = NodePath("../BaseLevel/Player")
 
 [node name="PSXShaderLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
 material = SubResource("ShaderMaterial_ceuhh")

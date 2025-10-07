@@ -15,3 +15,7 @@ func _on_hitbox_on_hit() -> void:
 	get_parent().add_child(bfx)
 	bfx.global_position = global_position
 	queue_free.call_deferred()
+
+
+func _on_self_destruct_timer_timeout() -> void:
+	queue_free.call_deferred()

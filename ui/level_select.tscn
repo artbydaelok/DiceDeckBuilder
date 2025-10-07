@@ -42,7 +42,7 @@ size_flags_vertical = 4
 columns = 2
 
 [node name="FireDemonButton" type="Button" parent="MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(300, 125)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o16uo")
 theme_override_font_sizes/font_size = 48
@@ -50,7 +50,7 @@ text = "Fire Demon"
 autowrap_mode = 3
 
 [node name="JimJamButton" type="Button" parent="MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(300, 125)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o16uo")
 theme_override_font_sizes/font_size = 48
@@ -58,20 +58,28 @@ text = "Jim and Jam"
 autowrap_mode = 3
 
 [node name="SaltPepperButton" type="Button" parent="MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(300, 125)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o16uo")
 theme_override_font_sizes/font_size = 48
-text = "Salt and Pepper"
+text = "Salt & Pepper"
+autowrap_mode = 3
+
+[node name="ForestButton" type="Button" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(250, 120)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o16uo")
+theme_override_font_sizes/font_size = 48
+text = "Forest"
 autowrap_mode = 3
 
 [node name="GalaxyBossButton" type="Button" parent="MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(300, 125)
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o16uo")
 theme_override_font_sizes/font_size = 48
 disabled = true
-text = "Galaxy Revenue Services"
+text = "Space Battle"
 autowrap_mode = 3
 
 [node name="CloseButton" type="Button" parent="MarginContainer"]
@@ -87,5 +95,6 @@ icon_alignment = 1
 [connection signal="pressed" from="MarginContainer/GridContainer/FireDemonButton" to="." method="_on_fire_demon_button_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/JimJamButton" to="." method="_on_jim_jam_button_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/SaltPepperButton" to="." method="_on_salt_pepper_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/ForestButton" to="." method="_on_forest_button_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/GalaxyBossButton" to="." method="_on_galaxy_boss_button_pressed"]
 [connection signal="pressed" from="MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]

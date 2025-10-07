@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://ccbcl7w5wt4ig"]
 
-[ext_resource type="Script" path="res://enemy/boss/fire_demon/flaming_meteor.gd" id="1_kfmb3"]
+[ext_resource type="Script" uid="uid://bxgb3d4isw7pv" path="res://enemy/boss/fire_demon/flaming_meteor.gd" id="1_kfmb3"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_rtlne"]
 [ext_resource type="AudioStream" uid="uid://rlw3xjaqvlqy" path="res://sounds/FIRETurb_Heavy Crispy High Fire, Sequence, Distorted_OP_OCULAR-012.wav" id="3_vn808"]
 
@@ -15,9 +15,9 @@ fractal_lacunarity = 1.6
 fractal_gain = 1.88
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pkhl3"]
-seamless = true
-color_ramp = SubResource("Gradient_tu1gi")
 noise = SubResource("FastNoiseLite_smsna")
+color_ramp = SubResource("Gradient_tu1gi")
+seamless = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0fg3"]
 shading_mode = 0
@@ -67,6 +67,7 @@ emission_ring_axis = Vector3(0, 1, 0)
 emission_ring_height = 1.0
 emission_ring_radius = 1.0
 emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 direction = Vector3(0, 1, 0)
 initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
