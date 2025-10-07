@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://xfi6hatedmma"]
+
+[ext_resource type="Script" uid="uid://b8kl34g5ks0e3" path="res://assets/3d_models/grenade_projectile.gd" id="1_4ayg7"]
+[ext_resource type="PackedScene" uid="uid://bdvc1gkffpw3o" path="res://assets/3d_models/grenade_scene.tscn" id="1_niyvq"]
+[ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="3_k40tg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_niyvq"]
+radius = 0.328094
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k40tg"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0.4117647, 0.14509805, 0.5921569)
+
+[sub_resource type="Curve" id="Curve_0ag2t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="GrenadeProjectile" type="RigidBody3D"]
+script = ExtResource("1_4ayg7")
+
+[node name="Grenade" parent="." instance=ExtResource("1_niyvq")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.053497434, 0)
+shape = SubResource("SphereShape3D_niyvq")
+disabled = true
+
+[node name="Trail" parent="." instance=ExtResource("3_k40tg")]
+material_override = SubResource("StandardMaterial3D_k40tg")
+lifetime = 0.325
+base_width = 0.2
+width_profile = SubResource("Curve_0ag2t")

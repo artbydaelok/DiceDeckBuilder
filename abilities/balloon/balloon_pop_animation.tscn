@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c1k62hph1kfbl"]
 
-[ext_resource type="PackedScene" uid="uid://dhcdnl7hi2cot" path="res://assets/3d_models/Balloon.glb" id="1_klsi1"]
-[ext_resource type="Script" path="res://abilities/balloon/balloon_pop_animation.gd" id="1_uwykc"]
+[ext_resource type="Script" uid="uid://cr2syylfeg4uk" path="res://abilities/balloon/balloon_pop_animation.gd" id="1_uwykc"]
+[ext_resource type="PackedScene" uid="uid://cbi5m7vj8muyn" path="res://abilities/balloon/balloon_scene.tscn" id="2_jte73"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_4xat3"]
 [ext_resource type="AudioStream" uid="uid://ducjejj4xhqwc" path="res://sounds/balloon-pop-48030.mp3" id="4_tvmei"]
 [ext_resource type="AudioStream" uid="uid://cbcedvluolnv6" path="res://sounds/inflate.wav" id="5_i03cs"]
@@ -11,38 +11,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Balloon:scale")
+tracks/0/path = NodePath("BalloonPopVFX:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Balloon:position")
+tracks/1/path = NodePath("Balloon:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BalloonPopVFX:emitting")
+tracks/2/path = NodePath("Balloon:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_bvbkj"]
@@ -51,46 +51,22 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Balloon:scale")
+tracks/0/path = NodePath("BalloonPopVFX:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.135177, 0.235177, 0.433333, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.75, 1.75, 1.75), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Balloon:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BalloonPopVFX:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.0333333, 0.433333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.433333),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -98,11 +74,35 @@ tracks/3/keys = {
 "method": &"pop_projectiles"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Balloon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.135177, 0.235177, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1.75, 1.75, 1.75), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Balloon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xqkrw"]
 _data = {
-"RESET": SubResource("Animation_76m4h"),
-"rise": SubResource("Animation_bvbkj")
+&"RESET": SubResource("Animation_76m4h"),
+&"rise": SubResource("Animation_bvbkj")
 }
 
 [sub_resource type="Curve" id="Curve_0ln3p"]
@@ -134,12 +134,11 @@ size = Vector3(0.2, 0.5, 0.01)
 [node name="BalloonPopAnimation" type="Node3D"]
 script = ExtResource("1_uwykc")
 
-[node name="Balloon" parent="." instance=ExtResource("1_klsi1")]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+[node name="Balloon" parent="." instance=ExtResource("2_jte73")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xqkrw")
+&"": SubResource("AnimationLibrary_xqkrw")
 }
 autoplay = "rise"
 

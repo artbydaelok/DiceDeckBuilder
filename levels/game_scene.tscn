@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=30 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" uid="uid://t1i3t7qkwjs3" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
@@ -13,7 +13,12 @@
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="5_joks6"]
 [ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
-[ext_resource type="Resource" uid="uid://csjbw5er3lqoq" path="res://card/card_abilities/empty_card.tres" id="14_cu00i"]
+[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="13_q4ywm"]
+[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="14_qcm70"]
+[ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="15_wkhn0"]
+[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="16_h317v"]
+[ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="17_o8ny7"]
+[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="18_vfvks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
 bg_color = Color(0.13, 0, 0, 1)
@@ -61,6 +66,9 @@ albedo_color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhd7d"]
 albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q4ywm"]
+size = Vector3(20, 1, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceuhh"]
 shader = ExtResource("1_gj0fv")
@@ -205,8 +213,14 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("11_nanwt")
 
+[node name="GroundStaticBody" type="StaticBody3D" parent="BaseLevel"]
+
+[node name="GroundCollisionShape" type="CollisionShape3D" parent="BaseLevel/GroundStaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -4)
+shape = SubResource("BoxShape3D_q4ywm")
+
 [node name="CardSystem" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
-deck = Array[ExtResource("5_joks6")]([ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i"), ExtResource("14_cu00i")])
+deck = Array[ExtResource("5_joks6")]([ExtResource("13_q4ywm"), ExtResource("14_qcm70"), ExtResource("15_wkhn0"), ExtResource("16_h317v"), ExtResource("17_o8ny7"), ExtResource("18_vfvks")])
 player = NodePath("../BaseLevel/Player")
 
 [node name="PSXShaderLayer" type="CanvasLayer" parent="."]

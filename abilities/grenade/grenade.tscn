@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr0ahxqhb2fuu"]
 
 [ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_lxoq7"]
-[ext_resource type="Script" path="res://abilities/grenade/grenade.gd" id="2_qpki0"]
+[ext_resource type="Script" uid="uid://nfirgdpi514w" path="res://abilities/grenade/grenade.gd" id="2_qpki0"]
 
 [node name="Grenade" instance=ExtResource("1_lxoq7")]
 script = ExtResource("2_qpki0")

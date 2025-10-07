@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbi5m7vj8muyn"]
+
+[ext_resource type="PackedScene" uid="uid://dhcdnl7hi2cot" path="res://assets/3d_models/Balloon.glb" id="1_rhg06"]
+[ext_resource type="Shader" uid="uid://dnil8p8ju0md2" path="res://assets/shaders/outline.gdshader" id="2_g3m76"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h05as"]
+render_priority = 0
+shader = ExtResource("2_g3m76")
+shader_parameter/color = Color(1, 0.6265673, 0.44097853, 1)
+shader_parameter/thickness = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhg06"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.7254902, 0, 0, 1)
+
+[node name="Balloon" instance=ExtResource("1_rhg06")]
+
+[node name="Sphere" parent="." index="0"]
+material_overlay = SubResource("ShaderMaterial_h05as")
+surface_material_override/0 = SubResource("StandardMaterial3D_rhg06")

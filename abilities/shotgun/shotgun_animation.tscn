@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://c4yidxdgci5nj"]
 
-[ext_resource type="PackedScene" uid="uid://dw2tgrac2ejrc" path="res://assets/3d_models/Shotgun.glb" id="1_ao2v6"]
 [ext_resource type="Script" uid="uid://cxux3kx5rrm0x" path="res://abilities/shotgun/shotgun_animation.gd" id="1_oebue"]
+[ext_resource type="PackedScene" uid="uid://c7km4wa87ggqw" path="res://abilities/shotgun/shotgun_scene.tscn" id="2_ggepv"]
 [ext_resource type="AudioStream" uid="uid://c4q7mno4u4kkj" path="res://sounds/shotgun load and shot.wav" id="3_6t5je"]
 
 [sub_resource type="Animation" id="Animation_gat5b"]
@@ -9,98 +9,74 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Shotgun:scale")
+tracks/0/path = NodePath("PelletsVFX:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Shotgun:rotation")
+tracks/1/path = NodePath("SmokeVFX:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.91986, 0, 0)]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PelletsVFX:emitting")
+tracks/2/path = NodePath("SpotLight3D:light_energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SmokeVFX:emitting")
+tracks/3/path = NodePath("Shotgun:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [Vector3(1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SpotLight3D:light_energy")
+tracks/4/path = NodePath("Shotgun:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2yo0r"]
 resource_name = "shoot"
 length = 1.5
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Shotgun:scale")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.566667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.4, 0.4, 0.4), Vector3(0.3, 0.3, 0.3), Vector3(0.3, 0.3, 0.3), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Shotgun:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.366667, 0.433333, 0.566667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.91986, 0, 0), Vector3(0.291791, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.946457, 0, 0), Vector3(-0.012968, 0, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.466667, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -111,41 +87,65 @@ tracks/2/keys = {
 "method": &"queue_free"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PelletsVFX:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PelletsVFX:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.47453684, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, false, true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SmokeVFX:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SmokeVFX:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5412035, 0.56666666),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [false, false, true]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SpotLight3D:light_energy")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpotLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4666667, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 15.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shotgun:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.4, 0.4, 0.4), Vector3(0.3, 0.3, 0.3), Vector3(0.3, 0.3, 0.3), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shotgun:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.366667, 0.433333, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.91986, 0, 0), Vector3(0.291791, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.946457, 0, 0), Vector3(-0.012968, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_df5l2"]
@@ -265,8 +265,7 @@ material = SubResource("StandardMaterial3D_7gki1")
 [node name="ShotgunAnimation" type="Node3D"]
 script = ExtResource("1_oebue")
 
-[node name="Shotgun" parent="." instance=ExtResource("1_ao2v6")]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+[node name="Shotgun" parent="." instance=ExtResource("2_ggepv")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

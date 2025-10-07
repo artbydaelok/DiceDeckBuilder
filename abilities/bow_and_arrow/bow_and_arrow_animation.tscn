@@ -1,9 +1,88 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7fvhtmydt1fh"]
+[gd_scene load_steps=12 format=3 uid="uid://c7fvhtmydt1fh"]
 
 [ext_resource type="PackedScene" uid="uid://xu4iwb20htmd" path="res://assets/3d_models/BowAndArrow.glb" id="1_nnrt0"]
-[ext_resource type="Script" path="res://abilities/bow_and_arrow/bow_and_arrow_animation.gd" id="2_ppa1w"]
+[ext_resource type="Script" uid="uid://7j54qgx8r86i" path="res://abilities/bow_and_arrow/bow_and_arrow_animation.gd" id="2_ppa1w"]
+[ext_resource type="Shader" uid="uid://dnil8p8ju0md2" path="res://assets/shaders/outline.gdshader" id="3_f6d2l"]
 [ext_resource type="PackedScene" uid="uid://csth3bndxcg43" path="res://abilities/bow_and_arrow/Arrow.glb" id="3_wbu2v"]
 [ext_resource type="AudioStream" uid="uid://cn5pdejdhph3k" path="res://sounds/bow_charge_and_shoot.wav" id="4_wvsj5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jt561"]
+render_priority = 0
+shader = ExtResource("3_f6d2l")
+shader_parameter/color = Color(0.7019608, 0.3529412, 0, 1)
+shader_parameter/thickness = 0.05
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ydbg7"]
+
+[sub_resource type="Skin" id="Skin_hky7s"]
+resource_name = "Skin"
+bind_count = 22
+bind/0/name = &"main"
+bind/0/bone = -1
+bind/0/pose = Transform3D(7.54979e-08, -1, 0, 0, 0, -1, 1, 7.54979e-08, 0, 0, 0, 0)
+bind/1/name = &"Bone"
+bind/1/bone = -1
+bind/1/pose = Transform3D(1.2161821e-07, -1, -4.5763265e-08, 0.9999697, 1.2125888e-07, 0.0077712527, -0.00777117, -4.6707e-08, 0.9999697, 0, 0, 0)
+bind/2/name = &"Bone.001"
+bind/2/bone = -1
+bind/2/pose = Transform3D(4.9723594e-09, -1, -1.628448e-07, 0.9995341, -9.769962e-15, 0.030520203, -0.03052012, -1.629207e-07, 0.9995341, 7.319004e-08, -0.62245625, 0.014165573)
+bind/3/name = &"Bone.002"
+bind/3/bone = -1
+bind/3/pose = Transform3D(4.9398174e-08, -1, -1.5525136e-07, 0.9529258, 1.0658141e-14, 0.3032037, -0.30320364, -1.6292073e-07, 0.9529258, 1.718799e-08, -1.2046287, 0.35790345)
+bind/4/name = &"Bone.003"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-4.1750567e-08, -1, -1.5748029e-07, 0.96660703, 2.842171e-14, -0.25626323, 0.2562633, -1.6292071e-07, 0.96660703, 1.6109868e-07, -1.4909211, -0.52541393)
+bind/5/name = &"Bone.004"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-1.2952566e-08, -1, -1.6240499e-07, 0.9968347, -2.6645353e-15, -0.079502106, 0.079502195, -1.629207e-07, 0.9968347, 8.502292e-08, -2.6196964, -0.058463722)
+bind/6/name = &"Bone.005"
+bind/6/bone = -1
+bind/6/pose = Transform3D(8.224435e-08, -1, -1.4063785e-07, 0.8632291, -2.1316282e-14, 0.5048125, -0.5048124, -1.6292068e-07, 0.86322904, -2.3446225e-07, -2.8315856, 1.9025226)
+bind/7/name = &"Bone.006"
+bind/7/bone = -1
+bind/7/pose = Transform3D(1.3539402e-07, -1, -9.0617995e-08, 0.5562093, 1.4210855e-14, 0.8310423, -0.83104223, -1.6292074e-07, 0.55620927, -4.729503e-07, -2.5791106, 3.3663495)
+bind/8/name = &"Bone.007"
+bind/8/bone = -1
+bind/8/pose = Transform3D(1.1338844e-07, -1, -1.16988126e-07, 0.718068, 2.842171e-14, 0.69597304, -0.695973, -1.6292074e-07, 0.7180679, -3.4742095e-07, -3.950502, 2.5958562)
+bind/9/name = &"Bone.008"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-9.855872e-09, -1, -1.6262227e-07, 0.9981686, 8.881785e-15, -0.060494725, 0.060494874, -1.6292068e-07, 0.9981685, 3.1792578e-07, -4.876791, -1.4880117)
+bind/10/name = &"Bone.009"
+bind/10/bone = -1
+bind/10/pose = Transform3D(1.2177688e-07, -1, 3.127355e-05, -0.9999697, 1.2126146e-07, 0.0077712527, -0.00777117, -3.1273554e-05, -0.9999697, 4.1254293e-09, -0.03387587, -0.00026326312)
+bind/11/name = &"Bone.010"
+bind/11/bone = -1
+bind/11/pose = Transform3D(4.972508e-09, -1, 1.628487e-07, -0.9995341, 2.579714e-12, 0.030520208, -0.030520126, -1.6292266e-07, -0.9995341, 7.797429e-08, -0.6563174, -0.015199505)
+bind/12/name = &"Bone.011"
+bind/12/bone = -1
+bind/12/pose = Transform3D(4.9398036e-08, -1, 1.552512e-07, -0.9529256, 2.0747846e-12, 0.303204, -0.30320394, -1.6291793e-07, -0.95292556, 1.3548109e-07, -1.2369109, -0.36817554)
+bind/13/name = &"Bone.012"
+bind/13/bone = -1
+bind/13/pose = Transform3D(-4.1750603e-08, -1, 1.5748029e-07, -0.966607, 3.0624388e-12, -0.25626314, 0.25626326, -1.6291955e-07, -0.966607, -1.1517285e-08, -1.5236665, 0.5340952)
+bind/14/name = &"Bone.013"
+bind/14/bone = -1
+bind/14/pose = Transform3D(-1.2952548e-08, -1, 1.6240497e-07, -0.99683475, 2.8066438e-12, -0.07950209, 0.07950218, -1.6291898e-07, -0.99683464, 6.553419e-08, -2.6534662, 0.06115699)
+bind/15/name = &"Bone.014"
+bind/15/bone = -1
+bind/15/pose = Transform3D(8.224443e-08, -1, 1.4063788e-07, -0.8632291, 1.3073986e-12, 0.5048125, -0.5048125, -1.6291774e-07, -0.86322904, 3.882446e-07, -2.860829, -1.9196242)
+bind/16/name = &"Bone.015"
+bind/16/bone = -1
+bind/16/pose = Transform3D(1.353939e-07, -1, 9.0617974e-08, -0.5562093, -7.8159694e-14, 0.8310422, -0.8310422, -1.6291735e-07, -0.5562092, 6.285323e-07, -2.597953, -3.3945024)
+bind/17/name = &"Bone.016"
+bind/17/bone = -1
+bind/17/pose = Transform3D(1.1338843e-07, -1, 1.1698812e-07, -0.7180678, 5.684341e-13, 0.69597286, -0.6959729, -1.6291749e-07, -0.7180678, 5.02258e-07, -3.9748273, -2.6194332)
+bind/18/name = &"Bone.017"
+bind/18/bone = -1
+bind/18/pose = Transform3D(-9.855858e-09, -1, 1.6262226e-07, -0.99816847, 2.7933207e-12, -0.060494773, 0.060494833, -1.6291891e-07, -0.9981684, -1.6726379e-07, -4.9106054, 1.4900609)
+bind/19/name = &"string"
+bind/19/bone = -1
+bind/19/pose = Transform3D(-7.54979e-08, 1, 0, 0, 0, 1, 1, 7.54979e-08, 0, 0, -1.0000001, 0)
+bind/20/name = &"IK.R"
+bind/20/bone = -1
+bind/20/pose = Transform3D(-7.54979e-08, -1, 0, 0, 0, 1, -1, 7.54979e-08, 0, 4.260629e-07, -0.88544166, 4.6433744)
+bind/21/name = &"IK.L"
+bind/21/bone = -1
+bind/21/pose = Transform3D(-7.54979e-08, -1, 0, 0, 0, 1, -1, 7.54979e-08, 0, -2.7762474e-07, -0.88544166, -4.6772513)
 
 [sub_resource type="Animation" id="Animation_e2jbb"]
 resource_name = "DrawArrow"
@@ -124,8 +203,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ob1q2"]
 _data = {
-"DrawArrow": SubResource("Animation_e2jbb"),
-"RESET": SubResource("Animation_8yltn")
+&"DrawArrow": SubResource("Animation_e2jbb"),
+&"RESET": SubResource("Animation_8yltn")
 }
 
 [node name="BowAndArrowAnimation" instance=ExtResource("1_nnrt0")]
@@ -145,9 +224,17 @@ bones/14/rotation = Quaternion(-0.0896635, -3.63739e-14, -1.46081e-08, 0.995972)
 bones/15/rotation = Quaternion(-0.299697, 9.77771e-15, -4.88269e-08, 0.954034)
 bones/16/rotation = Quaternion(-0.22399, -5.89671e-14, -3.64927e-08, 0.974591)
 
+[node name="Cube_002" parent="Armature/Skeleton3D" index="0"]
+material_overlay = SubResource("ShaderMaterial_jt561")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/Cube_002" index="0"]
+mesh = SubResource("ArrayMesh_ydbg7")
+skin = SubResource("Skin_hky7s")
+skeleton = NodePath("../..")
+
 [node name="ArrowAnimation" type="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_ob1q2")
+&"": SubResource("AnimationLibrary_ob1q2")
 }
 
 [node name="Arrow" parent="." index="3" instance=ExtResource("3_wbu2v")]
