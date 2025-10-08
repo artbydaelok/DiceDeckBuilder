@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpn6v1d3veqkk"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_r55pm"]
+[ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="2_xl636"]
+
+[node name="HubLevel" instance=ExtResource("1_r55pm")]
+
+[node name="Camera3D" parent="BaseLevel" index="1"]
+follow_target = true
+
+[node name="PortalVFX" parent="BaseLevel" index="8" instance=ExtResource("2_xl636")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, -7)
+
+[editable path="BaseLevel/Player"]

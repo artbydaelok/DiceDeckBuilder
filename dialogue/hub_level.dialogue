@@ -1,0 +1,14 @@
+~ start
+Narrator: You're dreaming. I think.
+
+~ new_attempt
+Narrator: You can try again, or back to a previous fight.
+=> END
+
+~ hell_level
+Narrator: Go to hell?
+- why not
+	Nathan: Pack a cross.
+- uh, no
+	Nathan: [[Lame.|Whatever.]]
+=> END

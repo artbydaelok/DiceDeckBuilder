@@ -32,7 +32,7 @@ func _ready() -> void:
 	shuffle_deck()
 	for i in range(6):
 		draw_card(i)
-		
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_ability") and not player.rolling:
 		play_ability()

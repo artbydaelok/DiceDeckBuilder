@@ -59,9 +59,17 @@ func _ready():
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
 
 func _on_cutscene_started(_input_disabled: bool):
-	input_disabled = _input_disabled
+	if _input_disabled:
+		_disable_input()
 	
 func _on_cutscene_ended():
+	await get_tree().create_timer(0.45).timeout
+	_enable_input()
+
+func _disable_input():
+	input_disabled = true
+
+func _enable_input():
 	input_disabled = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

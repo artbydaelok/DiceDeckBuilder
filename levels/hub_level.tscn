@@ -1,169 +1,29 @@
-[gd_scene load_steps=20 format=3 uid="uid://c747rw5tx3wi5"]
+[gd_scene load_steps=7 format=3 uid="uid://dpn6v1d3veqkk"]
 
-[ext_resource type="PackedScene" uid="uid://ca3r7dgfvfj22" path="res://ui/ability_sides_display.tscn" id="1_0qfqc"]
-[ext_resource type="Script" path="res://enemy/enemy_health_display.gd" id="2_2bc8b"]
-[ext_resource type="ArrayMesh" uid="uid://b7nvjbjspt6sh" path="res://assets/3d_models/ship.obj" id="2_5pvpd"]
-[ext_resource type="PackedScene" uid="uid://b0a58rwgat4m0" path="res://card/hand_display.tscn" id="3_tlpb1"]
-[ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="4_5bls8"]
-[ext_resource type="PackedScene" uid="uid://bwy7alqls02bx" path="res://ui/center_warning_sign.tscn" id="5_6ilyd"]
-[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="6_2f6u4"]
-[ext_resource type="PackedScene" uid="uid://convybpr5awm3" path="res://ui/energy_meter.tscn" id="7_i2sag"]
-[ext_resource type="PackedScene" uid="uid://dr5v41plmy0gi" path="res://ui/deck_viewer.tscn" id="8_acw8g"]
-[ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="9_5210c"]
-[ext_resource type="Script" path="res://levels/camera.gd" id="10_k8g8f"]
-[ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="11_lor2y"]
-[ext_resource type="Script" path="res://card/card_data.gd" id="12_45djy"]
-[ext_resource type="Resource" uid="uid://csjbw5er3lqoq" path="res://card/card_abilities/empty_card.tres" id="13_q3c30"]
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_r55pm"]
+[ext_resource type="Script" uid="uid://b1e6s0qouf47" path="res://levels/hub_level.gd" id="2_j0rvb"]
+[ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="2_xl636"]
+[ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://components/cutscene/dialogue_trigger_area.tscn" id="3_c4aiy"]
+[ext_resource type="Resource" uid="uid://b2og4ilgdg4ke" path="res://dialogue/hub_level.dialogue" id="4_nrj8t"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
-bg_color = Color(0.13, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrj8t"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_johek"]
-bg_color = Color(0.6, 0.072, 0.072, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.336, 0.336, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[node name="HubLevel" instance=ExtResource("1_r55pm")]
+script = ExtResource("2_j0rvb")
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[node name="Camera3D" parent="BaseLevel" index="1"]
+follow_target = true
 
-[sub_resource type="Sky" id="Sky_hjcl6"]
-sky_material = SubResource("ProceduralSkyMaterial_7uuse")
+[node name="PortalVFX" parent="BaseLevel" index="8" instance=ExtResource("2_xl636")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, -7)
 
-[sub_resource type="Environment" id="Environment_bfiuj"]
-background_mode = 1
-sky = SubResource("Sky_hjcl6")
-tonemap_mode = 2
+[node name="DialogueTriggerArea" parent="." index="4" instance=ExtResource("3_c4aiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.536731, 1, -6.8159785)
+dialogue_resource = ExtResource("4_nrj8t")
+title_to_play = "hell_level"
 
-[node name="HubLevel" type="CanvasLayer"]
+[node name="CollisionShape3D" parent="DialogueTriggerArea/PlayerDetection" index="0"]
+shape = SubResource("BoxShape3D_nrj8t")
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="AbilitySidesDisplay" parent="UI" node_paths=PackedStringArray("player", "card_system") instance=ExtResource("1_0qfqc")]
-offset_left = 1119.0
-offset_top = 544.0
-offset_right = 1119.0
-offset_bottom = 544.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-player = NodePath("../../BaseLevel/Player")
-card_system = NodePath("../../CardSystem")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 10
-
-[node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/MarginContainer"]
-custom_minimum_size = Vector2(600, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/background = SubResource("StyleBoxFlat_lul2y")
-theme_override_styles/fill = SubResource("StyleBoxFlat_johek")
-value = 28.41
-script = ExtResource("2_2bc8b")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 36
-alignment = 1
-
-[node name="HandDisplay" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("3_tlpb1")]
-visible = false
-layout_mode = 2
-
-[node name="PlayerHealthDisplay" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("4_5bls8")]
-custom_minimum_size = Vector2(590, 38)
-layout_mode = 2
-size_flags_vertical = 1
-center_warning_sign_scene = ExtResource("5_6ilyd")
-user_interface_layer = NodePath("../../..")
-
-[node name="ViewDeckKeyLabel" type="Label" parent="UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("6_2f6u4")
-theme_override_font_sizes/font_size = 28
-text = "[TAB] TO VIEW YOUR FULL DECK"
-
-[node name="BottomLeftHUD" type="VBoxContainer" parent="UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="InsufficientEnergy" type="Label" parent="UI/MarginContainer/BottomLeftHUD"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_2f6u4")
-theme_override_font_sizes/font_size = 32
-text = "NOT ENOUGH ENERGY!"
-
-[node name="EnergyMeter" parent="UI/MarginContainer/BottomLeftHUD" node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("7_i2sag")]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-player = NodePath("../../../../BaseLevel/Player")
-insufficient_label = NodePath("../InsufficientEnergy")
-insufficient_timer = NodePath("../InsufficientTimer")
-
-[node name="InsufficientTimer" type="Timer" parent="UI/MarginContainer/BottomLeftHUD"]
-wait_time = 2.5
-one_shot = true
-
-[node name="DeckViewer" parent="UI" node_paths=PackedStringArray("card_system") instance=ExtResource("8_acw8g")]
-visible = false
-card_system = NodePath("../../CardSystem")
-
-[node name="BaseLevel" type="Node3D" parent="." groups=["entities_layer"]]
-
-[node name="Player" parent="BaseLevel" instance=ExtResource("9_5210c")]
-
-[node name="Camera3D" type="Camera3D" parent="BaseLevel"]
-transform = Transform3D(0.999995, 0.000609134, 0.00326486, -0.00273827, 0.707503, 0.706705, -0.00187942, -0.70671, 0.707501, -9, 18, 18)
-script = ExtResource("10_k8g8f")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel"]
-environment = SubResource("Environment_bfiuj")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BaseLevel"]
-transform = Transform3D(0.435568, 0.704341, -0.560521, -0.5, 0.707107, 0.5, 0.748519, 0.0624771, 0.660164, 0, 7.85563, 0)
-light_color = Color(0.92549, 1, 1, 1)
-light_energy = 0.15
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="BaseLevel"]
-transform = Transform3D(0.967752, 0.00623584, 0.251826, -0.25, 0.146447, 0.957107, -0.0309107, -0.989199, 0.143283, 3.03067, 7.31669, -1.80642e-07)
-light_color = Color(1, 0.874949, 0.999993, 1)
-light_energy = 0.1
-
-[node name="CardSystem" parent="." node_paths=PackedStringArray("hand_display", "player") instance=ExtResource("11_lor2y")]
-deck = Array[ExtResource("12_45djy")]([ExtResource("13_q3c30"), ExtResource("13_q3c30"), ExtResource("13_q3c30"), ExtResource("13_q3c30"), ExtResource("13_q3c30"), ExtResource("13_q3c30"), ExtResource("13_q3c30")])
-hand_display = NodePath("../UI/MarginContainer/VBoxContainer/HandDisplay")
-player = NodePath("../BaseLevel/Player")
-
-[node name="Ship" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -6.98392, -7.26033, -0.410905)
-mesh = ExtResource("2_5pvpd")
+[editable path="BaseLevel/Player"]
+[editable path="DialogueTriggerArea"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DiceDeckbuilderGame"
-run/main_scene="res://ui/main_menu.tscn"
+run/main_scene="uid://dpcrrorybckw7"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -99,7 +99,7 @@ view_deck={
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
-locale/translations_pot_files=PackedStringArray("res://dialogue/hell_level_intro.dialogue", "res://dialogue/intro_sequence.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/hell_level_intro.dialogue", "res://dialogue/hub_level.dialogue", "res://dialogue/example.dialogue")
 
 [layer_names]
 
