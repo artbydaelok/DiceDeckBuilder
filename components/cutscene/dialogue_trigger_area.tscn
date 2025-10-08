@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm15p2uiefpje"]
+
+[ext_resource type="Script" uid="uid://cclnw8kdf8ka0" path="res://components/cutscene/cutscene_trigger_area.gd" id="1_dnigx"]
+
+[node name="DialogueTriggerArea" type="Node3D"]
+script = ExtResource("1_dnigx")
+
+[node name="PlayerDetection" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection"]
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

@@ -35,6 +35,8 @@ signal roll_finished
 var health : int = 100
 var is_dead : bool = false
 var invulnerable : bool = false
+var input_disabled : bool = false
+
 signal player_damaged(damage_amount : float)
 signal player_healed(heal_amount : float)
 signal player_health_updated(new_health : float)
@@ -53,7 +55,15 @@ signal insufficient_energy
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
 	player_health_updated.emit(health)
+	GameEvents.cutscene_started.connect(_on_cutscene_started)
+	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
 
+func _on_cutscene_started(_input_disabled: bool):
+	input_disabled = _input_disabled
+	
+func _on_cutscene_ended():
+	input_disabled = false
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var forward = Vector3.FORWARD
@@ -83,7 +93,7 @@ func update_side_icon(side : int, new_icon : Texture2D):
 
 func roll(dir):
 	# Do nothing if we're currently rolling.
-	if rolling or commit_lock or is_dead:
+	if rolling or commit_lock or is_dead or input_disabled:
 		return
 	
 

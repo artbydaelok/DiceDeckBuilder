@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://icig8la8yj1t"]
+[gd_scene load_steps=4 format=3 uid="uid://icig8la8yj1t"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_d2344"]
+[ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://components/cutscene/dialogue_trigger_area.tscn" id="2_u3uw7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6gso"]
+size = Vector3(10, 2.5, 1)
 
 [node name="HellLevel1" instance=ExtResource("1_d2344")]
 
@@ -42,4 +46,12 @@ size = Vector3(0.5, 1, 10.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 0.5, 0.266545)
 size = Vector3(0.5, 1, 10.5)
 
+[node name="DialogueTriggerArea" parent="BaseLevel" index="8" instance=ExtResource("2_u3uw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
+
+[node name="CollisionShape3D" parent="BaseLevel/DialogueTriggerArea/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_w6gso")
+
 [editable path="BaseLevel/Player"]
+[editable path="BaseLevel/DialogueTriggerArea"]

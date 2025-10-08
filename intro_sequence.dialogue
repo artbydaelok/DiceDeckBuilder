@@ -1,0 +1,9 @@
+~ start
+Narrator: The dice is ready to go on a journey, however, his transport device malfunctions...
+Narrator: What will you do?
+- Turn it off and on again.
+	Narrator: You tried something you saw in a sitcom once.
+- Kick it.
+	Narrator: The device grunts in pain.
+Narrator: I think you broke it.
+=> END

@@ -61,6 +61,7 @@ func draw_card(index: int):
 	card_drawn.emit()
 
 func play_ability():
+	if player.input_disabled: return
 	if system_disabled == true: return
 	
 	if hand[player.up_side].cost > player.energy: 
