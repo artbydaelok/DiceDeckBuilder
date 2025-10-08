@@ -6,8 +6,8 @@ class_name Hitbox
 signal on_hit
 
 func _on_area_entered(area: Area3D) -> void:
-	print(area)
-	area.hurtbox_owner.apply_damage(damage as float)
+	if area is Hurtbox:
+		area.hurtbox_owner.apply_damage(damage as float)
 	on_hit.emit()
 
 func disable():

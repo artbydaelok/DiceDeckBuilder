@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameEvents="*res://game_events/game_events.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+AppConfig="*res://addons/maaacks_game_template/base/scenes/autoloads/app_config.tscn"
+SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
+ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
+ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 
 [display]
 
@@ -28,7 +32,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg")
 
 [global_group]
 
@@ -94,7 +98,8 @@ view_deck={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://intro_sequence.dialogue")
+locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
+locale/translations_pot_files=PackedStringArray("res://dialogue/hell_level_intro.dialogue", "res://dialogue/intro_sequence.dialogue")
 
 [layer_names]
 
@@ -102,7 +107,19 @@ locale/translations_pot_files=PackedStringArray("res://intro_sequence.dialogue")
 3d_physics/layer_3="EnemyProjectiles"
 3d_physics/layer_4="PlayerHurtbox"
 3d_physics/layer_5="EnemyHurtbox"
+3d_physics/layer_6="Breakable"
 3d_physics/layer_8="explosion_blast"
+
+[maaacks_game_template]
+
+disable_install_audio_busses=true
+disable_update_check=false
+disable_install_wizard=true
+
+[maaacks_music_controller]
+
+disable_install_audio_busses=true
+disable_update_check=false
 
 [rendering]
 

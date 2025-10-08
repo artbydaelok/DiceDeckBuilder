@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyj52ydshi4bk"]
+
+[ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="1_ine68"]
+[ext_resource type="Script" uid="uid://bdn118tpsha7n" path="res://level_mechanics/breakable_log.gd" id="1_tmtjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tmtjx"]
+size = Vector3(7.5, 8.338257, 1)
+
+[node name="BreakableLog" type="Node3D"]
+script = ExtResource("1_tmtjx")
+
+[node name="tree_log_12" parent="." instance=ExtResource("1_ine68")]
+transform = Transform3D(1.8103372, 0, 0.85010546, 0, 2, 0, -0.85010546, 0, 1.8103372, 0, 0, 0)
+
+[node name="BreakableHitbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BreakableHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.1691284, 0)
+shape = SubResource("BoxShape3D_tmtjx")
+
+[connection signal="body_entered" from="BreakableHitbox" to="." method="_on_breakable_hitbox_body_entered"]

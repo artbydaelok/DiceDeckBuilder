@@ -1,57 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://icig8la8yj1t"]
+[gd_scene load_steps=12 format=3 uid="uid://icig8la8yj1t"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_d2344"]
 [ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://components/cutscene/dialogue_trigger_area.tscn" id="2_u3uw7"]
+[ext_resource type="Resource" uid="uid://b0tp1n1bwpd2i" path="res://dialogue/hell_level_intro.dialogue" id="3_ignju"]
+[ext_resource type="Texture2D" uid="uid://c4vke66ggostg" path="res://assets/3d_models/hell_rock/hell_rock_1_stone_hell_5.png" id="3_w6gso"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="4_0i2fg"]
+[ext_resource type="Resource" uid="uid://csjbw5er3lqoq" path="res://card/card_abilities/empty_card.tres" id="5_ignju"]
+[ext_resource type="PackedScene" uid="uid://dyj52ydshi4bk" path="res://level_mechanics/breakable_log.tscn" id="5_k8vhu"]
+[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="7_k57m5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6gso"]
 size = Vector3(10, 2.5, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2smvg"]
+albedo_texture = ExtResource("3_w6gso")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0i2fg"]
+size = Vector2(10, 10)
+
 [node name="HellLevel1" instance=ExtResource("1_d2344")]
 
-[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="2"]
+[node name="Camera3D" parent="BaseLevel" index="1"]
+follow_target = true
+
+[node name="CSGCombiner3D4" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="2"]
 use_collision = true
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/CSGCombiner3D3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
-height = 4.0
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="BaseLevel/CSGBoard/CSGCombiner3D3" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
-height = 4.0
-
-[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D3" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
-size = Vector3(6, 0.5, 2)
-
-[node name="CSGCombiner3D4" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="3"]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5.26655)
-size = Vector3(10, 1, 0.5)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0.5, -4.73345)
-size = Vector3(10, 1, 0.5)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, -4.73345)
-size = Vector3(10, 1, 0.5)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25, 0.5, 0.266545)
-size = Vector3(0.5, 1, 10.5)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D4" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 0.5, 0.266545)
-size = Vector3(0.5, 1, 10.5)
 
 [node name="DialogueTriggerArea" parent="BaseLevel" index="8" instance=ExtResource("2_u3uw7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
+dialogue_resource = ExtResource("3_ignju")
 
 [node name="CollisionShape3D" parent="BaseLevel/DialogueTriggerArea/PlayerDetection" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_w6gso")
+
+[node name="Floor" type="MeshInstance3D" parent="BaseLevel" index="9"]
+material_override = SubResource("StandardMaterial3D_2smvg")
+mesh = SubResource("PlaneMesh_0i2fg")
+
+[node name="Floor2" type="MeshInstance3D" parent="BaseLevel" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+material_override = SubResource("StandardMaterial3D_2smvg")
+mesh = SubResource("PlaneMesh_0i2fg")
+
+[node name="Floor3" type="MeshInstance3D" parent="BaseLevel" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
+material_override = SubResource("StandardMaterial3D_2smvg")
+mesh = SubResource("PlaneMesh_0i2fg")
+
+[node name="Floor4" type="MeshInstance3D" parent="BaseLevel" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+material_override = SubResource("StandardMaterial3D_2smvg")
+mesh = SubResource("PlaneMesh_0i2fg")
+
+[node name="BreakableLog" parent="BaseLevel" index="13" instance=ExtResource("5_k8vhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82296777, 1.1151034, -8.48317)
+
+[node name="CardSystem" parent="." index="2"]
+deck = Array[ExtResource("4_0i2fg")]([ExtResource("7_k57m5"), ExtResource("5_ignju"), ExtResource("5_ignju"), ExtResource("5_ignju"), ExtResource("5_ignju"), ExtResource("5_ignju")])
 
 [editable path="BaseLevel/Player"]
 [editable path="BaseLevel/DialogueTriggerArea"]
