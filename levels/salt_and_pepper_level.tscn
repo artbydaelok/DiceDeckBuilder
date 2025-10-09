@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://doqfy3mapatxr"]
+[gd_scene load_steps=54 format=3 uid="uid://doqfy3mapatxr"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
 [ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://detvlvrq07m12" path="res://assets/3d_models/psx/garage_hm_1/garage_hm_1.glb" id="22_qrnf8"]
 [ext_resource type="PackedScene" uid="uid://3cbj41471tts" path="res://assets/3d_models/psx/warehouse/warehouse_mx_2.glb" id="22_rtl24"]
 [ext_resource type="PackedScene" uid="uid://dpqpnk2cfdypt" path="res://assets/3d_models/psx/shed_ax_2/shed_ax_2.glb" id="23_bvmuu"]
+[ext_resource type="PackedScene" uid="uid://bmcaeg2omnvqc" path="res://assets/3d_models/psx/roads/road_1_straight.glb" id="23_yrm5y"]
 [ext_resource type="PackedScene" uid="uid://bbddptsu0dq3a" path="res://assets/3d_models/psx/metal_barrel_3/metal_barrel_hr_3.glb" id="25_vlcso"]
 [ext_resource type="PackedScene" uid="uid://x45c3idqf46f" path="res://assets/3d_models/psx/wooden_crate/wooden_crate_hx_1_1.glb" id="26_7eebo"]
 [ext_resource type="PackedScene" uid="uid://v0fbnvjq687y" path="res://assets/3d_models/psx/metal_barrel_1/metal_barrel_hr_1.glb" id="27_ehxsn"]
@@ -128,8 +129,7 @@ albedo_texture = ExtResource("18_47hlg")
 
 [node name="SaltAndPepperLevel" instance=ExtResource("1_ijhq5")]
 
-[node name="EnemyHealthDisplay" parent="UI/ScreenMargin1" index="1" node_paths=PackedStringArray("boss")]
-value = 100.0
+[node name="EnemyHealthDisplay" parent="UI/ScreenMargin1" index="0" node_paths=PackedStringArray("boss")]
 boss = NodePath("../../../BaseLevel/SaltAndPepper")
 
 [node name="Camera3D" parent="BaseLevel" index="1"]
@@ -209,6 +209,7 @@ visible = false
 
 [node name="Road" type="Sprite3D" parent="BaseLevel" index="15"]
 transform = Transform3D(6, 0, 0, 0, -2.62268e-07, 6, 0, -6, -2.62268e-07, 0, 0.015, 0)
+visible = false
 transparent = false
 double_sided = false
 texture_filter = 0
@@ -438,6 +439,18 @@ transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 1.36
 
 [node name="warehouse_mx_23" parent="BaseLevel" index="67" instance=ExtResource("22_rtl24")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.91662, 0, 10.852888)
+
+[node name="road_1_straight2" parent="BaseLevel" index="69" instance=ExtResource("23_yrm5y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="road_1_straight3" parent="BaseLevel" index="70" instance=ExtResource("23_yrm5y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -4)
+
+[node name="road_1_straight4" parent="BaseLevel" index="71" instance=ExtResource("23_yrm5y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -8)
+
+[node name="road_1_straight5" parent="BaseLevel" index="72" instance=ExtResource("23_yrm5y")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 4)
 
 [node name="CardSystem" parent="." index="2"]
 deck = Array[ExtResource("11_ehb7x")]([ExtResource("12_tg5fj"), ExtResource("13_xk5r6"), ExtResource("14_5t2ub"), ExtResource("15_3amgk"), ExtResource("16_d4v5l"), ExtResource("17_xawco"), ExtResource("12_tg5fj")])

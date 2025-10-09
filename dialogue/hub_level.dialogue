@@ -1,14 +1,31 @@
 ~ start
-Narrator: You're dreaming. I think.
+You're dreaming. I think.
 
 ~ new_attempt
-Narrator: You can try again, or back to a previous fight.
+You can try again, or back to a previous fight.
 => END
 
-~ hell_level
-Narrator: Go to hell?
+~ hell_level_portal
+Go to hell?
 - why not
-	Nathan: Pack a cross.
+	=> hell_level_change
 - uh, no
-	Nathan: [[Lame.|Whatever.]]
+	[[Lame.|Whatever.]]
+	=> END
+
+~ forest_level_portal
+Go to the forest?
+- sure
+	=> forest_level_change
+- nah
+	=> END
+
+~ hell_level_change
+[[To the fiery pits.|Hope they have nice weather.|Why is this the first level?]]
+do SceneLoader.load_scene("res://levels/hell_world/hell_level_1.tscn")
+=> END
+
+~ forest_level_change
+[[Hope you packed some repellent.|Hope nature isn't the bane of you.|Time to go for a hike.]]
+do SceneLoader.load_scene("res://levels/forest_level.tscn")
 => END

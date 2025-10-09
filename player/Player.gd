@@ -55,15 +55,24 @@ signal insufficient_energy
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
 	player_health_updated.emit(health)
+	DialogueManager.dialogue_started.connect(_on_dialogue_started)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
+
+func _on_dialogue_started(resource):
+	_on_cutscene_started(true)
+	
+func _on_dialogue_ended(resource : DialogueResource):
+	_on_cutscene_ended()
 
 func _on_cutscene_started(_input_disabled: bool):
 	if _input_disabled:
 		_disable_input()
 	
 func _on_cutscene_ended():
-	await get_tree().create_timer(0.45).timeout
+	if GameEvents.is_scene_transitioning: return
+	await get_tree().create_timer(0.35).timeout
 	_enable_input()
 
 func _disable_input():

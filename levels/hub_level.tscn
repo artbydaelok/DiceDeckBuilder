@@ -1,29 +1,435 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpn6v1d3veqkk"]
+[gd_scene load_steps=47 format=3 uid="uid://dpn6v1d3veqkk"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_r55pm"]
 [ext_resource type="Script" uid="uid://b1e6s0qouf47" path="res://levels/hub_level.gd" id="2_j0rvb"]
 [ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="2_xl636"]
 [ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://components/cutscene/dialogue_trigger_area.tscn" id="3_c4aiy"]
+[ext_resource type="Texture2D" uid="uid://bxs7vxpdc5lbl" path="res://assets/3d_models/psx/grass/grass_1.png" id="3_uj6qf"]
+[ext_resource type="Texture2D" uid="uid://domerljpf6atq" path="res://vfx/gradients/forest_level_gradient.tres" id="4_c5pd8"]
+[ext_resource type="Texture2D" uid="uid://ccef3yy5esc6b" path="res://assets/3d_models/psx/grass/grass_1_normal.png" id="4_iva4b"]
 [ext_resource type="Resource" uid="uid://b2og4ilgdg4ke" path="res://dialogue/hub_level.dialogue" id="4_nrj8t"]
+[ext_resource type="Shader" uid="uid://17r147pt2b4h" path="res://vfx/shaders/scrolling_noise.gdshader" id="6_6wf1f"]
+[ext_resource type="PackedScene" uid="uid://bno4ca2m335hd" path="res://assets/3d_models/hell_rock/ChunkySpike.glb" id="7_11ood"]
+[ext_resource type="PackedScene" uid="uid://dh1xdwurvbl51" path="res://assets/3d_models/hell_rock/hell_rock_1.tscn" id="9_c5pd8"]
+[ext_resource type="PackedScene" uid="uid://c8bvxiyxtk4yr" path="res://assets/3d_models/psx/trees/tree_stump_1.glb" id="9_cisf0"]
+[ext_resource type="Texture2D" uid="uid://cmfvlf4fx3c7w" path="res://vfx/gradients/hell_level_gradient.tres" id="10_q222i"]
+[ext_resource type="PackedScene" uid="uid://c8hefk5p44v6q" path="res://assets/3d_models/psx/stone/stone_4.glb" id="10_qlufj"]
+[ext_resource type="PackedScene" uid="uid://osa71j43i7ox" path="res://assets/3d_models/psx/trees/tree_9.glb" id="11_emmfv"]
+[ext_resource type="PackedScene" uid="uid://b4cckx4hgyro8" path="res://assets/3d_models/psx/trees/tree_6.glb" id="12_15esb"]
+[ext_resource type="Texture2D" uid="uid://dy2ghplalbdf4" path="res://assets/3d_models/hell_rock/stone_hell_11.png" id="14_cisf0"]
+[ext_resource type="PackedScene" uid="uid://dfvirkl2tsg0c" path="res://assets/3d_models/psx/grass/grass_3.glb" id="17_jo4gk"]
+[ext_resource type="PackedScene" uid="uid://brpe3av8rjbv2" path="res://assets/3d_models/psx/grass/grass_2.glb" id="18_efs00"]
+[ext_resource type="PackedScene" uid="uid://bp78spw5xmmx0" path="res://assets/3d_models/psx/stone/stone_2.glb" id="19_iva4b"]
+[ext_resource type="PackedScene" uid="uid://7aurhj4q6lr4" path="res://assets/3d_models/hell_rock/Spike.glb" id="21_qlufj"]
+[ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="22_emmfv"]
+[ext_resource type="PackedScene" uid="uid://dv8romhal064v" path="res://assets/3d_models/psx/stone/stone_3.glb" id="23_jo4gk"]
+[ext_resource type="PackedScene" uid="uid://dc1wy1s0lmuth" path="res://assets/3d_models/psx/grass/fern_3.glb" id="24_efs00"]
+
+[sub_resource type="Gradient" id="Gradient_uj6qf"]
+offsets = PackedFloat32Array(0, 0.9956332)
+colors = PackedColorArray(0.2046, 0.22, 0.2046, 1, 0.38, 0.38, 0.38, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iva4b"]
+seed = 1695
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cisf0"]
+noise = SubResource("FastNoiseLite_iva4b")
+color_ramp = SubResource("Gradient_uj6qf")
+seamless = true
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qlufj"]
+panorama = SubResource("NoiseTexture2D_cisf0")
+
+[sub_resource type="Sky" id="Sky_hjcl6"]
+sky_material = SubResource("PanoramaSkyMaterial_qlufj")
+
+[sub_resource type="Environment" id="Environment_uj6qf"]
+background_mode = 2
+sky = SubResource("Sky_hjcl6")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 2
+tonemap_exposure = 1.15
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.5176471, 0.5254902, 0.60784316, 1)
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.9019608, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s3145"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dltx"]
+albedo_texture = ExtResource("3_uj6qf")
+normal_enabled = true
+normal_texture = ExtResource("4_iva4b")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nrj8t"]
+
+[sub_resource type="Gradient" id="Gradient_6wf1f"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.2616034, 0.62447256)
+colors = PackedColorArray(0, 0, 0, 1, 0.39308554, 0.3930855, 0.39308548, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6wf1f"]
+frequency = 0.0272
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ftq5n"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_6wf1f")
+color_ramp = SubResource("Gradient_6wf1f")
+seamless = true
+
+[sub_resource type="Gradient" id="Gradient_ftq5n"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.28270042, 0.5232068, 0.7257384)
+colors = PackedColorArray(0, 0, 0, 1, 0.41598046, 0.41598043, 0.4159804, 1, 0.633757, 0.63375676, 0.6337567, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ip335"]
+seed = 1185
+frequency = 0.0198
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_11ood"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_ip335")
+color_ramp = SubResource("Gradient_ftq5n")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftq5n"]
+render_priority = 0
+shader = ExtResource("6_6wf1f")
+shader_parameter/noise_tex_1 = SubResource("NoiseTexture2D_ftq5n")
+shader_parameter/noise_tex_2 = SubResource("NoiseTexture2D_11ood")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ip335"]
+material = SubResource("ShaderMaterial_ftq5n")
+size = Vector2(20, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qlufj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emmfv"]
+albedo_texture = ExtResource("14_cisf0")
+texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_c5pd8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:spot_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
+}
+
+[sub_resource type="Animation" id="Animation_q222i"]
+resource_name = "wiggle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:spot_range")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [20.0, 15.0, 20.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0nv80"]
+_data = {
+&"RESET": SubResource("Animation_c5pd8"),
+&"wiggle": SubResource("Animation_q222i")
+}
 
 [node name="HubLevel" instance=ExtResource("1_r55pm")]
 script = ExtResource("2_j0rvb")
 
 [node name="Camera3D" parent="BaseLevel" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.5000002, 0, -0.5000002, 0.8660252, 0, 8, 6)
 follow_target = true
 
-[node name="PortalVFX" parent="BaseLevel" index="8" instance=ExtResource("2_xl636")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, -7)
+[node name="WorldEnvironment" parent="BaseLevel" index="2"]
+environment = SubResource("Environment_uj6qf")
 
-[node name="DialogueTriggerArea" parent="." index="4" instance=ExtResource("3_c4aiy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.536731, 1, -6.8159785)
+[node name="GrassPlane5" type="MeshInstance3D" parent="BaseLevel" index="7"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -40, 0, -20)
+mesh = SubResource("PlaneMesh_s3145")
+skeleton = NodePath("../ForestLevelEntry/stone_43")
+surface_material_override/0 = SubResource("StandardMaterial3D_4dltx")
+
+[node name="ForestLevelEntry" type="Node3D" parent="BaseLevel" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -23)
+
+[node name="ForestLevelPortal" parent="BaseLevel/ForestLevelEntry" index="0" instance=ExtResource("2_xl636")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 1)
+gradient_texture = ExtResource("4_c5pd8")
+
+[node name="DialogueTriggerArea2" parent="BaseLevel/ForestLevelEntry/ForestLevelPortal" index="3" instance=ExtResource("3_c4aiy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.536743e-07, 0, -2)
 dialogue_resource = ExtResource("4_nrj8t")
-title_to_play = "hell_level"
+title_to_play = "forest_level_portal"
+has_scene_change = true
 
-[node name="CollisionShape3D" parent="DialogueTriggerArea/PlayerDetection" index="0"]
+[node name="CollisionShape3D" parent="BaseLevel/ForestLevelEntry/ForestLevelPortal/DialogueTriggerArea2/PlayerDetection" index="0"]
+shape = SubResource("BoxShape3D_nrj8t")
+
+[node name="tree_stump_12" parent="BaseLevel/ForestLevelEntry" index="1" instance=ExtResource("9_cisf0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.061493, 0, 1)
+
+[node name="tree_stump_13" parent="BaseLevel/ForestLevelEntry" index="2" instance=ExtResource("9_cisf0")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 9.814556, 0, 2.9684982)
+
+[node name="tree_stump_14" parent="BaseLevel/ForestLevelEntry" index="3" instance=ExtResource("9_cisf0")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -9.636215, 0, 7.052517)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BaseLevel/ForestLevelEntry" index="4"]
+transform = Transform3D(0.18301272, 0.7071068, -0.6830127, -0.18301272, 0.7071068, 0.6830127, 0.9659258, 0, 0.25881907, -5, 11, 4)
+light_color = Color(0.69, 1, 0.78816664, 1)
+light_energy = 15.0
+spot_range = 31.667297
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="BaseLevel/ForestLevelEntry" index="5"]
+transform = Transform3D(0.94798344, 0.31098425, -0.067943156, -0.18301272, 0.7071068, 0.6830127, 0.26044923, -0.6350503, 0.7272396, 2.6951332, 11, 21.320614)
+light_color = Color(0.69, 1, 0.78816664, 1)
+light_energy = 8.0
+spot_range = 31.667297
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="BaseLevel/ForestLevelEntry" index="6"]
+transform = Transform3D(0.8991976, -0.16045892, 0.40705857, -0.1830127, 0.7071068, 0.6830127, -0.39742935, -0.68866026, 0.6064627, 4, 11, 6)
+light_color = Color(0.69, 0.9225, 1, 1)
+light_energy = 10.0
+spot_range = 40.641315
+
+[node name="stone_42" parent="BaseLevel/ForestLevelEntry" index="7" instance=ExtResource("10_qlufj")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.972328, 0, 1.3744736)
+
+[node name="stone_43" parent="BaseLevel/ForestLevelEntry" index="8" instance=ExtResource("10_qlufj")]
+transform = Transform3D(-0.098866224, 0, 4.9990225, 0, 5, 0, -4.9990225, 0, -0.098866224, 2.3559113, 0, 0.21038628)
+
+[node name="tree_92" parent="BaseLevel/ForestLevelEntry" index="9" instance=ExtResource("11_emmfv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.5548477, 0, -0.4480915)
+
+[node name="tree_62" parent="BaseLevel/ForestLevelEntry" index="10" instance=ExtResource("12_15esb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.1267624, 0, -0.60775185)
+
+[node name="tree_64" parent="BaseLevel/ForestLevelEntry" index="11" instance=ExtResource("12_15esb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 8.448036, 0, 10.66878)
+
+[node name="tree_63" parent="BaseLevel/ForestLevelEntry" index="12" instance=ExtResource("12_15esb")]
+transform = Transform3D(2.791383, -0.20717143, -1.0794728, 0.3202861, 2.9716837, 0.25789714, 1.0514746, -0.35520995, 2.7871535, -3.8732376, 0, -3.6077518)
+
+[node name="tree_stump_15" parent="BaseLevel/ForestLevelEntry" index="13" instance=ExtResource("9_cisf0")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -4.3164825, 0, 12.971287)
+
+[node name="grass_32" parent="BaseLevel/ForestLevelEntry" index="14" instance=ExtResource("17_jo4gk")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -9.146191, 0, 2.3885593)
+
+[node name="grass_33" parent="BaseLevel/ForestLevelEntry" index="15" instance=ExtResource("17_jo4gk")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.248581, 0, 2.3885593)
+
+[node name="grass_22" parent="BaseLevel/ForestLevelEntry" index="16" instance=ExtResource("18_efs00")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.7235794, 4.7683716e-07, 1.5495796)
+
+[node name="stone_22" parent="BaseLevel/ForestLevelEntry" index="17" instance=ExtResource("19_iva4b")]
+transform = Transform3D(0.93267614, 0, 2.8513358, 0, 3, 0, -2.8513358, 0, 0.93267614, 7.21632, 0, -3.465826)
+
+[node name="stone_25" parent="BaseLevel/ForestLevelEntry" index="18" instance=ExtResource("19_iva4b")]
+transform = Transform3D(1.4385114, -3.166003e-08, 2.6326191, 0.3059631, 2.9796698, -0.16718382, -2.6147795, 0.34865993, 1.428763, 10.348179, -1.3048372, 4.185631)
+
+[node name="stone_28" parent="BaseLevel/ForestLevelEntry" index="19" instance=ExtResource("19_iva4b")]
+transform = Transform3D(2.8979971, -0.33677962, -0.6987071, 0.30596307, 2.9796696, -0.1671838, 0.7127404, 0.09023978, 2.9127057, 15.591833, -1.3048372, 8.622632)
+
+[node name="stone_29" parent="BaseLevel/ForestLevelEntry" index="20" instance=ExtResource("19_iva4b")]
+transform = Transform3D(2.8979971, -0.33677962, -0.6987071, 0.30596307, 2.9796696, -0.1671838, 0.7127404, 0.09023978, 2.9127057, 15.591833, -1.3048372, 34.62263)
+
+[node name="stone_23" parent="BaseLevel/ForestLevelEntry" index="21" instance=ExtResource("19_iva4b")]
+transform = Transform3D(-1.9705863, 0, -2.2620323, 0, 2.9999998, 0, 2.2620323, 0, -1.9705863, -8.457451, 0, -3.465826)
+
+[node name="stone_24" parent="BaseLevel/ForestLevelEntry" index="22" instance=ExtResource("19_iva4b")]
+transform = Transform3D(-2.7902117, -2.9433345e-10, 2.866133, -2.2536073, 2.4714386, -2.1939113, -1.7708677, -3.1451538, -1.7239592, -1.3254051, 0.9989505, -6.472021)
+
+[node name="tree_log_12" parent="BaseLevel/ForestLevelEntry" index="23" instance=ExtResource("22_emmfv")]
+transform = Transform3D(3.3062973, 0, -3.7507863, 0, 4.9999995, 0, 3.7507863, 0, 3.3062973, -9.054081, 0, 5.5487213)
+
+[node name="tree_93" parent="BaseLevel/ForestLevelEntry" index="24" instance=ExtResource("11_emmfv")]
+transform = Transform3D(2.995906, 0.15559545, 0.018375954, -0.15656424, 2.986426, 0.23821896, -0.0059375493, -0.23885284, 2.9904706, -6.2450256, 0, 5.9553833)
+
+[node name="tree_94" parent="BaseLevel/ForestLevelEntry" index="25" instance=ExtResource("11_emmfv")]
+transform = Transform3D(2.5473435, -0.09660523, 0.7240225, 0, 2.6267211, 0.35047945, -0.730439, -0.33690244, 2.5249665, 5.159359, 0, 7.9638987)
+
+[node name="tree_log_13" parent="BaseLevel/ForestLevelEntry" index="26" instance=ExtResource("22_emmfv")]
+transform = Transform3D(2.4424856, 0, 1.2636315, 0, 2.75, 0, -1.2636315, 0, 2.4424856, 6.697666, 0, 12.730243)
+
+[node name="stone_32" parent="BaseLevel/ForestLevelEntry" index="27" instance=ExtResource("23_jo4gk")]
+transform = Transform3D(0.47832045, 0.14563496, 0, -0.14563496, 0.47832045, 0, 0, 0, 0.5, 2.1660728, -0.1444596, 12.830644)
+
+[node name="grass_23" parent="BaseLevel/ForestLevelEntry" index="28" instance=ExtResource("18_efs00")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10.066446, 0, 11.369266)
+
+[node name="grass_24" parent="BaseLevel/ForestLevelEntry" index="29" instance=ExtResource("18_efs00")]
+transform = Transform3D(3.5815704, 0, -3.48889, 0, 5, 0, 3.48889, 0, 3.5815704, -5.8145103, 0, 9.723943)
+
+[node name="grass_25" parent="BaseLevel/ForestLevelEntry" index="30" instance=ExtResource("18_efs00")]
+transform = Transform3D(3.5815704, 0, -3.48889, 0, 5, 0, 3.48889, 0, 3.5815704, 5.877144, 0, 5.0397854)
+
+[node name="fern_32" parent="BaseLevel/ForestLevelEntry" index="31" instance=ExtResource("24_efs00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7213287, 0, 13.034224)
+
+[node name="grass_34" parent="BaseLevel/ForestLevelEntry" index="32" instance=ExtResource("17_jo4gk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.5253792, 0, 12.817213)
+
+[node name="grass_26" parent="BaseLevel/ForestLevelEntry" index="33" instance=ExtResource("18_efs00")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.82227707, 0, 13.026359)
+
+[node name="stone_26" parent="BaseLevel/ForestLevelEntry" index="34" instance=ExtResource("19_iva4b")]
+transform = Transform3D(0.47766757, 0, -0.14776231, 0, 0.5, 0, 0.14776231, 0, 0.47766757, -1.918953, -0.31701398, 12.876585)
+
+[node name="stone_27" parent="BaseLevel/ForestLevelEntry" index="35" instance=ExtResource("19_iva4b")]
+transform = Transform3D(-0.31234884, 0, 0.39043334, 0.22300464, 0.41041517, 0.17840496, -0.32047954, 0.28558606, -0.25638542, 0.8518524, -0.31701398, 12.876585)
+
+[node name="GroundCollisionShape" parent="BaseLevel/GroundStaticBody" index="0"]
+visible = false
+
+[node name="CloudFloor" type="MeshInstance3D" parent="BaseLevel" index="10"]
+mesh = SubResource("PlaneMesh_ip335")
+
+[node name="CloudFloor3" type="MeshInstance3D" parent="BaseLevel" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+mesh = SubResource("PlaneMesh_ip335")
+
+[node name="CloudFloor5" type="MeshInstance3D" parent="BaseLevel" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+mesh = SubResource("PlaneMesh_ip335")
+
+[node name="CloudFloor6" type="MeshInstance3D" parent="BaseLevel" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0)
+mesh = SubResource("PlaneMesh_ip335")
+
+[node name="CloudFloor4" type="MeshInstance3D" parent="BaseLevel" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20)
+mesh = SubResource("PlaneMesh_ip335")
+
+[node name="BossFloor7" type="MeshInstance3D" parent="BaseLevel" index="15"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -20)
+mesh = SubResource("PlaneMesh_qlufj")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_emmfv")
+
+[node name="HellEntry" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="ChunkySpike4" parent="HellEntry" index="0" instance=ExtResource("7_11ood")]
+transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, -9.943717, 0.5198915, 5.7366333)
+
+[node name="ChunkySpike5" parent="HellEntry" index="1" instance=ExtResource("7_11ood")]
+transform = Transform3D(0.96592593, -0.25881907, 0, 0.25000003, 0.9330128, -0.25881907, 0.0669873, 0.25, 0.9659258, -9.943717, 0.5198915, 9.40451)
+
+[node name="ChunkySpike6" parent="HellEntry" index="2" instance=ExtResource("7_11ood")]
+transform = Transform3D(0.9659259, 0.25881904, 0, -0.2548925, 0.9512718, -0.17352784, -0.04491232, 0.16761506, 0.98482895, 8.73582, 0.5198915, 10.186617)
+
+[node name="ChunkySpike7" parent="HellEntry" index="3" instance=ExtResource("7_11ood")]
+transform = Transform3D(-0.08468942, -0.1348304, -0.98724276, -0.14467838, 0.9819661, -0.12169868, 0.98584783, 0.13252628, -0.10266926, 4.73582, 0.5198915, 10.466677)
+
+[node name="hell_rock_6" parent="HellEntry" index="4" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(0.85862905, 0, -0.51259744, -0.21310787, 0.90948296, -0.35696745, 0.46619862, 0.41574118, 0.78090847, -6.155516, 0.46856683, 10.5156555)
+
+[node name="hell_rock_7" parent="HellEntry" index="5" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(0.7698519, -0.6569059, -1.1071596, -1.262544, -0.13312183, -0.79891247, 0.25161543, 1.3419214, -0.6212379, -4.90836, 0.46856683, 3.781639)
+
+[node name="Spike" parent="HellEntry" index="6" instance=ExtResource("21_qlufj")]
+transform = Transform3D(0.052505203, -0.9922487, 0.11263093, 0.9986029, 0.052841436, 0, -0.00595158, 0.11247358, 0.9936369, 2.1484768, -0.26120162, 9.799869)
+
+[node name="Spike3" parent="HellEntry" index="7" instance=ExtResource("21_qlufj")]
+transform = Transform3D(0.96073914, -0.10442631, 0.25705162, 0.07717861, 0.9904869, 0.11392447, -0.26650298, -0.089612804, 0.9596592, -3.0755196, 1.5832744, 8.617116)
+
+[node name="Spike4" parent="HellEntry" index="8" instance=ExtResource("21_qlufj")]
+transform = Transform3D(-0.49089912, 0.13720638, -0.8603445, 0.07717861, 0.9904869, 0.11392447, 0.8677913, -0.010474734, -0.49681866, 2.6687617, 1.5832744, 7.758769)
+
+[node name="Spike2" parent="HellEntry" index="9" instance=ExtResource("21_qlufj")]
+transform = Transform3D(-0.049208418, 0.92994577, 0.3643892, 0.99860305, 0.052841444, 0, -0.01925485, 0.36388016, -0.93124676, -3.604131, -0.26120162, 10.668336)
+
+[node name="ChunkySpike8" parent="HellEntry" index="10" instance=ExtResource("7_11ood")]
+transform = Transform3D(1.9670125e-08, 0.45, 6.794811e-08, 0.45, -1.9670125e-08, 0, 2.9701062e-15, 6.794811e-08, -0.45, -2.5111294, 0.12330103, 10.17836)
+
+[node name="ChunkySpike" parent="HellEntry" index="11" instance=ExtResource("7_11ood")]
+transform = Transform3D(0.48707682, -0.22588626, 0.8436418, 0.11294314, 0.9741538, 0.19562326, -0.8660254, -1.915824e-08, 0.49999997, -3.5069084, 2.162669, -0.20720291)
+
+[node name="ChunkySpike3" parent="HellEntry" index="12" instance=ExtResource("7_11ood")]
+transform = Transform3D(0.62437207, -0.70669943, -0.33276933, 0.49971193, 0.033940237, 0.86552644, -0.6003728, -0.7066995, 0.37433735, -8.134211, 1.9620774, 1.5140762)
+
+[node name="ChunkySpike2" parent="HellEntry" index="13" instance=ExtResource("7_11ood")]
+transform = Transform3D(0.92287916, 0.24054477, 0.3007197, -0.27657378, 0.9574061, 0.08295189, -0.26795706, -0.1597257, 0.9500982, 0.40603828, 2.162669, -1.9101334)
+
+[node name="HellSpotlight" type="SpotLight3D" parent="HellEntry" index="14"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 12.220403, 5)
+light_color = Color(1, 0.33333337, 0, 1)
+light_energy = 15.0
+spot_range = 20.0
+spot_angle = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HellEntry/HellSpotlight" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_0nv80")
+}
+autoplay = "wiggle"
+
+[node name="HellSpotlight2" type="SpotLight3D" parent="HellEntry" index="15"]
+transform = Transform3D(1, 0, 0, 0, 0.1518646, 0.98840135, 0, -0.98840135, 0.1518646, 4.2864857, 13.544854, 10.032786)
+light_color = Color(1, 0.5921569, 0, 1)
+light_energy = 15.0
+spot_range = 22.157768
+spot_angle = 50.0
+
+[node name="HellSpotlight3" type="SpotLight3D" parent="HellEntry" index="16"]
+transform = Transform3D(0.88777524, 0.06989982, 0.45493868, -0.46027732, 0.13482162, 0.8774781, 0, -0.9884013, 0.1518646, -4.1826725, 13.544854, 5.350152)
+light_color = Color(1, 0.28235295, 0, 1)
+light_energy = 15.0
+spot_range = 22.157768
+spot_angle = 50.0
+
+[node name="hell_rock_1" parent="HellEntry" index="17" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(1.2489073, -1.225949, 0.9681313, 1.2777674, 1.5147647, 0.26980993, -0.8986319, 0.45003974, 1.7291394, -6.35845, 3.5975704, -3.6276302)
+
+[node name="hell_rock_8" parent="HellEntry" index="18" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(1.7716236, 0.47571117, 0.7968988, -0.23196752, 1.8897517, -0.61239517, -0.8986318, 0.4500398, 1.7291394, -16.029652, 0.9330201, 5.37237)
+
+[node name="hell_rock_9" parent="HellEntry" index="19" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(1.7716236, 0.47571117, 0.7968988, -0.23196752, 1.8897517, -0.61239517, -0.8986318, 0.4500398, 1.7291394, -16.029652, 0.9330201, 31.37237)
+
+[node name="hell_rock_2" parent="HellEntry" index="20" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(1.2489073, -1.225949, 0.9681313, 1.2777674, 1.5147647, 0.26980993, -0.8986319, 0.45003974, 1.7291394, -1.1897478, 4.8223033, -5.959469)
+
+[node name="hell_rock_3" parent="HellEntry" index="21" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(1.9203031, 0.08536345, 0.5524015, -0.5373012, 0.82675505, 1.7400523, -0.15408152, -1.8191173, 0.81674314, 5.810252, 1.8223033, -0.32983208)
+
+[node name="hell_rock_5" parent="HellEntry" index="22" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(-0.031137794, -2.34116, 1.8756322, -2.897523, 0.50917554, 0.5874493, -0.77677983, -1.8054656, -2.2664745, 8.269497, 5.8223033, -3.329832)
+
+[node name="hell_rock_4" parent="HellEntry" index="23" instance=ExtResource("9_c5pd8")]
+transform = Transform3D(0.15408143, 1.8191173, -0.8167431, -0.5373012, 0.826755, 1.7400523, 1.920303, 0.085363574, 0.5524015, 6.7494073, 1.8223033, 4.7614365)
+
+[node name="HellLevelPortal" parent="HellEntry" index="24" instance=ExtResource("2_xl636")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+gradient_texture = ExtResource("10_q222i")
+
+[node name="DialogueTriggerArea3" parent="HellEntry/HellLevelPortal" index="3" instance=ExtResource("3_c4aiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+dialogue_resource = ExtResource("4_nrj8t")
+title_to_play = "hell_level_portal"
+has_scene_change = true
+
+[node name="CollisionShape3D" parent="HellEntry/HellLevelPortal/DialogueTriggerArea3/PlayerDetection" index="0"]
 shape = SubResource("BoxShape3D_nrj8t")
 
 [editable path="BaseLevel/Player"]
-[editable path="DialogueTriggerArea"]
+[editable path="BaseLevel/ForestLevelEntry/ForestLevelPortal/DialogueTriggerArea2"]
+[editable path="HellEntry/HellLevelPortal/DialogueTriggerArea3"]
