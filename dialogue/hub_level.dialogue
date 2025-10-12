@@ -29,3 +29,15 @@ do SceneLoader.load_scene("res://levels/hell_world/hell_level_1.tscn")
 [[Hope you packed some repellent.|Hope nature isn't the bane of you.|Time to go for a hike.]]
 do SceneLoader.load_scene("res://levels/forest_level.tscn")
 => END
+
+~ street_level_portal
+Go fight some thugs?
+- let's beat them up
+	=> street_level_change
+- i'm good
+	=> END
+	
+~ street_level_change
+[[If anyone asks say you're doing it in self defense.|This is more fun than tax evasion.|You should get your own goons to fight for you.]]
+do SceneLoader.load_scene("res://levels/salt_and_pepper_level.tscn")
+=> END

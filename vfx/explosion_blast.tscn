@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://b0lpapgxgdlna"]
 
-[ext_resource type="Script" path="res://vfx/explosion_blast.gd" id="1_anhfp"]
+[ext_resource type="Script" uid="uid://mlht1fef1qxs" path="res://vfx/explosion_blast.gd" id="1_anhfp"]
 [ext_resource type="AudioStream" uid="uid://u2dh0c3m805s" path="res://sounds/EXPLDsgn_High End Thunder Strike_Ocular Sounds_Heavy Explosions_The Complete Impacts Collection.wav" id="1_nhpiw"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_kq5bs"]
 
@@ -38,7 +38,7 @@ colors = PackedColorArray(1, 0.616667, 0, 1, 1, 0.166667, 0, 1)
 gradient = SubResource("Gradient_1136d")
 
 [sub_resource type="Curve" id="Curve_h8gck"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 1.00795), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -150,3 +150,4 @@ damage = 10
 
 [node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("SphereShape3D_flejx")
+disabled = true

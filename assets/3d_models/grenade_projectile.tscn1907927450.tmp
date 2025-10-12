@@ -1,15 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://xfi6hatedmma"]
+[gd_scene load_steps=10 format=3 uid="uid://xfi6hatedmma"]
 
 [ext_resource type="Script" uid="uid://b8kl34g5ks0e3" path="res://assets/3d_models/grenade_projectile.gd" id="1_4ayg7"]
 [ext_resource type="PackedScene" uid="uid://bdvc1gkffpw3o" path="res://assets/3d_models/grenade_scene.tscn" id="1_niyvq"]
 [ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="3_k40tg"]
 [ext_resource type="Shader" uid="uid://iy3qlssbl5fu" path="res://vfx/shaders/radius_marker.gdshader" id="4_uc85o"]
 [ext_resource type="Texture2D" uid="uid://c5w6gk4f4sotm" path="res://icon.svg" id="5_mx20g"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uc85o"]
-friction = 0.15
-rough = true
-bounce = 0.65
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_niyvq"]
 radius = 0.328094
@@ -33,11 +28,6 @@ shader_parameter/color = Color(1, 0, 0, 1)
 
 [node name="GrenadeProjectile" type="RigidBody3D"]
 collision_layer = 0
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-physics_material_override = SubResource("PhysicsMaterial_uc85o")
-lock_rotation = true
 script = ExtResource("1_4ayg7")
 
 [node name="Grenade" parent="." instance=ExtResource("1_niyvq")]
@@ -65,10 +55,3 @@ texture = ExtResource("5_mx20g")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, -100, 0)
-
-[node name="ExplodeTimer" type="Timer" parent="."]
-wait_time = 2.25
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="ExplodeTimer" to="." method="_on_explode_timer_timeout"]

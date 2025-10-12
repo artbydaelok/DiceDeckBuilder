@@ -13,3 +13,7 @@ func _on_area_entered(area: Area3D) -> void:
 func disable():
 	for shape in get_children():
 		shape.disabled = true
+
+func enable():
+	for shape in get_children():
+		shape.disabled = false

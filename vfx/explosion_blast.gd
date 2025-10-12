@@ -6,8 +6,14 @@ extends Node3D
 
 @onready var hitbox: Hitbox = $Hitbox
 
+var is_player_attack : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if is_player_attack:
+		hitbox.set_collision_mask_value(4, false)
+		hitbox.set_collision_mask_value(5, true)
+	hitbox.enable()
 	debris.emitting = true
 	fire.emitting = true
 	smoke.emitting = true
