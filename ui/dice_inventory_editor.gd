@@ -8,9 +8,18 @@ func _ready() -> void:
 
 func _initialize():
 	var card_system = get_tree().get_first_node_in_group("card_system")
-	for child in card_system.deck:
-		_populate()
+	var all_cards : Array[Card] = []
+	all_cards.append_array(card_system.deck)
+	all_cards.append_array(card_system.hand)
+	for card in all_cards:
+		_populate(card)
 		
-func _populate():
-	var _item_display = ITEM_DISPLAY.instantiate()
-	item_list.add_child(_item_display)
+func _populate(card_data : Card):
+	var item_display = ITEM_DISPLAY.instantiate()
+	item_list.add_child(item_display)
+	item_display.setup(card_data)
+
+	#TODO: Populate the dice sides sprites on initialize
+
+func _on_button_pressed() -> void:
+	queue_free()

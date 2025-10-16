@@ -60,8 +60,8 @@ func draw_card(index: int):
 	
 	card_drawn.emit()
 
-func set_slot_to_item(card: Card):
-	pass
+func set_slot_to_item(slot: int, card: Card):
+	hand[slot] = card
 
 func play_ability():
 	if player.input_disabled: return

@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://crbwh26bogcfr"]
+[gd_scene load_steps=4 format=3 uid="uid://crbwh26bogcfr"]
 
 [ext_resource type="Script" uid="uid://b7gxr0din6f1e" path="res://ui/dice_inventory_editor.gd" id="1_mg8ad"]
 [ext_resource type="PackedScene" uid="uid://bxrx8d3vu2n5h" path="res://ui/dice_3d_viewer.tscn" id="1_oobr8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_828y3"]
+bg_color = Color(0.33, 0.33, 0.33, 1)
+
 [node name="DiceInventoryEditor" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +27,10 @@ theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_828y3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -47,6 +55,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/RightPanel"]
 layout_mode = 2
+mouse_filter = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -65,11 +74,21 @@ horizontal_alignment = 1
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/RightPanel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 0
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/RightPanel/MarginContainer/SubViewportContainer"]
+own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(300, 300)
 render_target_update_mode = 4
 
 [node name="Dice3DViewer" parent="MarginContainer/HBoxContainer/RightPanel/MarginContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_oobr8")]
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/RightPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/RightPanel/MarginContainer/Button" to="." method="_on_button_pressed"]

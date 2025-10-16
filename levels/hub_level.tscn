@@ -463,6 +463,9 @@ shape = SubResource("BoxShape3D_gs1kk")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.700439, 3.7697754, -15.731201)
 shape = SubResource("BoxShape3D_q3ugp")
 
+[node name="PSXColorRect" parent="PSXShaderLayer" index="0"]
+mouse_filter = 2
+
 [node name="HellEntry" type="Node3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
 
