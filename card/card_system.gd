@@ -48,17 +48,20 @@ func draw_card(index: int):
 	hand[index] = card_to_draw
 	deck.remove_at(0)
 	
-	if hand_display != null:
-		if hand_display.get_child(player.up_side).animation_player.is_playing():
-			await hand_display.get_child(player.up_side).animation_player.animation_finished
-		
-		# Update the UI
-		hand_display.update_index(index, card_to_draw)
+	#if hand_display != null:
+		#if hand_display.get_child(player.up_side).animation_player.is_playing():
+			#await hand_display.get_child(player.up_side).animation_player.animation_finished
+		#
+		## Update the UI
+		#hand_display.update_index(index, card_to_draw)
 	
 	# Update Player's Icons
 	player.update_side_icon(index + 1, hand[index].card_artwork)
 	
 	card_drawn.emit()
+
+func set_slot_to_item(card: Card):
+	pass
 
 func play_ability():
 	if player.input_disabled: return

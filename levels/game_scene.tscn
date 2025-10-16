@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=29 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" uid="uid://t1i3t7qkwjs3" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="4_cosan"]
 [ext_resource type="PackedScene" uid="uid://convybpr5awm3" path="res://ui/energy_meter.tscn" id="4_iiuie"]
 [ext_resource type="PackedScene" uid="uid://bwy7alqls02bx" path="res://ui/center_warning_sign.tscn" id="4_qa4f1"]
-[ext_resource type="PackedScene" uid="uid://dr5v41plmy0gi" path="res://ui/deck_viewer.tscn" id="4_qn1s2"]
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="4_xdqa1"]
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="5_joks6"]
 [ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
@@ -77,7 +76,7 @@ shader_parameter/virtual_resolution = Vector2(320, 240)
 
 [node name="Game" type="CanvasLayer"]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." groups=["user_interface"]]
 
 [node name="ScreenMargin1" type="MarginContainer" parent="UI"]
 anchors_preset = 15
@@ -136,10 +135,6 @@ text = "NOT ENOUGH ENERGY!"
 [node name="InsufficientTimer" type="Timer" parent="UI/ScreenMargin1/TopLeft"]
 wait_time = 2.5
 one_shot = true
-
-[node name="DeckViewer" parent="UI" node_paths=PackedStringArray("card_system") instance=ExtResource("4_qn1s2")]
-visible = false
-card_system = NodePath("../../CardSystem")
 
 [node name="ScreenMargin2" type="MarginContainer" parent="UI"]
 anchors_preset = 15

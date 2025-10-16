@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxrx8d3vu2n5h"]
+
+[ext_resource type="Script" uid="uid://ct044wt6i7k1u" path="res://ui/dice_3d_viewer.gd" id="1_f7xix"]
+[ext_resource type="Texture2D" uid="uid://ca24nlmt4o5bj" path="res://player/pixel_dice_tex.png" id="2_0cd8f"]
+[ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_3goed"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiq3l"]
+shading_mode = 0
+albedo_texture = ExtResource("2_0cd8f")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7xix"]
+size = Vector3(0.25, 2, 2)
+
+[sub_resource type="Gradient" id="Gradient_f7xix"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.9190031, 0.95950156)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.8666667, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0cd8f"]
+gradient = SubResource("Gradient_f7xix")
+width = 150
+height = 150
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0cd8f"]
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3goed"]
+size = Vector3(2, 2, 0.25)
+
+[sub_resource type="Environment" id="Environment_f7xix"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Dice3DViewer" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1.5, 2.5)
+fov = 90.0
+
+[node name="Root" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("1_f7xix")
+camera = NodePath("../Camera3D")
+
+[node name="DiceMesh" type="MeshInstance3D" parent="Root"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_kiq3l")
+mesh = ExtResource("3_3goed")
+skeleton = NodePath("../..")
+
+[node name="SideOne" type="StaticBody3D" parent="Root/DiceMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideOne"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+shape = SubResource("BoxShape3D_f7xix")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="SelectionSprite" type="Sprite3D" parent="Root/DiceMesh/SideOne"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
+visible = false
+texture_filter = 0
+texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="SideTwo" type="StaticBody3D" parent="Root/DiceMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideTwo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0000001, 0)
+shape = SubResource("BoxShape3D_0cd8f")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="SelectionSprite" type="Sprite3D" parent="Root/DiceMesh/SideTwo"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.0000001, 0)
+visible = false
+texture_filter = 0
+texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="SideThree" type="StaticBody3D" parent="Root/DiceMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideThree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0000001)
+shape = SubResource("BoxShape3D_3goed")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="SelectionSprite" type="Sprite3D" parent="Root/DiceMesh/SideThree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0000004)
+visible = false
+texture_filter = 0
+texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="SideFour" type="StaticBody3D" parent="Root/DiceMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideFour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0000001)
+shape = SubResource("BoxShape3D_3goed")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="SelectionSprite" type="Sprite3D" parent="Root/DiceMesh/SideFour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0000001)
+visible = false
+texture_filter = 0
+texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="SideFive" type="StaticBody3D" parent="Root/DiceMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideFive"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0000001, 0)
+shape = SubResource("BoxShape3D_0cd8f")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="SelectionSprite" type="Sprite3D" parent="Root/DiceMesh/SideFive"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.0000001, 0)
+visible = false
+texture_filter = 0
+texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="SideSix" type="StaticBody3D" parent="Root/DiceMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideSix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0000001, 0, 0)
+shape = SubResource("BoxShape3D_f7xix")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="SelectionSprite" type="Sprite3D" parent="Root/DiceMesh/SideSix"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0000002, 0, 0)
+visible = false
+texture_filter = 0
+texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f7xix")
