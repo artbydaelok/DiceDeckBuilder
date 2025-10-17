@@ -109,6 +109,8 @@ material = SubResource("StandardMaterial3D_tqvi6")
 radius = 0.88
 
 [node name="FlamingMeteor" type="RigidBody3D" groups=["enemy_projectiles"]]
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.1
 contact_monitor = true
 max_contacts_reported = 1

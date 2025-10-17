@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxrx8d3vu2n5h"]
+[gd_scene load_steps=12 format=3 uid="uid://bxrx8d3vu2n5h"]
 
 [ext_resource type="Script" uid="uid://ct044wt6i7k1u" path="res://ui/dice_3d_viewer.gd" id="1_f7xix"]
 [ext_resource type="Texture2D" uid="uid://ca24nlmt4o5bj" path="res://player/pixel_dice_tex.png" id="2_0cd8f"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_3goed"]
+[ext_resource type="Texture2D" uid="uid://dln6eyq2dee81" path="res://assets/card_artwork/axe.png" id="4_0cd8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiq3l"]
 shading_mode = 0
@@ -65,6 +66,7 @@ texture = SubResource("GradientTexture2D_0cd8f")
 [node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideOne"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
 visible = false
+pixel_size = 0.04
 texture_filter = 0
 
 [node name="SideTwo" type="StaticBody3D" parent="Root/DiceMesh"]
@@ -83,7 +85,9 @@ texture = SubResource("GradientTexture2D_0cd8f")
 [node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideTwo"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.0000001, 0)
 visible = false
+pixel_size = 0.04
 texture_filter = 0
+texture = ExtResource("4_0cd8f")
 
 [node name="SideThree" type="StaticBody3D" parent="Root/DiceMesh"]
 
@@ -101,6 +105,7 @@ texture = SubResource("GradientTexture2D_0cd8f")
 [node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideThree"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0000004)
 visible = false
+pixel_size = 0.04
 texture_filter = 0
 
 [node name="SideFour" type="StaticBody3D" parent="Root/DiceMesh"]
@@ -119,6 +124,7 @@ texture = SubResource("GradientTexture2D_0cd8f")
 [node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideFour"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0000001)
 visible = false
+pixel_size = 0.04
 texture_filter = 0
 
 [node name="SideFive" type="StaticBody3D" parent="Root/DiceMesh"]
@@ -137,6 +143,7 @@ texture = SubResource("GradientTexture2D_0cd8f")
 [node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideFive"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.0000001, 0)
 visible = false
+pixel_size = 0.04
 texture_filter = 0
 
 [node name="SideSix" type="StaticBody3D" parent="Root/DiceMesh"]
@@ -155,6 +162,7 @@ texture = SubResource("GradientTexture2D_0cd8f")
 [node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideSix"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0000002, 0, 0)
 visible = false
+pixel_size = 0.04
 texture_filter = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

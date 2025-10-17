@@ -27,6 +27,7 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	gravity_scale = 0
 	
 	$AxeHitSFX.play()
+	#TODO: Add sparks and other particles to make the impact feel better.
 	
 	await get_tree().create_timer(0.35).timeout
 	queue_free()

@@ -7,6 +7,9 @@ var pressed := false
 
 var active_side : StaticBody3D
 
+func _ready() -> void:
+	GameEvents.side_updated_item.connect(_on_side_updated_item)
+
 func _input(event: InputEvent) -> void:
 	if pressed and event is InputEventMouseMotion:
 		global_rotation.x += event.relative.y * 0.005
@@ -41,3 +44,8 @@ func shoot_ray():
 func reset_selection():
 	for child in dice_mesh.get_children():
 		child.get_node("SelectionSprite").visible = false
+
+func _on_side_updated_item(side: int, item: Card):
+	var sprite_node = dice_mesh.get_child(side).get_node("ItemSprite")
+	sprite_node.texture = item.card_artwork
+	sprite_node.visible = true

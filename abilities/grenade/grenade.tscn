@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr0ahxqhb2fuu"]
+[gd_scene load_steps=4 format=3 uid="uid://cr0ahxqhb2fuu"]
 
 [ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_lxoq7"]
 [ext_resource type="Script" uid="uid://nfirgdpi514w" path="res://abilities/grenade/grenade.gd" id="2_qpki0"]
+[ext_resource type="AudioStream" uid="uid://dt5rflcx7hcoa" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 14_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="3_4kkhi"]
 
 [node name="Grenade" instance=ExtResource("1_lxoq7")]
 script = ExtResource("2_qpki0")
+
+[node name="GrenadeThrowSFX" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource("3_4kkhi")
+pitch_scale = 0.8
+autoplay = true
+bus = &"SFX"

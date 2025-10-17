@@ -6,7 +6,7 @@ signal cutscene_ended
 
 # Signal for Hub 3D Viewer
 signal side_editing_started(side: int)
-
+signal side_updated_item(side: int, item: Card)
 
 var is_scene_transitioning : bool = false
 
