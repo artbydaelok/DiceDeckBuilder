@@ -62,6 +62,11 @@ visible = false
 texture_filter = 0
 texture = SubResource("GradientTexture2D_0cd8f")
 
+[node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideOne"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
+visible = false
+texture_filter = 0
+
 [node name="SideTwo" type="StaticBody3D" parent="Root/DiceMesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideTwo"]
@@ -74,6 +79,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1
 visible = false
 texture_filter = 0
 texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideTwo"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.0000001, 0)
+visible = false
+texture_filter = 0
 
 [node name="SideThree" type="StaticBody3D" parent="Root/DiceMesh"]
 
@@ -88,6 +98,11 @@ visible = false
 texture_filter = 0
 texture = SubResource("GradientTexture2D_0cd8f")
 
+[node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideThree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0000004)
+visible = false
+texture_filter = 0
+
 [node name="SideFour" type="StaticBody3D" parent="Root/DiceMesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideFour"]
@@ -100,6 +115,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0000001)
 visible = false
 texture_filter = 0
 texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideFour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0000001)
+visible = false
+texture_filter = 0
 
 [node name="SideFive" type="StaticBody3D" parent="Root/DiceMesh"]
 
@@ -114,6 +134,11 @@ visible = false
 texture_filter = 0
 texture = SubResource("GradientTexture2D_0cd8f")
 
+[node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideFive"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.0000001, 0)
+visible = false
+texture_filter = 0
+
 [node name="SideSix" type="StaticBody3D" parent="Root/DiceMesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Root/DiceMesh/SideSix"]
@@ -126,6 +151,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0
 visible = false
 texture_filter = 0
 texture = SubResource("GradientTexture2D_0cd8f")
+
+[node name="ItemSprite" type="Sprite3D" parent="Root/DiceMesh/SideSix"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0000002, 0, 0)
+visible = false
+texture_filter = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f7xix")

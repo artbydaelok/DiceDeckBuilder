@@ -4,6 +4,10 @@ signal dice_moved(number: int)
 signal cutscene_started(disable_input : bool)
 signal cutscene_ended
 
+# Signal for Hub 3D Viewer
+signal side_editing_started(side: int)
+
+
 var is_scene_transitioning : bool = false
 
 func _ready():

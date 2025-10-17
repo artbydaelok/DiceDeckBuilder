@@ -36,6 +36,7 @@ func shoot_ray():
 		
 		reset_selection()
 		active_side.get_node("SelectionSprite").visible = true
+		GameEvents.side_editing_started.emit(active_side.get_index())
 
 func reset_selection():
 	for child in dice_mesh.get_children():
