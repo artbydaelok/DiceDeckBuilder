@@ -19,7 +19,8 @@ func _initialize():
 	all_cards.append_array(card_system.hand)
 	for card in all_cards:
 		_populate(card)
-		
+
+#BKMRK: This is where the cards get spawned in and populated with data.
 func _populate(card_data : Card):
 	var item_display = ITEM_DISPLAY.instantiate()
 	item_list.add_child(item_display)
@@ -38,3 +39,6 @@ func _on_side_editing_started(_side : int):
 func _on_item_display_pressed(card_data: Card):
 	if current_side != -1:
 		GameEvents.side_updated_item.emit(current_side, card_data)
+
+	#FIXME: Player can currently assign one weapon to multiple sides. 
+	#IDEA: As a design decision I think we should allow to give players the chance to put a maximum 2 of each item on their dice.
