@@ -634,19 +634,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013440847, 0, 10.56064)
 transform = Transform3D(2.98084, 0.33851713, 0, -0.33851713, 2.98084, 0, 0, 0, 3, -32.46796, 0, 8.015773)
 
 [node name="Car" type="MeshInstance3D" parent="BaseLevel" index="27"]
-transform = Transform3D(0.51763815, 0, -1.9318516, 0, 2, 0, 1.9318516, 0, 0.51763815, -62.254375, 0, 11.101387)
+transform = Transform3D(0.7764572, 0, -2.8977776, 0, 3, 0, 2.8977776, 0, 0.7764572, -62.254375, 0, 11.101387)
 mesh = ExtResource("28_u6ack")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_l2078")
 
 [node name="Car5" type="MeshInstance3D" parent="BaseLevel" index="28"]
-transform = Transform3D(0.51763815, 0, 1.9318516, 0, 2, 0, -1.9318516, 0, 0.51763815, -81.94825, 0, 8.677533)
+transform = Transform3D(0.7764572, 0, 2.8977776, 0, 3, 0, -2.8977776, 0, 0.7764572, -81.94825, 0, 8.677533)
 mesh = ExtResource("30_1qfx6")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3hf2u")
 
 [node name="Car6" type="MeshInstance3D" parent="BaseLevel" index="29"]
-transform = Transform3D(0.51763815, 0, 1.9318516, 0, 2, 0, -1.9318516, 0, 0.51763815, -60.351826, 0, -12.322467)
+transform = Transform3D(0.7764572, 0, 2.8977776, 0, 3, 0, -2.8977776, 0, 0.7764572, -60.351826, 0, -12.322467)
 mesh = ExtResource("30_1qfx6")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3hf2u")

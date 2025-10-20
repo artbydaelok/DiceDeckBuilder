@@ -7,6 +7,7 @@ signal cutscene_ended
 # Signal for Hub 3D Viewer
 signal side_editing_started(side: int)
 signal side_updated_item(side: int, item: Card)
+signal dice_viewer_rotation_speed_updated(new_speed: float)
 
 var is_scene_transitioning : bool = false
 

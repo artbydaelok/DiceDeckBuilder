@@ -112,17 +112,9 @@ func roll(dir):
 	# Do nothing if we're currently rolling.
 	if rolling or commit_lock or is_dead or input_disabled:
 		return
-	
 
 	var test_dir = grid_pos + Vector2(dir.x, dir.z)
-	
-	## OLD MOVEMENT
-	## LIMITS TO 5x5 grid
-	#if abs(test_dir.x) > 2 or abs(test_dir.y) > 2 or disabled_pos.has(test_dir): 
-		#rolling = false
-		#return
-	## END OLD MOVEMENT
-	
+
 	## CHECK FOR COLLISION
 	var collision_test_pos = dir * cube_size
 	var initial_target_pos = shape_cast.target_position

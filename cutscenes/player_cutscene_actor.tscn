@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ovxqjd7ffdic"]
+
+[ext_resource type="Script" uid="uid://i2xb6anjbn3l" path="res://cutscenes/player_cutscene_actor.gd" id="1_gr21s"]
+[ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="1_ukd38"]
+[ext_resource type="Texture2D" uid="uid://ca24nlmt4o5bj" path="res://player/pixel_dice_tex.png" id="2_gr21s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enenn"]
+albedo_texture = ExtResource("2_gr21s")
+texture_filter = 0
+
+[node name="PlayerCutsceneActor" type="Node3D" node_paths=PackedStringArray("pivot", "dice_mesh")]
+script = ExtResource("1_gr21s")
+pivot = NodePath("Pivot")
+dice_mesh = NodePath("Pivot/DiceMesh")
+free_falling = null
+falling_rotation_velocity = null
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="DiceMesh" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("1_ukd38")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_enenn")

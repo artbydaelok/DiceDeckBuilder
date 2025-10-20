@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://mrq3y0iqiqdg"
+path="res://.godot/imported/opening_custcene.dialogue-84e10732df32a4a9d2ea4c2fdea3b1be.tres"
+
+[deps]
+
+source_file="res://dialogue/opening_custcene.dialogue"
+dest_files=["res://.godot/imported/opening_custcene.dialogue-84e10732df32a4a9d2ea4c2fdea3b1be.tres"]
+
+[params]
+
+defaults=true

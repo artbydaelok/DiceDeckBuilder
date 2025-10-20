@@ -62,6 +62,7 @@ func draw_card(index: int):
 
 func set_slot_to_item(slot: int, card: Card):
 	hand[slot] = card
+	player.update_side_icon(slot + 1, card.card_artwork)
 
 func play_ability():
 	if player.input_disabled: return
