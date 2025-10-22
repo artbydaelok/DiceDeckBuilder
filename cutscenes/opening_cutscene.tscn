@@ -1,9 +1,30 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2wmug2r81stp"]
+[gd_scene load_steps=71 format=3 uid="uid://d2wmug2r81stp"]
 
 [ext_resource type="Script" uid="uid://dnwqepfla1hj6" path="res://cutscenes/opening_cutscene.gd" id="1_45fey"]
 [ext_resource type="Script" uid="uid://6rmwb7k30dvh" path="res://cutscenes/cutscene_camera.gd" id="1_bceoc"]
 [ext_resource type="PackedScene" uid="uid://ovxqjd7ffdic" path="res://cutscenes/player_cutscene_actor.tscn" id="1_syggq"]
 [ext_resource type="Shader" uid="uid://dior726k56cu" path="res://vfx/shaders/opening_cutscene_vortex.gdshader" id="2_yjtbj"]
+[ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="3_ai8dr"]
+[ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="4_d8kg1"]
+[ext_resource type="PackedScene" uid="uid://dktj6wcg14i5" path="res://assets/3d_models/opening_cutscene_props/lowpoly_nightstand.tscn" id="4_ktram"]
+[ext_resource type="Texture2D" uid="uid://xs272dx6ya2i" path="res://assets/tiles_floor_1.png" id="5_drdca"]
+[ext_resource type="Texture2D" uid="uid://dyrgsdra31ao6" path="res://assets/wood_floor_2.png" id="6_hi4w7"]
+[ext_resource type="Script" uid="uid://cx12as0gobvpd" path="res://cutscenes/tv_light_flicker.gd" id="7_37i02"]
+[ext_resource type="Texture2D" uid="uid://djy75i3b8klwb" path="res://assets/concrete_tx_4.png" id="9_hi4w7"]
+[ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="10_ewgqj"]
+[ext_resource type="Shader" uid="uid://7i6i6dl8bdai" path="res://vfx/portal_vfx.gdshader" id="11_apny6"]
+[ext_resource type="Texture2D" uid="uid://kma71g8vhpks" path="res://vfx/posterized_noise.tres" id="12_mwsa2"]
+[ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_mwsa2"]
+[ext_resource type="AudioStream" uid="uid://duh3uk68popna" path="res://sounds/DSGNWhsh_Quick Whoosh, Fireball, Crackle, Fly by_Ocular Sounds_Short Whooshes_The Complete Whooshes Collection.wav" id="14_55ds6"]
+[ext_resource type="AudioStream" uid="uid://p3ydtrcc7jpc" path="res://music/dice be chilling like (bounce 1).wav" id="15_xl3uw"]
+
+[sub_resource type="Environment" id="Environment_ry33x"]
+ambient_light_color = Color(0.85882354, 0.8627451, 0.9843137, 1)
+fog_enabled = true
+fog_light_color = Color(0.6039216, 0.50980395, 0.75686276, 1)
+fog_sun_scatter = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.32941177, 0, 0.627451, 1)
 
 [sub_resource type="Animation" id="Animation_bceoc"]
 length = 0.001
@@ -43,11 +64,550 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LivingRoomBase/Camera1:current")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LivingRoomBase/Camera2:current")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LivingRoomBase/PortalVFX:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LivingRoomBase/PortalVFX:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerCutsceneActor:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5770721, -0.23178959)]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerCutsceneActor")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_dice_rotation"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LivingRoomBase/RemoteControl:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.2096276, 2.6427302, 0.44412327)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("LivingRoomBase/RemoteControl:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.40430552, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("LivingRoomBase/RemoteControl:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("LivingRoomBase/Camera2:shake_strength")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.025]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("LivingRoomBase/PortalAppearsSFX:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("LivingRoomBase/RemoteStolenSFX:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ai8dr"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LivingRoomBase/Camera1:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mwsa2"]
+resource_name = "player_starts_levitating"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LivingRoomBase/Camera2:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LivingRoomBase/PortalVFX:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LivingRoomBase/PortalVFX:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2, 2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerCutsceneActor:free_falling")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerCutsceneActor:falling_rotation_velocity")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1.25, 0.75)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerCutsceneActor:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector3(0, 1.5770721, -0.23178959), Vector3(0, 3, 0.698)]
+}
+
+[sub_resource type="Animation" id="Animation_ktram"]
+resource_name = "portal_appears"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LivingRoomBase/Camera2:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LivingRoomBase/PortalVFX:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LivingRoomBase/PortalVFX:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(2, 2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LivingRoomBase/PortalAppearsSFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_apny6"]
+resource_name = "remote_stolen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LivingRoomBase/Camera2:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LivingRoomBase/PortalVFX:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LivingRoomBase/PortalVFX:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2, 2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LivingRoomBase/RemoteControl:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.0333333, 2),
+"transitions": PackedFloat32Array(-0.70710677, 0.5, -0.5),
+"update": 0,
+"values": [Vector3(3.2096276, 2.6427302, 0.44412327), Vector3(0.386, 4.648, 1.622), Vector3(-0.422, 7.748, 1.428)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LivingRoomBase/RemoteControl:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.40430552, 0), Vector3(0, -0.40491638, 4.764749)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LivingRoomBase/RemoteControl:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(3, 3, 3)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LivingRoomBase/Camera2:shake_strength")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.50785303, 1.0265115),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.025, 0.025, 0.1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LivingRoomBase/RemoteStolenSFX:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_45fey"]
 _data = {
-&"RESET": SubResource("Animation_bceoc")
+&"RESET": SubResource("Animation_bceoc"),
+&"intro": SubResource("Animation_ai8dr"),
+&"player_starts_levitating": SubResource("Animation_mwsa2"),
+&"portal_appears": SubResource("Animation_ktram"),
+&"remote_stolen": SubResource("Animation_apny6")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi4w7"]
+albedo_texture = ExtResource("6_hi4w7")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ewgqj"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5ci4"]
+albedo_texture = ExtResource("5_drdca")
+uv1_scale = Vector3(2, 2, 2)
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ai8dr"]
+size = Vector2(8, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37i02"]
+albedo_color = Color(0.11, 0.11, 0.11, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_apny6"]
+material = SubResource("StandardMaterial3D_37i02")
+size = Vector3(3.5, 2.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewgqj"]
+albedo_color = Color(0.11, 0.11, 0.11, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r5ci4"]
+material = SubResource("StandardMaterial3D_ewgqj")
+size = Vector3(2.5, 1.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apny6"]
+albedo_texture = ExtResource("9_hi4w7")
+uv1_scale = Vector3(2, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_37i02"]
+material = SubResource("StandardMaterial3D_apny6")
+size = Vector2(20, 10)
+
+[sub_resource type="Gradient" id="Gradient_r5ci4"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_apny6"]
+gradient = SubResource("Gradient_r5ci4")
+
+[sub_resource type="Curve" id="Curve_vbxlp"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.24696355, 5), 0.0, 0.0, 0, 0, Vector2(0.42105263, 0.10112369), 0.0, 0.0, 0, 0, Vector2(0.50479233, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_uslo5"]
+curve = SubResource("Curve_vbxlp")
+
+[sub_resource type="Curve" id="Curve_miv8s"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_iuyvm"]
+curve = SubResource("Curve_miv8s")
+
+[sub_resource type="Curve" id="Curve_tfi8g"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49840257, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l5ttr"]
+curve = SubResource("Curve_tfi8g")
+
+[sub_resource type="Curve" id="Curve_8xkfx"]
+_data = [Vector2(0, 0), 0.0, 6.406071, 0, 0, Vector2(0.45047924, 1), 0.0, 0.0, 0, 0, Vector2(0.6645367, 0.42352188), 0.0, 0.0, 0, 0, Vector2(0.8242811, 0.5571979), -1.0584677, -1.0584677, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_k17xm"]
+curve = SubResource("Curve_8xkfx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xl3uw"]
+resource_local_to_scene = true
+particle_flag_align_y = true
+emission_shape_scale = Vector3(1.5, 2, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 1.0
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, -1)
+spread = 25.0
+initial_velocity_min = -2.0
+initial_velocity_max = 1.5
+orbit_velocity_min = -0.04699991
+orbit_velocity_max = 0.046000097
+orbit_velocity_curve = SubResource("CurveTexture_iuyvm")
+gravity = Vector3(0, -0.1, 0)
+radial_accel_min = -1.5000021
+radial_accel_max = 4.9999976
+radial_accel_curve = SubResource("CurveTexture_l5ttr")
+damping_min = 0.2
+damping_max = 0.5
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_k17xm")
+color_initial_ramp = SubResource("GradientTexture1D_apny6")
+emission_curve = SubResource("CurveTexture_uslo5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_55ds6"]
+resource_local_to_scene = true
+particle_flag_align_y = true
+emission_shape_scale = Vector3(1.5, 2, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 1.5
+emission_ring_inner_radius = 1.0
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, -1)
+spread = 25.0
+initial_velocity_min = -2.0
+initial_velocity_max = 1.5
+orbit_velocity_min = -0.04699991
+orbit_velocity_max = 0.046000097
+orbit_velocity_curve = SubResource("CurveTexture_iuyvm")
+gravity = Vector3(0, -0.1, 0)
+radial_accel_min = -1.5000021
+radial_accel_max = 4.9999976
+radial_accel_curve = SubResource("CurveTexture_l5ttr")
+damping_min = 0.2
+damping_max = 0.5
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_k17xm")
+color_initial_ramp = SubResource("GradientTexture1D_apny6")
+emission_curve = SubResource("CurveTexture_uslo5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d8kg1"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("11_apny6")
+shader_parameter/noise_texture = ExtResource("12_mwsa2")
+shader_parameter/gradient_texture = SubResource("GradientTexture1D_apny6")
+shader_parameter/grid_scale = 2.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_tjfyd"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_d8kg1")
+inner_radius = 0.001
+rings = 16
+ring_segments = 6
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yjtbj"]
 frequency = 0.0139
@@ -104,14 +664,6 @@ radial_segments = 32
 rings = 32
 cap_top = false
 cap_bottom = false
-
-[sub_resource type="Environment" id="Environment_ry33x"]
-ambient_light_color = Color(0.85882354, 0.8627451, 0.9843137, 1)
-fog_enabled = true
-fog_light_color = Color(0.6039216, 0.50980395, 0.75686276, 1)
-fog_sun_scatter = 1.0
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.32941177, 0, 0.627451, 1)
 
 [sub_resource type="Curve" id="Curve_bceoc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5016287, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -194,44 +746,152 @@ material = SubResource("StandardMaterial3D_bceoc")
 [node name="OpeningCutscene" type="Node3D"]
 script = ExtResource("1_45fey")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.8660254, -0.25, 0.4330127, 0.12940952, 0.9485882, 0.28884864, -0.4829629, -0.19411427, 0.85385394, 2.5, 3, 4)
-h_offset = -0.18454391
-v_offset = 0.16194178
-script = ExtResource("1_bceoc")
-shake_strength = 0.2
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ry33x")
 
 [node name="PlayerCutsceneActor" parent="." instance=ExtResource("1_syggq")]
-free_falling = false
-falling_rotation_velocity = Vector3(0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.997245, 0.074178115, 0, -0.074178115, 0.997245, 0, 1.5770721, -0.23178959)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_45fey")
 }
 
-[node name="PortalVortex" type="Node3D" parent="."]
+[node name="LivingRoomBase" type="Node3D" parent="."]
 
-[node name="VortexMesh" type="MeshInstance3D" parent="PortalVortex"]
+[node name="PortalAppearsSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
+stream = ExtResource("14_55ds6")
+pitch_scale = 0.85
+bus = &"SFX"
+
+[node name="RemoteStolenSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
+stream = ExtResource("4_d8kg1")
+pitch_scale = 0.65
+bus = &"SFX"
+
+[node name="Camera1" type="Camera3D" parent="LivingRoomBase"]
+transform = Transform3D(0.7071067, 0.18301278, -0.6830127, -3.856705e-09, 0.9659259, 0.2588191, 0.70710677, -0.18301275, 0.68301266, -3, 4, 5.5)
+current = true
+
+[node name="Camera2" type="Camera3D" parent="LivingRoomBase"]
+transform = Transform3D(0.86602545, 0.43301272, 0.25000006, -0.25, 0.8080128, -0.5334936, -0.43301272, 0.39951906, 0.80801266, 2.2023535, 0.24955761, 4.385046)
+h_offset = -0.019507013
+v_offset = -0.010838443
+script = ExtResource("1_bceoc")
+shake_strength = 0.025
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LivingRoomBase"]
+transform = Transform3D(1, -2.9802322e-08, -2.9802322e-08, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 7, 0)
+
+[node name="DiceCouch" parent="LivingRoomBase" instance=ExtResource("3_ai8dr")]
+transform = Transform3D(0.79777116, 0, -0.059676677, 0, 0.8, 0, 0.059676677, 0, 0.79777116, 0, 0, 0)
+
+[node name="lowpolyNightstand" parent="LivingRoomBase" instance=ExtResource("4_ktram")]
+transform = Transform3D(-0.989498, 0, 0.14454627, 0, 1, 0, -0.14454627, 0, -0.989498, 4, 0, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="LivingRoomBase"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.5, 0, 6)
+material_override = SubResource("StandardMaterial3D_hi4w7")
+mesh = SubResource("QuadMesh_ewgqj")
+
+[node name="Roof" type="MeshInstance3D" parent="LivingRoomBase"]
+transform = Transform3D(1, 0, 0, 0, 1.3113416e-07, -1, 0, 1, 1.3113416e-07, -4.5, 10, 6)
+material_override = SubResource("StandardMaterial3D_hi4w7")
+mesh = SubResource("QuadMesh_ewgqj")
+
+[node name="Carpet" type="MeshInstance3D" parent="LivingRoomBase"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.025, 0.5)
+material_override = SubResource("StandardMaterial3D_r5ci4")
+mesh = SubResource("QuadMesh_ai8dr")
+
+[node name="TV" type="MeshInstance3D" parent="LivingRoomBase"]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 1, 3, 5.5)
+mesh = SubResource("BoxMesh_apny6")
+
+[node name="TVLight" type="SpotLight3D" parent="LivingRoomBase/TV"]
+transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, 0.030794144, 0.5, -0.083631516)
+light_color = Color(0.6306617, 0.90937054, 0.93368065, 1)
+light_energy = 8.334575
+spot_range = 10.0
+spot_angle = 80.0
+script = ExtResource("7_37i02")
+can_flicker = true
+min_interval = 0.05
+max_interval = 0.25
+min_energy = 7.5
+
+[node name="TVBack" type="MeshInstance3D" parent="LivingRoomBase/TV"]
+transform = Transform3D(1.000001, 0, 0, 0, 1, 0, 0, 0, 1.000001, 0.0038799047, 0, 1.3251185)
+mesh = SubResource("BoxMesh_r5ci4")
+
+[node name="BackWall" type="MeshInstance3D" parent="LivingRoomBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, -4)
+mesh = SubResource("QuadMesh_37i02")
+
+[node name="BackWall2" type="MeshInstance3D" parent="LivingRoomBase"]
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, -14.495601, 5, 6)
+mesh = SubResource("QuadMesh_37i02")
+
+[node name="BackWall3" type="MeshInstance3D" parent="LivingRoomBase"]
+transform = Transform3D(-8.7422784e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -8.7422784e-08, 5.5, 5, 6)
+mesh = SubResource("QuadMesh_37i02")
+
+[node name="PortalVFX" parent="LivingRoomBase" instance=ExtResource("10_ewgqj")]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 7.5, 1)
+visible = false
+gradient_texture = SubResource("GradientTexture1D_apny6")
+
+[node name="GPUParticles3D1" parent="LivingRoomBase/PortalVFX" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_xl3uw")
+
+[node name="GPUParticles3D2" parent="LivingRoomBase/PortalVFX" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_55ds6")
+
+[node name="PortalMesh" parent="LivingRoomBase/PortalVFX" index="2"]
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -3, 0, 1.5, -1.3113416e-07, 0, -0.2176485, 0)
+mesh = SubResource("TorusMesh_tjfyd")
+
+[node name="RemoteControl" parent="LivingRoomBase" instance=ExtResource("13_mwsa2")]
+transform = Transform3D(0.91937584, 0, -0.39338037, 0, 1, 0, 0.39338037, 0, 0.91937584, 3.2096276, 2.6427302, 0.44412327)
+
+[node name="VortexScene" type="Node3D" parent="."]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="VortexScene"]
+transform = Transform3D(0.8660254, -0.25, 0.4330127, 0.12940952, 0.94858825, 0.28884864, -0.4829629, -0.1941143, 0.85385394, 2.5, 3, 4)
+h_offset = 0.09792834
+v_offset = -0.041948613
+script = ExtResource("1_bceoc")
+shake_strength = 0.1
+
+[node name="PortalVortex" type="Node3D" parent="VortexScene"]
+
+[node name="VortexMesh" type="MeshInstance3D" parent="VortexScene/PortalVortex"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, -54)
 mesh = SubResource("CylinderMesh_45fey")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ry33x")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="PortalVortex2" type="DirectionalLight3D" parent="VortexScene"]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, -0.7071068, 0, 0.7071068, 0.7071068, 0, 8, 0)
 light_color = Color(1, 0.9254902, 1, 1)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="PortalVortex3" type="OmniLight3D" parent="VortexScene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68863297, 0.5667448, -1.5)
 light_color = Color(0.93333334, 1, 1, 1)
 light_energy = 8.0
 omni_range = 20.0
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="PortalVortex4" type="GPUParticles3D" parent="VortexScene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
 amount = 150
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_yjtbj")
 draw_pass_1 = SubResource("QuadMesh_45fey")
+
+[node name="TestMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_xl3uw")
+autoplay = true
+bus = &"Music"
+
+[editable path="LivingRoomBase/PortalVFX"]

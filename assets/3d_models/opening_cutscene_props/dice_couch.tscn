@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://deyf4ddfnk8p4"]
+
+[ext_resource type="PackedScene" uid="uid://cwcdgcp4j7jsx" path="res://assets/3d_models/opening_cutscene_props/DiceCouch.glb" id="1_8366w"]
+
+[node name="DiceCouch" instance=ExtResource("1_8366w")]

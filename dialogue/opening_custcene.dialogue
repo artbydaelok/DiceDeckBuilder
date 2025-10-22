@@ -1,13 +1,20 @@
 ~ start
+Narrator: This is a story of a little dice. Found here watching TV. [#intro_start]
 Dice: *chilling noises*
-# The dice wants to change the channel but the remote is too far away
+Narrator: The little dice wants to change the channel but realizes he doesn't have hands to hold the remote.
+Dice: *groans in first world problems*
+~ portal_appears
 # Trigger portal above dice
+Narrator: Suddenly, a mysterious portal appeared above it. [#portal_spawn]
 Dice: ?
 # Remote controls gets sucked in by the dice
+Narrator: The remote was sucked into the portal! Now he can't grab the remote AND he can't reach it! What a loser.[#remote_stolen]
+Dice: *groans in interdimensional world problems* 
 # Dice starts levatitating, getting sucked into the portal
-Dice: ???
-
+Dice: ??? [#dice_starts_levitating]
+Narrator: Ew, portal dust is getting on their carpet, too. Also, it seems they forgot to pay their gravity bill.
+Dice: *true agony*
 ~ enter_vortex
-Dice: *confusion noises*
+Dice: ?!?!?
 # Loads hub scene.
 => END

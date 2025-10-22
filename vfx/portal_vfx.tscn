@@ -121,7 +121,7 @@ shader_parameter/grid_scale = 2.0
 [sub_resource type="TorusMesh" id="TorusMesh_iuyvm"]
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_miv8s")
-inner_radius = 0.125
+inner_radius = 0.001
 rings = 16
 ring_segments = 6
 

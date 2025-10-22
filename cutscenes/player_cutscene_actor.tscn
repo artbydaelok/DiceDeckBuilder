@@ -12,8 +12,6 @@ texture_filter = 0
 script = ExtResource("1_gr21s")
 pivot = NodePath("Pivot")
 dice_mesh = NodePath("Pivot/DiceMesh")
-free_falling = null
-falling_rotation_velocity = null
 
 [node name="Pivot" type="Node3D" parent="."]
 

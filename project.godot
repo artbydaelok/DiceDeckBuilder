@@ -24,6 +24,10 @@ SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loa
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://dialogue/balloon.tscn"
+
 [display]
 
 window/size/viewport_width=720
@@ -45,7 +49,7 @@ explosive_barrel=""
 [gui]
 
 theme/custom="uid://dpnhase8o0gcu"
-theme/custom_font="uid://dukadcynlsp6f"
+theme/custom_font="uid://37siiqfrj7sw"
 
 [importer_defaults]
 
