@@ -743,7 +743,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_6sfnl"]
-resource_name = "groan"
+resource_name = "chilling_noises_2"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -798,7 +798,7 @@ tracks/3/keys = {
 _data = {
 &"RESET": SubResource("Animation_bceoc"),
 &"chilling_noises": SubResource("Animation_m4pcq"),
-&"groan": SubResource("Animation_6sfnl"),
+&"chilling_noises_2": SubResource("Animation_6sfnl"),
 &"intro": SubResource("Animation_ai8dr"),
 &"player_gets_abducted": SubResource("Animation_tjfyd"),
 &"player_starts_levitating": SubResource("Animation_mwsa2"),
@@ -1126,8 +1126,8 @@ current = true
 
 [node name="Camera2" type="Camera3D" parent="LivingRoomBase"]
 transform = Transform3D(0.2929771, 0.5859725, 0.75551355, -0.16579397, 0.80935234, -0.56343704, -0.9416352, 0.039814558, 0.33427235, 2.6336207, 1.1315038, 3.4243603)
-h_offset = -0.009435701
-v_offset = 0.0030906498
+h_offset = -0.011912683
+v_offset = -0.005457133
 script = ExtResource("1_bceoc")
 shake_strength = 0.025
 
@@ -1162,7 +1162,7 @@ mesh = SubResource("BoxMesh_apny6")
 [node name="TVLight" type="SpotLight3D" parent="LivingRoomBase/TV"]
 transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, 0.030794144, 0.5, -0.083631516)
 light_color = Color(0.6306617, 0.90937054, 0.93368065, 1)
-light_energy = 12.018649
+light_energy = 8.301478
 spot_range = 10.0
 spot_angle = 80.0
 script = ExtResource("7_37i02")
@@ -1216,8 +1216,8 @@ visible = false
 
 [node name="Camera3D" type="Camera3D" parent="VortexScene"]
 transform = Transform3D(0.8660254, -0.25, 0.4330127, 0.12940952, 0.94858825, 0.28884864, -0.4829629, -0.1941143, 0.85385394, 2.5, 3, 4)
-h_offset = -0.0441142
-v_offset = -0.030487888
+h_offset = -0.036809154
+v_offset = -0.05429953
 script = ExtResource("1_bceoc")
 shake_strength = 0.1
 

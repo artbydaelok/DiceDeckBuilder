@@ -13,7 +13,12 @@ var rolling := false
 var cube_size := 2.0
 var speed := 4.0
 
-
+@export var forced_dice_rotation : Vector3 = Vector3.ZERO:
+	set(value):
+		forced_dice_rotation = value
+		dice_mesh.rotation = forced_dice_rotation
+	get:
+		return forced_dice_rotation
 
 @export var pivot: Node3D 
 @export var dice_mesh: MeshInstance3D 

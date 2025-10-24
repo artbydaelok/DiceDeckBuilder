@@ -26,7 +26,7 @@ ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoload
 
 [dialogue_manager]
 
-runtime/balloon_path="res://dialogue/balloon.tscn"
+runtime/balloon_path="res://dialogue/dialogue_balloon.tscn"
 
 [display]
 
