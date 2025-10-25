@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://doqfy3mapatxr"]
+[gd_scene load_steps=52 format=3 uid="uid://doqfy3mapatxr"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
 [ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dg37ixy4ai1p8" path="res://enemy/boss/salt_and_pepper/goon_base.tscn" id="3_6t1ft"]
 [ext_resource type="PackedScene" uid="uid://d2npjwddn3l25" path="res://enemy/boss/salt_and_pepper/traffic_light.tscn" id="5_8art5"]
 [ext_resource type="Texture2D" uid="uid://lebimpirodok" path="res://assets/BasicRoad.png" id="6_o5pla"]
-[ext_resource type="AudioStream" uid="uid://dc1f2qpo2xlol" path="res://music/deep swing.wav" id="7_gj5ir"]
-[ext_resource type="Script" uid="uid://1n4g6p6jvkhx" path="res://music/music_player.gd" id="8_kskvj"]
 [ext_resource type="PackedScene" uid="uid://cwypnixn8cefh" path="res://enemy/boss/salt_and_pepper/pepper_spray.tscn" id="8_pc16s"]
 [ext_resource type="ArrayMesh" uid="uid://r2t58r0ecff3" path="res://assets/3d_models/tunnel.obj" id="9_dbvqq"]
 [ext_resource type="Texture2D" uid="uid://chnmrbcpv2u20" path="res://assets/3d_models/TunnelUV.png" id="9_kymho"]
@@ -455,70 +453,64 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 4)
 [node name="CardSystem" parent="." index="2"]
 deck = Array[ExtResource("11_ehb7x")]([ExtResource("12_tg5fj"), ExtResource("13_xk5r6"), ExtResource("14_5t2ub"), ExtResource("15_3amgk"), ExtResource("16_d4v5l"), ExtResource("17_xawco"), ExtResource("12_tg5fj")])
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="3"]
-stream = ExtResource("7_gj5ir")
-autoplay = true
-bus = &"Music"
-script = ExtResource("8_kskvj")
-
-[node name="metal_barrel_hr_32" parent="." index="4" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_32" parent="." index="3" instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0700111, 0, 6.3900833)
 
-[node name="metal_barrel_hr_33" parent="." index="5" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_33" parent="." index="4" instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6388018, 0, 5.6498923)
 
-[node name="metal_barrel_hr_36" parent="." index="6" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_36" parent="." index="5" instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9246993, 0, -5.7341514)
 
-[node name="metal_barrel_hr_34" parent="." index="7" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_34" parent="." index="6" instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6388018, 0, -5.6539874)
 
-[node name="metal_barrel_hr_35" parent="." index="8" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_35" parent="." index="7" instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1309214, 0, -6.191024)
 
-[node name="wooden_crate_hx_1_12" parent="." index="9" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_12" parent="." index="8" instance=ExtResource("26_7eebo")]
 transform = Transform3D(0.8761384, 0, -0.2058675, 0, 0.9, 0, 0.2058675, 0, 0.8761384, 2.1466663, -0.19177184, 6.1074142)
 
-[node name="wooden_crate_hx_1_13" parent="." index="10" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_13" parent="." index="9" instance=ExtResource("26_7eebo")]
 transform = Transform3D(0.43868977, 0, 0.7858444, 0, 0.9, 0, -0.7858444, 0, 0.43868977, 6.225547, -0.19177184, -6.392091)
 
-[node name="wooden_crate_hx_1_14" parent="." index="11" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_14" parent="." index="10" instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.33672968, 0, -0.09546261, 0, 0.35000002, 0, 0.09546261, 0, -0.33672968, 1.5805032, -0.19177184, -6.392091)
 
-[node name="wooden_crate_hx_1_15" parent="." index="12" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_15" parent="." index="11" instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.581739, 0, 0.14690027, 0, 0.59999996, 0, -0.14690027, 0, -0.581739, 2.4548638, -0.19177184, -6.2184715)
 
-[node name="metal_barrel_hr_12" parent="." index="13" instance=ExtResource("27_ehxsn")]
+[node name="metal_barrel_hr_12" parent="." index="12" instance=ExtResource("27_ehxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4252722, -0.1967747, 5.816844)
 
-[node name="metal_barrel_hr_13" parent="." index="14" instance=ExtResource("27_ehxsn")]
+[node name="metal_barrel_hr_13" parent="." index="13" instance=ExtResource("27_ehxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.021947, -0.1967747, 7.1306257)
 
-[node name="metal_barrel_hr_14" parent="." index="15" instance=ExtResource("27_ehxsn")]
+[node name="metal_barrel_hr_14" parent="." index="14" instance=ExtResource("27_ehxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.36333, -0.1967747, 7.5360947)
 
-[node name="tire_22" parent="." index="16" instance=ExtResource("34_rtl24")]
+[node name="tire_22" parent="." index="15" instance=ExtResource("34_rtl24")]
 transform = Transform3D(0.25338724, 0.12965678, -1.9796424, -0.016461316, 1.9957929, 0.12860759, 1.9838154, 0, 0.25392136, -2.9975867, -0.10266784, -5.967894)
 
-[node name="tire_23" parent="." index="17" instance=ExtResource("34_rtl24")]
+[node name="tire_23" parent="." index="16" instance=ExtResource("34_rtl24")]
 transform = Transform3D(1.998936, -0.065228835, 0, 0.065228835, 1.998936, 0, 0, 0, 2, -4.131819, -0.10266784, -6.1966505)
 
-[node name="tire_24" parent="." index="18" instance=ExtResource("34_rtl24")]
+[node name="tire_24" parent="." index="17" instance=ExtResource("34_rtl24")]
 transform = Transform3D(1.3122498, 2.8806358e-08, 1.5093046, -0.07722835, 1.9973799, 0.06714541, -1.5073276, -0.10233626, 1.3105308, -3.6305048, 0.26101434, -6.144806)
 
-[node name="bucket_mx_22" parent="." index="19" instance=ExtResource("35_3onku")]
+[node name="bucket_mx_22" parent="." index="18" instance=ExtResource("35_3onku")]
 transform = Transform3D(1.149346, -0.62394005, -0.7346444, 0.715646, 1.3182756, 0, 0.64564246, -0.3504969, 1.3077834, 3.4231024, -0.055506945, -6.067763)
 
-[node name="wooden_crate_hx_1_16" parent="." index="20" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_16" parent="." index="19" instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.08569178, 0, -0.33934775, 0, 0.35000002, 0, 0.33934775, 0, -0.08569178, 7.1712055, -0.19177184, 7.6145144)
 
-[node name="wooden_crate_hx_1_17" parent="." index="21" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_17" parent="." index="20" instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.41808885, 0, -0.43035066, 0, 0.5999999, 0, 0.43035066, 0, -0.41808885, 7.889905, -0.19177184, 7.094325)
 
-[node name="bucket_mx_23" parent="." index="22" instance=ExtResource("35_3onku")]
+[node name="bucket_mx_23" parent="." index="21" instance=ExtResource("35_3onku")]
 transform = Transform3D(1.1338158, -0.6155093, 0.7652515, 0.7156461, 1.3182756, -2.406619e-09, -0.6725416, 0.3650995, 1.2901125, 8.504541, -0.055506945, 6.3311596)
 
-[node name="shipping_container_mx_1_hollow_12" parent="." index="23" instance=ExtResource("20_k05fi")]
+[node name="shipping_container_mx_1_hollow_12" parent="." index="22" instance=ExtResource("20_k05fi")]
 transform = Transform3D(0.9936468, 0, -0.11254425, 0, 1, 0, 0.11254425, 0, 0.9936468, -4.2565727, 0, 14.144203)
 
 [editable path="BaseLevel/Player"]

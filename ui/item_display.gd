@@ -18,7 +18,3 @@ func setup(_card_data: Card):
 
 func _on_button_pressed():
 	pressed.emit(card_data)
-
-#TODO: Make this a button that assigns its card data to the active side.
-# Possibly use a signal that emits when pressed that also sends that data. 
-# Connect it when this is created in the UI element Script.

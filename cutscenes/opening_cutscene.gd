@@ -9,37 +9,31 @@ func _ready() -> void:
 	DialogueManager.got_dialogue.connect(_on_got_dialogue)
 
 func begin_opening_cutscene():
-	animation_player.play("intro")
+	animation_player.play("0_intro")
 	
 func begin_dialogue():
 	DialogueManager.show_dialogue_balloon(OPENING_CUSTCENE, "start")
-
-func portal_appears_sequence():
-	animation_player.play("portal_appears")
-	#DialogueManager.show_dialogue_balloon(OPENING_CUSTCENE, "enter_vortex")
 
 func _on_got_dialogue(line: DialogueLine):
 	if line.tags.size() > 0:
 		var tag = line.tags.get(0)
 		match tag:
 			"chilling_noises":
-				animation_player.play("chilling_noises")
-			"groan":
-				animation_player.play("groan")
+				animation_player.play("1_chilling_noises")
+			"first_groan":
+				animation_player.play("2_first_groan")
 			"portal_spawn":
-				portal_appears_sequence()
+				animation_player.play("3_portal_appears")
 			"remote_stolen":
-				remote_stolen_sequence()
+				animation_player.play("4_remote_stolen")
+			"second_groan":
+				animation_player.play("5_second_groan")
+				print("Yeah")
 			"dice_starts_levitating":
-				player_levitates_sequence()
+				animation_player.play("6_player_starts_levitating")
 			"player_gets_abducted":
-				player_abducted_sequence()
+				animation_player.play("7_player_gets_abducted")
+			"enter_vortex":
+				animation_player.play("8_enter_vortex")
 
-func remote_stolen_sequence():
-	animation_player.play("remote_stolen")
-
-func player_levitates_sequence():
-	animation_player.play("player_starts_levitating")
 	
-func player_abducted_sequence():
-	animation_player.play("player_gets_abducted")

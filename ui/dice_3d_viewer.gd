@@ -20,9 +20,6 @@ func _input(event: InputEvent) -> void:
 		var rotation_amount = Vector2(event.relative.y * rotation_speed , event.relative.x * rotation_speed)
 		global_rotation.x += rotation_amount.x
 		dice_mesh.global_rotation.y += rotation_amount.y
-		
-		#IDEA: Decelerate rotation after mouse is released, keeping momentum.
-		# We can use the previous frames to keep track of how fast the player was rotating the dice, and keep the rotation speed for a short while after they release letting it decelerate until it reaches zero.
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("left_click"):

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ekkb5"]
 [ext_resource type="PackedScene" uid="uid://dvqxwex3ww5h4" path="res://enemy/boss/fire_demon/fire_demon_boss.tscn" id="2_0fa53"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="2_wan88"]
 [ext_resource type="Texture2D" uid="uid://dy2ghplalbdf4" path="res://assets/3d_models/hell_rock/stone_hell_11.png" id="3_kcr7g"]
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="4_eluih"]
 [ext_resource type="PackedScene" uid="uid://dyvlfu7ue375j" path="res://vfx/fire_wall_particles.tscn" id="4_v2vlt"]
@@ -14,7 +15,6 @@
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="10_62a5j"]
 [ext_resource type="AudioStream" uid="uid://b13o3b5bar26b" path="res://music/crushed ice.wav" id="12_us50b"]
 [ext_resource type="PackedScene" uid="uid://dh1xdwurvbl51" path="res://assets/3d_models/hell_rock/hell_rock_1.tscn" id="12_v2vlt"]
-[ext_resource type="Script" uid="uid://1n4g6p6jvkhx" path="res://music/music_player.gd" id="13_ykefy"]
 [ext_resource type="PackedScene" uid="uid://b2x0rck461il1" path="res://assets/3d_models/hell_rock/spike.tscn" id="16_m1xg1"]
 [ext_resource type="PackedScene" uid="uid://cb1qx6lk14w4g" path="res://assets/3d_models/hell_rock/hell_arena.tscn" id="16_wan88"]
 
@@ -65,6 +65,9 @@ texture_filter = 0
 size = Vector3(2, 1, 12)
 
 [node name="FireDemonLevel" instance=ExtResource("1_ekkb5")]
+
+[node name="BackgroundMusicPlayer" parent="." index="0" instance=ExtResource("2_wan88")]
+stream = ExtResource("12_us50b")
 
 [node name="EnemyHealthDisplay" parent="UI/ScreenMargin1" index="0" node_paths=PackedStringArray("boss")]
 boss = NodePath("../../../BaseLevel/FireDemonBoss")
@@ -331,13 +334,7 @@ transform = Transform3D(1.6319256, -1.7122631, 1.8452574, 0.70048964, 2.4211183,
 
 [node name="FirefliesVFX" parent="BaseLevel" index="48" instance=ExtResource("8_wan88")]
 
-[node name="CardSystem" parent="." index="2"]
+[node name="CardSystem" parent="." index="3"]
 deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="3"]
-stream = ExtResource("12_us50b")
-autoplay = true
-bus = &"Music"
-script = ExtResource("13_ykefy")
 
 [editable path="BaseLevel/Player"]

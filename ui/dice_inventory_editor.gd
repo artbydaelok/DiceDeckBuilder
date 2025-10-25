@@ -24,7 +24,6 @@ func _initialize():
 	for card in all_cards:
 		_populate(card)
 	
-	#TODO: Populate the dice sides sprites on initialize
 	for i in range(card_system.hand.size()):
 		GameEvents.side_updated_item.emit(i, card_system.hand[i])
 		
