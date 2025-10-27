@@ -28,7 +28,6 @@ func _on_got_dialogue(line: DialogueLine):
 				animation_player.play("4_remote_stolen")
 			"second_groan":
 				animation_player.play("5_second_groan")
-				print("Yeah")
 			"dice_starts_levitating":
 				animation_player.play("6_player_starts_levitating")
 			"player_gets_abducted":

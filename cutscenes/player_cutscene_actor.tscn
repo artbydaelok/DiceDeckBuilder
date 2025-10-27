@@ -10,7 +10,6 @@ texture_filter = 0
 
 [node name="PlayerCutsceneActor" type="Node3D" node_paths=PackedStringArray("pivot", "dice_mesh")]
 script = ExtResource("1_gr21s")
-forced_rotation = null
 pivot = NodePath("Pivot")
 dice_mesh = NodePath("Pivot/DiceMesh")
 

@@ -139,6 +139,7 @@ func roll(dir):
 	# Step 2: Animate the rotation.
 	var axis = dir.cross(Vector3.DOWN)
 	var tween = create_tween()
+	# TODO: Use this same tween to smoothly tween the position of the player collision box from start position to end position.
 	tween.tween_property(pivot, "transform",
 			pivot.transform.rotated_local(axis, PI/2), 1 / speed)
 	await tween.finished
