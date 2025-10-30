@@ -17,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+game_scene_path = "uid://d2wmug2r81stp"
 options_packed_scene = ExtResource("2_73am8")
 credits_packed_scene = ExtResource("3_g46cd")
 

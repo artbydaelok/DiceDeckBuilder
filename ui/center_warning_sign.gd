@@ -5,7 +5,7 @@ extends Control
 
 var menu_return: bool = false
 
-const MAIN_MENU = preload("res://ui/main_menu.tscn")
+const MAIN_MENU = preload("res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn")
 
 func resolve_warning():
 	if menu_return:

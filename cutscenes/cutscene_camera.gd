@@ -7,7 +7,6 @@ extends Camera3D
 
 var rng = RandomNumberGenerator.new()
 
-
 @export var shake_strength: float = 0.0
 
 func _process(delta: float) -> void:

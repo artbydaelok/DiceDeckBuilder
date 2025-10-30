@@ -7,6 +7,7 @@ const OPENING_CUSTCENE = preload("uid://mrq3y0iqiqdg")
 func _ready() -> void:
 	begin_opening_cutscene()
 	DialogueManager.got_dialogue.connect(_on_got_dialogue)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func begin_opening_cutscene():
 	animation_player.play("0_intro")
@@ -34,5 +35,11 @@ func _on_got_dialogue(line: DialogueLine):
 				animation_player.play("7_player_gets_abducted")
 			"enter_vortex":
 				animation_player.play("8_enter_vortex")
+			"warp":
+				animation_player.play("9_warp_out")
 
-	
+func _on_dialogue_ended(dialogue_resource : DialogueResource):
+	pass
+
+func go_to_hub():
+	SceneLoader.load_scene("res://levels/hub_level.tscn")

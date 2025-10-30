@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://mxjewles1nr0"
-path="res://.godot/imported/lowpolyNightstand.glb-dab0b78a696301a5d9f6a733779ff06d.scn"
+path="res://.godot/imported/lowpolyNightstand.glb-444270ea80ba57261c07b684e7e9c456.scn"
 
 [deps]
 
-source_file="res://dialogue/lowpolyNightstand.glb"
-dest_files=["res://.godot/imported/lowpolyNightstand.glb-dab0b78a696301a5d9f6a733779ff06d.scn"]
+source_file="res://assets/3d_models/lowpolyNightstand.glb"
+dest_files=["res://.godot/imported/lowpolyNightstand.glb-444270ea80ba57261c07b684e7e9c456.scn"]
 
 [params]
 

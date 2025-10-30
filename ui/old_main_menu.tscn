@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpcrrorybckw7"]
 
-[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="1_01lm7"]
-[ext_resource type="Script" uid="uid://dsxnhye52v1h2" path="res://ui/main_menu.gd" id="1_s1uph"]
-[ext_resource type="PackedScene" uid="uid://dpgklwmdgcka1" path="res://ui/level_select.tscn" id="3_37t1e"]
-[ext_resource type="AudioStream" uid="uid://bfda4jk3pw1w4" path="res://music/drunk in space.wav" id="4_a18ga"]
+[ext_resource type="Script" uid="uid://dsxnhye52v1h2" path="res://ui/old_main_menu.gd" id="1_xi7t0"]
+[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="2_gcvtk"]
+[ext_resource type="PackedScene" uid="uid://dpgklwmdgcka1" path="res://ui/level_select.tscn" id="3_ophkb"]
+[ext_resource type="AudioStream" uid="uid://bfda4jk3pw1w4" path="res://music/drunk in space.wav" id="4_864wu"]
 
 [node name="MainMenu" type="Node"]
-script = ExtResource("1_s1uph")
+script = ExtResource("1_xi7t0")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -32,7 +32,7 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("1_01lm7")
+theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 175
 text = "DICE GAME"
 
@@ -45,35 +45,35 @@ alignment = 2
 
 [node name="LevelSelectButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_01lm7")
+theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 text = "Select Level"
 
 [node name="EditDeckButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_01lm7")
+theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Edit Deck"
 
 [node name="OptionsButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_01lm7")
+theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Options"
 
 [node name="ExitButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_01lm7")
+theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 text = "Exit Game"
 
-[node name="LevelSelectMenu" parent="UI" instance=ExtResource("3_37t1e")]
+[node name="LevelSelectMenu" parent="UI" instance=ExtResource("3_ophkb")]
 visible = false
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_a18ga")
+stream = ExtResource("4_864wu")
 autoplay = true
 bus = &"Music"
 
