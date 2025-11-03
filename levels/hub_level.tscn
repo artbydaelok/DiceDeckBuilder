@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="2_xl636"]
 [ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://components/cutscene/dialogue_trigger_area.tscn" id="3_c4aiy"]
 [ext_resource type="Texture2D" uid="uid://bxs7vxpdc5lbl" path="res://assets/3d_models/psx/grass/grass_1.png" id="3_uj6qf"]
-[ext_resource type="Texture2D" uid="uid://domerljpf6atq" path="res://vfx/gradients/forest_level_gradient.tres" id="4_c5pd8"]
+[ext_resource type="Texture2D" uid="uid://domerljpf6atq" path="res://vfx/gradients/textures/forest_level_gradient.tres" id="4_c5pd8"]
 [ext_resource type="Texture2D" uid="uid://ccef3yy5esc6b" path="res://assets/3d_models/psx/grass/grass_1_normal.png" id="4_iva4b"]
 [ext_resource type="Resource" uid="uid://b2og4ilgdg4ke" path="res://dialogue/hub_level.dialogue" id="4_nrj8t"]
 [ext_resource type="Script" uid="uid://c136bsglorr4v" path="res://vfx/hub_fog.gd" id="5_blouu"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bno4ca2m335hd" path="res://assets/3d_models/hell_rock/ChunkySpike.glb" id="7_11ood"]
 [ext_resource type="PackedScene" uid="uid://dh1xdwurvbl51" path="res://assets/3d_models/hell_rock/hell_rock_1.tscn" id="9_c5pd8"]
 [ext_resource type="PackedScene" uid="uid://c8bvxiyxtk4yr" path="res://assets/3d_models/psx/trees/tree_stump_1.glb" id="9_cisf0"]
-[ext_resource type="Texture2D" uid="uid://cmfvlf4fx3c7w" path="res://vfx/gradients/hell_level_gradient.tres" id="10_q222i"]
+[ext_resource type="Texture2D" uid="uid://cmfvlf4fx3c7w" path="res://vfx/gradients/textures/hell_level_gradient.tres" id="10_q222i"]
 [ext_resource type="PackedScene" uid="uid://c8hefk5p44v6q" path="res://assets/3d_models/psx/stone/stone_4.glb" id="10_qlufj"]
 [ext_resource type="PackedScene" uid="uid://osa71j43i7ox" path="res://assets/3d_models/psx/trees/tree_9.glb" id="11_emmfv"]
 [ext_resource type="PackedScene" uid="uid://b4cckx4hgyro8" path="res://assets/3d_models/psx/trees/tree_6.glb" id="12_15esb"]
@@ -119,6 +119,20 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(16.633333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_cutscene"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_1761n"]
@@ -233,6 +247,7 @@ fog_light_color = Color(0.5176471, 0.5254902, 0.60784316, 1)
 fog_density = 1.0
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.9019608, 1, 1, 1)
+volumetric_fog_anisotropy = 0.35
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blouu"]
 size = Vector3(11, 1, 6)
@@ -398,7 +413,7 @@ libraries = {
 visible = false
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" index="0"]
-transform = Transform3D(0.96592575, -1.0593794e-08, -0.25881913, 0.00054658204, 0.99999774, 0.0020398304, 0.25881854, -0.0021117905, 0.9659236, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592534, -1.059379e-08, -0.258819, 0.0005465818, 0.9999973, 0.0020398295, 0.25881842, -0.0021117895, 0.9659232, -54.661007, 3.5606902, -14)
 current = true
 script = ExtResource("5_wdw7n")
 
@@ -480,24 +495,28 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -9.636215, 0, 7.052517)
 transform = Transform3D(0.18301272, 0.7071068, -0.6830127, -0.18301272, 0.7071068, 0.6830127, 0.9659258, 0, 0.25881907, -5, 11, 4)
 light_color = Color(0.69, 1, 0.78816664, 1)
 light_energy = 15.0
+shadow_enabled = true
 spot_range = 31.667297
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="BaseLevel/ForestLevelEntry" index="5"]
 transform = Transform3D(0.94798344, 0.31098425, -0.067943156, -0.18301272, 0.7071068, 0.6830127, 0.26044923, -0.6350503, 0.7272396, 2.6951332, 11, 28.980194)
 light_color = Color(0.69, 1, 0.78816664, 1)
 light_energy = 8.0
+shadow_enabled = true
 spot_range = 31.667297
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="BaseLevel/ForestLevelEntry" index="6"]
 transform = Transform3D(0.6907532, 0.5868455, -0.42246032, -0.1830127, 0.7071068, 0.6830127, 0.69954747, -0.39447758, 0.5958365, -9.120132, 11, 28.980194)
 light_color = Color(0.69, 1, 0.78816664, 1)
 light_energy = 8.0
+shadow_enabled = true
 spot_range = 31.667297
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="BaseLevel/ForestLevelEntry" index="7"]
 transform = Transform3D(0.8991976, -0.16045892, 0.40705857, -0.1830127, 0.7071068, 0.6830127, -0.39742935, -0.68866026, 0.6064627, 4, 11, 6)
 light_color = Color(0.69, 0.9225, 1, 1)
 light_energy = 10.0
+shadow_enabled = true
 spot_range = 40.641315
 
 [node name="stone_42" parent="BaseLevel/ForestLevelEntry" index="8" instance=ExtResource("10_qlufj")]

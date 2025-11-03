@@ -17,6 +17,8 @@ signal game_exited
 
 var sub_menu : Control
 
+@onready var crt_shader_layer: CanvasLayer = $CRTShaderLayer
+
 @onready var menu_container = %MenuContainer
 @onready var menu_buttons_box_container = %MenuButtonsBoxContainer
 @onready var new_game_button = %NewGameButton
@@ -92,7 +94,11 @@ func _hide_credits_if_unset() -> void:
 	if credits_packed_scene == null:
 		credits_button.hide()
 
+func _enable_crt_shader() -> void: 
+	crt_shader_layer.visible = true
+
 func _ready() -> void:
+	_enable_crt_shader()
 	_hide_exit_for_web()
 	_hide_options_if_unset()
 	_hide_credits_if_unset()

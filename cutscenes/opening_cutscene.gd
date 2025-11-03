@@ -39,6 +39,7 @@ func _on_got_dialogue(line: DialogueLine):
 				animation_player.play("9_warp_out")
 
 func _on_dialogue_ended(dialogue_resource : DialogueResource):
+	#go_to_hub()
 	pass
 
 func go_to_hub():

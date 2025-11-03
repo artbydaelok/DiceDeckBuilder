@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @onready var cutscene_animation_player: AnimationPlayer = %CutsceneAnimationPlayer
 
+@onready var player_camera_3d: Camera3D = $BaseLevel/Camera3D
+@onready var ui: CanvasLayer = $UI
+
 const HUB_LEVEL_DIALOGUE = preload("uid://b2og4ilgdg4ke")
 const DICE_INVENTORY_EDITOR = preload("uid://crbwh26bogcfr")
 
@@ -32,3 +35,7 @@ func _input(event: InputEvent) -> void:
 		
 		#FIXME: When player exits out using the "Close" button in the menu, inventory_open should be set to false.
 		
+func end_cutscene():
+	GameEvents.cutscene_ended.emit()
+	player_camera_3d.current = true
+	ui.visible = true

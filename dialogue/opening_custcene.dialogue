@@ -16,7 +16,7 @@ Narrator: Ew, portal dust is getting on their carpet, too. Also, it seems they f
 Dice: [shake rate=20 level=10]*true agony*[/shake] [#true_agony]
 
 ~ player_gets_abducted
-Dice: [speed=0.125][shake rate=20 level=25]?!?!?[/shake] [#player_gets_abducted] [next=auto]
+Dice: [shake rate=20 level=25][speed=0.125]?!?!?[/speed][/shake] [#player_gets_abducted] [next=auto]
 
 ~ dice_enters_vortex
 Narrator: Well,  this is new. [#enter_vortex]
@@ -24,5 +24,5 @@ Dice: [shake rate=20 level=10]*nausea sets in* [/shake]
 Narrator: Where could this be? Where are they taking them?
 Narrator: [wave amp=25 freq=5]Where did the remote go?[/wave]
 Narrator: [speed=0.125][shake rate=35 level=10]Woah, wait what is happening [/shake][next=auto] [#warp]
-Dice: *retching sounds*
+Dice: [shake rate=20 level=10]*retching sounds*[/shake]
 => END

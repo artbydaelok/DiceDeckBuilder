@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=30 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dy8sr0cd8nbiu" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/master_options_overlaid_menu.tscn" id="2_73am8"]
@@ -6,8 +6,92 @@
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/scripts/capture_focus.gd" id="4_l1ebe"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="4_w8sbm"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/scripts/ui_sound_controller.gd" id="6_bs342"]
+[ext_resource type="Shader" uid="uid://y12oskxwjill" path="res://vfx/shaders/main_menu_distorsion.gdshader" id="6_g46cd"]
+[ext_resource type="AudioStream" uid="uid://b7wmjssg3qg21" path="res://music/chill guitars.wav" id="6_ob7sx"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_name_label.gd" id="7_j7612"]
+[ext_resource type="Gradient" uid="uid://ed4lsrj62ysj" path="res://vfx/gradients/ramps/melted_mars.tres" id="7_k1p1p"]
+[ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="9_1lt1u"]
+[ext_resource type="PackedScene" uid="uid://bhs48qnsqembh" path="res://vfx/embers_vfx.tscn" id="10_bcn5h"]
+[ext_resource type="PackedScene" uid="uid://s1u5ft8tvg1h" path="res://vfx/fireflies_vfx.tscn" id="11_1lt1u"]
+[ext_resource type="PackedScene" uid="uid://ovxqjd7ffdic" path="res://cutscenes/player_cutscene_actor.tscn" id="12_oqvs2"]
+[ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="13_jhnug"]
+[ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_tcwah"]
+[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="19_7r4vv"]
+
+[sub_resource type="Gradient" id="Gradient_k1p1p"]
+colors = PackedColorArray(0.19793725, 0.19793725, 0.19793719, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ob7sx"]
+gradient = SubResource("Gradient_k1p1p")
+width = 72
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g46cd"]
+frequency = 0.0164
+domain_warp_enabled = true
+domain_warp_amplitude = 15.0
+domain_warp_frequency = 0.095
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k1p1p"]
+width = 144
+height = 96
+noise = SubResource("FastNoiseLite_g46cd")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqvs2"]
+shader = ExtResource("6_g46cd")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_k1p1p")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4utau"]
+frequency = 0.033
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4myoa"]
+width = 144
+height = 96
+noise = SubResource("FastNoiseLite_4utau")
+color_ramp = ExtResource("7_k1p1p")
+seamless = true
+
+[sub_resource type="Environment" id="Environment_4utau"]
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 1.0
+volumetric_fog_density = 0.5038
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ieaq0"]
+shader = ExtResource("19_7r4vv")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0250000011875
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.1250000059375
+shader_parameter/resolution = Vector2(720, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.855
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.01200000057
+shader_parameter/noise_opacity = 0.290000013775
+shader_parameter/noise_speed = 4.895
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.025000048687499943
+shader_parameter/brightness = 1.475
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.585
+shader_parameter/vignette_opacity = 0.4130000196175
+
+[sub_resource type="Gradient" id="Gradient_xwi4j"]
+offsets = PackedFloat32Array(0.35670102, 0.9938144)
+colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0y7ph"]
+gradient = SubResource("Gradient_xwi4j")
+fill_to = Vector2(0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +109,7 @@ credits_packed_scene = ExtResource("3_g46cd")
 script = ExtResource("6_bs342")
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("4_w8sbm")]
+stream = ExtResource("6_ob7sx")
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -33,39 +118,83 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
+texture = SubResource("GradientTexture2D_ob7sx")
 
-[node name="VersionMargin" type="MarginContainer" parent="."]
+[node name="PsychedelicNoise" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_oqvs2")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+texture = SubResource("NoiseTexture2D_4myoa")
 
-[node name="VersionContainer" type="Control" parent="VersionMargin"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="VersionLabel" type="Label" parent="VersionMargin/VersionContainer"]
+[node name="3DBackgroundViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -26.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "v0.0.0"
-horizontal_alignment = 2
-script = ExtResource("6_pdiij")
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="3DBackgroundViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(720, 480)
+render_target_update_mode = 4
+
+[node name="MainMenuBackgroundScene" type="Node3D" parent="3DBackgroundViewportContainer/SubViewport"]
+
+[node name="DiceNodeContainer" type="Node3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+script = ExtResource("9_1lt1u")
+anim_amount = 0.25
+
+[node name="PlayerCutsceneActor" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/DiceNodeContainer" instance=ExtResource("12_oqvs2")]
+free_falling = true
+falling_rotation_velocity = Vector3(0.25, 0.8, -0.45)
+
+[node name="Camera3D" type="Camera3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+transform = Transform3D(0.5315351, -0.25382125, 0.8081122, 0.18301271, 0.9659258, 0.18301278, -0.82702893, 0.050617076, 0.55987597, 2.4692647, 1.344377, 0.03278017)
+fov = 120.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+transform = Transform3D(0.83804023, 0.42444184, 0.34283793, -0.41314524, 0.08323589, 0.9068533, 0.3563699, -0.9016213, 0.2451111, 0, 0, 0)
+
+[node name="EmbersVFX" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("10_bcn5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+
+[node name="EmbersVFX2" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("10_bcn5h")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.4545279, -2.114575, -5.614456)
+
+[node name="EmbersVFX3" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("10_bcn5h")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -16.349552, -2.114575, -5.614456)
+
+[node name="FirefliesVFX" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("11_1lt1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+
+[node name="FirefliesVFX2" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("11_1lt1u")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, -4, 0)
+
+[node name="FirefliesVFX3" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("11_1lt1u")]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, -4, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+environment = SubResource("Environment_4utau")
+
+[node name="DiceCouch" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("13_jhnug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48871613, 7.798807, -13.019672)
+script = ExtResource("9_1lt1u")
+anim_amount = 0.77
+random_rotation_animation = Vector3(-1, 0.5, 0)
+
+[node name="RemoteControl" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("13_tcwah")]
+transform = Transform3D(-0.021477975, 1.7075266, -1.8258947, -2.2841606, -0.75546396, -0.6796206, -1.0159471, 1.662416, 1.5665963, 1.8198569, 0.6544645, -2.1107838)
+script = ExtResource("9_1lt1u")
+anim_amount = 0.77
+random_rotation_animation = Vector3(0.25, 2, 0)
 
 [node name="MenuContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
@@ -75,97 +204,97 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
 
 [node name="TitleMargin" type="MarginContainer" parent="MenuContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 24
 
-[node name="TitleContainer" type="Control" parent="MenuContainer/TitleMargin"]
+[node name="TitlesContainer" type="VBoxContainer" parent="MenuContainer/TitleMargin"]
 layout_mode = 2
-mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
-[node name="TitleLabel" type="Label" parent="MenuContainer/TitleMargin/TitleContainer"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 67.0
-grow_horizontal = 2
+[node name="VersionLabel" type="Label" parent="MenuContainer/TitleMargin/TitlesContainer"]
+layout_mode = 2
+text = "v0.1.1"
+script = ExtResource("6_pdiij")
+
+[node name="TitleLabel" type="Label" parent="MenuContainer/TitleMargin/TitlesContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "DiceDeckbuilderGame"
-horizontal_alignment = 1
+text = "The Dice Game"
 vertical_alignment = 1
 script = ExtResource("7_j7612")
+auto_update = false
 
-[node name="SubTitleMargin" type="MarginContainer" parent="MenuContainer"]
+[node name="SubTitleLabel" type="Label" parent="MenuContainer/TitleMargin/TitlesContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 92
-
-[node name="SubTitleContainer" type="Control" parent="MenuContainer/SubTitleMargin"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="SubTitleLabel" type="Label" parent="MenuContainer/SubTitleMargin/SubTitleContainer"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 34.0
-grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
-text = "Subtitle"
-horizontal_alignment = 1
+text = "by Sluggerpunk Studios"
 vertical_alignment = 1
 
 [node name="MenuButtonsMargin" type="MarginContainer" parent="MenuContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 136
+theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 8
 
-[node name="MenuButtonsContainer" type="Control" parent="MenuContainer/MenuButtonsMargin"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer"]
+[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="MenuContainer/MenuButtonsMargin"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -104.0
-offset_right = 64.0
-offset_bottom = 104.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/separation = 16
 alignment = 1
 vertical = true
 script = ExtResource("4_l1ebe")
 
-[node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "New Game"
 
-[node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Options"
 
-[node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Credits"
 
-[node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Exit"
 
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+
+[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
+material = SubResource("ShaderMaterial_ieaq0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_0y7ph")
+
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+
+[editable path="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/EmbersVFX"]
+[editable path="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/EmbersVFX2"]
+[editable path="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/EmbersVFX3"]

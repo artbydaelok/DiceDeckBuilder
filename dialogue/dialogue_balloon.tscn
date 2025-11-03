@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd6goc0msfpmm"]
+[gd_scene load_steps=10 format=3 uid="uid://bd6goc0msfpmm"]
 
 [ext_resource type="Script" uid="uid://ci0xxxdb0owhj" path="res://dialogue/dialogue_balloon.gd" id="1_cl01r"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_3n8ca"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_hbq6q"]
+[ext_resource type="AudioStream" uid="uid://b7dvbiqvjrlmv" path="res://sounds/speech/2.wav" id="3_lhgi5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -63,9 +64,15 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
-[node name="ExampleBalloon" type="CanvasLayer"]
+[node name="DialogueBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_cl01r")
+
+[node name="TalkSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lhgi5")
+volume_db = -18.0
+pitch_scale = 0.8
+bus = &"Speech"
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -139,4 +146,5 @@ layout_mode = 2
 text = "Response example"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

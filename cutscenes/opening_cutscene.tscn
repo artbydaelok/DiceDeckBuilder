@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://d2wmug2r81stp"]
+[gd_scene load_steps=84 format=3 uid="uid://d2wmug2r81stp"]
 
 [ext_resource type="Script" uid="uid://dnwqepfla1hj6" path="res://cutscenes/opening_cutscene.gd" id="1_45fey"]
 [ext_resource type="Script" uid="uid://6rmwb7k30dvh" path="res://cutscenes/cutscene_camera.gd" id="1_bceoc"]
@@ -8,15 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="3_ai8dr"]
 [ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="4_d8kg1"]
 [ext_resource type="PackedScene" uid="uid://dktj6wcg14i5" path="res://assets/3d_models/opening_cutscene_props/lowpoly_nightstand.tscn" id="4_ktram"]
+[ext_resource type="AudioStream" uid="uid://bcuuj5fevdmaq" path="res://sounds/spooky_sfx.wav" id="5_6sfnl"]
 [ext_resource type="Texture2D" uid="uid://xs272dx6ya2i" path="res://assets/tiles_floor_1.png" id="5_drdca"]
 [ext_resource type="Texture2D" uid="uid://dyrgsdra31ao6" path="res://assets/wood_floor_2.png" id="6_hi4w7"]
+[ext_resource type="AudioStream" uid="uid://7rjs8ng7gkty" path="res://sounds/FloatsSFX.wav" id="7_2fkjc"]
 [ext_resource type="Script" uid="uid://cx12as0gobvpd" path="res://cutscenes/tv_light_flicker.gd" id="7_37i02"]
 [ext_resource type="Texture2D" uid="uid://djy75i3b8klwb" path="res://assets/concrete_tx_4.png" id="9_hi4w7"]
 [ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="10_ewgqj"]
 [ext_resource type="Shader" uid="uid://7i6i6dl8bdai" path="res://vfx/portal_vfx.gdshader" id="11_apny6"]
 [ext_resource type="Texture2D" uid="uid://kma71g8vhpks" path="res://vfx/posterized_noise.tres" id="12_mwsa2"]
 [ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_mwsa2"]
-[ext_resource type="AudioStream" uid="uid://duh3uk68popna" path="res://sounds/DSGNWhsh_Quick Whoosh, Fireball, Crackle, Fly by_Ocular Sounds_Short Whooshes_The Complete Whooshes Collection.wav" id="14_55ds6"]
 [ext_resource type="AudioStream" uid="uid://p3ydtrcc7jpc" path="res://music/dice be chilling like (bounce 1).wav" id="15_xl3uw"]
 [ext_resource type="PackedScene" uid="uid://d0o285188armg" path="res://assets/3d_models/opening_cutscene_props/LivingRoomTable.glb" id="18_tjfyd"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="19_m4pcq"]
@@ -570,10 +571,22 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LivingRoomBase/PlayerFloatsSFX:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_tjfyd"]
 resource_name = "7_player_gets_abducted"
-length = 2.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -677,10 +690,22 @@ tracks/8/path = NodePath("FadeScreen:self_modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.6, 2),
+"times": PackedFloat32Array(1.6, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LivingRoomBase/PlayerFloatsSFX:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_2fkjc"]
@@ -760,6 +785,71 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tl3cp"]
+resource_name = "9_warp_out"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VortexScene/Camera3:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [75.0, 175.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeScreen")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeScreen:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.01, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(10),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_hub"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LivingRoomBase/PlayerFloatsSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_bceoc"]
@@ -1102,44 +1192,17 @@ tracks/27/keys = {
 "update": 0,
 "values": [75.0]
 }
-
-[sub_resource type="Animation" id="Animation_tl3cp"]
-resource_name = "9_warp_out"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VortexScene/Camera3:fov")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [75.0, 175.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FadeScreen")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FadeScreen:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(4.01, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("LivingRoomBase/PlayerFloatsSFX:playing")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_45fey"]
@@ -1471,14 +1534,17 @@ libraries = {
 [node name="LivingRoomBase" type="Node3D" parent="."]
 
 [node name="PortalAppearsSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
-stream = ExtResource("14_55ds6")
-volume_db = 2.0
-pitch_scale = 0.85
+stream = ExtResource("5_6sfnl")
+pitch_scale = 0.93
 bus = &"SFX"
 
 [node name="RemoteStolenSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
 stream = ExtResource("4_d8kg1")
 pitch_scale = 0.65
+bus = &"SFX"
+
+[node name="PlayerFloatsSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
+stream = ExtResource("7_2fkjc")
 bus = &"SFX"
 
 [node name="PlayerAbductedSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
@@ -1493,8 +1559,8 @@ current = true
 
 [node name="Camera2" type="Camera3D" parent="LivingRoomBase"]
 transform = Transform3D(0.2929771, 0.5859725, 0.75551355, -0.16579397, 0.80935234, -0.56343704, -0.9416352, 0.039814558, 0.33427235, 2.6336207, 1.1315038, 3.4243603)
-h_offset = -0.054292053
-v_offset = 0.024708599
+h_offset = 0.1940504
+v_offset = 0.060458124
 script = ExtResource("1_bceoc")
 shake_strength = 0.025
 
@@ -1529,7 +1595,7 @@ mesh = SubResource("BoxMesh_apny6")
 [node name="TVLight" type="SpotLight3D" parent="LivingRoomBase/TV"]
 transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, 0.030794144, 0.5, -0.083631516)
 light_color = Color(0.6306617, 0.90937054, 0.93368065, 1)
-light_energy = 7.773453
+light_energy = 8.994649
 spot_range = 10.0
 spot_angle = 80.0
 script = ExtResource("7_37i02")
@@ -1586,8 +1652,8 @@ visible = false
 
 [node name="Camera3" type="Camera3D" parent="VortexScene"]
 transform = Transform3D(0.8660254, -0.25, 0.4330127, 0.12940952, 0.94858825, 0.28884864, -0.4829629, -0.1941143, 0.85385394, 2.5, 3, 4)
-h_offset = -0.069924384
-v_offset = 0.09953887
+h_offset = 0.096412785
+v_offset = 0.07292689
 script = ExtResource("1_bceoc")
 shake_strength = 0.1
 
