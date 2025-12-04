@@ -136,3 +136,15 @@ func hold_hand() -> Array[Card]:
 	
 func start_color_mode():
 	replace_hand(COLOR_CARDS)
+
+
+#IDEA Gem Matching Levels 
+#Where player needs to switch to the correct color side to defeat enemies while trying to get to the end.
+
+#IDEA Spaceship Fight
+#1: Missile
+#2: Shields
+#3: Missile
+#4: Shields
+#5: Roll Left
+#6: Roll Right

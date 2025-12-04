@@ -17,9 +17,10 @@ var player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#DialogueManager.show_dialogue_balloon(HUB_LEVEL_DIALOGUE, "start")
-	GameEvents.cutscene_started.emit(true)
 	user_interface = get_tree().get_first_node_in_group("user_interface")
 	player = get_tree().get_first_node_in_group("player")
+
+	GameEvents.cutscene_started.emit(true)
 	cutscene_animation_player.play("0_first_time")
 
 func _input(event: InputEvent) -> void:
@@ -33,7 +34,7 @@ func _input(event: InputEvent) -> void:
 		inventory_open = false
 		inventory_ui.queue_free()
 		
-		#FIXME: When player exits out using the "Close" button in the menu, inventory_open should be set to false.
+	#FIXME: When player exits out using the "Close" button in the menu, inventory_open should be set to false.
 		
 func end_cutscene():
 	GameEvents.cutscene_ended.emit()

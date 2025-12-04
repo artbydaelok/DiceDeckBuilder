@@ -31,3 +31,7 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	
 	await get_tree().create_timer(0.35).timeout
 	queue_free()
+
+
+# IDEA Axe Remains stuck on enemy
+# If player hits enemy again within a period of time the enemy is dealth the axe damage again.
