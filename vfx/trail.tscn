@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://brvqtcijr86gy"]
 
-[ext_resource type="Script" path="res://vfx/trail.gd" id="1_524pl"]
+[ext_resource type="Script" uid="uid://c7hyxlr01al7e" path="res://vfx/trail.gd" id="1_524pl"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_khf5l"]
 

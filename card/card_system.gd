@@ -15,6 +15,8 @@ signal card_drawn
 
 @export var shuffle_deck_mode : bool = false
 
+var held_hand : Array[Card] = []
+
 # Match the Ability ID.
 const CARD_ABILITIES = {
 	"arrow" : preload("res://abilities/bow_and_arrow/bow_and_arrow.tscn"),
@@ -24,6 +26,15 @@ const CARD_ABILITIES = {
 	"shotgun" : preload("res://abilities/shotgun/shotgun_blast.tscn"),
 	"grenade" : preload("res://abilities/grenade/grenade.tscn")
 }
+
+const COLOR_CARDS = [
+	preload("uid://c7ffy6x5xuo0g"), # BLUE
+	preload("uid://u5x4au7pxbto"), # GREEN
+	preload("uid://o4dmv07j8qu2"), # PINK
+	preload("uid://5tknsxey7rk6"), # RED
+	preload("uid://b1d1pyfoo5cm6"), # WHITE
+	preload("uid://cgiirlpt7ksns") # YELLOW
+]
 
 const CARD_DISPLAY = preload("res://card/card_display.tscn")
 
@@ -113,3 +124,15 @@ func shuffle_discard_into_deck():
 	deck = discard_pile
 	shuffle_deck()
 	discard_pile = []
+
+func replace_hand(new_hand: Array[Card]):
+	hold_hand()
+	for i in range(6):
+		set_slot_to_item(i, new_hand[i])
+
+func hold_hand() -> Array[Card]:
+	held_hand = hand
+	return held_hand
+	
+func start_color_mode():
+	replace_hand(COLOR_CARDS)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://u5x4au7pxbto"]
+
+[ext_resource type="Texture2D" uid="uid://cpt7xxjs80b4q" path="res://assets/card_artwork/GreenColorIcon.png" id="1_0rsx4"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="1_mxrqf"]
+
+[resource]
+script = ExtResource("1_mxrqf")
+card_name = "Green Gem"
+ability_id = "gem_green"
+card_description = "Green-colored gem."
+card_artwork = ExtResource("1_0rsx4")
+metadata/_custom_type_script = "uid://dd4juc1880sbt"

@@ -413,7 +413,7 @@ libraries = {
 visible = false
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" index="0"]
-transform = Transform3D(0.96592534, -1.059379e-08, -0.258819, 0.0005465818, 0.9999973, 0.0020398295, 0.25881842, -0.0021117895, 0.9659232, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592486, -1.0593785e-08, -0.2588189, 0.0005465815, 0.9999969, 0.0020398286, 0.2588183, -0.0021117886, 0.9659228, -54.661007, 3.5606902, -14)
 current = true
 script = ExtResource("5_wdw7n")
 

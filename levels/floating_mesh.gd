@@ -14,3 +14,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	global_position.y = start_pos.y + sin(Time.get_ticks_msec() * 0.00055 + rand_offset) * anim_amount
 	rotation += random_rotation_animation * delta
+
+#TODO Need to add particles

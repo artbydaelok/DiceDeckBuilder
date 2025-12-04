@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c7ffy6x5xuo0g"]
+
+[ext_resource type="Texture2D" uid="uid://bugsndmsceayh" path="res://assets/card_artwork/BlueColorIcon.png" id="1_fexgw"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="2_st85i"]
+
+[resource]
+script = ExtResource("2_st85i")
+card_name = "Blue Gem"
+ability_id = "gem_blue"
+card_description = "Blue-colored gem."
+card_artwork = ExtResource("1_fexgw")
+metadata/_custom_type_script = "uid://dd4juc1880sbt"

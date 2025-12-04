@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cgiirlpt7ksns"]
+
+[ext_resource type="Texture2D" uid="uid://dc6u7k3ujqaks" path="res://assets/card_artwork/YellowGem.png" id="1_75xk6"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="2_xb0d4"]
+
+[resource]
+script = ExtResource("2_xb0d4")
+card_name = "Yellow Gem"
+ability_id = "gem_yellow"
+card_description = "Yellow-colored gem."
+card_artwork = ExtResource("1_75xk6")
+metadata/_custom_type_script = "uid://dd4juc1880sbt"
