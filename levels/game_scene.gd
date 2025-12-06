@@ -1,0 +1,10 @@
+extends CanvasLayer
+
+var player: Player
+var user_interface: CanvasLayer
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#DialogueManager.show_dialogue_balloon(HUB_LEVEL_DIALOGUE, "start")
+	user_interface = get_tree().get_first_node_in_group("user_interface")
+	player = get_tree().get_first_node_in_group("player")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=34 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" uid="uid://t1i3t7qkwjs3" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
 [ext_resource type="PackedScene" uid="uid://ca3r7dgfvfj22" path="res://ui/ability_sides_display.tscn" id="1_lwuof"]
+[ext_resource type="Script" uid="uid://bx2gub05m3x4b" path="res://levels/game_scene.gd" id="1_qcm70"]
 [ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_sei10"]
 [ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="3_cubmp"]
 [ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="4_cosan"]
@@ -94,12 +95,12 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.59
 shader_parameter/vignette_opacity = 0.20800000988
 
-[sub_resource type="Gradient" id="Gradient_xwi4j"]
+[sub_resource type="Gradient" id="Gradient_qcm70"]
 offsets = PackedFloat32Array(0.35670102, 0.9938144)
 colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wkhn0"]
-gradient = SubResource("Gradient_xwi4j")
+gradient = SubResource("Gradient_qcm70")
 fill_to = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceuhh"]
@@ -108,6 +109,7 @@ shader_parameter/viewport_size = Vector2(1280, 720)
 shader_parameter/virtual_resolution = Vector2(320, 240)
 
 [node name="Game" type="CanvasLayer"]
+script = ExtResource("1_qcm70")
 
 [node name="UI" type="CanvasLayer" parent="." groups=["user_interface"]]
 
@@ -251,6 +253,7 @@ deck = Array[ExtResource("5_joks6")]([ExtResource("13_q4ywm"), ExtResource("14_q
 player = NodePath("../BaseLevel/Player")
 
 [node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+layer = 200
 
 [node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
 material = SubResource("ShaderMaterial_qcm70")
@@ -261,6 +264,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_wkhn0")
+metadata/_edit_use_anchors_ = true
 
 [node name="PSXShaderLayer" type="CanvasLayer" parent="."]
 layer = 2

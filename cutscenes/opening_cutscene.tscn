@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://d2wmug2r81stp"]
+[gd_scene load_steps=88 format=3 uid="uid://d2wmug2r81stp"]
 
 [ext_resource type="Script" uid="uid://dnwqepfla1hj6" path="res://cutscenes/opening_cutscene.gd" id="1_45fey"]
 [ext_resource type="Script" uid="uid://6rmwb7k30dvh" path="res://cutscenes/cutscene_camera.gd" id="1_bceoc"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://p3ydtrcc7jpc" path="res://music/dice be chilling like (bounce 1).wav" id="15_xl3uw"]
 [ext_resource type="PackedScene" uid="uid://d0o285188armg" path="res://assets/3d_models/opening_cutscene_props/LivingRoomTable.glb" id="18_tjfyd"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="19_m4pcq"]
+[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="22_aunif"]
 
 [sub_resource type="Gradient" id="Gradient_6sfnl"]
 offsets = PackedFloat32Array(0, 0.7616488)
@@ -1506,6 +1507,38 @@ shader = ExtResource("19_m4pcq")
 shader_parameter/viewport_size = Vector2(1280, 720)
 shader_parameter/virtual_resolution = Vector2(320, 240)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tl3cp"]
+shader = ExtResource("22_aunif")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.1350000064125
+shader_parameter/scanlines_width = 0.06000000285
+shader_parameter/grille_opacity = 0.0550000026125
+shader_parameter/resolution = Vector2(320, 240)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.835
+shader_parameter/roll_size = 4.95600023541
+shader_parameter/roll_variation = 0.36600001412512
+shader_parameter/distort_intensity = 0.0330000015675
+shader_parameter/noise_opacity = 0.2400000114
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.02000004845000003
+shader_parameter/brightness = 1.55
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.3010000142975
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.59
+shader_parameter/vignette_opacity = 0.20800000988
+
+[sub_resource type="Gradient" id="Gradient_xwi4j"]
+offsets = PackedFloat32Array(0.35670102, 0.9938144)
+colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rigpm"]
+gradient = SubResource("Gradient_xwi4j")
+fill_to = Vector2(0, 1)
+
 [node name="OpeningCutscene" type="Node3D"]
 script = ExtResource("1_45fey")
 
@@ -1559,8 +1592,8 @@ current = true
 
 [node name="Camera2" type="Camera3D" parent="LivingRoomBase"]
 transform = Transform3D(0.2929771, 0.5859725, 0.75551355, -0.16579397, 0.80935234, -0.56343704, -0.9416352, 0.039814558, 0.33427235, 2.6336207, 1.1315038, 3.4243603)
-h_offset = 0.1940504
-v_offset = 0.060458124
+h_offset = -0.02090448
+v_offset = -0.023659928
 script = ExtResource("1_bceoc")
 shake_strength = 0.025
 
@@ -1595,7 +1628,7 @@ mesh = SubResource("BoxMesh_apny6")
 [node name="TVLight" type="SpotLight3D" parent="LivingRoomBase/TV"]
 transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, 0.030794144, 0.5, -0.083631516)
 light_color = Color(0.6306617, 0.90937054, 0.93368065, 1)
-light_energy = 8.994649
+light_energy = 10.492217
 spot_range = 10.0
 spot_angle = 80.0
 script = ExtResource("7_37i02")
@@ -1652,8 +1685,8 @@ visible = false
 
 [node name="Camera3" type="Camera3D" parent="VortexScene"]
 transform = Transform3D(0.8660254, -0.25, 0.4330127, 0.12940952, 0.94858825, 0.28884864, -0.4829629, -0.1941143, 0.85385394, 2.5, 3, 4)
-h_offset = 0.096412785
-v_offset = 0.07292689
+h_offset = -0.092984565
+v_offset = -0.058788862
 script = ExtResource("1_bceoc")
 shake_strength = 0.1
 
@@ -1722,6 +1755,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PSXShaderLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
 material = SubResource("ShaderMaterial_6sfnl")
@@ -1731,5 +1765,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+layer = 200
+
+[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
+material = SubResource("ShaderMaterial_tl3cp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_rigpm")
+metadata/_edit_use_anchors_ = true
 
 [editable path="LivingRoomBase/PortalVFX"]

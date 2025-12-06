@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends "res://levels/game_scene.gd"
 
 @onready var cutscene_animation_player: AnimationPlayer = %CutsceneAnimationPlayer
 
@@ -8,18 +8,12 @@ extends CanvasLayer
 const HUB_LEVEL_DIALOGUE = preload("uid://b2og4ilgdg4ke")
 const DICE_INVENTORY_EDITOR = preload("uid://crbwh26bogcfr")
 
-var user_interface : CanvasLayer
+# This should only work in the HUB level.
 var inventory_ui : Control
 var inventory_open : bool
 
-var player
-
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#DialogueManager.show_dialogue_balloon(HUB_LEVEL_DIALOGUE, "start")
-	user_interface = get_tree().get_first_node_in_group("user_interface")
-	player = get_tree().get_first_node_in_group("player")
-
+func initialize() -> void:
 	GameEvents.cutscene_started.emit(true)
 	cutscene_animation_player.play("0_first_time")
 
