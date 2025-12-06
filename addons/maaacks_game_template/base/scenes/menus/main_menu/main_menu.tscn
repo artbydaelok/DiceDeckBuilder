@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=32 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dy8sr0cd8nbiu" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/master_options_overlaid_menu.tscn" id="2_73am8"]
@@ -10,13 +10,15 @@
 [ext_resource type="AudioStream" uid="uid://b7wmjssg3qg21" path="res://music/chill guitars.wav" id="6_ob7sx"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_name_label.gd" id="7_j7612"]
-[ext_resource type="Gradient" uid="uid://ed4lsrj62ysj" path="res://vfx/gradients/ramps/melted_mars.tres" id="7_k1p1p"]
+[ext_resource type="Gradient" uid="uid://dlfl2sxnq6dqi" path="res://vfx/gradients/ramps/blue_ghost.tres" id="8_jhnug"]
 [ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="9_1lt1u"]
 [ext_resource type="PackedScene" uid="uid://bhs48qnsqembh" path="res://vfx/embers_vfx.tscn" id="10_bcn5h"]
 [ext_resource type="PackedScene" uid="uid://s1u5ft8tvg1h" path="res://vfx/fireflies_vfx.tscn" id="11_1lt1u"]
 [ext_resource type="PackedScene" uid="uid://ovxqjd7ffdic" path="res://cutscenes/player_cutscene_actor.tscn" id="12_oqvs2"]
 [ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="13_jhnug"]
 [ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_tcwah"]
+[ext_resource type="Script" uid="uid://dhcfkunxc3quj" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/custom_cursor.gd" id="15_7r4vv"]
+[ext_resource type="Texture2D" uid="uid://dedstl6w8lrtp" path="res://assets/ui/custom_cursor.png" id="15_ieaq0"]
 [ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="19_7r4vv"]
 
 [sub_resource type="Gradient" id="Gradient_k1p1p"]
@@ -52,7 +54,7 @@ frequency = 0.033
 width = 144
 height = 96
 noise = SubResource("FastNoiseLite_4utau")
-color_ramp = ExtResource("7_k1p1p")
+color_ramp = ExtResource("8_jhnug")
 seamless = true
 
 [sub_resource type="Environment" id="Environment_4utau"]
@@ -93,7 +95,7 @@ colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_jhnug")
 fill_to = Vector2(0, 1)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("menu_layer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +103,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+menu_layer = NodePath("MenuLayer")
 game_scene_path = "uid://d2wmug2r81stp"
 options_packed_scene = ExtResource("2_73am8")
 credits_packed_scene = ExtResource("3_g46cd")
@@ -196,89 +199,16 @@ script = ExtResource("9_1lt1u")
 anim_amount = 0.77
 random_rotation_animation = Vector3(0.25, 2, 0)
 
-[node name="MenuContainer" type="MarginContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+[node name="MouseLayer" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="TitleMargin" type="MarginContainer" parent="MenuContainer"]
-layout_mode = 2
-
-[node name="TitlesContainer" type="VBoxContainer" parent="MenuContainer/TitleMargin"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="VersionLabel" type="Label" parent="MenuContainer/TitleMargin/TitlesContainer"]
-layout_mode = 2
-text = "v0.1.1"
-script = ExtResource("6_pdiij")
-
-[node name="TitleLabel" type="Label" parent="MenuContainer/TitleMargin/TitlesContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "The Dice Game"
-vertical_alignment = 1
-script = ExtResource("7_j7612")
-auto_update = false
-
-[node name="SubTitleLabel" type="Label" parent="MenuContainer/TitleMargin/TitlesContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "by Sluggerpunk Studios"
-vertical_alignment = 1
-
-[node name="MenuButtonsMargin" type="MarginContainer" parent="MenuContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_top = 136
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 8
-
-[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="MenuContainer/MenuButtonsMargin"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(125, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_constants/separation = 16
-alignment = 1
-vertical = true
-script = ExtResource("4_l1ebe")
-
-[node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "New Game"
-
-[node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Options"
-
-[node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Credits"
-
-[node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Exit"
+[node name="CustomCursor" type="Sprite2D" parent="MouseLayer"]
+texture = ExtResource("15_ieaq0")
+centered = false
+script = ExtResource("15_7r4vv")
 
 [node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
 material = SubResource("ShaderMaterial_ieaq0")
@@ -290,10 +220,93 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_0y7ph")
 
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuContainer" type="MarginContainer" parent="MenuLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="TitleMargin" type="MarginContainer" parent="MenuLayer/MenuContainer"]
+layout_mode = 2
+
+[node name="TitlesContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/TitleMargin"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="VersionLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
+layout_mode = 2
+text = "v0.1.1"
+script = ExtResource("6_pdiij")
+
+[node name="TitleLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "The Dice Game"
+vertical_alignment = 1
+script = ExtResource("7_j7612")
+auto_update = false
+
+[node name="SubTitleLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "by Sluggerpunk Studios"
+vertical_alignment = 1
+
+[node name="MenuButtonsMargin" type="MarginContainer" parent="MenuLayer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 136
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 8
+
+[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="MenuLayer/MenuContainer/MenuButtonsMargin"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+alignment = 1
+vertical = true
+script = ExtResource("4_l1ebe")
+
+[node name="NewGameButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="OptionsButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Exit"
+
+[connection signal="pressed" from="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 
 [editable path="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/EmbersVFX"]
 [editable path="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/EmbersVFX2"]

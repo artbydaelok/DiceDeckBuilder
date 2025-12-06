@@ -8,12 +8,15 @@ signal game_exited
 
 ## Defines the path to the game scene. Hides the play button if empty.
 ## Will attempt to read from AppConfig if left empty.
+@export var menu_layer : CanvasLayer
 @export_file("*.tscn") var game_scene_path : String
 @export var options_packed_scene : PackedScene
 @export var credits_packed_scene : PackedScene
 @export_group("Extra Settings")
 @export var signal_game_start : bool = false
 @export var signal_game_exit : bool = false
+
+@export var crt_menu : bool = false
 
 var sub_menu : Control
 
@@ -25,6 +28,8 @@ var sub_menu : Control
 @onready var options_button = %OptionsButton
 @onready var credits_button = %CreditsButton
 @onready var exit_button = %ExitButton
+
+
 
 func get_game_scene_path() -> String:
 	if game_scene_path.is_empty():
@@ -51,7 +56,7 @@ func exit_game() -> void:
 
 func _open_sub_menu(menu : PackedScene) -> Node:
 	sub_menu = menu.instantiate()
-	add_child(sub_menu)
+	menu_layer.add_child(sub_menu)
 	menu_container.hide()
 	sub_menu.hidden.connect(_close_sub_menu, CONNECT_ONE_SHOT)
 	sub_menu.tree_exiting.connect(_close_sub_menu, CONNECT_ONE_SHOT)
@@ -96,8 +101,12 @@ func _hide_credits_if_unset() -> void:
 
 func _enable_crt_shader() -> void: 
 	crt_shader_layer.visible = true
+	if crt_menu: menu_layer.layer = 100
+	else: menu_layer.layer = 1
+		
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	_enable_crt_shader()
 	_hide_exit_for_web()
 	_hide_options_if_unset()
