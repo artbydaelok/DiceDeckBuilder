@@ -85,12 +85,12 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.585
 shader_parameter/vignette_opacity = 0.4130000196175
 
-[sub_resource type="Gradient" id="Gradient_xwi4j"]
+[sub_resource type="Gradient" id="Gradient_jhnug"]
 offsets = PackedFloat32Array(0.35670102, 0.9938144)
 colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0y7ph"]
-gradient = SubResource("Gradient_xwi4j")
+gradient = SubResource("Gradient_jhnug")
 fill_to = Vector2(0, 1)
 
 [node name="MainMenu" type="Control"]
@@ -157,7 +157,7 @@ free_falling = true
 falling_rotation_velocity = Vector3(0.25, 0.8, -0.45)
 
 [node name="Camera3D" type="Camera3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
-transform = Transform3D(0.5315351, -0.25382125, 0.8081122, 0.18301271, 0.9659258, 0.18301278, -0.82702893, 0.050617076, 0.55987597, 2.4692647, 1.344377, 0.03278017)
+transform = Transform3D(0.5315351, -0.25382125, 0.8081122, 0.18301271, 0.9659258, 0.18301278, -0.82702893, 0.050617076, 0.55987597, 2.8372152, 1.344377, 0.03278017)
 fov = 120.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b35gq4ouvj5bm"]
+
+[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://components/hurtbox.tscn" id="1_imgdw"]
+[ext_resource type="Script" uid="uid://e1vjrfjkahq6" path="res://enemy/enemy_pawns/base_enemy_pawn.gd" id="1_mcphh"]
+
+[node name="BaseEnemyPawn" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_mcphh")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("1_imgdw")]
+hurtbox_owner = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals"]
+skeleton = NodePath("../..")
+
+[node name="Sprite" type="Sprite3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+billboard = 1

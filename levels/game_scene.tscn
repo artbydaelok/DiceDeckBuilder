@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=33 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" uid="uid://t1i3t7qkwjs3" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="16_h317v"]
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="17_o8ny7"]
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="18_vfvks"]
+[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="19_q4ywm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
 bg_color = Color(0.13, 0, 0, 1)
@@ -69,6 +70,38 @@ albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_q4ywm"]
 size = Vector3(20, 1, 20)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcm70"]
+shader = ExtResource("19_q4ywm")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.1350000064125
+shader_parameter/scanlines_width = 0.06000000285
+shader_parameter/grille_opacity = 0.0550000026125
+shader_parameter/resolution = Vector2(320, 240)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.835
+shader_parameter/roll_size = 4.95600023541
+shader_parameter/roll_variation = 0.36600001412512
+shader_parameter/distort_intensity = 0.0330000015675
+shader_parameter/noise_opacity = 0.2400000114
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.02000004845000003
+shader_parameter/brightness = 1.55
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.3010000142975
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.59
+shader_parameter/vignette_opacity = 0.20800000988
+
+[sub_resource type="Gradient" id="Gradient_xwi4j"]
+offsets = PackedFloat32Array(0.35670102, 0.9938144)
+colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wkhn0"]
+gradient = SubResource("Gradient_xwi4j")
+fill_to = Vector2(0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceuhh"]
 shader = ExtResource("1_gj0fv")
 shader_parameter/viewport_size = Vector2(1280, 720)
@@ -84,13 +117,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 14
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 18
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 24
 
 [node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/ScreenMargin1"]
-custom_minimum_size = Vector2(400, 20)
+custom_minimum_size = Vector2(350, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -137,15 +170,14 @@ wait_time = 2.5
 one_shot = true
 
 [node name="ScreenMargin2" type="MarginContainer" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+offset_top = -100.0
+offset_right = 100.0
+grow_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_bottom = 24
 
 [node name="AbilitySidesDisplay" parent="UI/ScreenMargin2" node_paths=PackedStringArray("player", "card_system") instance=ExtResource("1_lwuof")]
 layout_mode = 2
@@ -218,7 +250,21 @@ shape = SubResource("BoxShape3D_q4ywm")
 deck = Array[ExtResource("5_joks6")]([ExtResource("13_q4ywm"), ExtResource("14_qcm70"), ExtResource("15_wkhn0"), ExtResource("16_h317v"), ExtResource("17_o8ny7"), ExtResource("18_vfvks")])
 player = NodePath("../BaseLevel/Player")
 
+[node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+
+[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
+material = SubResource("ShaderMaterial_qcm70")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_wkhn0")
+
 [node name="PSXShaderLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
 
 [node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
 material = SubResource("ShaderMaterial_ceuhh")

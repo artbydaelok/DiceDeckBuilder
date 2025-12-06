@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://di5focswwnhrd"]
+
+[ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_21p5t"]
+
+[node name="FlyingImp" instance=ExtResource("1_21p5t")]
+script = null

@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/MeshInstance3D
