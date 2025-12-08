@@ -30,7 +30,7 @@ var disabled_pos = []
 var grid_pos : Vector2
 
 signal player_moved(direction : Vector2)
-signal roll_finished
+signal roll_finished()
 
 # Health Variables
 var health : int = 100

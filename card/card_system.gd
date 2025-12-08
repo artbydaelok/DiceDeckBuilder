@@ -1,4 +1,5 @@
 extends Node
+class_name CardSystem
 
 @export var hand : Array[Card] = [null, null, null, null, null, null]
 @export var deck : Array[Card]
@@ -12,6 +13,7 @@ extends Node
 var system_disabled = false
 
 signal card_drawn
+signal item_used(card: Card)
 
 @export var shuffle_deck_mode : bool = false
 
@@ -86,7 +88,8 @@ func play_ability():
 	system_disabled = true
 	
 	# Gets the ability ID and instantiates it.
-	var id = hand[player.up_side].ability_id
+	var item : Card = hand[player.up_side]
+	var id = item.ability_id
 	if id == "empty":
 		return
 	var ability_instance = CARD_ABILITIES[id].instantiate()
@@ -98,6 +101,8 @@ func play_ability():
 	player.energy -= _cost
 	player.energy = clamp(player.energy, 0, 6)
 	player.energy_spent.emit(_cost)
+	
+	item_used.emit(item)
 	
 	if hand_display != null:
 		# This triggers the animations for the Card UI Element

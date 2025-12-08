@@ -41,6 +41,16 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://abilities/": "purple",
+"res://addons/": "gray",
+"res://assets/": "yellow",
+"res://card/": "orange",
+"res://script_templates/": "gray"
+}
+
 [global_group]
 
 entities_layer=""
@@ -48,6 +58,7 @@ player=""
 boss=""
 enemy_projectiles=""
 explosive_barrel=""
+card_system=""
 
 [gui]
 
