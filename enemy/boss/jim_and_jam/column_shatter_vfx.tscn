@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dd8vt81hhot3u"]
 
-[ext_resource type="Script" path="res://enemy/boss/jim_and_jam/column_shatter_vfx.gd" id="1_nduqo"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_t1lit"]
-[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_flobq"]
+[ext_resource type="Script" uid="uid://d2i66gkvqbgsb" path="res://enemy/boss/jim_and_jam/column_shatter_vfx.gd" id="1_nduqo"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="2_t1lit"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://core/components/self_destroy_timer.tscn" id="3_flobq"]
 
 [sub_resource type="Gradient" id="Gradient_wauki"]
 offsets = PackedFloat32Array(0, 0.740659, 1)

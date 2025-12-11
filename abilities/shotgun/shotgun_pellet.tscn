@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dcwhhsm30hjtg"]
 
 [ext_resource type="Script" uid="uid://cfdbwd7ev7el5" path="res://abilities/shotgun/shotgun_pellet.gd" id="1_u1m2e"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_evym4"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="2_evym4"]
 [ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="3_yfw8i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jj2p"]

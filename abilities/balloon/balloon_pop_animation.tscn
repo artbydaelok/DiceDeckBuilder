@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cr2syylfeg4uk" path="res://abilities/balloon/balloon_pop_animation.gd" id="1_uwykc"]
 [ext_resource type="PackedScene" uid="uid://cbi5m7vj8muyn" path="res://abilities/balloon/balloon_scene.tscn" id="2_jte73"]
-[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_4xat3"]
-[ext_resource type="AudioStream" uid="uid://ducjejj4xhqwc" path="res://sounds/balloon-pop-48030.mp3" id="4_tvmei"]
-[ext_resource type="AudioStream" uid="uid://cbcedvluolnv6" path="res://sounds/inflate.wav" id="5_i03cs"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://core/components/self_destroy_timer.tscn" id="3_4xat3"]
+[ext_resource type="AudioStream" uid="uid://ducjejj4xhqwc" path="res://assets/sounds/balloon-pop-48030.mp3" id="4_tvmei"]
+[ext_resource type="AudioStream" uid="uid://cbcedvluolnv6" path="res://assets/sounds/inflate.wav" id="5_i03cs"]
 
 [sub_resource type="Animation" id="Animation_76m4h"]
 length = 0.001

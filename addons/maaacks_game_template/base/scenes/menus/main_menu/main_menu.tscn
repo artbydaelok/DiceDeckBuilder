@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=31 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dy8sr0cd8nbiu" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/master_options_overlaid_menu.tscn" id="2_73am8"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="4_w8sbm"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/scripts/ui_sound_controller.gd" id="6_bs342"]
 [ext_resource type="Shader" uid="uid://y12oskxwjill" path="res://vfx/shaders/main_menu_distorsion.gdshader" id="6_g46cd"]
-[ext_resource type="AudioStream" uid="uid://b7wmjssg3qg21" path="res://music/chill guitars.wav" id="6_ob7sx"]
+[ext_resource type="AudioStream" uid="uid://bfda4jk3pw1w4" path="res://assets/music/drunk in space.wav" id="6_ieaq0"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_name_label.gd" id="7_j7612"]
 [ext_resource type="Gradient" uid="uid://dlfl2sxnq6dqi" path="res://vfx/gradients/ramps/blue_ghost.tres" id="8_jhnug"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_tcwah"]
 [ext_resource type="Script" uid="uid://dhcfkunxc3quj" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/custom_cursor.gd" id="15_7r4vv"]
 [ext_resource type="Texture2D" uid="uid://dedstl6w8lrtp" path="res://assets/ui/custom_cursor.png" id="15_ieaq0"]
-[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="19_7r4vv"]
+[ext_resource type="Material" uid="uid://bd52i823xefur" path="res://assets/shaders/crt_standard.tres" id="17_ieaq0"]
 
 [sub_resource type="Gradient" id="Gradient_k1p1p"]
 colors = PackedColorArray(0.19793725, 0.19793725, 0.19793719, 1, 0, 0, 0, 1)
@@ -63,30 +63,6 @@ glow_normalized = true
 glow_bloom = 1.0
 volumetric_fog_density = 0.5038
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ieaq0"]
-shader = ExtResource("19_7r4vv")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.4
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.3
-shader_parameter/resolution = Vector2(320, 240)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 2.35
-shader_parameter/roll_size = 15.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.01200000057
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 4.6899999999999995
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.03
-shader_parameter/brightness = 1.475
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 1.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.585
-shader_parameter/vignette_opacity = 0.4130000196175
-
 [sub_resource type="Gradient" id="Gradient_jhnug"]
 offsets = PackedFloat32Array(0.35670102, 0.9938144)
 colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
@@ -112,7 +88,7 @@ credits_packed_scene = ExtResource("3_g46cd")
 script = ExtResource("6_bs342")
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("4_w8sbm")]
-stream = ExtResource("6_ob7sx")
+stream = ExtResource("6_ieaq0")
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -211,7 +187,7 @@ script = ExtResource("15_7r4vv")
 layer = 100
 
 [node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
-material = SubResource("ShaderMaterial_ieaq0")
+material = ExtResource("17_ieaq0")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -244,6 +220,7 @@ size_flags_vertical = 8
 
 [node name="VersionLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "v0.1.1"
 script = ExtResource("6_pdiij")
 
@@ -257,7 +234,7 @@ auto_update = false
 
 [node name="SubTitleLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 26
 text = "by Sluggerpunk Studios"
 vertical_alignment = 1
 

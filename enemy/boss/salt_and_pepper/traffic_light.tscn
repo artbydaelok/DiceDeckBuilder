@@ -1,14 +1,14 @@
 [gd_scene load_steps=19 format=3 uid="uid://d2npjwddn3l25"]
 
 [ext_resource type="Script" uid="uid://cotfw1qydkyvi" path="res://enemy/boss/salt_and_pepper/traffic_light.gd" id="1_hrwv2"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="1_ls8fa"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="1_ls8fa"]
 [ext_resource type="Texture2D" uid="uid://eqniapwq4v7x" path="res://assets/3d_models/cars/car5_green.png" id="2_6d3h5"]
 [ext_resource type="Texture2D" uid="uid://w14ggvti3m7v" path="res://assets/3d_models/cars/car_red.png" id="2_cubmh"]
 [ext_resource type="ArrayMesh" uid="uid://dsmeuroytk540" path="res://assets/3d_models/cars/Car5.obj" id="2_m1cw1"]
 [ext_resource type="ArrayMesh" uid="uid://xhvhtlcbax4e" path="res://assets/3d_models/cars/Car.obj" id="3_1rrop"]
 [ext_resource type="Texture2D" uid="uid://d2jvaroki1ewd" path="res://assets/boss_sprites/TrafficLight.png" id="5_kqshj"]
-[ext_resource type="AudioStream" uid="uid://bhq4bfsa4edsv" path="res://sounds/VE004A~1.WAV" id="8_4e4sa"]
-[ext_resource type="AudioStream" uid="uid://3sxgqx8k1qdb" path="res://sounds/UI Arcane Click 02.wav" id="8_vkm28"]
+[ext_resource type="AudioStream" uid="uid://bhq4bfsa4edsv" path="res://assets/sounds/VE004A~1.WAV" id="8_4e4sa"]
+[ext_resource type="AudioStream" uid="uid://3sxgqx8k1qdb" path="res://assets/sounds/UI Arcane Click 02.wav" id="8_vkm28"]
 
 [sub_resource type="Animation" id="Animation_feepl"]
 length = 0.001

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_r55pm"]
 [ext_resource type="Script" uid="uid://b1e6s0qouf47" path="res://levels/hub_level.gd" id="2_j0rvb"]
 [ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="2_xl636"]
-[ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://components/cutscene/dialogue_trigger_area.tscn" id="3_c4aiy"]
+[ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://core/components/cutscene/dialogue_trigger_area.tscn" id="3_c4aiy"]
 [ext_resource type="Texture2D" uid="uid://bxs7vxpdc5lbl" path="res://assets/3d_models/psx/grass/grass_1.png" id="3_uj6qf"]
 [ext_resource type="Texture2D" uid="uid://domerljpf6atq" path="res://vfx/gradients/textures/forest_level_gradient.tres" id="4_c5pd8"]
 [ext_resource type="Texture2D" uid="uid://ccef3yy5esc6b" path="res://assets/3d_models/psx/grass/grass_1_normal.png" id="4_iva4b"]
@@ -42,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://3cbj41471tts" path="res://assets/3d_models/psx/warehouse/warehouse_mx_2.glb" id="37_tlfld"]
 [ext_resource type="PackedScene" uid="uid://dp0a62ch0fmen" path="res://assets/3d_models/psx/warehouse/warehouse_mx_4.glb" id="38_hrgjf"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="39_1qfx6"]
-[ext_resource type="AudioStream" uid="uid://bpei5k57wnr2a" path="res://music/CosmicHub.wav" id="40_blouu"]
+[ext_resource type="AudioStream" uid="uid://bpei5k57wnr2a" path="res://assets/music/CosmicHub.wav" id="40_blouu"]
 [ext_resource type="ArrayMesh" uid="uid://n3dfmxo5np3f" path="res://assets/3d_models/lamp_post.obj" id="42_srspe"]
 
 [sub_resource type="Animation" id="Animation_mq2i1"]
@@ -408,12 +408,13 @@ root_node = NodePath("../BaseLevel")
 libraries = {
 &"": SubResource("AnimationLibrary_tlfld")
 }
+autoplay = "0_first_time"
 
 [node name="UI" parent="." index="2"]
 visible = false
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" index="0"]
-transform = Transform3D(0.9659245, -1.0593781e-08, -0.2588189, 0.00054658134, 0.9999965, 0.0020398286, 0.2588182, -0.002111788, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.9659242, -1.0593778e-08, -0.2588189, 0.00054658117, 0.9999962, 0.0020398286, 0.25881812, -0.0021117872, 0.9659228, -54.661007, 3.5606902, -14)
 current = true
 script = ExtResource("5_wdw7n")
 

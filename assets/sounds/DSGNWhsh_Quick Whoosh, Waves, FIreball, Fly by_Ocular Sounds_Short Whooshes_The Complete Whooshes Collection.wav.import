@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://did8s7451uysu"
+path="res://.godot/imported/DSGNWhsh_Quick Whoosh, Waves, FIreball, Fly by_Ocular Sounds_Short Whooshes_The Complete Whooshes Collection.wav-8984b6310d3aec7887a061f82147518f.sample"
+
+[deps]
+
+source_file="res://assets/sounds/DSGNWhsh_Quick Whoosh, Waves, FIreball, Fly by_Ocular Sounds_Short Whooshes_The Complete Whooshes Collection.wav"
+dest_files=["res://.godot/imported/DSGNWhsh_Quick Whoosh, Waves, FIreball, Fly by_Ocular Sounds_Short Whooshes_The Complete Whooshes Collection.wav-8984b6310d3aec7887a061f82147518f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

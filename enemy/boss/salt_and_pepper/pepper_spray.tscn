@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ccxs0ddfl8hma" path="res://assets/boss_sprites/SaltAndPepper.png" id="1_mvf7l"]
 [ext_resource type="Script" uid="uid://bsyovthqdfomg" path="res://enemy/boss/salt_and_pepper/pepper_spray.gd" id="1_qdex7"]
 [ext_resource type="Shader" uid="uid://dupa5c1dwvlw5" path="res://vfx/shaders/dotted_line.gdshader" id="2_ij8c0"]
-[ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://sounds/gunshot-1.wav" id="3_uf43i"]
+[ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://assets/sounds/gunshot-1.wav" id="3_uf43i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ij8c0"]
 resource_local_to_scene = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b35gq4ouvj5bm"]
 
-[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://components/hurtbox.tscn" id="1_imgdw"]
+[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="1_imgdw"]
 [ext_resource type="Script" uid="uid://e1vjrfjkahq6" path="res://enemy/enemy_pawns/base_enemy_pawn.gd" id="1_mcphh"]
 
 [node name="BaseEnemyPawn" type="CharacterBody3D"]

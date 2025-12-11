@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dah1i2tgfmh21"]
 
-[ext_resource type="Script" path="res://abilities/bear_swipe/bear_swipe_animation.gd" id="1_seaue"]
+[ext_resource type="Script" uid="uid://cfwbceih0d6b0" path="res://abilities/bear_swipe/bear_swipe_animation.gd" id="1_seaue"]
 [ext_resource type="PackedScene" uid="uid://dryy2250jf4vo" path="res://assets/3d_models/BearSwipe.glb" id="2_0bpbk"]
-[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_0xag4"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="4_ft45p"]
-[ext_resource type="AudioStream" uid="uid://bqtpdh105i8uf" path="res://sounds/bear_roar_and_swipe.wav" id="5_ol05h"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://core/components/self_destroy_timer.tscn" id="3_0xag4"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="4_ft45p"]
+[ext_resource type="AudioStream" uid="uid://bqtpdh105i8uf" path="res://assets/sounds/bear_roar_and_swipe.wav" id="5_ol05h"]
 
 [sub_resource type="Animation" id="Animation_gpubr"]
 length = 0.001

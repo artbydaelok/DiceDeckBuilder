@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://7j54qgx8r86i" path="res://abilities/bow_and_arrow/bow_and_arrow_animation.gd" id="2_ppa1w"]
 [ext_resource type="Shader" uid="uid://dnil8p8ju0md2" path="res://assets/shaders/outline.gdshader" id="3_f6d2l"]
 [ext_resource type="PackedScene" uid="uid://csth3bndxcg43" path="res://abilities/bow_and_arrow/Arrow.glb" id="3_wbu2v"]
-[ext_resource type="AudioStream" uid="uid://cn5pdejdhph3k" path="res://sounds/bow_charge_and_shoot.wav" id="4_wvsj5"]
+[ext_resource type="AudioStream" uid="uid://cn5pdejdhph3k" path="res://assets/sounds/bow_charge_and_shoot.wav" id="4_wvsj5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jt561"]
 render_priority = 0

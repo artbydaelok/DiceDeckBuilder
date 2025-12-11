@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://di32voroemu2r" path="res://enemy/boss/salt_and_pepper/goon_base.gd" id="1_63bdl"]
 [ext_resource type="Texture2D" uid="uid://hqxc7ku06s7n" path="res://assets/spritesheets/PepperGoonSpritesheet.png" id="2_7hl3d"]
 [ext_resource type="Texture2D" uid="uid://bjimvitu5y48i" path="res://assets/spritesheets/SaltGoonSpritesheet.png" id="3_pdgbe"]
-[ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://sounds/gunshot-1.wav" id="4_rwk4l"]
+[ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://assets/sounds/gunshot-1.wav" id="4_rwk4l"]
 [ext_resource type="Shader" uid="uid://dupa5c1dwvlw5" path="res://vfx/shaders/dotted_line.gdshader" id="5_sp4el"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njytg"]

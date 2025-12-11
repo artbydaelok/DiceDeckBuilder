@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://icig8la8yj1t"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_d2344"]
-[ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://components/cutscene/dialogue_trigger_area.tscn" id="2_u3uw7"]
+[ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://core/components/cutscene/dialogue_trigger_area.tscn" id="2_u3uw7"]
 [ext_resource type="Resource" uid="uid://b0tp1n1bwpd2i" path="res://dialogue/hell_level_intro.dialogue" id="3_ignju"]
 [ext_resource type="Texture2D" uid="uid://c4vke66ggostg" path="res://assets/3d_models/hell_rock/hell_rock_1_stone_hell_5.png" id="3_w6gso"]
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="4_0i2fg"]

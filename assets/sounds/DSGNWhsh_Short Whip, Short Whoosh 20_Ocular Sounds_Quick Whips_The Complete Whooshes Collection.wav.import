@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbmhhwmpkrs3m"
+path="res://.godot/imported/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav-c565abdc62dec77a49b7f4a59ad8c3a8.sample"
+
+[deps]
+
+source_file="res://assets/sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav"
+dest_files=["res://.godot/imported/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav-c565abdc62dec77a49b7f4a59ad8c3a8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

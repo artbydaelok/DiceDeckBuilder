@@ -1,8 +1,8 @@
 [gd_scene load_steps=24 format=3 uid="uid://b0lpapgxgdlna"]
 
 [ext_resource type="Script" uid="uid://mlht1fef1qxs" path="res://vfx/explosion_blast.gd" id="1_anhfp"]
-[ext_resource type="AudioStream" uid="uid://u2dh0c3m805s" path="res://sounds/EXPLDsgn_High End Thunder Strike_Ocular Sounds_Heavy Explosions_The Complete Impacts Collection.wav" id="1_nhpiw"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_kq5bs"]
+[ext_resource type="AudioStream" uid="uid://u2dh0c3m805s" path="res://assets/sounds/EXPLDsgn_High End Thunder Strike_Ocular Sounds_Heavy Explosions_The Complete Impacts Collection.wav" id="1_nhpiw"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="3_kq5bs"]
 
 [sub_resource type="Curve" id="Curve_ra4dy"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.601533, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

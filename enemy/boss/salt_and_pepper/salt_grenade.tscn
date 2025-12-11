@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://i2sd4y0dv6y4"]
 
 [ext_resource type="Script" uid="uid://b1citvaqs73t8" path="res://enemy/boss/salt_and_pepper/salt_grenade.gd" id="1_l41xd"]
-[ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="2_bre8e"]
+[ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://assets/sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="2_bre8e"]
 [ext_resource type="Shader" uid="uid://dmb4hy7niah04" path="res://enemy/boss/salt_and_pepper/salt_grenade.gdshader" id="2_sp1wq"]
 [ext_resource type="ArrayMesh" uid="uid://cddwqj6b34jdm" path="res://assets/3d_models/Bomb.obj" id="3_j1hgj"]
 [ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="5_tpvux"]

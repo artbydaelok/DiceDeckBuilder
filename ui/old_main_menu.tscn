@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dsxnhye52v1h2" path="res://ui/old_main_menu.gd" id="1_xi7t0"]
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="2_gcvtk"]
 [ext_resource type="PackedScene" uid="uid://dpgklwmdgcka1" path="res://ui/level_select.tscn" id="3_ophkb"]
-[ext_resource type="AudioStream" uid="uid://bfda4jk3pw1w4" path="res://music/drunk in space.wav" id="4_864wu"]
+[ext_resource type="AudioStream" uid="uid://bfda4jk3pw1w4" path="res://assets/music/drunk in space.wav" id="4_864wu"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_xi7t0")

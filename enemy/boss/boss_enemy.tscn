@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj0n4kvfagpx3"]
 
-[ext_resource type="Script" path="res://enemy/boss/boss_enemy.gd" id="1_u220c"]
-[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://components/hurtbox.tscn" id="2_4n1sm"]
+[ext_resource type="Script" uid="uid://c720ls31jk58h" path="res://enemy/boss/boss_enemy.gd" id="1_u220c"]
+[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="2_4n1sm"]
 
 [node name="BossEnemy" type="Node3D" groups=["boss"]]
 script = ExtResource("1_u220c")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cexvawbvoi0dq"]
+
+[ext_resource type="Script" uid="uid://bxcx1uxtgg15h" path="res://core/components/self_destroy_timer.gd" id="1_5ny2w"]
+
+[node name="SelfDestroyTimer" type="Node"]
+script = ExtResource("1_5ny2w")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

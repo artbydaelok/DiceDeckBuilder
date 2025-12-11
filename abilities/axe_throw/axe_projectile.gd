@@ -8,6 +8,8 @@ var player
 
 var stuck = false
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global_position = player.global_position + Vector3(0, 2, 0)
@@ -15,6 +17,11 @@ func _ready() -> void:
 	
 	collision_shape.disabled = false
 	hitbox_shape.disabled = false
+
+
+#TODO: Add "MISS" text if the player hits the imaginary back wall that indicates player missed the target/boss
+func on_miss():
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,7 +35,6 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	
 	$AxeHitSFX.play()
 	#TODO: Add sparks and other particles to make the impact feel better.
-	
 	await get_tree().create_timer(0.35).timeout
 	queue_free()
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c4wqu2evrk3r2"]
 
 [ext_resource type="Texture2D" uid="uid://bq1407ekglx5r" path="res://assets/floor_marker.png" id="1_hx3g5"]
-[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="2_22tkf"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://core/components/self_destroy_timer.tscn" id="2_22tkf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhpp5"]
 transparency = 4

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://yans6r2pg0ek" path="res://ui/energy_meter.gd" id="1_33ov5"]
 [ext_resource type="Texture2D" uid="uid://cu2sxteptx5y2" path="res://assets/ui/EnergySlot.png" id="1_cuhyj"]
 [ext_resource type="Texture2D" uid="uid://cunxa2dv4dwp8" path="res://assets/ui/EnergySlotBall.png" id="2_3c3xm"]
-[ext_resource type="AudioStream" uid="uid://6uwji44un5ef" path="res://sounds/8 Bit Glitch_09.wav" id="4_maj57"]
+[ext_resource type="AudioStream" uid="uid://6uwji44un5ef" path="res://assets/sounds/8 Bit Glitch_09.wav" id="4_maj57"]
 
 [node name="EnergyMeter" type="HBoxContainer"]
 offset_right = 40.0

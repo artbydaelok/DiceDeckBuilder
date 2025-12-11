@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxux3kx5rrm0x" path="res://abilities/shotgun/shotgun_animation.gd" id="1_oebue"]
 [ext_resource type="PackedScene" uid="uid://c7km4wa87ggqw" path="res://abilities/shotgun/shotgun_scene.tscn" id="2_ggepv"]
-[ext_resource type="AudioStream" uid="uid://c4q7mno4u4kkj" path="res://sounds/shotgun load and shot.wav" id="3_6t5je"]
+[ext_resource type="AudioStream" uid="uid://c4q7mno4u4kkj" path="res://assets/sounds/shotgun load and shot.wav" id="3_6t5je"]
 
 [sub_resource type="Animation" id="Animation_gat5b"]
 length = 0.001

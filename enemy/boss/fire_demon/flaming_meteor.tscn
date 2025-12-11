@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bxgb3d4isw7pv" path="res://enemy/boss/fire_demon/flaming_meteor.gd" id="1_kfmb3"]
 [ext_resource type="Shader" uid="uid://dnil8p8ju0md2" path="res://assets/shaders/outline.gdshader" id="2_elihe"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="2_rtlne"]
-[ext_resource type="AudioStream" uid="uid://rlw3xjaqvlqy" path="res://sounds/FIRETurb_Heavy Crispy High Fire, Sequence, Distorted_OP_OCULAR-012.wav" id="3_vn808"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="2_rtlne"]
+[ext_resource type="AudioStream" uid="uid://rlw3xjaqvlqy" path="res://assets/sounds/FIRETurb_Heavy Crispy High Fire, Sequence, Distorted_OP_OCULAR-012.wav" id="3_vn808"]
 
 [sub_resource type="Gradient" id="Gradient_tu1gi"]
 offsets = PackedFloat32Array(0, 0.0647482, 0.2494, 0.275779, 0.47482, 0.484412, 0.494005, 1)

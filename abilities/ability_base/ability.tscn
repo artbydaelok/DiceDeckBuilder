@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpptjpqhuoyuj"]
 
-[ext_resource type="Script" path="res://abilities/ability_base/ability.gd" id="1_415fy"]
-[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="2_balk3"]
+[ext_resource type="Script" uid="uid://byexwpuai4j2l" path="res://abilities/ability_base/ability.gd" id="1_415fy"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://core/components/self_destroy_timer.tscn" id="2_balk3"]
 
 [node name="Ability" type="Node"]
 script = ExtResource("1_415fy")

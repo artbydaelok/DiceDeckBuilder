@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lojmpl41ic3g"]
+
+[ext_resource type="Script" uid="uid://e7bl34mn7ynu" path="res://core/components/item_event_component/item_event_component.gd" id="1_80nnw"]
+
+[node name="ItemEventComponent" type="Node"]
+script = ExtResource("1_80nnw")
+behavior = null
+item_to_callable = null

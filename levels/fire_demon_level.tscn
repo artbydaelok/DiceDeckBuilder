@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bhs48qnsqembh" path="res://vfx/embers_vfx.tscn" id="8_wan88"]
 [ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="9_6aa4o"]
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="10_62a5j"]
-[ext_resource type="AudioStream" uid="uid://b13o3b5bar26b" path="res://music/crushed ice.wav" id="12_us50b"]
+[ext_resource type="AudioStream" uid="uid://b13o3b5bar26b" path="res://assets/music/crushed ice.wav" id="12_us50b"]
 [ext_resource type="PackedScene" uid="uid://dh1xdwurvbl51" path="res://assets/3d_models/hell_rock/hell_rock_1.tscn" id="12_v2vlt"]
 [ext_resource type="PackedScene" uid="uid://b2x0rck461il1" path="res://assets/3d_models/hell_rock/spike.tscn" id="16_m1xg1"]
 [ext_resource type="PackedScene" uid="uid://cb1qx6lk14w4g" path="res://assets/3d_models/hell_rock/hell_arena.tscn" id="16_wan88"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwyb3auunpu1r"]
 
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="1_j4oks"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="1_j4oks"]
 [ext_resource type="Script" uid="uid://cyewp8v8b2msj" path="res://enemy/boss/fire_demon/fire_wall.gd" id="1_xn4mw"]
 [ext_resource type="PackedScene" uid="uid://dyvlfu7ue375j" path="res://vfx/fire_wall_particles.tscn" id="2_x7cf6"]
 

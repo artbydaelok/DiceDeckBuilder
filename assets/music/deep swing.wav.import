@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dc1f2qpo2xlol"
+path="res://.godot/imported/deep swing.wav-4e9b27d3fe78028326ebe00fc2d1c13e.sample"
+
+[deps]
+
+source_file="res://assets/music/deep swing.wav"
+dest_files=["res://.godot/imported/deep swing.wav-4e9b27d3fe78028326ebe00fc2d1c13e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

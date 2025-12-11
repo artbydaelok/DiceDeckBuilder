@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bd52i823xefur"]
+
+[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="1_4gcws"]
+
+[resource]
+shader = ExtResource("1_4gcws")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.10000000475
+shader_parameter/scanlines_width = 0.1250000059375
+shader_parameter/grille_opacity = 0.10000000475
+shader_parameter/resolution = Vector2(320, 240)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 5.1
+shader_parameter/roll_size = 12.00000057
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.010000000475
+shader_parameter/noise_opacity = 0.10000000475
+shader_parameter/noise_speed = 3.9
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.01500004821249989
+shader_parameter/brightness = 1.475
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.585
+shader_parameter/vignette_opacity = 0.4130000196175

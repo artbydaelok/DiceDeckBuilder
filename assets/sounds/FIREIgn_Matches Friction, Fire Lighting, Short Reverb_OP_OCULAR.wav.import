@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b73d3i82w6onq"
+path="res://.godot/imported/FIREIgn_Matches Friction, Fire Lighting, Short Reverb_OP_OCULAR.wav-e08fead4bc2d25f73fed06b136dd1a56.sample"
+
+[deps]
+
+source_file="res://assets/sounds/FIREIgn_Matches Friction, Fire Lighting, Short Reverb_OP_OCULAR.wav"
+dest_files=["res://.godot/imported/FIREIgn_Matches Friction, Fire Lighting, Short Reverb_OP_OCULAR.wav-e08fead4bc2d25f73fed06b136dd1a56.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

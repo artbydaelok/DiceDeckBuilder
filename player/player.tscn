@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dx3ou7m1amufh" path="res://player/player.gd" id="1_1u8nn"]
 [ext_resource type="Texture2D" uid="uid://b7f38wjks3ocy" path="res://player/pixel_dice_tex_empty_face.png" id="2_7sfox"]
-[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://components/hurtbox.tscn" id="2_knvy0"]
+[ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="2_knvy0"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
 [ext_resource type="Script" uid="uid://cqi1mqmkmli5s" path="res://player/SideSprite.gd" id="5_v808x"]
-[ext_resource type="AudioStream" uid="uid://t4j8pdmiqehu" path="res://sounds/footstep_concrete_a_14.wav" id="6_j7ngl"]
-[ext_resource type="AudioStream" uid="uid://uwo0eav3gehd" path="res://sounds/PUNCH_ELECTRIC_HEAVY_02.wav" id="7_2b10p"]
+[ext_resource type="AudioStream" uid="uid://t4j8pdmiqehu" path="res://assets/sounds/footstep_concrete_a_14.wav" id="6_j7ngl"]
+[ext_resource type="AudioStream" uid="uid://uwo0eav3gehd" path="res://assets/sounds/PUNCH_ELECTRIC_HEAVY_02.wav" id="7_2b10p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ru3w"]
 albedo_texture = ExtResource("2_7sfox")
@@ -190,6 +190,6 @@ target_position = Vector3(0, 0, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
-spot_range = 8.0
+light_energy = 0.5
 
 [connection signal="timeout" from="CommitLockTimer" to="." method="_on_commit_lock_timer_timeout"]

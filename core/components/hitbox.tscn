@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkt3ibqmr80br"]
+
+[ext_resource type="Script" uid="uid://disarda3drhlc" path="res://core/components/hitbox.gd" id="1_r78gx"]
+
+[node name="Hitbox" type="Area3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("1_r78gx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

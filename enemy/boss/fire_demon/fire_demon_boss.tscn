@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://stl03r320ecv" path="res://enemy/boss/fire_demon/fire_demon_boss.gd" id="2_0kw8k"]
 [ext_resource type="Texture2D" uid="uid://b41triouirt77" path="res://assets/boss_sprites/fire_boss_mask.png" id="2_els1n"]
 [ext_resource type="Texture2D" uid="uid://011ffbakv0au" path="res://assets/boss_sprites/fire_boss_hand.png" id="3_7mf8p"]
-[ext_resource type="AudioStream" uid="uid://duh3uk68popna" path="res://sounds/DSGNWhsh_Quick Whoosh, Fireball, Crackle, Fly by_Ocular Sounds_Short Whooshes_The Complete Whooshes Collection.wav" id="5_7xhcx"]
+[ext_resource type="AudioStream" uid="uid://duh3uk68popna" path="res://assets/sounds/DSGNWhsh_Quick Whoosh, Fireball, Crackle, Fly by_Ocular Sounds_Short Whooshes_The Complete Whooshes Collection.wav" id="5_7xhcx"]
 
 [sub_resource type="Animation" id="Animation_h5qqb"]
 resource_name = "LeftFirst"

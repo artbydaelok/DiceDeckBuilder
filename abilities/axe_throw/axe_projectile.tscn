@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="1_33ehh"]
 [ext_resource type="Script" uid="uid://d3msu6krrt5ra" path="res://abilities/axe_throw/axe_projectile.gd" id="1_lfw1k"]
-[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://components/self_destroy_timer.tscn" id="3_fw626"]
-[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://components/hitbox.tscn" id="3_sgtvi"]
-[ext_resource type="AudioStream" uid="uid://dt5rflcx7hcoa" path="res://sounds/DSGNWhsh_Short Whip, Short Whoosh 14_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="5_w8wkl"]
-[ext_resource type="AudioStream" uid="uid://5csvisk68nfn" path="res://sounds/axe_hit.wav" id="6_fpmvx"]
+[ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://core/components/self_destroy_timer.tscn" id="3_fw626"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="3_sgtvi"]
+[ext_resource type="AudioStream" uid="uid://dt5rflcx7hcoa" path="res://assets/sounds/DSGNWhsh_Short Whip, Short Whoosh 14_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="5_w8wkl"]
+[ext_resource type="AudioStream" uid="uid://5csvisk68nfn" path="res://assets/sounds/axe_hit.wav" id="6_fpmvx"]
 [ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="7_qpden"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpden"]
