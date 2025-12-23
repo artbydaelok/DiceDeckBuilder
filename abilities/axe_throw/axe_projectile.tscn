@@ -64,7 +64,8 @@ bus = &"SFX"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31655133, 0)
-light_energy = 2.75
+light_energy = 1.5
+omni_range = 3.0
 
 [node name="BreakSFX" type="AudioStreamPlayer" parent="."]
 

@@ -11,6 +11,8 @@ script = ExtResource("1_mcphh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("1_imgdw")]
+collision_layer = 16
+collision_mask = 0
 hurtbox_owner = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]

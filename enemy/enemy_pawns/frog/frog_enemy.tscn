@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bisc8ge4rrwc"]
+
+[ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_4u7y1"]
+[ext_resource type="Script" uid="uid://bq4exe2ofmgdw" path="res://enemy/enemy_pawns/frog/frog_enemy.gd" id="2_7bili"]
+[ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="2_i20i7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4u7y1"]
+size = Vector3(1, 1.5, 2)
+
+[node name="FrogEnemy" instance=ExtResource("1_4u7y1")]
+script = ExtResource("2_7bili")
+spaces_to_move = 3
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_4u7y1")
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_4u7y1")
+
+[node name="Frog" parent="Visuals" index="0" instance=ExtResource("2_i20i7")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="MoveTimer" type="Timer" parent="." index="3"]
+autostart = true
