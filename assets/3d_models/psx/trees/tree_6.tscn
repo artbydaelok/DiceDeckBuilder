@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b4cckx4hgyro8" path="res://assets/3d_models/psx/trees/tree_6.glb" id="1_6itoi"]
 
 [node name="tree_6" instance=ExtResource("1_6itoi")]
+
+[node name="tree_6" parent="." index="0"]
+transform = Transform3D(1.7887784, 0.8945792, -3.91033e-08, 0, -8.742278e-08, -2, -0.8945792, 1.7887784, -7.818999e-08, 0, 0, 0)

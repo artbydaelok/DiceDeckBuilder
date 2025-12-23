@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=30 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dy8sr0cd8nbiu" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/master_options_overlaid_menu.tscn" id="2_73am8"]
@@ -17,8 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ovxqjd7ffdic" path="res://cutscenes/player_cutscene_actor.tscn" id="12_oqvs2"]
 [ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="13_jhnug"]
 [ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_tcwah"]
-[ext_resource type="Script" uid="uid://dhcfkunxc3quj" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/custom_cursor.gd" id="15_7r4vv"]
-[ext_resource type="Texture2D" uid="uid://dedstl6w8lrtp" path="res://assets/ui/custom_cursor.png" id="15_ieaq0"]
+[ext_resource type="PackedScene" uid="uid://bmrw3l8b8wpxu" path="res://menus/mouse_layer.tscn" id="15_7r4vv"]
 [ext_resource type="Material" uid="uid://bd52i823xefur" path="res://assets/shaders/crt_standard.tres" id="17_ieaq0"]
 
 [sub_resource type="Gradient" id="Gradient_k1p1p"]
@@ -175,13 +174,7 @@ script = ExtResource("9_1lt1u")
 anim_amount = 0.77
 random_rotation_animation = Vector3(0.25, 2, 0)
 
-[node name="MouseLayer" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="CustomCursor" type="Sprite2D" parent="MouseLayer"]
-texture = ExtResource("15_ieaq0")
-centered = false
-script = ExtResource("15_7r4vv")
+[node name="MouseLayer" parent="." instance=ExtResource("15_7r4vv")]
 
 [node name="CRTShaderLayer" type="CanvasLayer" parent="."]
 layer = 100

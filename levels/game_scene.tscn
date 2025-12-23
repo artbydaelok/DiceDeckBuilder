@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene load_steps=27 format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" uid="uid://t1i3t7qkwjs3" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
@@ -10,15 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://convybpr5awm3" path="res://ui/energy_meter.tscn" id="4_iiuie"]
 [ext_resource type="PackedScene" uid="uid://bwy7alqls02bx" path="res://ui/center_warning_sign.tscn" id="4_qa4f1"]
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="4_xdqa1"]
-[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="5_joks6"]
 [ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
-[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="13_q4ywm"]
-[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="14_qcm70"]
-[ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="15_wkhn0"]
-[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="16_h317v"]
-[ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="17_o8ny7"]
-[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="18_vfvks"]
 [ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="19_q4ywm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
@@ -249,7 +242,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -4)
 shape = SubResource("BoxShape3D_q4ywm")
 
 [node name="CardSystem" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
-deck = Array[ExtResource("5_joks6")]([ExtResource("13_q4ywm"), ExtResource("14_qcm70"), ExtResource("15_wkhn0"), ExtResource("16_h317v"), ExtResource("17_o8ny7"), ExtResource("18_vfvks")])
 player = NodePath("../BaseLevel/Player")
 
 [node name="CRTShaderLayer" type="CanvasLayer" parent="."]

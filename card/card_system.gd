@@ -43,8 +43,10 @@ const CARD_DISPLAY = preload("res://card/card_display.tscn")
 func _ready() -> void:
 	# Test Draw At Start
 	shuffle_deck()
-	for i in range(6):
-		draw_card(i)
+	
+	## THIS DRAWS 6 items
+	#for i in range(6):
+		#draw_card(i)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_ability") and not player.rolling:

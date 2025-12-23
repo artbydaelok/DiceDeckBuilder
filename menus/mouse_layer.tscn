@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmrw3l8b8wpxu"]
+
+[ext_resource type="Texture2D" uid="uid://dedstl6w8lrtp" path="res://assets/ui/custom_cursor.png" id="1_ogrvj"]
+[ext_resource type="Script" uid="uid://dhcfkunxc3quj" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/custom_cursor.gd" id="2_g0gq6"]
+
+[node name="MouseLayer" type="CanvasLayer"]
+layer = 2
+
+[node name="CustomCursor" type="Sprite2D" parent="."]
+texture = ExtResource("1_ogrvj")
+centered = false
+script = ExtResource("2_g0gq6")
