@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdlnaa4tf2vak"]
+
+[ext_resource type="PackedScene" uid="uid://dqe2lx5m0xoch" path="res://assets/3d_models/psx/trees/pine_tree_n_3.glb" id="1_pldi1"]
+
+[node name="PineTree3" instance=ExtResource("1_pldi1")]
+
+[node name="pine_tree_n_3" parent="." index="0"]
+transform = Transform3D(0.04549245, 1.9994825, -8.740016e-08, 0, -8.742278e-08, -2, -1.9994825, 0.04549245, -1.9885382e-09, 0, 0, 0)

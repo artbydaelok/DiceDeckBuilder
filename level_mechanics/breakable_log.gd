@@ -1,7 +1,11 @@
 extends Node3D
 
+@onready var broken_particles: GPUParticles3D = $BrokenParticles
+@onready var mesh: Node3D = $tree_log_12
+@onready var static_body_3d: StaticBody3D = $StaticBody3D
 
-
-
-func _on_breakable_hitbox_body_entered(body: Node3D) -> void:
-	print("broken")
+	
+func axe_hit():
+	broken_particles.emitting = true
+	broken_particles.reparent(GameEvents.current_level)
+	queue_free()

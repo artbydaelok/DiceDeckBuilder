@@ -2,4 +2,5 @@
 ~ break_log
 Oh God, I think I heard something.
 Quick! Grab that axe and break this log!
+do GameEvents.current_level.obtain_axe()
 => END

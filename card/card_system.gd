@@ -82,7 +82,7 @@ func set_slot_to_item(slot: int, card: Card):
 func play_ability():
 	if player.input_disabled: return
 	if system_disabled == true: return
-	
+	if hand[player.up_side] == null: return 
 	if hand[player.up_side].cost > player.energy: 
 		player.insufficient_energy.emit()
 		return

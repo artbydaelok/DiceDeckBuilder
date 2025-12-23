@@ -1,0 +1,483 @@
+[gd_scene load_steps=27 format=3 uid="uid://crevw44gy8m6l"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_fnn83"]
+[ext_resource type="Script" uid="uid://h6bmtlsgdg6" path="res://levels/forest_level/forest_level.gd" id="2_cpv81"]
+[ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="3_24wnm"]
+[ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://core/components/cutscene/dialogue_trigger_area.tscn" id="4_fyusi"]
+[ext_resource type="Resource" uid="uid://ha3t3hrgxnfs" path="res://dialogue/forest_level.dialogue" id="5_nautm"]
+[ext_resource type="PackedScene" uid="uid://c76drbuur0wwo" path="res://assets/3d_models/psx/trees/tree_stump_12.tscn" id="6_b118p"]
+[ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="7_7n544"]
+[ext_resource type="Script" uid="uid://dsxhvomj66eej" path="res://vfx/day_night_light.gd" id="8_f1v1w"]
+[ext_resource type="Texture2D" uid="uid://bxs7vxpdc5lbl" path="res://assets/3d_models/psx/grass/grass_1.png" id="9_x70s0"]
+[ext_resource type="Texture2D" uid="uid://ccef3yy5esc6b" path="res://assets/3d_models/psx/grass/grass_1_normal.png" id="10_uwb2w"]
+[ext_resource type="PackedScene" uid="uid://s1u5ft8tvg1h" path="res://vfx/fireflies_vfx.tscn" id="11_14s10"]
+[ext_resource type="PackedScene" uid="uid://b7ux5du3rf8ov" path="res://assets/3d_models/psx/trees/tree_6.tscn" id="12_ma4h5"]
+[ext_resource type="PackedScene" uid="uid://bdlnaa4tf2vak" path="res://assets/3d_models/psx/trees/pine_tree_3.tscn" id="13_24wnm"]
+[ext_resource type="PackedScene" uid="uid://dyj52ydshi4bk" path="res://level_mechanics/breakable_log.tscn" id="13_cpv81"]
+[ext_resource type="PackedScene" uid="uid://cj8jh22a8suyc" path="res://assets/3d_models/psx/stone/stone_5.tscn" id="15_fyusi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fwmjj"]
+
+[sub_resource type="Gradient" id="Gradient_ds80v"]
+colors = PackedColorArray(0, 0.03529412, 0, 1, 0.1749, 0.33, 0.224015, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v2n4n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kbxmv"]
+noise = SubResource("FastNoiseLite_v2n4n")
+color_ramp = SubResource("Gradient_ds80v")
+seamless = true
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fceby"]
+panorama = SubResource("NoiseTexture2D_kbxmv")
+
+[sub_resource type="Sky" id="Sky_jrclq"]
+sky_material = SubResource("PanoramaSkyMaterial_fceby")
+
+[sub_resource type="Environment" id="Environment_aa8vv"]
+background_mode = 2
+sky = SubResource("Sky_jrclq")
+tonemap_mode = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.5176471, 0.6431373, 0.60784316, 1)
+fog_density = 1.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_emission = Color(0.2, 0.29411766, 0.2, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ixlj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1rg0"]
+albedo_texture = ExtResource("9_x70s0")
+normal_enabled = true
+normal_texture = ExtResource("10_uwb2w")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1wlgo"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ixlj"]
+size = Vector3(2, 1, 30)
+
+[node name="ForestLevel" instance=ExtResource("1_fnn83")]
+script = ExtResource("2_cpv81")
+
+[node name="tree_stump_12" parent="BaseLevel" index="0" instance=ExtResource("6_b118p")]
+transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, 4, 0, -13.402657)
+
+[node name="tree_stump_13" parent="BaseLevel" index="1" instance=ExtResource("6_b118p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9.273315)
+
+[node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" index="2"]
+
+[node name="tree_stump_13" parent="BaseLevel/AxeObtainLocation" index="0" instance=ExtResource("6_b118p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="AxeMesh" parent="BaseLevel/AxeObtainLocation" index="1" instance=ExtResource("3_24wnm")]
+unique_name_in_owner = true
+transform = Transform3D(-0.41024995, -0.5627787, 0.27834353, 0.6060618, -0.4418021, 9.790649e-09, 0.16396368, 0.2249245, 0.69643724, 0.40386218, 1.7852298, -14.15316)
+
+[node name="AxeDialogueTrigger" parent="BaseLevel/AxeObtainLocation" index="2" instance=ExtResource("4_fyusi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+dialogue_resource = ExtResource("5_nautm")
+
+[node name="CollisionShape3D" parent="BaseLevel/AxeObtainLocation/AxeDialogueTrigger/PlayerDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+shape = SubResource("BoxShape3D_fwmjj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BaseLevel/AxeObtainLocation" index="3"]
+transform = Transform3D(0.9638354, -1.1649009e-08, 0.26649827, -0.26649827, -4.2130583e-08, 0.9638354, 0, -1, -4.371139e-08, 1.2088063, 5, -14)
+light_color = Color(1, 1, 0.6627451, 1)
+light_energy = 12.0
+spot_range = 8.0
+spot_angle = 22.0
+
+[node name="Camera3D" parent="BaseLevel" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.7071066, 0.70710695, 0, -0.70710695, 0.7071066, 0, 9, 7)
+follow_target = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BaseLevel/Camera3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, -0.8660252, 0.5000003, 0, -0.5000003, -0.8660252, 0, 10.349169, -21.662868)
+light_energy = 5.0
+spot_range = 65.0
+
+[node name="WorldEnvironment" parent="BaseLevel" index="5"]
+environment = SubResource("Environment_aa8vv")
+
+[node name="DirectionalLight3D" parent="BaseLevel" index="6"]
+transform = Transform3D(0.3374297, 0.88811743, -0.31207174, -0.3621663, 0.42847595, 0.8277945, 0.868894, -0.16630061, 0.4662267, 0, 7.85563, 0)
+
+[node name="DirectionalLight3D2" parent="BaseLevel" index="7"]
+transform = Transform3D(0.9543394, -0.12966323, 0.269117, -0.29440627, -0.5608786, 0.7737831, 0.050610766, -0.8176812, -0.5734421, 3.03067, 7.31669, -1.80642e-07)
+
+[node name="ArenaGrid" parent="BaseLevel" index="9"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, 0)
+modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
+transparent = true
+
+[node name="ArenaGrid2" type="Sprite3D" parent="BaseLevel" index="10"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -10)
+modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
+shaded = true
+texture_filter = 0
+texture = ExtResource("7_7n544")
+
+[node name="ArenaGrid3" type="Sprite3D" parent="BaseLevel" index="11"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -20)
+modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
+shaded = true
+texture_filter = 0
+texture = ExtResource("7_7n544")
+
+[node name="ArenaGrid4" type="Sprite3D" parent="BaseLevel" index="12"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -30)
+modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
+shaded = true
+texture_filter = 0
+texture = ExtResource("7_7n544")
+
+[node name="DayNightLight" type="DirectionalLight3D" parent="BaseLevel" index="13"]
+light_color = Color(0.77254903, 1, 0.9607843, 1)
+light_energy = 0.7
+script = ExtResource("8_f1v1w")
+
+[node name="GrassFloor" type="Node3D" parent="BaseLevel" index="14"]
+
+[node name="GrassPlane" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="0"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane2" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="1"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane3" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="2"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, 0)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane9" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="3"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane10" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="4"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, 0)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane4" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, 10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane6" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane7" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, 0)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane37" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="8"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane11" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="9"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, -10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane13" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="10"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -20)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane14" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="11"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -20)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane15" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="12"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -20)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane16" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="13"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -20)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane17" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="14"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, -20)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane18" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="15"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -30)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane19" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="16"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -30)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane20" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="17"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -30)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane21" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="18"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -30)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane22" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="19"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, -30)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane23" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="20"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -40)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane24" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="21"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -40)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane25" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="22"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -40)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane32" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="23"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30, 0, -10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane33" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="24"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30, 0, 0)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane34" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="25"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30, 0, -20)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane35" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="26"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30, 0, -30)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane36" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="27"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30, 0, -40)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane26" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="28"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -40)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane27" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="29"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, -40)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane28" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="30"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane29" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="31"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -20)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane30" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="32"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -30)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane31" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="33"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -40)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane12" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="34"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, 0)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane8" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="35"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, 10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane5" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="36"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 10)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+shape = SubResource("BoxShape3D_1wlgo")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -20)
+shape = SubResource("BoxShape3D_8ixlj")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -20)
+shape = SubResource("BoxShape3D_8ixlj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="3"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, 0)
+shape = SubResource("BoxShape3D_1wlgo")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="4"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 0)
+shape = SubResource("BoxShape3D_1wlgo")
+
+[node name="FirefliesVFX" parent="BaseLevel" index="16" instance=ExtResource("11_14s10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Trees" type="Node3D" parent="BaseLevel" index="18"]
+
+[node name="tree_6" parent="BaseLevel/Trees" index="0" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(0.9912086, -0.13230829, 0, 0.13230829, 0.9912086, 0, 0, 0, 1, -6.2997804, 0, 0)
+
+[node name="tree_7" parent="BaseLevel/Trees" index="1" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 6.7002196, 0, 0)
+
+[node name="tree_14" parent="BaseLevel/Trees" index="2" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.25, 0.25881904, -0.93301266, 0.31470475, 0.93301255, 0.17449412, 0.91567516, -0.24999997, -0.31470475, 6.7002196, 0, -4)
+
+[node name="tree_13" parent="BaseLevel/Trees" index="3" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.15852574, 0.0092314035, -0.9873118, 0.25577593, 0.9662052, -0.032034084, 0.95364994, -0.25760877, -0.15552957, 3.6815157, 0, -7.386371)
+
+[node name="tree_15" parent="BaseLevel/Trees" index="4" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.18411575, -0.12719823, -0.9746394, 0.16360418, 0.97379225, -0.15799361, 0.96919304, -0.18854429, -0.1584804, -4.2810764, 0, -6.613629)
+
+[node name="tree_16" parent="BaseLevel/Trees" index="5" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.36515126, 0.19100598, -0.9111429, 0.31003293, 0.9478068, 0.07444263, 0.87780637, -0.25530145, -0.40531105, 3.811898, 0, -15.342772)
+
+[node name="tree_19" parent="BaseLevel/Trees" index="6" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.36515126, 0.19100598, -0.9111429, 0.31003293, 0.9478068, 0.07444263, 0.87780637, -0.25530145, -0.40531105, 3.811898, 0, -22.342772)
+
+[node name="tree_17" parent="BaseLevel/Trees" index="7" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.43358725, -0.18843178, -0.88119, 0.0540327, 0.9706958, -0.23415816, 0.8994905, -0.14914109, -0.41069984, -4.2454176, 0, -15.560634)
+
+[node name="tree_18" parent="BaseLevel/Trees" index="8" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(0.19771436, -0.24025832, -0.9503606, 0.054032687, 0.9706958, -0.23415819, 0.9787696, -0.0050541237, 0.20490223, -10.311481, 0, -18.114422)
+
+[node name="tree_20" parent="BaseLevel/Trees" index="9" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.06448609, -0.23061912, -0.970905, 0.054032687, 0.9706958, -0.23415819, 0.99645483, -0.06756057, -0.050135463, -4.6289415, 0, -22.237095)
+
+[node name="tree_8" parent="BaseLevel/Trees" index="10" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(0.9469467, -0.085921206, -0.30969283, 0.0816648, 0.99630195, -0.02670795, 0.31084234, 0, 0.9504615, -5.9777803, 0, 4.9795246)
+
+[node name="tree_9" parent="BaseLevel/Trees" index="11" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.5453713, 0.05664052, -0.8362789, 0.030939778, 0.9983946, 0.047443427, 0.83762366, 0, -0.54624826, 6.3782196, 0, 9.020475)
+
+[node name="tree_11" parent="BaseLevel/Trees" index="12" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.5453713, 0.05664053, -0.8362789, -0.061279852, 0.99234974, 0.10717416, 0.83595175, 0.10969668, -0.53772825, 1.3341999, 0, 9.357744)
+
+[node name="tree_12" parent="BaseLevel/Trees" index="13" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.5168754, -0.1230273, -0.84717447, -0.18583253, 0.9821456, -0.029248541, 0.83564705, 0.1423146, -0.53050935, -3.4898224, 0, 8.52599)
+
+[node name="tree_10" parent="BaseLevel/Trees" index="14" instance=ExtResource("12_ma4h5")]
+transform = Transform3D(-0.5418364, 0.12683956, -0.83085835, 0.06928588, 0.9919233, 0.10624379, 0.83762366, 0, -0.54624826, 8.879475, 0, 4.41883)
+
+[node name="PineTree3" parent="." index="5" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.9989144, -0.046583425, 0, 0.046583425, 0.9989144, 0, 0, 0, 1, -8.426054, 0, -4.790935)
+
+[node name="PineTree4" parent="." index="6" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.9989144, -0.046583425, 0, 0.046583425, 0.9989144, 0, 0, 0, 1, 9.775402, 0, -14.882)
+
+[node name="PineTree5" parent="." index="7" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.99315435, -0.11680941, 0, 0.11680941, 0.99315435, 0, 0, 0, 1, -8.640326, 0, -11.61779)
+
+[node name="PineTree8" parent="." index="8" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.9870076, -0.16067366, 0, 0.16067366, 0.9870076, 0, 0, 0, 1, -12.978409, 0, -32.507732)
+
+[node name="PineTree6" parent="." index="9" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.83944774, 0.32737133, -0.43376923, -0.36333248, 0.93165964, 0, 0.40412518, 0.15760241, 0.90102404, -7.4981647, 0, -24.049065)
+
+[node name="PineTree7" parent="." index="10" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.6001302, 0.18430275, -0.77838063, -0.33588365, 0.9412112, -0.036108408, 0.7259656, 0.28311512, 0.62675345, 3.7415009, 0, -29.870821)
+
+[node name="PineTree9" parent="." index="11" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.6001302, 0.18430275, -0.77838063, -0.33588365, 0.9412112, -0.036108408, 0.7259656, 0.28311512, 0.62675345, -11.569679, 0, -29.870821)
+
+[node name="PineTree10" parent="." index="12" instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.6001302, 0.18430275, -0.77838063, -0.33588365, 0.9412112, -0.036108408, 0.7259656, 0.28311512, 0.62675345, -17.817646, 0, -21.407042)
+
+[node name="BreakableLog" parent="." index="13" instance=ExtResource("13_cpv81")]
+transform = Transform3D(0.99925417, 0, 0.038614534, 0, 1, 0, -0.038614534, 0, 0.99925417, -0.6843324, 0.18998957, -18.910736)
+
+[node name="BreakableLog2" parent="." index="14" instance=ExtResource("13_cpv81")]
+transform = Transform3D(-0.9952885, 0, 0.096957654, 0, 1, 0, -0.096957654, 0, -0.9952885, -0.6843324, 0.18998957, -24.910736)
+
+[node name="Stone5" parent="." index="15" instance=ExtResource("15_fyusi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9295292, -0.061386585, -20.871506)
+
+[node name="Stone8" parent="." index="16" instance=ExtResource("15_fyusi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9295292, -0.061386585, -11.376435)
+
+[node name="Stone6" parent="." index="17" instance=ExtResource("15_fyusi")]
+transform = Transform3D(0.11609869, 0, -0.9932377, 0, 1, 0, 0.9932377, 0, 0.11609869, -3.9194221, -0.061386585, -20.871506)
+
+[node name="Stone7" parent="." index="18" instance=ExtResource("15_fyusi")]
+transform = Transform3D(-0.987751, 0, -0.15603799, 0, 1, 0, 0.15603799, 0, -0.987751, -3.9194221, -0.061386585, -23.261368)
+
+[editable path="BaseLevel/AxeObtainLocation/AxeDialogueTrigger"]
+[editable path="BaseLevel/Player"]

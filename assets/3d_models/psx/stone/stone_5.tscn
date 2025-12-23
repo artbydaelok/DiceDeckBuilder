@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj8jh22a8suyc"]
+
+[ext_resource type="PackedScene" uid="uid://coovxp1ig4ei8" path="res://assets/3d_models/psx/stone/stone_5.glb" id="1_3ox6y"]
+
+[node name="Stone5" instance=ExtResource("1_3ox6y")]
+
+[node name="stone_5" parent="." index="0"]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, -5, 0, 5, -2.1855695e-07, 0, 0, 0)

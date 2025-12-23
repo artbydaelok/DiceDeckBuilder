@@ -11,6 +11,8 @@ signal dice_viewer_rotation_speed_updated(new_speed: float)
 
 var is_scene_transitioning : bool = false
 
+var current_level : Level
+
 func _ready():
 	dice_moved.connect(on_dice_moved)
 	SceneLoader.scene_loaded.connect(_on_scene_loaded)
