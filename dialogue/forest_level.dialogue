@@ -4,3 +4,10 @@ Oh God, I think I heard something.
 Quick! Grab that axe and break this log!
 do GameEvents.current_level.obtain_axe()
 => END
+
+~ mother_nature_0
+do GameEvents.current_level.show_mother_nature()
+Mother Nature: Child, you are trespassing. 
+Mother Nature: This is the beast's land. It will fight for it fiercefully.
+Mother Nature: You've been warned.
+do GameEvents.current_level.hide_mother_nature()

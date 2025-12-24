@@ -1,26 +1,82 @@
-[gd_scene load_steps=5 format=3 uid="uid://bisc8ge4rrwc"]
+[gd_scene load_steps=9 format=3 uid="uid://bisc8ge4rrwc"]
 
 [ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_4u7y1"]
 [ext_resource type="Script" uid="uid://bq4exe2ofmgdw" path="res://enemy/enemy_pawns/frog/frog_enemy.gd" id="2_7bili"]
 [ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="2_i20i7"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="3_7bili"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4u7y1"]
-size = Vector3(1, 1.5, 2)
+size = Vector3(1, 1.5, 1.734375)
+
+[sub_resource type="Animation" id="Animation_7bili"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Frog:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i20i7"]
+resource_name = "jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Frog:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.101006925, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3u4lc"]
+_data = {
+&"RESET": SubResource("Animation_7bili"),
+&"jump": SubResource("Animation_i20i7")
+}
 
 [node name="FrogEnemy" instance=ExtResource("1_4u7y1")]
 script = ExtResource("2_7bili")
 spaces_to_move = 3
 
-[node name="CollisionShape" parent="." index="0"]
+[node name="Hitbox" parent="." index="0" instance=ExtResource("3_7bili")]
+collision_layer = 0
+collision_mask = 8
+damage = 10
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_4u7y1")
+debug_color = Color(0.9961845, 0, 0.20014524, 0.41960785)
+
+[node name="CollisionShape" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_4u7y1")
+disabled = true
+debug_color = Color(0.9961845, 0, 0.20014524, 0.41960785)
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_4u7y1")
+debug_color = Color(0.9961845, 0, 0.20014524, 0.41960785)
 
 [node name="Frog" parent="Visuals" index="0" instance=ExtResource("2_i20i7")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="MoveTimer" type="Timer" parent="." index="3"]
+[node name="MoveTimer" type="Timer" parent="." index="4"]
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_3u4lc")
+}

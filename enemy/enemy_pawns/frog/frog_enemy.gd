@@ -1,11 +1,13 @@
 extends "res://enemy/enemy_pawns/base_enemy_pawn.gd"
 
 @onready var move_timer: Timer = $MoveTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var spaces_to_move : int = 3
 var spaces_moved : int = 0
 
 var move_direction : Vector3 = Vector3.BACK
+
 
 # Triggers on ready / spawn
 func initialize():
@@ -34,6 +36,8 @@ func on_timer_timeout():
 	else:
 		spaces_moved = 0
 		move_direction = -move_direction
+	
+	animation_player.play("jump")
 	grid_move_in_direction(move_direction)
 
 func apply_damage(damage):
