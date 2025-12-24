@@ -26,7 +26,7 @@ func on_miss():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not stuck:
-		axe.rotate(Vector3.RIGHT, -PI * 5.0 * delta)
+		axe.rotate(Vector3.RIGHT, -PI * 4.0 * delta)
 
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	stuck = true

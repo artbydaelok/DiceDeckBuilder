@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://clans25hik6r"]
+
+[ext_resource type="Texture2D" uid="uid://c2afw52eo0any" path="res://assets/boss_sprites/ForestLevelDemonForeground.png" id="1_tfi4j"]
+[ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="2_8aicx"]
+[ext_resource type="Texture2D" uid="uid://bxqbe2s5y72cb" path="res://assets/boss_sprites/ForestLevelDemonBackground.png" id="2_jr31b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8aicx"]
+transparency = 1
+albedo_texture = ExtResource("1_tfi4j")
+emission_enabled = true
+emission = Color(0.82191056, 2.623126e-06, 7.70092e-07, 1)
+emission_energy_multiplier = 5.0
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_y71yb"]
+material = SubResource("StandardMaterial3D_8aicx")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gxrt"]
+transparency = 1
+albedo_texture = ExtResource("2_jr31b")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_lnsvp"]
+material = SubResource("StandardMaterial3D_8gxrt")
+size = Vector2(10, 10)
+
+[node name="ForestDemon" type="Node3D"]
+
+[node name="Foreground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 2.1801982)
+mesh = SubResource("QuadMesh_y71yb")
+script = ExtResource("2_8aicx")
+anim_amount = 0.2
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -2)
+mesh = SubResource("QuadMesh_lnsvp")
+script = ExtResource("2_8aicx")
+anim_amount = 0.2

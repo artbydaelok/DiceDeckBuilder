@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3w7lq881kqnh"]
+
+[ext_resource type="PackedScene" uid="uid://osa71j43i7ox" path="res://assets/3d_models/psx/trees/tree_9.glb" id="1_qmw42"]
+
+[node name="tree_dead_1" instance=ExtResource("1_qmw42")]
+
+[node name="tree_9" parent="." index="0"]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
