@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://6jpnibtpgsrf"]
+
+[ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_1w0ao"]
+[ext_resource type="Script" uid="uid://dbdotxeh7fipp" path="res://enemy/enemy_pawns/eyeball/eyeball.gd" id="2_870kv"]
+[ext_resource type="PackedScene" uid="uid://bypsdk6farnu3" path="res://assets/3d_models/psx/grass/fern_3.tscn" id="3_4h2lw"]
+[ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="3_ix2g7"]
+[ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="3_rc53g"]
+
+[sub_resource type="Gradient" id="Gradient_ix2g7"]
+offsets = PackedFloat32Array(0, 0.18209876, 0.5640244, 0.85493827, 0.88580245, 0.9537037, 1)
+colors = PackedColorArray(0.49354547, 0.49354553, 0.49354553, 1, 1, 0.8581998, 0.8341832, 1, 0.98960966, 0.5404823, 0.48379683, 1, 1, 1, 1, 1, 1, 0.16000003, 0.16000003, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4h2lw"]
+gradient = SubResource("Gradient_ix2g7")
+width = 128
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v547"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.44313726)
+albedo_texture = SubResource("GradientTexture2D_4h2lw")
+texture_filter = 0
+
+[sub_resource type="Gradient" id="Gradient_rc53g"]
+offsets = PackedFloat32Array(0, 0.42987806, 0.6707317, 0.88580245, 0.9537037, 1)
+colors = PackedColorArray(0.9999458, 0.4669575, 0.42254105, 1, 0.98960966, 0.5404823, 0.48379683, 1, 1, 1, 1, 1, 1, 0.16000003, 0.16000003, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ix2g7"]
+gradient = SubResource("Gradient_rc53g")
+width = 128
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_870kv"]
+albedo_texture = SubResource("GradientTexture2D_ix2g7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_1w0ao"]
+lightmap_size_hint = Vector2i(33, 17)
+material = SubResource("StandardMaterial3D_870kv")
+radius = 1.0
+height = 2.0
+radial_segments = 12
+rings = 8
+
+[node name="Eyeball" instance=ExtResource("1_1w0ao")]
+script = ExtResource("2_870kv")
+pattern = Array[Vector3]([])
+
+[node name="fern_3" parent="Visuals" index="0" instance=ExtResource("3_4h2lw")]
+transform = Transform3D(0.4762298, -0.82485425, 0.30466482, 0.86602545, 0.49999997, 0, -0.1523324, 0.2638475, 0.95245963, -2, 8, -0.1291318)
+
+[node name="fern_4" parent="Visuals" index="1" instance=ExtResource("3_4h2lw")]
+transform = Transform3D(0.43603033, -0.7552268, 0.48939764, 0.86602545, 0.49999994, 9.079719e-09, -0.24469884, 0.4238309, 0.87206084, -6.3949175, 9.249811, 0.11094439)
+
+[node name="fern_5" parent="Visuals" index="2" instance=ExtResource("3_4h2lw")]
+transform = Transform3D(0.69431347, -0.656182, 0.29555696, -0.11453705, 0.30469567, 0.945538, -0.7104999, -0.6903518, 0.13639712, -6.241786, 9.453251, -0.1291318)
+
+[node name="tree_dead_1" parent="Visuals" index="3" instance=ExtResource("3_ix2g7")]
+transform = Transform3D(0.24748737, -0.24748737, 0, 0.24748737, 0.24748737, 0, 0, 0, 0.35000002, -0.5, 6.5, 0)
+
+[node name="tree_dead_2" parent="Visuals" index="4" instance=ExtResource("3_ix2g7")]
+transform = Transform3D(-0.09058665, 0.33807403, 0, -0.33807403, -0.09058665, 0, 0, 0, 0.35000005, -6.5, 9.308504, 0)
+
+[node name="tree_dead_3" parent="Visuals" index="5" instance=ExtResource("3_ix2g7")]
+transform = Transform3D(0.33807406, 0.090586595, 0, 0.09058664, -0.33807394, 0, 7.450581e-09, 0, -0.35000005, -7, 12.647954, 0)
+
+[node name="Mesh" parent="Visuals" index="6"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -0.5, 6.5, 0)
+material_overlay = SubResource("StandardMaterial3D_6v547")
+mesh = SubResource("SphereMesh_1w0ao")
+
+[node name="MoveTimer" type="Timer" parent="." index="3"]
+autostart = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="4"]
+transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
+light_color = Color(0.2509804, 1, 1, 1)
+light_energy = 35.0
+light_negative = true
+spot_range = 20.22616
+spot_angle = 27.638577
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="5"]
+transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
+light_color = Color(1, 0.25, 0.2624998, 1)
+light_energy = 35.0
+spot_range = 20.22616
+spot_angle = 27.638577
+
+[node name="Hitbox" parent="." index="6" instance=ExtResource("3_rc53g")]
+collision_layer = 0
+collision_mask = 8
+damage = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+
+[editable path="Hitbox"]

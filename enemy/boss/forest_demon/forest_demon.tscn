@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://clans25hik6r"]
+[gd_scene load_steps=9 format=3 uid="uid://clans25hik6r"]
 
 [ext_resource type="Texture2D" uid="uid://c2afw52eo0any" path="res://assets/boss_sprites/ForestLevelDemonForeground.png" id="1_tfi4j"]
 [ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="2_8aicx"]
 [ext_resource type="Texture2D" uid="uid://bxqbe2s5y72cb" path="res://assets/boss_sprites/ForestLevelDemonBackground.png" id="2_jr31b"]
+[ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="4_8aicx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8aicx"]
 transparency = 1
@@ -28,13 +29,28 @@ size = Vector2(10, 10)
 [node name="ForestDemon" type="Node3D"]
 
 [node name="Foreground" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 2.1801982)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0.6801982)
 mesh = SubResource("QuadMesh_y71yb")
 script = ExtResource("2_8aicx")
 anim_amount = 0.2
 
 [node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 mesh = SubResource("QuadMesh_lnsvp")
 script = ExtResource("2_8aicx")
 anim_amount = 0.2
+
+[node name="tree_dead_1" parent="." instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.96592593, 0.25881907, 0, -0.25000003, 0.9330128, 0.25881907, 0.0669873, -0.25, 0.9659258, 2.5, 0, -1)
+
+[node name="tree_dead_2" parent="." instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.9659259, -0.25881904, 0, 0.25, 0.9330127, 0.258819, -0.066987306, -0.25000003, 0.9659258, -2.5, 0, -1)
+
+[node name="tree_dead_3" parent="." instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.9659259, 0.25881904, -3.8567047e-09, -0.22414386, 0.83651626, 0.49999994, 0.1294095, -0.48296288, 0.86602527, 2.5, -1, -3)
+
+[node name="tree_dead_4" parent="." instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.9659258, -0.258819, -3.3400043e-09, 0.22414383, 0.8365162, 0.4999999, -0.1294095, -0.48296288, 0.8660253, -2.5, -1, -3)
+
+[node name="tree_dead_5" parent="." instance=ExtResource("4_8aicx")]
+transform = Transform3D(1.7821568, 0.18699722, 0.88822865, -0.5112906, 1.8238888, 0.6418818, -0.7499998, -0.79903847, 1.6730325, 0, -1.5, -3)

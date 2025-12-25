@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bypsdk6farnu3"]
+
+[ext_resource type="PackedScene" uid="uid://dc1wy1s0lmuth" path="res://assets/3d_models/psx/grass/fern_3.glb" id="1_j2ubf"]
+
+[node name="fern_3" instance=ExtResource("1_j2ubf")]
