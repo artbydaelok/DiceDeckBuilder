@@ -6,13 +6,12 @@ extends CharacterBody3D
 var player : Player
 var initial_height: float
 
-
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	player.roll_finished.connect(_on_player_rolled)
 	player.player_moved.connect(_on_player_moved)
 	initial_height = global_position.y
-
+	
 	initialize()
 #region # OVERRIDABLE FUNCTIONS
 func initialize(): # OVERRIDABLE FUNCTION

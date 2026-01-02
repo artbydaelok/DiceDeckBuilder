@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd6ca8dxwmmv2"]
+
+[ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_ucnhy"]
+[ext_resource type="Script" uid="uid://ssvsfl3dyv3q" path="res://enemy/enemy_pawns/grid_mover_base.gd" id="2_6beiu"]
+
+[node name="GridMoverBase" instance=ExtResource("1_ucnhy")]
+script = ExtResource("2_6beiu")
+pattern = Array[Vector3]([])
+interval_time = 0.75
+react_to_player_move = false
+chase_player = false
+
+[node name="MoveIntervalTimer" type="Timer" parent="." index="3"]
+wait_time = 0.75

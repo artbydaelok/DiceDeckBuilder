@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://6jpnibtpgsrf"]
 
-[ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_1w0ao"]
+[ext_resource type="PackedScene" uid="uid://bd6ca8dxwmmv2" path="res://enemy/enemy_pawns/grid_mover_base.tscn" id="1_1w0ao"]
 [ext_resource type="Script" uid="uid://dbdotxeh7fipp" path="res://enemy/enemy_pawns/eyeball/eyeball.gd" id="2_870kv"]
 [ext_resource type="PackedScene" uid="uid://bypsdk6farnu3" path="res://assets/3d_models/psx/grass/fern_3.tscn" id="3_4h2lw"]
 [ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="3_ix2g7"]
@@ -46,7 +46,7 @@ rings = 8
 
 [node name="Eyeball" instance=ExtResource("1_1w0ao")]
 script = ExtResource("2_870kv")
-pattern = Array[Vector3]([])
+react_to_player_move = true
 
 [node name="fern_3" parent="Visuals" index="0" instance=ExtResource("3_4h2lw")]
 transform = Transform3D(0.4762298, -0.82485425, 0.30466482, 0.86602545, 0.49999997, 0, -0.1523324, 0.2638475, 0.95245963, -2, 8, -0.1291318)
@@ -71,10 +71,7 @@ transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -0.5, 6.
 material_overlay = SubResource("StandardMaterial3D_6v547")
 mesh = SubResource("SphereMesh_1w0ao")
 
-[node name="MoveTimer" type="Timer" parent="." index="3"]
-autostart = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="4"]
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="3"]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
 light_color = Color(0.2509804, 1, 1, 1)
 light_energy = 35.0
@@ -82,14 +79,14 @@ light_negative = true
 spot_range = 20.22616
 spot_angle = 27.638577
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." index="5"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="4"]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
 light_color = Color(1, 0.25, 0.2624998, 1)
 light_energy = 35.0
 spot_range = 20.22616
 spot_angle = 27.638577
 
-[node name="Hitbox" parent="." index="6" instance=ExtResource("3_rc53g")]
+[node name="Hitbox" parent="." index="5" instance=ExtResource("3_rc53g")]
 collision_layer = 0
 collision_mask = 8
 damage = 10
