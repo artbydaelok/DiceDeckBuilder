@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlm0cf2b5ansj"]
+
+[ext_resource type="Script" uid="uid://c60g4u6eu8kit" path="res://level_mechanics/lilypad_platform.gd" id="1_4ub75"]
+[ext_resource type="Texture2D" uid="uid://xnydlp8kv36o" path="res://assets/LilipadTopView.png" id="2_y0y8c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gakau"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6yn4"]
+transparency = 1
+albedo_texture = ExtResource("2_y0y8c")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_gxo3s"]
+material = SubResource("StandardMaterial3D_g6yn4")
+size = Vector2(2, 2)
+orientation = 1
+
+[node name="LilypadPlatform" type="Node3D"]
+script = ExtResource("1_4ub75")
+
+[node name="WaterBlockDetect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBlockDetect"]
+shape = SubResource("BoxShape3D_gakau")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_gxo3s")

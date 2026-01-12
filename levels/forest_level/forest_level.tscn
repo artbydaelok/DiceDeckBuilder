@@ -1,11 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://crevw44gy8m6l"]
+[gd_scene load_steps=40 format=3 uid="uid://crevw44gy8m6l"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_fnn83"]
 [ext_resource type="Script" uid="uid://h6bmtlsgdg6" path="res://levels/forest_level/forest_level.gd" id="2_cpv81"]
 [ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="3_24wnm"]
 [ext_resource type="PackedScene" uid="uid://pbebb1f7kf7v" path="res://level_mechanics/debug_player_start.tscn" id="3_ma4h5"]
 [ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://core/components/cutscene/dialogue_trigger_area.tscn" id="4_fyusi"]
-[ext_resource type="Script" uid="uid://0cdu03oaqgb6" path="res://level_mechanics/debug_player_start.gd" id="4_oh40l"]
 [ext_resource type="Resource" uid="uid://ha3t3hrgxnfs" path="res://dialogue/forest_level.dialogue" id="5_nautm"]
 [ext_resource type="PackedScene" uid="uid://c76drbuur0wwo" path="res://assets/3d_models/psx/trees/tree_stump_12.tscn" id="6_b118p"]
 [ext_resource type="PackedScene" uid="uid://6jpnibtpgsrf" path="res://enemy/enemy_pawns/eyeball/eyeball.tscn" id="6_uwb2w"]
@@ -90,11 +89,10 @@ size = Vector3(3, 1, 11)
 script = ExtResource("2_cpv81")
 
 [node name="ForestDemon" parent="BaseLevel" index="0" instance=ExtResource("13_x70s0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -122)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -90.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" index="1" instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -64)
-script = ExtResource("4_oh40l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -65)
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" index="2" instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54)
@@ -102,7 +100,7 @@ dialogue_resource = ExtResource("5_nautm")
 title_to_play = "mother_nature_0"
 
 [node name="CollisionShape3D" parent="BaseLevel/MotherNatureTriggerArea0/PlayerDetection" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -32)
 shape = SubResource("BoxShape3D_b118p")
 debug_color = Color(0.9582438, 1.6364455e-06, 0.5308395, 0.41960785)
 
@@ -118,15 +116,20 @@ spaces_to_move = 2
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -4, 0, -50)
 spaces_to_move = 2
 
-[node name="Eyeball" parent="BaseLevel" index="6" instance=ExtResource("6_uwb2w")]
+[node name="Eyeball1" parent="BaseLevel" index="6" node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9483607, 0, -82)
-pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, 1)])
+player_reposition_location_node = NodePath("../EyeballMarker1")
+pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, 1)])
 
-[node name="CollisionShape3D" parent="BaseLevel/Eyeball/Hitbox" index="0"]
+[node name="CollisionShape3D" parent="BaseLevel/Eyeball1/Hitbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37549996, 4)
 shape = SubResource("CylinderShape3D_ma4h5")
 
-[node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" index="7"]
+[node name="EyeballMarker1" type="Marker3D" parent="BaseLevel" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -65)
+gizmo_extents = 5.0
+
+[node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" index="8"]
 
 [node name="tree_stump_13" parent="BaseLevel/AxeObtainLocation" index="0" instance=ExtResource("6_b118p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13969445, 0, -14)
@@ -174,7 +177,7 @@ duration = 1.0
 from_value = 0.0
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
-[node name="Camera3D" parent="BaseLevel" index="9"]
+[node name="Camera3D" parent="BaseLevel" index="10"]
 transform = Transform3D(1, 0, 0, 0, 0.7071066, 0.70710695, 0, -0.70710695, 0.7071066, 0, 9, 7)
 follow_target = true
 
@@ -183,27 +186,27 @@ transform = Transform3D(1, 0, 0, 0, -0.8660252, 0.5000003, 0, -0.5000003, -0.866
 light_energy = 5.0
 spot_range = 65.0
 
-[node name="WorldEnvironment" parent="BaseLevel" index="10"]
+[node name="WorldEnvironment" parent="BaseLevel" index="11"]
 environment = SubResource("Environment_aa8vv")
 
-[node name="DirectionalLight3D" parent="BaseLevel" index="11"]
+[node name="DirectionalLight3D" parent="BaseLevel" index="12"]
 transform = Transform3D(0.3374297, 0.88811743, -0.31207174, -0.3621663, 0.42847595, 0.8277945, 0.868894, -0.16630061, 0.4662267, 0, 7.85563, 0)
 
-[node name="DirectionalLight3D2" parent="BaseLevel" index="12"]
+[node name="DirectionalLight3D2" parent="BaseLevel" index="13"]
 transform = Transform3D(0.9543394, -0.12966323, 0.269117, -0.29440627, -0.5608786, 0.7737831, 0.050610766, -0.8176812, -0.5734421, 3.03067, 7.31669, -1.80642e-07)
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" index="13"]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" index="14"]
 transform = Transform3D(0.8945549, 0.3712622, 0.24886942, -0.046656385, -0.4762001, 0.87809837, 0.44451633, -0.79711854, -0.40866545, 3.03067, 7.31669, -1.80642e-07)
 light_energy = 0.2
 shadow_enabled = true
 
-[node name="ArenaGrid" parent="BaseLevel" index="15"]
+[node name="ArenaGrid" parent="BaseLevel" index="16"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, 0)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
 transparent = true
 
-[node name="ArenaGrid2" type="Sprite3D" parent="BaseLevel" index="16"]
+[node name="ArenaGrid2" type="Sprite3D" parent="BaseLevel" index="17"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -10)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -211,7 +214,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid3" type="Sprite3D" parent="BaseLevel" index="17"]
+[node name="ArenaGrid3" type="Sprite3D" parent="BaseLevel" index="18"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -20)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -219,7 +222,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid4" type="Sprite3D" parent="BaseLevel" index="18"]
+[node name="ArenaGrid4" type="Sprite3D" parent="BaseLevel" index="19"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -30)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -227,7 +230,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid5" type="Sprite3D" parent="BaseLevel" index="19"]
+[node name="ArenaGrid5" type="Sprite3D" parent="BaseLevel" index="20"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -2, 0.00881834, -40)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -235,7 +238,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid6" type="Sprite3D" parent="BaseLevel" index="20"]
+[node name="ArenaGrid6" type="Sprite3D" parent="BaseLevel" index="21"]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -2, 0.00881834, -50)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -243,14 +246,14 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="DayNightLight" type="DirectionalLight3D" parent="BaseLevel" index="21"]
+[node name="DayNightLight" type="DirectionalLight3D" parent="BaseLevel" index="22"]
 transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, 0, 0, 0)
 light_color = Color(0.88009065, 1, 0.9778568, 1)
 light_energy = 0.57
 script = ExtResource("8_f1v1w")
 speed_mult = 1.19
 
-[node name="GrassFloor" type="Node3D" parent="BaseLevel" index="22"]
+[node name="GrassFloor" type="Node3D" parent="BaseLevel" index="23"]
 
 [node name="GrassPlane" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="0"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -10)
@@ -588,7 +591,7 @@ mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="23"]
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="24"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
@@ -630,10 +633,10 @@ shape = SubResource("BoxShape3D_1wlgo")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 0)
 shape = SubResource("BoxShape3D_1wlgo")
 
-[node name="FirefliesVFX" parent="BaseLevel" index="24" instance=ExtResource("11_14s10")]
+[node name="FirefliesVFX" parent="BaseLevel" index="25" instance=ExtResource("11_14s10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="Trees" type="Node3D" parent="BaseLevel" index="26"]
+[node name="Trees" type="Node3D" parent="BaseLevel" index="27"]
 
 [node name="tree_dead_1" parent="BaseLevel/Trees" index="0" instance=ExtResource("14_f1v1w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2960386, -0.24791288, -54.44754)
@@ -812,16 +815,16 @@ transform = Transform3D(0.9943787, 0, -0.105882265, 0, 1, 0, 0.105882265, 0, 0.9
 [node name="tree_stump_15" parent="BaseLevel/Trees" index="58" instance=ExtResource("6_b118p")]
 transform = Transform3D(0.9943787, 0, -0.105882265, 0, 1, 0, 0.105882265, 0, 0.9943787, -5.877414, 0, -36.228275)
 
-[node name="BreakableLog" parent="BaseLevel" index="27" instance=ExtResource("13_cpv81")]
+[node name="BreakableLog" parent="BaseLevel" index="28" instance=ExtResource("13_cpv81")]
 transform = Transform3D(0.99925417, 0, 0.038614534, 0, 1, 0, -0.038614534, 0, 0.99925417, -0.6843324, 0.18998957, -18.910736)
 
-[node name="BreakableLog2" parent="BaseLevel" index="28" instance=ExtResource("13_cpv81")]
+[node name="BreakableLog2" parent="BaseLevel" index="29" instance=ExtResource("13_cpv81")]
 transform = Transform3D(-0.9952885, 0, 0.096957654, 0, 1, 0, -0.096957654, 0, -0.9952885, -0.6843324, 0.18998957, -24.910736)
 
-[node name="BreakableLog3" parent="BaseLevel" index="29" instance=ExtResource("13_cpv81")]
+[node name="BreakableLog3" parent="BaseLevel" index="30" instance=ExtResource("13_cpv81")]
 transform = Transform3D(0.91042405, 0, 0.41367656, 0, 1, 0, -0.41367656, 0, 0.91042405, -1.6646135, 0.18998957, -34.44361)
 
-[node name="Stones" type="Node3D" parent="BaseLevel" index="30"]
+[node name="Stones" type="Node3D" parent="BaseLevel" index="31"]
 
 [node name="Stone5" parent="BaseLevel/Stones" index="0" instance=ExtResource("15_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9295292, -0.061386585, -20.871506)
@@ -856,13 +859,13 @@ transform = Transform3D(0.8266428, 0, 1.0925025, 0, 1.37, 0, -1.0925025, 0, 0.82
 [node name="Stone15" parent="BaseLevel/Stones" index="10" instance=ExtResource("15_fyusi")]
 transform = Transform3D(0.8266428, 0, 1.0925025, 0, 1.37, 0, -1.0925025, 0, 0.8266428, -6.0842056, -0.061386585, -40.41038)
 
-[node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" index="31"]
+[node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" index="32"]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 light_negative = true
 script = ExtResource("8_f1v1w")
 speed_mult = 1.55
 
-[node name="RedNegativeLight" type="DirectionalLight3D" parent="BaseLevel" index="32"]
+[node name="RedNegativeLight" type="DirectionalLight3D" parent="BaseLevel" index="33"]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
 light_color = Color(0, 1, 1, 1)
 light_energy = 0.0
@@ -884,7 +887,7 @@ transform = Transform3D(0.5882229, 0, 0.8086989, 0, 1, 0, -0.8086989, 0, 0.58822
 transform = Transform3D(0.3702365, -0.77706903, 0.50900745, 0.45708984, 0.62941533, 0.6284149, -0.80869883, 0, 0.58822286, 6.744727, 0, -62.115753)
 
 [node name="Stone6" parent="." index="7" instance=ExtResource("18_7n544")]
-transform = Transform3D(0.3702365, -0.77706903, 0.50900745, 0.45708984, 0.62941533, 0.6284149, -0.80869883, 0, 0.58822286, -7.4769945, 0, -69.226845)
+transform = Transform3D(0.36044258, -0.7770124, 0.51607454, 0.45708993, 0.6294154, 0.628415, -0.8131114, 0.009384921, 0.5820325, -7.7196064, 0, -69.226845)
 
 [node name="Stone8" parent="." index="8" instance=ExtResource("18_7n544")]
 transform = Transform3D(-0.49976942, 0.40387574, -0.76623434, 0.25763303, 0.9139106, 0.3136761, 0.8269558, -0.040641546, -0.56079626, -8.231462, -0.95935726, -80.226845)
@@ -917,7 +920,7 @@ transform = Transform3D(0.99977374, 0.021273952, 0, -0.021273952, 0.99977374, 0,
 transform = Transform3D(0.9188532, -0.39459953, 0, 0.39459953, 0.9188532, 0, 0, 0, 1, 14.014385, -0.34318042, -77.4489)
 
 [editable path="BaseLevel/MotherNatureTriggerArea0"]
-[editable path="BaseLevel/Eyeball"]
-[editable path="BaseLevel/Eyeball/Hitbox"]
+[editable path="BaseLevel/Eyeball1"]
+[editable path="BaseLevel/Eyeball1/Hitbox"]
 [editable path="BaseLevel/AxeObtainLocation/AxeDialogueTrigger"]
 [editable path="BaseLevel/Player"]

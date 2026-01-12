@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://pbebb1f7kf7v"]
+[gd_scene load_steps=4 format=3 uid="uid://pbebb1f7kf7v"]
+
+[ext_resource type="Script" uid="uid://0cdu03oaqgb6" path="res://level_mechanics/debug_player_start.gd" id="1_qgd87"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2lfe"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0.3137255)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgd87"]
+material = SubResource("StandardMaterial3D_j2lfe")
+size = Vector3(2, 2, 2)
 
 [node name="DebugPlayerStart" type="Node3D"]
+script = ExtResource("1_qgd87")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_qgd87")

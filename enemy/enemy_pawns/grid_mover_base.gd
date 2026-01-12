@@ -20,7 +20,12 @@ func initialize():
 		move_interval_timer.timeout.connect(on_move_timer_timeout)
 		move_interval_timer.wait_time = interval_time
 		move_interval_timer.start()
-	
+		
+	on_initialize()
+
+func on_initialize():
+	pass
+
 # Triggers when player begins moving
 func _on_player_moved(direction: Vector3): # OVERRIDABLE FUNCTION
 	if react_to_player_move:

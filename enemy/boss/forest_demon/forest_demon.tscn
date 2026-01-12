@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://clans25hik6r"]
+[gd_scene load_steps=19 format=3 uid="uid://clans25hik6r"]
 
+[ext_resource type="Script" uid="uid://ynnnofymf6ln" path="res://enemy/boss/forest_demon/forest_demon.gd" id="1_8gxrt"]
 [ext_resource type="Texture2D" uid="uid://c2afw52eo0any" path="res://assets/boss_sprites/ForestLevelDemonForeground.png" id="1_tfi4j"]
 [ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="2_8aicx"]
 [ext_resource type="Texture2D" uid="uid://bxqbe2s5y72cb" path="res://assets/boss_sprites/ForestLevelDemonBackground.png" id="2_jr31b"]
 [ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="4_8aicx"]
+[ext_resource type="Script" uid="uid://cqxuuexdumeed" path="res://addons/TweenAnimation/TweenProperty.gd" id="5_y71yb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8aicx"]
 transparency = 1
@@ -26,7 +28,257 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_8gxrt")
 size = Vector2(10, 10)
 
+[sub_resource type="Animation" id="Animation_8aicx"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree_dead_1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tree_dead_2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.99999994, 0.9999999, 0.9999999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tree_dead_3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 0.99999994, 0.9999998)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tree_dead_4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.99999994, 0.9999999, 0.9999999)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("tree_dead_5:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.0000002, 2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foreground:mesh:material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background:mesh:material:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ground:mesh:material:albedo_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("tree_dead_5:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.8763027, 0.4886922, -0.27401668), Vector3(-0.32672283, 0.48806816, -0.2733146)]
+}
+
+[sub_resource type="Animation" id="Animation_y71yb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree_dead_1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tree_dead_2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.99999994, 0.9999999, 0.9999999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tree_dead_3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.99999994, 0.9999998)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tree_dead_4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.99999994, 0.9999999, 0.9999999)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("tree_dead_5:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.0000002, 2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foreground:mesh:material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background:mesh:material:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ground:mesh:material:albedo_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("tree_dead_5:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.32672283, 0.48806816, -0.2733146)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y71yb"]
+_data = {
+&"RESET": SubResource("Animation_y71yb"),
+&"appear": SubResource("Animation_8aicx")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y71yb"]
+
+[sub_resource type="Gradient" id="Gradient_y71yb"]
+offsets = PackedFloat32Array(0.29700273, 0.67302454)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.01666665, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gxrt"]
+gradient = SubResource("Gradient_y71yb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnsvp"]
+transparency = 1
+albedo_texture = SubResource("GradientTexture2D_8gxrt")
+
+[sub_resource type="QuadMesh" id="QuadMesh_8aicx"]
+material = SubResource("StandardMaterial3D_lnsvp")
+size = Vector2(10, 6)
+orientation = 1
+
 [node name="ForestDemon" type="Node3D"]
+script = ExtResource("1_8gxrt")
 
 [node name="Foreground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0.6801982)
@@ -41,16 +293,36 @@ script = ExtResource("2_8aicx")
 anim_amount = 0.2
 
 [node name="tree_dead_1" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.96592593, 0.25881907, 0, -0.25000003, 0.9330128, 0.25881907, 0.0669873, -0.25, 0.9659258, 2.5, 0, -1)
+transform = Transform3D(0.9659258, 0.25881904, 2.8233034e-09, -0.25, 0.93301266, 0.25881907, 0.066987306, -0.25000003, 0.9659258, 2.5, 0, -1)
 
 [node name="tree_dead_2" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9659259, -0.25881904, 0, 0.25, 0.9330127, 0.258819, -0.066987306, -0.25000003, 0.9659258, -2.5, 0, -1)
+transform = Transform3D(0.9751768, -0.22118346, 0.010382356, 0.21105124, 0.94264394, 0.25861067, -0.066987276, -0.24999996, 0.9659257, -2.5, 0, -1)
 
 [node name="tree_dead_3" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9659259, 0.25881904, -3.8567047e-09, -0.22414386, 0.83651626, 0.49999994, 0.1294095, -0.48296288, 0.86602527, 2.5, -1, -3)
+transform = Transform3D(0.9659258, 0.25881898, 1.0020011e-08, -0.22414383, 0.8365162, 0.4999999, 0.12940949, -0.48296288, 0.8660252, 2.5, -1, -3)
 
 [node name="tree_dead_4" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9659258, -0.258819, -3.3400043e-09, 0.22414383, 0.8365162, 0.4999999, -0.1294095, -0.48296288, 0.8660253, -2.5, -1, -3)
+transform = Transform3D(0.96592575, -0.25881898, 2.8233058e-09, 0.22414382, 0.83651614, 0.49999994, -0.12940949, -0.48296285, 0.86602527, -2.5, -1, -3)
 
 [node name="tree_dead_5" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(1.7821568, 0.18699722, 0.88822865, -0.5112906, 1.8238888, 0.6418818, -0.7499998, -0.79903847, 1.6730325, 0, -1.5, -3)
+transform = Transform3D(1.7821568, 0.18699718, 0.8882285, -0.51129055, 1.8238887, 0.6418819, -0.7499999, -0.7990384, 1.6730325, 0, -1.5, -3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y71yb")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_y71yb")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -2)
+mesh = SubResource("QuadMesh_8aicx")
+
+[node name="GroundScaleAnim" type="Node" parent="Ground" node_paths=PackedStringArray("node")]
+script = ExtResource("5_y71yb")
+node = NodePath("..")
+property = ":scale"
+final_value = Vector3(1.15, 1.15, 1.15)
+from_value = Vector3(0.85, 0.85, 0.85)
+metadata/_custom_type_script = "uid://cqxuuexdumeed"

@@ -1,5 +1,7 @@
 extends Level
 
+@onready var forest_demon: Node3D = $BaseLevel/ForestDemon
+
 @onready var axe_mesh: Node3D = %AxeMesh
 const AXE_THROW = preload("uid://cwh8hm762xo3n")
 @onready var axe_dialogue_trigger: Node3D = $BaseLevel/AxeObtainLocation/AxeDialogueTrigger
@@ -22,6 +24,7 @@ func show_mother_nature():
 	mother_nature_tween.final_value = 25.0
 	mother_nature_tween.from_value = 0.0
 	mother_nature_tween.play()
+	forest_demon.appear()
 
 func hide_mother_nature():
 	mother_nature_tween.final_value = 0.0
