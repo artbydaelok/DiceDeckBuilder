@@ -93,6 +93,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -90.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" index="1" instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -65)
+disabled = true
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" index="2" instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54)
