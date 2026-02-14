@@ -1,4 +1,4 @@
-[gd_resource type="NoiseTexture2D" load_steps=3 format=3 uid="uid://kma71g8vhpks"]
+[gd_resource type="NoiseTexture2D" format=3 uid="uid://kma71g8vhpks"]
 
 [sub_resource type="Gradient" id="Gradient_oc8wd"]
 interpolation_mode = 1

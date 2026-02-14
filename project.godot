@@ -8,24 +8,32 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="DiceDeckbuilderGame"
 config/version="0.1.1"
 run/main_scene="uid://c6k5nnpbypshi"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://4ukw1l2k56t"
+
+[audio]
+
+buses/default_bus_layout="uid://bsu8ft6wmvata"
 
 [autoload]
 
 GameEvents="*res://game_events/game_events.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-AppConfig="*res://addons/maaacks_game_template/base/scenes/autoloads/app_config.tscn"
-SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
-ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
-ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
+AppConfig="*uid://cjke6crjg14a0"
+SceneLoader="*uid://cbwmrnp0af35y"
+ProjectUISoundController="*uid://cc37235kj4384"
+ProjectMusicController="*uid://r5t485lr3p7t"
 GlobalCommands="*res://GlobalCommands.gd"
-Console="*res://addons/console/console.gd"
+Console="*uid://ouiu5xh1cs8n"
 
 [dialogue_manager]
 

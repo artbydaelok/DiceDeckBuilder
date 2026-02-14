@@ -12,10 +12,13 @@ const DICE_INVENTORY_EDITOR = preload("uid://crbwh26bogcfr")
 var inventory_ui : Control
 var inventory_open : bool
 
+@export var first_time_cutscene : bool = false
+
 # Called when the node enters the scene tree for the first time.
-func initialize() -> void:
-	GameEvents.cutscene_started.emit(true)
-	cutscene_animation_player.play("0_first_time")
+func level_start() -> void:
+	if first_time_cutscene:
+		GameEvents.cutscene_started.emit(true)
+		cutscene_animation_player.play("0_first_time")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("view_deck") and not inventory_open:

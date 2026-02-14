@@ -13,3 +13,8 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
 	GameEvents.current_level = self
+
+	level_start()
+
+func level_start():
+	pass

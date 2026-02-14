@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://2t64vc61c8vd"]
+[gd_scene format=3 uid="uid://2t64vc61c8vd"]
 
 [ext_resource type="Script" uid="uid://t1i3t7qkwjs3" path="res://enemy/enemy_health_display.gd" id="1_cj600"]
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
@@ -101,12 +101,12 @@ shader = ExtResource("1_gj0fv")
 shader_parameter/viewport_size = Vector2(1280, 720)
 shader_parameter/virtual_resolution = Vector2(320, 240)
 
-[node name="Game" type="CanvasLayer"]
+[node name="Game" type="CanvasLayer" unique_id=885135856]
 script = ExtResource("1_qcm70")
 
-[node name="UI" type="CanvasLayer" parent="." groups=["user_interface"]]
+[node name="UI" type="CanvasLayer" parent="." unique_id=762928472 groups=["user_interface"]]
 
-[node name="ScreenMargin1" type="MarginContainer" parent="UI"]
+[node name="ScreenMargin1" type="MarginContainer" parent="UI" unique_id=2123927307]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -117,7 +117,7 @@ theme_override_constants/margin_top = 18
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 24
 
-[node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/ScreenMargin1"]
+[node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/ScreenMargin1" unique_id=1344741204]
 custom_minimum_size = Vector2(350, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -128,24 +128,24 @@ value = 100.0
 show_percentage = false
 script = ExtResource("1_cj600")
 
-[node name="TopLeft" type="VBoxContainer" parent="UI/ScreenMargin1"]
+[node name="TopLeft" type="VBoxContainer" parent="UI/ScreenMargin1" unique_id=1739494182]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="PlayerHealthDisplay" parent="UI/ScreenMargin1/TopLeft" node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
+[node name="PlayerHealthDisplay" parent="UI/ScreenMargin1/TopLeft" unique_id=1991732117 node_paths=PackedStringArray("user_interface_layer") instance=ExtResource("2_sei10")]
 custom_minimum_size = Vector2(300, 15)
 layout_mode = 2
 size_flags_horizontal = 0
 center_warning_sign_scene = ExtResource("4_qa4f1")
 user_interface_layer = NodePath("../../..")
 
-[node name="VSeparator" type="VSeparator" parent="UI/ScreenMargin1/TopLeft"]
+[node name="VSeparator" type="VSeparator" parent="UI/ScreenMargin1/TopLeft" unique_id=1917927565]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="EnergyMeter" parent="UI/ScreenMargin1/TopLeft" node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("4_iiuie")]
+[node name="EnergyMeter" parent="UI/ScreenMargin1/TopLeft" unique_id=855839225 node_paths=PackedStringArray("player", "insufficient_label", "insufficient_timer") instance=ExtResource("4_iiuie")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -153,18 +153,18 @@ player = NodePath("../../../../BaseLevel/Player")
 insufficient_label = NodePath("../InsufficientEnergy")
 insufficient_timer = NodePath("../InsufficientTimer")
 
-[node name="InsufficientEnergy" type="Label" parent="UI/ScreenMargin1/TopLeft"]
+[node name="InsufficientEnergy" type="Label" parent="UI/ScreenMargin1/TopLeft" unique_id=1061158871]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_xdqa1")
 theme_override_font_sizes/font_size = 32
 text = "NOT ENOUGH ENERGY!"
 
-[node name="InsufficientTimer" type="Timer" parent="UI/ScreenMargin1/TopLeft"]
+[node name="InsufficientTimer" type="Timer" parent="UI/ScreenMargin1/TopLeft" unique_id=1359838962]
 wait_time = 2.5
 one_shot = true
 
-[node name="ScreenMargin2" type="MarginContainer" parent="UI"]
+[node name="ScreenMargin2" type="MarginContainer" parent="UI" unique_id=14212891]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -174,80 +174,81 @@ grow_vertical = 0
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="AbilitySidesDisplay" parent="UI/ScreenMargin2" node_paths=PackedStringArray("player", "card_system") instance=ExtResource("1_lwuof")]
+[node name="AbilitySidesDisplay" parent="UI/ScreenMargin2" unique_id=1883909241 node_paths=PackedStringArray("player", "card_system") instance=ExtResource("1_lwuof")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 player = NodePath("../../../BaseLevel/Player")
 card_system = NodePath("../../../CardSystem")
 
-[node name="BaseLevel" type="Node3D" parent="." groups=["entities_layer"]]
+[node name="BaseLevel" type="Node3D" parent="." unique_id=2067204523 groups=["entities_layer"]]
 
-[node name="Player" parent="BaseLevel" instance=ExtResource("3_cubmp")]
+[node name="Player" parent="BaseLevel" unique_id=133383534 instance=ExtResource("3_cubmp")]
 
-[node name="Camera3D" type="Camera3D" parent="BaseLevel" node_paths=PackedStringArray("target")]
+[node name="Camera3D" type="Camera3D" parent="BaseLevel" unique_id=1892705345 node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.49999976, 0.86602557, 0, -0.86602557, 0.49999976, 0, 10, 6)
 script = ExtResource("8_mpvo7")
 target = NodePath("../Player/Pivot/MeshInstance3D")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel" unique_id=1911982310]
 environment = SubResource("Environment_bfiuj")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BaseLevel"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BaseLevel" unique_id=1774783498]
 transform = Transform3D(0.435568, 0.704341, -0.560521, -0.5, 0.707107, 0.5, 0.748519, 0.0624771, 0.660164, 0, 7.85563, 0)
 light_color = Color(0.92549, 1, 1, 1)
 light_energy = 0.15
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="BaseLevel"]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="BaseLevel" unique_id=407198073]
 transform = Transform3D(0.967752, 0.00623584, 0.251826, -0.25, 0.146447, 0.957107, -0.0309107, -0.989199, 0.143283, 3.03067, 7.31669, -1.80642e-07)
 light_color = Color(1, 0.874949, 0.999993, 1)
 light_energy = 0.1
 shadow_enabled = true
 
-[node name="CSGBoard" type="Node3D" parent="BaseLevel"]
+[node name="CSGBoard" type="Node3D" parent="BaseLevel" unique_id=2089719623]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" unique_id=589886479]
 visible = false
 material_override = SubResource("StandardMaterial3D_l525f")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" unique_id=211734604]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371777, 0)
 size = Vector3(10, 0.35, 10)
 
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="BaseLevel/CSGBoard"]
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" unique_id=1390723685]
 visible = false
 material_override = SubResource("StandardMaterial3D_8v75t")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2" unique_id=339139768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344601, 0)
 size = Vector3(11, 1, 11)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2" unique_id=1320386998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.537861, 0)
 material_override = SubResource("StandardMaterial3D_dhd7d")
 operation = 2
 size = Vector3(10, 2.38, 10)
 
-[node name="ArenaGrid" type="Sprite3D" parent="BaseLevel"]
+[node name="ArenaGrid" type="Sprite3D" parent="BaseLevel" unique_id=1670796615]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, -0.05, 0)
 transparent = false
 shaded = true
 texture_filter = 0
 texture = ExtResource("11_nanwt")
 
-[node name="GroundStaticBody" type="StaticBody3D" parent="BaseLevel"]
+[node name="GroundStaticBody" type="StaticBody3D" parent="BaseLevel" unique_id=77432042]
 
-[node name="GroundCollisionShape" type="CollisionShape3D" parent="BaseLevel/GroundStaticBody"]
+[node name="GroundCollisionShape" type="CollisionShape3D" parent="BaseLevel/GroundStaticBody" unique_id=2033871472]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -4)
 shape = SubResource("BoxShape3D_q4ywm")
 
-[node name="CardSystem" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
+[node name="CardSystem" parent="." unique_id=449221106 node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
 player = NodePath("../BaseLevel/Player")
 
-[node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+[node name="CRTShaderLayer" type="CanvasLayer" parent="." unique_id=758635183]
 layer = 200
+visible = false
 
-[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
+[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer" unique_id=1481350742]
 material = SubResource("ShaderMaterial_qcm70")
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,11 +259,11 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_wkhn0")
 metadata/_edit_use_anchors_ = true
 
-[node name="PSXShaderLayer" type="CanvasLayer" parent="."]
+[node name="PSXShaderLayer" type="CanvasLayer" parent="." unique_id=1263796203]
 layer = 2
 visible = false
 
-[node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer"]
+[node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer" unique_id=1213363195]
 material = SubResource("ShaderMaterial_ceuhh")
 anchors_preset = 15
 anchor_right = 1.0

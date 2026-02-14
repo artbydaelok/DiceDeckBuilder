@@ -34,7 +34,7 @@ do SceneLoader.load_scene("res://levels/fire_demon_level.tscn")
 
 ~ forest_level_change
 [[Hope you packed some repellent.|Hope nature isn't the bane of you.|Time to go for a hike.]]
-do SceneLoader.load_scene("res://levels/forest_level.tscn")
+do SceneLoader.load_scene("res://levels/forest_level/forest_level.tscn")
 => END
 
 ~ street_level_change

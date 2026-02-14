@@ -84,6 +84,11 @@ func _enable_input():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	handle_input()
+
+func handle_input():
+	#if input_disabled: 
+		#return
 	var forward = Vector3.FORWARD
 	if Input.is_action_pressed("move_forward"):
 		roll(forward)
