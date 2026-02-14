@@ -67,23 +67,23 @@ size = Vector3(20, 1, 20)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qcm70"]
 shader = ExtResource("19_q4ywm")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.1350000064125
-shader_parameter/scanlines_width = 0.06000000285
-shader_parameter/grille_opacity = 0.0550000026125
-shader_parameter/resolution = Vector2(320, 240)
+shader_parameter/scanlines_opacity = 0.02800000133
+shader_parameter/scanlines_width = 0.0130000006175
+shader_parameter/grille_opacity = 0.00800000038
+shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = true
 shader_parameter/roll = true
-shader_parameter/roll_speed = 0.835
-shader_parameter/roll_size = 4.95600023541
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
 shader_parameter/roll_variation = 0.36600001412512
-shader_parameter/distort_intensity = 0.0330000015675
-shader_parameter/noise_opacity = 0.2400000114
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
 shader_parameter/aberration = 0.02000004845000003
 shader_parameter/brightness = 1.35
 shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.3010000142975
+shader_parameter/warp_amount = 1.0
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.59
 shader_parameter/vignette_opacity = 0.20800000988
@@ -98,11 +98,14 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceuhh"]
 shader = ExtResource("1_gj0fv")
-shader_parameter/viewport_size = Vector2(1280, 720)
+shader_parameter/viewport_size = Vector2(640, 480)
 shader_parameter/virtual_resolution = Vector2(320, 240)
 
 [node name="Game" type="CanvasLayer" unique_id=885135856]
 script = ExtResource("1_qcm70")
+
+[node name="CardSystem" parent="." unique_id=449221106 node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
+player = NodePath("../BaseLevel/Player")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=762928472 groups=["user_interface"]]
 
@@ -241,12 +244,8 @@ texture = ExtResource("11_nanwt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -4)
 shape = SubResource("BoxShape3D_q4ywm")
 
-[node name="CardSystem" parent="." unique_id=449221106 node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
-player = NodePath("../BaseLevel/Player")
-
 [node name="CRTShaderLayer" type="CanvasLayer" parent="." unique_id=758635183]
 layer = 200
-visible = false
 
 [node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer" unique_id=1481350742]
 material = SubResource("ShaderMaterial_qcm70")
@@ -260,8 +259,7 @@ texture = SubResource("GradientTexture2D_wkhn0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PSXShaderLayer" type="CanvasLayer" parent="." unique_id=1263796203]
-layer = 2
-visible = false
+layer = 100
 
 [node name="PSXColorRect" type="ColorRect" parent="PSXShaderLayer" unique_id=1213363195]
 material = SubResource("ShaderMaterial_ceuhh")

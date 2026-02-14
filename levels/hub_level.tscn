@@ -232,7 +232,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -385,6 +385,9 @@ size = Vector3(2, 4.5040283, 2.3486938)
 [sub_resource type="BoxShape3D" id="BoxShape3D_q3ugp"]
 size = Vector3(14.938965, 6, 9)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mq2i1"]
+size = Vector3(14.938965, 6, 22)
+
 [sub_resource type="Animation" id="Animation_c5pd8"]
 length = 0.001
 tracks/0/type = "value"
@@ -457,11 +460,8 @@ unique_name_in_owner = true
 root_node = NodePath("../BaseLevel")
 libraries/ = SubResource("AnimationLibrary_tlfld")
 
-[node name="UI" parent="." index="2" unique_id=762928472]
-visible = false
-
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1159506797]
-transform = Transform3D(0.9659241, -1.05937765e-08, -0.2588189, 0.0005465811, 0.99999607, 0.0020398286, 0.2588181, -0.002111787, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592563, -1.0593793e-08, -0.2588191, 0.000546582, 0.9999976, 0.0020398302, 0.2588185, -0.0021117902, 0.9659235, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=532374131]
@@ -659,46 +659,43 @@ transform = Transform3D(3.992069, -0.24152851, -0.07104064, 0.2510227, 3.9049199
 [node name="tree_94" parent="BaseLevel/ForestLevelEntry" index="35" unique_id=1245107407 instance=ExtResource("11_emmfv")]
 transform = Transform3D(2.5473435, -0.09660523, 0.7240225, 0, 2.6267211, 0.35047945, -0.730439, -0.33690244, 2.5249665, 5.159359, 0, 7.9638987)
 
-[node name="tree_log_13" parent="BaseLevel/ForestLevelEntry" index="36" unique_id=753043395 instance=ExtResource("22_emmfv")]
-transform = Transform3D(2.4424856, 0, 1.2636315, 0, 2.75, 0, -1.2636315, 0, 2.4424856, 6.697666, 0, 12.730243)
-
-[node name="stone_32" parent="BaseLevel/ForestLevelEntry" index="37" unique_id=847508145 instance=ExtResource("23_jo4gk")]
+[node name="stone_32" parent="BaseLevel/ForestLevelEntry" index="36" unique_id=847508145 instance=ExtResource("23_jo4gk")]
 transform = Transform3D(0.47832045, 0.14563496, 0, -0.14563496, 0.47832045, 0, 0, 0, 0.5, 2.1660728, -0.1444596, 12.830644)
 
-[node name="grass_23" parent="BaseLevel/ForestLevelEntry" index="38" unique_id=324120741 instance=ExtResource("18_efs00")]
+[node name="grass_23" parent="BaseLevel/ForestLevelEntry" index="37" unique_id=324120741 instance=ExtResource("18_efs00")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10.066446, 0, 11.369266)
 
-[node name="grass_24" parent="BaseLevel/ForestLevelEntry" index="39" unique_id=1409392290 instance=ExtResource("18_efs00")]
+[node name="grass_24" parent="BaseLevel/ForestLevelEntry" index="38" unique_id=1409392290 instance=ExtResource("18_efs00")]
 transform = Transform3D(3.5815704, 0, -3.48889, 0, 5, 0, 3.48889, 0, 3.5815704, -5.8145103, 0, 9.723943)
 
-[node name="grass_28" parent="BaseLevel/ForestLevelEntry" index="40" unique_id=898977176 instance=ExtResource("18_efs00")]
+[node name="grass_28" parent="BaseLevel/ForestLevelEntry" index="39" unique_id=898977176 instance=ExtResource("18_efs00")]
 transform = Transform3D(-2.2153215, -0.37132567, -4.4670424, -0.16497675, 4.9861927, -0.33266416, 4.479412, 0, -2.221456, -3.0094109, 0, 5.6799507)
 
-[node name="grass_25" parent="BaseLevel/ForestLevelEntry" index="41" unique_id=323062201 instance=ExtResource("18_efs00")]
+[node name="grass_25" parent="BaseLevel/ForestLevelEntry" index="40" unique_id=323062201 instance=ExtResource("18_efs00")]
 transform = Transform3D(3.5815704, 0, -3.48889, 0, 5, 0, 3.48889, 0, 3.5815704, 5.877144, 0, 5.0397854)
 
-[node name="fern_32" parent="BaseLevel/ForestLevelEntry" index="42" unique_id=832289464 instance=ExtResource("24_efs00")]
+[node name="fern_32" parent="BaseLevel/ForestLevelEntry" index="41" unique_id=832289464 instance=ExtResource("24_efs00")]
 transform = Transform3D(1.8064309, 0, 0.8583747, 0, 2, 0, -0.8583747, 0, 1.8064309, 2.1495972, 0, 9.166664)
 
-[node name="grass_27" parent="BaseLevel/ForestLevelEntry" index="43" unique_id=653659737 instance=ExtResource("18_efs00")]
+[node name="grass_27" parent="BaseLevel/ForestLevelEntry" index="42" unique_id=653659737 instance=ExtResource("18_efs00")]
 transform = Transform3D(3.5815704, 0, -3.48889, 0, 5, 0, 3.48889, 0, 3.5815704, 7.9206886, 0, 32.440323)
 
-[node name="fern_33" parent="BaseLevel/ForestLevelEntry" index="44" unique_id=1236629143 instance=ExtResource("24_efs00")]
+[node name="fern_33" parent="BaseLevel/ForestLevelEntry" index="43" unique_id=1236629143 instance=ExtResource("24_efs00")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5369377, 0, 30.763897)
 
-[node name="grass_34" parent="BaseLevel/ForestLevelEntry" index="45" unique_id=1529987258 instance=ExtResource("17_jo4gk")]
+[node name="grass_34" parent="BaseLevel/ForestLevelEntry" index="44" unique_id=1529987258 instance=ExtResource("17_jo4gk")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.9329567, 0, 11.403812)
 
-[node name="grass_26" parent="BaseLevel/ForestLevelEntry" index="46" unique_id=351803583 instance=ExtResource("18_efs00")]
+[node name="grass_26" parent="BaseLevel/ForestLevelEntry" index="45" unique_id=351803583 instance=ExtResource("18_efs00")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3.2289543, 0, 12.597574)
 
-[node name="stone_26" parent="BaseLevel/ForestLevelEntry" index="47" unique_id=1193068019 instance=ExtResource("19_iva4b")]
+[node name="stone_26" parent="BaseLevel/ForestLevelEntry" index="46" unique_id=1193068019 instance=ExtResource("19_iva4b")]
 transform = Transform3D(0.47766757, 0, -0.14776231, 0, 0.5, 0, 0.14776231, 0, 0.47766757, -1.918953, -0.31701398, 12.876585)
 
-[node name="stone_27" parent="BaseLevel/ForestLevelEntry" index="48" unique_id=1439395983 instance=ExtResource("19_iva4b")]
+[node name="stone_27" parent="BaseLevel/ForestLevelEntry" index="47" unique_id=1439395983 instance=ExtResource("19_iva4b")]
 transform = Transform3D(-0.31234884, 0, 0.39043334, 0.22300464, 0.41041517, 0.17840496, -0.32047954, 0.28558606, -0.25638542, 0.8518524, -0.31701398, 12.876585)
 
-[node name="FirefliesVFX" parent="BaseLevel/ForestLevelEntry" index="49" unique_id=56844065 instance=ExtResource("25_efs00")]
+[node name="FirefliesVFX" parent="BaseLevel/ForestLevelEntry" index="48" unique_id=56844065 instance=ExtResource("25_efs00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0922852, 0, 8.499357)
 
 [node name="GroundCollisionShape" parent="BaseLevel/GroundStaticBody" parent_id_path=PackedInt32Array(77432042) index="0" unique_id=2033871472]
@@ -775,6 +772,10 @@ shape = SubResource("BoxShape3D_gs1kk")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="5" unique_id=1217582694]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.700439, 3.7697754, -15.731201)
 shape = SubResource("BoxShape3D_q3ugp")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="6" unique_id=688733838]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.20044, 3.7697754, -17.731201)
+shape = SubResource("BoxShape3D_mq2i1")
 
 [node name="HellEntry" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="30" unique_id=23625159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
@@ -1087,6 +1088,12 @@ spot_angle = 30.0
 
 [node name="BreakableLog" parent="." index="7" unique_id=1811365310 instance=ExtResource("45_mq2i1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1700401, 1, -10.965675)
+
+[node name="BreakableLog2" parent="." index="8" unique_id=1250973119 instance=ExtResource("45_mq2i1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.17004, 1, -10.965675)
+
+[node name="BreakableLog3" parent="." index="9" unique_id=1967412927 instance=ExtResource("45_mq2i1")]
+transform = Transform3D(0.99614435, 0, -0.08772949, 0, 1, 0, 0.08772949, 0, 0.99614435, -46.462112, 1, -10.965675)
 
 [editable path="BaseLevel/Player"]
 [editable path="BaseLevel/ForestLevelEntry/ForestLevelPortal/DialogueTriggerArea2"]

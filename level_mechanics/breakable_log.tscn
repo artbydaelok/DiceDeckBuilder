@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyj52ydshi4bk"]
+[gd_scene format=3 uid="uid://dyj52ydshi4bk"]
 
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="1_ine68"]
 [ext_resource type="Script" uid="uid://bdn118tpsha7n" path="res://level_mechanics/breakable_log.gd" id="1_tmtjx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tmtjx"]
-size = Vector3(7.5, 8.338257, 1)
+size = Vector3(10, 8.338257, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmtjx"]
 vertex_color_use_as_albedo = true
@@ -20,21 +20,21 @@ initial_velocity_max = 25.0
 [sub_resource type="BoxMesh" id="BoxMesh_tmtjx"]
 size = Vector3(5, 0.46, 0.2)
 
-[node name="BreakableLog" type="Node3D"]
+[node name="BreakableLog" type="Node3D" unique_id=1963358820]
 script = ExtResource("1_tmtjx")
 
-[node name="tree_log_12" parent="." instance=ExtResource("1_ine68")]
+[node name="tree_log_12" parent="." unique_id=290743921 instance=ExtResource("1_ine68")]
 transform = Transform3D(2.7155058, 0, 1.2751582, 0, 3, 0, -1.2751582, 0, 2.7155058, 0, 0, 0)
 
-[node name="BreakableHitbox" type="Area3D" parent="."]
+[node name="BreakableHitbox" type="Area3D" parent="." unique_id=1446100158]
 collision_layer = 32
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BreakableHitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BreakableHitbox" unique_id=209199199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.1691284, 0)
 shape = SubResource("BoxShape3D_tmtjx")
 
-[node name="BrokenParticles" type="GPUParticles3D" parent="."]
+[node name="BrokenParticles" type="GPUParticles3D" parent="." unique_id=626117144]
 material_override = SubResource("StandardMaterial3D_tmtjx")
 emitting = false
 one_shot = true
@@ -42,10 +42,10 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_nb3vo")
 draw_pass_1 = SubResource("BoxMesh_tmtjx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=117886575]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.1691284, 0)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1821404127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1691284, 0)
 shape = SubResource("BoxShape3D_tmtjx")
 
 [connection signal="body_entered" from="BreakableHitbox" to="." method="_on_breakable_hitbox_body_entered"]
