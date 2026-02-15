@@ -24,10 +24,12 @@ func show_mother_nature():
 	mother_nature_tween.final_value = 25.0
 	mother_nature_tween.from_value = 0.0
 	mother_nature_tween.play()
+	mother_nature_trigger_area_0.queue_free()
 	forest_demon.appear()
 
 func hide_mother_nature():
+	print("Hiding")
 	mother_nature_tween.final_value = 0.0
 	mother_nature_tween.from_value = 25.0
 	mother_nature_tween.play()
-	mother_nature_trigger_area_0.queue_free()
+	forest_demon.disappear()

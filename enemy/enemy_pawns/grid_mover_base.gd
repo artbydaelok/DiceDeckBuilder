@@ -51,9 +51,10 @@ func tick(delta): # OVERRIDABLE FUNCTION
 
 func pattern_move():
 	grid_move_in_direction(pattern[step])
-	#pattern[step] *= -1
 	step += 1
 	if step >= pattern.size():
 		if ping_pong_pattern:
+			for i in range(pattern.size()):
+				pattern[i] *= -1
 			pattern.reverse()
 		step = 0

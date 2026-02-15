@@ -10,8 +10,9 @@ do GameEvents.current_level.show_mother_nature()
 Forest Demon: Halt there, you are trespassing. 
 Forest Demon: This land belongs to the beasts and to me. 
 Forest Demon: Turn back, you shall not pass.
-do GameEvents.current_level.hide_mother_nature()
+=> END
 
 ~ mother_nature_1
 Forest Demon: Ouch
-Forest Demon: Okay, you can pass.
+Forest Demon: Okay, jeez, you can pass.
+do GameEvents.current_level.hide_mother_nature()

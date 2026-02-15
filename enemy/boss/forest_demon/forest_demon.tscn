@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://clans25hik6r"]
+[gd_scene format=3 uid="uid://clans25hik6r"]
 
 [ext_resource type="Script" uid="uid://ynnnofymf6ln" path="res://enemy/boss/forest_demon/forest_demon.gd" id="1_8gxrt"]
 [ext_resource type="Texture2D" uid="uid://c2afw52eo0any" path="res://assets/boss_sprites/ForestLevelDemonForeground.png" id="1_tfi4j"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bxqbe2s5y72cb" path="res://assets/boss_sprites/ForestLevelDemonBackground.png" id="2_jr31b"]
 [ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="4_8aicx"]
 [ext_resource type="Script" uid="uid://cqxuuexdumeed" path="res://addons/TweenAnimation/TweenProperty.gd" id="5_y71yb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8gxrt"]
+size = Vector3(10, 8.338257, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8aicx"]
 transparency = 1
@@ -27,117 +30,6 @@ texture_filter = 0
 [sub_resource type="QuadMesh" id="QuadMesh_lnsvp"]
 material = SubResource("StandardMaterial3D_8gxrt")
 size = Vector2(10, 10)
-
-[sub_resource type="Animation" id="Animation_8aicx"]
-resource_name = "appear"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("tree_dead_1:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("tree_dead_2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.99999994, 0.9999999, 0.9999999)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("tree_dead_3:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1, 0.99999994, 0.9999998)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("tree_dead_4:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.99999994, 0.9999999, 0.9999999)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("tree_dead_5:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(2.0000002, 2, 2)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Foreground:mesh:material:albedo_color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(4, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Background:mesh:material:albedo_color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(4, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Ground:mesh:material:albedo_color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("tree_dead_5:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-2.8763027, 0.4886922, -0.27401668), Vector3(-0.32672283, 0.48806816, -0.2733146)]
-}
 
 [sub_resource type="Animation" id="Animation_y71yb"]
 length = 0.001
@@ -250,6 +142,117 @@ tracks/8/keys = {
 "values": [Vector3(-0.32672283, 0.48806816, -0.2733146)]
 }
 
+[sub_resource type="Animation" id="Animation_8aicx"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree_dead_1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tree_dead_2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.99999994, 0.9999999, 0.9999999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tree_dead_3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 0.99999994, 0.9999998)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tree_dead_4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.99999994, 0.9999999, 0.9999999)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("tree_dead_5:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.0000002, 2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foreground:mesh:material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background:mesh:material:albedo_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ground:mesh:material:albedo_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("tree_dead_5:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.8763027, 0.4886922, -0.27401668), Vector3(-0.32672283, 0.48806816, -0.2733146)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y71yb"]
 _data = {
 &"RESET": SubResource("Animation_y71yb"),
@@ -277,49 +280,71 @@ material = SubResource("StandardMaterial3D_lnsvp")
 size = Vector2(10, 6)
 orientation = 1
 
-[node name="ForestDemon" type="Node3D"]
+[node name="ForestDemon" type="Node3D" unique_id=1873557936]
 script = ExtResource("1_8gxrt")
 
-[node name="Foreground" type="MeshInstance3D" parent="."]
+[node name="BlockCollisionStaticBody" type="StaticBody3D" parent="." unique_id=1678328637]
+
+[node name="BlockCollision" type="CollisionShape3D" parent="BlockCollisionStaticBody" unique_id=946312517]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.1691284, 0)
+shape = SubResource("BoxShape3D_8gxrt")
+
+[node name="AxeDetectionHurtbox" type="Area3D" parent="." unique_id=738813963]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AxeDetectionHurtbox" unique_id=694860721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.1691284, 0)
+shape = SubResource("BoxShape3D_8gxrt")
+
+[node name="Foreground" type="MeshInstance3D" parent="." unique_id=149247026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0.6801982)
 mesh = SubResource("QuadMesh_y71yb")
 script = ExtResource("2_8aicx")
 anim_amount = 0.2
 
-[node name="Background" type="MeshInstance3D" parent="."]
+[node name="Background" type="MeshInstance3D" parent="." unique_id=1333594437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 mesh = SubResource("QuadMesh_lnsvp")
 script = ExtResource("2_8aicx")
 anim_amount = 0.2
 
-[node name="tree_dead_1" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9659258, 0.25881904, 2.8233034e-09, -0.25, 0.93301266, 0.25881907, 0.066987306, -0.25000003, 0.9659258, 2.5, 0, -1)
+[node name="tree_dead_1" parent="." unique_id=1427184408 instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.9659258, 0.25881907, 1.0536714e-08, -0.25000003, 0.93301266, 0.2588191, 0.06698731, -0.25000006, 0.9659258, 2.5, 0, -1)
 
-[node name="tree_dead_2" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9751768, -0.22118346, 0.010382356, 0.21105124, 0.94264394, 0.25861067, -0.066987276, -0.24999996, 0.9659257, -2.5, 0, -1)
+[node name="tree_dead_2" parent="." unique_id=8193853 instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.9751768, -0.22118348, 0.010382357, 0.21105126, 0.94264394, 0.2586107, -0.06698729, -0.24999997, 0.9659257, -2.5, 0, -1)
 
-[node name="tree_dead_3" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9659258, 0.25881898, 1.0020011e-08, -0.22414383, 0.8365162, 0.4999999, 0.12940949, -0.48296288, 0.8660252, 2.5, -1, -3)
+[node name="tree_dead_6" parent="tree_dead_2" unique_id=1180976395 instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.74236155, 0.22053291, 0.12841256, -0.2458785, 0.7238663, 0.17828774, -0.06832512, -0.20882526, 0.7536238, 0.08076215, 0.3014083, -1.1645523)
 
-[node name="tree_dead_4" parent="." instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.96592575, -0.25881898, 2.8233058e-09, 0.22414382, 0.83651614, 0.49999994, -0.12940949, -0.48296285, 0.86602527, -2.5, -1, -3)
+[node name="tree_dead_3" parent="." unique_id=1403991476 instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.9659258, 0.25881898, 1.00200115e-08, -0.22414383, 0.8365162, 0.49999997, 0.1294095, -0.48296294, 0.8660252, 2.5, -1, -3)
 
-[node name="tree_dead_5" parent="." instance=ExtResource("4_8aicx")]
+[node name="tree_dead_3" parent="tree_dead_3" unique_id=1618403780 instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.72355133, 0.16626137, 0.106448114, -0.16477394, 0.73133713, -0.022269905, -0.10873603, -0.001902163, 0.7420736, 0.38423562, 0.16973555, 1.06618)
+
+[node name="tree_dead_4" parent="." unique_id=930364735 instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.96592575, -0.25881898, -4.373403e-09, 0.22414382, 0.83651614, 0.5, -0.1294095, -0.4829629, 0.86602527, -2.5, -1, -3)
+
+[node name="tree_dead_4" parent="tree_dead_4" unique_id=952840775 instance=ExtResource("4_8aicx")]
+transform = Transform3D(0.99463916, 0.09092688, -0.049259804, -0.091686115, 0.9956981, -0.013370603, 0.0478322, 0.017815202, 0.99869645, 1.8303541, 0.6259029, -1.4461889)
+
+[node name="tree_dead_5" parent="." unique_id=292364468 instance=ExtResource("4_8aicx")]
 transform = Transform3D(1.7821568, 0.18699718, 0.8882285, -0.51129055, 1.8238887, 0.6418819, -0.7499999, -0.7990384, 1.6730325, 0, -1.5, -3)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_y71yb")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1212340933]
+libraries/ = SubResource("AnimationLibrary_y71yb")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1174033742]
 process_material = SubResource("ParticleProcessMaterial_y71yb")
 
-[node name="Ground" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=2099630467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -2)
 mesh = SubResource("QuadMesh_8aicx")
 
-[node name="GroundScaleAnim" type="Node" parent="Ground" node_paths=PackedStringArray("node")]
+[node name="GroundScaleAnim" type="Node" parent="Ground" unique_id=812623615 node_paths=PackedStringArray("node")]
 script = ExtResource("5_y71yb")
 node = NodePath("..")
 property = ":scale"

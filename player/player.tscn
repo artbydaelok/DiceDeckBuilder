@@ -1,12 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://cp6gwawuteplg"]
+[gd_scene format=3 uid="uid://cp6gwawuteplg"]
 
-[ext_resource type="Script" uid="uid://dx3ou7m1amufh" path="res://player/Player.gd" id="1_1u8nn"]
+[ext_resource type="Script" uid="uid://dx3ou7m1amufh" path="res://player/player.gd" id="1_1u8nn"]
 [ext_resource type="Texture2D" uid="uid://b7f38wjks3ocy" path="res://player/pixel_dice_tex_empty_face.png" id="2_7sfox"]
 [ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="2_knvy0"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
 [ext_resource type="Script" uid="uid://cqi1mqmkmli5s" path="res://player/SideSprite.gd" id="5_v808x"]
 [ext_resource type="AudioStream" uid="uid://t4j8pdmiqehu" path="res://assets/sounds/footstep_concrete_a_14.wav" id="6_j7ngl"]
 [ext_resource type="AudioStream" uid="uid://uwo0eav3gehd" path="res://assets/sounds/PUNCH_ELECTRIC_HEAVY_02.wav" id="7_2b10p"]
+[ext_resource type="Texture2D" uid="uid://b8lokqjj6088j" path="res://assets/4x-Grid-4-by-4.png" id="8_rgyib"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ru3w"]
 albedo_texture = ExtResource("2_7sfox")
@@ -91,116 +92,205 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_iq1mx"]
 size = Vector3(1.8, 1.8, 1.8)
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[sub_resource type="Shader" id="Shader_boad6"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.6.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx, unshaded;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_nearest, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_nearest, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+varying vec2 base_uv;
+
+// Uniforms can be adjusted in the Inspector
+uniform float radius : hint_range(0.0, 1.0) = 0.75;         // The inner radius where the fade begins (0.0 to 1.0, relative to UV)
+uniform float fade_length : hint_range(0.0, 1.0) = 0.1;    // The length of the gradient fade
+
+void vertex() {
+	base_uv = UV;
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 new_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, new_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, new_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, new_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	ALPHA *= albedo.a * albedo_tex.a;
+	
+    // Calculate the distance from the center of the UV coordinates (0.5, 0.5)
+    float dist = distance(base_uv, vec2(0.5));
+
+    // Normalize distance to be 0 at center and 0.5 at the edge of a square UV
+    // Multiply by 2.0 to have the edge of a proper circle at dist = 1.0 (relative to radius)
+    dist *= 2.0;
+
+    // Calculate the alpha value based on the distance
+    // This value is 1.0 inside the radius and fades out over the fade_length
+    float alpha = smoothstep(radius + fade_length, radius, dist);
+
+    ALPHA *= alpha;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgyib"]
+render_priority = 0
+shader = SubResource("Shader_boad6")
+shader_parameter/albedo = Color(1, 1, 1, 0.59607846)
+shader_parameter/texture_albedo = ExtResource("8_rgyib")
+shader_parameter/albedo_texture_size = Vector2i(160, 160)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0.125, 0.125, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/radius = 0.450000021375
+shader_parameter/fade_length = 0.50000002375
+
+[sub_resource type="QuadMesh" id="QuadMesh_8t03j"]
+material = SubResource("ShaderMaterial_rgyib")
+size = Vector2(8, 8)
+orientation = 1
+
+[node name="Player" type="CharacterBody3D" unique_id=758817783 groups=["player"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_1u8nn")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=17712324]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1261321274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_2ru3w")
 material_overlay = SubResource("StandardMaterial3D_rgyib")
 mesh = ExtResource("3_fgjie")
 
-[node name="SideOne" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideOne" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=635912783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
-[node name="SideOneSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideOne"]
+[node name="SideOneSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideOne" unique_id=1950984098]
 transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 0.05, 0, 0)
 texture_filter = 0
 region_rect = Rect2(592, 496, 15, 15)
 script = ExtResource("5_v808x")
 side = 1
 
-[node name="SideTwo" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideTwo" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=201251425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="SideTwoSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideTwo"]
+[node name="SideTwoSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideTwo" unique_id=1820557563]
 transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 0, 0.05, 0)
 texture_filter = 0
 script = ExtResource("5_v808x")
 side = 2
 
-[node name="SideThree" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideThree" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=271659813]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="SideThreeSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideThree"]
+[node name="SideThreeSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideThree" unique_id=1450854328]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -0.05)
 texture_filter = 0
 region_rect = Rect2(320, 496, 16, 16)
 script = ExtResource("5_v808x")
 side = 3
 
-[node name="SideFour" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideFour" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=1342717497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="SideFourSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFour"]
+[node name="SideFourSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFour" unique_id=797255548]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0.05)
 texture_filter = 0
 region_rect = Rect2(323, 498, 10, 12)
 script = ExtResource("5_v808x")
 side = 4
 
-[node name="SideFive" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideFive" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=1885954574]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="SideFiveSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFive"]
+[node name="SideFiveSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFive" unique_id=791533920]
 transform = Transform3D(4.9989, -2.27033e-09, -0.104705, -0.104705, -2.16767e-07, -4.9989, -2.27033e-09, 5, -2.16767e-07, 0, -0.05, 0)
 texture_filter = 0
 script = ExtResource("5_v808x")
 side = 5
 
-[node name="SideSix" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideSix" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=266297779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="SideSixSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideSix"]
+[node name="SideSixSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideSix" unique_id=790877547]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -0.05, 0, 0)
 texture_filter = 0
 region_rect = Rect2(592, 497, 15, 14)
 script = ExtResource("5_v808x")
 side = 6
 
-[node name="Hurtbox" parent="Pivot/MeshInstance3D" node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("2_knvy0")]
+[node name="Hurtbox" parent="Pivot/MeshInstance3D" unique_id=634794587 node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("2_knvy0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 collision_layer = 8
 collision_mask = 4
 hurtbox_owner = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/MeshInstance3D/Hurtbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/MeshInstance3D/Hurtbox" unique_id=2014614426]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_vgilg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1983496716]
 shape = SubResource("BoxShape3D_f2jhj")
 
-[node name="CommitLockTimer" type="Timer" parent="."]
+[node name="CommitLockTimer" type="Timer" parent="." unique_id=96697960]
 one_shot = true
 
-[node name="MoveSFX" type="AudioStreamPlayer" parent="."]
+[node name="MoveSFX" type="AudioStreamPlayer" parent="." unique_id=2106832622]
 stream = ExtResource("6_j7ngl")
 volume_db = -12.0
 bus = &"SFX"
 
-[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+[node name="HurtSFX" type="AudioStreamPlayer" parent="." unique_id=1799594199]
 stream = ExtResource("7_2b10p")
 volume_db = -2.0
 bus = &"SFX"
 
-[node name="DeathAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_71j6m")
-}
+[node name="DeathAnimation" type="AnimationPlayer" parent="." unique_id=1503857767]
+libraries/ = SubResource("AnimationLibrary_71j6m")
 
-[node name="ShapeCast" type="ShapeCast3D" parent="."]
+[node name="ShapeCast" type="ShapeCast3D" parent="." unique_id=1491964003]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_iq1mx")
 target_position = Vector3(0, 0, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1264099536]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
 light_energy = 0.35
+
+[node name="GridMesh" type="MeshInstance3D" parent="." unique_id=1599974890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("QuadMesh_8t03j")
 
 [connection signal="timeout" from="CommitLockTimer" to="." method="_on_commit_lock_timer_timeout"]

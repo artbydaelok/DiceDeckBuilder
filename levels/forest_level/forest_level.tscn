@@ -96,14 +96,14 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -65)
+disabled = true
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1545155587 instance=ExtResource("4_fyusi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
 dialogue_resource = ExtResource("5_nautm")
 title_to_play = "mother_nature_0"
 
 [node name="CollisionShape3D" parent="BaseLevel/MotherNatureTriggerArea0/PlayerDetection" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -39)
 shape = SubResource("BoxShape3D_b118p")
 debug_color = Color(0.9582438, 1.6364455e-06, 0.5308395, 0.41960785)
 
@@ -120,9 +120,9 @@ transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -4, 0, -50)
 spaces_to_move = 2
 
 [node name="Eyeball1" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=1967730826 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9483607, 0, -82)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.0516393, 0, -82)
 player_reposition_location_node = NodePath("../EyeballMarker1")
-pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(-1, 0, 0), Vector3(-1, 0, 0)])
+pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(1, 0, 0), Vector3(1, 0, 0)])
 
 [node name="CollisionShape3D" parent="BaseLevel/Eyeball1/Hitbox" parent_id_path=PackedInt32Array(1967730826, 760070920) index="0" unique_id=1650356292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37549996, 4)
@@ -669,7 +669,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2960386, -0.24791288, -54.44754)
 
 [node name="tree_dead_2" parent="BaseLevel/Trees" index="1" unique_id=843329326 instance=ExtResource("14_f1v1w")]
-transform = Transform3D(0.97569543, -0.21913105, 0, 0.21771854, 0.9694061, -0.11335928, 0.024840537, 0.11060413, 0.99355406, 2.2960386, -0.24791288, -57.40565)
+transform = Transform3D(0.97569543, -0.21913105, 0, 0.21771854, 0.9694061, -0.11335928, 0.024840537, 0.11060413, 0.99355406, 2.2960386, -0.24791288, -61.477383)
 
 [node name="tree_dead_3" parent="BaseLevel/Trees" index="2" unique_id=2110121991 instance=ExtResource("14_f1v1w")]
 transform = Transform3D(-0.64998335, 0.21720079, -0.72824824, 0.20783088, 0.9725594, 0.1045716, 0.73097765, -0.08338266, -0.67728835, -6.471152, -0.24791288, -61.272552)
@@ -848,6 +848,15 @@ transform = Transform3D(0.9943787, 0, -0.105882265, 0, 1, 0, 0.105882265, 0, 0.9
 [node name="tree_stump_15" parent="BaseLevel/Trees" index="60" unique_id=1565604471 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.9943787, 0, -0.105882265, 0, 1, 0, 0.105882265, 0, 0.9943787, -5.877414, 0, -36.228275)
 
+[node name="tree_dead_5" parent="BaseLevel/Trees" index="61" unique_id=459369480 instance=ExtResource("14_f1v1w")]
+transform = Transform3D(0.97126323, -0.23800799, 0, 0.23800799, 0.97126323, 0, 0, 0, 1, 6.1082144, 0, -70.05805)
+
+[node name="PineTree28" parent="BaseLevel/Trees" index="62" unique_id=438548955 instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.9707731, 0.22830333, -0.0740072, -0.22858402, 0.97351235, 0.0047689704, 0.07313568, 0.012287274, 0.9972461, -6.278678, -0.34318042, -74.29434)
+
+[node name="PineTree29" parent="BaseLevel/Trees" index="63" unique_id=546377955 instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.9188532, -0.39459953, 0, 0.39459953, 0.9188532, 0, 0, 0, 1, 14.014385, -0.34318042, -77.4489)
+
 [node name="BreakableLog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="28" unique_id=820773821 instance=ExtResource("13_cpv81")]
 transform = Transform3D(0.99925417, 0, 0.038614534, 0, 1, 0, -0.038614534, 0, 0.99925417, -0.6843324, 0.18998957, -18.910736)
 
@@ -892,6 +901,48 @@ transform = Transform3D(0.8266428, 0, 1.0925025, 0, 1.37, 0, -1.0925025, 0, 0.82
 [node name="Stone15" parent="BaseLevel/Stones" index="10" unique_id=87928971 instance=ExtResource("15_fyusi")]
 transform = Transform3D(0.8266428, 0, 1.0925025, 0, 1.37, 0, -1.0925025, 0, 0.8266428, -6.0842056, -0.061386585, -40.41038)
 
+[node name="Stone2" parent="BaseLevel/Stones" index="11" unique_id=875987062 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.5882229, 0, 0.8086989, 0, 1, 0, -0.8086989, 0, 0.5882229, -9.466537, 0, -54.52139)
+
+[node name="Stone4" parent="BaseLevel/Stones" index="12" unique_id=2016946033 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.2600583, -0.7702466, 0.58231443, 0.45708993, 0.6294154, 0.628415, -0.850552, 0.10274542, 0.51575655, 6.746874, -0.13545895, -57.24248)
+
+[node name="Stone16" parent="BaseLevel/Stones" index="13" unique_id=518655147 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.36044258, -0.7770124, 0.51607454, 0.45708993, 0.6294154, 0.628415, -0.8131114, 0.009384921, 0.5820325, -7.4667764, 0, -69.226845)
+
+[node name="Stone17" parent="BaseLevel/Stones" index="14" unique_id=874019516 instance=ExtResource("18_7n544")]
+transform = Transform3D(-0.41287968, 0.39763007, -0.81940275, 0.25763297, 0.91391045, 0.31367606, 0.87358785, -0.08159472, -0.47977766, -9.44177, -0.95935726, -80.226845)
+
+[node name="Stone18" parent="BaseLevel/Stones" index="15" unique_id=1943687489 instance=ExtResource("18_7n544")]
+transform = Transform3D(-0.86935806, -0.20108671, -1.2673912, -0.42073092, 1.4908978, 0.052048713, 1.2123127, 0.3732127, -0.8907919, -12.626, 0.6995454, -80.226845)
+
+[node name="Stone19" parent="BaseLevel/Stones" index="16" unique_id=38253425 instance=ExtResource("18_7n544")]
+transform = Transform3D(-1.2903322, -0.33654773, -0.7901129, -0.4207309, 1.4908978, 0.052048672, 0.7486844, 0.2577968, -1.3324833, -13.858118, 0.6995454, -98.0686)
+
+[node name="Stone20" parent="BaseLevel/Stones" index="17" unique_id=2070160767 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.013701916, 0.3376913, 0.94115734, -0.23646308, 0.91564167, -0.32509354, -0.971544, -0.21809468, 0.09239745, 10.163209, 2.2561321, -65.611824)
+
+[node name="Stone21" parent="BaseLevel/Stones" index="18" unique_id=547903679 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.096872576, -0.28809, 0.33859247, -0.047226362, 0.33790818, 0.30101946, -0.4420524, -0.099233, 0.042040866, 7.510786, 0.25613213, -66.44803)
+
+[node name="Stone22" parent="BaseLevel/Stones" index="19" unique_id=1210739109 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.013701916, 0.3376913, 0.94115734, -0.23646308, 0.91564167, -0.32509354, -0.971544, -0.21809468, 0.09239745, 7.815339, 2.2561321, -72.67206)
+
+[node name="Stone23" parent="BaseLevel/Stones" index="20" unique_id=636872471 instance=ExtResource("18_7n544")]
+transform = Transform3D(-0.5854695, 0.274909, -0.76266026, 0.13882937, 0.96085125, 0.2397744, 0.79871905, 0.03450097, -0.6007143, 8.209398, 2.2561321, -84.27899)
+
+[node name="Stone24" parent="BaseLevel/Stones" index="21" unique_id=933400472 instance=ExtResource("18_7n544")]
+transform = Transform3D(-1.3266566, -0.37797344, 0.03896805, -0.3536106, 1.2798907, 0.37581825, -0.13907547, 0.35130596, -1.3272687, 11.262388, 3.017891, -94.453125)
+
+[node name="Stone25" parent="BaseLevel/Stones" index="22" unique_id=1510486689 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.4842599, -0.29759312, 0.47384676, 0.2668652, 0.6736333, 0.15033656, -0.49180818, 0.07250172, 0.5481498, -8.438051, -0.6831808, -90.171036)
+
+[node name="Stone26" parent="BaseLevel/Stones" index="23" unique_id=1254085003 instance=ExtResource("18_7n544")]
+transform = Transform3D(-0.601671, 0.05629936, -0.7967575, 0.006331035, 0.9978178, 0.06572572, 0.79871905, 0.034500964, -0.6007143, 10.064356, 6.836972, -84.27899)
+
+[node name="Stone3" parent="BaseLevel/Stones" index="24" unique_id=1999223425 instance=ExtResource("18_7n544")]
+transform = Transform3D(0.18326512, 0, 0.9830636, 0, 1, 0, -0.9830636, 0, 0.18326512, -13.875754, 0, -40.018017)
+
 [node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="32" unique_id=703169726]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 light_negative = true
@@ -912,57 +963,6 @@ final_value = 0.5
 duration = 1.0
 from_value = 0.0
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
-
-[node name="Stone2" parent="." index="5" unique_id=875987062 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.5882229, 0, 0.8086989, 0, 1, 0, -0.8086989, 0, 0.5882229, -9.466537, 0, -54.52139)
-
-[node name="Stone4" parent="." index="6" unique_id=2016946033 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.2600583, -0.7702466, 0.58231443, 0.45708993, 0.6294154, 0.628415, -0.850552, 0.10274542, 0.51575655, 7.744727, -0.13545895, -57.24248)
-
-[node name="Stone6" parent="." index="7" unique_id=518655147 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.36044258, -0.7770124, 0.51607454, 0.45708993, 0.6294154, 0.628415, -0.8131114, 0.009384921, 0.5820325, -7.4667764, 0, -69.226845)
-
-[node name="Stone8" parent="." index="8" unique_id=874019516 instance=ExtResource("18_7n544")]
-transform = Transform3D(-0.41287968, 0.39763007, -0.81940275, 0.25763297, 0.91391045, 0.31367606, 0.87358785, -0.08159472, -0.47977766, -9.44177, -0.95935726, -80.226845)
-
-[node name="Stone9" parent="." index="9" unique_id=1943687489 instance=ExtResource("18_7n544")]
-transform = Transform3D(-0.86935806, -0.20108671, -1.2673912, -0.42073092, 1.4908978, 0.052048713, 1.2123127, 0.3732127, -0.8907919, -12.626, 0.6995454, -80.226845)
-
-[node name="Stone13" parent="." index="10" unique_id=38253425 instance=ExtResource("18_7n544")]
-transform = Transform3D(-1.2903322, -0.33654773, -0.7901129, -0.4207309, 1.4908978, 0.052048672, 0.7486844, 0.2577968, -1.3324833, -13.858118, 0.6995454, -98.0686)
-
-[node name="Stone5" parent="." index="11" unique_id=2070160767 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.013701916, 0.3376913, 0.94115734, -0.23646308, 0.91564167, -0.32509354, -0.971544, -0.21809468, 0.09239745, 10.163209, 2.2561321, -65.611824)
-
-[node name="Stone12" parent="." index="12" unique_id=547903679 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.096872576, -0.28809, 0.33859247, -0.047226362, 0.33790818, 0.30101946, -0.4420524, -0.099233, 0.042040866, 7.510786, 0.25613213, -66.44803)
-
-[node name="Stone7" parent="." index="13" unique_id=1210739109 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.013701916, 0.3376913, 0.94115734, -0.23646308, 0.91564167, -0.32509354, -0.971544, -0.21809468, 0.09239745, 7.815339, 2.2561321, -72.67206)
-
-[node name="Stone10" parent="." index="14" unique_id=636872471 instance=ExtResource("18_7n544")]
-transform = Transform3D(-0.5854695, 0.274909, -0.76266026, 0.13882937, 0.96085125, 0.2397744, 0.79871905, 0.03450097, -0.6007143, 8.209398, 2.2561321, -84.27899)
-
-[node name="Stone14" parent="." index="15" unique_id=933400472 instance=ExtResource("18_7n544")]
-transform = Transform3D(-1.3266566, -0.37797344, 0.03896805, -0.3536106, 1.2798907, 0.37581825, -0.13907547, 0.35130596, -1.3272687, 11.262388, 3.017891, -94.453125)
-
-[node name="Stone15" parent="." index="16" unique_id=1510486689 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.4842599, -0.29759312, 0.47384676, 0.2668652, 0.6736333, 0.15033656, -0.49180818, 0.07250172, 0.5481498, -8.438051, -0.6831808, -90.171036)
-
-[node name="Stone11" parent="." index="17" unique_id=1254085003 instance=ExtResource("18_7n544")]
-transform = Transform3D(-0.601671, 0.05629936, -0.7967575, 0.006331035, 0.9978178, 0.06572572, 0.79871905, 0.034500964, -0.6007143, 10.064356, 6.836972, -84.27899)
-
-[node name="Stone3" parent="." index="18" unique_id=1999223425 instance=ExtResource("18_7n544")]
-transform = Transform3D(0.18326512, 0, 0.9830636, 0, 1, 0, -0.9830636, 0, 0.18326512, -13.875754, 0, -40.018017)
-
-[node name="tree_dead_1" parent="." index="19" unique_id=459369480 instance=ExtResource("14_f1v1w")]
-transform = Transform3D(0.97126323, -0.23800799, 0, 0.23800799, 0.97126323, 0, 0, 0, 1, 6.1082144, 0, -70.05805)
-
-[node name="PineTree3" parent="." index="20" unique_id=438548955 instance=ExtResource("13_24wnm")]
-transform = Transform3D(0.9707731, 0.22830333, -0.0740072, -0.22858402, 0.97351235, 0.0047689704, 0.07313568, 0.012287274, 0.9972461, -6.278678, -0.34318042, -74.29434)
-
-[node name="PineTree4" parent="." index="21" unique_id=546377955 instance=ExtResource("13_24wnm")]
-transform = Transform3D(0.9188532, -0.39459953, 0, 0.39459953, 0.9188532, 0, 0, 0, 1, 14.014385, -0.34318042, -77.4489)
 
 [editable path="BaseLevel/MotherNatureTriggerArea0"]
 [editable path="BaseLevel/Eyeball1"]

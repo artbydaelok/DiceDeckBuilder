@@ -4,6 +4,11 @@ class_name Player
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/MeshInstance3D
 
+# Grid Mesh Variables
+@onready var grid_mesh: MeshInstance3D = $GridMesh
+var grid_offset_start = 0.125
+var grid_offset_amount = 0.25
+
 @onready var side_one = $Pivot/MeshInstance3D/SideOne
 @onready var side_two = $Pivot/MeshInstance3D/SideTwo
 @onready var side_three = $Pivot/MeshInstance3D/SideThree
@@ -172,8 +177,14 @@ func roll(dir):
 	energy += 1
 	energy = clamp(energy, 0, 6)
 	energy_gained.emit(1)
-
-	if is_dead:
+	
+	# This line offsets the grid UV so that it gives the illusion the player is moving with it.
+	var _uv_offset = grid_mesh.mesh.surface_get_material(0).get_shader_parameter("uv1_offset")
+	_uv_offset.x += grid_offset_amount
+	grid_mesh.mesh.surface_get_material(0).set_shader_parameter("uv1_offset", _uv_offset)
+	
+	# This is a check for player death after a roll is finished
+	if is_dead: 
 		$DeathAnimation.play("death")
 
 func add_blocked_pos(blocked_pos: Vector2):

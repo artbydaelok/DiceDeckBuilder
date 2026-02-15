@@ -6,26 +6,46 @@
 [ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="3_ix2g7"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="3_rc53g"]
 
-[sub_resource type="Gradient" id="Gradient_ix2g7"]
-offsets = PackedFloat32Array(0, 0.18209876, 0.5640244, 0.85493827, 0.88580245, 0.9537037, 1)
-colors = PackedColorArray(0.49354547, 0.49354553, 0.49354553, 1, 1, 0.8581998, 0.8341832, 1, 0.98960966, 0.5404823, 0.48379683, 1, 1, 1, 1, 1, 1, 0.16000003, 0.16000003, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+[sub_resource type="Animation" id="Animation_6v547"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.5235988)]
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4h2lw"]
-gradient = SubResource("Gradient_ix2g7")
-width = 128
-height = 128
-fill_to = Vector2(0, 1)
+[sub_resource type="Animation" id="Animation_4h2lw"]
+resource_name = "looking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.5235988), Vector3(0.034906585, 0, 0.5235988), Vector3(-0.017453292, 0.05235988, 0.4886922), Vector3(0.017453292, 0.017453292, 0.54105204)]
+}
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v547"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.44313726)
-albedo_texture = SubResource("GradientTexture2D_4h2lw")
-texture_filter = 0
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6v547"]
+_data = {
+&"RESET": SubResource("Animation_6v547"),
+&"looking": SubResource("Animation_4h2lw")
+}
 
 [sub_resource type="Gradient" id="Gradient_rc53g"]
-offsets = PackedFloat32Array(0, 0.42987806, 0.6707317, 0.88580245, 0.9537037, 1)
-colors = PackedColorArray(0.9999458, 0.4669575, 0.42254105, 1, 0.98960966, 0.5404823, 0.48379683, 1, 1, 1, 1, 1, 1, 0.16000003, 0.16000003, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.78515625, 0.84765625, 0.8828125)
+colors = PackedColorArray(0.9999458, 0.4669575, 0.42254105, 1, 0.9999963, 0.96390855, 0.96090126, 1, 1, 0.16000003, 0.16000003, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ix2g7"]
 gradient = SubResource("Gradient_rc53g")
@@ -49,6 +69,10 @@ script = ExtResource("2_870kv")
 react_to_player_move = true
 ping_pong_pattern = false
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0" unique_id=416107141]
+libraries/ = SubResource("AnimationLibrary_6v547")
+autoplay = &"looking"
+
 [node name="fern_3" parent="Visuals" index="0" unique_id=74719610 instance=ExtResource("3_4h2lw")]
 transform = Transform3D(0.4762298, -0.82485425, 0.30466482, 0.86602545, 0.49999997, 0, -0.1523324, 0.2638475, 0.95245963, -2, 8, -0.1291318)
 
@@ -69,25 +93,24 @@ transform = Transform3D(0.33807406, 0.090586595, 0, 0.09058664, -0.33807394, 0, 
 
 [node name="Mesh" parent="Visuals" index="6"]
 transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -0.5, 6.5, 0)
-material_overlay = SubResource("StandardMaterial3D_6v547")
 mesh = SubResource("SphereMesh_1w0ao")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="3" unique_id=31407160]
-transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="Visuals/Mesh" index="0" unique_id=31407160]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.066987276, -1.1160254, 0)
 light_color = Color(0.2509804, 1, 1, 1)
 light_energy = 35.0
 light_negative = true
 spot_range = 20.22616
 spot_angle = 27.638577
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." index="4" unique_id=563635014]
-transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
+[node name="SpotLight3D2" type="SpotLight3D" parent="Visuals/Mesh" index="1" unique_id=563635014]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.066987276, -1.1160254, 0)
 light_color = Color(1, 0.25, 0.2624998, 1)
 light_energy = 35.0
 spot_range = 20.22616
 spot_angle = 27.638577
 
-[node name="Hitbox" parent="." index="5" unique_id=760070920 instance=ExtResource("3_rc53g")]
+[node name="Hitbox" parent="." index="4" unique_id=760070920 instance=ExtResource("3_rc53g")]
 collision_layer = 0
 collision_mask = 8
 damage = 10
