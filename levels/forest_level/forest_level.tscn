@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="14_f1v1w"]
 [ext_resource type="PackedScene" uid="uid://cj8jh22a8suyc" path="res://assets/3d_models/psx/stone/stone_5.tscn" id="15_fyusi"]
 [ext_resource type="PackedScene" uid="uid://dps5ghm8ptkps" path="res://assets/3d_models/psx/stone/stone_2.tscn" id="18_7n544"]
+[ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="23_ma4h5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
 size = Vector3(10, 1, 1)
@@ -963,6 +964,11 @@ final_value = 0.5
 duration = 1.0
 from_value = 0.0
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
+
+[node name="SaveSystem" parent="." index="5" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
+
+[connection signal="card_slotted" from="CardSystem" to="SaveSystem" method="_on_card_system_card_slotted"]
+[connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
 
 [editable path="BaseLevel/MotherNatureTriggerArea0"]
 [editable path="BaseLevel/Eyeball1"]

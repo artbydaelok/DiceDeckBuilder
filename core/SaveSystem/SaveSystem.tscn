@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ewq4w7sq860i"]
+
+[ext_resource type="Script" uid="uid://bhwb0voo3173b" path="res://core/SaveSystem/save_system.gd" id="1_a4i56"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="2_tnnup"]
+[ext_resource type="Script" uid="uid://lesch0uaaqtp" path="res://core/SaveSystem/player_data.gd" id="3_jvpav"]
+
+[sub_resource type="Resource" id="Resource_6myvi"]
+script = ExtResource("3_jvpav")
+metadata/_custom_type_script = "uid://lesch0uaaqtp"
+
+[node name="SaveSystem" type="Node" unique_id=1059717826]
+script = ExtResource("1_a4i56")
+player_data = SubResource("Resource_6myvi")
