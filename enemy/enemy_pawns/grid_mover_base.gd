@@ -12,6 +12,7 @@ var step : int = 0
 @export_subgroup("Reacting to player movement.")
 ## If checked, the enemy will only move when the player moves. Otherwise, it will use a timer. 
 @export var react_to_player_move : bool = false
+@export var ping_pong_pattern : bool = false
 @export var chase_player : bool = false
 
 # Triggers on ready / spawn
@@ -50,8 +51,9 @@ func tick(delta): # OVERRIDABLE FUNCTION
 
 func pattern_move():
 	grid_move_in_direction(pattern[step])
-	pattern[step] *= -1
+	#pattern[step] *= -1
 	step += 1
 	if step >= pattern.size():
-		pattern.reverse()
+		if ping_pong_pattern:
+			pattern.reverse()
 		step = 0

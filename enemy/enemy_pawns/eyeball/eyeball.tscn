@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6jpnibtpgsrf"]
+[gd_scene format=3 uid="uid://6jpnibtpgsrf"]
 
 [ext_resource type="PackedScene" uid="uid://bd6ca8dxwmmv2" path="res://enemy/enemy_pawns/grid_mover_base.tscn" id="1_1w0ao"]
 [ext_resource type="Script" uid="uid://dbdotxeh7fipp" path="res://enemy/enemy_pawns/eyeball/eyeball.gd" id="2_870kv"]
@@ -44,26 +44,27 @@ height = 2.0
 radial_segments = 12
 rings = 8
 
-[node name="Eyeball" instance=ExtResource("1_1w0ao")]
+[node name="Eyeball" unique_id=909435515 instance=ExtResource("1_1w0ao")]
 script = ExtResource("2_870kv")
 react_to_player_move = true
+ping_pong_pattern = false
 
-[node name="fern_3" parent="Visuals" index="0" instance=ExtResource("3_4h2lw")]
+[node name="fern_3" parent="Visuals" index="0" unique_id=74719610 instance=ExtResource("3_4h2lw")]
 transform = Transform3D(0.4762298, -0.82485425, 0.30466482, 0.86602545, 0.49999997, 0, -0.1523324, 0.2638475, 0.95245963, -2, 8, -0.1291318)
 
-[node name="fern_4" parent="Visuals" index="1" instance=ExtResource("3_4h2lw")]
+[node name="fern_4" parent="Visuals" index="1" unique_id=686684818 instance=ExtResource("3_4h2lw")]
 transform = Transform3D(0.43603033, -0.7552268, 0.48939764, 0.86602545, 0.49999994, 9.079719e-09, -0.24469884, 0.4238309, 0.87206084, -6.3949175, 9.249811, 0.11094439)
 
-[node name="fern_5" parent="Visuals" index="2" instance=ExtResource("3_4h2lw")]
+[node name="fern_5" parent="Visuals" index="2" unique_id=1886229201 instance=ExtResource("3_4h2lw")]
 transform = Transform3D(0.69431347, -0.656182, 0.29555696, -0.11453705, 0.30469567, 0.945538, -0.7104999, -0.6903518, 0.13639712, -6.241786, 9.453251, -0.1291318)
 
-[node name="tree_dead_1" parent="Visuals" index="3" instance=ExtResource("3_ix2g7")]
+[node name="tree_dead_1" parent="Visuals" index="3" unique_id=1095114173 instance=ExtResource("3_ix2g7")]
 transform = Transform3D(0.24748737, -0.24748737, 0, 0.24748737, 0.24748737, 0, 0, 0, 0.35000002, -0.5, 6.5, 0)
 
-[node name="tree_dead_2" parent="Visuals" index="4" instance=ExtResource("3_ix2g7")]
+[node name="tree_dead_2" parent="Visuals" index="4" unique_id=1756812182 instance=ExtResource("3_ix2g7")]
 transform = Transform3D(-0.09058665, 0.33807403, 0, -0.33807403, -0.09058665, 0, 0, 0, 0.35000005, -6.5, 9.308504, 0)
 
-[node name="tree_dead_3" parent="Visuals" index="5" instance=ExtResource("3_ix2g7")]
+[node name="tree_dead_3" parent="Visuals" index="5" unique_id=1703489616 instance=ExtResource("3_ix2g7")]
 transform = Transform3D(0.33807406, 0.090586595, 0, 0.09058664, -0.33807394, 0, 7.450581e-09, 0, -0.35000005, -7, 12.647954, 0)
 
 [node name="Mesh" parent="Visuals" index="6"]
@@ -71,7 +72,7 @@ transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -0.5, 6.
 material_overlay = SubResource("StandardMaterial3D_6v547")
 mesh = SubResource("SphereMesh_1w0ao")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="3"]
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="3" unique_id=31407160]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
 light_color = Color(0.2509804, 1, 1, 1)
 light_energy = 35.0
@@ -79,18 +80,18 @@ light_negative = true
 spot_range = 20.22616
 spot_angle = 27.638577
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." index="4"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="4" unique_id=563635014]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 0, 5.5, 0)
 light_color = Color(1, 0.25, 0.2624998, 1)
 light_energy = 35.0
 spot_range = 20.22616
 spot_angle = 27.638577
 
-[node name="Hitbox" parent="." index="5" instance=ExtResource("3_rc53g")]
+[node name="Hitbox" parent="." index="5" unique_id=760070920 instance=ExtResource("3_rc53g")]
 collision_layer = 0
 collision_mask = 8
 damage = 10
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0" unique_id=1650356292]
 
 [editable path="Hitbox"]

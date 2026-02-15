@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bisc8ge4rrwc"]
+[gd_scene format=3 uid="uid://bisc8ge4rrwc"]
 
 [ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_4u7y1"]
 [ext_resource type="Script" uid="uid://bq4exe2ofmgdw" path="res://enemy/enemy_pawns/frog/frog_enemy.gd" id="2_7bili"]
@@ -45,16 +45,16 @@ _data = {
 &"jump": SubResource("Animation_i20i7")
 }
 
-[node name="FrogEnemy" instance=ExtResource("1_4u7y1")]
+[node name="FrogEnemy" unique_id=2087955057 instance=ExtResource("1_4u7y1")]
 script = ExtResource("2_7bili")
 spaces_to_move = 3
 
-[node name="Hitbox" parent="." index="0" instance=ExtResource("3_7bili")]
+[node name="Hitbox" parent="." index="0" unique_id=690327701 instance=ExtResource("3_7bili")]
 collision_layer = 0
 collision_mask = 8
 damage = 10
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox" index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox" index="0" unique_id=1657229230]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_4u7y1")
 debug_color = Color(0.9961845, 0, 0.20014524, 0.41960785)
@@ -70,13 +70,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_4u7y1")
 debug_color = Color(0.9961845, 0, 0.20014524, 0.41960785)
 
-[node name="Frog" parent="Visuals" index="0" instance=ExtResource("2_i20i7")]
+[node name="Frog" parent="Visuals" index="0" unique_id=102737788 instance=ExtResource("2_i20i7")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="MoveTimer" type="Timer" parent="." index="4"]
+[node name="MoveTimer" type="Timer" parent="." index="4" unique_id=1851740300]
 autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
-libraries = {
-&"": SubResource("AnimationLibrary_3u4lc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=452169077]
+libraries/ = SubResource("AnimationLibrary_3u4lc")

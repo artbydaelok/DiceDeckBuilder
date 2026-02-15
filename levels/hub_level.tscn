@@ -461,7 +461,7 @@ root_node = NodePath("../BaseLevel")
 libraries/ = SubResource("AnimationLibrary_tlfld")
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1159506797]
-transform = Transform3D(0.96592563, -1.0593793e-08, -0.2588191, 0.000546582, 0.9999976, 0.0020398302, 0.2588185, -0.0021117902, 0.9659235, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.9659256, -1.05937925e-08, -0.25881907, 0.0005465819, 0.99999756, 0.00203983, 0.25881848, -0.00211179, 0.9659234, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=532374131]
