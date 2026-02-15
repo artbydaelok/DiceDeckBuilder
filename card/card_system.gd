@@ -1,8 +1,11 @@
 extends Node
 class_name CardSystem
 
+## Should always have 6 items, even if they're null or empty cards.
 @export var hand : Array[Card] = [null, null, null, null, null, null]
+## Has all of the items that are not currently in hand.
 @export var deck : Array[Card]
+## Currently only used when shuffle deck mode is acivated.
 @export var discard_pile : Array[Card]
 
 @export var hand_display : Control
@@ -18,6 +21,8 @@ signal item_used(card: Card)
 @export var shuffle_deck_mode : bool = false
 
 var held_hand : Array[Card] = []
+
+const EMPTY_CARD = preload("uid://csjbw5er3lqoq")
 
 # Match the Ability ID.
 const CARD_ABILITIES = {
@@ -47,6 +52,15 @@ func _ready() -> void:
 	## THIS DRAWS 6 items
 	#for i in range(6):
 		#draw_card(i)
+	
+	load_hand.call_deferred()
+	
+func load_hand():
+	for i in range(hand.size()):
+		if hand[i] == null or hand[i] == EMPTY_CARD:
+			print("Card is null or empty")
+		else:
+			player.update_side_icon(i + 1, hand[i].card_artwork)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_ability") and not player.rolling:
