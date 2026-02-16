@@ -26,3 +26,11 @@ func _on_scene_loaded():
 
 func _on_scene_transition_start():
 	is_scene_transitioning = true
+
+func disable_player_input():
+	var player = get_tree().get_first_node_in_group("player")
+	player.input_disabled = true
+
+func enable_player_input():
+	var player = get_tree().get_first_node_in_group("player")
+	player.input_disabled = false

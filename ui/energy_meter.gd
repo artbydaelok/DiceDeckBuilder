@@ -11,7 +11,6 @@ func _ready() -> void:
 	player.insufficient_energy.connect(display_insufficient_energy)
 
 func update_energy_display(amount):
-	print(player.energy)
 	for child in get_children():
 		if not child is Control: return
 		if child.get_index() >= player.energy:

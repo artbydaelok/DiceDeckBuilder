@@ -101,7 +101,10 @@ func draw_card(index: int):
 
 func set_slot_to_item(slot: int, card: Card):
 	hand[slot] = card
-	player.update_side_icon(slot + 1, card.card_artwork)
+	if card == null:
+		player.update_side_icon(slot + 1, EMPTY_CARD.card_artwork)
+	else:
+		player.update_side_icon(slot + 1, card.card_artwork)
 	card_slotted.emit(card, slot)
 
 func play_ability():
@@ -169,7 +172,12 @@ func hold_hand() -> Array[Card]:
 func start_color_mode():
 	replace_hand(COLOR_CARDS)
 
-
+func clear_inventory():
+	for i in range(hand.size()):
+		set_slot_to_item(i , null)
+	deck = []
+	discard_pile = []
+	
 #IDEA Gem Matching Levels 
 #Where player needs to switch to the correct color side to defeat enemies while trying to get to the end.
 

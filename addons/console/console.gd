@@ -311,13 +311,18 @@ func toggle_console() -> void:
 		control.visible = !control.visible
 	else:
 		control.visible = false
+	
 
 	if (control.visible):
+		on_console_toggled_on()
+		
 		was_paused_already = get_tree().paused
 		get_tree().paused = was_paused_already || pause_enabled
 		line_edit.grab_focus()
 		console_opened.emit()
 	else:
+		on_console_toggled_off()
+		
 		control.anchor_bottom = 1.0
 		scroll_to_bottom()
 		reset_autocomplete()
@@ -325,6 +330,11 @@ func toggle_console() -> void:
 			get_tree().paused = false
 		console_closed.emit()
 
+func on_console_toggled_on():
+	GameEvents.disable_player_input()
+
+func on_console_toggled_off():
+	GameEvents.enable_player_input()
 
 func is_visible():
 	return control.visible
