@@ -26,13 +26,22 @@ var held_hand : Array[Card] = []
 const EMPTY_CARD = preload("uid://csjbw5er3lqoq")
 
 # Match the Ability ID.
-const CARD_ABILITIES = {
+const CARD_ABILITIES_SCENES = {
 	"arrow" : preload("res://abilities/bow_and_arrow/bow_and_arrow.tscn"),
 	"axe" : preload("res://abilities/axe_throw/axe_throw.tscn"),
 	"balloon" : preload("res://abilities/balloon/balloon_pop.tscn"),
 	"swipe" : preload("res://abilities/bear_swipe/bear_swipe.tscn"),
 	"shotgun" : preload("res://abilities/shotgun/shotgun_blast.tscn"),
 	"grenade" : preload("res://abilities/grenade/grenade.tscn")
+}
+
+const CARD_ABILITIES_RESOURCES = {
+	"arrow" : preload("res://card/card_abilities/arrow.tres"),
+	"axe" : preload("res://card/card_abilities/axe_throw.tres"),
+	"balloon" : preload("res://card/card_abilities/balloon_pop.tres"),
+	"swipe" : preload("res://card/card_abilities/bear_swipe.tres"),
+	"shotgun" : preload("res://card/card_abilities/shotgun.tres"),
+	"grenade" : preload("res://card/card_abilities/grenade.tres")
 }
 
 const COLOR_CARDS = [
@@ -110,7 +119,7 @@ func play_ability():
 	var id = item.ability_id
 	if id == "empty":
 		return
-	var ability_instance = CARD_ABILITIES[id].instantiate()
+	var ability_instance = CARD_ABILITIES_SCENES[id].instantiate()
 	player.add_child(ability_instance)
 	
 	player.begin_attack_commit(hand[player.up_side].commit_value)
