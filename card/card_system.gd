@@ -17,6 +17,7 @@ var system_disabled = false
 
 signal card_drawn
 signal item_used(card: Card)
+signal card_slotted(card:Card, slot:int)
 
 @export var shuffle_deck_mode : bool = false
 
@@ -53,14 +54,14 @@ func _ready() -> void:
 	#for i in range(6):
 		#draw_card(i)
 	
+	
 	load_hand.call_deferred()
 	
 func load_hand():
 	for i in range(hand.size()):
-		if hand[i] == null or hand[i] == EMPTY_CARD:
-			print("Card is null or empty")
-		else:
-			player.update_side_icon(i + 1, hand[i].card_artwork)
+		var card : Card = hand[i]
+		if card != null || card != EMPTY_CARD:
+			player.update_side_icon(i + 1, card.card_artwork)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_ability") and not player.rolling:
@@ -92,6 +93,7 @@ func draw_card(index: int):
 func set_slot_to_item(slot: int, card: Card):
 	hand[slot] = card
 	player.update_side_icon(slot + 1, card.card_artwork)
+	card_slotted.emit(card, slot)
 
 func play_ability():
 	if player.input_disabled: return
@@ -169,3 +171,8 @@ func start_color_mode():
 #4: Shields
 #5: Roll Left
 #6: Roll Right
+
+
+func _on_save_system_update_player_data(player_data: PlayerData) -> void:
+	print("_on_save_system_update_player_data")
+	hand = player_data.equipped_cards
