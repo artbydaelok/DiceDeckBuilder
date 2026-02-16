@@ -44,6 +44,7 @@ runtime/balloon_path="res://dialogue/dialogue_balloon.tscn"
 window/size/viewport_width=640
 window/size/viewport_height=480
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://pce48vfbg7ss"
 
 [editor_plugins]
 
