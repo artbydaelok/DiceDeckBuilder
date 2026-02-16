@@ -45,6 +45,8 @@
 [ext_resource type="AudioStream" uid="uid://bpei5k57wnr2a" path="res://assets/music/CosmicHub.wav" id="40_blouu"]
 [ext_resource type="ArrayMesh" uid="uid://n3dfmxo5np3f" path="res://assets/3d_models/lamp_post.obj" id="42_srspe"]
 [ext_resource type="PackedScene" uid="uid://dyj52ydshi4bk" path="res://level_mechanics/breakable_log.tscn" id="45_mq2i1"]
+[ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="46_1761n"]
+[ext_resource type="PackedScene" uid="uid://bmrw3l8b8wpxu" path="res://menus/mouse_layer.tscn" id="47_tlfld"]
 
 [sub_resource type="Animation" id="Animation_mq2i1"]
 resource_name = "0_first_time"
@@ -448,6 +450,20 @@ size = Vector3(3, 1, 3)
 albedo_color = Color(0.238, 0.2397, 0.34, 1)
 metallic = 0.6
 
+[sub_resource type="GDScript" id="GDScript_tlfld"]
+script/source = "extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="HubLevel" unique_id=965854524 instance=ExtResource("1_r55pm")]
 script = ExtResource("2_j0rvb")
 first_time_cutscene = false
@@ -461,7 +477,7 @@ root_node = NodePath("../BaseLevel")
 libraries/ = SubResource("AnimationLibrary_tlfld")
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1159506797]
-transform = Transform3D(0.9659255, -1.0593792e-08, -0.25881907, 0.0005465819, 0.9999975, 0.00203983, 0.25881848, -0.00211179, 0.96592337, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592546, -1.0593791e-08, -0.25881904, 0.00054658187, 0.99999744, 0.0020398297, 0.25881845, -0.0021117898, 0.9659233, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=532374131]
@@ -1094,6 +1110,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.17004, 1, -10.965675)
 
 [node name="BreakableLog3" parent="." index="9" unique_id=1967412927 instance=ExtResource("45_mq2i1")]
 transform = Transform3D(0.99614435, 0, -0.08772949, 0, 1, 0, 0.08772949, 0, 0.99614435, -46.462112, 1, -10.965675)
+
+[node name="SaveSystem" parent="." index="10" unique_id=1059717826 instance=ExtResource("46_1761n")]
+
+[node name="MouseLayer" parent="." index="11" unique_id=1861084358 instance=ExtResource("47_tlfld")]
+script = SubResource("GDScript_tlfld")
+
+[connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
 
 [editable path="BaseLevel/Player"]
 [editable path="BaseLevel/ForestLevelEntry/ForestLevelPortal/DialogueTriggerArea2"]
