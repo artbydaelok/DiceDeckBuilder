@@ -15,7 +15,21 @@ else:
 Forest Demon: Turn back, you shall not pass.
 => END
 
+~ mother_nature_0_alt
+do GameEvents.current_level.show_mother_nature()
+Forest Demon: Halt, strange cuboid creature.
+if GameEvents.current_level.has_player_killed_frog
+	Forest Demon: You roll into my forest, throw axes at my frogs...
+	Forest Demon: And you think you can merely roll away? I think not.
+else:
+	Forest Demon: We who call the forest our home do not allow such shapely creatures as you.
+	Forest Demon: These forests belong to me, and the creatures therein.
+Forest Demon: Turn back now, leave before you hurt someone else.
+=> END
+
 ~ mother_nature_1
-Forest Demon: Ouch
-Forest Demon: Okay, jeez, you can pass.
+Forest Demon: Ouch!
+Forest Demon: Y-you-... You hurt someone else! and that someone else was me! I literally just told you not to-
+Forest Demon: Ahem-....
+Forest Demon: You have demonstrated your strength. I suppose you can pass... for now.
 do GameEvents.current_level.hide_mother_nature()

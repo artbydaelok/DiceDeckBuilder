@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bj64c47ks7pp7"]
+
+[node name="placeholder_sign" type="Node3D" unique_id=1993366153]
+transform = Transform3D(2.4971118, 0, 0, 0, 2.4971118, 0, 0, 0, 2.052302, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=552177612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69657457, 0)
+size = Vector3(1, 0.52246094, 0.075927734)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=947245656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25942174, 0)
+size = Vector3(0.07788086, 0.51904297, 0.045166016)
+
+[node name="main_text" type="Label3D" parent="." unique_id=1977370403]
+transform = Transform3D(3.7955472, 0, 0, 0, 3.7955472, 0, 0, 0, 0.9999999, 0.0009194016, 0.690949, 0.03812575)
+pixel_size = 0.002
+text = "BEWARE"
+
+[node name="small_text_top" type="Label3D" parent="." unique_id=1014115774]
+transform = Transform3D(3.2741702, 0, 0, 0, 3.2741702, 0, 0, 0, 0.9999994, 0.00091940153, 0.8585935, 0.038125735)
+pixel_size = 0.002
+text = "WE"
+
+[node name="small_text_bottom" type="Label3D" parent="." unique_id=2107777752]
+transform = Transform3D(3.0403109, 0, 0, 0, 3.0403109, 0, 0, 0, 0.99999976, 0.00091940153, 0.5195833, 0.038125746)
+pixel_size = 0.002
+text = "BEARS"

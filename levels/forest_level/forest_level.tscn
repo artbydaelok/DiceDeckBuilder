@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dps5ghm8ptkps" path="res://assets/3d_models/psx/stone/stone_2.tscn" id="18_7n544"]
 [ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="23_ma4h5"]
 [ext_resource type="PackedScene" uid="uid://bmrw3l8b8wpxu" path="res://menus/mouse_layer.tscn" id="24_oh40l"]
+[ext_resource type="PackedScene" uid="uid://bj64c47ks7pp7" path="res://assets/3d_models/palceholder_models/sign_placeholder.tscn" id="25_lsy1x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
 size = Vector3(10, 1, 1)
@@ -81,6 +82,9 @@ size = Vector3(2, 1, 28)
 [sub_resource type="BoxShape3D" id="BoxShape3D_f1v1w"]
 size = Vector3(2, 1, 31)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh40l"]
+size = Vector3(2, 1, 40.391846)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwb2w"]
 size = Vector3(3, 1, 25.5)
 
@@ -98,12 +102,11 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -65)
-disabled = true
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
 dialogue_resource = ExtResource("5_nautm")
-title_to_play = "mother_nature_0"
+title_to_play = "mother_nature_0_alt"
 
 [node name="CollisionShape3D" parent="BaseLevel/MotherNatureTriggerArea0/PlayerDetection" index="0"]
 shape = SubResource("BoxShape3D_b118p")
@@ -566,55 +569,127 @@ mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane26" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="51" unique_id=171006967]
+[node name="GrassPlane61" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="51" unique_id=1977738140]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -110)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane62" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="52" unique_id=1646685744]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -110)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane63" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="53" unique_id=1725918345]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -110)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane64" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="54" unique_id=1398843758]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -110)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane65" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="55" unique_id=114631952]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -120)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane66" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="56" unique_id=1522070866]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -120)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane67" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="57" unique_id=661106945]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -120)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane68" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="58" unique_id=608988959]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -120)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane69" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="59" unique_id=1864114215]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -130)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane70" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="60" unique_id=738459233]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -130)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane71" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="61" unique_id=1754301273]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -130)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane72" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="62" unique_id=1786003086]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -130)
+mesh = SubResource("PlaneMesh_8ixlj")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
+
+[node name="GrassPlane26" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="63" unique_id=171006967]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -40)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane27" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="52" unique_id=1874242555]
+[node name="GrassPlane27" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="64" unique_id=1874242555]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, -40)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane28" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="53" unique_id=1501593497]
+[node name="GrassPlane28" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="65" unique_id=1501593497]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -10)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane29" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="54" unique_id=956521480]
+[node name="GrassPlane29" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="66" unique_id=956521480]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -20)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane30" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="55" unique_id=2076268117]
+[node name="GrassPlane30" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="67" unique_id=2076268117]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -30)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane31" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="56" unique_id=1630483629]
+[node name="GrassPlane31" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="68" unique_id=1630483629]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -40)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane12" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="57" unique_id=1641843676]
+[node name="GrassPlane12" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="69" unique_id=1641843676]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, 0)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane8" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="58" unique_id=1921300771]
+[node name="GrassPlane8" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="70" unique_id=1921300771]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, 10)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="GrassPlane5" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="59" unique_id=1707393757]
+[node name="GrassPlane5" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="71" unique_id=1707393757]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 10)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
@@ -642,23 +717,27 @@ shape = SubResource("BoxShape3D_fyusi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -78.5908)
 shape = SubResource("BoxShape3D_f1v1w")
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="5" unique_id=67640545]
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="5" unique_id=651569975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9366455, 1, -113.542946)
+shape = SubResource("BoxShape3D_oh40l")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="6" unique_id=67640545]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -75.71702)
 shape = SubResource("BoxShape3D_uwb2w")
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="6" unique_id=1286461406]
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="7" unique_id=1286461406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 1, -90.794655)
 shape = SubResource("BoxShape3D_ma4h5")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="7" unique_id=1119913947]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="8" unique_id=1119913947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3526611, 1, -49)
 shape = SubResource("BoxShape3D_14s10")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="8" unique_id=1481128358]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="9" unique_id=1481128358]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, 0)
 shape = SubResource("BoxShape3D_1wlgo")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="9" unique_id=1858684620]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="10" unique_id=1858684620]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 0)
 shape = SubResource("BoxShape3D_1wlgo")
 
@@ -969,6 +1048,9 @@ metadata/_custom_type_script = "uid://cqxuuexdumeed"
 [node name="SaveSystem" parent="." index="5" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
 
 [node name="MouseLayer" parent="." index="6" unique_id=2064865889 instance=ExtResource("24_oh40l")]
+
+[node name="placeholder_sign" parent="." index="7" unique_id=1993366153 instance=ExtResource("25_lsy1x")]
+transform = Transform3D(2.2341924, 0.45076418, -0.838454, -0.2684159, 2.4342618, 0.40086174, 1.0825458, -0.3267296, 1.8298222, 2.934577, -4.7683716e-07, -96.26764)
 
 [connection signal="card_slotted" from="CardSystem" to="SaveSystem" method="_on_card_system_card_slotted"]
 [connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
