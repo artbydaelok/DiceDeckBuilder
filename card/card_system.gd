@@ -60,7 +60,7 @@ func _ready() -> void:
 func load_hand():
 	for i in range(hand.size()):
 		var card : Card = hand[i]
-		if card != null || card != EMPTY_CARD:
+		if card != null:
 			player.update_side_icon(i + 1, card.card_artwork)
 
 func _process(delta: float) -> void:
