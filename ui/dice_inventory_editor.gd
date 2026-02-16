@@ -22,10 +22,13 @@ func _initialize():
 	all_cards.append_array(card_system.deck)
 	all_cards.append_array(card_system.hand)
 	for card in all_cards:
-		_populate(card)
+		if card != null:
+			_populate(card)
 	
 	for i in range(card_system.hand.size()):
-		GameEvents.side_updated_item.emit(i, card_system.hand[i])
+		var card = card_system.hand[i]
+		if card != null:
+			GameEvents.side_updated_item.emit(i, card)
 		
 #BKMRK: This is where the cards get spawned in and populated with data.
 func _populate(card_data : Card):
