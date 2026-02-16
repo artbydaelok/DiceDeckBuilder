@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dy8sr0cd8nbiu" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/master_options_overlaid_menu.tscn" id="2_73am8"]
@@ -70,7 +70,7 @@ colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_jhnug")
 fill_to = Vector2(0, 1)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("menu_layer")]
+[node name="MainMenu" type="Control" unique_id=186619597 node_paths=PackedStringArray("menu_layer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,13 +83,13 @@ game_scene_path = "uid://d2wmug2r81stp"
 options_packed_scene = ExtResource("2_73am8")
 credits_packed_scene = ExtResource("3_g46cd")
 
-[node name="UISoundController" type="Node" parent="."]
+[node name="UISoundController" type="Node" parent="." unique_id=2082677318]
 script = ExtResource("6_bs342")
 
-[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("4_w8sbm")]
+[node name="BackgroundMusicPlayer" parent="." unique_id=855203863 instance=ExtResource("4_w8sbm")]
 stream = ExtResource("6_ieaq0")
 
-[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+[node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1824652095]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,7 +98,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_ob7sx")
 
-[node name="PsychedelicNoise" type="TextureRect" parent="."]
+[node name="PsychedelicNoise" type="TextureRect" parent="." unique_id=489916932]
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_oqvs2")
@@ -110,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_4myoa")
 
-[node name="3DBackgroundViewportContainer" type="SubViewportContainer" parent="."]
+[node name="3DBackgroundViewportContainer" type="SubViewportContainer" parent="." unique_id=256703668]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,68 +118,68 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="3DBackgroundViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="3DBackgroundViewportContainer" unique_id=1875974976]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(720, 480)
 render_target_update_mode = 4
 
-[node name="MainMenuBackgroundScene" type="Node3D" parent="3DBackgroundViewportContainer/SubViewport"]
+[node name="MainMenuBackgroundScene" type="Node3D" parent="3DBackgroundViewportContainer/SubViewport" unique_id=19337351]
 
-[node name="DiceNodeContainer" type="Node3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+[node name="DiceNodeContainer" type="Node3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=1685557990]
 script = ExtResource("9_1lt1u")
 anim_amount = 0.25
 
-[node name="PlayerCutsceneActor" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/DiceNodeContainer" instance=ExtResource("12_oqvs2")]
+[node name="PlayerCutsceneActor" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene/DiceNodeContainer" unique_id=413198269 instance=ExtResource("12_oqvs2")]
 free_falling = true
 falling_rotation_velocity = Vector3(0.25, 0.8, -0.45)
 
-[node name="Camera3D" type="Camera3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+[node name="Camera3D" type="Camera3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=1269681775]
 transform = Transform3D(0.5315351, -0.25382125, 0.8081122, 0.18301271, 0.9659258, 0.18301278, -0.82702893, 0.050617076, 0.55987597, 2.8372152, 1.344377, 0.03278017)
 fov = 120.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=620887340]
 transform = Transform3D(0.83804023, 0.42444184, 0.34283793, -0.41314524, 0.08323589, 0.9068533, 0.3563699, -0.9016213, 0.2451111, 0, 0, 0)
 
-[node name="EmbersVFX" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("10_bcn5h")]
+[node name="EmbersVFX" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=2053046180 instance=ExtResource("10_bcn5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 
-[node name="EmbersVFX2" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("10_bcn5h")]
+[node name="EmbersVFX2" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=1399243647 instance=ExtResource("10_bcn5h")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.4545279, -2.114575, -5.614456)
 
-[node name="EmbersVFX3" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("10_bcn5h")]
+[node name="EmbersVFX3" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=751954541 instance=ExtResource("10_bcn5h")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -16.349552, -2.114575, -5.614456)
 
-[node name="FirefliesVFX" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("11_1lt1u")]
+[node name="FirefliesVFX" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=1649754913 instance=ExtResource("11_1lt1u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 
-[node name="FirefliesVFX2" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("11_1lt1u")]
+[node name="FirefliesVFX2" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=549819005 instance=ExtResource("11_1lt1u")]
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, -4, 0)
 
-[node name="FirefliesVFX3" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("11_1lt1u")]
+[node name="FirefliesVFX3" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=664183943 instance=ExtResource("11_1lt1u")]
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, -4, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=1175273858]
 environment = SubResource("Environment_4utau")
 
-[node name="DiceCouch" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("13_jhnug")]
+[node name="DiceCouch" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=1121230631 instance=ExtResource("13_jhnug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48871613, 7.798807, -13.019672)
 script = ExtResource("9_1lt1u")
 anim_amount = 0.77
 random_rotation_animation = Vector3(-1, 0.5, 0)
 
-[node name="RemoteControl" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" instance=ExtResource("13_tcwah")]
+[node name="RemoteControl" parent="3DBackgroundViewportContainer/SubViewport/MainMenuBackgroundScene" unique_id=1343970088 instance=ExtResource("13_tcwah")]
 transform = Transform3D(-0.021477975, 1.7075266, -1.8258947, -2.2841606, -0.75546396, -0.6796206, -1.0159471, 1.662416, 1.5665963, 1.8198569, 0.6544645, -2.1107838)
 script = ExtResource("9_1lt1u")
 anim_amount = 0.77
 random_rotation_animation = Vector3(0.25, 2, 0)
 
-[node name="MouseLayer" parent="." instance=ExtResource("15_7r4vv")]
+[node name="MouseLayer" parent="." unique_id=1400398424 instance=ExtResource("15_7r4vv")]
 
-[node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+[node name="CRTShaderLayer" type="CanvasLayer" parent="." unique_id=1575820033]
 layer = 100
 
-[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
+[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer" unique_id=1263997864]
 material = ExtResource("17_ieaq0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,9 +189,9 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_0y7ph")
 
-[node name="MenuLayer" type="CanvasLayer" parent="."]
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=1113485193]
 
-[node name="MenuContainer" type="MarginContainer" parent="MenuLayer"]
+[node name="MenuContainer" type="MarginContainer" parent="MenuLayer" unique_id=407348596]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,21 +203,21 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="TitleMargin" type="MarginContainer" parent="MenuLayer/MenuContainer"]
+[node name="TitleMargin" type="MarginContainer" parent="MenuLayer/MenuContainer" unique_id=1613384485]
 layout_mode = 2
 
-[node name="TitlesContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/TitleMargin"]
+[node name="TitlesContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/TitleMargin" unique_id=1759267862]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="VersionLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
+[node name="VersionLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer" unique_id=156627795]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "v0.1.1"
 script = ExtResource("6_pdiij")
 
-[node name="TitleLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
+[node name="TitleLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer" unique_id=1943183884]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "The Dice Game"
@@ -225,20 +225,20 @@ vertical_alignment = 1
 script = ExtResource("7_j7612")
 auto_update = false
 
-[node name="SubTitleLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer"]
+[node name="SubTitleLabel" type="Label" parent="MenuLayer/MenuContainer/TitleMargin/TitlesContainer" unique_id=494070078]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "by Sluggerpunk Studios"
 vertical_alignment = 1
 
-[node name="MenuButtonsMargin" type="MarginContainer" parent="MenuLayer/MenuContainer"]
+[node name="MenuButtonsMargin" type="MarginContainer" parent="MenuLayer/MenuContainer" unique_id=382406305]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 136
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 8
 
-[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="MenuLayer/MenuContainer/MenuButtonsMargin"]
+[node name="MenuButtonsBoxContainer" type="BoxContainer" parent="MenuLayer/MenuContainer/MenuButtonsMargin" unique_id=1753558075]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
@@ -249,27 +249,43 @@ alignment = 1
 vertical = true
 script = ExtResource("4_l1ebe")
 
-[node name="NewGameButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+[node name="NewGameButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer" unique_id=198837219]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../ExitButton")
 theme_override_font_sizes/font_size = 24
 text = "New Game"
 
-[node name="OptionsButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+[node name="OptionsButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer" unique_id=1040313113]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../NewGameButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../NewGameButton")
 theme_override_font_sizes/font_size = 24
 text = "Options"
 
-[node name="CreditsButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+[node name="CreditsButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer" unique_id=1658060729]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 24
 text = "Credits"
 
-[node name="ExitButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer"]
+[node name="ExitButton" type="Button" parent="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer" unique_id=1607401562]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../NewGameButton")
+focus_next = NodePath("../NewGameButton")
+focus_previous = NodePath("../CreditsButton")
 theme_override_font_sizes/font_size = 24
 text = "Exit"
 
