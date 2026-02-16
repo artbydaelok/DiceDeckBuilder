@@ -1,6 +1,7 @@
 extends Level
 
 @onready var forest_demon: Node3D = $BaseLevel/ForestDemon
+var has_player_killed_frog : bool = false # This variable gets changed from within the frog scripts.
 
 @onready var axe_mesh: Node3D = %AxeMesh
 const AXE_THROW = preload("uid://cwh8hm762xo3n")
@@ -10,6 +11,7 @@ const AXE_THROW = preload("uid://cwh8hm762xo3n")
 
 @onready var red_negative_light_tweener: TweenProperty = $BaseLevel/RedNegativeLight/RedNegativeLightTweener
 @onready var mother_nature_tween: TweenProperty = $BaseLevel/Player/MotherNatureLight/MotherNatureTween
+
 
 # IDEALLY THIS WOULD ONLY HAPPEN IF THE PLAYER DOESN'T HAVE THE AXE
 func obtain_axe():

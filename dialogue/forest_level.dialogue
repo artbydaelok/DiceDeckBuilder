@@ -8,7 +8,10 @@ do GameEvents.current_level.obtain_axe()
 ~ mother_nature_0
 do GameEvents.current_level.show_mother_nature()
 Forest Demon: Halt there, you are trespassing. 
-Forest Demon: This land belongs to the beasts and to me. 
+if GameEvents.current_level.has_player_killed_frog
+	Forest Demon: I saw what you did to those frogs, you monster.
+else: 
+	Forest Demon: This land belongs to the beasts and to me. 
 Forest Demon: Turn back, you shall not pass.
 => END
 

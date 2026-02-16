@@ -41,4 +41,5 @@ func on_timer_timeout():
 	grid_move_in_direction(move_direction)
 
 func apply_damage(damage):
+	GameEvents.current_level.has_player_killed_frog = true
 	queue_free()
