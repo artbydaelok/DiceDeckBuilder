@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cp6gwawuteplg"]
+[gd_scene format=3 uid="uid://cp6gwawuteplg"]
 
-[ext_resource type="Script" uid="uid://dx3ou7m1amufh" path="res://player/Player.gd" id="1_1u8nn"]
+[ext_resource type="Script" uid="uid://b0xdt3gcxclj1" path="res://player/Player.gd" id="1_1u8nn"]
 [ext_resource type="Texture2D" uid="uid://b7f38wjks3ocy" path="res://player/pixel_dice_tex_empty_face.png" id="2_7sfox"]
 [ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="2_knvy0"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
@@ -91,115 +91,113 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_iq1mx"]
 size = Vector3(1.8, 1.8, 1.8)
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=247838053 groups=["player"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_1u8nn")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=944441659]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=7007453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_2ru3w")
 material_overlay = SubResource("StandardMaterial3D_rgyib")
 mesh = ExtResource("3_fgjie")
 
-[node name="SideOne" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideOne" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=1214435036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
-[node name="SideOneSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideOne"]
+[node name="SideOneSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideOne" unique_id=931986102]
 transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 0.05, 0, 0)
 texture_filter = 0
 region_rect = Rect2(592, 496, 15, 15)
 script = ExtResource("5_v808x")
 side = 1
 
-[node name="SideTwo" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideTwo" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=365676971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="SideTwoSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideTwo"]
+[node name="SideTwoSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideTwo" unique_id=2023781714]
 transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 0, 0.05, 0)
 texture_filter = 0
 script = ExtResource("5_v808x")
 side = 2
 
-[node name="SideThree" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideThree" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=1422305947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="SideThreeSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideThree"]
+[node name="SideThreeSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideThree" unique_id=494677652]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -0.05)
 texture_filter = 0
 region_rect = Rect2(320, 496, 16, 16)
 script = ExtResource("5_v808x")
 side = 3
 
-[node name="SideFour" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideFour" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=960208814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="SideFourSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFour"]
+[node name="SideFourSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFour" unique_id=698856930]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0.05)
 texture_filter = 0
 region_rect = Rect2(323, 498, 10, 12)
 script = ExtResource("5_v808x")
 side = 4
 
-[node name="SideFive" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideFive" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=402954249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="SideFiveSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFive"]
+[node name="SideFiveSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideFive" unique_id=1558294554]
 transform = Transform3D(4.9989, -2.27033e-09, -0.104705, -0.104705, -2.16767e-07, -4.9989, -2.27033e-09, 5, -2.16767e-07, 0, -0.05, 0)
 texture_filter = 0
 script = ExtResource("5_v808x")
 side = 5
 
-[node name="SideSix" type="Marker3D" parent="Pivot/MeshInstance3D"]
+[node name="SideSix" type="Marker3D" parent="Pivot/MeshInstance3D" unique_id=974705464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="SideSixSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideSix"]
+[node name="SideSixSprite" type="Sprite3D" parent="Pivot/MeshInstance3D/SideSix" unique_id=2011396959]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -0.05, 0, 0)
 texture_filter = 0
 region_rect = Rect2(592, 497, 15, 14)
 script = ExtResource("5_v808x")
 side = 6
 
-[node name="Hurtbox" parent="Pivot/MeshInstance3D" node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("2_knvy0")]
+[node name="Hurtbox" parent="Pivot/MeshInstance3D" unique_id=1318517879 node_paths=PackedStringArray("hurtbox_owner") instance=ExtResource("2_knvy0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 collision_layer = 8
 collision_mask = 4
 hurtbox_owner = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/MeshInstance3D/Hurtbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/MeshInstance3D/Hurtbox" unique_id=321188350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_vgilg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1749886789]
 shape = SubResource("BoxShape3D_f2jhj")
 
-[node name="CommitLockTimer" type="Timer" parent="."]
+[node name="CommitLockTimer" type="Timer" parent="." unique_id=1073504635]
 one_shot = true
 
-[node name="MoveSFX" type="AudioStreamPlayer" parent="."]
+[node name="MoveSFX" type="AudioStreamPlayer" parent="." unique_id=11880805]
 stream = ExtResource("6_j7ngl")
 volume_db = -12.0
 bus = &"SFX"
 
-[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+[node name="HurtSFX" type="AudioStreamPlayer" parent="." unique_id=1109850406]
 stream = ExtResource("7_2b10p")
 volume_db = -2.0
 bus = &"SFX"
 
-[node name="DeathAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_71j6m")
-}
+[node name="DeathAnimation" type="AnimationPlayer" parent="." unique_id=1921804420]
+libraries/ = SubResource("AnimationLibrary_71j6m")
 
-[node name="ShapeCast" type="ShapeCast3D" parent="."]
+[node name="ShapeCast" type="ShapeCast3D" parent="." unique_id=1505192091]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_iq1mx")
 target_position = Vector3(0, 0, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=223683030]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
 light_energy = 0.35
 

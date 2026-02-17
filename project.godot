@@ -34,6 +34,7 @@ ProjectUISoundController="*uid://cc37235kj4384"
 ProjectMusicController="*uid://r5t485lr3p7t"
 GlobalCommands="*res://GlobalCommands.gd"
 Console="*uid://ouiu5xh1cs8n"
+GlobalSteam="*uid://tl66yakrhwv3"
 
 [dialogue_manager]
 
