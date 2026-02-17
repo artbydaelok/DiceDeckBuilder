@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://d2wmug2r81stp"]
+[gd_scene format=3 uid="uid://d2wmug2r81stp"]
 
 [ext_resource type="Script" uid="uid://dnwqepfla1hj6" path="res://cutscenes/opening_cutscene.gd" id="1_45fey"]
 [ext_resource type="Script" uid="uid://6rmwb7k30dvh" path="res://cutscenes/cutscene_camera.gd" id="1_bceoc"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://xs272dx6ya2i" path="res://assets/tiles_floor_1.png" id="5_drdca"]
 [ext_resource type="Texture2D" uid="uid://dyrgsdra31ao6" path="res://assets/wood_floor_2.png" id="6_hi4w7"]
 [ext_resource type="AudioStream" uid="uid://7rjs8ng7gkty" path="res://assets/sounds/FloatsSFX.wav" id="7_2fkjc"]
-[ext_resource type="Script" uid="uid://cx12as0gobvpd" path="res://cutscenes/tv_light_flicker.gd" id="7_37i02"]
+[ext_resource type="Script" uid="uid://cx12as0gobvpd" path="res://cutscenes/light_flicker.gd" id="7_37i02"]
 [ext_resource type="Texture2D" uid="uid://djy75i3b8klwb" path="res://assets/concrete_tx_4.png" id="9_hi4w7"]
 [ext_resource type="PackedScene" uid="uid://chmnefa2a4q3q" path="res://vfx/portal_vfx.tscn" id="10_ewgqj"]
 [ext_resource type="Shader" uid="uid://7i6i6dl8bdai" path="res://vfx/portal_vfx.gdshader" id="11_apny6"]

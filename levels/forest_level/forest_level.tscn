@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cj8jh22a8suyc" path="res://assets/3d_models/psx/stone/stone_5.tscn" id="15_fyusi"]
 [ext_resource type="PackedScene" uid="uid://dps5ghm8ptkps" path="res://assets/3d_models/psx/stone/stone_2.tscn" id="18_7n544"]
 [ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="23_ma4h5"]
-[ext_resource type="PackedScene" uid="uid://bmrw3l8b8wpxu" path="res://menus/mouse_layer.tscn" id="24_oh40l"]
+[ext_resource type="PackedScene" uid="uid://b1hdv7ste17l" path="res://core/checkpoint_system/checkpoint.tscn" id="25_lsy1x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
 size = Vector3(10, 1, 1)
@@ -106,7 +106,7 @@ script = ExtResource("2_cpv81")
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -65)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -64)
 disabled = true
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1545155587 instance=ExtResource("4_fyusi")]
@@ -114,7 +114,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
 dialogue_resource = ExtResource("5_nautm")
 title_to_play = "mother_nature_0_alt"
 
-[node name="CollisionShape3D" parent="BaseLevel/MotherNatureTriggerArea0/PlayerDetection" index="0"]
+[node name="CollisionShape3D" parent="BaseLevel/MotherNatureTriggerArea0/PlayerDetection" parent_id_path=PackedInt32Array(1545155587, 1049329093) index="0" unique_id=1592456935]
 shape = SubResource("BoxShape3D_b118p")
 debug_color = Color(0.9582438, 1.6364455e-06, 0.5308395, 0.41960785)
 
@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37549996, 4)
 shape = SubResource("CylinderShape3D_ma4h5")
 
 [node name="EyeballMarker1" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=2123140794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -65)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -64)
 gizmo_extents = 5.0
 
 [node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=502264206]
@@ -156,7 +156,7 @@ transform = Transform3D(-0.41024995, -0.5627787, 0.27834353, 0.6060618, -0.44180
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
 dialogue_resource = ExtResource("5_nautm")
 
-[node name="CollisionShape3D" parent="BaseLevel/AxeObtainLocation/AxeDialogueTrigger/PlayerDetection" index="0"]
+[node name="CollisionShape3D" parent="BaseLevel/AxeObtainLocation/AxeDialogueTrigger/PlayerDetection" parent_id_path=PackedInt32Array(1723495953, 1049329093) index="0" unique_id=1592456935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 shape = SubResource("BoxShape3D_fwmjj")
 debug_color = Color(0.95186955, 2.117753e-06, 0.5614972, 0.42)
@@ -1169,7 +1169,15 @@ metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
 [node name="SaveSystem" parent="." index="5" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
 
-[node name="MouseLayer" parent="." index="6" unique_id=2064865889 instance=ExtResource("24_oh40l")]
+[node name="Checkpoint" parent="." index="6" unique_id=1805229643 instance=ExtResource("25_lsy1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -86)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Checkpoint" index="8" unique_id=1681876600]
+transform = Transform3D(0.9638354, -1.1649009e-08, 0.26649827, -0.26649827, -4.2130583e-08, 0.9638354, 0, -1, -4.371139e-08, 0.98816395, 5.907416, 0.6493225)
+light_color = Color(1, 1, 0.6627451, 1)
+light_energy = 12.0
+spot_range = 8.0
+spot_angle = 27.992838
 
 [connection signal="card_slotted" from="CardSystem" to="SaveSystem" method="_on_card_system_card_slotted"]
 [connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]

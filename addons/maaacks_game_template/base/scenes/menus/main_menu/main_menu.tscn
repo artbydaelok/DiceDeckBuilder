@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://ovxqjd7ffdic" path="res://cutscenes/player_cutscene_actor.tscn" id="12_oqvs2"]
 [ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="13_jhnug"]
 [ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_tcwah"]
-[ext_resource type="PackedScene" uid="uid://bmrw3l8b8wpxu" path="res://menus/mouse_layer.tscn" id="15_7r4vv"]
 [ext_resource type="Material" uid="uid://bd52i823xefur" path="res://assets/shaders/crt_standard.tres" id="17_ieaq0"]
 
 [sub_resource type="Gradient" id="Gradient_k1p1p"]
@@ -173,8 +172,6 @@ transform = Transform3D(-0.021477975, 1.7075266, -1.8258947, -2.2841606, -0.7554
 script = ExtResource("9_1lt1u")
 anim_amount = 0.77
 random_rotation_animation = Vector3(0.25, 2, 0)
-
-[node name="MouseLayer" parent="." unique_id=1400398424 instance=ExtResource("15_7r4vv")]
 
 [node name="CRTShaderLayer" type="CanvasLayer" parent="." unique_id=1575820033]
 layer = 100

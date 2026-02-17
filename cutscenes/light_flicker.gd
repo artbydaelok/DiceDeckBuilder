@@ -1,5 +1,5 @@
 @tool
-extends SpotLight3D
+extends Light3D
 
 
 @export_category("Flicker Settings")

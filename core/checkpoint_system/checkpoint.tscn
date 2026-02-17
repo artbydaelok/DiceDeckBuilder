@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b1hdv7ste17l"]
 
 [ext_resource type="Script" uid="uid://bbyuumkfu0ga" path="res://core/checkpoint_system/checkpoint_manager.gd" id="1_2ygse"]
+[ext_resource type="PackedScene" uid="uid://jxfchtp10avb" path="res://assets/3d_models/Bonfire.glb" id="2_040is"]
 [ext_resource type="Texture2D" uid="uid://cn6alv8asv1y0" path="res://core/checkpoint_system/icons8-left-click-50.png" id="2_vahmo"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_vahmo"]
+[ext_resource type="AudioStream" uid="uid://bkbseudhq0c1d" path="res://assets/sounds/looping_burning.wav" id="4_7iaty"]
+[ext_resource type="Script" uid="uid://cx12as0gobvpd" path="res://cutscenes/light_flicker.gd" id="5_a8arl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_040is"]
 
@@ -18,21 +19,108 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_7iaty"]
 material = SubResource("StandardMaterial3D_040is")
 
+[sub_resource type="Curve" id="Curve_7iaty"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.1465923, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a8arl"]
+curve = SubResource("Curve_7iaty")
+
+[sub_resource type="Gradient" id="Gradient_shdl6"]
+colors = PackedColorArray(0.3, 0.3, 0.3, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i6h33"]
+gradient = SubResource("Gradient_shdl6")
+
+[sub_resource type="Gradient" id="Gradient_735x4"]
+offsets = PackedFloat32Array(0, 0.41666666, 0.7375, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.38333333, 0, 1, 1, 0.90000004, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v6fga"]
+gradient = SubResource("Gradient_735x4")
+
+[sub_resource type="Curve" id="Curve_040is"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15789473, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7iaty"]
+curve = SubResource("Curve_040is")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_040is"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -705.8
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 14.0
+initial_velocity_min = 1.75
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_7iaty")
+color_ramp = SubResource("GradientTexture1D_v6fga")
+color_initial_ramp = SubResource("GradientTexture1D_i6h33")
+alpha_curve = SubResource("CurveTexture_a8arl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8arl"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_shdl6"]
+material = SubResource("StandardMaterial3D_a8arl")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_a8arl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7368421, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.1465923, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_shdl6"]
+curve = SubResource("Curve_a8arl")
+
+[sub_resource type="Gradient" id="Gradient_i6h33"]
+colors = PackedColorArray(0.46229059, 0.46229064, 0.4622904, 1, 0.043039158, 0.04303915, 0.04303915, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_735x4"]
+gradient = SubResource("Gradient_i6h33")
+
+[sub_resource type="Curve" id="Curve_i2fuj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15789473, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5cs0q"]
+curve = SubResource("Curve_i2fuj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_28jyf"]
+particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, 1.5, 0)
+emission_shape_scale = Vector3(0.25, 0.25, 0.25)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -705.8
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 14.0
+initial_velocity_min = 1.75
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5cs0q")
+color_initial_ramp = SubResource("GradientTexture1D_735x4")
+alpha_curve = SubResource("CurveTexture_shdl6")
+
 [node name="Checkpoint" type="Node3D" unique_id=1805229643]
 script = ExtResource("1_2ygse")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2016114949]
-mesh = SubResource("BoxMesh_vahmo")
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=207964665]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=207964665]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=546969684]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=546969684]
 shape = SubResource("BoxShape3D_040is")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=214218103]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=213139879]
 shape = SubResource("BoxShape3D_7iaty")
@@ -41,6 +129,42 @@ shape = SubResource("BoxShape3D_7iaty")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0361347, 0)
 visible = false
 mesh = SubResource("QuadMesh_7iaty")
+
+[node name="Bonfire" parent="." unique_id=1365913252 instance=ExtResource("2_040is")]
+transform = Transform3D(4.855, 0, 0, 0, 4.855, 0, 0, 0, 4.855, 0, 0.075, 0)
+
+[node name="FireParticles" type="GPUParticles3D" parent="." unique_id=2102604899]
+emitting = false
+amount = 25
+lifetime = 1.25
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_040is")
+draw_pass_1 = SubResource("BoxMesh_shdl6")
+
+[node name="SmokeParticles" type="GPUParticles3D" parent="." unique_id=1593485114]
+emitting = false
+amount = 15
+lifetime = 1.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_28jyf")
+draw_pass_1 = SubResource("BoxMesh_shdl6")
+
+[node name="FireSFXPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2003488312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+stream = ExtResource("4_7iaty")
+volume_db = -15.0
+unit_size = 2.0
+max_db = 0.0
+bus = &"SFX"
+
+[node name="FireLight" type="OmniLight3D" parent="." unique_id=1424642708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+light_color = Color(1, 0.57254905, 0, 1)
+script = ExtResource("5_a8arl")
+can_flicker = true
+min_energy = 4.5
+max_energy = 8.0
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
