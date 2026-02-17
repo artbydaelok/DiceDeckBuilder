@@ -4,7 +4,7 @@ signal update_player_data(player_data:PlayerData)
 
 const OPTIONS_SAVE_PATH := "user://options_data.tres"
 const SAVE_PATH = "user://game_save.sav"
-#const SECURITY_KEY = "zdDKQBEX8e"
+const SECURITY_KEY = "a24542a81874eb33776acfaa561dce67"
 
 @export var player_data : PlayerData = PlayerData.new()
 #@export var options_data : OptionsData = OptionsData.new()
@@ -38,8 +38,8 @@ func clear_options_data():
 
 func json_save():
 	print("json_save")
-	#var file = FileAccess.open_encrypted_with_pass(SAVE_PATH, FileAccess.WRITE, SECURITY_KEY)
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var file = FileAccess.open_encrypted_with_pass(SAVE_PATH, FileAccess.WRITE, SECURITY_KEY)
+	#var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:
 		print(FileAccess.get_open_error())
 		return
@@ -163,8 +163,8 @@ func check_missing_keys(data_to_compare : Dictionary):
 func json_load():
 	print("json_load")
 	if FileAccess.file_exists(SAVE_PATH):
-		#var file = FileAccess.open_encrypted_with_pass(SAVE_PATH, FileAccess.READ, SECURITY_KEY)
-		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+		var file = FileAccess.open_encrypted_with_pass(SAVE_PATH, FileAccess.READ, SECURITY_KEY)
+		#var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 		if file == null:
 			print(FileAccess.get_open_error())
 			return
