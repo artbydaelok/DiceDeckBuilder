@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bb2avsii4sylu"
-path="res://.godot/imported/Black bear.glb-568282af1b262db696a6c27634bfc488.scn"
+uid="uid://dnu4b6dbo4pih"
+path="res://.godot/imported/Town Sign.glb-3787ae39f9253f329021c9910bbe1495.scn"
 
 [deps]
 
-source_file="res://assets/3d_models/bear/Black bear.glb"
-dest_files=["res://.godot/imported/Black bear.glb-568282af1b262db696a6c27634bfc488.scn"]
+source_file="res://assets/3d_models/Town Sign.glb"
+dest_files=["res://.godot/imported/Town Sign.glb-3787ae39f9253f329021c9910bbe1495.scn"]
 
 [params]
 
