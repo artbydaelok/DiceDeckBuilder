@@ -21,7 +21,7 @@ var player_name
 var score
 
 func _ready():
-	if !OS.has_feature("standalone"):
+	if OS.has_feature("standalone"):
 		_initialize_Steam()
 		get_statistics()
 		Steam.findLeaderboard("Highscore")
