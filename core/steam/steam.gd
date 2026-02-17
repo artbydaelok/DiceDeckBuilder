@@ -21,10 +21,10 @@ var player_name
 var score
 
 func _ready():
-	#if !OS.has_feature("standalone"):
-	_initialize_Steam()
-	get_statistics()
-	Steam.findLeaderboard("Highscore")
+	if !OS.has_feature("standalone"):
+		_initialize_Steam()
+		get_statistics()
+		Steam.findLeaderboard("Highscore")
 
 func _process(_delta):
 	Steam.run_callbacks()
