@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b1hdv7ste17l"]
+
+[ext_resource type="Script" uid="uid://bbyuumkfu0ga" path="res://core/checkpoint_system/checkpoint_manager.gd" id="1_2ygse"]
+[ext_resource type="Texture2D" uid="uid://cn6alv8asv1y0" path="res://core/checkpoint_system/icons8-left-click-50.png" id="2_vahmo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vahmo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_040is"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7iaty"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_040is"]
+transparency = 1
+albedo_texture = ExtResource("2_vahmo")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_7iaty"]
+material = SubResource("StandardMaterial3D_040is")
+
+[node name="Checkpoint" type="Node3D" unique_id=1805229643]
+script = ExtResource("1_2ygse")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2016114949]
+mesh = SubResource("BoxMesh_vahmo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=207964665]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=546969684]
+shape = SubResource("BoxShape3D_040is")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=214218103]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=213139879]
+shape = SubResource("BoxShape3D_7iaty")
+
+[node name="Interaction_Prompt" type="MeshInstance3D" parent="." unique_id=657105338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0361347, 0)
+visible = false
+mesh = SubResource("QuadMesh_7iaty")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area3D" to="." method="_on_area_3d_area_shape_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]
