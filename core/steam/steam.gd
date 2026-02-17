@@ -8,8 +8,8 @@ var IS_OWNED: bool = false
 var boardhandle : int
 
 var ACHIEVEMENTS : Dictionary = {
-	"Achivement One" = false,
-	"Achievement Two" = false,
+	"TEST_ACHIEVEMENT_ONE" = false,
+	"TEST_ACHIEVEMENT_TWO" = false,
 }
 
 var STATISTICS : Dictionary = {
