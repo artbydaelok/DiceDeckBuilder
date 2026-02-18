@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bj64c47ks7pp7"]
 
+[ext_resource type="Script" uid="uid://bqeyrgkw8c3gk" path="res://assets/3d_models/palceholder_models/sign_placeholder.gd" id="1_isfda"]
+
 [node name="placeholder_sign" type="Node3D" unique_id=1993366153]
 transform = Transform3D(3.651, 0, 0, 0, 3.651, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("1_isfda")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=552177612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69657457, 0)
@@ -14,14 +17,14 @@ size = Vector3(0.07788086, 0.51904297, 0.045166016)
 [node name="main_text" type="Label3D" parent="." unique_id=1977370403]
 transform = Transform3D(3.7955472, 0, 0, 0, 3.7955472, 0, 0, 0, 0.9999999, 0.0009194016, 0.690949, 0.03812575)
 pixel_size = 0.002
-text = "BEWARE"
+text = "MainText"
 
 [node name="small_text_top" type="Label3D" parent="." unique_id=1014115774]
 transform = Transform3D(3.2741702, 0, 0, 0, 3.2741702, 0, 0, 0, 0.9999994, 0.00091940153, 0.8585935, 0.038125735)
 pixel_size = 0.002
-text = "WE"
+text = "TopText"
 
 [node name="small_text_bottom" type="Label3D" parent="." unique_id=2107777752]
 transform = Transform3D(3.0403109, 0, 0, 0, 3.0403109, 0, 0, 0, 0.99999976, 0.00091940153, 0.5195833, 0.038125746)
 pixel_size = 0.002
-text = "BEARS"
+text = "BottomText"
