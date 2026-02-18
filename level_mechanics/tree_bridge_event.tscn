@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cpfj6q2kei8sj"]
+[gd_scene format=3 uid="uid://bv33fgeln6yrp"]
 
 [ext_resource type="PackedScene" uid="uid://c76drbuur0wwo" path="res://assets/3d_models/psx/trees/tree_stump_12.tscn" id="1_4eoa6"]
-[ext_resource type="Script" uid="uid://btapt2cjobti" path="res://level_mechanics/tree_bridge_event.gd" id="1_wlik1"]
+[ext_resource type="Script" path="res://level_mechanics/tree_bridge_event.gd" id="1_wlik1"]
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="2_wlik1"]
 [ext_resource type="AudioStream" uid="uid://u2dh0c3m805s" path="res://assets/sounds/EXPLDsgn_High End Thunder Strike_Ocular Sounds_Heavy Explosions_The Complete Impacts Collection.wav" id="4_kh7pt"]
 
@@ -131,16 +131,17 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BreakableHitbox" unique_id=225313730]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.169, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 7.6984854, 0)
 shape = SubResource("BoxShape3D_kh7pt")
 
 [node name="tree_stump_12" parent="." unique_id=1364832971 instance=ExtResource("1_4eoa6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="TreePivotPoint" type="Node3D" parent="." unique_id=366518637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93176603, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.93176603, 0)
 
 [node name="tree_log_12" parent="TreePivotPoint" unique_id=1765040158 instance=ExtResource("2_wlik1")]
-transform = Transform3D(0.92889756, 0.19485892, -2.2043548, -2.2075834, -0.084806785, -0.93775475, -0.15403086, 2.3905728, 0.1464127, 0.19840777, 4.1967516, -0.49103588)
+transform = Transform3D(0.7740813, 0.16238256, -1.8369622, -1.8396528, -0.07067232, -0.78146225, -0.12835911, 1.9921439, 0.1220107, 0.19840777, 4.1967516, -0.49103588)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=312616478]
 libraries/ = SubResource("AnimationLibrary_k702i")
