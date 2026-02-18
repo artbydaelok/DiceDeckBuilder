@@ -4,7 +4,6 @@ Deer by Quaternius
 Bear Trap by Quaternius
 Spear by Quaternius
 Shield by Quaternius
-Shield by Quaternius
 Axe by Quaternius
 Town Sign by Quaternius
 Traffic Light by Quaternius

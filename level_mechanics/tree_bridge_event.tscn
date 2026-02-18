@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://cpfj6q2kei8sj"]
+
+[ext_resource type="PackedScene" uid="uid://c76drbuur0wwo" path="res://assets/3d_models/psx/trees/tree_stump_12.tscn" id="1_4eoa6"]
+[ext_resource type="Script" uid="uid://btapt2cjobti" path="res://level_mechanics/tree_bridge_event.gd" id="1_wlik1"]
+[ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="2_wlik1"]
+[ext_resource type="AudioStream" uid="uid://u2dh0c3m805s" path="res://assets/sounds/EXPLDsgn_High End Thunder Strike_Ocular Sounds_Heavy Explosions_The Complete Impacts Collection.wav" id="4_kh7pt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh7pt"]
+size = Vector3(2, 8.338257, 2)
+
+[sub_resource type="Animation" id="Animation_wlik1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreePivotPoint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.93176603, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreePivotPoint:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody3D/BridgeCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_neyof"]
+resource_name = "break_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreePivotPoint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.2489986, 1),
+"update": 0,
+"values": [Vector3(0, 0.93176603, 0), Vector3(0, -0.393, -2.945832)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreePivotPoint:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.2489986, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LandingSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticBody3D/BridgeCollision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k702i"]
+_data = {
+&"RESET": SubResource("Animation_wlik1"),
+&"break_down": SubResource("Animation_neyof")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh7pt"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_neyof"]
+particle_flag_rotate_y = true
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 25.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_k702i"]
+size = Vector3(5, 0.46, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_neyof"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[node name="TreeBridgeEvent" type="Node3D" unique_id=982082081]
+script = ExtResource("1_wlik1")
+
+[node name="BreakableHitbox" type="Area3D" parent="." unique_id=1378964068]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BreakableHitbox" unique_id=225313730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.169, 0)
+shape = SubResource("BoxShape3D_kh7pt")
+
+[node name="tree_stump_12" parent="." unique_id=1364832971 instance=ExtResource("1_4eoa6")]
+
+[node name="TreePivotPoint" type="Node3D" parent="." unique_id=366518637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93176603, 0)
+
+[node name="tree_log_12" parent="TreePivotPoint" unique_id=1765040158 instance=ExtResource("2_wlik1")]
+transform = Transform3D(0.92889756, 0.19485892, -2.2043548, -2.2075834, -0.084806785, -0.93775475, -0.15403086, 2.3905728, 0.1464127, 0.19840777, 4.1967516, -0.49103588)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=312616478]
+libraries/ = SubResource("AnimationLibrary_k702i")
+
+[node name="BrokenParticles" type="GPUParticles3D" parent="." unique_id=1775701839]
+material_override = SubResource("StandardMaterial3D_kh7pt")
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_neyof")
+draw_pass_1 = SubResource("BoxMesh_k702i")
+
+[node name="LandingSFX" type="AudioStreamPlayer3D" parent="." unique_id=1541511967]
+stream = ExtResource("4_kh7pt")
+volume_db = -10.0
+pitch_scale = 0.75
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=264856129]
+
+[node name="BridgeCollision" type="CollisionShape3D" parent="StaticBody3D" unique_id=2015307304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+shape = SubResource("BoxShape3D_neyof")
+debug_color = Color(0.9889342, 0, 0.301643, 0.41960785)

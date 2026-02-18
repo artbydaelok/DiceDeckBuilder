@@ -40,7 +40,7 @@ func show_mother_nature():
 	mother_nature_tween.from_value = 0.0
 	mother_nature_tween.play()
 	
-	# Trigger area
+	# Trigger areaw
 	mother_nature_trigger_area_0.queue_free()
 	
 	# Triggers animations in the scene
