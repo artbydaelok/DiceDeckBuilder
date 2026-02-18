@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b1hdv7ste17l" path="res://core/checkpoint_system/checkpoint.tscn" id="25_lsy1x"]
 [ext_resource type="PackedScene" uid="uid://bp78spw5xmmx0" path="res://assets/3d_models/psx/stone/stone_2.glb" id="26_vwtbs"]
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="27_3a1fd"]
+[ext_resource type="AudioStream" uid="uid://cnypr4v67w6dk" path="res://assets/sounds/ForestSoundDesign.wav" id="31_si0dx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
 size = Vector3(10, 1, 1)
@@ -2808,6 +2809,12 @@ transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0,
 
 [node name="tree_log_73" parent="Bridge" index="61" unique_id=2039874653 instance=ExtResource("27_3a1fd")]
 transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -198.81711)
+
+[node name="AmbianceSFXPlayer" type="AudioStreamPlayer" parent="." index="9" unique_id=1429146577]
+stream = ExtResource("31_si0dx")
+volume_db = -8.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="card_slotted" from="CardSystem" to="SaveSystem" method="_on_card_system_card_slotted"]
 [connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
