@@ -2,6 +2,68 @@
 
 [ext_resource type="Texture2D" uid="uid://dedstl6w8lrtp" path="res://assets/ui/custom_cursor.png" id="1_ogrvj"]
 [ext_resource type="Script" uid="uid://dhcfkunxc3quj" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/custom_cursor.gd" id="2_g0gq6"]
+[ext_resource type="Texture2D" uid="uid://deigrilj6ewlj" path="res://assets/ui/Crosshair.png" id="3_g0gq6"]
+
+[sub_resource type="Animation" id="Animation_g0gq6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dqsdn"]
+resource_name = "clicked"
+length = 0.20000334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eel22"]
+_data = {
+&"RESET": SubResource("Animation_g0gq6"),
+&"clicked": SubResource("Animation_dqsdn")
+}
 
 [node name="MouseLayer" type="CanvasLayer" unique_id=311199417]
 layer = 20
@@ -9,4 +71,14 @@ layer = 20
 [node name="CustomCursor" type="Sprite2D" parent="." unique_id=1756049054]
 texture = ExtResource("1_ogrvj")
 centered = false
+offset = Vector2(-1, -1)
 script = ExtResource("2_g0gq6")
+
+[node name="ClickEffect" type="Sprite2D" parent="CustomCursor" unique_id=1308667116]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_g0gq6")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CustomCursor/ClickEffect" unique_id=1529939704]
+libraries/ = SubResource("AnimationLibrary_eel22")
