@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dps5ghm8ptkps" path="res://assets/3d_models/psx/stone/stone_2.tscn" id="18_7n544"]
 [ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="23_ma4h5"]
 [ext_resource type="PackedScene" uid="uid://b1hdv7ste17l" path="res://core/checkpoint_system/checkpoint.tscn" id="25_lsy1x"]
+[ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="27_3a1fd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
 size = Vector3(10, 1, 1)
@@ -84,7 +85,7 @@ size = Vector3(2, 1, 28)
 size = Vector3(2, 1, 31)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oh40l"]
-size = Vector3(2, 1, 40.391846)
+size = Vector3(2, 1, 80.92883)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwb2w"]
 size = Vector3(3, 1, 25.5)
@@ -107,6 +108,12 @@ size = Vector3(15.190243, 1, 50.00718)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmqiq"]
 size = Vector3(9.775734, 1, 6.757984)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vwtbs"]
+size = Vector3(35.59072, 1, 33.564537)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_si0dx"]
+size = Vector3(12.951344, 1, 33.564537)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_14s10"]
 size = Vector3(4.7053223, 1, 28)
 
@@ -120,7 +127,7 @@ stream = ExtResource("4_itb2r")
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, -168)
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
@@ -1099,241 +1106,241 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane183" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="136" unique_id=264777341]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane184" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="137" unique_id=167984767]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane185" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="138" unique_id=1344619542]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane186" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="139" unique_id=2134493256]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane187" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="140" unique_id=167015260]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane188" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="141" unique_id=251008330]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane189" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="142" unique_id=1547828973]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 70, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 70, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane190" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="143" unique_id=1296650140]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 60, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 60, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane191" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="144" unique_id=452560853]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane192" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="145" unique_id=1183871569]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane193" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="146" unique_id=364996817]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane194" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="147" unique_id=1723488516]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane195" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="148" unique_id=1033681652]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane196" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="149" unique_id=1808919302]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane197" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="150" unique_id=334253430]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane198" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="151" unique_id=76693642]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane199" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="152" unique_id=850719915]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 70, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 70, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane200" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="153" unique_id=964065000]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 60, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 60, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane201" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="154" unique_id=106273192]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane202" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="155" unique_id=989356761]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane203" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="156" unique_id=1018847044]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane204" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="157" unique_id=1444840908]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane205" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="158" unique_id=947262227]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane206" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="159" unique_id=1054942812]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane207" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="160" unique_id=1760916362]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane208" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="161" unique_id=210475907]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane209" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="162" unique_id=575474378]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 70, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 70, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane210" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="163" unique_id=914948886]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 59.99366, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 59.99366, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane211" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="164" unique_id=591500305]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane212" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="165" unique_id=1519814103]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane213" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="166" unique_id=1949949713]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 30, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane214" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="167" unique_id=1291672122]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 20, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane215" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="168" unique_id=1961669962]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 10, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane216" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="169" unique_id=480061707]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 0, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane217" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="170" unique_id=558384333]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -10, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane218" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="171" unique_id=830112025]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 80, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane219" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="172" unique_id=425689464]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 69.99366, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 69.99366, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane220" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="173" unique_id=61576373]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 59.99366, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 59.99366, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane221" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="174" unique_id=286791219]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 50, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane222" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="175" unique_id=331218580]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 40, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
@@ -1681,241 +1688,241 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane223" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="233" unique_id=2018492064]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane224" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="234" unique_id=412333014]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane225" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="235" unique_id=749972341]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane226" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="236" unique_id=388303486]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 30, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane227" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="237" unique_id=10484021]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane228" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="238" unique_id=8753072]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 50, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 50, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane229" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="239" unique_id=451749988]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 60, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 60, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane230" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="240" unique_id=715701490]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 70, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 70, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane231" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="241" unique_id=1918323565]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane253" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="242" unique_id=864636395]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane254" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="243" unique_id=595894379]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 100, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 100, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane255" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="244" unique_id=546215164]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 90, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 90, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane256" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="245" unique_id=1664283639]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane257" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="246" unique_id=1137034772]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 100, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 100, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane258" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="247" unique_id=1601182740]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 90, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 90, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane259" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="248" unique_id=1451854756]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane260" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="249" unique_id=630820083]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 100, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 100, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane261" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="250" unique_id=1218657611]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 89.99366, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 89.99366, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane262" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="251" unique_id=1177548690]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 110, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane263" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="252" unique_id=1372843301]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 99.99366, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 99.99366, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane264" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="253" unique_id=472659744]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 89.99366, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, 89.99366, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane265" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="254" unique_id=1317809880]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 90, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 90, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane266" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="255" unique_id=2014546818]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 100, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 100, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane267" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="256" unique_id=847544492]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 110, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 110, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane268" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="257" unique_id=1234742638]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane269" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="258" unique_id=1250810566]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane270" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="259" unique_id=1157822799]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40, -5.0814476, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40, -5.0814476, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane271" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="260" unique_id=2014863391]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane272" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="261" unique_id=659065937]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane273" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="262" unique_id=2114095866]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40, -15.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40, -15.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane274" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="263" unique_id=880317401]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane275" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="264" unique_id=6585470]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane276" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="265" unique_id=1282815780]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40.00634, -25.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40.00634, -25.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane277" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="266" unique_id=1258569487]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -20, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane278" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="267" unique_id=2090428878]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30.00634, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -30.00634, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane279" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="268" unique_id=2132605133]
-transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40.00634, -35.081448, -207.01076)
+transform = Transform3D(-5, -4.371139e-07, -1.9106858e-14, 0, -2.1855696e-07, 5, -4.371139e-07, 5, 2.1855696e-07, -40.00634, -35.081448, -199.01076)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane280" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="269" unique_id=1649082641]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane281" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="270" unique_id=483394089]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane282" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="271" unique_id=418186710]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -20, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
 [node name="GrassPlane232" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="272" unique_id=933997424]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -212)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10, 0, -204)
 mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
@@ -1997,7 +2004,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -78.5908)
 shape = SubResource("BoxShape3D_f1v1w")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="5" unique_id=651569975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9366455, 1, -113.542946)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9366455, 1, -133.81143)
 shape = SubResource("BoxShape3D_oh40l")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="6" unique_id=67640545]
@@ -2032,15 +2039,27 @@ shape = SubResource("BoxShape3D_vmqiq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.682514, 1, -155.02583)
 shape = SubResource("BoxShape3D_vmqiq")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="14" unique_id=1119913947]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="14" unique_id=2017447668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.362825, 1, -190.42911)
+shape = SubResource("BoxShape3D_vwtbs")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="15" unique_id=669820569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.09471, 1, -190.42911)
+shape = SubResource("BoxShape3D_si0dx")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="16" unique_id=1323623397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.864149, 1, -190.42911)
+shape = SubResource("BoxShape3D_si0dx")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="17" unique_id=1119913947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3526611, 1, -49)
 shape = SubResource("BoxShape3D_14s10")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="15" unique_id=1481128358]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="18" unique_id=1481128358]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, 0)
 shape = SubResource("BoxShape3D_1wlgo")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="16" unique_id=1858684620]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="19" unique_id=1858684620]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 0)
 shape = SubResource("BoxShape3D_1wlgo")
 
@@ -2175,100 +2194,112 @@ transform = Transform3D(1.4189736, 0.46494028, 1.3305432, -0.31235293, 1.9448355
 [node name="PineTree33" parent="BaseLevel/Trees" index="41" unique_id=999614695 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.23819405, 0.3853076, 1.9480252, -0.31235296, 1.9448355, -0.34648395, -1.9610457, -0.2629705, 0.2917999, -7.8426514, -0.80441856, -116.09635)
 
-[node name="PineTree34" parent="BaseLevel/Trees" index="42" unique_id=989315255 instance=ExtResource("13_24wnm")]
-transform = Transform3D(-0.5332234, 0.28133515, 5.647015, -0.22003618, 1.7117143, -1.0719202, -2.436933, -0.21611337, -1.1388335, 45.897594, -0.80441475, -171.80386)
+[node name="PineTree34" parent="BaseLevel/Trees" index="42" unique_id=1463833839 instance=ExtResource("13_24wnm")]
+transform = Transform3D(1.9838619, -0.1478446, 0.20599502, 0.12024164, 1.9790634, 0.2623901, -0.22323501, -0.24788833, 1.971983, -8.460779, -0.8044176, -130.34149)
 
-[node name="PineTree25" parent="BaseLevel/Trees" index="43" unique_id=881975266 instance=ExtResource("13_24wnm")]
+[node name="PineTree35" parent="BaseLevel/Trees" index="43" unique_id=2055342058 instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.91794217, 0.12963922, -0.3749343, -0.124882996, 0.9914787, 0.037071098, 0.37654525, 0.012793795, 0.9263098, -7.1591253, -0.8044214, -135.56091)
+
+[node name="PineTree36" parent="BaseLevel/Trees" index="44" unique_id=1014400836 instance=ExtResource("13_24wnm")]
+transform = Transform3D(0.2577248, -0.0036642933, 0.9662114, -0.12488299, 0.9914786, 0.037071098, -0.9581138, -0.13021745, 0.25507104, 5.8226223, -0.8044195, -132.22755)
+
+[node name="PineTree25" parent="BaseLevel/Trees" index="45" unique_id=881975266 instance=ExtResource("13_24wnm")]
 transform = Transform3D(1.5136874, -0.975382, 0.87027615, 0.6681486, 1.7217491, 0.7675666, -1.1235336, -0.2901908, 1.6289446, 17.12986, -0.4899683, -89.783646)
 
-[node name="PineTree30" parent="BaseLevel/Trees" index="44" unique_id=1069503719 instance=ExtResource("13_24wnm")]
+[node name="PineTree30" parent="BaseLevel/Trees" index="46" unique_id=1069503719 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.64823645, -0.07344944, 0.7578885, 0.02784381, 0.9969577, 0.072803035, -0.7609299, -0.026091062, 0.6483093, 19.445307, -0.895895, -99.69269)
 
-[node name="PineTree31" parent="BaseLevel/Trees" index="45" unique_id=1952949167 instance=ExtResource("13_24wnm")]
+[node name="PineTree31" parent="BaseLevel/Trees" index="47" unique_id=1952949167 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.35372633, -0.23752221, 0.9046883, 0.13779566, 0.9698997, 0.20076612, -0.9251431, 0.053645834, 0.3758085, 7.031875, -0.22250152, -125.50353)
 
-[node name="PineTree32" parent="BaseLevel/Trees" index="46" unique_id=690861009 instance=ExtResource("13_24wnm")]
+[node name="PineTree32" parent="BaseLevel/Trees" index="48" unique_id=690861009 instance=ExtResource("13_24wnm")]
 transform = Transform3D(-0.36429507, 0.19223605, 1.019968, 0.028994858, 1.0824317, -0.19365273, -1.0375203, -0.037247952, -0.36354396, 17.551807, -0.23573852, -115.967354)
 
-[node name="PineTree19" parent="BaseLevel/Trees" index="47" unique_id=785817395 instance=ExtResource("13_24wnm")]
+[node name="PineTree19" parent="BaseLevel/Trees" index="49" unique_id=785817395 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.96491545, 0.08924237, 0.24692899, -0.14988598, 0.9593887, 0.2389723, -0.21557443, -0.26759928, 0.9391052, 2.2432275, -0.21502304, -46.730057)
 
-[node name="PineTree20" parent="BaseLevel/Trees" index="48" unique_id=357374766 instance=ExtResource("13_24wnm")]
+[node name="PineTree20" parent="BaseLevel/Trees" index="50" unique_id=357374766 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.96191317, -0.22373185, 0.15705734, 0.16807924, 0.93719524, 0.3056381, -0.21557441, -0.26759928, 0.9391052, 8.845998, -0.21502304, -54.91521)
 
-[node name="PineTree6" parent="BaseLevel/Trees" index="49" unique_id=2018884181 instance=ExtResource("13_24wnm")]
+[node name="PineTree6" parent="BaseLevel/Trees" index="51" unique_id=2018884181 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.886708, 0.17434101, -0.42819902, -0.2245706, 0.9719912, -0.06929175, 0.40412515, 0.15760241, 0.90102404, -7.4981647, 0, -24.049065)
 
-[node name="PineTree7" parent="BaseLevel/Trees" index="50" unique_id=932697598 instance=ExtResource("13_24wnm")]
+[node name="PineTree7" parent="BaseLevel/Trees" index="52" unique_id=932697598 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.6001302, 0.18430275, -0.77838063, -0.33588365, 0.9412112, -0.036108408, 0.7259656, 0.28311512, 0.62675345, 3.7415009, 0, -29.870821)
 
-[node name="PineTree11" parent="BaseLevel/Trees" index="51" unique_id=569603281 instance=ExtResource("13_24wnm")]
+[node name="PineTree11" parent="BaseLevel/Trees" index="53" unique_id=569603281 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.68751127, -0.27571318, -0.6717967, -0.017391581, 0.9186013, -0.394803, 0.7259657, 0.28311515, 0.6267534, -3.8458009, -0.2586255, -30.998837)
 
-[node name="PineTree12" parent="BaseLevel/Trees" index="52" unique_id=1254284372 instance=ExtResource("13_24wnm")]
+[node name="PineTree12" parent="BaseLevel/Trees" index="54" unique_id=1254284372 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.66722107, -0.06903706, -0.7416537, -0.16670415, 0.9565981, -0.2390188, 0.7259657, 0.28311515, 0.6267534, 2.4581475, -0.2586255, -37.970177)
 
-[node name="PineTree9" parent="BaseLevel/Trees" index="53" unique_id=2126511145 instance=ExtResource("13_24wnm")]
+[node name="PineTree9" parent="BaseLevel/Trees" index="55" unique_id=2126511145 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.6001302, 0.18430275, -0.77838063, -0.33588365, 0.9412112, -0.036108408, 0.7259656, 0.28311512, 0.62675345, -11.569679, 0, -29.870821)
 
-[node name="PineTree10" parent="BaseLevel/Trees" index="54" unique_id=1119803910 instance=ExtResource("13_24wnm")]
+[node name="PineTree10" parent="BaseLevel/Trees" index="56" unique_id=1119803910 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.6001302, 0.18430275, -0.77838063, -0.33588365, 0.9412112, -0.036108408, 0.7259656, 0.28311512, 0.62675345, -17.817646, 0, -21.407042)
 
-[node name="tree_stump_12" parent="BaseLevel/Trees" index="55" unique_id=1245773997 instance=ExtResource("6_b118p")]
+[node name="tree_stump_12" parent="BaseLevel/Trees" index="57" unique_id=1245773997 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, 4.1165366, 0, -13.402657)
 
-[node name="tree_stump_16" parent="BaseLevel/Trees" index="56" unique_id=1636902773 instance=ExtResource("6_b118p")]
+[node name="tree_stump_16" parent="BaseLevel/Trees" index="58" unique_id=1636902773 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, -0.15831679, 0, -42.14006)
 
-[node name="tree_stump_20" parent="BaseLevel/Trees" index="57" unique_id=1142882419 instance=ExtResource("6_b118p")]
+[node name="tree_stump_20" parent="BaseLevel/Trees" index="59" unique_id=1142882419 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, -2.1583166, 0, -48.14006)
 
-[node name="tree_stump_23" parent="BaseLevel/Trees" index="58" unique_id=677165944 instance=ExtResource("6_b118p")]
-transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, 45.841682, 0, -128.14006)
+[node name="tree_stump_23" parent="BaseLevel/Trees" index="60" unique_id=677165944 instance=ExtResource("6_b118p")]
+transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, 41.841682, 0, -136.14006)
 
-[node name="tree_stump_21" parent="BaseLevel/Trees" index="59" unique_id=874993830 instance=ExtResource("6_b118p")]
+[node name="tree_stump_24" parent="BaseLevel/Trees" index="61" unique_id=1241385821 instance=ExtResource("6_b118p")]
+transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, -6.1583176, 0, -136.14006)
+
+[node name="tree_stump_21" parent="BaseLevel/Trees" index="62" unique_id=874993830 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.3393454, 0, -0.94066185, 0, 1, 0, 0.94066185, 0, 0.3393454, 2.3514352, 0, -43.506718)
 
-[node name="tree_stump_22" parent="BaseLevel/Trees" index="60" unique_id=924392127 instance=ExtResource("6_b118p")]
+[node name="tree_stump_22" parent="BaseLevel/Trees" index="63" unique_id=924392127 instance=ExtResource("6_b118p")]
 transform = Transform3D(-0.58610374, 0, -0.81023604, 0, 1, 0, 0.81023604, 0, -0.58610374, 2.2390635, 0, -49.264084)
 
-[node name="tree_stump_17" parent="BaseLevel/Trees" index="61" unique_id=1610449329 instance=ExtResource("6_b118p")]
+[node name="tree_stump_17" parent="BaseLevel/Trees" index="64" unique_id=1610449329 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.9550562, 0, -0.296425, 0, 1, 0, 0.296425, 0, 0.9550562, -0.15831679, 0, -38.14006)
 
-[node name="tree_stump_18" parent="BaseLevel/Trees" index="62" unique_id=1559441002 instance=ExtResource("6_b118p")]
+[node name="tree_stump_18" parent="BaseLevel/Trees" index="65" unique_id=1559441002 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.9550562, 0, -0.296425, 0, 1, 0, 0.296425, 0, 0.9550562, -4, 0, -40.096798)
 
-[node name="tree_stump_19" parent="BaseLevel/Trees" index="63" unique_id=617023230 instance=ExtResource("6_b118p")]
+[node name="tree_stump_19" parent="BaseLevel/Trees" index="66" unique_id=617023230 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.9550562, 0, -0.296425, 0, 1, 0, 0.296425, 0, 0.9550562, -6.264204, 0, -45.60777)
 
-[node name="tree_stump_13" parent="BaseLevel/Trees" index="64" unique_id=486794692 instance=ExtResource("6_b118p")]
+[node name="tree_stump_13" parent="BaseLevel/Trees" index="67" unique_id=486794692 instance=ExtResource("6_b118p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9.273315)
 
-[node name="tree_stump_14" parent="BaseLevel/Trees" index="65" unique_id=1115762361 instance=ExtResource("6_b118p")]
+[node name="tree_stump_14" parent="BaseLevel/Trees" index="68" unique_id=1115762361 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.9943787, 0, -0.105882265, 0, 1, 0, 0.105882265, 0, 0.9943787, -4.335293, 0, -9.39663)
 
-[node name="tree_stump_15" parent="BaseLevel/Trees" index="66" unique_id=1565604471 instance=ExtResource("6_b118p")]
+[node name="tree_stump_15" parent="BaseLevel/Trees" index="69" unique_id=1565604471 instance=ExtResource("6_b118p")]
 transform = Transform3D(0.9943787, 0, -0.105882265, 0, 1, 0, 0.105882265, 0, 0.9943787, -5.877414, 0, -36.228275)
 
-[node name="tree_dead_5" parent="BaseLevel/Trees" index="67" unique_id=459369480 instance=ExtResource("14_f1v1w")]
+[node name="tree_dead_5" parent="BaseLevel/Trees" index="70" unique_id=459369480 instance=ExtResource("14_f1v1w")]
 transform = Transform3D(0.97126323, -0.23800799, 0, 0.23800799, 0.97126323, 0, 0, 0, 1, 6.1082144, 0, -70.05805)
 
-[node name="tree_dead_6" parent="BaseLevel/Trees" index="68" unique_id=1686983952 instance=ExtResource("14_f1v1w")]
+[node name="tree_dead_6" parent="BaseLevel/Trees" index="71" unique_id=1686983952 instance=ExtResource("14_f1v1w")]
 transform = Transform3D(0.36225542, 0.017757379, -0.6564722, 0.22546466, 0.70079243, 0.1433725, 0.61679554, -0.2665983, 0.3331495, 17.473698, 0, -99.313255)
 
-[node name="tree_dead_7" parent="BaseLevel/Trees" index="69" unique_id=1181054705 instance=ExtResource("14_f1v1w")]
-transform = Transform3D(0.36225542, 0.017757379, -0.6564722, 0.22546466, 0.70079243, 0.1433725, 0.61679554, -0.2665983, 0.3331495, 5.9839325, 4.7683716e-07, -117.30819)
+[node name="tree_dead_7" parent="BaseLevel/Trees" index="72" unique_id=1181054705 instance=ExtResource("14_f1v1w")]
+transform = Transform3D(0.36225542, 0.017757379, -0.6564722, 0.22546466, 0.70079243, 0.1433725, 0.61679554, -0.2665983, 0.3331495, 5.9839325, -0.20885229, -117.30819)
 
-[node name="tree_dead_8" parent="BaseLevel/Trees" index="70" unique_id=581228181 instance=ExtResource("14_f1v1w")]
+[node name="tree_dead_10" parent="BaseLevel/Trees" index="73" unique_id=1759995033 instance=ExtResource("14_f1v1w")]
+transform = Transform3D(-0.70062137, 0.085162796, -0.253726, 0.091518715, 0.7443898, -0.0028599426, 0.25150335, -0.03363262, -0.70577246, -6.4988575, -0.20885229, -131.87527)
+
+[node name="tree_dead_8" parent="BaseLevel/Trees" index="74" unique_id=581228181 instance=ExtResource("14_f1v1w")]
 transform = Transform3D(0.95647615, 0.18907927, -0.2222664, -0.2135433, 0.9726365, -0.0915283, 0.19887833, 0.13500814, 0.9706803, 5.9839325, -0.18173838, -128.27539)
 
-[node name="tree_dead_9" parent="BaseLevel/Trees" index="71" unique_id=2028754312 instance=ExtResource("14_f1v1w")]
+[node name="tree_dead_9" parent="BaseLevel/Trees" index="75" unique_id=2028754312 instance=ExtResource("14_f1v1w")]
 transform = Transform3D(0.24274471, -0.04035095, -0.04412262, 0.03321096, 0.24440254, -0.040797442, 0.049719583, 0.033752035, 0.24267006, 5.9839325, -0.18173838, -131.14482)
 
-[node name="PineTree28" parent="BaseLevel/Trees" index="72" unique_id=438548955 instance=ExtResource("13_24wnm")]
+[node name="PineTree28" parent="BaseLevel/Trees" index="76" unique_id=438548955 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.9707731, 0.22830333, -0.0740072, -0.22858402, 0.97351235, 0.0047689704, 0.07313568, 0.012287274, 0.9972461, -6.278678, -0.34318042, -74.29434)
 
-[node name="PineTree29" parent="BaseLevel/Trees" index="73" unique_id=546377955 instance=ExtResource("13_24wnm")]
+[node name="PineTree29" parent="BaseLevel/Trees" index="77" unique_id=546377955 instance=ExtResource("13_24wnm")]
 transform = Transform3D(0.9188532, -0.39459953, 0, 0.39459953, 0.9188532, 0, 0, 0, 1, 14.014385, -0.34318042, -77.4489)
 
 [node name="BreakableLog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="28" unique_id=820773821 instance=ExtResource("13_cpv81")]
@@ -2345,40 +2376,43 @@ transform = Transform3D(1.4433546, 0.42048898, -0.37738073, -0.23272544, 1.38584
 [node name="Stone29" parent="BaseLevel/Stones" index="20" unique_id=1948964801 instance=ExtResource("18_7n544")]
 transform = Transform3D(-0.80493283, 0.41477275, -1.2408595, -0.007564225, 1.0178561, 0.6838104, 1.3680295, 0.24967541, -0.72632563, 12.795201, -0.5174761, -123.856804)
 
-[node name="Stone30" parent="BaseLevel/Stones" index="21" unique_id=1546468049 instance=ExtResource("18_7n544")]
+[node name="Stone35" parent="BaseLevel/Stones" index="21" unique_id=1331786219 instance=ExtResource("18_7n544")]
+transform = Transform3D(-0.5607961, 2.1934004, -0.31378824, 0.7806484, 0.50571233, 2.8441668, 1.6335415, 0.51132256, -1.466913, 22.998814, -0.5174761, -150.80896)
+
+[node name="Stone30" parent="BaseLevel/Stones" index="22" unique_id=1546468049 instance=ExtResource("18_7n544")]
 transform = Transform3D(-0.26163608, 0, -0.42608282, 0, 0.3798132, 0, 0.42608282, 0, -0.26163608, 7.1560726, -0.019248009, -121.56959)
 
-[node name="Stone32" parent="BaseLevel/Stones" index="22" unique_id=672305411 instance=ExtResource("18_7n544")]
+[node name="Stone32" parent="BaseLevel/Stones" index="23" unique_id=672305411 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.24682786, 0, 0.03969893, 0, 0.25, 0, -0.03969893, 0, 0.24682786, 6.5914974, -0.019248009, -130.20724)
 
-[node name="Stone31" parent="BaseLevel/Stones" index="23" unique_id=1298155850 instance=ExtResource("18_7n544")]
+[node name="Stone31" parent="BaseLevel/Stones" index="24" unique_id=1298155850 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.029613435, 0.2881093, -0.3244557, -0.27150902, 0.21647187, 0.308341, 0.41881493, 0.11996269, 0.2228326, 8.099094, -0.019248009, -130.52986)
 
-[node name="Stone20" parent="BaseLevel/Stones" index="24" unique_id=2070160767 instance=ExtResource("18_7n544")]
+[node name="Stone20" parent="BaseLevel/Stones" index="25" unique_id=2070160767 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.013701916, 0.3376913, 0.94115734, -0.23646308, 0.91564167, -0.32509354, -0.971544, -0.21809468, 0.09239745, 10.163209, 2.2561321, -65.611824)
 
-[node name="Stone21" parent="BaseLevel/Stones" index="25" unique_id=547903679 instance=ExtResource("18_7n544")]
+[node name="Stone21" parent="BaseLevel/Stones" index="26" unique_id=547903679 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.096872576, -0.28809, 0.33859247, -0.047226362, 0.33790818, 0.30101946, -0.4420524, -0.099233, 0.042040866, 7.510786, 0.25613213, -66.44803)
 
-[node name="Stone22" parent="BaseLevel/Stones" index="26" unique_id=1210739109 instance=ExtResource("18_7n544")]
+[node name="Stone22" parent="BaseLevel/Stones" index="27" unique_id=1210739109 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.013701916, 0.3376913, 0.94115734, -0.23646308, 0.91564167, -0.32509354, -0.971544, -0.21809468, 0.09239745, 7.815339, 2.2561321, -72.67206)
 
-[node name="Stone23" parent="BaseLevel/Stones" index="27" unique_id=636872471 instance=ExtResource("18_7n544")]
+[node name="Stone23" parent="BaseLevel/Stones" index="28" unique_id=636872471 instance=ExtResource("18_7n544")]
 transform = Transform3D(-0.5854695, 0.274909, -0.76266026, 0.13882937, 0.96085125, 0.2397744, 0.79871905, 0.03450097, -0.6007143, 8.209398, 2.2561321, -84.27899)
 
-[node name="Stone24" parent="BaseLevel/Stones" index="28" unique_id=933400472 instance=ExtResource("18_7n544")]
+[node name="Stone24" parent="BaseLevel/Stones" index="29" unique_id=933400472 instance=ExtResource("18_7n544")]
 transform = Transform3D(-1.3266566, -0.37797344, 0.03896805, -0.3536106, 1.2798907, 0.37581825, -0.13907547, 0.35130596, -1.3272687, 11.262388, 3.017891, -93.79393)
 
-[node name="Stone27" parent="BaseLevel/Stones" index="29" unique_id=1036998743 instance=ExtResource("18_7n544")]
+[node name="Stone27" parent="BaseLevel/Stones" index="30" unique_id=1036998743 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.058844764, 0.54028654, -1.2684746, 1.1095784, -0.7721859, -0.27742696, -0.81839734, -1.0080773, -0.46734017, 9.434982, 0.8087044, -96.35216)
 
-[node name="Stone25" parent="BaseLevel/Stones" index="30" unique_id=1510486689 instance=ExtResource("18_7n544")]
+[node name="Stone25" parent="BaseLevel/Stones" index="31" unique_id=1510486689 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.4842599, -0.29759312, 0.47384676, 0.2668652, 0.6736333, 0.15033656, -0.49180818, 0.07250172, 0.5481498, -8.438051, -0.6831808, -90.171036)
 
-[node name="Stone26" parent="BaseLevel/Stones" index="31" unique_id=1254085003 instance=ExtResource("18_7n544")]
+[node name="Stone26" parent="BaseLevel/Stones" index="32" unique_id=1254085003 instance=ExtResource("18_7n544")]
 transform = Transform3D(-0.601671, 0.05629936, -0.7967575, 0.006331035, 0.9978178, 0.06572572, 0.79871905, 0.034500964, -0.6007143, 10.064356, 6.836972, -84.27899)
 
-[node name="Stone3" parent="BaseLevel/Stones" index="32" unique_id=1999223425 instance=ExtResource("18_7n544")]
+[node name="Stone3" parent="BaseLevel/Stones" index="33" unique_id=1999223425 instance=ExtResource("18_7n544")]
 transform = Transform3D(0.18326512, 0, 0.9830636, 0, 1, 0, -0.9830636, 0, 0.18326512, -13.875754, 0, -40.018017)
 
 [node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="32" unique_id=703169726]
@@ -2413,6 +2447,194 @@ light_color = Color(1, 1, 0.6627451, 1)
 light_energy = 12.0
 spot_range = 8.0
 spot_angle = 27.992838
+
+[node name="Bridge" type="Node3D" parent="." index="8" unique_id=667555028]
+
+[node name="tree_log_12" parent="Bridge" index="0" unique_id=2107394320 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -175.02061)
+
+[node name="tree_log_13" parent="Bridge" index="1" unique_id=545748571 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -175.41739)
+
+[node name="tree_log_14" parent="Bridge" index="2" unique_id=1220343225 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -175.80884)
+
+[node name="tree_log_15" parent="Bridge" index="3" unique_id=880952262 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -176.20561)
+
+[node name="tree_log_16" parent="Bridge" index="4" unique_id=832075424 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -176.5842)
+
+[node name="tree_log_17" parent="Bridge" index="5" unique_id=1366669147 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -176.98097)
+
+[node name="tree_log_18" parent="Bridge" index="6" unique_id=64242087 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -177.37242)
+
+[node name="tree_log_19" parent="Bridge" index="7" unique_id=1848269368 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -177.7692)
+
+[node name="tree_log_20" parent="Bridge" index="8" unique_id=1507226181 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -178.13089)
+
+[node name="tree_log_21" parent="Bridge" index="9" unique_id=355981451 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -178.52766)
+
+[node name="tree_log_22" parent="Bridge" index="10" unique_id=1707055289 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -178.91911)
+
+[node name="tree_log_23" parent="Bridge" index="11" unique_id=1820827708 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -179.31589)
+
+[node name="tree_log_24" parent="Bridge" index="12" unique_id=204716720 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -179.69447)
+
+[node name="tree_log_25" parent="Bridge" index="13" unique_id=958511952 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -180.09125)
+
+[node name="tree_log_26" parent="Bridge" index="14" unique_id=803752988 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -180.4827)
+
+[node name="tree_log_27" parent="Bridge" index="15" unique_id=606596052 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -180.87947)
+
+[node name="tree_log_28" parent="Bridge" index="16" unique_id=1526965629 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -181.25668)
+
+[node name="tree_log_29" parent="Bridge" index="17" unique_id=858772681 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -181.65346)
+
+[node name="tree_log_30" parent="Bridge" index="18" unique_id=1546486205 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -182.0449)
+
+[node name="tree_log_31" parent="Bridge" index="19" unique_id=1616604651 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -182.44168)
+
+[node name="tree_log_32" parent="Bridge" index="20" unique_id=1846949080 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -182.82027)
+
+[node name="tree_log_33" parent="Bridge" index="21" unique_id=1218725988 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -183.21704)
+
+[node name="tree_log_34" parent="Bridge" index="22" unique_id=1872376544 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -183.60849)
+
+[node name="tree_log_35" parent="Bridge" index="23" unique_id=118919892 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -184.00526)
+
+[node name="tree_log_36" parent="Bridge" index="24" unique_id=2071887156 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -184.36696)
+
+[node name="tree_log_37" parent="Bridge" index="25" unique_id=542557453 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -184.76373)
+
+[node name="tree_log_38" parent="Bridge" index="26" unique_id=440294 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -185.15518)
+
+[node name="tree_log_39" parent="Bridge" index="27" unique_id=1575822642 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -185.55196)
+
+[node name="tree_log_40" parent="Bridge" index="28" unique_id=115129041 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -185.93054)
+
+[node name="tree_log_41" parent="Bridge" index="29" unique_id=112992886 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -186.32732)
+
+[node name="tree_log_42" parent="Bridge" index="30" unique_id=1922859841 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -186.71877)
+
+[node name="tree_log_43" parent="Bridge" index="31" unique_id=1914291643 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -187.11554)
+
+[node name="tree_log_44" parent="Bridge" index="32" unique_id=2103489492 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -187.5104)
+
+[node name="tree_log_45" parent="Bridge" index="33" unique_id=1018070472 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -187.90718)
+
+[node name="tree_log_46" parent="Bridge" index="34" unique_id=484389553 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -188.29863)
+
+[node name="tree_log_47" parent="Bridge" index="35" unique_id=972735932 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -188.6954)
+
+[node name="tree_log_48" parent="Bridge" index="36" unique_id=1177345850 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -189.07399)
+
+[node name="tree_log_49" parent="Bridge" index="37" unique_id=1438456770 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -189.47076)
+
+[node name="tree_log_50" parent="Bridge" index="38" unique_id=1637438916 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -189.86221)
+
+[node name="tree_log_51" parent="Bridge" index="39" unique_id=735768516 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -190.25899)
+
+[node name="tree_log_52" parent="Bridge" index="40" unique_id=2062920388 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -190.62068)
+
+[node name="tree_log_53" parent="Bridge" index="41" unique_id=2052529741 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -191.01746)
+
+[node name="tree_log_54" parent="Bridge" index="42" unique_id=1603402111 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -191.4089)
+
+[node name="tree_log_55" parent="Bridge" index="43" unique_id=674553012 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -191.80568)
+
+[node name="tree_log_56" parent="Bridge" index="44" unique_id=2078487549 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -192.18427)
+
+[node name="tree_log_57" parent="Bridge" index="45" unique_id=1788577993 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -192.58104)
+
+[node name="tree_log_58" parent="Bridge" index="46" unique_id=290756065 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -192.97249)
+
+[node name="tree_log_59" parent="Bridge" index="47" unique_id=1390409400 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -193.36926)
+
+[node name="tree_log_60" parent="Bridge" index="48" unique_id=617547029 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -193.74648)
+
+[node name="tree_log_61" parent="Bridge" index="49" unique_id=1781773496 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -194.14325)
+
+[node name="tree_log_62" parent="Bridge" index="50" unique_id=1568399285 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -194.5347)
+
+[node name="tree_log_63" parent="Bridge" index="51" unique_id=726760087 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -194.93147)
+
+[node name="tree_log_64" parent="Bridge" index="52" unique_id=911770428 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -195.31006)
+
+[node name="tree_log_65" parent="Bridge" index="53" unique_id=766395887 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -195.70683)
+
+[node name="tree_log_66" parent="Bridge" index="54" unique_id=328277456 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -196.09828)
+
+[node name="tree_log_67" parent="Bridge" index="55" unique_id=654495559 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -196.49506)
+
+[node name="tree_log_68" parent="Bridge" index="56" unique_id=578126383 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -196.85675)
+
+[node name="tree_log_69" parent="Bridge" index="57" unique_id=1701200306 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -197.25352)
+
+[node name="tree_log_70" parent="Bridge" index="58" unique_id=1879803485 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -197.64497)
+
+[node name="tree_log_71" parent="Bridge" index="59" unique_id=2068956647 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -198.04175)
+
+[node name="tree_log_72" parent="Bridge" index="60" unique_id=533667775 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(1.7773575, 0, 0.8037774, 0, 2.0412583, 0, -1.0261579, 0, 1.3921833, 3.2159975, -1.0030642, -198.42033)
+
+[node name="tree_log_73" parent="Bridge" index="61" unique_id=2039874653 instance=ExtResource("27_3a1fd")]
+transform = Transform3D(-2.0813432, 1.7327751e-07, -0.37267077, -1.6406823e-07, -2.041258, -5.8501268e-08, -0.6034258, -4.266366e-08, 1.2854203, 3.2159975, -0.37420928, -198.81711)
 
 [connection signal="card_slotted" from="CardSystem" to="SaveSystem" method="_on_card_system_card_slotted"]
 [connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
