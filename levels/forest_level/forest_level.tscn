@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_fnn83"]
 [ext_resource type="Script" uid="uid://h6bmtlsgdg6" path="res://levels/forest_level/forest_level.gd" id="2_cpv81"]
 [ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="3_24wnm"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="3_itb2r"]
 [ext_resource type="PackedScene" uid="uid://pbebb1f7kf7v" path="res://level_mechanics/debug_player_start.tscn" id="3_ma4h5"]
 [ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://core/components/cutscene/dialogue_trigger_area.tscn" id="4_fyusi"]
+[ext_resource type="AudioStream" uid="uid://rc2w17xatnjy" path="res://assets/music/synthesizing pain.wav" id="4_itb2r"]
 [ext_resource type="Resource" uid="uid://ha3t3hrgxnfs" path="res://dialogue/forest_level.dialogue" id="5_nautm"]
 [ext_resource type="PackedScene" uid="uid://c76drbuur0wwo" path="res://assets/3d_models/psx/trees/tree_stump_12.tscn" id="6_b118p"]
 [ext_resource type="PackedScene" uid="uid://6jpnibtpgsrf" path="res://enemy/enemy_pawns/eyeball/eyeball.tscn" id="6_uwb2w"]
@@ -102,12 +104,14 @@ size = Vector3(4.7053223, 1, 28)
 [node name="ForestLevel" unique_id=24269738 instance=ExtResource("1_fnn83")]
 script = ExtResource("2_cpv81")
 
+[node name="BackgroundMusicPlayer" parent="." index="1" unique_id=1991235100 instance=ExtResource("3_itb2r")]
+stream = ExtResource("4_itb2r")
+
 [node name="ForestDemon" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=637738744 instance=ExtResource("13_x70s0")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -64)
-disabled = true
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
@@ -1167,9 +1171,9 @@ duration = 1.0
 from_value = 0.0
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
-[node name="SaveSystem" parent="." index="5" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
+[node name="SaveSystem" parent="." index="6" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
 
-[node name="Checkpoint" parent="." index="6" unique_id=1805229643 instance=ExtResource("25_lsy1x")]
+[node name="Checkpoint" parent="." index="7" unique_id=1805229643 instance=ExtResource("25_lsy1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -86)
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Checkpoint" index="8" unique_id=1681876600]
