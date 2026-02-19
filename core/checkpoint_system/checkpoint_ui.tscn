@@ -1,3 +1,251 @@
 [gd_scene format=3 uid="uid://cuqi2y0ifieio"]
 
-[node name="CheckpointUi" type="Node2D" unique_id=1055257741]
+[ext_resource type="Script" uid="uid://cjybemtv22445" path="res://core/checkpoint_system/checkpoint_ui.gd" id="1_ppsei"]
+[ext_resource type="Texture2D" uid="uid://d3r5p6ymrjnfg" path="res://assets/concrete_6.png" id="1_sh24b"]
+[ext_resource type="Texture2D" uid="uid://djy75i3b8klwb" path="res://assets/concrete_tx_4.png" id="2_ppsei"]
+[ext_resource type="Texture2D" uid="uid://i35nlcs6itt4" path="res://player/dice_side_texture.png" id="3_jtxgv"]
+
+[node name="CheckpointUi" type="CanvasLayer" unique_id=1005978723]
+script = ExtResource("1_ppsei")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=635705761]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="BackgroundImage" type="TextureRect" parent="MarginContainer" unique_id=467807412]
+layout_mode = 2
+texture = ExtResource("1_sh24b")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BackgroundImage" unique_id=764276493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2" unique_id=1584004276]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer" unique_id=600183208]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "TRAVEL"
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer" unique_id=2141233616]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/side_margin = 8
+theme_override_constants/tab_separation = 5
+current_tab = 0
+
+[node name="Hub" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer" unique_id=939502604]
+layout_mode = 2
+texture = ExtResource("2_ppsei")
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub" unique_id=898863999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer" unique_id=1754388751]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer" unique_id=1996306644]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer" unique_id=462192919]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=763505869]
+layout_mode = 2
+text = "Checkpoint One"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=196764553]
+layout_mode = 2
+text = "Checkpoint Two	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=910814510]
+layout_mode = 2
+text = "Checkpoint Three	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1855389314]
+layout_mode = 2
+text = "Checkpoint Four	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1234469384]
+custom_minimum_size = Vector2(375, 281)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_jtxgv")
+
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer" unique_id=1443268790]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "Close"
+
+[node name="Forest" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer" unique_id=12164478]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_ppsei")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest" unique_id=7115906]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer" unique_id=239234336]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer" unique_id=1812714600]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer" unique_id=153532962]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1864348571]
+layout_mode = 2
+text = "Checkpoint One"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=525526221]
+layout_mode = 2
+text = "Checkpoint Two	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=462653241]
+layout_mode = 2
+text = "Checkpoint Three	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=271432380]
+layout_mode = 2
+text = "Checkpoint Four	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer" unique_id=391579490]
+custom_minimum_size = Vector2(375, 281)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_jtxgv")
+
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer" unique_id=1297221630]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "Close"
+
+[node name="Level 2" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer" unique_id=768388584]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_ppsei")
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2" unique_id=78553528]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer" unique_id=533275619]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer" unique_id=1404447658]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1318064855]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=386144652]
+layout_mode = 2
+text = "Checkpoint One"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1440766431]
+layout_mode = 2
+text = "Checkpoint Two	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=46931034]
+layout_mode = 2
+text = "Checkpoint Three	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1730598907]
+layout_mode = 2
+text = "Checkpoint Four	"
+flat = true
+alignment = 0
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=38627051]
+custom_minimum_size = Vector2(375, 281)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_jtxgv")
+
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer" unique_id=1202648775]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
