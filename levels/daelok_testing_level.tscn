@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://v2sdjtpskhx5"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_eiw1x"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="2_3mw47"]
+[ext_resource type="Script" uid="uid://cdqkhwto3tt7o" path="res://levels/daelok_testing_level.gd" id="2_pkss4"]
+[ext_resource type="AudioStream" uid="uid://rc2w17xatnjy" path="res://assets/music/synthesizing pain.wav" id="4_dthh7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkss4"]
+
+[node name="DaelokTestingLevel" unique_id=885135856 instance=ExtResource("1_eiw1x")]
+script = ExtResource("2_pkss4")
+
+[node name="BackgroundMusicPlayer" parent="." index="5" unique_id=795340987 instance=ExtResource("2_3mw47")]
+stream = ExtResource("4_dthh7")
+
+[node name="Area3D" type="Area3D" parent="." index="6" unique_id=1988380027]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=591910108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14)
+shape = SubResource("BoxShape3D_pkss4")
+debug_color = Color(0.90504843, 0.00013957918, 0.749583, 0.41960785)
+
+[editable path="BaseLevel/Player"]
