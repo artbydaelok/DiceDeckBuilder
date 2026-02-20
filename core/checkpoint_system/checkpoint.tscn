@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbyuumkfu0ga" path="res://core/checkpoint_system/checkpoint_manager.gd" id="1_2ygse"]
 [ext_resource type="PackedScene" uid="uid://jxfchtp10avb" path="res://assets/3d_models/Bonfire.glb" id="2_040is"]
-[ext_resource type="Texture2D" uid="uid://cn6alv8asv1y0" path="res://core/checkpoint_system/icons8-left-click-50.png" id="2_vahmo"]
+[ext_resource type="Texture2D" uid="uid://mgwa2hbwyfge" path="res://assets/ui/BlankSmall.png" id="2_a8arl"]
 [ext_resource type="AudioStream" uid="uid://bkbseudhq0c1d" path="res://assets/sounds/looping_burning.wav" id="4_7iaty"]
 [ext_resource type="Script" uid="uid://cx12as0gobvpd" path="res://cutscenes/light_flicker.gd" id="5_a8arl"]
 
@@ -10,14 +10,13 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7iaty"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_040is"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shdl6"]
 transparency = 1
-albedo_texture = ExtResource("2_vahmo")
+albedo_texture = ExtResource("2_a8arl")
 billboard_mode = 1
-billboard_keep_scale = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_7iaty"]
-material = SubResource("StandardMaterial3D_040is")
+[sub_resource type="QuadMesh" id="QuadMesh_i6h33"]
+material = SubResource("StandardMaterial3D_shdl6")
 
 [sub_resource type="Curve" id="Curve_7iaty"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.1465923, 0.0, 0, 0]
@@ -125,10 +124,17 @@ collision_mask = 256
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=213139879]
 shape = SubResource("BoxShape3D_7iaty")
 
-[node name="Interaction_Prompt" type="MeshInstance3D" parent="." unique_id=657105338]
+[node name="InteractionPromptLabel" type="Label3D" parent="." unique_id=1869799838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0361347, 0)
 visible = false
-mesh = SubResource("QuadMesh_7iaty")
+billboard = 1
+text = "E"
+font_size = 150
+outline_size = 100
+
+[node name="InteractionPromptBackgroundMesh" type="MeshInstance3D" parent="InteractionPromptLabel" unique_id=657105338]
+mesh = SubResource("QuadMesh_i6h33")
+skeleton = NodePath("../..")
 
 [node name="Bonfire" parent="." unique_id=1365913252 instance=ExtResource("2_040is")]
 transform = Transform3D(4.855, 0, 0, 0, 4.855, 0, 0, 0, 4.855, 0, 0.075, 0)
@@ -161,7 +167,7 @@ bus = &"SFX"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 light_color = Color(1, 0.57254905, 0, 1)
-light_energy = 6.6703506
+light_energy = 5.8817415
 script = ExtResource("5_a8arl")
 can_flicker = true
 min_energy = 4.5

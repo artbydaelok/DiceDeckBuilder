@@ -3,14 +3,14 @@ extends Node
 @onready var fire_sound_effect: AudioStreamPlayer3D = $FireSFXPlayer3D
 @onready var fire_visual_effect: GPUParticles3D = $FireParticles
 @onready var smoke_visual_effect: GPUParticles3D = $SmokeParticles
-@onready var fast_travel_ui_prompt: MeshInstance3D = $Interaction_Prompt
+@onready var fast_travel_ui_prompt: Label3D = $InteractionPromptLabel
 @onready var fire_light: OmniLight3D = $FireLight
 
 const FAST_TRAVEL_UI = preload("res://core/checkpoint_system/checkpoint_ui.tscn")
 
 var has_effects: bool = false
 var has_player: bool = false
-var fast_travel_ui_open: bool = false
+var ui: CheckpointUI
 
 func _ready() -> void:
 	if fire_sound_effect && fire_visual_effect && smoke_visual_effect && fast_travel_ui_prompt && fire_light:
@@ -22,12 +22,12 @@ func _ready() -> void:
 	add_child(label)
 		
 func _input(event):
-	if !has_player || fast_travel_ui_open: return
+	if !has_player: return
 	
-	if event.is_action_released("use_ability"):
-		fast_travel_ui_open = true
-		var ui = FAST_TRAVEL_UI.instantiate()
-		get_tree().current_scene.add_child(ui)
+	if event.is_action_released("interact"):
+		if(!ui):
+			ui = FAST_TRAVEL_UI.instantiate()
+			get_tree().current_scene.add_child(ui)
 
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	has_player = true
