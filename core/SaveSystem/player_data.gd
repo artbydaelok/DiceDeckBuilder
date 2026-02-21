@@ -1,6 +1,8 @@
 extends Resource
 class_name PlayerData
 
+
+
 @export var health : int = 10
 @export var equipped_cards : Array[Card] = [null, null, null, null, null, null]
 @export var inventory_cards : Array[Card] = []
@@ -16,6 +18,8 @@ class_name PlayerData
 @export var level_three_completed : bool
 @export var level_four_completed : bool
 @export var level_five_completed : bool
+
+@export var unlocked_checkpoints: Dictionary
 #endregion
 
 #region Demo
