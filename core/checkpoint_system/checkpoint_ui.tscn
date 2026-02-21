@@ -42,6 +42,7 @@ theme_override_font_sizes/font_size = 25
 text = "TRAVEL"
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer" unique_id=2141233616]
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/side_margin = 8
@@ -69,58 +70,52 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer" unique_id=1996306644]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer" unique_id=462192919]
+[node name="HubLevelButtonContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer" unique_id=462192919]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=763505869]
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/HubLevelButtonContainer" unique_id=763505869]
 layout_mode = 2
 text = "Checkpoint One"
 flat = true
 alignment = 0
-autowrap_mode = 2
 
-[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=196764553]
+[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/HubLevelButtonContainer" unique_id=196764553]
 layout_mode = 2
 text = "Checkpoint Two	"
 flat = true
 alignment = 0
 autowrap_mode = 2
 
-[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=910814510]
+[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/HubLevelButtonContainer" unique_id=910814510]
 layout_mode = 2
 text = "Checkpoint Three	"
 flat = true
 alignment = 0
 autowrap_mode = 2
 
-[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1855389314]
+[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer/HubLevelButtonContainer" unique_id=1855389314]
 layout_mode = 2
 text = "Checkpoint Four	"
 flat = true
 alignment = 0
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1234469384]
+[node name="HubLevelTextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1234469384]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(375, 281)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("3_jtxgv")
 
-[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer" unique_id=1443268790]
-custom_minimum_size = Vector2(50, 25)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 10
-text = "Close"
-
-[node name="Forest" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer" unique_id=12164478]
+[node name="Forest" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer" unique_id=284741681]
 visible = false
 layout_mode = 2
 texture = ExtResource("2_ppsei")
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest" unique_id=7115906]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest" unique_id=1382464936]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,64 +125,58 @@ grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer" unique_id=239234336]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer" unique_id=1968143350]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer" unique_id=1812714600]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer" unique_id=1371469406]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer" unique_id=153532962]
+[node name="ForestLevelButtonContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer" unique_id=514536801]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1864348571]
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/ForestLevelButtonContainer" unique_id=2077366152]
 layout_mode = 2
 text = "Checkpoint One"
 flat = true
 alignment = 0
-autowrap_mode = 2
 
-[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=525526221]
+[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/ForestLevelButtonContainer" unique_id=392864579]
 layout_mode = 2
 text = "Checkpoint Two	"
 flat = true
 alignment = 0
 autowrap_mode = 2
 
-[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=462653241]
+[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/ForestLevelButtonContainer" unique_id=69168194]
 layout_mode = 2
 text = "Checkpoint Three	"
 flat = true
 alignment = 0
 autowrap_mode = 2
 
-[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=271432380]
+[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer/ForestLevelButtonContainer" unique_id=1215729159]
 layout_mode = 2
 text = "Checkpoint Four	"
 flat = true
 alignment = 0
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer" unique_id=391579490]
+[node name="ForestLevelTextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer/HBoxContainer" unique_id=897279862]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(375, 281)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("3_jtxgv")
 
-[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Forest/MarginContainer/VBoxContainer" unique_id=1297221630]
-custom_minimum_size = Vector2(50, 25)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 10
-text = "Close"
-
-[node name="Level 2" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer" unique_id=768388584]
+[node name="GausRoth" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer" unique_id=1794819021]
 visible = false
 layout_mode = 2
 texture = ExtResource("2_ppsei")
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2" unique_id=78553528]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/GausRoth" unique_id=847426432]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -197,55 +186,29 @@ grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer" unique_id=533275619]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/GausRoth/MarginContainer" unique_id=1555767597]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer" unique_id=1404447658]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/GausRoth/MarginContainer/VBoxContainer" unique_id=546285196]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1318064855]
+[node name="GausRothLevelButtonContainer" type="VBoxContainer" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/GausRoth/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1075137801]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=386144652]
-layout_mode = 2
-text = "Checkpoint One"
-flat = true
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button2" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1440766431]
-layout_mode = 2
-text = "Checkpoint Two	"
-flat = true
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button3" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=46931034]
-layout_mode = 2
-text = "Checkpoint Three	"
-flat = true
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button4" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1730598907]
-layout_mode = 2
-text = "Checkpoint Four	"
-flat = true
-alignment = 0
-autowrap_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=38627051]
+[node name="GausRothLevelTextureRect" type="TextureRect" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/GausRoth/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1393702357]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(375, 281)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("3_jtxgv")
 
-[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Level 2/MarginContainer/VBoxContainer" unique_id=1202648775]
+[node name="Button" type="Button" parent="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer" unique_id=1443268790]
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 text = "Close"
 
-[connection signal="pressed" from="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/TabContainer/Hub/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BackgroundImage/MarginContainer2/VBoxContainer/Button" to="." method="_on_button_pressed"]

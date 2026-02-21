@@ -1,4 +1,5 @@
 extends Node
+class_name SaveSystem
 
 signal update_player_data(player_data:PlayerData)
 
@@ -80,6 +81,7 @@ func json_save():
 			"progression": {
 				"current_level"= player_data.current_level,
 				"tutorial_completed"= player_data.tutorial_completed,
+				"unlocked_checkpoints" = player_data.unlocked_checkpoints,
 				"level_one_completed"= player_data.level_one_completed,
 				"level_two_completed"= player_data.level_two_completed,
 				"level_three_completed"= player_data.level_three_completed,
@@ -119,6 +121,7 @@ func make_empty_save():
 			"progression": {
 				"current_level"= fresh_player_data.current_level,
 				"tutorial_completed"= fresh_player_data.tutorial_completed,
+				"unlocked_checkpoints" = player_data.unlocked_checkpoints,
 				"level_one_completed"= fresh_player_data.level_one_completed,
 				"level_two_completed"= fresh_player_data.level_two_completed,
 				"level_three_completed"= fresh_player_data.level_three_completed,
@@ -177,7 +180,8 @@ func json_load():
 			
 		var equipped_cards: Array[Card] = []
 		var inventory_cards: Array[Card] = []
-	
+		var unlocked_checkpoints: Dictionary = {}
+		
 		if loaded_data.inventory.equipped_cards.size() > 0:
 			for card in loaded_data.inventory.equipped_cards:
 				if card == "" || card == null:
@@ -198,6 +202,7 @@ func json_load():
 		player_data.is_mobile = loaded_data.general.is_mobile
 		player_data.current_level = loaded_data.progression.current_level
 		player_data.tutorial_completed = loaded_data.progression.tutorial_completed
+		player_data.unlocked_checkpoints = loaded_data.progression.unlocked_checkpoints
 		player_data.level_one_completed = loaded_data.progression.level_one_completed
 		player_data.level_two_completed = loaded_data.progression.level_two_completed
 		player_data.level_three_completed = loaded_data.progression.level_three_completed

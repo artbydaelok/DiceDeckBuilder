@@ -1,14 +1,25 @@
 [gd_scene format=3 uid="uid://v3nnv7k5ouoy"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_hbgwo"]
+[ext_resource type="Resource" uid="uid://csdmlqnp6cuwt" path="res://core/checkpoint_system/checkpoints/gaus_roth_test_one.tres" id="3_tqawa"]
+[ext_resource type="Resource" uid="uid://dp25tm2yvgywm" path="res://core/checkpoint_system/checkpoints/gaus_roth_test_two.tres" id="4_4xlsa"]
 [ext_resource type="PackedScene" uid="uid://b1hdv7ste17l" path="res://core/checkpoint_system/checkpoint.tscn" id="4_frsot"]
 [ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="23_dlp8a"]
 
 [node name="Game" unique_id=885135856 instance=ExtResource("1_hbgwo")]
 
-[node name="SaveSystem" parent="." index="5" unique_id=1059717826 instance=ExtResource("23_dlp8a")]
-
-[node name="Checkpoint" parent="." index="6" unique_id=1805229643 instance=ExtResource("4_frsot")]
+[node name="Checkpoint" parent="." index="5" unique_id=1805229643 node_paths=PackedStringArray("save_system") instance=ExtResource("4_frsot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.091733, 0.5, -3.7937746)
+save_system = NodePath("../SaveSystem")
+checkpoint_data = ExtResource("3_tqawa")
+
+[node name="Checkpoint2" parent="." index="6" unique_id=489529605 node_paths=PackedStringArray("save_system") instance=ExtResource("4_frsot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.816534, 0, -4.587549)
+save_system = NodePath("../SaveSystem")
+checkpoint_data = ExtResource("4_4xlsa")
+
+[node name="SaveSystem" parent="." index="7" unique_id=1059717826 instance=ExtResource("23_dlp8a")]
+
+[connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
 
 [editable path="BaseLevel/Player"]

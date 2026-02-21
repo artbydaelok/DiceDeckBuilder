@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://csdmlqnp6cuwt"]
+
+[ext_resource type="Texture2D" uid="uid://bg5m3lg86cx1m" path="res://player/dice_grid.png" id="1_5qodl"]
+[ext_resource type="Script" uid="uid://idmin1b44kw" path="res://core/checkpoint_system/CheckpointData.gd" id="1_w5eaw"]
+
+[resource]
+script = ExtResource("1_w5eaw")
+name = "Testing One"
+level = "GausRothTestLevel"
+image = ExtResource("1_5qodl")
+metadata/_custom_type_script = "uid://idmin1b44kw"
