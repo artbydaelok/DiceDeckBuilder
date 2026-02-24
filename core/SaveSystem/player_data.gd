@@ -4,6 +4,7 @@ class_name PlayerData
 
 
 @export var health : int = 10
+@export var currency : int = 0
 @export var equipped_cards : Array[Card] = [null, null, null, null, null, null]
 @export var inventory_cards : Array[Card] = []
 @export var patch_number : float = 0

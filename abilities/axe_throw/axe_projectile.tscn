@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://biwl7ql6dbwkp"]
+[gd_scene format=3 uid="uid://biwl7ql6dbwkp"]
 
-[ext_resource type="PackedScene" uid="uid://bgg10pgp0k6h0" path="res://assets/3d_models/Axe.glb" id="1_33ehh"]
 [ext_resource type="Script" uid="uid://d3msu6krrt5ra" path="res://abilities/axe_throw/axe_projectile.gd" id="1_lfw1k"]
 [ext_resource type="PackedScene" uid="uid://cexvawbvoi0dq" path="res://core/components/self_destroy_timer.tscn" id="3_fw626"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="3_sgtvi"]
 [ext_resource type="AudioStream" uid="uid://dt5rflcx7hcoa" path="res://assets/sounds/DSGNWhsh_Short Whip, Short Whoosh 14_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="5_w8wkl"]
 [ext_resource type="AudioStream" uid="uid://5csvisk68nfn" path="res://assets/sounds/axe_hit.wav" id="6_fpmvx"]
+[ext_resource type="PackedScene" uid="uid://ckxt12la8rviu" path="res://assets/3d_models/AxeByQuaternius.glb" id="7_fw6ca"]
 [ext_resource type="PackedScene" uid="uid://brvqtcijr86gy" path="res://vfx/trail.tscn" id="7_qpden"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpden"]
@@ -16,57 +16,57 @@ shading_mode = 0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20000002, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lopeh"]
-size = Vector3(1, 1.67993, 0.3479)
+[sub_resource type="BoxShape3D" id="BoxShape3D_saxv3"]
+size = Vector3(0.81103516, 1.6901245, 0.119140625)
 
-[node name="AxeProjectile" type="RigidBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_lopeh"]
+size = Vector3(1, 0.657959, 0.119140625)
+
+[node name="AxeProjectile" type="RigidBody3D" unique_id=1030801190]
 collision_layer = 3
 script = ExtResource("1_lfw1k")
 
-[node name="Trail" parent="." instance=ExtResource("7_qpden")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.096004486, 0.9007598)
+[node name="Trail" parent="." unique_id=688641761 instance=ExtResource("7_qpden")]
 material_override = SubResource("StandardMaterial3D_qpden")
 segments = 10
 lifetime = 0.115
 base_width = 0.175
 width_profile = SubResource("Curve_qpden")
 
-[node name="Axe" parent="." instance=ExtResource("1_33ehh")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-
-[node name="Hitbox" parent="Axe" instance=ExtResource("3_sgtvi")]
-collision_mask = 48
-damage = 3
-
-[node name="HitboxShape" type="CollisionShape3D" parent="Axe/Hitbox"]
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=135644770]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.593139, -0.125545)
-shape = SubResource("BoxShape3D_lopeh")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.129959e-09, 0.11998868, -0.07347855)
+shape = SubResource("BoxShape3D_saxv3")
 disabled = true
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.593139, -0.125545)
-shape = SubResource("BoxShape3D_lopeh")
-disabled = true
-
-[node name="SelfDestroyTimer" parent="." instance=ExtResource("3_fw626")]
+[node name="SelfDestroyTimer" parent="." unique_id=129492139 instance=ExtResource("3_fw626")]
 duration = 5.0
 
-[node name="AxeThrowSFX" type="AudioStreamPlayer" parent="."]
+[node name="AxeThrowSFX" type="AudioStreamPlayer" parent="." unique_id=493301714]
 stream = ExtResource("5_w8wkl")
 autoplay = true
 bus = &"SFX"
 
-[node name="AxeHitSFX" type="AudioStreamPlayer" parent="."]
+[node name="AxeHitSFX" type="AudioStreamPlayer" parent="." unique_id=1770016747]
 stream = ExtResource("6_fpmvx")
 bus = &"SFX"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31655133, 0)
-light_energy = 1.5
-omni_range = 3.0
+[node name="BreakSFX" type="AudioStreamPlayer" parent="." unique_id=931243370]
 
-[node name="BreakSFX" type="AudioStreamPlayer" parent="."]
+[node name="AxeRoot" type="Node3D" parent="." unique_id=1949555958]
 
-[connection signal="area_entered" from="Axe/Hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="Hitbox" parent="AxeRoot" unique_id=1428684744 instance=ExtResource("3_sgtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+collision_mask = 48
+damage = 3
+
+[node name="HitboxShape" type="CollisionShape3D" parent="AxeRoot/Hitbox" unique_id=37696960]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.7037347, -0.125545)
+shape = SubResource("BoxShape3D_lopeh")
+disabled = true
+
+[node name="Root Scene" parent="AxeRoot" unique_id=1951546168 instance=ExtResource("7_fw6ca")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, -0.31259587, 0)
+
+[connection signal="area_entered" from="AxeRoot/Hitbox" to="." method="_on_hitbox_area_entered"]

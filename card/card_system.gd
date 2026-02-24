@@ -63,6 +63,7 @@ func _ready() -> void:
 	#for i in range(6):
 		#draw_card(i)
 	
+	_save_system_load_player_data()
 	
 	load_hand.call_deferred()
 	
@@ -105,7 +106,10 @@ func set_slot_to_item(slot: int, card: Card):
 		player.update_side_icon(slot + 1, EMPTY_CARD.card_artwork)
 	else:
 		player.update_side_icon(slot + 1, card.card_artwork)
+		
 	card_slotted.emit(card, slot)
+	
+	update_save_file()
 
 func play_ability():
 	if player.input_disabled: return
@@ -177,6 +181,10 @@ func clear_inventory():
 		set_slot_to_item(i , null)
 	deck = []
 	discard_pile = []
+	update_save_file()
+
+func update_save_file():
+	_save_system_save_player_data()
 	
 #IDEA Gem Matching Levels 
 #Where player needs to switch to the correct color side to defeat enemies while trying to get to the end.
@@ -189,7 +197,12 @@ func clear_inventory():
 #5: Roll Left
 #6: Roll Right
 
+func _save_system_save_player_data() -> void:
+	SaveSystem.player_data.equipped_cards = hand
+	SaveSystem.player_data.inventory_cards = deck
+	SaveSystem.save_player_data()
 
-func _on_save_system_update_player_data(player_data: PlayerData) -> void:
+func _save_system_load_player_data() -> void:
+	hand = SaveSystem.player_data.equipped_cards
+	deck = SaveSystem.player_data.inventory_cards
 	print("_on_save_system_update_player_data")
-	hand = player_data.equipped_cards

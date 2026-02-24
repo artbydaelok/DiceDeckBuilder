@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dljf7lfr7eq8n"]
+
+[ext_resource type="Script" uid="uid://cs0s7fgrsai75" path="res://core/currency_system.gd" id="1_l25ba"]
+[ext_resource type="AudioStream" uid="uid://b8xyf032chjqv" path="res://assets/sounds/COINS_~2.WAV" id="2_fi2ai"]
+
+[node name="CurrencySystem" type="Node" unique_id=156427133 groups=["currency_system"]]
+script = ExtResource("1_l25ba")
+
+[node name="AddCurrencySFX" type="AudioStreamPlayer" parent="." unique_id=382136212]
+stream = ExtResource("2_fi2ai")
+bus = &"SFX"

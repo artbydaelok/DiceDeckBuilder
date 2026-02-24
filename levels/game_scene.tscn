@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://convybpr5awm3" path="res://ui/energy_meter.tscn" id="4_iiuie"]
 [ext_resource type="PackedScene" uid="uid://bwy7alqls02bx" path="res://ui/center_warning_sign.tscn" id="4_qa4f1"]
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="4_xdqa1"]
+[ext_resource type="Script" uid="uid://6ipxlq7gefoy" path="res://ui/coin_amount_label.gd" id="8_5evlq"]
 [ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
 [ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="19_q4ywm"]
@@ -36,6 +37,18 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_5oviw"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.41197184, 0.5422535, 0.6373239)
+colors = PackedColorArray(1, 0.65882355, 0, 1, 0.86902684, 0.570206, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5evlq"]
+gradient = SubResource("Gradient_5oviw")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -116,8 +129,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 18
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
 theme_override_constants/margin_bottom = 24
 
 [node name="EnemyHealthDisplay" type="ProgressBar" parent="UI/ScreenMargin1" unique_id=1344741204]
@@ -166,6 +179,29 @@ text = "NOT ENOUGH ENERGY!"
 [node name="InsufficientTimer" type="Timer" parent="UI/ScreenMargin1/TopLeft" unique_id=1359838962]
 wait_time = 2.5
 one_shot = true
+
+[node name="TopRight" type="VBoxContainer" parent="UI/ScreenMargin1" unique_id=221511494]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ScreenMargin1/TopRight" unique_id=853480561]
+layout_mode = 2
+
+[node name="CoinSprite" type="TextureRect" parent="UI/ScreenMargin1/TopRight/HBoxContainer" unique_id=1491216695]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("GradientTexture2D_5evlq")
+
+[node name="CoinAmountLabel" type="Label" parent="UI/ScreenMargin1/TopRight/HBoxContainer" unique_id=45278853]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xdqa1")
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 2
+script = ExtResource("8_5evlq")
 
 [node name="ScreenMargin2" type="MarginContainer" parent="UI" unique_id=14212891]
 anchors_preset = 2

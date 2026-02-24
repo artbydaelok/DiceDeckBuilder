@@ -45,7 +45,6 @@
 [ext_resource type="AudioStream" uid="uid://bpei5k57wnr2a" path="res://assets/music/CosmicHub.wav" id="40_blouu"]
 [ext_resource type="ArrayMesh" uid="uid://n3dfmxo5np3f" path="res://assets/3d_models/lamp_post.obj" id="42_srspe"]
 [ext_resource type="PackedScene" uid="uid://dyj52ydshi4bk" path="res://level_mechanics/breakable_log.tscn" id="45_mq2i1"]
-[ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="46_1761n"]
 
 [sub_resource type="Animation" id="Animation_mq2i1"]
 resource_name = "0_first_time"
@@ -158,7 +157,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(16.033335, 27.733335),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-56.99114, 2.443572, -14.351235), Vector3(-67.208206, 2.443572, -17.60817)]
+"values": [Vector3(-62.956, 2.444, -6.946), Vector3(-70.408, 2.444, -9.308)]
 }
 
 [sub_resource type="Animation" id="Animation_1761n"]
@@ -475,7 +474,7 @@ metallic = 0.6
 
 [node name="HubLevel" unique_id=965854524 instance=ExtResource("1_r55pm")]
 script = ExtResource("2_j0rvb")
-first_time_cutscene = false
+first_time_cutscene = true
 
 [node name="BackgroundMusicPlayer" parent="." index="0" unique_id=1509307671 instance=ExtResource("39_1qfx6")]
 stream = ExtResource("40_blouu")
@@ -486,7 +485,7 @@ root_node = NodePath("../BaseLevel")
 libraries/ = SubResource("AnimationLibrary_tlfld")
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1159506797]
-transform = Transform3D(0.9659253, -1.0593789e-08, -0.258819, 0.0005465818, 0.99999726, 0.0020398295, 0.25881842, -0.0021117895, 0.96592313, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.9659249, -1.0593786e-08, -0.25881892, 0.0005465816, 0.99999696, 0.0020398288, 0.2588183, -0.0021117888, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=532374131]
@@ -657,7 +656,7 @@ transform = Transform3D(1.9743727, 0.44637543, -2.2141807, 1.445844, 2.0096219, 
 transform = Transform3D(2.8979971, -0.33677962, -0.6987071, 0.30596307, 2.9796696, -0.1671838, 0.7127404, 0.09023978, 2.9127057, 13.707081, -1.3048372, 33.88456)
 
 [node name="stone_31" parent="BaseLevel/ForestLevelEntry" index="27" unique_id=139035136 instance=ExtResource("19_iva4b")]
-transform = Transform3D(2.153369, -0.33677956, -2.061451, 0.30596304, 2.9796693, -0.16718377, 2.0662498, -0.09023989, 2.1731236, -7.4968834, -1.1055582, 32.467834)
+transform = Transform3D(2.2577057, -0.34100914, -1.945887, 0.30596304, 2.9796693, -0.16718379, 1.9517047, -0.07263933, 2.2771847, -7.4968834, -1.1055582, 32.82891)
 
 [node name="stone_33" parent="BaseLevel/ForestLevelEntry" index="28" unique_id=1796103601 instance=ExtResource("19_iva4b")]
 transform = Transform3D(1.7026902, -0.2763686, -1.8095489, 0.25496924, 2.4830587, -0.13931976, 1.8126881, -0.08966436, 1.7193377, 3.063774, -1.1055582, 33.699646)
@@ -1198,10 +1197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.17004, 1, -10.965675)
 
 [node name="BreakableLog3" parent="." index="9" unique_id=1967412927 instance=ExtResource("45_mq2i1")]
 transform = Transform3D(0.99614435, 0, -0.08772949, 0, 1, 0, 0.08772949, 0, 0.99614435, -46.462112, 1, -10.965675)
-
-[node name="SaveSystem" parent="." index="10" unique_id=1059717826 instance=ExtResource("46_1761n")]
-
-[connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
 
 [editable path="BaseLevel/Player"]
 [editable path="BaseLevel/ForestLevelEntry/ForestLevelPortal/DialogueTriggerArea2"]

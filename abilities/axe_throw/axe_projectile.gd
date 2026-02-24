@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@onready var axe: Node3D = $Axe
+@onready var axe_root: Node3D = $AxeRoot
 @onready var collision_shape: CollisionShape3D = %CollisionShape
 @onready var hitbox_shape: CollisionShape3D = %HitboxShape
 
@@ -26,7 +26,7 @@ func on_miss():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not stuck:
-		axe.rotate(Vector3.RIGHT, -PI * 4.0 * delta)
+		axe_root.rotate(Vector3.RIGHT, -PI * 4.0 * delta)
 
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	stuck = true

@@ -1,5 +1,4 @@
 extends Node
-class_name SaveSystem
 
 signal update_player_data(player_data:PlayerData)
 
@@ -7,7 +6,7 @@ const OPTIONS_SAVE_PATH := "user://options_data.tres"
 const SAVE_PATH = "user://game_save.sav"
 const SECURITY_KEY = "a24542a81874eb33776acfaa561dce67"
 
-@export var player_data : PlayerData = PlayerData.new()
+var player_data : PlayerData = PlayerData.new()
 #@export var options_data : OptionsData = OptionsData.new()
 
 func verify_save_directory(path: String):
@@ -71,6 +70,7 @@ func json_save():
 			
 			"player_stats": {
 				"health" = player_data.health,
+				"currency" = player_data.currency,
 			},
 			
 			"inventory": {
@@ -111,6 +111,7 @@ func make_empty_save():
 			
 			"player_stats": {
 				"health" = fresh_player_data.health,
+				"currency" = fresh_player_data.currency,
 			},
 			
 			"inventory": {
@@ -195,6 +196,7 @@ func json_load():
 				inventory_cards.append(load(card))
 			
 		player_data.health = loaded_data.player_stats.health
+		player_data.currency = loaded_data.player_stats.currency
 		player_data.equipped_cards = equipped_cards
 		player_data.inventory_cards = inventory_cards
 		player_data.patch_number = loaded_data.general.patch_number
@@ -213,6 +215,3 @@ func json_load():
 		
 		update_player_data.emit(player_data)
 		
-func _on_card_system_card_slotted(card: Card, slot: int) -> void:
-	player_data.equipped_cards[slot] = card
-	save_player_data()

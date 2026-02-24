@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mcqx6omun5xi" path="res://player/player.gd" id="1_rgyib"]
 [ext_resource type="Texture2D" uid="uid://b7f38wjks3ocy" path="res://player/pixel_dice_tex_empty_face.png" id="2_7sfox"]
+[ext_resource type="PackedScene" uid="uid://dljf7lfr7eq8n" path="res://core/currency_system.tscn" id="2_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="2_knvy0"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
 [ext_resource type="Script" uid="uid://cqi1mqmkmli5s" path="res://player/SideSprite.gd" id="5_v808x"]
@@ -183,6 +184,8 @@ orientation = 1
 collision_layer = 258
 collision_mask = 0
 script = ExtResource("1_rgyib")
+
+[node name="CurrencySystem" parent="." unique_id=156427133 instance=ExtResource("2_hg6s5")]
 
 [node name="Pivot" type="Node3D" parent="." unique_id=17712324]
 

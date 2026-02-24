@@ -37,6 +37,7 @@ GlobalCommands="*res://GlobalCommands.gd"
 Console="*uid://ouiu5xh1cs8n"
 GlobalSteam="*uid://tl66yakrhwv3"
 MouseLayer="*uid://bmrw3l8b8wpxu"
+SaveSystem="*uid://ewq4w7sq860i"
 
 [dialogue_manager]
 
@@ -71,6 +72,8 @@ boss=""
 enemy_projectiles=""
 explosive_barrel=""
 card_system=""
+currency_system=""
+save_system=""
 
 [gui]
 
