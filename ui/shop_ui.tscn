@@ -81,3 +81,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 columns = 6
+
+[node name="CloseButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=110264111]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "Close"

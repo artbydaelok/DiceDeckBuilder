@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var save_system: SaveSystem
 @export var checkpoint_data: CheckpointData
@@ -25,10 +25,14 @@ func _ready() -> void:
 	if !save_system:
 		push_warning("save_system is missing or null")
 	
+	# This puts the teleport location in front of the campfire when a player uses fast travel
+	checkpoint_data.spawn_point = global_position + Vector3(0, 0, 2)
+	
 	var label: Label3D = Label3D.new()
 	label.text = "Test"
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	add_child(label)
+	
 		
 func _input(event):
 	if !has_player: return
@@ -39,9 +43,12 @@ func _input(event):
 			get_tree().current_scene.add_child(ui)
 
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	# If the save system does not have any data for the current level
 	if !save_system.player_data.unlocked_checkpoints.has(checkpoint_data.level):
+		# then add this first entry to it
 		save_system.player_data.unlocked_checkpoints.set(checkpoint_data.level, [checkpoint_data.resource_path])
 	else:
+		# Otherwise just add it to the existing dictionary
 		var checkpoints = save_system.player_data.unlocked_checkpoints[checkpoint_data.level]
 		if !checkpoints.has(checkpoint_data.resource_path):
 			checkpoints.append(checkpoint_data.resource_path)

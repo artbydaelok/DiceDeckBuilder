@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bffvo2bm3ta31"]
+
+[ext_resource type="Script" uid="uid://ba2gp2g2pfga6" path="res://ui/level_checkpoint_data_container.gd" id="1_jqf6n"]
+
+[node name="LevelCheckpointDataContainer" type="Control" unique_id=1070978463]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jqf6n")
+
+[node name="InfoContainer" type="MarginContainer" parent="." unique_id=1576774065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InfoContainer" unique_id=285079689]
+layout_mode = 2
+
+[node name="LevelButtonContainer" type="VBoxContainer" parent="InfoContainer/HBoxContainer" unique_id=641925685]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="InfoContainer/HBoxContainer" unique_id=1627612688]
+layout_mode = 2
+size_flags_horizontal = 3

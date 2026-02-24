@@ -4,6 +4,8 @@ class_name Level
 var player: Player
 var user_interface: CanvasLayer
 
+@export var level_name: String = "Level Name"
+
 @onready var card_system: CardSystem = $CardSystem
 
 # Called when the node enters the scene tree for the first time.

@@ -1,15 +1,9 @@
 extends Node
 class_name CheckpointUI
-#hub level vars
-@onready var hub_level_checkpoints = %HubLevelButtonContainer
-@onready var hub_level_texture = %HubLevelTextureRect
 
-#forest level vars
-@onready var forest_level_checkpoints = %ForestLevelButtonContainer
-@onready var forest_level_texture = %ForestLevelTextureRect
-#forest level vars
-@onready var gausrothtest_level_checkpoints = %GausRothLevelButtonContainer
-@onready var gausrothtest_level_texture = %GausRothLevelTextureRect
+const LEVEL_CHECKPOINT_DATA_CONTAINER = preload("uid://bffvo2bm3ta31")
+
+@onready var tab_container: TabContainer = %TabContainer
 
 var unlocked_checkpoints: Dictionary
 
@@ -20,17 +14,18 @@ func _ready() -> void:
 	_update_checkpoints()
 
 func _update_checkpoints():
+	# For each level
 	for key in unlocked_checkpoints:
-		match key:
-			"Hub":
-				for checkpoint in unlocked_checkpoints[key]:
-					add_button(checkpoint, hub_level_checkpoints)
-			"Forest":
-				for checkpoint in unlocked_checkpoints[key]:
-					add_button(checkpoint, forest_level_checkpoints)
-			"GausRothTestLevel":
-				for checkpoint in unlocked_checkpoints[key]:
-					add_button(checkpoint, gausrothtest_level_checkpoints)
+		# Step 1: Create a tab for it.
+		var tab : LevelCheckpointDataContainer = LEVEL_CHECKPOINT_DATA_CONTAINER.instantiate()
+
+		tab_container.add_child(tab)
+		tab.level_name = key
+		tab.setup()
+		
+		for checkpoint in unlocked_checkpoints[key]:
+			add_button(checkpoint, tab.level_button_container)
+
 
 func add_button(checkpoint: String, container: VBoxContainer):
 	var checkpoint_data: CheckpointData
@@ -40,12 +35,18 @@ func add_button(checkpoint: String, container: VBoxContainer):
 	button.text = checkpoint_data.name
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.flat = true
-	button.pressed.connect(on_checkpoint_button_pressed.bind(checkpoint))
+	button.pressed.connect(on_checkpoint_button_pressed.bind(checkpoint_data))
 	container.add_child(button)
 	
 func _on_button_pressed() -> void:
-	print("queue_free")
+	close()
+
+func close():
 	queue_free()
 	
 func on_checkpoint_button_pressed(checkpoint: CheckpointData):
+	if checkpoint.level == GameEvents.current_level.level_name:
+		get_tree().get_first_node_in_group("player").global_position = checkpoint.spawn_point
+		close()
+		
 	print("on_checkpoint_button_pressed: " + checkpoint.name)

@@ -30,7 +30,7 @@ func obtain_item(item_id : String, slot : String):
 		card_system.set_slot_to_item(player.up_side, item)
 
 func clear_save():
-	GameEvents.current_level.get_node("SaveSystem").clear_player_data()
+	SaveSystem.clear_player_data()
 	
 func clear_inventory():
 	var card_system : CardSystem = get_tree().get_first_node_in_group("card_system")
