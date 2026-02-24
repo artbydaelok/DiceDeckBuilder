@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c2833a2kd0xk8"]
+
+[ext_resource type="Script" uid="uid://f67qkjhjb3ku" path="res://ui/shop_item_display.gd" id="1_c1abl"]
+[ext_resource type="Texture2D" uid="uid://bugsndmsceayh" path="res://assets/card_artwork/BlueColorIcon.png" id="2_17e41"]
+
+[sub_resource type="Gradient" id="Gradient_5oviw"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.41197184, 0.5422535, 0.6373239)
+colors = PackedColorArray(1, 0.65882355, 0, 1, 0.86902684, 0.570206, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_17e41"]
+gradient = SubResource("Gradient_5oviw")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="ShopItemDisplay" type="PanelContainer" unique_id=232491279]
+custom_minimum_size = Vector2(160, 300)
+offset_right = 6.0
+offset_bottom = 6.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_c1abl")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=309417983]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1471082032]
+layout_mode = 2
+
+[node name="ItemIcon" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1438739590]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_17e41")
+stretch_mode = 4
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2016941645]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Item Name"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1971978698]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1330482198]
+unique_name_in_owner = true
+layout_mode = 2
+text = "This is where the description would go... if I had one!"
+autowrap_mode = 3
+
+[node name="CostContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1446213126]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="CoinSprite" type="TextureRect" parent="MarginContainer/CostContainer" unique_id=251703777]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("GradientTexture2D_17e41")
+stretch_mode = 4
+
+[node name="CostLabel" type="Label" parent="MarginContainer/CostContainer" unique_id=1882739370]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "100"

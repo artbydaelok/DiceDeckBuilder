@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://drheat4btfpf7"]
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://drheat4btfpf7"]
 
 [ext_resource type="Texture2D" uid="uid://b5ik6kikfduul" path="res://assets/card_artwork/Grenade.png" id="1_df2k0"]
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="1_tpgan"]
@@ -11,3 +11,4 @@ card_description = "Throws a grenade upwards that blows up after a while. Deals 
 card_artwork = ExtResource("1_df2k0")
 cost = 4
 commit_value = 0.25
+value = 125

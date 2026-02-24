@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://0n5rso7bt1od"]
+
+[ext_resource type="Texture2D" uid="uid://bxtegv0tdq7hc" path="res://assets/ui/ShopPortraitPlaceholder.png" id="1_ddy65"]
+[ext_resource type="Script" uid="uid://8yyxcceq765y" path="res://ui/shop_ui.gd" id="1_pe5jp"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="2_0upvb"]
+[ext_resource type="Texture2D" uid="uid://c0wo5l1biib1d" path="res://assets/ui/ShopPortraitOverlay.png" id="2_pe5jp"]
+[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="3_e67xu"]
+[ext_resource type="Resource" uid="uid://cwh8hm762xo3n" path="res://card/card_abilities/axe_throw.tres" id="4_bys2x"]
+[ext_resource type="Resource" uid="uid://dfrxm4hgx285b" path="res://card/card_abilities/balloon_pop.tres" id="5_rwlup"]
+[ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="6_ejf0o"]
+[ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="7_wqdlf"]
+[ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="8_xgr3u"]
+
+[node name="ShopUI" type="Control" unique_id=716432253]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pe5jp")
+shop_items = Array[ExtResource("2_0upvb")]([ExtResource("3_e67xu"), ExtResource("4_bys2x"), ExtResource("5_rwlup"), ExtResource("6_ejf0o"), ExtResource("7_wqdlf"), ExtResource("8_xgr3u")])
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=539577135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1218179104]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=230240760]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1192343129]
+layout_mode = 2
+
+[node name="PortraitAndDialogueContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1479724572]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer" unique_id=1918134227]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_ddy65")
+stretch_mode = 2
+
+[node name="PortraitOverlay" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer/Portrait" unique_id=188892931]
+layout_mode = 0
+texture = ExtResource("2_pe5jp")
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer" unique_id=833234078]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="DialogueLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer" unique_id=764740227]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Hello, I am the shoopkeeper. I can say up to two lines of dialogue. Hell yeah."
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1778720099]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1293880072]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopItemContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1462201462]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+columns = 6

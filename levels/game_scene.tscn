@@ -38,13 +38,13 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Gradient" id="Gradient_5oviw"]
+[sub_resource type="Gradient" id="Gradient_5evlq"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.41197184, 0.5422535, 0.6373239)
 colors = PackedColorArray(1, 0.65882355, 0, 1, 0.86902684, 0.570206, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5evlq"]
-gradient = SubResource("Gradient_5oviw")
+gradient = SubResource("Gradient_5evlq")
 width = 32
 height = 32
 fill = 1

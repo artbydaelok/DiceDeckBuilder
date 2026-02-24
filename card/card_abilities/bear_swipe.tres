@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c7ntxb6pa62ms"]
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://c7ntxb6pa62ms"]
 
 [ext_resource type="Texture2D" uid="uid://dpjsqhmxsjhy7" path="res://assets/card_artwork/BearSwipe.png" id="1_7yriy"]
 [ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="1_a6t5g"]
@@ -11,3 +11,4 @@ card_description = "Close-range frontal swipe that deals great damage."
 card_artwork = ExtResource("1_7yriy")
 cost = 2
 commit_value = 1.2
+value = 80
