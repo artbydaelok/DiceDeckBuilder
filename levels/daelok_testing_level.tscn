@@ -12,13 +12,11 @@
 [sub_resource type="Resource" id="Resource_eelgc"]
 script = ExtResource("4_k2old")
 name = "Testing 1"
-level = "Daelok"
 metadata/_custom_type_script = "uid://idmin1b44kw"
 
 [sub_resource type="Resource" id="Resource_ltash"]
 script = ExtResource("4_k2old")
 name = "Testing 2"
-level = "Daelok"
 metadata/_custom_type_script = "uid://idmin1b44kw"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pkss4"]

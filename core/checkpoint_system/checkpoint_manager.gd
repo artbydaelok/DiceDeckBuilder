@@ -25,15 +25,19 @@ func _ready() -> void:
 	if !save_system:
 		push_warning("save_system is missing or null")
 	
-	# This puts the teleport location in front of the campfire when a player uses fast travel
-	checkpoint_data.spawn_point = global_position + Vector3(0, 0, 2)
-	
 	var label: Label3D = Label3D.new()
 	label.text = "Test"
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	add_child(label)
 	
-		
+	_populate_checkpoint_data.call_deferred()
+	
+func _populate_checkpoint_data():
+	# This puts the teleport location in front of the campfire when a player uses fast travel
+	checkpoint_data.spawn_point = global_position + Vector3(0, 0, 2)
+	# And this sets the checkpoint level name to the current level
+	checkpoint_data.level = GameEvents.current_level.level_name
+	
 func _input(event):
 	if !has_player: return
 	
