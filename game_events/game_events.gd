@@ -13,6 +13,9 @@ var is_scene_transitioning : bool = false
 
 var current_level : Level
 
+var is_checkpoint_transfer : bool = false
+var current_checkpoint_data : CheckpointData
+
 func _ready():
 	dice_moved.connect(on_dice_moved)
 	SceneLoader.scene_loaded.connect(_on_scene_loaded)
@@ -21,7 +24,7 @@ func on_dice_moved(number: int):
 	#print(number)
 	pass
 
-func _on_scene_loaded():
+func _on_scene_loaded():		
 	is_scene_transitioning = false
 
 func _on_scene_transition_start():

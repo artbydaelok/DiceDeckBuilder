@@ -30,7 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://b1hdv7ste17l" path="res://core/checkpoint_system/checkpoint.tscn" id="25_lsy1x"]
 [ext_resource type="PackedScene" uid="uid://bp78spw5xmmx0" path="res://assets/3d_models/psx/stone/stone_2.glb" id="26_vwtbs"]
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="27_3a1fd"]
-[ext_resource type="Script" uid="uid://idmin1b44kw" path="res://core/checkpoint_system/CheckpointData.gd" id="30_2go53"]
+[ext_resource type="Resource" uid="uid://ditb5nca4s77l" path="res://core/checkpoint_system/checkpoints/forest_first_encounter.tres" id="30_jptjf"]
+[ext_resource type="Resource" uid="uid://cs6q3l4unmtj7" path="res://core/checkpoint_system/checkpoints/forest_two_frogs.tres" id="31_jptjf"]
 [ext_resource type="AudioStream" uid="uid://cnypr4v67w6dk" path="res://assets/sounds/ForestSoundDesign.wav" id="31_si0dx"]
 [ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="32_u2dsm"]
 [ext_resource type="Script" uid="uid://dcoy00o6pyvma" path="res://assets/3d_models/frog_stare.gd" id="33_ftqba"]
@@ -155,14 +156,9 @@ size = Vector3(15.067515, 1, 70.66987)
 [sub_resource type="BoxShape3D" id="BoxShape3D_14s10"]
 size = Vector3(4.7053223, 1, 28)
 
-[sub_resource type="Resource" id="Resource_noyn0"]
-script = ExtResource("30_2go53")
-name = "Frogbreak Camp"
-level = "Forest"
-metadata/_custom_type_script = "uid://idmin1b44kw"
-
 [node name="ForestLevel" unique_id=24269738 instance=ExtResource("1_fnn83")]
 script = ExtResource("2_cpv81")
+level_name = "Forest"
 
 [node name="BackgroundMusicPlayer" parent="." index="1" unique_id=1991235100 instance=ExtResource("3_itb2r")]
 stream = ExtResource("4_itb2r")
@@ -173,7 +169,11 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -204)
 
-[node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1545155587 instance=ExtResource("4_fyusi")]
+[node name="DebugPlayerStart2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=371274248 instance=ExtResource("3_ma4h5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -84)
+disabled = true
+
+[node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
 dialogue_resource = ExtResource("5_nautm")
 title_to_play = "mother_nature_0_alt"
@@ -182,43 +182,43 @@ title_to_play = "mother_nature_0_alt"
 shape = SubResource("BoxShape3D_b118p")
 debug_color = Color(0.9582438, 1.6364455e-06, 0.5308395, 0.41960785)
 
-[node name="FrogEnemy" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1733519135 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="4" unique_id=1733519135 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -2, 0, -42)
 spaces_to_move = 2
 
-[node name="FrogEnemy2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="4" unique_id=1418250710 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="5" unique_id=1418250710 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 0, 0, -50)
 spaces_to_move = 2
 
-[node name="FrogEnemy3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="5" unique_id=724514640 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=724514640 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -4, 0, -50)
 spaces_to_move = 2
 
-[node name="FrogEnemy4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=2087955057 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=2087955057 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 46, 0, -134)
 spaces_to_move = 2
 
-[node name="FrogEnemy6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=943176713 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=943176713 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 50, 0, -134)
 spaces_to_move = 2
 
-[node name="FrogEnemy7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1921116457 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1921116457 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 54, 0, -134)
 spaces_to_move = 2
 
-[node name="FrogEnemy8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1965213003 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1965213003 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 52, 0, -140)
 spaces_to_move = 2
 
-[node name="FrogEnemy5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1619270346 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=1619270346 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 48, 0, -140)
 spaces_to_move = 2
 
-[node name="FrogEnemy9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=1117715118 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=1117715118 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 58, 0, -224)
 spaces_to_move = 2
 
-[node name="Eyeball1" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=1967730826 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
+[node name="Eyeball1" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=1967730826 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.0516393, 0, -82)
 player_reposition_location_node = NodePath("../EyeballMarker1")
 pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(1, 0, 0), Vector3(1, 0, 0)])
@@ -227,7 +227,7 @@ pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37549996, 4)
 shape = SubResource("CylinderShape3D_ma4h5")
 
-[node name="Eyeball2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=909435515 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
+[node name="Eyeball2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=909435515 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.94836, 0, -246)
 player_reposition_location_node = NodePath("../EyeballMarker2")
 pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0)])
@@ -236,15 +236,15 @@ pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37549996, 4)
 shape = SubResource("CylinderShape3D_ma4h5")
 
-[node name="EyeballMarker1" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=2123140794]
+[node name="EyeballMarker1" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=2123140794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -64)
 gizmo_extents = 5.0
 
-[node name="EyeballMarker2" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=999757196]
+[node name="EyeballMarker2" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=999757196]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -220)
 gizmo_extents = 5.0
 
-[node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=502264206]
+[node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="17" unique_id=502264206]
 
 [node name="tree_stump_13" parent="BaseLevel/AxeObtainLocation" index="0" unique_id=986306393 instance=ExtResource("6_b118p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13969445, 0, -14)
@@ -292,7 +292,7 @@ duration = 1.0
 from_value = 0.0
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
-[node name="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="18" unique_id=1892705345]
+[node name="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1892705345]
 transform = Transform3D(1, 0, 0, 0, 0.7071066, 0.70710695, 0, -0.70710695, 0.7071066, 0, 9, 7)
 follow_target = true
 
@@ -301,27 +301,27 @@ transform = Transform3D(1, 0, 0, 0, -0.8660252, 0.5000003, 0, -0.5000003, -0.866
 light_energy = 5.0
 spot_range = 65.0
 
-[node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1911982310]
+[node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="20" unique_id=1911982310]
 environment = SubResource("Environment_aa8vv")
 
-[node name="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="20" unique_id=1774783498]
+[node name="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="21" unique_id=1774783498]
 transform = Transform3D(0.3374297, 0.88811743, -0.31207174, -0.3621663, 0.42847595, 0.8277945, 0.868894, -0.16630061, 0.4662267, 0, 7.85563, 0)
 
-[node name="DirectionalLight3D2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="21" unique_id=407198073]
+[node name="DirectionalLight3D2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="22" unique_id=407198073]
 transform = Transform3D(0.9543394, -0.12966323, 0.269117, -0.29440627, -0.5608786, 0.7737831, 0.050610766, -0.8176812, -0.5734421, 3.03067, 7.31669, -1.80642e-07)
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="22" unique_id=327193334]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="23" unique_id=327193334]
 transform = Transform3D(0.8945549, 0.3712622, 0.24886942, -0.046656385, -0.4762001, 0.87809837, 0.44451633, -0.79711854, -0.40866545, 3.03067, 7.31669, -1.80642e-07)
 light_energy = 0.2
 shadow_enabled = true
 
-[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="24" unique_id=1670796615]
+[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="25" unique_id=1670796615]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, 0)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
 transparent = true
 
-[node name="ArenaGrid2" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="25" unique_id=477715325]
+[node name="ArenaGrid2" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="26" unique_id=477715325]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -10)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -329,7 +329,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid3" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="26" unique_id=17395643]
+[node name="ArenaGrid3" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="27" unique_id=17395643]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -20)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -337,7 +337,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid4" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="27" unique_id=1957036537]
+[node name="ArenaGrid4" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="28" unique_id=1957036537]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -30)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -345,7 +345,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid5" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="28" unique_id=620071799]
+[node name="ArenaGrid5" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="29" unique_id=620071799]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -2, 0.00881834, -40)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -353,7 +353,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid6" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="29" unique_id=1536694420]
+[node name="ArenaGrid6" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="30" unique_id=1536694420]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -2, 0.00881834, -50)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -361,14 +361,14 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="DayNightLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="30" unique_id=123658996]
+[node name="DayNightLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="31" unique_id=123658996]
 transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, 0, 0, 0)
 light_color = Color(0.88009065, 1, 0.9778568, 1)
 light_energy = 0.57
 script = ExtResource("8_f1v1w")
 speed_mult = 1.19
 
-[node name="GrassFloor" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="31" unique_id=79060206]
+[node name="GrassFloor" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="32" unique_id=79060206]
 
 [node name="GrassPlane" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="0" unique_id=1310934770]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -10)
@@ -3310,7 +3310,7 @@ mesh = SubResource("PlaneMesh_8ixlj")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1rg0")
 
-[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="32" unique_id=1964247854]
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="33" unique_id=1964247854]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0" unique_id=918832840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
@@ -3428,10 +3428,10 @@ shape = SubResource("BoxShape3D_1wlgo")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 0)
 shape = SubResource("BoxShape3D_1wlgo")
 
-[node name="FirefliesVFX" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="33" unique_id=690104754 instance=ExtResource("11_14s10")]
+[node name="FirefliesVFX" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="34" unique_id=690104754 instance=ExtResource("11_14s10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="Trees" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="35" unique_id=960227130]
+[node name="Trees" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="36" unique_id=960227130]
 
 [node name="tree_dead_1" parent="BaseLevel/Trees" index="0" unique_id=1859054373 instance=ExtResource("14_f1v1w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2960386, -0.24791288, -54.44754)
@@ -3916,25 +3916,25 @@ transform = Transform3D(0.37839147, 0, 0, 0, -4.371139e-08, -0.16545536, 0, 0.99
 [node name="TreeBridgeEvent" parent="BaseLevel/Trees" index="160" unique_id=982082081 instance=ExtResource("23_vwtbs")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 46.17856, 0, -169.75726)
 
-[node name="BreakableLog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="36" unique_id=820773821 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="37" unique_id=820773821 instance=ExtResource("13_cpv81")]
 transform = Transform3D(0.99925417, 0, 0.038614534, 0, 1, 0, -0.038614534, 0, 0.99925417, -0.6843324, 0.18998957, -18.910736)
 
-[node name="BreakableLog2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="37" unique_id=261272002 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="38" unique_id=261272002 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-0.9952885, 0, 0.096957654, 0, 1, 0, -0.096957654, 0, -0.9952885, -0.6843324, 0.18998957, -24.910736)
 
-[node name="BreakableLog4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="38" unique_id=1963358820 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="39" unique_id=1963358820 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -0.029120684, 0.24959946, -121.60321)
 
-[node name="BreakableLog5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="39" unique_id=667532753 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="40" unique_id=667532753 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -0.029120684, 0.24959946, -126.55769)
 
-[node name="BreakableLog6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="40" unique_id=1900913590 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="41" unique_id=1900913590 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, 14.339061, 0.24959755, -150.54724)
 
-[node name="BreakableLog3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="41" unique_id=279667048 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="42" unique_id=279667048 instance=ExtResource("13_cpv81")]
 transform = Transform3D(0.91042405, 0, 0.41367656, 0, 1, 0, -0.41367656, 0, 0.91042405, -1.6646135, 0.18998957, -34.44361)
 
-[node name="Stones" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="42" unique_id=1459417718]
+[node name="Stones" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="43" unique_id=1459417718]
 
 [node name="Stone5" parent="BaseLevel/Stones" index="0" unique_id=943352532 instance=ExtResource("15_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9295292, -0.061386585, -20.871506)
@@ -4233,13 +4233,13 @@ transform = Transform3D(0.16723865, 0, 2.8758683, 0, 2.820099, 0, -1.7173586, 0,
 [node name="stone_23" parent="BaseLevel/Stones" index="98" unique_id=1634028249 instance=ExtResource("26_vwtbs")]
 transform = Transform3D(2.6230156, 0, 0.22618023, 0, 2.5853212, 0, -0.34444168, 0, 1.7224228, 25.532438, 0.37928736, -127.93334)
 
-[node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="43" unique_id=703169726]
+[node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="44" unique_id=703169726]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 light_negative = true
 script = ExtResource("8_f1v1w")
 speed_mult = 1.55
 
-[node name="RedNegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="44" unique_id=41700025]
+[node name="RedNegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="45" unique_id=41700025]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
 light_color = Color(0, 1, 1, 1)
 light_energy = 0.0
@@ -4258,6 +4258,7 @@ metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
 [node name="Checkpoint" parent="." index="7" unique_id=1805229643 instance=ExtResource("25_lsy1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -86)
+checkpoint_data = ExtResource("30_jptjf")
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Checkpoint" index="8" unique_id=1681876600]
 transform = Transform3D(0.9638354, -1.1649009e-08, 0.26649827, -0.26649827, -4.2130583e-08, 0.9638354, 0, -1, -4.371139e-08, 0.98816395, 5.907416, 0.6493225)
@@ -4268,7 +4269,7 @@ spot_angle = 27.992838
 
 [node name="Checkpoint2" parent="." index="8" unique_id=788028076 instance=ExtResource("25_lsy1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -212)
-checkpoint_data = SubResource("Resource_noyn0")
+checkpoint_data = ExtResource("31_jptjf")
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Checkpoint2" index="8" unique_id=1830018124]
 transform = Transform3D(0.9638354, -1.1649009e-08, 0.26649827, -0.26649827, -4.2130583e-08, 0.9638354, 0, -1, -4.371139e-08, 0.98816395, 5.907416, 0.6493225)

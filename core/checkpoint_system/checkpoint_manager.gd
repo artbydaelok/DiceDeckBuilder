@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var save_system: SaveSystem
+var save_system: SaveSystem
 @export var checkpoint_data: CheckpointData
 
 @onready var fire_sound_effect: AudioStreamPlayer3D = $FireSFXPlayer3D
@@ -30,14 +30,6 @@ func _ready() -> void:
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	add_child(label)
 	
-	_populate_checkpoint_data.call_deferred()
-	
-func _populate_checkpoint_data():
-	# This puts the teleport location in front of the campfire when a player uses fast travel
-	checkpoint_data.spawn_point = global_position + Vector3(0, 0, 2)
-	# And this sets the checkpoint level name to the current level
-	checkpoint_data.level = GameEvents.current_level.level_name
-	
 func _input(event):
 	if !has_player: return
 	
@@ -48,12 +40,12 @@ func _input(event):
 
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	# If the save system does not have any data for the current level
-	if !save_system.player_data.unlocked_checkpoints.has(checkpoint_data.level):
+	if !save_system.player_data.unlocked_checkpoints.has(checkpoint_data.level_name):
 		# then add this first entry to it
-		save_system.player_data.unlocked_checkpoints.set(checkpoint_data.level, [checkpoint_data.resource_path])
+		save_system.player_data.unlocked_checkpoints.set(checkpoint_data.level_name, [checkpoint_data.resource_path])
 	else:
 		# Otherwise just add it to the existing dictionary
-		var checkpoints = save_system.player_data.unlocked_checkpoints[checkpoint_data.level]
+		var checkpoints = save_system.player_data.unlocked_checkpoints[checkpoint_data.level_name]
 		if !checkpoints.has(checkpoint_data.resource_path):
 			checkpoints.append(checkpoint_data.resource_path)
 		

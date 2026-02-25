@@ -65,6 +65,10 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
+	
+	if GameEvents.is_checkpoint_transfer:
+		global_position = GameEvents.current_checkpoint_data.spawn_point + Vector3(0, 0, 2)
+		GameEvents.set_deferred("is_checkpoint_transfer", false)
 
 func _on_dialogue_started(resource):
 	_on_cutscene_started(true)

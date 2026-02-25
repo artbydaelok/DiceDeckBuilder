@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://cw70ov1nkebjb"]
+
+[ext_resource type="Script" uid="uid://idmin1b44kw" path="res://core/checkpoint_system/CheckpointData.gd" id="1_og1x2"]
+
+[resource]
+script = ExtResource("1_og1x2")
+checkpoint_name = "Chk 2"
+level_name = "Daelok"
+level_path = "res://levels/daelok_testing_level.tscn"
+spawn_point = Vector3(12, 0, -20)
+metadata/_custom_type_script = "uid://idmin1b44kw"

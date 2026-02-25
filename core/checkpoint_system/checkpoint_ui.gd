@@ -16,10 +16,12 @@ func _ready() -> void:
 func _update_checkpoints():
 	# For each level
 	for key in unlocked_checkpoints:
-		# Step 1: Create a tab for it.
+		# Create a tab for it.
 		var tab : LevelCheckpointDataContainer = LEVEL_CHECKPOINT_DATA_CONTAINER.instantiate()
 
 		tab_container.add_child(tab)
+		
+		# Set up the tab data
 		tab.level_name = key
 		tab.setup()
 		
@@ -32,7 +34,7 @@ func add_button(checkpoint: String, container: VBoxContainer):
 	checkpoint_data = load(checkpoint)
 	
 	var button = Button.new()
-	button.text = checkpoint_data.name
+	button.text = checkpoint_data.checkpoint_name
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.flat = true
 	button.pressed.connect(on_checkpoint_button_pressed.bind(checkpoint_data))
@@ -45,8 +47,11 @@ func close():
 	queue_free()
 	
 func on_checkpoint_button_pressed(checkpoint: CheckpointData):
-	if checkpoint.level == GameEvents.current_level.level_name:
-		get_tree().get_first_node_in_group("player").global_position = checkpoint.spawn_point
-		close()
+	if checkpoint.level_name == GameEvents.current_level.level_name:
+		get_tree().get_first_node_in_group("player").global_position = checkpoint.spawn_point + Vector3(0, 0, 2)
+	else:
+		GameEvents.current_checkpoint_data = checkpoint
+		GameEvents.is_checkpoint_transfer = true
+		SceneLoader.load_scene(checkpoint.level_path)
 		
-	print("on_checkpoint_button_pressed: " + checkpoint.name)
+	close()

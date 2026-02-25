@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://ditb5nca4s77l"]
+
+[ext_resource type="Script" uid="uid://idmin1b44kw" path="res://core/checkpoint_system/CheckpointData.gd" id="1_6vo2l"]
+
+[resource]
+script = ExtResource("1_6vo2l")
+checkpoint_name = "First Encounter"
+level_name = "Forest"
+level_path = "res://levels/forest_level/forest_level.tscn"
+spawn_point = Vector3(0, 0, -86)
+metadata/_custom_type_script = "uid://idmin1b44kw"
