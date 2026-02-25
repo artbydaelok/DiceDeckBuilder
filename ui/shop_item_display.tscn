@@ -2,6 +2,19 @@
 
 [ext_resource type="Script" uid="uid://f67qkjhjb3ku" path="res://ui/shop_item_display.gd" id="1_c1abl"]
 [ext_resource type="Texture2D" uid="uid://bugsndmsceayh" path="res://assets/card_artwork/BlueColorIcon.png" id="2_17e41"]
+[ext_resource type="StyleBox" uid="uid://b8yjwg4jbc2e8" path="res://ui/themes/one-offs/shop_button_normal.tres" id="2_lm3pq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1brm"]
+bg_color = Color(0.8392157, 0.8392157, 0.8392157, 0.3137255)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.97, 0.75983334, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
 [sub_resource type="Gradient" id="Gradient_5oviw"]
 interpolation_mode = 1
@@ -15,16 +28,43 @@ height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_17e41"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.475, 0.525)
+colors = PackedColorArray(0.36862746, 0, 0, 0.6666667, 0.7552766, 0, 0.3037749, 1, 0.36862746, 0, 0, 0.6666667)
+metadata/_snap_count = 40
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lm3pq"]
+gradient = SubResource("Gradient_17e41")
+width = 128
+height = 128
+fill_to = Vector2(1, 1)
+
 [node name="ShopItemDisplay" type="PanelContainer" unique_id=232491279]
 custom_minimum_size = Vector2(160, 300)
-offset_right = 6.0
-offset_bottom = 6.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -150.0
+offset_right = 80.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_c1abl")
 
+[node name="HiddenButton" type="Button" parent="." unique_id=2135135781]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_lm3pq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q1brm")
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=309417983]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -32,12 +72,14 @@ theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1471082032]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ItemIcon" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1438739590]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("2_17e41")
 stretch_mode = 4
 
@@ -51,6 +93,7 @@ autowrap_mode = 3
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1971978698]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1330482198]
 unique_name_in_owner = true
@@ -61,11 +104,13 @@ autowrap_mode = 3
 [node name="CostContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1446213126]
 layout_mode = 2
 size_flags_vertical = 8
+mouse_filter = 2
 alignment = 1
 
 [node name="CoinSprite" type="TextureRect" parent="MarginContainer/CostContainer" unique_id=251703777]
 texture_filter = 1
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_17e41")
 stretch_mode = 4
 
@@ -74,3 +119,40 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "100"
+
+[node name="DisabledTexture" type="TextureRect" parent="." unique_id=2096988491]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_lm3pq")
+
+[node name="LabelPivot" type="Control" parent="DisabledTexture" unique_id=775036597]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DisabledLabel" type="Label" parent="DisabledTexture/LabelPivot" unique_id=522109172]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -32.5
+offset_right = 60.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "ALREADY
+PURCHASED"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1992943275]
