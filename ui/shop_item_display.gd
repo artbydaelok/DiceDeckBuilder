@@ -31,5 +31,8 @@ func setup():
 		disabled_texture.visible = true
 
 func _on_hidden_button_pressed():
-	card_system.obtain_new_item(item_data)
-	disabled_texture.visible = true
+	var currency_system : CurrencySystem = get_tree().get_first_node_in_group("currency_system")
+	if currency_system.currency >= item_data.value:
+		currency_system.spend(item_data.value)
+		card_system.obtain_new_item(item_data)
+		disabled_texture.visible = true

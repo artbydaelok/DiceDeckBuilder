@@ -10,6 +10,20 @@
 [ext_resource type="Resource" uid="uid://c7ntxb6pa62ms" path="res://card/card_abilities/bear_swipe.tres" id="6_ejf0o"]
 [ext_resource type="Resource" uid="uid://drheat4btfpf7" path="res://card/card_abilities/grenade.tres" id="7_wqdlf"]
 [ext_resource type="Resource" uid="uid://0r7dm6i2h71g" path="res://card/card_abilities/shotgun.tres" id="8_xgr3u"]
+[ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="11_bys2x"]
+[ext_resource type="Script" uid="uid://6ipxlq7gefoy" path="res://ui/coin_amount_label.gd" id="12_rwlup"]
+
+[sub_resource type="Gradient" id="Gradient_5evlq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.41197184, 0.5422535, 0.6373239)
+colors = PackedColorArray(1, 0.65882355, 0, 1, 0.86902684, 0.570206, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ejf0o"]
+gradient = SubResource("Gradient_5evlq")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="ShopUI" type="Control" unique_id=716432253]
 layout_mode = 3
@@ -37,29 +51,29 @@ layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1192343129]
+[node name="MainContent" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1192343129]
 layout_mode = 2
 
-[node name="PortraitAndDialogueContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1479724572]
+[node name="PortraitAndDialogueContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainContent" unique_id=1479724572]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Portrait" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer" unique_id=1918134227]
+[node name="Portrait" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainContent/PortraitAndDialogueContainer" unique_id=1918134227]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_ddy65")
 stretch_mode = 2
 
-[node name="PortraitOverlay" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer/Portrait" unique_id=188892931]
+[node name="PortraitOverlay" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/MainContent/PortraitAndDialogueContainer/Portrait" unique_id=188892931]
 layout_mode = 0
 texture = ExtResource("2_pe5jp")
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer" unique_id=833234078]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/PanelContainer/MarginContainer/MainContent/PortraitAndDialogueContainer" unique_id=833234078]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="DialogueLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PortraitAndDialogueContainer" unique_id=764740227]
+[node name="DialogueLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainContent/PortraitAndDialogueContainer" unique_id=764740227]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -67,22 +81,54 @@ theme_override_font_sizes/font_size = 32
 text = "Hello, I am the shoopkeeper. I can say up to two lines of dialogue. Hell yeah."
 autowrap_mode = 3
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1778720099]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/MainContent" unique_id=1778720099]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1293880072]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainContent" unique_id=1293880072]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ShopItemContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1462201462]
+[node name="ShopItemContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainContent/ScrollContainer" unique_id=1462201462]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-columns = 6
+columns = 3
 
-[node name="CloseButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=110264111]
+[node name="BottomRight" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1940063792]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/BottomRight" unique_id=1138970210]
+self_modulate = Color(1, 1, 1, 0.47058824)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/BottomRight/PanelContainer" unique_id=1328672084]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="CoinSprite" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/BottomRight/PanelContainer/HBoxContainer" unique_id=812567934]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_ejf0o")
+stretch_mode = 4
+
+[node name="CoinAmountLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/BottomRight/PanelContainer/HBoxContainer" unique_id=1821879090]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_bys2x")
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 2
+script = ExtResource("12_rwlup")
+
+[node name="CloseButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/BottomRight" unique_id=110264111]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2

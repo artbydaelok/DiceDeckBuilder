@@ -7,7 +7,12 @@ func _ready() -> void:
 	Console.add_command("obtain_item", obtain_item, ["Item ID", "Slot"], 1, "Gives the player an item assigned to a specific slot. If called without a slot, it will assign it to the top side.")
 	Console.add_command("clear_save", clear_save, [], 0, "Deletes the save file and replaces it with a fresh new one.")
 	Console.add_command("clear_inventory", clear_inventory, [], 0, "Removes all items that player owns both equipped and in storage.")
-
+	Console.add_command("set_money", set_money, ["Amount"], 1, "Sets the currency to an amount.")
+	
+func set_money(amount):
+	var cs : CurrencySystem= get_tree().get_first_node_in_group("currency_system")
+	cs.set_money(amount)
+	
 func load_level(level_id: String):
 	match level_id: 
 		"hub":

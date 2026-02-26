@@ -17,6 +17,19 @@ func load_currency_data():
 func add(amount):
 	currency += amount
 	add_currency_sfx.play()
+	update_currency_data()
+	
+func spend(amount):
+	currency -= amount
+	add_currency_sfx.play()
+	update_currency_data()
+	
+func set_money(amount):
+	currency = int(amount)
+	add_currency_sfx.play()
+	update_currency_data()
+	
+func update_currency_data():
 	SaveSystem.player_data.currency = currency
 	update_save_file()
 	
