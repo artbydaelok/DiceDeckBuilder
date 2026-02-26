@@ -19,6 +19,9 @@ signal card_drawn
 signal item_used(card: Card)
 signal card_slotted(card:Card, slot:int)
 
+# This is just for the Ability Sides Display UI element
+signal inventory_updated
+
 @export var shuffle_deck_mode : bool = false
 
 var held_hand : Array[Card] = []
@@ -108,6 +111,7 @@ func set_slot_to_item(slot: int, card: Card):
 		player.update_side_icon(slot + 1, card.card_artwork)
 		
 	card_slotted.emit(card, slot)
+	inventory_updated.emit()
 	
 	update_save_file()
 

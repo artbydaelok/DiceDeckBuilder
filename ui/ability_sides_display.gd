@@ -24,6 +24,7 @@ func _ready() -> void:
 	player.player_moved.connect(play_animation)
 	player.roll_finished.connect(update_sprites)
 	card_system.card_drawn.connect(update_sprites)
+	card_system.inventory_updated.connect(update_sprites)
 	
 	await get_tree().create_timer(0.1).timeout
 	update_sprites()
