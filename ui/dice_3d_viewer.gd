@@ -57,9 +57,14 @@ func reset_selection():
 func _on_side_updated_item(side: int, item: Card):
 	var item_sprite_node = dice_mesh.get_child(side).get_node("ItemSprite")
 	var number_cover_sprite_node = dice_mesh.get_child(side).get_node("NumberCoverSprite")
-	item_sprite_node.texture = item.card_artwork
-	item_sprite_node.visible = true
-	number_cover_sprite_node.visible = true
-
+	if item != null:
+		item_sprite_node.texture = item.card_artwork
+		item_sprite_node.visible = true
+		number_cover_sprite_node.visible = true
+	else: 
+		item_sprite_node.texture = null
+		item_sprite_node.visible = false
+		number_cover_sprite_node.visible = false
+		
 func _on_rotation_speed_updated(new_speed):
 	rotation_speed = new_speed * 0.01

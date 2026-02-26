@@ -91,6 +91,7 @@ func _on_menu_entered():
 	_disable_input()
 
 func _on_menu_exited():
+	if GameEvents.is_in_menu: return
 	_enable_input()
 
 func _disable_input():

@@ -3,8 +3,12 @@ extends Node
 signal dice_moved(number: int)
 signal cutscene_started(disable_input : bool)
 signal cutscene_ended
+
+
 signal menu_entered
 signal menu_exited
+var is_in_menu : bool = false
+var menus_open : int = 0
 
 # Signal for Hub 3D Viewer
 signal side_editing_started(side: int)
@@ -21,12 +25,23 @@ var current_checkpoint_data : CheckpointData
 func _ready():
 	dice_moved.connect(on_dice_moved)
 	SceneLoader.scene_loaded.connect(_on_scene_loaded)
+	menu_entered.connect(_on_menu_entered)
+	menu_exited.connect(_on_menu_exited)
+	
+func _on_menu_entered():
+	menus_open += 1
+	is_in_menu = true
 
+func _on_menu_exited():
+	menus_open -= 1
+	is_in_menu = menus_open > 0
+	
 func on_dice_moved(number: int):
 	#print(number)
 	pass
 
-func _on_scene_loaded():		
+func _on_scene_loaded():
+	menus_open = 0
 	is_scene_transitioning = false
 
 func _on_scene_transition_start():

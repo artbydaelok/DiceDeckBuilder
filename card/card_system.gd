@@ -115,6 +115,11 @@ func set_slot_to_item(slot: int, card: Card):
 	
 	update_save_file()
 
+func get_slot_from_item(item: Card) -> int:
+	var equipped_items : Array = hand
+	var result := equipped_items.find(item)
+	return result
+
 func obtain_new_item(item: Card):
 	if hand.has(null):
 		for slot in range(hand.size()):

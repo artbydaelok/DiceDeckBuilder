@@ -26,14 +26,12 @@ var inventory_open : bool
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("view_deck") and not inventory_open:
-		player._disable_input()
 		inventory_open = true
 		inventory_ui = DICE_INVENTORY_EDITOR.instantiate()
 		user_interface.add_child(inventory_ui)
 	elif event.is_action_pressed("view_deck") and inventory_open:
-		player._enable_input()
 		inventory_open = false
-		inventory_ui.queue_free()
+		inventory_ui.close_menu()
 		
 	#FIXME: When player exits out using the "Close" button in the menu, inventory_open should be set to false.
 
