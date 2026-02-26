@@ -9,6 +9,7 @@ const SHOP_ITEM_DISPLAY = preload("uid://c2833a2kd0xk8")
 
 func _ready() -> void:
 	close_button.pressed.connect(_on_close_button_pressed)
+	GameEvents.menu_entered.emit()
 	setup()
 
 func setup():
@@ -19,4 +20,5 @@ func setup():
 		item_display.setup()
 
 func _on_close_button_pressed():
+	GameEvents.menu_exited.emit()
 	queue_free()

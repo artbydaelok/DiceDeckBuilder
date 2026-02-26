@@ -65,6 +65,8 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
+	GameEvents.menu_entered.connect(_on_menu_entered)
+	GameEvents.menu_exited.connect(_on_menu_exited)
 	
 	if GameEvents.is_checkpoint_transfer:
 		global_position = GameEvents.current_checkpoint_data.spawn_point + Vector3(0, 0, 2)
@@ -83,6 +85,12 @@ func _on_cutscene_started(_input_disabled: bool):
 func _on_cutscene_ended():
 	if GameEvents.is_scene_transitioning: return
 	await get_tree().create_timer(0.35).timeout
+	_enable_input()
+
+func _on_menu_entered():
+	_disable_input()
+
+func _on_menu_exited():
 	_enable_input()
 
 func _disable_input():

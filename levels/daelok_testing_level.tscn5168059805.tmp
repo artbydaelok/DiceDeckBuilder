@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://v2sdjtpskhx5"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_eiw1x"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="2_3mw47"]
+[ext_resource type="Script" uid="uid://cdqkhwto3tt7o" path="res://levels/daelok_testing_level.gd" id="2_pkss4"]
+[ext_resource type="PackedScene" uid="uid://b1hdv7ste17l" path="res://core/checkpoint_system/checkpoint.tscn" id="3_ltash"]
+[ext_resource type="AudioStream" uid="uid://rc2w17xatnjy" path="res://assets/music/synthesizing pain.wav" id="4_dthh7"]
+[ext_resource type="Resource" uid="uid://w757hvubs5vy" path="res://core/checkpoint_system/checkpoints/daelok_chk1.tres" id="4_k2old"]
+[ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="5_3g23s"]
+[ext_resource type="PackedScene" uid="uid://86rnblol0q7t" path="res://level_mechanics/coin_pickup.tscn" id="5_3q4av"]
+[ext_resource type="Resource" uid="uid://cw70ov1nkebjb" path="res://core/checkpoint_system/checkpoints/daelok_chk2.tres" id="5_eelgc"]
+[ext_resource type="Resource" uid="uid://1kd3og2etiwd" path="res://core/checkpoint_system/checkpoints/daelok_chk3.tres" id="6_eelgc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkss4"]
+
+[node name="DaelokTestingLevel" unique_id=885135856 instance=ExtResource("1_eiw1x")]
+script = ExtResource("2_pkss4")
+level_name = "Daelok"
+
+[node name="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
+follow_target = true
+
+[node name="Checkpoint" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1805229643 instance=ExtResource("3_ltash")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+checkpoint_data = ExtResource("4_k2old")
+
+[node name="Checkpoint2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=269857448 instance=ExtResource("3_ltash")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -20)
+checkpoint_data = ExtResource("5_eelgc")
+
+[node name="Checkpoint3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=244308517 instance=ExtResource("3_ltash")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+checkpoint_data = ExtResource("6_eelgc")
+
+[node name="BackgroundMusicPlayer" parent="." index="5" unique_id=795340987 instance=ExtResource("2_3mw47")]
+stream = ExtResource("4_dthh7")
+
+[node name="Area3D" type="Area3D" parent="." index="6" unique_id=1988380027]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=591910108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -4)
+shape = SubResource("BoxShape3D_pkss4")
+debug_color = Color(0.90504843, 0.00013957918, 0.749583, 0.41960785)
+
+[node name="Frog" parent="Area3D" index="1" unique_id=645347961 instance=ExtResource("5_3g23s")]
+transform = Transform3D(-1.3113416e-08, 0, -0.29999998, 0, 0.29999998, 0, 0.29999998, 0, -1.3113416e-08, -6.0692816, 0, -6.5068793)
+
+[node name="CoinPickup" parent="." index="7" unique_id=1739459880 instance=ExtResource("5_3q4av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[editable path="BaseLevel/Player"]

@@ -111,6 +111,16 @@ func set_slot_to_item(slot: int, card: Card):
 	
 	update_save_file()
 
+func obtain_new_item(item: Card):
+	if hand.has(null):
+		for slot in range(hand.size()):
+			if hand[slot] == null:
+				set_slot_to_item(slot, item)
+				return
+	else:
+		deck.append(item)
+	
+
 func play_ability():
 	if player.input_disabled: return
 	if system_disabled == true: return

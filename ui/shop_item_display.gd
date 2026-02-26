@@ -11,15 +11,14 @@ var item_data : Card
 
 var disabled : bool = false
 
-func _ready() -> void:
-	hidden_button.mouse_entered.connect(print_d)
-	
-func print_d():
-	print("Enettereddede")
+var card_system : CardSystem
 
+func _ready() -> void:
+	hidden_button.pressed.connect(_on_hidden_button_pressed)
+	
 # Called on Shop UI on setup 
 func setup():
-	var card_system : CardSystem = get_tree().get_first_node_in_group("card_system")
+	card_system = get_tree().get_first_node_in_group("card_system")
 	if card_system.hand.has(item_data) or card_system.deck.has(item_data):
 		disabled = true
 		
@@ -30,3 +29,7 @@ func setup():
 	
 	if disabled:
 		disabled_texture.visible = true
+
+func _on_hidden_button_pressed():
+	card_system.obtain_new_item(item_data)
+	disabled_texture.visible = true

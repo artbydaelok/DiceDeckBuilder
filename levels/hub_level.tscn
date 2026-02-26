@@ -474,7 +474,8 @@ metallic = 0.6
 
 [node name="HubLevel" unique_id=965854524 instance=ExtResource("1_r55pm")]
 script = ExtResource("2_j0rvb")
-first_time_cutscene = true
+first_time_cutscene = false
+level_name = "Hub"
 
 [node name="BackgroundMusicPlayer" parent="." index="0" unique_id=1509307671 instance=ExtResource("39_1qfx6")]
 stream = ExtResource("40_blouu")
@@ -485,7 +486,7 @@ root_node = NodePath("../BaseLevel")
 libraries/ = SubResource("AnimationLibrary_tlfld")
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1159506797]
-transform = Transform3D(0.9659249, -1.0593786e-08, -0.25881892, 0.0005465816, 0.99999696, 0.0020398288, 0.2588183, -0.0021117888, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592486, -1.0593785e-08, -0.2588189, 0.0005465815, 0.9999969, 0.0020398286, 0.2588183, -0.0021117886, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=532374131]

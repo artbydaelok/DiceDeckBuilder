@@ -3,6 +3,8 @@ extends Node
 signal dice_moved(number: int)
 signal cutscene_started(disable_input : bool)
 signal cutscene_ended
+signal menu_entered
+signal menu_exited
 
 # Signal for Hub 3D Viewer
 signal side_editing_started(side: int)

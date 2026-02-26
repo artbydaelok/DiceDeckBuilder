@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Light3D
 
 
@@ -10,7 +10,7 @@ extends Light3D
 @export_subgroup("Flicker Strength Randomness")
 @export var min_energy : float = 9.5
 @export var max_energy : float = 12.5
-@export_tool_button("Start Flicker") var start_flicker_action = start_flicker
+#@export_tool_button("Start Flicker") var start_flicker_action = start_flicker
 
 func _ready() -> void:
 	can_flicker = true

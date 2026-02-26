@@ -8,9 +8,7 @@ const MONEY_PROBLEMS_V_1 = preload("uid://f1buplcjvh7g")
 
 const SHOP_UI_SCENE = preload("uid://0n5rso7bt1od")
 
-
 var shop_ui 
-
 
 func level_start():
 	area_3d.body_entered.connect(_on_test_trigger)

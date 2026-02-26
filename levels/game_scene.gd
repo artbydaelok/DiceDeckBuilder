@@ -7,6 +7,7 @@ var user_interface: CanvasLayer
 @export var level_name: String = "Level Name"
 
 @onready var card_system: CardSystem = $CardSystem
+@onready var ui: CanvasLayer = $UI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,24 @@ func _ready() -> void:
 	GameEvents.current_level = self
 
 	level_start()
+
+const DICE_INVENTORY_EDITOR = preload("uid://crbwh26bogcfr")
+
+var inventory_ui : Control
+var inventory_open : bool
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("view_deck") and not inventory_open:
+		player._disable_input()
+		inventory_open = true
+		inventory_ui = DICE_INVENTORY_EDITOR.instantiate()
+		user_interface.add_child(inventory_ui)
+	elif event.is_action_pressed("view_deck") and inventory_open:
+		player._enable_input()
+		inventory_open = false
+		inventory_ui.queue_free()
+		
+	#FIXME: When player exits out using the "Close" button in the menu, inventory_open should be set to false.
 
 func level_start():
 	pass

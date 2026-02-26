@@ -15,7 +15,7 @@ func load_level(level_id: String):
 		"hell":
 			SceneLoader.load_scene("res://levels/fire_demon_level.tscn")
 		"forest":
-			SceneLoader.load_scene("res://levels/forest_level.tscn")
+			SceneLoader.load_scene("res://levels/forest_level/forest_level.tscn")
 		"street":
 			SceneLoader.load_scene("res://levels/salt_and_pepper_level.tscn")
 
