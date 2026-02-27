@@ -18,7 +18,7 @@ visible = false
 transform = Transform3D(-0.04658743, 0, -0.17386666, 0, 0.18, 0, 0.17386666, 0, -0.04658743, 8.5108385, 4.249223, -0.50265384)
 
 [node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -22)
 relocation_node = NodePath("../NewCameraLocation")
 one_shot = true
 

@@ -116,12 +116,12 @@ script = ExtResource("1_2ygse")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=546969684]
 shape = SubResource("BoxShape3D_040is")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=214218103]
+[node name="PlayerDetection" type="Area3D" parent="." unique_id=214218103]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 collision_layer = 0
 collision_mask = 256
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=213139879]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection" unique_id=213139879]
 shape = SubResource("BoxShape3D_7iaty")
 
 [node name="InteractionPromptLabel" type="Label3D" parent="." unique_id=1869799838]
@@ -172,12 +172,3 @@ script = ExtResource("5_a8arl")
 can_flicker = true
 min_energy = 4.5
 max_energy = 8.0
-
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
-[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
-[connection signal="area_shape_exited" from="Area3D" to="." method="_on_area_3d_area_shape_exited"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
-[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
-[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]

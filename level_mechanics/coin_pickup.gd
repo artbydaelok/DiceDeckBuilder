@@ -6,7 +6,7 @@ extends Node3D
 var currency_system : CurrencySystem
 
 func _ready() -> void:
-	pickup_area.body_entered.connect(_on_pickup_entered)
+	pickup_area.area_entered.connect(_on_pickup_entered)
 	currency_system = get_tree().get_first_node_in_group("currency_system")
 	
 func _process(delta: float) -> void:

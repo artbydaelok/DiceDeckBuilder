@@ -27,6 +27,9 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgilg"]
 size = Vector3(2, 2, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hg6s5"]
+size = Vector3(2, 2, 2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_f2jhj"]
 
 [sub_resource type="Animation" id="Animation_ohx0t"]
@@ -181,7 +184,7 @@ size = Vector2(8, 8)
 orientation = 1
 
 [node name="Player" type="CharacterBody3D" unique_id=758817783 groups=["player"]]
-collision_layer = 258
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_rgyib")
 
@@ -265,6 +268,14 @@ shape = SubResource("BoxShape3D_vgilg")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Pivot/MeshInstance3D" unique_id=499766062]
 current = true
+
+[node name="PlayerTriggerBox" type="Area3D" parent="Pivot/MeshInstance3D" unique_id=1519406784]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/MeshInstance3D/PlayerTriggerBox" unique_id=1550319362]
+shape = SubResource("BoxShape3D_hg6s5")
+debug_color = Color(1, 1, 0.69803923, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1983496716]
 shape = SubResource("BoxShape3D_f2jhj")

@@ -208,7 +208,8 @@ func roll(dir):
 	if is_dead: 
 		$DeathAnimation.play("death")
 	
-	_enable_input.call_deferred()
+	if not GameEvents.is_in_menu:
+		_enable_input.call_deferred()
 
 func add_blocked_pos(blocked_pos: Vector2):
 	disabled_pos.append(blocked_pos)

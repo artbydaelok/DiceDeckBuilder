@@ -19,6 +19,9 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	player.player_damaged.connect(apply_shake)
 	
+	if GameEvents.current_checkpoint_data != null:
+		global_position = GameEvents.current_checkpoint_data.spawn_point + GameEvents.current_checkpoint_data.camera_offset
+	
 	update_target_offset()
 
 func update_target_offset(new_offset = null):
@@ -67,9 +70,9 @@ func relocate_to(node : Node3D, new_offset = null):
 	var tween : Tween = create_tween()
 	stop_following_target()
 	tween.set_parallel(true)
-	tween.tween_property(self, "global_position", node.global_position, 0.15)
 	tween.tween_property(self, "global_rotation", node.global_rotation, 0.15)
-	
+	tween.tween_property(self, "global_position", node.global_position, 0.15)
+		
 	await tween.finished
 	
 	#GameEvents.enable_player_input()

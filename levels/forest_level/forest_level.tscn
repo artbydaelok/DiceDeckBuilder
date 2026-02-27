@@ -160,7 +160,12 @@ size = Vector3(4.7053223, 1, 28)
 script = ExtResource("2_cpv81")
 level_name = "Forest"
 
-[node name="BackgroundMusicPlayer" parent="." index="1" unique_id=1991235100 instance=ExtResource("3_itb2r")]
+[node name="BaseLevel_Camera3D#SpotLight3D" type="SpotLight3D" parent="." index="0" unique_id=199238438]
+transform = Transform3D(1, 0, 0, 0, -0.8660252, 0.5000003, 0, -0.5000003, -0.8660252, 0, 10.349169, -21.662868)
+light_energy = 5.0
+spot_range = 65.0
+
+[node name="BackgroundMusicPlayer" parent="." index="2" unique_id=1991235100 instance=ExtResource("3_itb2r")]
 stream = ExtResource("4_itb2r")
 
 [node name="ForestDemon" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=637738744 instance=ExtResource("13_x70s0")]
@@ -292,14 +297,9 @@ duration = 1.0
 from_value = 0.0
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
-[node name="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1892705345]
+[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1892705345]
 transform = Transform3D(1, 0, 0, 0, 0.7071066, 0.70710695, 0, -0.70710695, 0.7071066, 0, 9, 7)
 follow_target = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="BaseLevel/Camera3D" index="0" unique_id=199238438]
-transform = Transform3D(1, 0, 0, 0, -0.8660252, 0.5000003, 0, -0.5000003, -0.8660252, 0, 10.349169, -21.662868)
-light_energy = 5.0
-spot_range = 65.0
 
 [node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="20" unique_id=1911982310]
 environment = SubResource("Environment_aa8vv")

@@ -9,6 +9,7 @@ var unlocked_checkpoints: Dictionary
 
 func _ready() -> void:
 	var save_system = get_tree().get_root().find_child("SaveSystem", true, false)
+	GameEvents.menu_entered.emit()
 	unlocked_checkpoints = save_system.player_data.unlocked_checkpoints
 	
 	_update_checkpoints()
@@ -41,6 +42,7 @@ func add_button(checkpoint: String, container: VBoxContainer):
 	container.add_child(button)
 	
 func _on_button_pressed() -> void:
+	GameEvents.menu_exited.emit()
 	close()
 
 func close():
@@ -53,5 +55,6 @@ func on_checkpoint_button_pressed(checkpoint: CheckpointData):
 		GameEvents.current_checkpoint_data = checkpoint
 		GameEvents.is_checkpoint_transfer = true
 		SceneLoader.load_scene(checkpoint.level_path)
-		
+	GameEvents.menu_exited.emit()
 	close()
+		

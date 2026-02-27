@@ -10,14 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://86rnblol0q7t" path="res://level_mechanics/coin_pickup.tscn" id="5_3q4av"]
 [ext_resource type="Resource" uid="uid://cw70ov1nkebjb" path="res://core/checkpoint_system/checkpoints/daelok_chk2.tres" id="5_eelgc"]
 [ext_resource type="Resource" uid="uid://1kd3og2etiwd" path="res://core/checkpoint_system/checkpoints/daelok_chk3.tres" id="6_eelgc"]
+[ext_resource type="PackedScene" uid="uid://yosnc3hubpp3" path="res://level_mechanics/player_detection.tscn" id="9_sqhvy"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pkss4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_sqhvy"]
 
 [node name="DaelokTestingLevel" unique_id=885135856 instance=ExtResource("1_eiw1x")]
 script = ExtResource("2_pkss4")
 level_name = "Daelok"
 
-[node name="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
+[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
 follow_target = true
 
 [node name="Checkpoint" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1805229643 instance=ExtResource("3_ltash")]
@@ -35,19 +36,17 @@ checkpoint_data = ExtResource("6_eelgc")
 [node name="BackgroundMusicPlayer" parent="." index="5" unique_id=795340987 instance=ExtResource("2_3mw47")]
 stream = ExtResource("4_dthh7")
 
-[node name="Area3D" type="Area3D" parent="." index="6" unique_id=1988380027]
-collision_layer = 0
-collision_mask = 256
+[node name="PlayerDetection" parent="." index="6" unique_id=1726290184 instance=ExtResource("9_sqhvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=591910108]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -4)
-shape = SubResource("BoxShape3D_pkss4")
-debug_color = Color(0.90504843, 0.00013957918, 0.749583, 0.41960785)
+[node name="CollisionShape3D" parent="PlayerDetection" index="0" unique_id=1565092651]
+shape = SubResource("BoxShape3D_sqhvy")
 
-[node name="Frog" parent="Area3D" index="1" unique_id=645347961 instance=ExtResource("5_3g23s")]
+[node name="Frog" parent="." index="7" unique_id=645347961 instance=ExtResource("5_3g23s")]
 transform = Transform3D(-1.3113416e-08, 0, -0.29999998, 0, 0.29999998, 0, 0.29999998, 0, -1.3113416e-08, -6.0692816, 0, -6.5068793)
 
-[node name="CoinPickup" parent="." index="7" unique_id=1739459880 instance=ExtResource("5_3q4av")]
+[node name="CoinPickup" parent="." index="8" unique_id=1739459880 instance=ExtResource("5_3q4av")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [editable path="BaseLevel/Player"]
+[editable path="PlayerDetection"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://yosnc3hubpp3"]
+
+[node name="PlayerDetection" type="Area3D" unique_id=1726290184]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1565092651]
+debug_color = Color(0.90504843, 0.00013957918, 0.749583, 0.41960785)

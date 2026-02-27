@@ -8,8 +8,10 @@ var save_system: SaveSystem
 @onready var smoke_visual_effect: GPUParticles3D = $SmokeParticles
 @onready var fast_travel_ui_prompt: Label3D = $InteractionPromptLabel
 @onready var fire_light: OmniLight3D = $FireLight
+@onready var player_detection: Area3D = $PlayerDetection
 
 const FAST_TRAVEL_UI = preload("res://core/checkpoint_system/checkpoint_ui.tscn")
+
 
 var has_effects: bool = false
 var has_player: bool = false
@@ -25,6 +27,9 @@ func _ready() -> void:
 	if !save_system:
 		push_warning("save_system is missing or null")
 	
+	player_detection.area_entered.connect(_on_player_entered)
+	player_detection.area_exited.connect(_on_player_exited)
+	
 	var label: Label3D = Label3D.new()
 	label.text = "Test"
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -38,7 +43,7 @@ func _input(event):
 			ui = FAST_TRAVEL_UI.instantiate()
 			get_tree().current_scene.add_child(ui)
 
-func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_player_entered(player_trigger_area: Area3D) -> void:
 	# If the save system does not have any data for the current level
 	if !save_system.player_data.unlocked_checkpoints.has(checkpoint_data.level_name):
 		# then add this first entry to it
@@ -48,7 +53,7 @@ func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_inde
 		var checkpoints = save_system.player_data.unlocked_checkpoints[checkpoint_data.level_name]
 		if !checkpoints.has(checkpoint_data.resource_path):
 			checkpoints.append(checkpoint_data.resource_path)
-		
+	
 	save_system.json_save()
 	has_player = true
 	fast_travel_ui_prompt.visible = true
@@ -61,7 +66,7 @@ func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_inde
 		fire_visual_effect.emitting = true
 		smoke_visual_effect.emitting = true
 		
-func _on_area_3d_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_player_exited(player_trigger_area: Area3D) -> void:
 	has_player = false
 	fast_travel_ui_prompt.visible = false
 	

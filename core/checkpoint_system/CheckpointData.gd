@@ -15,3 +15,6 @@ class_name CheckpointData
 
 ## Where the player should be spawning
 @export var spawn_point : Vector3
+
+## Where the camera should be in relation to the player. The placeholder vector should work for most levels.
+@export var camera_offset : Vector3 = Vector3(0, 8, 6)

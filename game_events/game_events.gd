@@ -42,6 +42,7 @@ func on_dice_moved(number: int):
 
 func _on_scene_loaded():
 	menus_open = 0
+	is_in_menu = false
 	is_scene_transitioning = false
 
 func _on_scene_transition_start():

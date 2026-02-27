@@ -1,6 +1,6 @@
 extends Level
 
-@onready var area_3d: Area3D = $Area3D
+@onready var area_3d: Area3D = $PlayerDetection
 
 const CRUSHED_ICE = preload("uid://b13o3b5bar26b")
 const SYNTHESIZING_PAIN = preload("uid://rc2w17xatnjy")
@@ -11,7 +11,7 @@ const SHOP_UI_SCENE = preload("uid://0n5rso7bt1od")
 var shop_ui 
 
 func level_start():
-	area_3d.body_entered.connect(_on_test_trigger)
+	area_3d.area_entered.connect(_on_test_trigger)
 	
 func _on_test_trigger(body):
 	ProjectMusicController.play_stream(CRUSHED_ICE)
