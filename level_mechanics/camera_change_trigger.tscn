@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://m3u1t4h22h6n"]
+
+[ext_resource type="Script" uid="uid://b7nhcedt2s2nh" path="res://level_mechanics/camera_change_trigger.gd" id="1_2lh2q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lh2q"]
+
+[node name="CameraChangeTrigger" type="Area3D" unique_id=1913142793]
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("1_2lh2q")
+
+[node name="DoNotEditShape" type="CollisionShape3D" parent="." unique_id=608041838]
+shape = SubResource("BoxShape3D_2lh2q")
+debug_color = Color(0.7865439, 0.4325023, 1.92523e-07, 0.41960785)

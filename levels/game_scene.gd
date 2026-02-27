@@ -9,6 +9,8 @@ var user_interface: CanvasLayer
 @onready var card_system: CardSystem = $CardSystem
 @onready var ui: CanvasLayer = $UI
 
+@export var game_camera: GameCamera
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#DialogueManager.show_dialogue_balloon(HUB_LEVEL_DIALOGUE, "start")

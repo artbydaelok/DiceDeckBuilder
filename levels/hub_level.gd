@@ -2,8 +2,6 @@ extends "res://levels/game_scene.gd"
 
 @onready var cutscene_animation_player: AnimationPlayer = %CutsceneAnimationPlayer
 
-@onready var player_camera_3d: Camera3D = $BaseLevel/Camera3D
-
 const HUB_LEVEL_DIALOGUE = preload("uid://b2og4ilgdg4ke")
 
 
@@ -17,5 +15,5 @@ func level_start() -> void:
 		
 func end_cutscene():
 	GameEvents.cutscene_ended.emit()
-	player_camera_3d.current = true
+	game_camera.current = true
 	ui.visible = true

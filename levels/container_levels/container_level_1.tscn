@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bb3nkgtxd0fjp"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_yxvhy"]
+[ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="2_2ceik"]
+[ext_resource type="PackedScene" uid="uid://da1bpxmyhqky2" path="res://level_mechanics/container_level_obstacle.tscn" id="2_mt3fl"]
+[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="3_2ceik"]
+
+[node name="ContainerLevel1" unique_id=885135856 instance=ExtResource("1_yxvhy")]
+
+[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.2588193, 0, -0.2588193, 0.9659258, 0, 4, 6)
+follow_target = true
+
+[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=1670796615]
+visible = false
+
+[node name="Frog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=223907854 instance=ExtResource("2_2ceik")]
+transform = Transform3D(-0.04658743, 0, -0.17386666, 0, 0.18, 0, 0.17386666, 0, -0.04658743, 8.5108385, 4.249223, -0.50265384)
+
+[node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+relocation_node = NodePath("../NewCameraLocation")
+one_shot = true
+
+[node name="NewCameraLocation" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1526167670]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 7, -21)
+gizmo_extents = 3.15
+
+[node name="Camera3D" type="Camera3D" parent="BaseLevel/NewCameraLocation" index="0" unique_id=465449312]
+
+[node name="ContainerLevelObstacle" parent="." index="5" unique_id=1931898489 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7, 0, -1)
+
+[node name="ContainerLevelObstacle6" parent="." index="6" unique_id=341282060 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.046600904, 0, 0.9989136, 0, 1, 0, -0.9989136, 0, -0.046600904, 14.456485, 0, -13.350177)
+
+[node name="ContainerLevelObstacle8" parent="." index="7" unique_id=540767343 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.046600904, 0, 0.9989136, 0, 1, 0, -0.9989136, 0, -0.046600904, 14.456485, 0, -18.350178)
+
+[node name="ContainerLevelObstacle10" parent="." index="8" unique_id=562706393 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.99016577, 0, -0.13989896, 0, 1, 0, 0.13989896, 0, 0.99016577, 1.4561672, 0, -33.66803)
+
+[node name="ContainerLevelObstacle11" parent="." index="9" unique_id=589615914 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 7.354658, 0, -29.46106)
+
+[node name="ContainerLevelObstacle5" parent="." index="10" unique_id=1797016718 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.19582629, 0, 0.98063856, 0, 1, 0, -0.98063856, 0, 0.19582629, 4.8469944, 0, 9.733517)
+
+[node name="ContainerLevelObstacle2" parent="." index="11" unique_id=70161085 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.9994646, 0, 0.032719083, 0, 1, 0, -0.032719083, 0, 0.9994646, -7.373631, 0, -1)
+
+[node name="ContainerLevelObstacle7" parent="." index="12" unique_id=1146375139 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.03271904, 0, -0.9994646, 0, 1, 0, 0.9994646, 0, 0.03271904, -12.373631, 0, -12.697777)
+
+[node name="ContainerLevelObstacle9" parent="." index="13" unique_id=122445326 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.03271904, 0, -0.9994646, 0, 1, 0, 0.9994646, 0, 0.03271904, -10.373631, 0, -17.697777)
+
+[node name="ContainerLevelObstacle13" parent="." index="14" unique_id=1248450345 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.99998635, 0, -0.005218463, 0, 1, 0, 0.005218463, 0, -0.99998635, -27.402569, 0, -22.481874)
+
+[node name="ContainerLevelObstacle14" parent="." index="15" unique_id=1818580580 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.9939072, 0, -0.11022015, 0, 1, 0, 0.11022015, 0, 0.9939072, -23.647812, 0, -10.353176)
+
+[node name="ContainerLevelObstacle12" parent="." index="16" unique_id=145772726 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.03271904, 0, -0.9994646, 0, 1, 0, 0.9994646, 0, 0.03271904, -10.845303, 0, -27.602877)
+
+[node name="ContainerLevelObstacle3" parent="." index="17" unique_id=423698263 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.9754155, 0, -0.22037402, 0, 1, 0, 0.22037402, 0, 0.9754155, -7, 4, 0)
+
+[node name="ContainerLevelObstacle4" parent="." index="18" unique_id=861519203 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.93470794, 0, -0.35541695, 0, 1, 0, 0.35541695, 0, 0.93470794, 8.330187, 4, 0)
+
+[editable path="BaseLevel/Player"]

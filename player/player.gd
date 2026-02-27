@@ -136,6 +136,7 @@ func roll(dir):
 	# Do nothing if we're currently rolling.
 	if rolling or commit_lock or is_dead or input_disabled:
 		return
+	
 
 	var test_dir = grid_pos + Vector2(dir.x, dir.z)
 
@@ -150,6 +151,9 @@ func roll(dir):
 		return
 	
 	
+	# This prevents the player from using items while not standing still, 
+	# and to allow for triggers to work before player can move out of them
+	_disable_input()
 	
 	rolling = true
 	
@@ -191,14 +195,20 @@ func roll(dir):
 	energy = clamp(energy, 0, 6)
 	energy_gained.emit(1)
 	
+	
+	
 	# This line offsets the grid UV so that it gives the illusion the player is moving with it.
 	var _uv_offset = grid_mesh.mesh.surface_get_material(0).get_shader_parameter("uv1_offset")
 	_uv_offset.x += grid_offset_amount
 	grid_mesh.mesh.surface_get_material(0).set_shader_parameter("uv1_offset", _uv_offset)
 	
+	
+	
 	# This is a check for player death after a roll is finished
 	if is_dead: 
 		$DeathAnimation.play("death")
+	
+	_enable_input.call_deferred()
 
 func add_blocked_pos(blocked_pos: Vector2):
 	disabled_pos.append(blocked_pos)

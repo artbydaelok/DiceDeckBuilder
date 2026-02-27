@@ -74,6 +74,7 @@ explosive_barrel=""
 card_system=""
 currency_system=""
 save_system=""
+game_camera=""
 
 [gui]
 
