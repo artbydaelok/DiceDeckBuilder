@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="2_2ceik"]
 [ext_resource type="PackedScene" uid="uid://da1bpxmyhqky2" path="res://level_mechanics/container_level_obstacle.tscn" id="2_mt3fl"]
 [ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="3_2ceik"]
+[ext_resource type="PackedScene" uid="uid://b1ylt1qvb3t8g" path="res://assets/3d_models/psx/shipping_container_1/shipping_container_mx_1_hollow_1.glb" id="5_gn56b"]
+[ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="6_jmihm"]
+[ext_resource type="PackedScene" uid="uid://bbddptsu0dq3a" path="res://assets/3d_models/psx/metal_barrel_3/metal_barrel_hr_3.glb" id="7_jmihm"]
+[ext_resource type="PackedScene" uid="uid://b8yt4cem2fcw4" path="res://level_mechanics/metal_barrel_obstacle_1.tscn" id="9_4u5eu"]
+[ext_resource type="PackedScene" uid="uid://86rnblol0q7t" path="res://level_mechanics/coin_pickup.tscn" id="10_4u5eu"]
+[ext_resource type="PackedScene" uid="uid://c1vkiu5hyt2wt" path="res://level_mechanics/metal_barrel_obstacle_2.tscn" id="10_6o10r"]
 
 [node name="ContainerLevel1" unique_id=885135856 instance=ExtResource("1_yxvhy")]
 
@@ -14,16 +20,13 @@ follow_target = true
 [node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=1670796615]
 visible = false
 
-[node name="Frog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=223907854 instance=ExtResource("2_2ceik")]
-transform = Transform3D(-0.04658743, 0, -0.17386666, 0, 0.18, 0, 0.17386666, 0, -0.04658743, 8.5108385, 4.249223, -0.50265384)
-
-[node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
+[node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -22)
 relocation_node = NodePath("../NewCameraLocation")
 one_shot = true
 
-[node name="NewCameraLocation" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1526167670]
-transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 7, -21)
+[node name="NewCameraLocation" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1526167670]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 8, -21)
 gizmo_extents = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel/NewCameraLocation" index="0" unique_id=465449312]
@@ -38,36 +41,177 @@ transform = Transform3D(-0.046600904, 0, 0.9989136, 0, 1, 0, -0.9989136, 0, -0.0
 transform = Transform3D(-0.046600904, 0, 0.9989136, 0, 1, 0, -0.9989136, 0, -0.046600904, 14.456485, 0, -18.350178)
 
 [node name="ContainerLevelObstacle10" parent="." index="8" unique_id=562706393 instance=ExtResource("2_mt3fl")]
-transform = Transform3D(0.99016577, 0, -0.13989896, 0, 1, 0, 0.13989896, 0, 0.99016577, 1.4561672, 0, -33.66803)
+transform = Transform3D(0.99016577, 0, -0.13989896, 0, 1, 0, 0.13989896, 0, 0.99016577, 1.9298686, 0, -33.66803)
 
-[node name="ContainerLevelObstacle11" parent="." index="9" unique_id=589615914 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle18" parent="." index="9" unique_id=194554609 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.92745817, 0, 0.37392685, 0, 1, 0, -0.37392685, 0, 0.92745817, -4.0369444, 0, -55.66803)
+
+[node name="ContainerLevelObstacle19" parent="." index="10" unique_id=594741170 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.12114175, 0, 0.9926353, 0, 1, 0, -0.9926353, 0, -0.12114175, -19.075928, 0, -62.26658)
+
+[node name="ContainerLevelObstacle21" parent="." index="11" unique_id=1437770230 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.16282657, 0, 0.9866547, 0, 1, 0, -0.9866547, 0, 0.16282657, -37.761566, 0, -63.123634)
+
+[node name="ContainerLevelObstacle27" parent="." index="12" unique_id=1943672816 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.9762506, 0, -0.21664418, 0, 1, 0, 0.21664418, 0, -0.9762506, -41.103333, 0, -75.263725)
+
+[node name="ContainerLevelObstacle22" parent="." index="13" unique_id=1412136825 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.120292835, 0, -0.9927384, 0, 1, 0, 0.9927384, 0, -0.120292835, -43.102226, 0, -49.123634)
+
+[node name="ContainerLevelObstacle23" parent="." index="14" unique_id=323196769 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.9866547, 0, 0.1628267, 0, 1, 0, -0.1628267, 0, -0.9866547, -59.761566, 0, -57.123634)
+
+[node name="ContainerLevelObstacle25" parent="." index="15" unique_id=1503840417 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.9995874, 0, -0.028724074, 0, 1, 0, 0.028724074, 0, -0.9995874, -60.19388, 0, -38.51857)
+
+[node name="ContainerLevelObstacle29" parent="." index="16" unique_id=1904025419 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.02872403, 0, 0.99958736, 0, 1, 0, -0.99958736, 0, -0.02872403, -72.19388, 0, -30.51857)
+
+[node name="ContainerLevelObstacle28" parent="." index="17" unique_id=1389962772 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.02872403, 0, 0.99958736, 0, 1, 0, -0.99958736, 0, -0.02872403, -56.19388, 0, -22.51857)
+
+[node name="ContainerLevelObstacle26" parent="." index="18" unique_id=2120901255 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.9982831, 0, -0.0585748, 0, 1, 0, 0.0585748, 0, 0.9982831, -49.8507, 0, -38.760395)
+
+[node name="ContainerLevelObstacle24" parent="." index="19" unique_id=2090415485 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.5825344, 0, 0.81280607, 0, 1, 0, -0.81280607, 0, -0.5825344, -53.761566, 0, -73.123634)
+
+[node name="ContainerLevelObstacle11" parent="." index="20" unique_id=589615914 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 7.354658, 0, -29.46106)
 
-[node name="ContainerLevelObstacle5" parent="." index="10" unique_id=1797016718 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle5" parent="." index="21" unique_id=1797016718 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(0.19582629, 0, 0.98063856, 0, 1, 0, -0.98063856, 0, 0.19582629, 4.8469944, 0, 9.733517)
 
-[node name="ContainerLevelObstacle2" parent="." index="11" unique_id=70161085 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle2" parent="." index="22" unique_id=70161085 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(0.9994646, 0, 0.032719083, 0, 1, 0, -0.032719083, 0, 0.9994646, -7.373631, 0, -1)
 
-[node name="ContainerLevelObstacle7" parent="." index="12" unique_id=1146375139 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle7" parent="." index="23" unique_id=1146375139 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(0.03271904, 0, -0.9994646, 0, 1, 0, 0.9994646, 0, 0.03271904, -12.373631, 0, -12.697777)
 
-[node name="ContainerLevelObstacle9" parent="." index="13" unique_id=122445326 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle9" parent="." index="24" unique_id=122445326 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(0.03271904, 0, -0.9994646, 0, 1, 0, 0.9994646, 0, 0.03271904, -10.373631, 0, -17.697777)
 
-[node name="ContainerLevelObstacle13" parent="." index="14" unique_id=1248450345 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle13" parent="." index="25" unique_id=1248450345 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(-0.99998635, 0, -0.005218463, 0, 1, 0, 0.005218463, 0, -0.99998635, -27.402569, 0, -22.481874)
 
-[node name="ContainerLevelObstacle14" parent="." index="15" unique_id=1818580580 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle15" parent="." index="26" unique_id=1336391105 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.99998635, 0, 0.0052183755, 0, 1, 0, -0.0052183755, 0, 0.99998635, -23.622469, 0, -43.481873)
+
+[node name="ContainerLevelObstacle20" parent="." index="27" unique_id=700211736 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.99998635, 0, 0.0052183755, 0, 1, 0, -0.0052183755, 0, 0.99998635, -31.882046, 0, -41.481873)
+
+[node name="ContainerLevelObstacle16" parent="." index="28" unique_id=1013334726 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.99998635, 0, -0.005218288, 0, 1, 0, 0.005218288, 0, -0.99998635, -14.402569, 0, -42.481873)
+
+[node name="ContainerLevelObstacle17" parent="." index="29" unique_id=1952217454 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(-0.9672632, 0, 0.25377503, 0, 1, 0, -0.25377503, 0, -0.9672632, -8.357176, 0, -39.469967)
+
+[node name="ContainerLevelObstacle14" parent="." index="30" unique_id=1818580580 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(0.9939072, 0, -0.11022015, 0, 1, 0, 0.11022015, 0, 0.9939072, -23.647812, 0, -10.353176)
 
-[node name="ContainerLevelObstacle12" parent="." index="16" unique_id=145772726 instance=ExtResource("2_mt3fl")]
-transform = Transform3D(0.03271904, 0, -0.9994646, 0, 1, 0, 0.9994646, 0, 0.03271904, -10.845303, 0, -27.602877)
+[node name="ContainerLevelObstacle12" parent="." index="31" unique_id=145772726 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.03271904, 0, -0.9994646, 0, 1, 0, 0.9994646, 0, 0.03271904, -10.224249, 0, -27.66969)
 
-[node name="ContainerLevelObstacle3" parent="." index="17" unique_id=423698263 instance=ExtResource("2_mt3fl")]
+[node name="ContainerLevelObstacle3" parent="." index="32" unique_id=423698263 instance=ExtResource("2_mt3fl")]
 transform = Transform3D(0.9754155, 0, -0.22037402, 0, 1, 0, 0.22037402, 0, 0.9754155, -7, 4, 0)
 
-[node name="ContainerLevelObstacle4" parent="." index="18" unique_id=861519203 instance=ExtResource("2_mt3fl")]
-transform = Transform3D(0.93470794, 0, -0.35541695, 0, 1, 0, 0.35541695, 0, 0.93470794, 8.330187, 4, 0)
+[node name="ContainerLevelObstacle4" parent="." index="33" unique_id=861519203 instance=ExtResource("2_mt3fl")]
+transform = Transform3D(0.9659665, 0, -0.25866732, 0, 1, 0, 0.25866732, 0, 0.9659665, 8.330187, 4, 0)
+
+[node name="Frog3" parent="ContainerLevelObstacle4" index="5" unique_id=2043966223 instance=ExtResource("2_2ceik")]
+transform = Transform3D(-0.013921954, 0.007717914, -0.1792948, -0.039643466, 0.17525844, 0.010622435, 0.17502725, 0.040309727, -0.011855375, 0.11651707, 0.43422985, 2.6285641)
+
+[node name="shipping_container_mx_1_hollow_12" parent="." index="34" unique_id=1182443718 instance=ExtResource("5_gn56b")]
+transform = Transform3D(1.0849006, -0.4427566, -1.6207889, 0.24628422, 1.950376, -0.36793667, 1.6620271, 1.0832464e-08, 1.1125041, 7.324128, 13.364925, -26.229513)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_15" parent="." index="35" unique_id=1875937741 instance=ExtResource("5_gn56b")]
+transform = Transform3D(0.8171871, 1.3571144, -1.220838, -1.452946, 1.2932986, 0.4651109, 1.1050581, 0.69686455, 1.5143402, -20.025002, 14.44989, -26.229513)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_16" parent="." index="36" unique_id=1187402107 instance=ExtResource("5_gn56b")]
+transform = Transform3D(0.8171871, 1.3571144, -1.220838, -1.452946, 1.2932986, 0.4651109, 1.1050581, 0.69686455, 1.5143402, -48.346756, -18.89428, -26.229513)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_19" parent="." index="37" unique_id=1010313624 instance=ExtResource("5_gn56b")]
+transform = Transform3D(0.504913, 1.3803701, -1.3563337, -1.6739101, -0.3918984, -1.0219784, -0.9711266, 1.3931961, 1.0563704, -55.45793, -18.89428, -61.63443)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_21" parent="." index="38" unique_id=1099158646 instance=ExtResource("5_gn56b")]
+transform = Transform3D(0.14003702, -0.6669701, -1.8803034, -1.846231, -0.75775653, 0.13128729, -0.75618833, 1.7265449, -0.66874707, -11.83149, -13.947609, -57.618652)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_22" parent="." index="39" unique_id=615991904 instance=ExtResource("5_gn56b")]
+transform = Transform3D(1.258716, -1.055777, -1.1406007, -1.5476929, -0.9859248, -0.7953613, -0.14241111, 1.3832165, -1.4375083, -8.317472, -27.653864, -33.008343)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_18" parent="." index="40" unique_id=1189920915 instance=ExtResource("5_gn56b")]
+transform = Transform3D(-0.68898463, -0.09975177, -1.8749266, -1.4529458, 1.2932986, 0.4651108, 1.1892217, 1.5223105, -0.5179982, -33.636864, -18.89428, -47.595074)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_17" parent="." index="41" unique_id=181974904 instance=ExtResource("5_gn56b")]
+transform = Transform3D(1.3664078, 1.4321185, 0.28629726, -0.90536356, 0.5229859, 1.7049347, 1.1459699, -1.29442, 1.0055996, -23.048708, -24.442165, -22.296286)
+script = ExtResource("6_jmihm")
+
+[node name="shipping_container_mx_1_hollow_13" parent="." index="42" unique_id=1238495722 instance=ExtResource("5_gn56b")]
+transform = Transform3D(0.045072578, -1.9524176, -0.43131608, 1.924147, 0.1596692, -0.52169335, 0.54371536, -0.40320092, 1.881968, 1.107708, 13.618374, -53.816765)
+script = ExtResource("6_jmihm")
+anim_amount = 1.5
+
+[node name="Frog2" parent="shipping_container_mx_1_hollow_13" index="1" unique_id=586686385 instance=ExtResource("2_2ceik")]
+transform = Transform3D(-0.019189417, 0.087877855, 0.0030419752, 0.004013596, -0.002234946, 0.089882694, 0.08783883, 0.019300062, -0.0034424253, -1.0897989, 1.245851, 4.205103)
+
+[node name="shipping_container_mx_1_hollow_20" parent="." index="43" unique_id=1760467389 instance=ExtResource("5_gn56b")]
+transform = Transform3D(0.045072567, -1.9524175, -0.43131605, 1.1153504, -0.3335176, 1.6262718, -1.6595064, -0.2771845, 1.081299, -45.228783, -24.616232, -87.25871)
+script = ExtResource("6_jmihm")
+anim_amount = 1.5
+
+[node name="Frog2" parent="shipping_container_mx_1_hollow_20" index="1" unique_id=1678043532 instance=ExtResource("2_2ceik")]
+transform = Transform3D(-0.019189417, 0.087877855, 0.0030419752, 0.004013596, -0.002234946, 0.089882694, 0.08783883, 0.019300062, -0.0034424253, -1.0897989, 1.245851, 4.205103)
+
+[node name="shipping_container_mx_1_hollow_14" parent="." index="44" unique_id=1050090451 instance=ExtResource("5_gn56b")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0156975, 3.986741, -28.692974)
+
+[node name="metal_barrel_hr_32" parent="." index="45" unique_id=1906942247 instance=ExtResource("7_jmihm")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -19.892855, 0, -25.937578)
+
+[node name="MetalBarrelObstacle" parent="." index="46" unique_id=1297721672 instance=ExtResource("9_4u5eu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10, 0, -49.23704)
+
+[node name="metal_barrel_hr_12" parent="." index="47" unique_id=1159212970 instance=ExtResource("10_6o10r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.30357, 0, -50.12763)
+
+[node name="CoinPickup" parent="." index="48" unique_id=1739459880 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -34)
+
+[node name="CoinPickup2" parent="." index="49" unique_id=538051120 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -36)
+
+[node name="CoinPickup3" parent="." index="50" unique_id=1262670507 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -38)
+
+[node name="CoinPickup4" parent="." index="51" unique_id=1875603219 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -40)
+
+[node name="CoinPickup6" parent="." index="52" unique_id=622150043 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, -68)
+
+[node name="CoinPickup7" parent="." index="53" unique_id=1577207082 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, -70)
+
+[node name="CoinPickup10" parent="." index="54" unique_id=842679231 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, -72)
+
+[node name="CoinPickup5" parent="." index="55" unique_id=1096806048 instance=ExtResource("10_4u5eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -42)
+
+[node name="metal_barrel_hr_13" parent="." index="56" unique_id=1209448732 instance=ExtResource("10_6o10r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -50.81051, 0, -28)
+
+[node name="metal_barrel_hr_14" parent="." index="57" unique_id=1180601232 instance=ExtResource("10_6o10r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -51.432247, 0, -26)
+
+[node name="MetalBarrelObstacle2" parent="." index="58" unique_id=1117872415 instance=ExtResource("9_4u5eu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -49.87591, 0, -26.784939)
 
 [editable path="BaseLevel/Player"]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bbddptsu0dq3a" path="res://assets/3d_models/psx/metal_barrel_3/metal_barrel_hr_3.glb" id="3_k67sx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_80ynv"]
-size = Vector3(4, 4, 18)
+size = Vector3(4, 4, 17.32373)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2b4ow"]
 size = Vector3(0.18774414, 4, 1.7779541)
@@ -18,7 +18,7 @@ transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, -0.32133198)
 [node name="StaticBody" type="StaticBody3D" parent="." unique_id=911430308]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody" unique_id=588013970]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.33813477)
 shape = SubResource("BoxShape3D_80ynv")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody" unique_id=884356893]
@@ -30,7 +30,7 @@ transform = Transform3D(0.96950096, 0, -0.24508741, 0, 1, 0, 0.24508741, 0, 0.96
 shape = SubResource("BoxShape3D_2b4ow")
 
 [node name="metal_barrel_hr_12" parent="." unique_id=1686675527 instance=ExtResource("2_p868y")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.89005464, 0.37642562, 7.619191)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.89005464, 0.2334845, 7.619191)
 
 [node name="metal_barrel_hr_13" parent="." unique_id=793281541 instance=ExtResource("2_p868y")]
 transform = Transform3D(1.4490309, -0.38769758, 1.6946796e-08, 0, -6.556708e-08, -1.5, 0.38769758, 1.4490309, -6.3339144e-08, 0.5510164, 0.7341105, 6.9116125)
