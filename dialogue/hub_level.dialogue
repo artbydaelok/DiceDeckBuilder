@@ -26,18 +26,29 @@ Go fight some thugs?
 	=> street_level_change
 - i'm good
 	=> END
-	
+
+~ container_level_entry
+This inside of this container seems to keep on going forever. 
+- keep going
+	=> container_level_change
+- i'm good
+	=> END
+
 ~ hell_level_change
-[[To the fiery pits.|Hope they have nice weather.|Why is this the first level?]]
+[[To the fiery pits.|Hope they have nice weather.]]
 do SceneLoader.load_scene("res://levels/fire_demon_level.tscn")
 => END
 
 ~ forest_level_change
-[[Hope you packed some repellent.|Hope nature isn't the bane of you.|Time to go for a hike.]]
+[[Hope you packed some repellent.|Nature awaits.]]
 do SceneLoader.load_scene("res://levels/forest_level/forest_level.tscn")
 => END
 
 ~ street_level_change
-[[If anyone asks say you're doing it in self defense.|This is more fun than tax evasion.|You should get your own goons to fight for you.]]
+[[This is more fun than tax evasion.|You should get your own goons to fight for you.]]
 do SceneLoader.load_scene("res://levels/salt_and_pepper_level.tscn")
 => END
+
+~ container_level_change
+[[You wonder where it takes you...|Where does this lead?]]
+do SceneLoader.load_scene("res://levels/container_levels/container_level_1.tscn")
