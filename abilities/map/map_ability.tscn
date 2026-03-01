@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d0xc0g8xk7mqx"]
+
+[ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_kqnwx"]
+[ext_resource type="Script" uid="uid://0uw2j86y3lme" path="res://abilities/map/map_ability.gd" id="2_7qlbv"]
+
+[node name="MapAbility" unique_id=1684678083 instance=ExtResource("1_kqnwx")]
+script = ExtResource("2_7qlbv")
