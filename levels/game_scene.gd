@@ -11,6 +11,8 @@ var user_interface: CanvasLayer
 
 @export var game_camera: GameCamera
 
+@export var current_map_data : LevelMapData
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#DialogueManager.show_dialogue_balloon(HUB_LEVEL_DIALOGUE, "start")

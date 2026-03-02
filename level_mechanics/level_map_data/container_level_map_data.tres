@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelMapData" format=3 uid="uid://ca1rr7ccxkre6"]
+
+[ext_resource type="Script" uid="uid://deifd3x6s81md" path="res://ui/data/level_map_data.gd" id="1_0bviu"]
+[ext_resource type="Texture2D" uid="uid://ima1fkxlwdup" path="res://assets/map_screenshot_test.png" id="1_ocabt"]
+
+[resource]
+script = ExtResource("1_0bviu")
+level_dimensions = Vector2(130, 125)
+map_texture = ExtResource("1_ocabt")
+map_top_left = Vector2(-104, -88)
+metadata/_custom_type_script = "uid://deifd3x6s81md"

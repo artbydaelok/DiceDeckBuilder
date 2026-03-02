@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_yxvhy"]
 [ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="2_2ceik"]
 [ext_resource type="PackedScene" uid="uid://da1bpxmyhqky2" path="res://level_mechanics/container_level_obstacle.tscn" id="2_mt3fl"]
+[ext_resource type="Resource" uid="uid://ca1rr7ccxkre6" path="res://level_mechanics/level_map_data/container_level_map_data.tres" id="2_r6w5y"]
 [ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="3_2ceik"]
 [ext_resource type="PackedScene" uid="uid://b1ylt1qvb3t8g" path="res://assets/3d_models/psx/shipping_container_1/shipping_container_mx_1_hollow_1.glb" id="5_gn56b"]
 [ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="6_jmihm"]
@@ -13,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://pbebb1f7kf7v" path="res://level_mechanics/debug_player_start.tscn" id="11_6o10r"]
 
 [node name="ContainerLevel1" unique_id=885135856 instance=ExtResource("1_yxvhy")]
+level_name = "Container Level"
+current_map_data = ExtResource("2_r6w5y")
 
 [node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.2588193, 0, -0.2588193, 0.9659258, 0, 4, 6)
