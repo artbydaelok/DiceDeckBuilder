@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dqxcx2g3h0gxx"
+path="res://.godot/imported/WEAPSwrd_Sword Blade Double Strike in Metal Armor, Squeaks tails_Ocular Sounds_Medieval Battle_The Complete Fantasy Collection.wav-dc00c34a50575627fb26a4a5321b01cd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/WEAPSwrd_Sword Blade Double Strike in Metal Armor, Squeaks tails_Ocular Sounds_Medieval Battle_The Complete Fantasy Collection.wav"
+dest_files=["res://.godot/imported/WEAPSwrd_Sword Blade Double Strike in Metal Armor, Squeaks tails_Ocular Sounds_Medieval Battle_The Complete Fantasy Collection.wav-dc00c34a50575627fb26a4a5321b01cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

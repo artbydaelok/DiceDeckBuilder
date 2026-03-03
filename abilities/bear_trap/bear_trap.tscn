@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://eia6jn7jy42a"]
+
+[ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_snuma"]
+[ext_resource type="Script" uid="uid://kp4j50dt6k14" path="res://abilities/bear_trap/bear_trap.gd" id="2_n4m6a"]
+
+[node name="BearTrap" unique_id=1823000410 instance=ExtResource("1_snuma")]
+script = ExtResource("2_n4m6a")

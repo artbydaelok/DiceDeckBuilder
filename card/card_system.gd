@@ -36,7 +36,8 @@ const CARD_ABILITIES_SCENES = {
 	"swipe" : preload("res://abilities/bear_swipe/bear_swipe.tscn"),
 	"shotgun" : preload("res://abilities/shotgun/shotgun_blast.tscn"),
 	"grenade" : preload("res://abilities/grenade/grenade.tscn"),
-	"map" : preload("uid://d0xc0g8xk7mqx")
+	"map" : preload("uid://d0xc0g8xk7mqx"),
+	"bear_trap" : preload("uid://eia6jn7jy42a")
 }
 
 const CARD_ABILITIES_RESOURCES = {
@@ -46,7 +47,8 @@ const CARD_ABILITIES_RESOURCES = {
 	"swipe" : preload("res://card/card_abilities/bear_swipe.tres"),
 	"shotgun" : preload("res://card/card_abilities/shotgun.tres"),
 	"grenade" : preload("res://card/card_abilities/grenade.tres"),
-	"map" : preload("uid://d2ovjhng2ojsa")
+	"map" : preload("uid://d2ovjhng2ojsa"),
+	"bear_trap" : preload("uid://v0v5lgovq8xw")
 }
 
 const COLOR_CARDS = [

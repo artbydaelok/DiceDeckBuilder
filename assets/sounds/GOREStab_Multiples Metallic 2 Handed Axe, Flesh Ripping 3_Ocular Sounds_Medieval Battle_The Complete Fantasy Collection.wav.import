@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgwo2ehlgf4ub"
+path="res://.godot/imported/GOREStab_Multiples Metallic 2 Handed Axe, Flesh Ripping 3_Ocular Sounds_Medieval Battle_The Complete Fantasy Collection.wav-222105f30d6dece6cd009e25b129cf25.sample"
+
+[deps]
+
+source_file="res://assets/sounds/GOREStab_Multiples Metallic 2 Handed Axe, Flesh Ripping 3_Ocular Sounds_Medieval Battle_The Complete Fantasy Collection.wav"
+dest_files=["res://.godot/imported/GOREStab_Multiples Metallic 2 Handed Axe, Flesh Ripping 3_Ocular Sounds_Medieval Battle_The Complete Fantasy Collection.wav-222105f30d6dece6cd009e25b129cf25.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

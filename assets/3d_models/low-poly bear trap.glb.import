@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://16502uq86uwi"
-path="res://.godot/imported/Bear Trap.glb-f30440f0e398aee13451dcf0b425f425.scn"
+uid="uid://ccycdk74yuy1y"
+path="res://.godot/imported/low-poly bear trap.glb-dafab5a2d4d0f7364724b1b717092090.scn"
 
 [deps]
 
-source_file="res://assets/3d_models/Bear Trap.glb"
-dest_files=["res://.godot/imported/Bear Trap.glb-f30440f0e398aee13451dcf0b425f425.scn"]
+source_file="res://assets/3d_models/low-poly bear trap.glb"
+dest_files=["res://.godot/imported/low-poly bear trap.glb-dafab5a2d4d0f7364724b1b717092090.scn"]
 
 [params]
 

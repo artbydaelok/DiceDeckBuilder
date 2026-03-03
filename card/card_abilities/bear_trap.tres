@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://v0v5lgovq8xw"]
+
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="1_7j8uh"]
+[ext_resource type="Texture2D" uid="uid://rfgro8kqcnoo" path="res://assets/card_artwork/BearTrap.png" id="1_jisdb"]
+
+[resource]
+script = ExtResource("1_7j8uh")
+card_name = "Bear Trap"
+ability_id = "bear_trap"
+card_description = "Prepare a trap that you leave behind when you move. It will damage enemies or the player if triggered."
+card_artwork = ExtResource("1_jisdb")
+cost = 6
+value = 150
+metadata/_custom_type_script = "uid://dd4juc1880sbt"
