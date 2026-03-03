@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="13_jhnug"]
 [ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_tcwah"]
 [ext_resource type="Material" uid="uid://bd52i823xefur" path="res://assets/shaders/crt_standard.tres" id="17_ieaq0"]
+[ext_resource type="AudioStream" uid="uid://d0kwdk5obatb8" path="res://assets/sounds/BUTTON_05.wav" id="19_ieaq0"]
+[ext_resource type="AudioStream" uid="uid://cyju7bxdc1ras" path="res://assets/sounds/BUTTON_03.wav" id="20_xwi4j"]
 
 [sub_resource type="Gradient" id="Gradient_k1p1p"]
 colors = PackedColorArray(0.19793725, 0.19793725, 0.19793719, 1, 0, 0, 0, 1)
@@ -84,6 +86,9 @@ credits_packed_scene = ExtResource("3_g46cd")
 
 [node name="UISoundController" type="Node" parent="." unique_id=2082677318]
 script = ExtResource("6_bs342")
+button_hovered = ExtResource("19_ieaq0")
+button_focused = ExtResource("19_ieaq0")
+button_pressed = ExtResource("20_xwi4j")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=855203863 instance=ExtResource("4_w8sbm")]
 stream = ExtResource("6_ieaq0")
@@ -285,6 +290,14 @@ focus_next = NodePath("../NewGameButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_font_sizes/font_size = 24
 text = "Exit"
+
+[node name="HoverAudio" type="AudioStreamPlayer" parent="MenuLayer" unique_id=1443518346]
+stream = ExtResource("19_ieaq0")
+bus = &"SFX"
+
+[node name="PressedAudio" type="AudioStreamPlayer" parent="MenuLayer" unique_id=1342680420]
+stream = ExtResource("20_xwi4j")
+bus = &"SFX"
 
 [connection signal="pressed" from="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuLayer/MenuContainer/MenuButtonsMargin/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

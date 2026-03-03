@@ -29,8 +29,6 @@ var sub_menu : Control
 @onready var credits_button = %CreditsButton
 @onready var exit_button = %ExitButton
 
-
-
 func get_game_scene_path() -> String:
 	if game_scene_path.is_empty():
 		return AppConfig.game_scene_path
