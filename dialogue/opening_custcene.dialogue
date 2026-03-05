@@ -1,14 +1,14 @@
 ~ start
 Narrator: This is a story of a little dice. Found here watching TV. [#intro_start]
 Dice: [wave]*chilling noises*[/wave] [#chilling_noises]
-Narrator: The little dice wants to change the channel but realizes he doesn't have hands to hold the remote.
+Narrator: The little dice wants to change the channel but realizes it doesn't have hands to hold the remote.
 Dice: [shake rate=20 level=3]*first world problem noises*[/shake] [#first_groan]
 	
 ~ portal_appears
 # Trigger portal above dice
 Narrator: Suddenly, a [wave amp=25 freq=5]mysterious[/wave] portal appeared above it. [#portal_spawn]
 # Remote controls gets sucked in by the dice
-Narrator: The remote was sucked into the portal! They are stuck watching garbage television! [wave amp=25 freq=5]Devastating.[/wave][#remote_stolen]
+Narrator: The remote was sucked into the portal! It's stuck watching garbage television! [wave amp=25 freq=5]Devastating.[/wave][#remote_stolen]
 Dice: [shake rate=20 level=6]*not again* [/shake] [#second_groan]
 # Dice starts levatitating, getting sucked into the portal
 Dice: [shake rate=20 level=10]???[/shake] [#dice_starts_levitating]
