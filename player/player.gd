@@ -116,6 +116,9 @@ func handle_input():
 		roll(forward.cross(Vector3.UP))
 	if Input.is_action_pressed("move_left"):
 		roll(-forward.cross(Vector3.UP))
+		
+	if Input.is_key_pressed(KEY_SPACE):
+		leap()
 
 func update_side_icon(side : int, new_icon : Texture2D):
 	match side:
@@ -132,6 +135,60 @@ func update_side_icon(side : int, new_icon : Texture2D):
 		6:
 			side_six.get_child(0).set_sprite(new_icon)
 
+func leap():
+	# Do nothing if we're currently rolling.
+	if rolling or commit_lock or is_dead or input_disabled:
+		return
+	
+	var dir := Vector3.FORWARD
+	
+	## CHECK FOR COLLISION
+	var collision_test_pos = dir * cube_size
+	var initial_target_pos = shape_cast.target_position
+	shape_cast.target_position = collision_test_pos
+	shape_cast.force_shapecast_update()
+	
+	# This prevents the player from using items while not standing still, 
+	# and to allow for triggers to work before player can move out of them
+	_disable_input()
+
+	rolling = true
+
+	player_moved.emit(dir)
+	
+	var tween_position := create_tween()
+	#var tween_rotation := create_tween()
+	
+	# Step 1: Offset the pivot.
+	pivot.translate(Vector3(0, 1, 0))
+	mesh.global_translate(Vector3(0, -1, 0))
+	
+	var axis = dir.cross(Vector3.DOWN)
+	
+	var step_1 = pivot.transform.rotated_local(axis, PI/4).translated(Vector3(0, 4, -2))
+	var step_2 = pivot.transform.rotated_local(axis, PI/2).translated(Vector3(0, 0, -4))
+	
+	# TODO: Use this same tween to smoothly tween the position of the player collision box from start position to end position.
+	#tween_rotation.tween_property(pivot, "rotation", )
+	tween_position.tween_property(pivot, "transform", 
+		step_1, 1/speed).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween_position.tween_property(pivot, "transform", 
+		step_2, 1/speed).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	await tween_position.finished
+	
+	rolling = false
+	#roll_finished.emit()
+	
+	_enable_input()
+	
+	# Step 3: Finalize the movement and reset the offset.
+	transform.origin += dir * cube_size * 2.0
+	var b = mesh.global_transform.basis
+	pivot.transform = Transform3D.IDENTITY
+	mesh.position = Vector3(0, cube_size / 2, 0)
+	mesh.global_transform.basis = b
+	rolling = false
+	
 func roll(dir):
 	# Do nothing if we're currently rolling.
 	if rolling or commit_lock or is_dead or input_disabled:

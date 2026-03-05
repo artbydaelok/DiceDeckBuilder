@@ -217,7 +217,6 @@ transform = Transform3D(0.9659665, 0, -0.25866732, 0, 1, 0, 0.25866732, 0, 0.965
 transform = Transform3D(-0.013921954, 0.007717914, -0.1792948, -0.039643466, 0.17525844, 0.010622435, 0.17502725, 0.040309727, -0.011855375, 0.11651707, 0.43422985, 2.6285641)
 
 [node name="DecorationContainers" type="Node3D" parent="." index="49" unique_id=2129561135]
-visible = false
 
 [node name="shipping_container_mx_1_hollow_12" parent="DecorationContainers" index="0" unique_id=1182443718 instance=ExtResource("5_gn56b")]
 transform = Transform3D(1.0849006, -0.4427566, -1.6207889, 0.24628422, 1.950376, -0.36793667, 1.6620271, 1.0832464e-08, 1.1125041, 7.324128, 13.364925, -26.229513)
@@ -390,5 +389,6 @@ transform = Transform3D(0.009876024, -1.9180726e-08, 0.22978792, 5.2041402e-09, 
 
 [node name="DebugPlayerStart" parent="." index="84" unique_id=1975543459 instance=ExtResource("11_6o10r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, -8)
+disabled = true
 
 [editable path="BaseLevel/Player"]
