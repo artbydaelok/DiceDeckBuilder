@@ -171,7 +171,7 @@ size = Vector3(16.949188, 1, 12.263512)
 size = Vector3(9.450188, 1, 11.185405)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nsuhk"]
-size = Vector3(10.168699, 1, 20.531338)
+size = Vector3(11.497986, 1, 20.531338)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjpk1"]
 size = Vector3(9.619383, 1, 10)
@@ -342,7 +342,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -350)
 disabled = true
 
 [node name="DebugPlayerStart2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=371274248 instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -302)
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
@@ -458,6 +458,41 @@ light_color = Color(1, 1, 0.6627451, 1)
 light_energy = 12.0
 spot_range = 18.25746
 spot_angle = 43.261364
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="BaseLevel/AxeObtainLocation" index="5" unique_id=515942382]
+transform = Transform3D(0.82581013, -0.38518134, -0.41191375, 0.44635403, -3.819131e-08, 0.8948564, -0.34468198, -0.92284095, 0.17192721, 4.397174, 9, -106.98211)
+light_color = Color(1, 1, 0.6627451, 1)
+light_energy = 12.0
+spot_range = 18.25746
+spot_angle = 43.261364
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="BaseLevel/AxeObtainLocation" index="6" unique_id=776129260]
+transform = Transform3D(0.89251244, 0.07233313, -0.44518477, 0.446354, -4.1067885e-08, 0.89485645, 0.06472775, -0.99738055, -0.032286216, 21.16599, 9, -119.10958)
+light_color = Color(1, 1, 0.6627451, 1)
+light_energy = 10.0
+spot_range = 18.25746
+spot_angle = 43.261364
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="BaseLevel/AxeObtainLocation" index="7" unique_id=1835674148]
+transform = Transform3D(-0.25621545, -0.8642169, 0.43299264, 0.7290099, 0.12138583, 0.67365414, -0.63474244, 0.48825645, 0.59892184, 55.979687, 9, -104.16877)
+light_color = Color(0.8980392, 1, 0.6627451, 1)
+light_energy = 10.0
+spot_range = 22.366282
+spot_angle = 43.261364
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="BaseLevel/AxeObtainLocation" index="8" unique_id=1967957161]
+transform = Transform3D(-0.5411029, -0.7334833, 0.41135135, 0.58214563, 0.026296113, 0.8126591, -0.6068888, 0.6791986, 0.41276515, 57.26681, 12.536121, -135.43524)
+light_color = Color(0.8980392, 1, 0.6627451, 1)
+light_energy = 10.0
+spot_range = 22.366282
+spot_angle = 43.261364
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="BaseLevel/AxeObtainLocation" index="9" unique_id=235381893]
+transform = Transform3D(-0.741273, -0.6706314, -0.02771132, 0.07609084, -0.12498245, 0.98923683, -0.66687673, 0.73118603, 0.143675, 45.922176, 13.748053, -166.96114)
+light_color = Color(0.8980392, 1, 0.6627451, 1)
+light_energy = 10.0
+spot_range = 17.78242
+spot_angle = 25.167236
 
 [node name="MotherNatureLight" type="SpotLight3D" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="8" unique_id=614971548]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.0663977, 0)
@@ -4453,7 +4488,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.126125, 1, -294.94183)
 shape = SubResource("BoxShape3D_bsqew")
 
 [node name="CollisionShape3D39" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="23" unique_id=1823364270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2121468, 1, -301.01636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5475035, 1, -301.01636)
 shape = SubResource("BoxShape3D_nsuhk")
 
 [node name="CollisionShape3D37" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="24" unique_id=2124186407]
@@ -6063,22 +6098,31 @@ transform = Transform3D(1, 0, 0, 0, 0.9301102, 0.36728054, 0, -0.36728054, 0.930
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, -178)
 relocation_node = NodePath("../FrogCameraAngle")
 
-[node name="Root Scene" parent="." index="71" unique_id=815366632 instance=ExtResource("50_71n5h")]
+[node name="FrogCameraAngle2" type="Marker3D" parent="." index="71" unique_id=123540292]
+transform = Transform3D(1, 0, 0, 0, 0.9301102, 0.36728054, 0, -0.36728054, 0.9301102, -6, 5.0562596, -289.12155)
+
+[node name="Camera3D" type="Camera3D" parent="FrogCameraAngle2" index="0" unique_id=1542604791]
+
+[node name="CameraChangeTrigger2" parent="." index="72" unique_id=1911462746 node_paths=PackedStringArray("relocation_node") instance=ExtResource("48_7u734")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -296)
+relocation_node = NodePath("../FrogCameraAngle")
+
+[node name="Root Scene" parent="." index="73" unique_id=815366632 instance=ExtResource("50_71n5h")]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -21.10215, -0.14807361, -273.8017)
 
-[node name="Root Scene2" parent="." index="72" unique_id=878035058 instance=ExtResource("50_71n5h")]
+[node name="Root Scene2" parent="." index="74" unique_id=878035058 instance=ExtResource("50_71n5h")]
 transform = Transform3D(1.75, 0, 0, 0, 1.68374, -0.47699, 0, 0.47699, 1.68374, -21.259996, -0.14807361, -275.7563)
 
-[node name="Plants - Assorted shelf plants" parent="." index="73" unique_id=1149153726 instance=ExtResource("52_xjpk1")]
+[node name="Plants - Assorted shelf plants" parent="." index="75" unique_id=1149153726 instance=ExtResource("52_xjpk1")]
 transform = Transform3D(-2.0981467e-07, 0, -4.8, 0, 4.8, 0, 4.8, 0, -2.0981467e-07, -22.921381, 4.5816536, -353.14655)
 
-[node name="Shelf" parent="." index="74" unique_id=2074682652 instance=ExtResource("53_bsqew")]
+[node name="Shelf" parent="." index="76" unique_id=2074682652 instance=ExtResource("53_bsqew")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -19.439703, 3.2012572, -364.5331)
 
-[node name="Shelf2" parent="." index="75" unique_id=1981909645 instance=ExtResource("53_bsqew")]
+[node name="Shelf2" parent="." index="77" unique_id=1981909645 instance=ExtResource("53_bsqew")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -10.3324375, 3.2012572, -364.5331)
 
-[node name="DialogueTriggerArea" parent="." index="76" unique_id=1673704166 instance=ExtResource("4_fyusi")]
+[node name="DialogueTriggerArea" parent="." index="78" unique_id=1673704166 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.897543, 1.30139, -359.62988)
 dialogue_resource = ExtResource("5_nautm")
 title_to_play = "orangutan_shop"
