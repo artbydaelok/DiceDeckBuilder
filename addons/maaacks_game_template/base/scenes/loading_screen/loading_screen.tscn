@@ -1,13 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd0jbh4metflb"]
+[gd_scene format=3 uid="uid://cd0jbh4metflb"]
 
 [ext_resource type="Script" uid="uid://dgeewyjjpk4qn" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.gd" id="1_gbk34"]
+[ext_resource type="Shader" uid="uid://y12oskxwjill" path="res://vfx/shaders/main_menu_distorsion.gdshader" id="2_1u2eo"]
+[ext_resource type="Gradient" uid="uid://dlfl2sxnq6dqi" path="res://vfx/gradients/ramps/blue_ghost.tres" id="3_05gvi"]
+[ext_resource type="Material" uid="uid://bd52i823xefur" path="res://assets/shaders/crt_standard.tres" id="4_xtbf5"]
 
-[node name="LoadingScreen" type="CanvasLayer"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r5o3a"]
+frequency = 0.0164
+domain_warp_enabled = true
+domain_warp_amplitude = 15.0
+domain_warp_frequency = 0.095
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k1p1p"]
+width = 144
+height = 96
+noise = SubResource("FastNoiseLite_r5o3a")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ygyc"]
+shader = ExtResource("2_1u2eo")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_k1p1p")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4utau"]
+frequency = 0.033
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w2pq7"]
+width = 144
+height = 96
+noise = SubResource("FastNoiseLite_4utau")
+color_ramp = ExtResource("3_05gvi")
+seamless = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u2eo"]
+bg_color = Color(0.19607843, 0.08235294, 0.15294118, 0.8235294)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.40392157, 0.39215687, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05gvi"]
+bg_color = Color(0.45490196, 0.49803922, 0.72156864, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Gradient" id="Gradient_jhnug"]
+offsets = PackedFloat32Array(0.35670102, 0.9938144)
+colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lhf0i"]
+gradient = SubResource("Gradient_jhnug")
+fill_to = Vector2(0, 1)
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1351246284]
 process_mode = 3
 layer = 20
 script = ExtResource("1_gbk34")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=601880784]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,12 +76,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackPanel" type="Panel" parent="Control"]
+[node name="BackPanel" type="Panel" parent="Control" unique_id=2114823200]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="BackgroundColor" type="ColorRect" parent="Control"]
+[node name="BackgroundColor" type="ColorRect" parent="Control" unique_id=705957271]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,46 +90,56 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="BackgroundTextureRect" type="TextureRect" parent="Control"]
+[node name="PsychedelicNoise" type="TextureRect" parent="Control" unique_id=225022911]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0ygyc")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
+texture = SubResource("NoiseTexture2D_w2pq7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 30.0
-offset_top = -23.0
-offset_right = -30.0
-offset_bottom = 98.0
-theme_override_constants/separation = 50
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1127554921]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -188.0
+offset_right = 270.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
 
-[node name="ProgressLabel" type="Label" parent="Control/VBoxContainer"]
+[node name="ProgressLabel" type="Label" parent="Control/VBoxContainer" unique_id=31427129]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 80
 text = "Loading..."
-horizontal_alignment = 1
+horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer" unique_id=1022227850]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1u2eo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_05gvi")
 max_value = 1.0
+value = 0.45
 
-[node name="ErrorMessage" type="AcceptDialog" parent="Control"]
+[node name="ErrorMessage" type="AcceptDialog" parent="Control" unique_id=1309924511]
 unique_name_in_owner = true
 title = "Loading Error"
 initial_position = 2
 size = Vector2i(360, 100)
 
-[node name="StalledMessage" type="ConfirmationDialog" parent="Control"]
+[node name="StalledMessage" type="ConfirmationDialog" parent="Control" unique_id=581018036]
 unique_name_in_owner = true
 title = "Loading Stalled"
 initial_position = 2
@@ -76,10 +147,23 @@ size = Vector2i(360, 100)
 ok_button_text = "Try Waiting"
 cancel_button_text = "Reload"
 
-[node name="LoadingTimer" type="Timer" parent="."]
+[node name="LoadingTimer" type="Timer" parent="." unique_id=1014804631]
 unique_name_in_owner = true
 one_shot = true
 autostart = true
+
+[node name="CRTShaderLayer" type="CanvasLayer" parent="." unique_id=1578259382]
+layer = 100
+
+[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer" unique_id=450224764]
+material = ExtResource("4_xtbf5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_lhf0i")
 
 [connection signal="confirmed" from="Control/ErrorMessage" to="." method="_on_error_message_confirmed"]
 [connection signal="canceled" from="Control/StalledMessage" to="." method="_on_confirmation_dialog_canceled"]

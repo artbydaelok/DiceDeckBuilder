@@ -2,17 +2,17 @@
 Narrator: This is a story of a little dice. Found here watching TV. [#intro_start]
 Dice: [wave]*chilling noises*[/wave] [#chilling_noises]
 Narrator: The little dice wants to change the channel but realizes he doesn't have hands to hold the remote.
-Dice: [shake rate=20 level=3]*groans in first world problems*[/shake] [#first_groan]
+Dice: [shake rate=20 level=3]*first world problem noises*[/shake] [#first_groan]
 	
 ~ portal_appears
 # Trigger portal above dice
 Narrator: Suddenly, a [wave amp=25 freq=5]mysterious[/wave] portal appeared above it. [#portal_spawn]
 # Remote controls gets sucked in by the dice
-Narrator: The remote was sucked into the portal! Now he can't grab the remote AND he can't reach it! [wave amp=25 freq=5]What a loser.[/wave][#remote_stolen]
-Dice: [shake rate=20 level=6]*groans in interdimensional world problems* [/shake] [#second_groan]
+Narrator: The remote was sucked into the portal! They are stuck watching garbage television! [wave amp=25 freq=5]Devastating.[/wave][#remote_stolen]
+Dice: [shake rate=20 level=6]*not again* [/shake] [#second_groan]
 # Dice starts levatitating, getting sucked into the portal
 Dice: [shake rate=20 level=10]???[/shake] [#dice_starts_levitating]
-Narrator: Ew, portal dust is getting on their carpet, too. Also, it seems they forgot to pay their gravity bill.
+Narrator: Ew, portal dust is getting on their carpet, too. Also, the portal seems to be sucking them in too.
 Dice: [shake rate=20 level=10]*true agony*[/shake] [#true_agony]
 
 ~ player_gets_abducted

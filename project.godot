@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="DiceDeckbuilderGame"
-config/version="0.1.1"
+config/version="0.1.2"
 run/main_scene="uid://c6k5nnpbypshi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://4ukw1l2k56t"
@@ -47,6 +47,7 @@ runtime/balloon_path="res://dialogue/dialogue_balloon.tscn"
 
 window/size/viewport_width=640
 window/size/viewport_height=480
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

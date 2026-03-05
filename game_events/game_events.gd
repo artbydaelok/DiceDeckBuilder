@@ -50,8 +50,10 @@ func _on_scene_transition_start():
 
 func disable_player_input():
 	var player = get_tree().get_first_node_in_group("player")
-	player.input_disabled = true
+	if player:
+		player.input_disabled = true
 
 func enable_player_input():
 	var player = get_tree().get_first_node_in_group("player")
-	player.input_disabled = false
+	if player:
+		player.input_disabled = false

@@ -20,7 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://deuhcoaqn62uk" path="res://assets/3d_models/opening_cutscene_props/remote_control.tscn" id="13_mwsa2"]
 [ext_resource type="AudioStream" uid="uid://p3ydtrcc7jpc" path="res://assets/music/dice be chilling like (bounce 1).wav" id="15_xl3uw"]
 [ext_resource type="PackedScene" uid="uid://d0o285188armg" path="res://assets/3d_models/opening_cutscene_props/LivingRoomTable.glb" id="18_tjfyd"]
-[ext_resource type="Material" uid="uid://bd52i823xefur" path="res://assets/shaders/crt_standard.tres" id="22_aunif"]
+[ext_resource type="PackedScene" uid="uid://bnfwqwcrmw1ei" path="res://assets/3d_models/dice_tv.tscn" id="21_tl3cp"]
+[ext_resource type="PackedScene" uid="uid://dfg08vyui724v" path="res://assets/3d_models/tv-stand_by_daelok.glb" id="22_tl3cp"]
+[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="23_tl3cp"]
+[ext_resource type="PackedScene" uid="uid://snprlumtc6av" path="res://assets/3d_models/dice_tv_cable.tscn" id="24_rigpm"]
 
 [sub_resource type="Gradient" id="Gradient_6sfnl"]
 offsets = PackedFloat32Array(0, 0.7616488)
@@ -1228,26 +1231,13 @@ texture_filter = 0
 size = Vector2(20, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5ci4"]
+albedo_color = Color(1, 0.24000001, 0.25266647, 1)
 albedo_texture = ExtResource("5_drdca")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_ai8dr"]
 size = Vector2(8, 8)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37i02"]
-albedo_color = Color(0.11, 0.11, 0.11, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_apny6"]
-material = SubResource("StandardMaterial3D_37i02")
-size = Vector3(3.5, 2.5, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewgqj"]
-albedo_color = Color(0.11, 0.11, 0.11, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_r5ci4"]
-material = SubResource("StandardMaterial3D_ewgqj")
-size = Vector3(2.5, 1.5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apny6"]
 albedo_texture = ExtResource("9_hi4w7")
@@ -1292,7 +1282,7 @@ point_count = 5
 [sub_resource type="CurveTexture" id="CurveTexture_k17xm"]
 curve = SubResource("Curve_8xkfx")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xl3uw"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sditm"]
 resource_local_to_scene = true
 particle_flag_align_y = true
 emission_shape_scale = Vector3(1.5, 2, 1)
@@ -1322,7 +1312,7 @@ scale_curve = SubResource("CurveTexture_k17xm")
 color_initial_ramp = SubResource("GradientTexture1D_apny6")
 emission_curve = SubResource("CurveTexture_uslo5")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_55ds6"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oxwyt"]
 resource_local_to_scene = true
 particle_flag_align_y = true
 emission_shape_scale = Vector3(1.5, 2, 1)
@@ -1352,7 +1342,7 @@ scale_curve = SubResource("CurveTexture_k17xm")
 color_initial_ramp = SubResource("GradientTexture1D_apny6")
 emission_curve = SubResource("CurveTexture_uslo5")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d8kg1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qoy0j"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("11_apny6")
@@ -1360,12 +1350,24 @@ shader_parameter/noise_texture = ExtResource("12_mwsa2")
 shader_parameter/gradient_texture = SubResource("GradientTexture1D_apny6")
 shader_parameter/grid_scale = 2.0
 
-[sub_resource type="TorusMesh" id="TorusMesh_tjfyd"]
+[sub_resource type="TorusMesh" id="TorusMesh_y8a3m"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_d8kg1")
+material = SubResource("ShaderMaterial_qoy0j")
 inner_radius = 0.001
 rings = 16
 ring_segments = 6
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tl3cp"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_rigpm"]
+width = 128
+height = 128
+depth = 128
+noise = SubResource("FastNoiseLite_tl3cp")
+
+[sub_resource type="FogMaterial" id="FogMaterial_tl3cp"]
+density = 0.015
+density_texture = SubResource("NoiseTexture3D_rigpm")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yjtbj"]
 frequency = 0.0139
@@ -1501,6 +1503,30 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_45fey"]
 material = SubResource("StandardMaterial3D_bceoc")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sditm"]
+shader = ExtResource("23_tl3cp")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.10000000475
+shader_parameter/scanlines_width = 0.1250000059375
+shader_parameter/grille_opacity = 0.10000000475
+shader_parameter/resolution = Vector2(320, 240)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 5.1
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0050000002375
+shader_parameter/noise_opacity = 0.0530000025175
+shader_parameter/noise_speed = 3.9
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.010000047974999982
+shader_parameter/brightness = 1.27
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.585
+shader_parameter/vignette_opacity = 0.4130000196175
+
 [sub_resource type="Gradient" id="Gradient_xwi4j"]
 offsets = PackedFloat32Array(0.35670102, 0.9938144)
 colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
@@ -1509,10 +1535,10 @@ colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_xwi4j")
 fill_to = Vector2(0, 1)
 
-[node name="OpeningCutscene" type="Node3D"]
+[node name="OpeningCutscene" type="Node3D" unique_id=1975015934]
 script = ExtResource("1_45fey")
 
-[node name="FadeScreen" type="TextureRect" parent="."]
+[node name="FadeScreen" type="TextureRect" parent="." unique_id=964173849]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1520,185 +1546,187 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_2fkjc")
 
-[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("2_6sfnl")]
+[node name="BackgroundMusicPlayer" parent="." unique_id=267128404 instance=ExtResource("2_6sfnl")]
 stream = ExtResource("15_xl3uw")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=901544036]
 environment = SubResource("Environment_ry33x")
 
-[node name="PlayerCutsceneActor" parent="." instance=ExtResource("1_syggq")]
+[node name="PlayerCutsceneActor" parent="." unique_id=607036378 instance=ExtResource("1_syggq")]
 transform = Transform3D(1, 0, 0, 0, 0.997245, 0.074178115, 0, -0.074178115, 0.997245, 0, 1.5770721, -0.23178959)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_45fey")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=121699287]
+libraries/ = SubResource("AnimationLibrary_45fey")
 
-[node name="LivingRoomBase" type="Node3D" parent="."]
+[node name="LivingRoomBase" type="Node3D" parent="." unique_id=94745471]
 
-[node name="PortalAppearsSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
+[node name="PortalAppearsSFX" type="AudioStreamPlayer" parent="LivingRoomBase" unique_id=1487711746]
 stream = ExtResource("5_6sfnl")
 pitch_scale = 0.93
 bus = &"SFX"
 
-[node name="RemoteStolenSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
+[node name="RemoteStolenSFX" type="AudioStreamPlayer" parent="LivingRoomBase" unique_id=289805961]
 stream = ExtResource("4_d8kg1")
 pitch_scale = 0.65
 bus = &"SFX"
 
-[node name="PlayerFloatsSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
+[node name="PlayerFloatsSFX" type="AudioStreamPlayer" parent="LivingRoomBase" unique_id=1699744993]
 stream = ExtResource("7_2fkjc")
 bus = &"SFX"
 
-[node name="PlayerAbductedSFX" type="AudioStreamPlayer" parent="LivingRoomBase"]
+[node name="PlayerAbductedSFX" type="AudioStreamPlayer" parent="LivingRoomBase" unique_id=735487830]
 stream = ExtResource("4_d8kg1")
 volume_db = 1.0
 pitch_scale = 0.75
 bus = &"SFX"
 
-[node name="Camera1" type="Camera3D" parent="LivingRoomBase"]
+[node name="Camera1" type="Camera3D" parent="LivingRoomBase" unique_id=515246141]
 transform = Transform3D(0.7071067, 0.1830127, -0.6830126, -3.856705e-09, 0.9659255, 0.2588191, 0.7071067, -0.1830127, 0.6830126, -3, 4, 5.5)
 current = true
 
-[node name="Camera2" type="Camera3D" parent="LivingRoomBase"]
+[node name="Camera2" type="Camera3D" parent="LivingRoomBase" unique_id=1659326752]
 transform = Transform3D(0.2929771, 0.5859725, 0.75551355, -0.16579397, 0.80935234, -0.56343704, -0.9416352, 0.039814558, 0.33427235, 2.6336207, 1.1315038, 3.4243603)
-h_offset = -0.019281033
-v_offset = -0.004360581
+h_offset = -0.0071497075
+v_offset = -0.0011067688
 script = ExtResource("1_bceoc")
 shake_strength = 0.025
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LivingRoomBase"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LivingRoomBase" unique_id=1063703919]
 transform = Transform3D(1, -2.9802322e-08, -2.9802322e-08, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 7, 0)
 
-[node name="DiceCouch" parent="LivingRoomBase" instance=ExtResource("3_ai8dr")]
+[node name="DiceCouch" parent="LivingRoomBase" unique_id=219135167 instance=ExtResource("3_ai8dr")]
 transform = Transform3D(0.7977712, 0, -0.059676673, 0, 0.8, 0, 0.059676673, 0, 0.7977712, 0, 0, 0)
 
-[node name="lowpolyNightstand" parent="LivingRoomBase" instance=ExtResource("4_ktram")]
-transform = Transform3D(-0.989498, 0, 0.14454627, 0, 1, 0, -0.14454627, 0, -0.989498, 4, 0, 0)
+[node name="lowpolyNightstand" parent="LivingRoomBase" unique_id=270306067 instance=ExtResource("4_ktram")]
+transform = Transform3D(-0.989498, 0, 0.14454627, 0, 1, 0, -0.14454627, 0, -0.989498, 3.9618082, 0, 0)
 
-[node name="Ground" type="MeshInstance3D" parent="LivingRoomBase"]
+[node name="Ground" type="MeshInstance3D" parent="LivingRoomBase" unique_id=1770310935]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.5, 0, 6)
 material_override = SubResource("StandardMaterial3D_hi4w7")
 mesh = SubResource("QuadMesh_ewgqj")
 
-[node name="Roof" type="MeshInstance3D" parent="LivingRoomBase"]
+[node name="Roof" type="MeshInstance3D" parent="LivingRoomBase" unique_id=1822542472]
 transform = Transform3D(1, 0, 0, 0, 1.3113416e-07, -1, 0, 1, 1.3113416e-07, -4.5, 10, 6)
 material_override = SubResource("StandardMaterial3D_hi4w7")
 mesh = SubResource("QuadMesh_ewgqj")
 
-[node name="Carpet" type="MeshInstance3D" parent="LivingRoomBase"]
-transform = Transform3D(0.9969556, 0.077971905, 3.4082603e-09, 0, -4.371139e-08, 1, 0.077971905, -0.9969556, -4.357831e-08, 0.5617547, 0.025, 0.781996)
+[node name="Carpet" type="MeshInstance3D" parent="LivingRoomBase" unique_id=1801717364]
+transform = Transform3D(0.9969556, 0.077971905, 3.4082603e-09, 0, -4.371139e-08, 1, 0.077971905, -0.9969556, -4.357831e-08, 1.1768446, 0.025, 0.781996)
 material_override = SubResource("StandardMaterial3D_r5ci4")
 mesh = SubResource("QuadMesh_ai8dr")
 
-[node name="TV" type="MeshInstance3D" parent="LivingRoomBase"]
-transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 1, 3, 5.5)
-mesh = SubResource("BoxMesh_apny6")
-
-[node name="TVLight" type="SpotLight3D" parent="LivingRoomBase/TV"]
-transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, 0.030794144, 0.5, -0.083631516)
-light_color = Color(0.6306617, 0.90937054, 0.93368065, 1)
-light_energy = 11.309284
-spot_range = 10.0
-spot_angle = 80.0
-script = ExtResource("7_37i02")
-can_flicker = true
-min_interval = 0.05
-max_interval = 0.25
-min_energy = 7.5
-
-[node name="TVBack" type="MeshInstance3D" parent="LivingRoomBase/TV"]
-transform = Transform3D(1.000001, 0, 0, 0, 1, 0, 0, 0, 1.000001, 0.0038799047, 0, 1.3251185)
-mesh = SubResource("BoxMesh_r5ci4")
-
-[node name="BackWall" type="MeshInstance3D" parent="LivingRoomBase"]
+[node name="BackWall" type="MeshInstance3D" parent="LivingRoomBase" unique_id=1213290620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, -4)
 mesh = SubResource("QuadMesh_37i02")
 
-[node name="BackWall2" type="MeshInstance3D" parent="LivingRoomBase"]
+[node name="BackWall2" type="MeshInstance3D" parent="LivingRoomBase" unique_id=1097247043]
 transform = Transform3D(0.50000006, 0, 0.8660255, 0, 1, 0, -0.8660255, 0, 0.50000006, -7.9956007, 5, 4)
 mesh = SubResource("QuadMesh_37i02")
 
-[node name="BackWall3" type="MeshInstance3D" parent="LivingRoomBase"]
+[node name="BackWall3" type="MeshInstance3D" parent="LivingRoomBase" unique_id=1863112936]
 transform = Transform3D(-8.7422784e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -8.7422784e-08, 5.5, 5, 6)
 mesh = SubResource("QuadMesh_37i02")
 
-[node name="BackWall4" type="MeshInstance3D" parent="LivingRoomBase"]
+[node name="BackWall4" type="MeshInstance3D" parent="LivingRoomBase" unique_id=47431252]
 transform = Transform3D(-1.0000001, 0, 1.3113419e-07, 0, 1, 0, -1.3113419e-07, 0, -1.0000001, -4.5, 5, 10)
 mesh = SubResource("QuadMesh_37i02")
 
-[node name="PortalVFX" parent="LivingRoomBase" instance=ExtResource("10_ewgqj")]
+[node name="PortalVFX" parent="LivingRoomBase" unique_id=1593054393 instance=ExtResource("10_ewgqj")]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 7.5, 1)
 visible = false
 gradient_texture = SubResource("GradientTexture1D_apny6")
 
 [node name="GPUParticles3D1" parent="LivingRoomBase/PortalVFX" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-process_material = SubResource("ParticleProcessMaterial_xl3uw")
+process_material = SubResource("ParticleProcessMaterial_sditm")
 
 [node name="GPUParticles3D2" parent="LivingRoomBase/PortalVFX" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-process_material = SubResource("ParticleProcessMaterial_55ds6")
+process_material = SubResource("ParticleProcessMaterial_oxwyt")
 
 [node name="PortalMesh" parent="LivingRoomBase/PortalVFX" index="2"]
 transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -3, 0, 1.5, -1.3113416e-07, 0, -0.2176485, 0)
-mesh = SubResource("TorusMesh_tjfyd")
+mesh = SubResource("TorusMesh_y8a3m")
 
-[node name="RemoteControl" parent="LivingRoomBase" instance=ExtResource("13_mwsa2")]
+[node name="RemoteControl" parent="LivingRoomBase" unique_id=1253651968 instance=ExtResource("13_mwsa2")]
 transform = Transform3D(1.1492198, 0, -0.49172547, 0, 1.25, 0, 0.49172547, 0, 1.1492198, 1, 1.053, 3.079)
 
-[node name="LivingRoomTable" parent="LivingRoomBase" instance=ExtResource("18_tjfyd")]
+[node name="LivingRoomTable" parent="LivingRoomBase" unique_id=802863973 instance=ExtResource("18_tjfyd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0057656765, 0, 3.057817)
 
-[node name="VortexScene" type="Node3D" parent="."]
+[node name="tv-stand_by_daelok" parent="LivingRoomBase" unique_id=707322431 instance=ExtResource("22_tl3cp")]
+transform = Transform3D(0.8243844, 0, 0.24492954, 0, 0.86, 0, -0.24492954, 0, 0.8243844, 1.0237055, 0, 5.522834)
+
+[node name="TVLight" type="SpotLight3D" parent="LivingRoomBase" unique_id=866426330]
+transform = Transform3D(0.9659258, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659258, 1.0080994, 2.6191216, 4.525166)
+light_color = Color(0.6306617, 0.90937054, 0.93368065, 1)
+light_energy = 10.0
+spot_range = 60.67
+spot_angle = 80.0
+script = ExtResource("7_37i02")
+can_flicker = true
+min_interval = 0.05
+max_interval = 0.25
+min_energy = 10.0
+max_energy = 20.0
+
+[node name="FogVolume" type="FogVolume" parent="LivingRoomBase" unique_id=133968231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.75)
+size = Vector3(21.5, 4, 19)
+material = SubResource("FogMaterial_tl3cp")
+
+[node name="DiceTV" parent="LivingRoomBase" unique_id=615005911 instance=ExtResource("21_tl3cp")]
+transform = Transform3D(0.9663671, 0, 0.2571665, 0, 1, 0, -0.2571665, 0, 0.9663671, 1.0476675, 1.75, 5.5)
+
+[node name="VortexScene" type="Node3D" parent="." unique_id=1028153484]
 visible = false
 
-[node name="Camera3" type="Camera3D" parent="VortexScene"]
+[node name="Camera3" type="Camera3D" parent="VortexScene" unique_id=415537074]
 transform = Transform3D(0.8660254, -0.25, 0.4330127, 0.12940952, 0.94858825, 0.28884864, -0.4829629, -0.1941143, 0.85385394, 2.5, 3, 4)
-h_offset = -0.031096019
-v_offset = -0.023489468
+h_offset = -0.03384401
+v_offset = 0.09185796
 script = ExtResource("1_bceoc")
 shake_strength = 0.1
 
-[node name="PortalVortex" type="Node3D" parent="VortexScene"]
+[node name="PortalVortex" type="Node3D" parent="VortexScene" unique_id=1866494796]
 
-[node name="VortexMesh" type="MeshInstance3D" parent="VortexScene/PortalVortex"]
+[node name="VortexMesh" type="MeshInstance3D" parent="VortexScene/PortalVortex" unique_id=567910022]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, -54)
 mesh = SubResource("CylinderMesh_45fey")
 
-[node name="PortalVortex2" type="DirectionalLight3D" parent="VortexScene"]
+[node name="PortalVortex2" type="DirectionalLight3D" parent="VortexScene" unique_id=1796718482]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, -0.7071068, 0, 0.7071068, 0.7071068, 0, 8, 0)
 light_color = Color(1, 0.9254902, 1, 1)
 
-[node name="PortalVortex3" type="OmniLight3D" parent="VortexScene"]
+[node name="PortalVortex3" type="OmniLight3D" parent="VortexScene" unique_id=1116263260]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68863297, 0.5667448, -1.5)
 light_color = Color(0.93333334, 1, 1, 1)
 light_energy = 8.0
 omni_range = 20.0
 
-[node name="PortalVortex4" type="GPUParticles3D" parent="VortexScene"]
+[node name="PortalVortex4" type="GPUParticles3D" parent="VortexScene" unique_id=972406244]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
 amount = 150
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_yjtbj")
 draw_pass_1 = SubResource("QuadMesh_45fey")
 
-[node name="TitleCards" type="CanvasLayer" parent="."]
+[node name="TitleCards" type="CanvasLayer" parent="." unique_id=1696373351]
 visible = false
 
-[node name="MarginContainer" type="MarginContainer" parent="TitleCards"]
+[node name="MarginContainer" type="MarginContainer" parent="TitleCards" unique_id=1297634267]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TitleCards/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleCards/MarginContainer" unique_id=1600478130]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="SluggerpunkStudiosLabel" type="Label" parent="TitleCards/MarginContainer/VBoxContainer"]
+[node name="SluggerpunkStudiosLabel" type="Label" parent="TitleCards/MarginContainer/VBoxContainer" unique_id=1667616163]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0.49019608, 0.5372549, 1, 1)
@@ -1711,7 +1739,7 @@ text = "SLUGGERPUNK STUDIOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PresentsLabel" type="Label" parent="TitleCards/MarginContainer/VBoxContainer"]
+[node name="PresentsLabel" type="Label" parent="TitleCards/MarginContainer/VBoxContainer" unique_id=1335716813]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0.49019608, 0.5372549, 1, 1)
@@ -1724,11 +1752,11 @@ text = "presents"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CRTShaderLayer" type="CanvasLayer" parent="."]
+[node name="CRTShaderLayer" type="CanvasLayer" parent="." unique_id=956041962]
 layer = 200
 
-[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer"]
-material = ExtResource("22_aunif")
+[node name="CRTTexture" type="TextureRect" parent="CRTShaderLayer" unique_id=110928421]
+material = SubResource("ShaderMaterial_sditm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1737,5 +1765,8 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_rigpm")
 metadata/_edit_use_anchors_ = true
+
+[node name="DiceTVCable" parent="." unique_id=179382749 instance=ExtResource("24_rigpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6840053, 2.0881493, 4.2964005)
 
 [editable path="LivingRoomBase/PortalVFX"]
