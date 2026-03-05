@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelMapData" format=3 uid="uid://w4ow3r7tujjl"]
+
+[ext_resource type="Texture2D" uid="uid://bcmstv3igv6bk" path="res://assets/ui/hub_map.png" id="1_p2noi"]
+[ext_resource type="Script" uid="uid://deifd3x6s81md" path="res://ui/data/level_map_data.gd" id="1_qkuj3"]
+
+[resource]
+script = ExtResource("1_qkuj3")
+level_dimensions = Vector2(120, 56)
+map_texture = ExtResource("1_p2noi")
+map_top_left = Vector2(-100, -42)
+metadata/_custom_type_script = "uid://deifd3x6s81md"
