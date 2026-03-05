@@ -53,7 +53,6 @@
 [ext_resource type="PackedScene" uid="uid://mtywv7llweaw" path="res://assets/3d_models/palceholder_models/wooden_Barrel.glb" id="50_71n5h"]
 [ext_resource type="PackedScene" uid="uid://diftq8s2dp0i4" path="res://assets/3d_models/palceholder_models/Plants - Assorted shelf plants.glb" id="52_xjpk1"]
 [ext_resource type="PackedScene" uid="uid://0pumqcehup3b" path="res://assets/3d_models/palceholder_models/Shelf.glb" id="53_bsqew"]
-[ext_resource type="PackedScene" uid="uid://yosnc3hubpp3" path="res://level_mechanics/player_detection.tscn" id="54_ku4x1"]
 [ext_resource type="PackedScene" uid="uid://brurr6h0yspvo" path="res://assets/3d_models/palceholder_models/Shelves.glb" id="55_nj8pe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
@@ -320,8 +319,6 @@ color_initial_ramp = SubResource("GradientTexture1D_h2ymo")
 alpha_curve = SubResource("CurveTexture_t7kac")
 emission_curve = SubResource("CurveTexture_71n5h")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sqhvy"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_i26wv"]
 size = Vector3(6, 1, 2)
 
@@ -345,7 +342,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -350)
 disabled = true
 
 [node name="DebugPlayerStart2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=371274248 instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -84)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -314)
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
@@ -6081,14 +6078,10 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -19.439703, 3.2012572, 
 [node name="Shelf2" parent="." index="75" unique_id=1981909645 instance=ExtResource("53_bsqew")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -10.3324375, 3.2012572, -364.5331)
 
-[node name="PlayerDetection" parent="." index="76" unique_id=1726290184 instance=ExtResource("54_ku4x1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.59214354, -360.27695)
-
-[node name="CollisionShape3D" parent="PlayerDetection" index="0" unique_id=1565092651]
-shape = SubResource("BoxShape3D_sqhvy")
-
-[node name="DialogueTriggerArea" parent="." index="77" unique_id=1673704166 instance=ExtResource("4_fyusi")]
+[node name="DialogueTriggerArea" parent="." index="76" unique_id=1673704166 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.897543, 1.30139, -359.62988)
+dialogue_resource = ExtResource("5_nautm")
+title_to_play = "orangutan_shop"
 
 [node name="CollisionShape3D" parent="DialogueTriggerArea/PlayerDetection" parent_id_path=PackedInt32Array(1673704166, 1049329093) index="0" unique_id=1592456935]
 shape = SubResource("BoxShape3D_i26wv")
@@ -6114,5 +6107,4 @@ transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, 23
 [editable path="BaseLevel/AxeObtainLocation/AxeDialogueTrigger"]
 [editable path="BaseLevel/Player"]
 [editable path="BaseLevel/WaterBlock"]
-[editable path="PlayerDetection"]
 [editable path="DialogueTriggerArea"]

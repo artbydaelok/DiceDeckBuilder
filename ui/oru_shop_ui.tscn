@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cx74bd045dj7m"]
+
+[ext_resource type="PackedScene" uid="uid://0n5rso7bt1od" path="res://ui/shop_ui.tscn" id="1_hu1ec"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="2_h0ie3"]
+[ext_resource type="Resource" uid="uid://bkjxoqabvrexm" path="res://card/card_abilities/arrow.tres" id="3_6hkf3"]
+[ext_resource type="Resource" uid="uid://v0v5lgovq8xw" path="res://card/card_abilities/bear_trap.tres" id="4_h0ie3"]
+[ext_resource type="Resource" uid="uid://m6x4ffngkvk4" path="res://card/card_abilities/lantern.tres" id="5_6hkf3"]
+
+[node name="OruShopUI" unique_id=716432253 instance=ExtResource("1_hu1ec")]
+shop_items = Array[ExtResource("2_h0ie3")]([ExtResource("3_6hkf3"), ExtResource("4_h0ie3"), ExtResource("5_6hkf3")])
+
+[node name="DialogueLabel" parent="MarginContainer/PanelContainer/MarginContainer/MainContent/PortraitAndDialogueContainer" parent_id_path=PackedInt32Array(1479724572) index="2" unique_id=764740227]
+text = "Pick what you like. Just please give me the correct amount of money."

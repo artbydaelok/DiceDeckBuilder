@@ -14,3 +14,9 @@ func _ready() -> void:
 	
 func initialize():
 	pass
+	
+func _process(delta: float) -> void:
+	tick(delta)
+	
+func tick(delta):
+	pass

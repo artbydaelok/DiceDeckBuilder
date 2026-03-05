@@ -35,4 +35,6 @@ Forest Demon: You have demonstrated your strength. I suppose you can pass... for
 do GameEvents.current_level.hide_mother_nature()
 
 ~ orangutan_shop
-Oru: 
+Oru: Shop. NOW
+	
+do GameEvents.current_level.open_oru_shop()

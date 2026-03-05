@@ -37,7 +37,8 @@ const CARD_ABILITIES_SCENES = {
 	"shotgun" : preload("res://abilities/shotgun/shotgun_blast.tscn"),
 	"grenade" : preload("res://abilities/grenade/grenade.tscn"),
 	"map" : preload("uid://d0xc0g8xk7mqx"),
-	"bear_trap" : preload("uid://eia6jn7jy42a")
+	"bear_trap" : preload("uid://eia6jn7jy42a"),
+	"lantern" : preload("uid://7wyhdau62bhk")
 }
 
 const CARD_ABILITIES_RESOURCES = {
@@ -48,7 +49,8 @@ const CARD_ABILITIES_RESOURCES = {
 	"shotgun" : preload("res://card/card_abilities/shotgun.tres"),
 	"grenade" : preload("res://card/card_abilities/grenade.tres"),
 	"map" : preload("uid://d2ovjhng2ojsa"),
-	"bear_trap" : preload("uid://v0v5lgovq8xw")
+	"bear_trap" : preload("uid://v0v5lgovq8xw"),
+	"lantern" : preload("uid://m6x4ffngkvk4")
 }
 
 const COLOR_CARDS = [

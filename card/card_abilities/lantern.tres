@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://m6x4ffngkvk4"]
+
+[ext_resource type="Texture2D" uid="uid://cs0a42plbanc7" path="res://assets/card_artwork/LanternSprite.png" id="1_di7oi"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="1_y7lhv"]
+
+[resource]
+script = ExtResource("1_y7lhv")
+card_name = "Lantern"
+ability_id = "lantern"
+card_description = "Spawns a floating lantern above the player."
+card_artwork = ExtResource("1_di7oi")
+cost = 1
+value = 100
+metadata/_custom_type_script = "uid://dd4juc1880sbt"

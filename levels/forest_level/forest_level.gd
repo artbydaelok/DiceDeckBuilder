@@ -18,6 +18,7 @@ const BACKGROUND_MUSIC_PLAYER_SCENE = preload("uid://bkcsjsk2ciff")
 const MONEY_PROBLEMS_TRACK = preload("uid://f1buplcjvh7g")
 var forest_demon_music_player : AudioStreamPlayer
 
+const ORU_SHOP_UI = preload("uid://cx74bd045dj7m")
 
 # IDEALLY THIS WOULD ONLY HAPPEN IF THE PLAYER DOESN'T HAVE THE AXE
 func obtain_axe():
@@ -58,3 +59,8 @@ func hide_mother_nature():
 	
 	# Triggers animations in the scene
 	forest_demon.disappear()
+
+
+func open_oru_shop():
+	var shop_ui = ORU_SHOP_UI.instantiate()
+	GameEvents.current_level.user_interface.add_child(shop_ui)

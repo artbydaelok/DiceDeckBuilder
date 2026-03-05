@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://7wyhdau62bhk"]
+
+[ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_k8gcg"]
+[ext_resource type="Script" uid="uid://cffoddmgcwpgp" path="res://lantern_ability.gd" id="2_4cbbe"]
+[ext_resource type="PackedScene" uid="uid://c88pophtpsiw1" path="res://assets/3d_models/Lantern.glb" id="3_56n42"]
+
+[node name="LanternAbility" unique_id=1823000410 instance=ExtResource("1_k8gcg")]
+script = ExtResource("2_4cbbe")
+
+[node name="SelfDestroyTimer" parent="." index="0" unique_id=123143262]
+duration = 15.0
+
+[node name="LanternMesh" parent="." index="1" unique_id=538239703 instance=ExtResource("3_56n42")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LanternMesh" index="1" unique_id=1169007386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42962134, 0)
+light_color = Color(0.9977959, 0.80107695, 0.7419342, 1)
+light_energy = 2.0
+omni_range = 15.0
