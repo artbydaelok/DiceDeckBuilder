@@ -8,4 +8,4 @@ script = ExtResource("1_ka76t")
 [node name="PictureTakerViewport" type="SubViewport" parent="." unique_id=1274554253]
 render_target_update_mode = 4
 
-[node name="CutsceneCamera1" type="Camera3D" parent="PictureTakerViewport" unique_id=741317271]
+[node name="SnapshotCamera" type="Camera3D" parent="PictureTakerViewport" unique_id=741317271]

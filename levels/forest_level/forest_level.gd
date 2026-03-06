@@ -20,12 +20,17 @@ var forest_demon_music_player : AudioStreamPlayer
 
 const ORU_SHOP_UI = preload("uid://cx74bd045dj7m")
 
+@export var first_time_cutscene : bool = false
+@onready var cutscene_player: AnimationPlayer = $CutscenePlayer
+
 func level_start():
-	#GameEvents.cutscene_started.emit(true)
-	pass
+	if first_time_cutscene:
+		GameEvents.cutscene_started.emit(true)
+		cutscene_player.play("first_time")
 
 func end_cutscene():
 	GameEvents.cutscene_ended.emit()
+	game_camera.make_current()
 
 # IDEALLY THIS WOULD ONLY HAPPEN IF THE PLAYER DOESN'T HAVE THE AXE
 func obtain_axe():
