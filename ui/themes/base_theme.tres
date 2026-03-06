@@ -1,5 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dpnhase8o0gcu"]
 
+[ext_resource type="FontFile" uid="uid://37siiqfrj7sw" path="res://assets/fonts/Jersey15-Regular.ttf" id="1_beune"]
 [ext_resource type="StyleBox" uid="uid://b0ijw3by1gfth" path="res://ui/themes/base_theme_styles/button_hover_focused.tres" id="1_ve3e8"]
 [ext_resource type="StyleBox" uid="uid://dstlakwyglg2h" path="res://ui/themes/base_theme_styles/button_normal.tres" id="2_fqfdt"]
 [ext_resource type="StyleBox" uid="uid://dtknh3kmpvwgq" path="res://ui/themes/base_theme_styles/button_pressed.tres" id="3_fqfdt"]
@@ -17,6 +18,8 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [resource]
+Button/font_sizes/font_size = 26
+Button/fonts/font = ExtResource("1_beune")
 Button/styles/focus = ExtResource("1_ve3e8")
 Button/styles/hover = ExtResource("1_ve3e8")
 Button/styles/normal = ExtResource("2_fqfdt")
@@ -26,3 +29,4 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 10
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_fqfdt")
+TabContainer/font_sizes/font_size = 24

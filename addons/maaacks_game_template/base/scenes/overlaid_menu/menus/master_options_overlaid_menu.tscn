@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bqqngki8bm3iq" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu_container.tscn" id="1_kl0kf"]
 [ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="2_vmfam"]
+[ext_resource type="PackedScene" uid="uid://b2numvphf2kau" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/video/video_options_menu.tscn" id="3_ivbph"]
+[ext_resource type="PackedScene" uid="uid://c8vnncjwqcpab" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="4_ybwkv"]
 
 [node name="MasterOptionsOverlaidMenu" unique_id=687975264 instance=ExtResource("1_kl0kf")]
 menu_scene = ExtResource("2_vmfam")
@@ -19,6 +21,19 @@ offset_bottom = 0.0
 
 [node name="TitleMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="0"]
 visible = false
+
+[node name="MasterOptionsMenu2" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuContainer" index="1" unique_id=1063886146 instance=ExtResource("2_vmfam")]
+layout_mode = 2
+current_tab = 0
+
+[node name="Video" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuContainer/MasterOptionsMenu2" index="1" unique_id=584102719 instance=ExtResource("3_ivbph")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Audio" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuContainer/MasterOptionsMenu2" index="2" unique_id=542977374 instance=ExtResource("4_ybwkv")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
 size_flags_horizontal = 1
