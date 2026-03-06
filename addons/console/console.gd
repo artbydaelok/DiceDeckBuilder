@@ -331,10 +331,10 @@ func toggle_console() -> void:
 		console_closed.emit()
 
 func on_console_toggled_on():
-	GameEvents.disable_player_input()
+	GameEvents.menu_entered.emit()
 
 func on_console_toggled_off():
-	GameEvents.enable_player_input()
+	GameEvents.menu_exited.emit()
 
 func is_visible():
 	return control.visible

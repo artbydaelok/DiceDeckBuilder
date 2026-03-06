@@ -20,6 +20,13 @@ var forest_demon_music_player : AudioStreamPlayer
 
 const ORU_SHOP_UI = preload("uid://cx74bd045dj7m")
 
+func level_start():
+	#GameEvents.cutscene_started.emit(true)
+	pass
+
+func end_cutscene():
+	GameEvents.cutscene_ended.emit()
+
 # IDEALLY THIS WOULD ONLY HAPPEN IF THE PLAYER DOESN'T HAVE THE AXE
 func obtain_axe():
 	axe_mesh.queue_free()

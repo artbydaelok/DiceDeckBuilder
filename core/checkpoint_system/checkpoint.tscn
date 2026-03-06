@@ -125,7 +125,7 @@ collision_mask = 256
 shape = SubResource("BoxShape3D_7iaty")
 
 [node name="InteractionPromptLabel" type="Label3D" parent="." unique_id=1869799838]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0361347, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0361347, 0)
 visible = false
 billboard = 1
 text = "E"

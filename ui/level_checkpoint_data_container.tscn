@@ -32,3 +32,10 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="InfoContainer/HBoxContainer" unique_id=1627612688]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="CheckpointPicture" type="TextureRect" parent="InfoContainer/HBoxContainer/PanelContainer" unique_id=27598590]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 4

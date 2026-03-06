@@ -27,18 +27,23 @@ func _update_checkpoints():
 		tab.setup()
 		
 		for checkpoint in unlocked_checkpoints[key]:
-			add_button(checkpoint, tab.level_button_container)
+			add_button(checkpoint, tab)
 
 
-func add_button(checkpoint: String, container: VBoxContainer):
+func add_button(checkpoint: String, tab : LevelCheckpointDataContainer):
 	var checkpoint_data: CheckpointData
 	checkpoint_data = load(checkpoint)
+	
+	var container = tab.level_button_container
 	
 	var button = Button.new()
 	button.text = checkpoint_data.checkpoint_name
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.flat = true
 	button.pressed.connect(on_checkpoint_button_pressed.bind(checkpoint_data))
+	
+	button.mouse_entered.connect(tab.update_focus.bind(checkpoint_data))
+	button.focus_entered.connect(tab.update_focus.bind(checkpoint_data))
 	container.add_child(button)
 	
 func _on_button_pressed() -> void:
@@ -47,7 +52,7 @@ func _on_button_pressed() -> void:
 
 func close():
 	queue_free()
-	
+
 func on_checkpoint_button_pressed(checkpoint: CheckpointData):
 	if checkpoint.level_name == GameEvents.current_level.level_name:
 		get_tree().get_first_node_in_group("player").global_position = checkpoint.spawn_point + Vector3(0, 0, 2)

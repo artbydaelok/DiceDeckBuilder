@@ -15,6 +15,8 @@ signal side_editing_started(side: int)
 signal side_updated_item(side: int, item: Card)
 signal dice_viewer_rotation_speed_updated(new_speed: float)
 
+var is_in_cutscene : bool = false
+
 var is_scene_transitioning : bool = false
 
 var current_level : Level
@@ -28,6 +30,17 @@ func _ready():
 	menu_entered.connect(_on_menu_entered)
 	menu_exited.connect(_on_menu_exited)
 	
+	cutscene_started.connect(_on_cutscene_started)
+	cutscene_ended.connect(_on_cutscene_ended)
+	
+func _on_cutscene_started(player_input_disable : bool = true):
+	is_in_cutscene = player_input_disable
+	
+func _on_cutscene_ended():
+	print("input enabled again")
+	enable_player_input()
+	is_in_cutscene = false
+
 func _on_menu_entered():
 	menus_open += 1
 	is_in_menu = true

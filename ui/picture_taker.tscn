@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bn1y6s1fsr7o4"]
+
+[ext_resource type="Script" uid="uid://b1finb35wmnto" path="res://ui/picture_taker.gd" id="1_ka76t"]
+
+[node name="PictureTaker" type="Node" unique_id=1362222704]
+script = ExtResource("1_ka76t")
+
+[node name="PictureTakerViewport" type="SubViewport" parent="." unique_id=1274554253]
+render_target_update_mode = 4
+
+[node name="CutsceneCamera1" type="Camera3D" parent="PictureTakerViewport" unique_id=741317271]

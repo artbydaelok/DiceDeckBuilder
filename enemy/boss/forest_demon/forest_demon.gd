@@ -6,6 +6,7 @@ extends Node3D
 const FOREST_LEVEL_DIALOGUE = preload("uid://ha3t3hrgxnfs")
 
 @onready var block_collision: CollisionShape3D = %BlockCollision
+@onready var axe_detection_hurtbox: Area3D = $AxeDetectionHurtbox
 
 func _ready() -> void:
 	visible = false
@@ -23,3 +24,4 @@ func disappear():
 	ground_scale_anim.play()
 	animation_player.play_backwards("appear")
 	block_collision.disabled = true
+	axe_detection_hurtbox.get_child(0).disabled = true
