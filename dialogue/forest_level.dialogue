@@ -33,8 +33,28 @@ Forest Demon: Y-you-... You hurt someone else! and that someone else was me! I l
 Forest Demon: Ahem-....
 Forest Demon: You have demonstrated your strength. I suppose you can pass... for now.
 do GameEvents.current_level.hide_mother_nature()
+=> END
 
-~ orangutan_shop
-Oru: Shop. NOW
+~ orangutan_shop_initial
+Oru: Oo oo. Welcome to shop, block friend. While Oru cannot see, Oru can tell you are very blockoid.
+Oru: Oru likes the gold coins, oo oo. Purchase what you'd like, but please give me the correct kind of coins.
+Oru: Oru loves the forest, oo oo. Being blind does not stop me from trading with the local frogs, oo oo.
 	
 do GameEvents.current_level.open_oru_shop()
+=> END
+
+~ orangutan_shop
+Oru: Welcome back, oo oo. What would you like to buy?
+	
+do GameEvents.current_level.open_oru_shop()
+=> END!
+
+~ bear_encounter
+???: Grrf. Who's out there? Come closer, and you'll regret it.
+???: You'll turn around and leave if you know what's good for you.
+=> END
+
+~ bear_trap_encounter
+???: Grrrowf? Is that... A bear trap?
+???: Grrrrgh... You insult me, you cube-ulent creature!
+=> END

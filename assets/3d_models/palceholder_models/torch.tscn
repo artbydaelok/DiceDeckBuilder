@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vykkgpct1dhc"]
+
+[ext_resource type="PackedScene" uid="uid://btvcyjv8rgwo6" path="res://assets/3d_models/palceholder_models/Torch.glb" id="1_sk6hf"]
+
+[node name="Torch" type="Node3D" unique_id=1677823742]
+
+[node name="Root Scene" parent="." unique_id=63233435 instance=ExtResource("1_sk6hf")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=180793064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5303125, 0)
+light_color = Color(0.81200933, 0.49939948, 0, 1)
+light_energy = 9.0
+omni_range = 10.0
