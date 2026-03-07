@@ -18,7 +18,7 @@ func _on_player_detection_body_entered(area: Area3D) -> void:
 	var d = DialogueManager.show_dialogue_balloon(dialogue_resource, title_to_play)
 	
 func _on_dialogue_ended(dialogue):
-	GameEvents.cutscene_ended.emit()
+	GameEvents.cutscene_ended.emit.call_deferred()
 	if one_shot:
 		queue_free()
 	

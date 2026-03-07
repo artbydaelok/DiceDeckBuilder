@@ -61,8 +61,8 @@ signal insufficient_energy
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
 	player_health_updated.emit(health)
-	DialogueManager.dialogue_started.connect(_on_dialogue_started)
-	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	#DialogueManager.dialogue_started.connect(_on_dialogue_started)
+	#DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
 	GameEvents.menu_entered.connect(_on_menu_entered)
@@ -72,11 +72,11 @@ func _ready():
 		global_position = GameEvents.current_checkpoint_data.spawn_point + Vector3(0, 0, 2)
 		GameEvents.set_deferred("is_checkpoint_transfer", false)
 
-func _on_dialogue_started(resource):
-	_on_cutscene_started(true)
-	
-func _on_dialogue_ended(resource : DialogueResource):
-	_on_cutscene_ended()
+#func _on_dialogue_started(resource):
+	#_on_cutscene_started(true)
+	#
+#func _on_dialogue_ended(resource : DialogueResource):
+	#_on_cutscene_ended()
 
 func _on_cutscene_started(_input_disabled: bool):
 	if _input_disabled:

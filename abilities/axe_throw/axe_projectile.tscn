@@ -23,7 +23,7 @@ size = Vector3(0.81103516, 1.6901245, 0.119140625)
 size = Vector3(1, 0.657959, 0.119140625)
 
 [node name="AxeProjectile" type="RigidBody3D" unique_id=1030801190]
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_lfw1k")
 
 [node name="Trail" parent="." unique_id=688641761 instance=ExtResource("7_qpden")]

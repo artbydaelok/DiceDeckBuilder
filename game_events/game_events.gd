@@ -34,10 +34,13 @@ func _ready():
 	cutscene_ended.connect(_on_cutscene_ended)
 	
 func _on_cutscene_started(player_input_disable : bool = true):
-	is_in_cutscene = player_input_disable
+	is_in_cutscene = true
+	if player_input_disable:
+		disable_player_input()
 	
 func _on_cutscene_ended():
 	print("input enabled again")
+	await get_tree().create_timer(0.5).timeout
 	enable_player_input()
 	is_in_cutscene = false
 
