@@ -38,7 +38,8 @@ signal player_moved(direction : Vector2)
 signal roll_finished()
 
 # Health Variables
-var health : int = 100
+var health : int
+var max_health : int = 100
 var is_dead : bool = false
 var invulnerable : bool = false
 var input_disabled : bool = false
@@ -60,6 +61,7 @@ signal insufficient_energy
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
+	health = max_health
 	player_health_updated.emit(health)
 	#DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	#DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
@@ -298,11 +300,14 @@ func detect_side_up():
 			GameEvents.emit_signal("dice_moved", up_side + 1)
 
 func heal_player(amount : float):
+	if health == max_health: return
 	health += amount
-	health = clampf(health, 0, 100)
+	health = clampf(health, 0, max_health)
 	player_healed.emit(amount)
 	player_health_updated.emit(health)
-
+	$HealSFX.play()
+	$HealParticles.emitting = true
+	
 func apply_damage(amount : float):
 	if invulnerable: return
 	invulnerable = true
