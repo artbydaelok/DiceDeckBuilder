@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://di7uqf25xra85"]
+
+[ext_resource type="ArrayMesh" uid="uid://xhvhtlcbax4e" path="res://assets/3d_models/cars/Car.obj" id="1_6i5xo"]
+[ext_resource type="Texture2D" uid="uid://w14ggvti3m7v" path="res://assets/3d_models/cars/car_red.png" id="2_t73j8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2078"]
+albedo_texture = ExtResource("2_t73j8")
+
+[node name="Car2" type="MeshInstance3D" unique_id=1415582698]
+mesh = ExtResource("1_6i5xo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_l2078")

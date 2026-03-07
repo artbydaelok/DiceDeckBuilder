@@ -40,9 +40,11 @@
 [ext_resource type="Texture2D" uid="uid://chnmrbcpv2u20" path="res://assets/3d_models/TunnelUV.png" id="34_wdw7n"]
 [ext_resource type="PackedScene" uid="uid://b1ylt1qvb3t8g" path="res://assets/3d_models/psx/shipping_container_1/shipping_container_mx_1_hollow_1.glb" id="35_mq2i1"]
 [ext_resource type="PackedScene" uid="uid://b1rx8e7i3d4u" path="res://assets/3d_models/psx/barricade/barricade_b_3.glb" id="36_1761n"]
+[ext_resource type="PackedScene" uid="uid://di7uqf25xra85" path="res://assets/3d_models/cars/red_car.tscn" id="36_hrgjf"]
 [ext_resource type="PackedScene" uid="uid://3cbj41471tts" path="res://assets/3d_models/psx/warehouse/warehouse_mx_2.glb" id="37_tlfld"]
 [ext_resource type="PackedScene" uid="uid://dp0a62ch0fmen" path="res://assets/3d_models/psx/warehouse/warehouse_mx_4.glb" id="38_hrgjf"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="39_1qfx6"]
+[ext_resource type="PackedScene" uid="uid://bnj6fwuotoe76" path="res://assets/3d_models/cars/green_car.tscn" id="39_l2078"]
 [ext_resource type="AudioStream" uid="uid://bpei5k57wnr2a" path="res://assets/music/CosmicHub.wav" id="40_blouu"]
 [ext_resource type="ArrayMesh" uid="uid://n3dfmxo5np3f" path="res://assets/3d_models/lamp_post.obj" id="42_srspe"]
 [ext_resource type="PackedScene" uid="uid://dyj52ydshi4bk" path="res://level_mechanics/breakable_log.tscn" id="45_mq2i1"]
@@ -496,7 +498,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 100, -42)
 gizmo_extents = 120.0
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1159506797]
-transform = Transform3D(0.965924, -1.05937765e-08, -0.2588189, 0.00054658105, 0.99999607, 0.0020398286, 0.25881806, -0.002111787, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592396, -1.0593776e-08, -0.2588189, 0.00054658105, 0.999996, 0.0020398286, 0.25881806, -0.0021117867, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=532374131]
@@ -1068,11 +1070,8 @@ mesh = ExtResource("28_u6ack")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_l2078")
 
-[node name="Car2" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="35" unique_id=1777676685]
-transform = Transform3D(0.31329447, -1.5920886, -1.1692307, 0.41206288, 1.2104768, -1.5378394, 1.9318516, 0, 0.51763815, -62.254375, -1.2226901, -18.757729)
-mesh = ExtResource("28_u6ack")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_l2078")
+[node name="Car2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="35" unique_id=1415582698 instance=ExtResource("36_hrgjf")]
+transform = Transform3D(0.3132945, -1.5920886, -1.1692306, 0.41206285, 1.2104766, -1.5378394, 1.9318516, 5.9604645e-08, 0.5176381, -62.254375, -1.2226901, -18.757729)
 
 [node name="Car3" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="36" unique_id=1560448275]
 transform = Transform3D(0.31329447, -1.5920886, -1.1692307, 0.41206288, 1.2104768, -1.5378394, 1.9318516, 0, 0.51763815, -53.3581, 11.7661705, -34.268364)
@@ -1100,11 +1099,8 @@ mesh = ExtResource("30_1qfx6")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3hf2u")
 
-[node name="Car6" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="40" unique_id=277073234]
+[node name="Car6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="40" unique_id=1985478119 instance=ExtResource("39_l2078")]
 transform = Transform3D(0.51763815, 0, 1.9318516, 0, 2, 0, -1.9318516, 0, 0.51763815, -60.351826, 0, -12.322467)
-mesh = ExtResource("30_1qfx6")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_3hf2u")
 
 [node name="Car8" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="41" unique_id=411364789]
 transform = Transform3D(0.46577165, -0.8725986, 1.7382832, 0.22584516, 1.7996032, 0.8428655, -1.9318516, 0, 0.51763815, -24.170242, 9.739995, -22.78078)

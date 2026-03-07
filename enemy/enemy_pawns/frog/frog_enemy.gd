@@ -4,6 +4,7 @@ extends "res://enemy/enemy_pawns/base_enemy_pawn.gd"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var spaces_to_move : int = 3
+@export var reverse_direction : bool = false
 var spaces_moved : int = 0
 
 var move_direction : Vector3 = Vector3.BACK
@@ -12,7 +13,9 @@ var move_direction : Vector3 = Vector3.BACK
 # Triggers on ready / spawn
 func initialize():
 	move_timer.timeout.connect(on_timer_timeout)
-
+	if reverse_direction:
+		move_direction = -move_direction
+	
 # Triggers when player begins moving
 func _on_player_moved(direction: Vector3): # OVERRIDABLE FUNCTION
 	# Remove the comment on the next line if you want this enemy to move towards the camera every time the player moves.
@@ -34,7 +37,7 @@ func on_timer_timeout():
 	if spaces_moved < spaces_to_move:
 		spaces_moved += 1
 	else:
-		spaces_moved = 0
+		spaces_moved = 1
 		move_direction = -move_direction
 	
 	animation_player.play("jump")
