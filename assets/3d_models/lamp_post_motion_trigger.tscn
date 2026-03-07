@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://clyigkmuge4ya"]
+
+[ext_resource type="PackedScene" uid="uid://ha7xmmnonvrm" path="res://assets/3d_models/lamp_post.tscn" id="1_dc14x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dc14x"]
+
+[node name="LampPost" unique_id=1788599744 instance=ExtResource("1_dc14x")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="SpotLight3D" parent="." index="1" unique_id=1725115159]
+transform = Transform3D(0.6666667, 0, 0, 0, -2.9140933e-08, 0.6666667, 0, -0.6666667, -2.9140933e-08, 2.3392186, 4.332752, 0)
+spot_range = 7.687985
+spot_angle = 30.670427
+
+[node name="Area3D" type="Area3D" parent="." index="2" unique_id=1066057705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3392186, 0, 0)
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1023057658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36459368, 0)
+shape = SubResource("BoxShape3D_dc14x")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

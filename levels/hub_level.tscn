@@ -498,7 +498,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 100, -42)
 gizmo_extents = 120.0
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1159506797]
-transform = Transform3D(0.9659239, -1.0593776e-08, -0.2588189, 0.000546581, 0.99999595, 0.0020398286, 0.25881803, -0.0021117867, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592385, -1.0593775e-08, -0.2588189, 0.000546581, 0.9999959, 0.0020398286, 0.25881803, -0.0021117865, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=532374131]
@@ -569,7 +569,6 @@ gradient_texture = ExtResource("4_c5pd8")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.536743e-07, 0, -2)
 dialogue_resource = ExtResource("4_nrj8t")
 title_to_play = "forest_level_portal"
-has_scene_change = true
 
 [node name="CollisionShape3D" parent="BaseLevel/ForestLevelEntry/ForestLevelPortal/DialogueTriggerArea2/PlayerDetection" parent_id_path=PackedInt32Array(1446464864, 1049329093) index="0" unique_id=1592456935]
 shape = SubResource("BoxShape3D_nrj8t")
@@ -1047,7 +1046,6 @@ gradient_texture = ExtResource("10_q222i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 dialogue_resource = ExtResource("4_nrj8t")
 title_to_play = "hell_level_portal"
-has_scene_change = true
 
 [node name="CollisionShape3D" parent="BaseLevel/HellEntry/HellLevelPortal/DialogueTriggerArea3/PlayerDetection" parent_id_path=PackedInt32Array(1937761622, 1049329093) index="0" unique_id=1592456935]
 shape = SubResource("BoxShape3D_nrj8t")
@@ -1138,7 +1136,6 @@ transform = Transform3D(2.9856417, 0, 0.2931657, 0, 3.0000005, 0, -0.2931657, 0,
 transform = Transform3D(-0.032573976, 0, -0.33173788, 0, 0.3333333, 0, 0.33173788, 0, -0.032573976, 0.02637291, 0.3333333, 2.9004583)
 dialogue_resource = ExtResource("4_nrj8t")
 title_to_play = "container_level_entry"
-has_scene_change = true
 
 [node name="CollisionShape3D" parent="BaseLevel/shipping_container_mx_1_hollow_12/ContainerDialogueTrigger/PlayerDetection" parent_id_path=PackedInt32Array(1673704166, 1049329093) index="0" unique_id=1592456935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.000001, 0, 0)
@@ -1176,7 +1173,6 @@ gradient_texture = SubResource("GradientTexture1D_e1cii")
 [node name="DialogueTriggerArea" parent="BaseLevel/PortalVFX" index="3" unique_id=359276831 instance=ExtResource("3_c4aiy")]
 dialogue_resource = ExtResource("4_nrj8t")
 title_to_play = "street_level_portal"
-has_scene_change = true
 
 [node name="CollisionShape3D" parent="BaseLevel/PortalVFX/DialogueTriggerArea/PlayerDetection" parent_id_path=PackedInt32Array(359276831, 1049329093) index="0" unique_id=1592456935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

@@ -11,3 +11,7 @@ func turn_light_on():
 
 func turn_light_off():
 	$SpotLight3D.visible = false
+
+
+func _on_area_3d_area_entered(area):
+	turn_light_on()
