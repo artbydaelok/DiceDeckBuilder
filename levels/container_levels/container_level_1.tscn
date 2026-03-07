@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://da1bpxmyhqky2" path="res://level_mechanics/container_level_obstacle.tscn" id="2_mt3fl"]
 [ext_resource type="Resource" uid="uid://ca1rr7ccxkre6" path="res://level_mechanics/level_map_data/container_level_map_data.tres" id="2_r6w5y"]
 [ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="3_2ceik"]
+[ext_resource type="Texture2D" uid="uid://dqlkqk2uuabi" path="res://assets/star_01.png" id="3_iwhj4"]
+[ext_resource type="Script" uid="uid://bnra6412osewt" path="res://level_mechanics/player_follow.gd" id="3_jeo5p"]
 [ext_resource type="PackedScene" uid="uid://b1ylt1qvb3t8g" path="res://assets/3d_models/psx/shipping_container_1/shipping_container_mx_1_hollow_1.glb" id="5_gn56b"]
 [ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="6_jmihm"]
 [ext_resource type="PackedScene" uid="uid://bbddptsu0dq3a" path="res://assets/3d_models/psx/metal_barrel_3/metal_barrel_hr_3.glb" id="7_jmihm"]
@@ -13,72 +15,125 @@
 [ext_resource type="PackedScene" uid="uid://c1vkiu5hyt2wt" path="res://level_mechanics/metal_barrel_obstacle_2.tscn" id="10_6o10r"]
 [ext_resource type="PackedScene" uid="uid://pbebb1f7kf7v" path="res://level_mechanics/debug_player_start.tscn" id="11_6o10r"]
 
+[sub_resource type="Curve" id="Curve_iwhj4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.45933017, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_odshm"]
+curve = SubResource("Curve_iwhj4")
+
+[sub_resource type="Curve" id="Curve_jeo5p"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20813395, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iwhj4"]
+curve = SubResource("Curve_jeo5p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iwhj4"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 10)
+angle_min = -720.0
+angle_max = 720.0
+orbit_velocity_min = -0.21899992
+orbit_velocity_max = 0.24600011
+gravity = Vector3(0, -2, 0)
+scale_min = 0.25
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_iwhj4")
+alpha_curve = SubResource("CurveTexture_odshm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odshm"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_iwhj4")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_cq0ek"]
+material = SubResource("StandardMaterial3D_odshm")
+
 [node name="ContainerLevel1" unique_id=885135856 instance=ExtResource("1_yxvhy")]
 level_name = "Container Level"
 current_map_data = ExtResource("2_r6w5y")
 
-[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=91698217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+amount = 25
+lifetime = 5.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_iwhj4")
+draw_pass_1 = SubResource("QuadMesh_cq0ek")
+script = ExtResource("3_jeo5p")
+offset = Vector3(0, -5, 0)
+
+[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1892705345]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.2588193, 0, -0.2588193, 0.9659258, 0, 4, 6)
 follow_target = true
 
-[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=1670796615]
+[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=1670796615]
 visible = false
 
-[node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
+[node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -22)
 relocation_node = NodePath("../NewCameraLocation")
 one_shot = true
 
-[node name="NewCameraLocation" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1526167670]
+[node name="NewCameraLocation" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1526167670]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 8, -21)
 gizmo_extents = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel/NewCameraLocation" index="0" unique_id=465449312]
 
-[node name="CameraChangeTrigger2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=877021953 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
+[node name="CameraChangeTrigger2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=877021953 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1, -20)
 relocation_node = NodePath("../NewCameraLocation2")
 
-[node name="NewCameraLocation2" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=180263516]
+[node name="NewCameraLocation2" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=180263516]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881898, 0, -0.25881898, 0.9659258, -40, 4, -15)
 gizmo_extents = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel/NewCameraLocation2" index="0" unique_id=1710397912]
 
-[node name="CameraChangeTrigger5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=1925493810 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
+[node name="CameraChangeTrigger5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=1925493810 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 1, -6)
 relocation_node = NodePath("../NewCameraLocation5")
 
-[node name="NewCameraLocation5" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=646595430]
+[node name="NewCameraLocation5" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=646595430]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881898, 0, -0.25881898, 0.9659258, -86, 4, -1)
 gizmo_extents = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel/NewCameraLocation5" index="0" unique_id=688969837]
 
-[node name="CameraChangeTrigger3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=2080812819 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
+[node name="CameraChangeTrigger3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=2080812819 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1, -18)
 relocation_node = NodePath("../NewCameraLocation3")
 
-[node name="NewCameraLocation3" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=73677262]
+[node name="NewCameraLocation3" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=73677262]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, -40, 8, -17)
 gizmo_extents = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel/NewCameraLocation3" index="0" unique_id=1724104223]
 
-[node name="CameraChangeTrigger4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=288081418 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
+[node name="CameraChangeTrigger4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="17" unique_id=288081418 node_paths=PackedStringArray("relocation_node") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 1, -8)
 relocation_node = NodePath("../NewCameraLocation4")
 
-[node name="NewCameraLocation4" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="17" unique_id=591366730]
+[node name="NewCameraLocation4" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="18" unique_id=591366730]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, -86, 8, -7)
 gizmo_extents = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="BaseLevel/NewCameraLocation4" index="0" unique_id=849264192]
 
-[node name="MapTopLeftCorner" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="18" unique_id=152219389]
+[node name="MapTopLeftCorner" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=152219389]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 0, -88)
 
-[node name="MapBottomRightCorner" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1550525395]
+[node name="MapBottomRightCorner" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="20" unique_id=1550525395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 34)
 
 [node name="ContainerLevelObstacle" parent="." index="5" unique_id=1931898489 instance=ExtResource("2_mt3fl")]
