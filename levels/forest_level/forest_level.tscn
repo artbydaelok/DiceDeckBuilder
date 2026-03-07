@@ -455,7 +455,7 @@ size = Vector3(6, 1, 2)
 
 [node name="ForestLevel" unique_id=24269738 node_paths=PackedStringArray("game_camera") instance=ExtResource("1_fnn83")]
 script = ExtResource("2_cpv81")
-first_time_cutscene = false
+first_time_cutscene = true
 level_name = "Forest"
 game_camera = NodePath("BaseLevel/GameCamera")
 
@@ -508,6 +508,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -208)
+disabled = true
 
 [node name="DebugPlayerStart2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=371274248 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -166)
@@ -708,7 +709,7 @@ light_energy = 12.0
 spot_range = 8.0
 spot_angle = 22.0
 
-[node name="SpotLight3D" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="8" unique_id=1264099536]
+[node name="SpotLight3D" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="9" unique_id=1264099536]
 visible = false
 
 [node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="38" unique_id=1892705345]

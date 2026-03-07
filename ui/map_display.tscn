@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://iqfrss5rga1t" path="res://ui/map_display.gd" id="1_eqflx"]
 [ext_resource type="Texture2D" uid="uid://ima1fkxlwdup" path="res://assets/map_screenshot_test.png" id="3_0yrjh"]
 [ext_resource type="Texture2D" uid="uid://c376ui24m433h" path="res://assets/ui/PlayerMapMarker.png" id="3_auorb"]
+[ext_resource type="AudioStream" uid="uid://dk71doj84udd3" path="res://assets/sounds/Receipt_Handled_02.wav" id="4_auorb"]
 
 [node name="MapDisplay" type="Control" unique_id=1542442927]
 layout_mode = 3
@@ -56,3 +57,9 @@ offset_left = -12.0
 offset_top = -24.0
 offset_right = 12.0
 texture = ExtResource("3_auorb")
+
+[node name="MapOpenSFX" type="AudioStreamPlayer" parent="." unique_id=2020405928]
+stream = ExtResource("4_auorb")
+pitch_scale = 0.75
+autoplay = true
+bus = &"SFX"

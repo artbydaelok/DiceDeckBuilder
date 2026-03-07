@@ -480,7 +480,7 @@ metallic = 0.6
 
 [node name="HubLevel" unique_id=965854524 node_paths=PackedStringArray("game_camera") instance=ExtResource("1_r55pm")]
 script = ExtResource("2_j0rvb")
-first_time_cutscene = false
+first_time_cutscene = true
 level_name = "Hub"
 game_camera = NodePath("BaseLevel/GameCamera")
 current_map_data = ExtResource("3_1761n")
@@ -498,7 +498,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 100, -42)
 gizmo_extents = 120.0
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1159506797]
-transform = Transform3D(0.96592385, -1.0593775e-08, -0.2588189, 0.000546581, 0.9999959, 0.0020398286, 0.25881803, -0.0021117865, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.9659238, -1.0593774e-08, -0.2588189, 0.00054658094, 0.9999958, 0.0020398286, 0.258818, -0.0021117865, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=532374131]
