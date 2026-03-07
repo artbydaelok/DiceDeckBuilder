@@ -36,6 +36,13 @@ var music_stream_player : AudioStreamPlayer
 var blend_audio_bus : StringName
 var blend_audio_bus_idx : int
 
+var saved_playback_position : float = 0.0
+
+func save_playback_position():
+	if not is_instance_valid(music_stream_player):
+		return
+	saved_playback_position = music_stream_player.get_playback_position()
+
 func fade_out(duration : float = 0.0) -> Tween:
 	if is_zero_approx(duration): return
 	music_stream_player.bus = audio_bus
@@ -63,7 +70,8 @@ func blend_to(target_volume_db : float, duration : float = 0.0) -> Tween:
 	return
 
 func fade_to_zero():
-	play_stream(EMPTY_CLIP)
+	save_playback_position()
+	fade_out(fade_out_duration)
 
 func stop() -> void:
 	if not is_instance_valid(music_stream_player):
@@ -137,8 +145,9 @@ func get_stream_player(audio_stream : AudioStream) -> AudioStreamPlayer:
 
 func play_stream(audio_stream : AudioStream) -> AudioStreamPlayer:
 	var stream_player := get_stream_player(audio_stream)
-	stream_player.play.call_deferred()
+	stream_player.play.call_deferred(saved_playback_position)
 	play_stream_player( stream_player )
+	saved_playback_position = 0.0
 	return stream_player
 
 func _clone_music_player(stream_player : AudioStreamPlayer) -> void:

@@ -5,8 +5,10 @@ Narrator: The little dice wants to change the channel but realizes it doesn't ha
 Dice: [shake rate=20 level=3]*first world problem noises*[/shake] [#first_groan]
 	
 ~ portal_appears
+do ProjectMusicController.fade_to_zero()
 # Trigger portal above dice
 Narrator: Suddenly, a [wave amp=25 freq=5]mysterious[/wave] portal appeared above it. [#portal_spawn]
+do ProjectMusicController.play_stream(load("res://assets/music/dice be chilling like (bounce 1).wav"))
 # Remote controls gets sucked in by the dice
 Narrator: The remote was sucked into the portal! It's stuck watching garbage television! [wave amp=25 freq=5]Devastating.[/wave][#remote_stolen]
 Dice: [shake rate=20 level=6]*not again* [/shake] [#second_groan]
@@ -14,6 +16,7 @@ Dice: [shake rate=20 level=6]*not again* [/shake] [#second_groan]
 Dice: [shake rate=20 level=10]???[/shake] [#dice_starts_levitating]
 Narrator: Ew, portal dust is getting on their carpet, too. Also, the portal seems to be sucking them in too.
 Dice: [shake rate=20 level=10]*true agony*[/shake] [#true_agony]
+	
 
 ~ player_gets_abducted
 Dice: [shake rate=20 level=25][speed=0.125]?!?!?[/speed][/shake] [#player_gets_abducted] [next=auto]
