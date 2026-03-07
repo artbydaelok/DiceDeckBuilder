@@ -163,7 +163,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgyib"]
 render_priority = 0
 shader = SubResource("Shader_boad6")
-shader_parameter/albedo = Color(1, 1, 1, 0.59607846)
+shader_parameter/albedo = Color(1, 1, 1, 0.21568628)
 shader_parameter/texture_albedo = ExtResource("8_rgyib")
 shader_parameter/albedo_texture_size = Vector2i(160, 160)
 shader_parameter/point_size = 1.0

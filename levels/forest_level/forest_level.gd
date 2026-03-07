@@ -18,6 +18,8 @@ const BACKGROUND_MUSIC_PLAYER_SCENE = preload("uid://bkcsjsk2ciff")
 const MONEY_PROBLEMS_TRACK = preload("uid://f1buplcjvh7g")
 var forest_demon_music_player : AudioStreamPlayer
 
+@onready var forest_spooky_sound: AudioStreamPlayer = %ForestSpookySound
+
 const ORU_SHOP_UI = preload("uid://cx74bd045dj7m")
 
 @export var first_time_cutscene : bool = false
@@ -27,6 +29,9 @@ func level_start():
 	if first_time_cutscene:
 		GameEvents.cutscene_started.emit(true)
 		cutscene_player.play("first_time")
+
+func play_spooky_sound():
+	forest_spooky_sound.play()
 
 func end_cutscene():
 	GameEvents.cutscene_ended.emit()
@@ -47,6 +52,8 @@ func show_mother_nature():
 	forest_demon_music_player.stream = MONEY_PROBLEMS_TRACK
 	GameEvents.current_level.add_child(forest_demon_music_player)
 	
+	# SFX
+	forest_spooky_sound.play()
 	
 	# Visuals
 	mother_nature_tween.final_value = 25.0

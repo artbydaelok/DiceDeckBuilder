@@ -2,12 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="1_ine68"]
 [ext_resource type="Script" uid="uid://bdn118tpsha7n" path="res://level_mechanics/breakable_log.gd" id="1_tmtjx"]
+[ext_resource type="Texture2D" uid="uid://ceit0lw3cxjql" path="res://assets/3d_models/psx/wooden_planks/wooden_plank_5_planks_hr_1.png" id="3_nb3vo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tmtjx"]
 size = Vector3(10, 8.338257, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmtjx"]
-vertex_color_use_as_albedo = true
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nb3vo"]
 particle_flag_rotate_y = true
@@ -17,7 +15,13 @@ direction = Vector3(0, 1, 0)
 initial_velocity_min = 15.0
 initial_velocity_max = 25.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kokfu"]
+albedo_texture = ExtResource("3_nb3vo")
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_tmtjx"]
+lightmap_size_hint = Vector2i(29, 35)
+material = SubResource("StandardMaterial3D_kokfu")
 size = Vector3(5, 0.46, 0.2)
 
 [node name="BreakableLog" type="Node3D" unique_id=1963358820]
@@ -35,7 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.1691284, 0)
 shape = SubResource("BoxShape3D_tmtjx")
 
 [node name="BrokenParticles" type="GPUParticles3D" parent="." unique_id=626117144]
-material_override = SubResource("StandardMaterial3D_tmtjx")
 emitting = false
 one_shot = true
 explosiveness = 1.0

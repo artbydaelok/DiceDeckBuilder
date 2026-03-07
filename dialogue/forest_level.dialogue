@@ -1,5 +1,6 @@
 ~ start
 ~ break_log
+do GameEvents.current_level.play_spooky_sound()
 Oh God, I think I heard something.
 Quick! Grab that axe and break this log!
 do GameEvents.current_level.obtain_axe()
