@@ -20,6 +20,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0.5235988)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Mesh2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.27605, 0.7577586, 1.3276612)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Mesh3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.09225089, -0.12784104, 1.9469161)]
+}
 
 [sub_resource type="Animation" id="Animation_4h2lw"]
 resource_name = "looking"
@@ -35,6 +59,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0.5235988), Vector3(0.034906585, 0, 0.5235988), Vector3(-0.017453292, 0.05235988, 0.4886922), Vector3(0.017453292, 0.017453292, 0.54105204)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Mesh2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector3(-0.27605, 0.7577586, 1.3276612), Vector3(-0.27576202, 1.5219271, 1.3281956), Vector3(-0.27605, 0.7577586, 1.3276612)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Mesh3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1),
+"transitions": PackedFloat32Array(-2, -2, 1, -2),
+"update": 0,
+"values": [Vector3(0.09225089, -0.12784104, 1.9469161), Vector3(-1.2653637, -0.12740904, 2.2026055), Vector3(0.20769419, -0.12740904, 2.677335), Vector3(0.09225089, -0.12784104, 1.9469161)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6v547"]
@@ -91,7 +139,45 @@ transform = Transform3D(-0.09058665, 0.33807403, 0, -0.33807403, -0.09058665, 0,
 [node name="tree_dead_3" parent="Visuals" index="5" unique_id=1703489616 instance=ExtResource("3_ix2g7")]
 transform = Transform3D(0.33807406, 0.090586595, 0, 0.09058664, -0.33807394, 0, 7.450581e-09, 0, -0.35000005, -7, 12.647954, 0)
 
-[node name="Mesh" parent="Visuals" index="6"]
+[node name="Mesh2" type="MeshInstance3D" parent="Visuals" index="6" unique_id=960191284]
+transform = Transform3D(-0.006944418, -0.7501125, 0.6612738, 0.93384105, 0.23163198, 0.27255735, -0.35762084, 0.61941737, 0.69887733, -0.63640356, 7.4511976, -1.693012)
+mesh = SubResource("SphereMesh_1w0ao")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Visuals/Mesh2" index="0" unique_id=1011260602]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.066987276, -1.1160254, 0)
+light_color = Color(0.2509804, 1, 1, 1)
+light_energy = 35.0
+light_negative = true
+spot_range = 20.22616
+spot_angle = 27.638577
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Visuals/Mesh2" index="1" unique_id=1458627296]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.066987276, -1.1160254, 0)
+light_color = Color(1, 0.25, 0.2624998, 1)
+light_energy = 35.0
+spot_range = 20.22616
+spot_angle = 27.638577
+
+[node name="Mesh3" type="MeshInstance3D" parent="Visuals" index="7" unique_id=878705465]
+transform = Transform3D(-0.28143033, -0.6886445, -0.09521326, 0.69460654, -0.27431428, -0.06909008, 0.028613545, -0.11410637, 0.74071664, -1.09465, 7.6928463, 0.49040294)
+mesh = SubResource("SphereMesh_1w0ao")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Visuals/Mesh3" index="0" unique_id=635515617]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.066987276, -1.1160254, 0)
+light_color = Color(0.2509804, 1, 1, 1)
+light_energy = 35.0
+light_negative = true
+spot_range = 20.22616
+spot_angle = 27.638577
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Visuals/Mesh3" index="1" unique_id=886229384]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.066987276, -1.1160254, 0)
+light_color = Color(1, 0.25, 0.2624998, 1)
+light_energy = 35.0
+spot_range = 20.22616
+spot_angle = 27.638577
+
+[node name="Mesh" parent="Visuals" index="8"]
 transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -0.5, 6.5, 0)
 mesh = SubResource("SphereMesh_1w0ao")
 

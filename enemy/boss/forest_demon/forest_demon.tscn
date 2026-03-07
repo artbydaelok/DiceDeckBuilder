@@ -20,7 +20,7 @@ texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_y71yb"]
 material = SubResource("StandardMaterial3D_8aicx")
-size = Vector2(10, 10)
+size = Vector2(8, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gxrt"]
 transparency = 1
@@ -29,7 +29,7 @@ texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_lnsvp"]
 material = SubResource("StandardMaterial3D_8gxrt")
-size = Vector2(10, 10)
+size = Vector2(8, 8)
 
 [sub_resource type="Animation" id="Animation_y71yb"]
 length = 0.001
@@ -140,6 +140,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.32672283, 0.48806816, -0.2733146)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FogVolume:material:density")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_8aicx"]
@@ -252,6 +264,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector3(-2.8763027, 0.4886922, -0.27401668), Vector3(-0.32672283, 0.48806816, -0.2733146)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FogVolume:material:density")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y71yb"]
 _data = {
@@ -280,6 +304,10 @@ material = SubResource("StandardMaterial3D_lnsvp")
 size = Vector2(10, 6)
 orientation = 1
 
+[sub_resource type="FogMaterial" id="FogMaterial_8gxrt"]
+density = 0.0
+albedo = Color(0.59, 0, 0, 1)
+
 [node name="ForestDemon" type="Node3D" unique_id=1873557936]
 script = ExtResource("1_8gxrt")
 
@@ -299,22 +327,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.1691284, 0)
 shape = SubResource("BoxShape3D_8gxrt")
 
 [node name="Foreground" type="MeshInstance3D" parent="." unique_id=149247026]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0.6801982)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5789347, 0.6801982)
 mesh = SubResource("QuadMesh_y71yb")
 script = ExtResource("2_8aicx")
 anim_amount = 0.2
 
 [node name="Background" type="MeshInstance3D" parent="." unique_id=1333594437]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5789347, 0)
 mesh = SubResource("QuadMesh_lnsvp")
 script = ExtResource("2_8aicx")
 anim_amount = 0.2
 
 [node name="tree_dead_1" parent="." unique_id=1427184408 instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9659258, 0.2588191, 1.439342e-08, -0.25000006, 0.93301266, 0.2588191, 0.06698731, -0.25000006, 0.9659258, 2.5, 0, -1)
+transform = Transform3D(0.9659258, 0.2588191, 1.8250125e-08, -0.25000006, 0.93301266, 0.2588191, 0.06698731, -0.25000006, 0.9659258, 2.5, 0, -1)
 
 [node name="tree_dead_2" parent="." unique_id=8193853 instance=ExtResource("4_8aicx")]
-transform = Transform3D(0.9751768, -0.2211835, 0.010382358, 0.21105127, 0.94264394, 0.25861073, -0.0669873, -0.25, 0.9659257, -2.5, 0, -1)
+transform = Transform3D(0.9751768, -0.22118348, 0.0103823505, 0.21105127, 0.94264394, 0.25861073, -0.06698729, -0.25000003, 0.9659257, -2.5, 0, -1)
 
 [node name="tree_dead_6" parent="tree_dead_2" unique_id=1180976395 instance=ExtResource("4_8aicx")]
 transform = Transform3D(0.74236155, 0.22053291, 0.12841256, -0.2458785, 0.7238663, 0.17828774, -0.06832512, -0.20882526, 0.7536238, 0.08076215, 0.3014083, -1.1645523)
@@ -352,4 +380,7 @@ final_value = Vector3(1.15, 1.15, 1.15)
 from_value = Vector3(0.85, 0.85, 0.85)
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
-[node name="FogVolume" type="FogVolume" parent="." unique_id=2145345233]
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1213830672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -5.75)
+size = Vector3(10, 6.5, 7.5)
+material = SubResource("FogMaterial_8gxrt")

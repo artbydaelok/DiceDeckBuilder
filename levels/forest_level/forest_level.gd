@@ -9,8 +9,7 @@ const AXE_THROW = preload("uid://cwh8hm762xo3n")
 
 @onready var mother_nature_trigger_area_0: Node3D = $BaseLevel/MotherNatureTriggerArea0
 
-@onready var red_negative_light_tweener: TweenProperty = $BaseLevel/RedNegativeLight/RedNegativeLightTweener
-@onready var mother_nature_tween: TweenProperty = $BaseLevel/Player/MotherNatureLight/MotherNatureTween
+@onready var mother_nature_tween_light: TweenProperty = %MotherNatureTweenLight
 
 # Music
 @onready var level_music_player: AudioStreamPlayer = $BackgroundMusicPlayer
@@ -43,8 +42,6 @@ func obtain_axe():
 	card_system.set_slot_to_item(player.up_side, AXE_THROW)
 	axe_dialogue_trigger.queue_free()
 	
-func turn_red():
-	red_negative_light_tweener.play()
 
 func show_mother_nature():
 	# Music
@@ -56,9 +53,9 @@ func show_mother_nature():
 	forest_spooky_sound.play()
 	
 	# Visuals
-	mother_nature_tween.final_value = 25.0
-	mother_nature_tween.from_value = 0.0
-	mother_nature_tween.play()
+	mother_nature_tween_light.final_value = 25.0
+	mother_nature_tween_light.from_value = 0.0
+	mother_nature_tween_light.play()
 	
 	# Trigger area
 	mother_nature_trigger_area_0.queue_free()
@@ -72,9 +69,9 @@ func hide_mother_nature():
 	#ProjectMusicController.play_stream_player(level_music_player)
 	
 	# Visuals
-	mother_nature_tween.final_value = 0.0
-	mother_nature_tween.from_value = 25.0
-	mother_nature_tween.play()
+	mother_nature_tween_light.final_value = 0.0
+	mother_nature_tween_light.from_value = 25.0
+	mother_nature_tween_light.play()
 	
 	# Triggers animations in the scene
 	forest_demon.disappear()

@@ -145,7 +145,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 7.5),
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
-"values": [Vector3(-2.3022852, 3.6957176, -37.001595), Vector3(0, 9, 7)]
+"values": [Vector3(-2.3022852, 3.6957176, -37.001595), Vector3(1.5038791, 7.4299498, 5.019654)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -157,7 +157,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 7.5),
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
-"values": [Vector3(-0.67360985, -0.49977505, 0), Vector3(-0.7853984, 0, 0)]
+"values": [Vector3(-0.67360985, -0.49977505, 0), Vector3(-0.7853985, 0.19154991, -3.15788e-08)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4uq1"]
@@ -485,18 +485,35 @@ spot_range = 65.0
 
 [node name="BackgroundMusicPlayer" parent="." index="6" unique_id=1991235100 instance=ExtResource("3_itb2r")]
 
-[node name="ForestDemon" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=637738744 instance=ExtResource("13_x70s0")]
+[node name="MotherNatureLight" type="SpotLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=614971548]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.0663977, 0)
+light_color = Color(1, 0.7019608, 1, 1)
+light_energy = 0.0
+spot_range = 10.0
+spot_angle = 40.0
+
+[node name="MotherNatureTweenLight" type="Node" parent="BaseLevel/MotherNatureLight" index="0" unique_id=1525146911 node_paths=PackedStringArray("node")]
+unique_name_in_owner = true
+script = ExtResource("13_nautm")
+node = NodePath("..")
+property = ":light_energy"
+final_value = 25.0
+duration = 1.0
+from_value = 0.0
+metadata/_custom_type_script = "uid://cqxuuexdumeed"
+
+[node name="ForestDemon" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=637738744 instance=ExtResource("13_x70s0")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
-[node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
+[node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -84)
-disabled = true
 
-[node name="DebugPlayerStart2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=371274248 instance=ExtResource("3_ma4h5")]
+[node name="DebugPlayerStart2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=371274248 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, -162)
 disabled = true
 
-[node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1545155587 instance=ExtResource("4_fyusi")]
+[node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="4" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
 dialogue_resource = ExtResource("5_nautm")
 title_to_play = "mother_nature_0_alt"
@@ -505,98 +522,104 @@ title_to_play = "mother_nature_0_alt"
 shape = SubResource("BoxShape3D_b118p")
 debug_color = Color(0.9582438, 1.6364455e-06, 0.5308395, 0.41960785)
 
-[node name="FrogEnemy" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="4" unique_id=1733519135 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="5" unique_id=1733519135 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -2, 0, -36)
 spaces_to_move = 4
 reverse_direction = true
 move_speed = 1.0
 
-[node name="FrogEnemy2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="5" unique_id=1418250710 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=1418250710 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 0, 0, -50)
 move_speed = 1.0
 
-[node name="FrogEnemy10" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=2087955057 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy10" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=2087955057 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 18, 0, -250)
 spaces_to_move = 4
 reverse_direction = true
 
-[node name="FrogEnemy11" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=1459673710 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy11" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1459673710 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 26, 0, -256)
 spaces_to_move = 4
 move_speed = 3.0
 
-[node name="FrogEnemy12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=328148922 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=328148922 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 34, 0, -250)
 spaces_to_move = 4
 reverse_direction = true
 
-[node name="FrogEnemy3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=724514640 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=724514640 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -4, 0, -50)
 move_speed = 1.0
 
-[node name="FrogEnemy13" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1264935718 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy13" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=1264935718 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -4, 0, -426)
 spaces_to_move = 2
 
-[node name="FrogEnemy15" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=1532822894 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy15" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=1532822894 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 0, 0, -426)
 spaces_to_move = 2
 
-[node name="FrogEnemy14" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=927726902 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy14" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=927726902 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -8, 0, -426)
 spaces_to_move = 2
 
-[node name="FrogEnemy4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=580620857 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=580620857 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 46, 0, -134)
 spaces_to_move = 2
 
-[node name="FrogEnemy6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=943176713 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=943176713 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 50, 0, -134)
 spaces_to_move = 2
 
-[node name="FrogEnemy7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=1921116457 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=1921116457 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 54, 0, -134)
 spaces_to_move = 2
 
-[node name="FrogEnemy8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=1965213003 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="17" unique_id=1965213003 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 52, 0, -140)
 spaces_to_move = 2
 
-[node name="FrogEnemy5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="17" unique_id=1619270346 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="18" unique_id=1619270346 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 48, 0, -140)
 spaces_to_move = 2
 
-[node name="FrogEnemy9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="18" unique_id=1117715118 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1117715118 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 58, 0, -224)
 spaces_to_move = 2
 
-[node name="Eyeball1" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1967730826 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
+[node name="Eyeball1" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="20" unique_id=1967730826 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.0516393, 0, -82)
 player_reposition_location_node = NodePath("../EyeballMarker1")
 pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(1, 0, 0), Vector3(1, 0, 0)])
+
+[node name="Mesh2" parent="BaseLevel/Eyeball1/Visuals" index="6" unique_id=960191284]
+transform = Transform3D(-0.006944418, -0.75011235, 0.6612738, 0.93384105, 0.23163193, 0.27255735, -0.35762084, 0.61941725, 0.69887733, -0.63640356, 7.4511976, -1.693012)
 
 [node name="CollisionShape3D" parent="BaseLevel/Eyeball1/Hitbox" parent_id_path=PackedInt32Array(1967730826, 760070920) index="0" unique_id=1650356292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37549996, 4)
 shape = SubResource("CylinderShape3D_ma4h5")
 
-[node name="Eyeball2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="20" unique_id=909435515 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
+[node name="Eyeball2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="21" unique_id=909435515 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.94836, 0, -248)
 player_reposition_location_node = NodePath("../EyeballMarker2")
 pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0)])
+
+[node name="Mesh2" parent="BaseLevel/Eyeball2/Visuals" index="6" unique_id=960191284]
+transform = Transform3D(-0.006944418, -0.75011235, 0.6612738, 0.93384105, 0.23163193, 0.27255735, -0.35762084, 0.61941725, 0.69887733, -0.63640356, 7.4511976, -1.693012)
 
 [node name="CollisionShape3D" parent="BaseLevel/Eyeball2/Hitbox" parent_id_path=PackedInt32Array(909435515, 760070920) index="0" unique_id=1650356292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37549996, 4)
 shape = SubResource("CylinderShape3D_ma4h5")
 
-[node name="EyeballMarker1" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="21" unique_id=2123140794]
+[node name="EyeballMarker1" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="22" unique_id=2123140794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -64)
 gizmo_extents = 5.0
 
-[node name="EyeballMarker2" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="22" unique_id=999757196]
+[node name="EyeballMarker2" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="23" unique_id=999757196]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -220)
 gizmo_extents = 5.0
 
-[node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="23" unique_id=502264206]
+[node name="AxeObtainLocation" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="24" unique_id=502264206]
 
 [node name="tree_stump_13" parent="BaseLevel/AxeObtainLocation" index="0" unique_id=986306393 instance=ExtResource("6_b118p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13969445, 0, -14)
@@ -803,46 +826,30 @@ light_energy = 15.0
 spot_range = 8.799839
 spot_angle = 12.939817
 
-[node name="MotherNatureLight" type="SpotLight3D" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="8" unique_id=614971548]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.0663977, 0)
-light_color = Color(1, 0.7019608, 1, 1)
-light_energy = 0.0
-spot_range = 10.0
-spot_angle = 40.0
-
-[node name="MotherNatureTween" type="Node" parent="BaseLevel/Player/MotherNatureLight" index="0" unique_id=1525146911 node_paths=PackedStringArray("node")]
-script = ExtResource("13_nautm")
-node = NodePath("..")
-property = ":light_energy"
-final_value = 25.0
-duration = 1.0
-from_value = 0.0
-metadata/_custom_type_script = "uid://cqxuuexdumeed"
-
-[node name="SpotLight3D" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="9" unique_id=1264099536]
+[node name="SpotLight3D" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="8" unique_id=1264099536]
 visible = false
 
-[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="25" unique_id=1892705345]
-transform = Transform3D(1, 0, 0, 0, 0.7071066, 0.70710695, 0, -0.70710695, 0.7071066, 0, 9, 7)
+[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="26" unique_id=1892705345]
+transform = Transform3D(0.9817104, -0.13461947, 0.13461944, -2.232958e-08, 0.70710665, 0.707107, -0.19038068, -0.69417423, 0.6941739, 1.5038791, 7.4299498, 5.019654)
 follow_target = true
 
-[node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="26" unique_id=1911982310]
+[node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="27" unique_id=1911982310]
 environment = SubResource("Environment_aa8vv")
 
-[node name="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="27" unique_id=1774783498]
+[node name="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="28" unique_id=1774783498]
 transform = Transform3D(0.3374297, 0.88811743, -0.31207174, -0.3621663, 0.42847595, 0.8277945, 0.868894, -0.16630061, 0.4662267, 0, 7.85563, 0)
 shadow_enabled = true
 
-[node name="DirectionalLight3D2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="28" unique_id=407198073]
+[node name="DirectionalLight3D2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="29" unique_id=407198073]
 transform = Transform3D(0.9543394, -0.12966323, 0.269117, -0.29440627, -0.5608786, 0.7737831, 0.050610766, -0.8176812, -0.5734421, 3.03067, 7.31669, -1.80642e-07)
 
-[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="30" unique_id=1670796615]
+[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="31" unique_id=1670796615]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, 0)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
 transparent = true
 
-[node name="ArenaGrid2" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="31" unique_id=477715325]
+[node name="ArenaGrid2" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="32" unique_id=477715325]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -10)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -850,7 +857,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid3" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="32" unique_id=17395643]
+[node name="ArenaGrid3" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="33" unique_id=17395643]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -20)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -858,7 +865,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid4" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="33" unique_id=1957036537]
+[node name="ArenaGrid4" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="34" unique_id=1957036537]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.00881834, -30)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -866,7 +873,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid5" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="34" unique_id=620071799]
+[node name="ArenaGrid5" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="35" unique_id=620071799]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -2, 0.00881834, -40)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -874,7 +881,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="ArenaGrid6" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="35" unique_id=1536694420]
+[node name="ArenaGrid6" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="36" unique_id=1536694420]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -2, 0.00881834, -50)
 visible = false
 modulate = Color(0.67667663, 1, 0.73016614, 0.76862746)
@@ -882,7 +889,7 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_7n544")
 
-[node name="DayNightLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="36" unique_id=123658996]
+[node name="DayNightLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="37" unique_id=123658996]
 transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, 0, 0, 0)
 visible = false
 light_color = Color(0.88009065, 1, 0.9778568, 1)
@@ -890,7 +897,7 @@ light_energy = 0.57
 script = ExtResource("8_f1v1w")
 speed_mult = 1.19
 
-[node name="GrassFloor" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="37" unique_id=79060206]
+[node name="GrassFloor" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="38" unique_id=79060206]
 
 [node name="GrassPlane" type="MeshInstance3D" parent="BaseLevel/GrassFloor" index="0" unique_id=1310934770]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -10)
@@ -4846,7 +4853,7 @@ transform = Transform3D(0.5475728, -0.25236705, 0.7977939, 0.4345841, 0.90053135
 [node name="Scroll2" parent="BaseLevel/GrassFloor" index="659" unique_id=738357737 instance=ExtResource("19_vhl1x")]
 transform = Transform3D(-0.6843027, 0.3398455, 0.6451628, 0.43458408, 0.9005313, -0.013414409, -0.58554816, 0.27119792, -0.7639275, -22.297445, 7.1296034, -339.85208)
 
-[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="38" unique_id=1964247854]
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="39" unique_id=1964247854]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0" unique_id=918832840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
@@ -5043,10 +5050,10 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -8.489616, -0.023918152
 [node name="Root Scene5" parent="BaseLevel/PlayerObstacles" index="49" unique_id=664708818 instance=ExtResource("50_71n5h")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 8.086956, -0.023918152, -245.48131)
 
-[node name="FirefliesVFX" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="39" unique_id=690104754 instance=ExtResource("11_14s10")]
+[node name="FirefliesVFX" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="40" unique_id=690104754 instance=ExtResource("11_14s10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="Trees" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="41" unique_id=960227130]
+[node name="Trees" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="42" unique_id=960227130]
 
 [node name="tree_dead_1" parent="BaseLevel/Trees" index="0" unique_id=1859054373 instance=ExtResource("14_f1v1w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2960386, -0.24791288, -54.44754)
@@ -6161,46 +6168,46 @@ transform = Transform3D(0.09747385, -0.47438642, 1.6295571, 0.52604204, 1.560305
 [node name="grass_143" parent="BaseLevel/Trees" index="369" unique_id=811322264 instance=ExtResource("29_eoa1n")]
 transform = Transform3D(0.09747385, -0.47438642, 1.6295571, 0.52604204, 1.5603054, 0.4227605, -1.6136231, 0.48000437, 0.23625648, 30.805618, -0.13709344, -187.17358)
 
-[node name="BreakableLog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="42" unique_id=820773821 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="43" unique_id=820773821 instance=ExtResource("13_cpv81")]
 transform = Transform3D(0.99925417, 0, 0.038614534, 0, 1, 0, -0.038614534, 0, 0.99925417, -0.6843324, 0.18998957, -18.910736)
 
-[node name="BreakableLog2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="43" unique_id=261272002 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="44" unique_id=261272002 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-0.9952885, 0, 0.096957654, 0, 1, 0, -0.096957654, 0, -0.9952885, -0.6843324, 0.18998957, -24.910736)
 
-[node name="BreakableLog4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="44" unique_id=1963358820 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="45" unique_id=1963358820 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -0.029120684, 0.24959946, -121.60321)
 
-[node name="BreakableLog5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="45" unique_id=667532753 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="46" unique_id=667532753 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -0.029120684, 0.24959946, -126.55769)
 
-[node name="BreakableLog9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="46" unique_id=2094469010 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="47" unique_id=2094469010 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, 42.01448, -0.17063141, -158.85257)
 
-[node name="BreakableLog6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="47" unique_id=1900913590 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="48" unique_id=1900913590 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, 14.339061, 0.24959755, -150.54724)
 
-[node name="BreakableLog10" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="48" unique_id=1261720958 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog10" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="49" unique_id=1261720958 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, 14.339061, 0.24959755, -161.10202)
 
-[node name="BreakableLog7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="49" unique_id=1100517686 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="50" unique_id=1100517686 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -0.65778875, -0.28566217, -232.96013)
 
-[node name="BreakableLog12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="50" unique_id=1466422269 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="51" unique_id=1466422269 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -4.6577888, -0.28566217, -448.96014)
 
-[node name="BreakableLog13" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="51" unique_id=678987184 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog13" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="52" unique_id=678987184 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -4.6577888, -0.28566217, -464.96014)
 
-[node name="BreakableLog11" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="52" unique_id=1645811063 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog11" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="53" unique_id=1645811063 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-2.1896348, 0, 0.20390187, 0, 2.111, 0, -0.21330678, 0, -2.0930917, -5.557254, -0.28566217, -278.10284)
 
-[node name="BreakableLog8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="53" unique_id=1513864077 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="54" unique_id=1513864077 instance=ExtResource("13_cpv81")]
 transform = Transform3D(-1.0369378, 0, 0.0965624, 0, 1, 0, -0.101014994, 0, -0.99123114, -11.8099575, -0.109622, -240.44035)
 
-[node name="BreakableLog3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="54" unique_id=279667048 instance=ExtResource("13_cpv81")]
+[node name="BreakableLog3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="55" unique_id=279667048 instance=ExtResource("13_cpv81")]
 transform = Transform3D(0.91042405, 0, 0.41367656, 0, 1, 0, -0.41367656, 0, 0.91042405, -1.6646135, 0.18998957, -34.44361)
 
-[node name="Stones" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="55" unique_id=1459417718]
+[node name="Stones" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="56" unique_id=1459417718]
 
 [node name="Stone5" parent="BaseLevel/Stones" index="0" unique_id=943352532 instance=ExtResource("15_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9295292, -0.061386585, -20.871506)
@@ -6776,14 +6783,14 @@ bottomtext = "PLACE HERE"
 [node name="Side table" parent="BaseLevel/Stones" index="171" unique_id=944201051 instance=ExtResource("36_2quou")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 75.94764, 0.718245, -271.09088)
 
-[node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="56" unique_id=703169726]
+[node name="NegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="57" unique_id=703169726]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 visible = false
 light_negative = true
 script = ExtResource("8_f1v1w")
 speed_mult = 1.55
 
-[node name="RedNegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="57" unique_id=41700025]
+[node name="RedNegativeLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="58" unique_id=41700025]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0)
 visible = false
 light_color = Color(0, 1, 1, 1)
@@ -6799,31 +6806,31 @@ duration = 1.0
 from_value = 0.0
 metadata/_custom_type_script = "uid://cqxuuexdumeed"
 
-[node name="placeholder_sign" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="58" unique_id=813981482 instance=ExtResource("30_lfkt6")]
+[node name="placeholder_sign" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="59" unique_id=813981482 instance=ExtResource("30_lfkt6")]
 transform = Transform3D(3.4470165, 0, -0.988726, 0, 3.6510005, 0, 1.2032795, 0, 2.8323882, 50.045444, -0.10996342, -196.50453)
 toptext = "Warning:"
 maintext = "Bears"
 bottomtext = "ARE REAL!"
 
-[node name="placeholder_sign2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="59" unique_id=490168160 instance=ExtResource("30_lfkt6")]
+[node name="placeholder_sign2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="60" unique_id=490168160 instance=ExtResource("30_lfkt6")]
 transform = Transform3D(3.589091, -0.28045085, -0.49953192, 0.28442147, 3.6399055, 0, 0.6060829, -0.0473592, 2.9581196, 33.11821, 0.3828447, -113.94554)
 toptext = "WARNING:"
 maintext = "BEARS HAVE"
 bottomtext = "CLAWS"
 
-[node name="placeholder_sign3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="60" unique_id=1614786847 instance=ExtResource("30_lfkt6")]
+[node name="placeholder_sign3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="61" unique_id=1614786847 instance=ExtResource("30_lfkt6")]
 transform = Transform3D(3.1994133, 1.6812999, -0.4244198, -1.6511278, 3.2404933, 0.26343858, 0.60608286, -0.047359187, 2.9581196, 34.04054, 0.7913902, -161.94064)
 toptext = "WARNING:"
 maintext = "SHARP IS"
 bottomtext = "DANGEROUS!!"
 
-[node name="placeholder_sign4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="61" unique_id=162525530 instance=ExtResource("30_lfkt6")]
+[node name="placeholder_sign4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="62" unique_id=162525530 instance=ExtResource("30_lfkt6")]
 transform = Transform3D(3.4982939, 0.89425504, 0.44405958, -0.9322619, 3.5241113, 0.16705933, -0.47184014, -0.3328009, 2.962247, 43.141922, 1.6954594, -136.27388)
 toptext = "WARNING:"
 maintext = "CLAWS ARE"
 bottomtext = "SHARP"
 
-[node name="WaterBlock" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="62" unique_id=1705796086 instance=ExtResource("32_004l2")]
+[node name="WaterBlock" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="63" unique_id=1705796086 instance=ExtResource("32_004l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.73181, -26.5346, -181.3128)
 
 [node name="MeshInstance3D" parent="BaseLevel/WaterBlock" index="1"]
@@ -6877,76 +6884,76 @@ mesh = SubResource("QuadMesh_bsqew")
 [node name="Root Scene" parent="BaseLevel/WaterBlock" index="13" unique_id=1622995756 instance=ExtResource("40_yj4mq")]
 transform = Transform3D(2.0308011e-08, 0.6814238, 0.7318891, -1, 2.9802322e-08, 0, -2.1811996e-08, -0.7318891, 0.6814238, -73.58325, 30.633247, -148.32639)
 
-[node name="Red Mushrooms" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="63" unique_id=1156678054 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="64" unique_id=1156678054 instance=ExtResource("34_t7kac")]
 transform = Transform3D(6.767604, 0, 7.362034, 0, 10, 0, -7.362034, 0, 6.767604, 45.374535, 0.10649246, -245.92831)
 
-[node name="Red Mushrooms16" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="64" unique_id=843006328 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms16" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="65" unique_id=843006328 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-8.127152, 0, 4.7232814, 0, 9.4, 0, -4.7232814, 0, -8.127152, 31.122864, 0.10649341, -245.9612)
 
-[node name="Red Mushrooms17" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="65" unique_id=965153464 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms17" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="66" unique_id=965153464 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-8.127152, 0, 4.7232814, 0, 9.4, 0, -4.7232814, 0, -8.127152, 36.477966, 0.10649341, -250.51228)
 
-[node name="Red Mushrooms18" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="66" unique_id=1909609647 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms18" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="67" unique_id=1909609647 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-2.9110005, 0, 8.9379, 0, 9.399999, 0, -8.9379, 0, -2.9110005, 55.31146, 0.10649341, -255.55325)
 
-[node name="Red Mushrooms14" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="67" unique_id=1524496609 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms14" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="68" unique_id=1524496609 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.763716, 0, 2.160988, 0, 9.999999, 0, -2.160988, 0, 9.763716, 7.9934893, 0.10649198, -228.38858)
 
-[node name="Red Mushrooms2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="68" unique_id=1673849218 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="69" unique_id=1673849218 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-0.3958308, 1.1235346, 9.928796, -1.7204112, 9.78053, -1.1753446, -9.842941, -1.754685, -0.1938493, 50.123013, 0.10649246, -236.63062)
 
-[node name="Red Mushrooms5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="69" unique_id=381886164 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="70" unique_id=381886164 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.602268, 1.3986406, -2.4166594, -1.7204111, 9.780529, -1.1753446, 2.1992319, 1.544362, 9.63215, 59.08901, 0.10649246, -239.21812)
 
-[node name="Red Mushrooms6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="70" unique_id=114748493 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="71" unique_id=114748493 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.643219, -0.03437519, 11.489438, 3.7880387, 14.170753, -3.1369474, -10.847076, 4.918181, 9.118795, 73.93762, 0.10649246, -238.21025)
 
-[node name="Red Mushrooms7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="71" unique_id=1980058009 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="72" unique_id=1980058009 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.643219, -0.03437519, 11.489438, 3.7880387, 14.170753, -3.1369474, -10.847076, 4.918181, 9.118795, 33.706257, 0.10649246, -129.83522)
 
-[node name="Red Mushrooms8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="72" unique_id=1052207303 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="73" unique_id=1052207303 instance=ExtResource("34_t7kac")]
 transform = Transform3D(2.5205128, -2.7290277, -9.284365, 2.5253596, 9.44717, -2.0912998, 9.34182, -1.8175216, 3.070348, 37.816982, 0.10649246, -114.30434)
 
-[node name="Red Mushrooms15" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="73" unique_id=1857002248 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms15" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="74" unique_id=1857002248 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-6.790867, 3.270111, 6.571949, 2.5253599, 9.447171, -2.0913002, -6.8925114, 0.23947978, -7.241267, 6.221814, 0.10649246, -101.69978)
 
-[node name="Red Mushrooms11" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="74" unique_id=1750219353 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms11" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="75" unique_id=1750219353 instance=ExtResource("34_t7kac")]
 transform = Transform3D(4.022617, -1.6254544, -2.4852464, 1.2626797, 4.723585, -1.0456498, 2.6877866, 0.21363568, 4.210721, -2.1806724, 1.0360068, -48.095436)
 
-[node name="Red Mushrooms12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="75" unique_id=2106583486 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="76" unique_id=2106583486 instance=ExtResource("34_t7kac")]
 transform = Transform3D(4.022617, -1.6254544, -2.4852464, 1.2626797, 4.723585, -1.0456498, 2.6877866, 0.21363568, 4.210721, 2.1999915, 1.0360068, -43.34586)
 
-[node name="Red Mushrooms3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="76" unique_id=21382193 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="77" unique_id=21382193 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-6.35717, -2.0137486, -7.4519258, -1.7204111, 9.780529, -1.1753446, 7.5250616, 0.5348514, -6.564096, 49.665054, 0.10649246, -190.4847)
 
-[node name="Red Mushrooms4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="77" unique_id=1241330459 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="78" unique_id=1241330459 instance=ExtResource("34_t7kac")]
 transform = Transform3D(11.954642, -0.97528195, 0.36787692, 1.0110565, 11.87955, -1.3616225, -0.25351995, 1.3874713, 11.9168215, 8.950585, 0.10649246, -268.79163)
 
-[node name="Red Mushrooms9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="78" unique_id=1863235182 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="79" unique_id=1863235182 instance=ExtResource("34_t7kac")]
 transform = Transform3D(2.3282802, 1.1447388, 11.716171, 1.0110565, 11.87955, -1.3616226, -11.728465, 1.2513294, 2.2084606, -1.3336802, 0.10649246, -293.41025)
 
-[node name="Red Mushrooms13" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="79" unique_id=624438116 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms13" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="80" unique_id=624438116 instance=ExtResource("34_t7kac")]
 transform = Transform3D(10.786037, -4.445629, 2.8103018, 3.6646442, 10.951892, 3.2598188, -3.772505, -2.0718126, 11.201595, 4.9388323, -0.014038384, -413.35696)
 
-[node name="Red Mushrooms10" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="80" unique_id=1028285467 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms10" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="81" unique_id=1028285467 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-6.2209716, 1.0922222, 4.909843, 0.6740377, 7.9197006, -0.90774864, -4.984494, -0.2922075, -6.250554, 0.5668441, 4.1016197, -296.1778)
 
-[node name="Root Scene" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="81" unique_id=817359043 instance=ExtResource("35_7u734")]
+[node name="Root Scene" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="82" unique_id=817359043 instance=ExtResource("35_7u734")]
 transform = Transform3D(4.1259093, -0.653841, 0.7724144, 1.2128216, 2.835096, -0.24081159, -1.343669, 0.5513085, 2.1544373, 55.58875, 4.4675198, -263.8789)
 
-[node name="Root Scene3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="82" unique_id=1401712438 instance=ExtResource("35_7u734")]
+[node name="Root Scene3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="83" unique_id=1401712438 instance=ExtResource("35_7u734")]
 transform = Transform3D(0.52533185, -0.65583277, 2.2281027, 0.04851538, 2.887389, 0.5103114, -4.474505, -0.04569143, 0.2671246, -12.278644, 5.8338566, -421.2462)
 
-[node name="Root Scene2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="83" unique_id=1216612490 instance=ExtResource("35_7u734")]
+[node name="Root Scene2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="84" unique_id=1216612490 instance=ExtResource("35_7u734")]
 transform = Transform3D(0.23002064, -0.36329657, -2.2809422, 1.2128217, 2.835096, -0.24081156, 4.3330894, -0.77425104, 0.18848568, 10.616772, 3.5149221, -272.5264)
 
-[node name="Orangutan" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="84" unique_id=1662441809 instance=ExtResource("39_71n5h")]
+[node name="Orangutan" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="85" unique_id=1662441809 instance=ExtResource("39_71n5h")]
 transform = Transform3D(-3.2, 0, -4.8318657e-07, 0, 3.2, 0, 4.8318657e-07, 0, -3.2, -14.893062, 0, -362.72528)
 
 [node name="SaveSystem" parent="." index="10" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
 
 [node name="Checkpoint" parent="." index="11" unique_id=1805229643 instance=ExtResource("25_lsy1x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -86)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -74)
 checkpoint_data = ExtResource("30_jptjf")
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Checkpoint" index="8" unique_id=1681876600]

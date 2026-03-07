@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbpslj16s4nmt"]
+[gd_scene format=3 uid="uid://cbpslj16s4nmt"]
 
 [ext_resource type="Script" uid="uid://by7h5aqnfo6il" path="res://abilities/bow_and_arrow/arrow_projectile.gd" id="1_gmh72"]
 [ext_resource type="PackedScene" uid="uid://csth3bndxcg43" path="res://abilities/bow_and_arrow/Arrow.glb" id="1_reqdr"]
@@ -6,31 +6,31 @@
 [ext_resource type="AudioStream" uid="uid://c1yryq3pamnl6" path="res://assets/sounds/arrow_planted_shorter.wav" id="4_tm4vu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_up5jb"]
-size = Vector3(5.88037, 0.493164, 0.448364)
+size = Vector3(5.88037, 1, 0.448364)
 
-[node name="ArrowProjectile" type="RigidBody3D"]
+[node name="ArrowProjectile" type="RigidBody3D" unique_id=1923132057]
 collision_layer = 3
 script = ExtResource("1_gmh72")
 
-[node name="Arrow" parent="." instance=ExtResource("1_reqdr")]
+[node name="Arrow" parent="." unique_id=910035093 instance=ExtResource("1_reqdr")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1079988663]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0123902, 0, -0.109619)
 shape = SubResource("BoxShape3D_up5jb")
 
-[node name="Hitbox" parent="." instance=ExtResource("3_tqcqg")]
+[node name="Hitbox" parent="." unique_id=263992854 instance=ExtResource("3_tqcqg")]
 damage = 6
 
-[node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.109619, 0, -0.0123902)
+[node name="HitboxCollision" type="CollisionShape3D" parent="Hitbox" unique_id=820274392]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.109619, -0.25341797, -0.0123902)
 shape = SubResource("BoxShape3D_up5jb")
 
-[node name="ArrowHitSFX" type="AudioStreamPlayer" parent="."]
+[node name="ArrowHitSFX" type="AudioStreamPlayer" parent="." unique_id=2058343433]
 stream = ExtResource("4_tm4vu")
 bus = &"SFX"
 
-[node name="SelfDestruct" type="Timer" parent="."]
+[node name="SelfDestruct" type="Timer" parent="." unique_id=1129446521]
 wait_time = 2.5
 one_shot = true
 autostart = true
