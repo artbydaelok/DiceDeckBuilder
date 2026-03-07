@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://db0x6tikp8y26"]
+
+[ext_resource type="PackedScene" uid="uid://03idrabk8js3" path="res://assets/3d_models/palceholder_models/Barrel.glb" id="1_7tdej"]
+[ext_resource type="PackedScene" uid="uid://dyvlfu7ue375j" path="res://vfx/fire_wall_particles.tscn" id="2_iw3co"]
+
+[sub_resource type="Curve" id="Curve_e6xxk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49113923, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jsc1s"]
+curve = SubResource("Curve_e6xxk")
+
+[sub_resource type="Gradient" id="Gradient_77yyo"]
+offsets = PackedFloat32Array(0, 0.60162604, 1)
+colors = PackedColorArray(0.8666667, 0.011764706, 0.011764706, 1, 0.94, 0.71941334, 0.1128, 1, 0.98039216, 0.5058824, 0.18431373, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uuiqu"]
+gradient = SubResource("Gradient_77yyo")
+
+[sub_resource type="Curve" id="Curve_g11fg"]
+_data = [Vector2(0, 0), 0.0, 32.788082, 0, 0, Vector2(0.0835443, 1), 0.0, 0.0, 0, 0, Vector2(0.24810125, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_efhx8"]
+curve = SubResource("Curve_g11fg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1yq2h"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(0.3, 0.5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 5)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_efhx8")
+color_ramp = SubResource("GradientTexture1D_uuiqu")
+alpha_curve = SubResource("CurveTexture_jsc1s")
+
+[node name="OilBarrel" unique_id=383269077 instance=ExtResource("1_7tdej")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="FireWallParticles" parent="." index="1" unique_id=1633402701 instance=ExtResource("2_iw3co")]
+transform = Transform3D(0.7041854, 0, 0, 0, 1, 0, 0, 0, 0.04418281, 0, 0.61169904, 0)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_1yq2h")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1310669716]
+transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, 1.2162042, 0)
+light_color = Color(0.9249896, 0.3603639, 0, 1)
+light_energy = 10.0
+omni_range = 4.348514

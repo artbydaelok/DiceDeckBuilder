@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://clyigkmuge4ya"]
 
 [ext_resource type="PackedScene" uid="uid://ha7xmmnonvrm" path="res://assets/3d_models/lamp_post.tscn" id="1_dc14x"]
+[ext_resource type="AudioStream" uid="uid://cmlnsg4x5wtjk" path="res://assets/sounds/DramaticLights.wav" id="2_hj862"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dc14x"]
 
@@ -20,5 +21,10 @@ collision_mask = 256
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1023057658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36459368, 0)
 shape = SubResource("BoxShape3D_dc14x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3" unique_id=1252650672]
+stream = ExtResource("2_hj862")
+volume_db = -9.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

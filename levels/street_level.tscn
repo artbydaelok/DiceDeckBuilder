@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dhfvfslkuicsg"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_304tv"]
-[ext_resource type="PackedScene" uid="uid://b6ka0bgl1c627" path="res://assets/3d_models/palceholder_models/Dumpster.glb" id="2_7x7hh"]
 [ext_resource type="PackedScene" uid="uid://dwdxm6qgbq6ni" path="res://assets/3d_models/Bus Stop.glb" id="2_c0c3f"]
 [ext_resource type="PackedScene" uid="uid://pbebb1f7kf7v" path="res://level_mechanics/debug_player_start.tscn" id="2_l7prv"]
 [ext_resource type="PackedScene" uid="uid://dp0a62ch0fmen" path="res://assets/3d_models/psx/warehouse/warehouse_mx_4.glb" id="3_ksl5d"]
 [ext_resource type="PackedScene" uid="uid://detvlvrq07m12" path="res://assets/3d_models/psx/garage_hm_1/garage_hm_1.glb" id="4_7x7hh"]
 [ext_resource type="PackedScene" uid="uid://clyigkmuge4ya" path="res://assets/3d_models/lamp_post_motion_trigger.tscn" id="4_w4s4v"]
 [ext_resource type="PackedScene" uid="uid://dpqpnk2cfdypt" path="res://assets/3d_models/psx/shed_ax_2/shed_ax_2.glb" id="5_47o68"]
+[ext_resource type="PackedScene" uid="uid://bbgf684o5vmq6" path="res://assets/3d_models/palceholder_models/Voting machine.glb" id="5_1127y"]
 [ext_resource type="Texture2D" uid="uid://dfhlpr5bkb035" path="res://assets/concrete_tx_5.png" id="6_7mfvj"]
 [ext_resource type="Texture2D" uid="uid://igugiu0pd7dy" path="res://assets/concrete_7_normal.png" id="7_l7prv"]
 [ext_resource type="PackedScene" uid="uid://b1ylt1qvb3t8g" path="res://assets/3d_models/psx/shipping_container_1/shipping_container_mx_1_hollow_1.glb" id="8_ebnum"]
@@ -20,16 +20,36 @@
 [ext_resource type="PackedScene" uid="uid://bnj6fwuotoe76" path="res://assets/3d_models/cars/green_car.tscn" id="17_ebnum"]
 [ext_resource type="PackedScene" uid="uid://di7uqf25xra85" path="res://assets/3d_models/cars/red_car.tscn" id="18_nnlh0"]
 [ext_resource type="PackedScene" uid="uid://bykj3yuu3hikl" path="res://assets/3d_models/palceholder_models/Rubbish.glb" id="19_ebnum"]
-[ext_resource type="PackedScene" uid="uid://bxwmhebbg41yu" path="res://assets/3d_models/palceholder_models/Trash Container Open.glb" id="20_djm2l"]
 [ext_resource type="PackedScene" uid="uid://cqdj2jkg1ehm8" path="res://assets/3d_models/palceholder_models/Trash Bags.glb" id="21_qttjh"]
-[ext_resource type="PackedScene" uid="uid://da8grs1hi2chw" path="res://assets/3d_models/palceholder_models/Trashcan.glb" id="22_w4s4v"]
 [ext_resource type="PackedScene" uid="uid://b8kbhaph6j0xq" path="res://assets/3d_models/palceholder_models/Fence.glb" id="23_qttjh"]
+[ext_resource type="PackedScene" uid="uid://sngep2liulk8" path="res://assets/3d_models/palceholder_models/trash_can.glb" id="25_na5dl"]
+[ext_resource type="PackedScene" uid="uid://db0x6tikp8y26" path="res://assets/oil_barrel.tscn" id="26_1127y"]
+[ext_resource type="PackedScene" uid="uid://03idrabk8js3" path="res://assets/3d_models/palceholder_models/Barrel.glb" id="26_npmus"]
+[ext_resource type="PackedScene" uid="uid://cio8hdacumee6" path="res://assets/3d_models/palceholder_models/trashpile_2.glb" id="26_q212g"]
+[ext_resource type="PackedScene" uid="uid://b66hxf77le8ok" path="res://assets/3d_models/palceholder_models/dumpster_diagonal_full_open.glb" id="28_btr15"]
+[ext_resource type="PackedScene" uid="uid://qqvvifr1br8t" path="res://assets/3d_models/palceholder_models/road_1_corner.glb" id="28_stsnl"]
+[ext_resource type="PackedScene" uid="uid://cpvfcqbx3tr7a" path="res://assets/3d_models/palceholder_models/metaltrashcan_beaten_alt_overflowing.glb" id="29_eudcu"]
+[ext_resource type="PackedScene" uid="uid://df3djv7o54o2b" path="res://assets/3d_models/palceholder_models/trashbag_1.glb" id="29_ivn7y"]
+[ext_resource type="PackedScene" uid="uid://bc75aor35s8yq" path="res://assets/3d_models/palceholder_models/trashbag_1_red.glb" id="29_rvybe"]
+[ext_resource type="PackedScene" uid="uid://d3k6jxej60cq3" path="res://assets/3d_models/palceholder_models/trashpile_1.glb" id="30_2q53y"]
+[ext_resource type="PackedScene" uid="uid://cm6mmeo3geatq" path="res://assets/3d_models/palceholder_models/trashbag_1_blue.glb" id="30_5utxm"]
+[ext_resource type="PackedScene" uid="uid://dw35g6c7anstu" path="res://assets/3d_models/palceholder_models/trashbag_2.glb" id="31_7ntqj"]
+[ext_resource type="PackedScene" uid="uid://j06buf12nnwg" path="res://assets/3d_models/palceholder_models/trashpile_2.006.glb" id="31_n2hr3"]
+[ext_resource type="PackedScene" uid="uid://cgml4gphme7h8" path="res://assets/3d_models/palceholder_models/metaltrashcan_open_filled.glb" id="32_in8h5"]
+[ext_resource type="PackedScene" uid="uid://ddh1wqdv1hxsk" path="res://assets/3d_models/palceholder_models/metaltrashcan_closed.glb" id="33_m2fle"]
+[ext_resource type="PackedScene" uid="uid://bfetmnivxrgc" path="res://assets/3d_models/palceholder_models/dumpster_diagonal_closed.glb" id="34_ivn7y"]
+[ext_resource type="PackedScene" uid="uid://cusvw4hsicvjs" path="res://assets/3d_models/palceholder_models/trashbag_1_white.glb" id="35_2q53y"]
+[ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="36_in8h5"]
+[ext_resource type="PackedScene" uid="uid://dr8oycytisvrm" path="res://assets/3d_models/palceholder_models/parking_space_extend.tscn" id="37_46v0f"]
+[ext_resource type="Script" uid="uid://dcoy00o6pyvma" path="res://assets/3d_models/frog_stare.gd" id="37_m2fle"]
+[ext_resource type="PackedScene" uid="uid://cfx4pna028d8y" path="res://assets/3d_models/palceholder_models/parking_space.tscn" id="38_prgaq"]
 
 [sub_resource type="Environment" id="Environment_1127y"]
 background_mode = 1
 background_color = Color(0.054110367, 0.044215076, 0.02602952, 1)
 fog_light_color = Color(0.026554942, 0.022505857, 0.012444452, 1)
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0.18382823, 0.16711435, 0.1399476, 1)
 volumetric_fog_emission = Color(0.06966142, 0.05955097, 0.0381986, 1)
 
@@ -41,11 +61,60 @@ normal_enabled = true
 normal_texture = ExtResource("7_l7prv")
 texture_filter = 0
 
+[sub_resource type="FogMaterial" id="FogMaterial_2q53y"]
+density = 1.8
+albedo = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_npmus"]
+size = Vector3(17.516033, 1, 63.317387)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_stsnl"]
+size = Vector3(23.470013, 1, 108.04974)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m2fle"]
+size = Vector3(23.470013, 1, 35.50241)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prgaq"]
+size = Vector3(9.433459, 1, 4.977165)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46v0f"]
+size = Vector3(4.915746, 1, 4.977165)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f07vn"]
+size = Vector3(3.2864864, 1, 3.8617516)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eudcu"]
+size = Vector3(14.430865, 1, 5.3605366)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x5gos"]
+size = Vector3(4.0742693, 1, 9.153965)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pg1b"]
+size = Vector3(4.0742693, 1, 17.56874)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n2hr3"]
+size = Vector3(0.5089344, 1, 0.40829322)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aq1u3"]
+size = Vector3(2.1258254, 1, 1.4027041)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xb40"]
+size = Vector3(6.8544416, 1, 2.2073655)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ulu5"]
+size = Vector3(8.08441, 1, 7.212486)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4s4v"]
-size = Vector3(17.516033, 1, 72.25787)
+size = Vector3(17.516033, 1, 71.683624)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jtcyd"]
 size = Vector3(0.8669033, 1, 28.188732)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_in8h5"]
+size = Vector3(21.14739, 1, 87.99893)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2q53y"]
+size = Vector3(2.713552, 1, 1.6803596)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1127y"]
 size = Vector3(0.8669033, 1, 7.3504667)
@@ -56,24 +125,21 @@ texture_filter = 0
 
 [node name="Game" unique_id=885135856 instance=ExtResource("1_304tv")]
 
-[node name="DebugPlayerStart" parent="BaseLevel/Player/Pivot" parent_id_path=PackedInt32Array(133383534, 17712324) index="1" unique_id=1014985689 instance=ExtResource("2_l7prv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-disabled = true
-
-[node name="GridMesh" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="9" unique_id=1599974890]
+[node name="GridMesh" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="10" unique_id=1599974890]
 visible = false
 
 [node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
+transform = Transform3D(0.9858327, -0.0723566, -0.15132283, 0.121066555, 0.93136084, 0.34338012, 0.116090335, -0.35683545, 0.92692584, -0.71487415, 4.6205034, 6.2975287)
 follow_target = true
 
 [node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1911982310]
 environment = SubResource("Environment_1127y")
 
 [node name="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1774783498]
-light_energy = 0.05
+light_energy = 0.01
 
 [node name="DirectionalLight3D2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="4" unique_id=407198073]
-light_energy = 0.05
+light_energy = 0.01
 
 [node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=1670796615]
 visible = false
@@ -81,11 +147,31 @@ visible = false
 [node name="GroundCollisionShape" parent="BaseLevel/GroundStaticBody" parent_id_path=PackedInt32Array(77432042) index="0" unique_id=2033871472]
 visible = false
 
-[node name="Bus Stop" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=764674188 instance=ExtResource("2_c0c3f")]
+[node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1014985689 instance=ExtResource("2_l7prv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -40)
+disabled = true
+
+[node name="Bus Stop" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=764674188 instance=ExtResource("2_c0c3f")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -15.485458, 6.8789997, -55.319874)
 
-[node name="LampPost" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=1788599744 instance=ExtResource("4_w4s4v")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.4950757, 0.00029280002, -5.9625382)
+[node name="LampPost" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1788599744 instance=ExtResource("4_w4s4v")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.4950757, 0.00029280002, -7.962538)
+
+[node name="LampPost3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=2001585975 instance=ExtResource("4_w4s4v")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.4950757, 0.00029280002, -49.96254)
+
+[node name="LampPost2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=297749156 instance=ExtResource("4_w4s4v")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 3.4165978, 0.00029280002, -29.96254)
+
+[node name="LampPost5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=2050517370 instance=ExtResource("4_w4s4v")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -21.911322, 0.00029280002, -88.23654)
+
+[node name="LampPost4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=1995020776 instance=ExtResource("4_w4s4v")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.749058, 0, -50.143875)
+light_on = true
+
+[node name="Voting machine" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=1343312664 instance=ExtResource("5_1127y")]
+transform = Transform3D(-1.3113416e-08, 0, 0.29999998, 0, 0.29999998, 0, -0.29999998, 0, -1.3113416e-08, -26.254381, 0, -50)
 
 [node name="Flooring" type="Node3D" parent="." index="5" unique_id=1784119453]
 
@@ -245,198 +331,1319 @@ mesh = SubResource("PlaneMesh_npmus")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
 
-[node name="ArenaFloor28" type="MeshInstance3D" parent="Flooring" index="26" unique_id=112383633]
+[node name="ArenaFloor33" type="MeshInstance3D" parent="Flooring" index="26" unique_id=1113489675]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.822128, 0, -44.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor34" type="MeshInstance3D" parent="Flooring" index="27" unique_id=1975814132]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.822128, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor35" type="MeshInstance3D" parent="Flooring" index="28" unique_id=287972122]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.82212, 0, -72.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor36" type="MeshInstance3D" parent="Flooring" index="29" unique_id=1456804978]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -44.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor37" type="MeshInstance3D" parent="Flooring" index="30" unique_id=1973125204]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor38" type="MeshInstance3D" parent="Flooring" index="31" unique_id=943297480]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82212, 0, -72.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor39" type="MeshInstance3D" parent="Flooring" index="32" unique_id=1096802793]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -44.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor40" type="MeshInstance3D" parent="Flooring" index="33" unique_id=1401414586]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor41" type="MeshInstance3D" parent="Flooring" index="34" unique_id=729272411]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82212, 0, -72.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor84" type="MeshInstance3D" parent="Flooring" index="35" unique_id=141403501]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82213, 0, -44.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor85" type="MeshInstance3D" parent="Flooring" index="36" unique_id=2067566671]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82213, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor86" type="MeshInstance3D" parent="Flooring" index="37" unique_id=1410763526]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82212, 0, -72.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor87" type="MeshInstance3D" parent="Flooring" index="38" unique_id=391433526]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82213, 0, -44.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor88" type="MeshInstance3D" parent="Flooring" index="39" unique_id=1245585183]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82213, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor89" type="MeshInstance3D" parent="Flooring" index="40" unique_id=806811197]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82212, 0, -72.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor90" type="MeshInstance3D" parent="Flooring" index="41" unique_id=1580085274]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82213, 0, -44.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor91" type="MeshInstance3D" parent="Flooring" index="42" unique_id=1767458010]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82213, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor92" type="MeshInstance3D" parent="Flooring" index="43" unique_id=535865313]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82212, 0, -72.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor93" type="MeshInstance3D" parent="Flooring" index="44" unique_id=1010853969]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82213, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor94" type="MeshInstance3D" parent="Flooring" index="45" unique_id=1825988742]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82213, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor95" type="MeshInstance3D" parent="Flooring" index="46" unique_id=1218617492]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82212, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor96" type="MeshInstance3D" parent="Flooring" index="47" unique_id=1852115758]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82213, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor97" type="MeshInstance3D" parent="Flooring" index="48" unique_id=348616872]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82213, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor98" type="MeshInstance3D" parent="Flooring" index="49" unique_id=455981791]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82212, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor99" type="MeshInstance3D" parent="Flooring" index="50" unique_id=1452578609]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82213, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor100" type="MeshInstance3D" parent="Flooring" index="51" unique_id=3350690]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82213, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor101" type="MeshInstance3D" parent="Flooring" index="52" unique_id=639417744]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82212, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor102" type="MeshInstance3D" parent="Flooring" index="53" unique_id=1259275462]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82213, 0, -2.6778107)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor103" type="MeshInstance3D" parent="Flooring" index="54" unique_id=1358470206]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82213, 0, -16.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor104" type="MeshInstance3D" parent="Flooring" index="55" unique_id=1965392450]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 69.82212, 0, -30.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor105" type="MeshInstance3D" parent="Flooring" index="56" unique_id=1082681032]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82213, 0, -2.6778107)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor106" type="MeshInstance3D" parent="Flooring" index="57" unique_id=1525016163]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82213, 0, -16.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor107" type="MeshInstance3D" parent="Flooring" index="58" unique_id=407808531]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 83.82212, 0, -30.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor111" type="MeshInstance3D" parent="Flooring" index="59" unique_id=689502024]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -2.6778107)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor112" type="MeshInstance3D" parent="Flooring" index="60" unique_id=1142023084]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -16.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor113" type="MeshInstance3D" parent="Flooring" index="61" unique_id=1473349301]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82212, 0, -30.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor114" type="MeshInstance3D" parent="Flooring" index="62" unique_id=2034618005]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -2.6778107)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor115" type="MeshInstance3D" parent="Flooring" index="63" unique_id=317426569]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -16.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor116" type="MeshInstance3D" parent="Flooring" index="64" unique_id=1550536725]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82212, 0, -30.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor108" type="MeshInstance3D" parent="Flooring" index="65" unique_id=1664789615]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82213, 0, -2.6778107)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor109" type="MeshInstance3D" parent="Flooring" index="66" unique_id=1914981828]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82213, 0, -16.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor110" type="MeshInstance3D" parent="Flooring" index="67" unique_id=1685654352]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 97.82212, 0, -30.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor117" type="MeshInstance3D" parent="Flooring" index="68" unique_id=454560372]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -98.17787, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor118" type="MeshInstance3D" parent="Flooring" index="69" unique_id=1562563799]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -84.17787, 0, -170.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor119" type="MeshInstance3D" parent="Flooring" index="70" unique_id=1680309099]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -170.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor120" type="MeshInstance3D" parent="Flooring" index="71" unique_id=937488626]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.17787, 0, -170.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor157" type="MeshInstance3D" parent="Flooring" index="72" unique_id=1556000872]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.17787, 0, -170.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor121" type="MeshInstance3D" parent="Flooring" index="73" unique_id=1703709569]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.17787, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor122" type="MeshInstance3D" parent="Flooring" index="74" unique_id=814427596]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor123" type="MeshInstance3D" parent="Flooring" index="75" unique_id=1157610065]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor124" type="MeshInstance3D" parent="Flooring" index="76" unique_id=605008092]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17789, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor125" type="MeshInstance3D" parent="Flooring" index="77" unique_id=1123774304]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.17787, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor126" type="MeshInstance3D" parent="Flooring" index="78" unique_id=1161715544]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.17787, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor127" type="MeshInstance3D" parent="Flooring" index="79" unique_id=550691796]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.177887, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor128" type="MeshInstance3D" parent="Flooring" index="80" unique_id=163997612]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -98.17787, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor129" type="MeshInstance3D" parent="Flooring" index="81" unique_id=56707837]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -98.17787, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor130" type="MeshInstance3D" parent="Flooring" index="82" unique_id=2050916346]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -98.17788, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor131" type="MeshInstance3D" parent="Flooring" index="83" unique_id=1561738576]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -84.17787, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor132" type="MeshInstance3D" parent="Flooring" index="84" unique_id=859836415]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -84.17787, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor133" type="MeshInstance3D" parent="Flooring" index="85" unique_id=1361448531]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -84.17788, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor134" type="MeshInstance3D" parent="Flooring" index="86" unique_id=565533518]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.17787, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor135" type="MeshInstance3D" parent="Flooring" index="87" unique_id=520690497]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.17787, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor136" type="MeshInstance3D" parent="Flooring" index="88" unique_id=869550456]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.177887, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor28" type="MeshInstance3D" parent="Flooring" index="89" unique_id=112383633]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -72.67781)
 mesh = SubResource("PlaneMesh_npmus")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
 
-[node name="ArenaFloor29" type="MeshInstance3D" parent="Flooring" index="27" unique_id=1989229954]
+[node name="ArenaFloor29" type="MeshInstance3D" parent="Flooring" index="90" unique_id=1989229954]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.177876, 0, -72.67781)
 mesh = SubResource("PlaneMesh_npmus")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
 
-[node name="ArenaFloor30" type="MeshInstance3D" parent="Flooring" index="28" unique_id=300695860]
+[node name="ArenaFloor30" type="MeshInstance3D" parent="Flooring" index="91" unique_id=300695860]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -72.67781)
 mesh = SubResource("PlaneMesh_npmus")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
 
-[node name="ArenaFloor24" type="MeshInstance3D" parent="Flooring" index="29" unique_id=1130600793]
+[node name="ArenaFloor24" type="MeshInstance3D" parent="Flooring" index="92" unique_id=1130600793]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.177876, 0, -58.677807)
 mesh = SubResource("PlaneMesh_npmus")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
 
-[node name="ArenaFloor25" type="MeshInstance3D" parent="Flooring" index="30" unique_id=835476866]
+[node name="ArenaFloor137" type="MeshInstance3D" parent="Flooring" index="93" unique_id=6033816]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.17787, 0, -2.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor138" type="MeshInstance3D" parent="Flooring" index="94" unique_id=463479665]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.17787, 0, -16.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor139" type="MeshInstance3D" parent="Flooring" index="95" unique_id=185708690]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.17787, 0, -30.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor140" type="MeshInstance3D" parent="Flooring" index="96" unique_id=302620312]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.177876, 0, -44.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor141" type="MeshInstance3D" parent="Flooring" index="97" unique_id=1467986328]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.177876, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor142" type="MeshInstance3D" parent="Flooring" index="98" unique_id=1029207468]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.177876, 0, -72.6778)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor143" type="MeshInstance3D" parent="Flooring" index="99" unique_id=1751218820]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.177876, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor144" type="MeshInstance3D" parent="Flooring" index="100" unique_id=2021404102]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -2.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor145" type="MeshInstance3D" parent="Flooring" index="101" unique_id=465131829]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -16.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor146" type="MeshInstance3D" parent="Flooring" index="102" unique_id=1503654172]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -30.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor147" type="MeshInstance3D" parent="Flooring" index="103" unique_id=982839527]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -44.677803)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor148" type="MeshInstance3D" parent="Flooring" index="104" unique_id=633367632]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -58.677807)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor149" type="MeshInstance3D" parent="Flooring" index="105" unique_id=503936754]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -72.6778)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor150" type="MeshInstance3D" parent="Flooring" index="106" unique_id=290750560]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor155" type="MeshInstance3D" parent="Flooring" index="107" unique_id=642009660]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.177876, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor156" type="MeshInstance3D" parent="Flooring" index="108" unique_id=1539204213]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor25" type="MeshInstance3D" parent="Flooring" index="109" unique_id=835476866]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -58.677807)
 mesh = SubResource("PlaneMesh_npmus")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
 
-[node name="ArenaFloor15" type="MeshInstance3D" parent="Flooring" index="31" unique_id=262921445]
+[node name="ArenaFloor15" type="MeshInstance3D" parent="Flooring" index="110" unique_id=262921445]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -58.677807)
 mesh = SubResource("PlaneMesh_npmus")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
 
-[node name="road_1_straight2" parent="Flooring" index="32" unique_id=2082006070 instance=ExtResource("11_djm2l")]
+[node name="ArenaFloor42" type="MeshInstance3D" parent="Flooring" index="111" unique_id=413881782]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -0.17787552, 0, -86.6778)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor43" type="MeshInstance3D" parent="Flooring" index="112" unique_id=717316268]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 13.822128, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor44" type="MeshInstance3D" parent="Flooring" index="113" unique_id=1723137456]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -86.6778)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor45" type="MeshInstance3D" parent="Flooring" index="114" unique_id=1857014375]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -0.17787552, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor46" type="MeshInstance3D" parent="Flooring" index="115" unique_id=487934535]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 13.822128, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor47" type="MeshInstance3D" parent="Flooring" index="116" unique_id=103484291]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -0.17787552, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor48" type="MeshInstance3D" parent="Flooring" index="117" unique_id=1129328365]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 13.822121, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor49" type="MeshInstance3D" parent="Flooring" index="118" unique_id=122295448]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.822128, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor50" type="MeshInstance3D" parent="Flooring" index="119" unique_id=1905653882]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.822128, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor51" type="MeshInstance3D" parent="Flooring" index="120" unique_id=1739266865]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.82212, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor52" type="MeshInstance3D" parent="Flooring" index="121" unique_id=1708578577]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor53" type="MeshInstance3D" parent="Flooring" index="122" unique_id=357079719]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor54" type="MeshInstance3D" parent="Flooring" index="123" unique_id=1368211138]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82212, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor55" type="MeshInstance3D" parent="Flooring" index="124" unique_id=943618151]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -86.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor56" type="MeshInstance3D" parent="Flooring" index="125" unique_id=1586989569]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor57" type="MeshInstance3D" parent="Flooring" index="126" unique_id=516026079]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82212, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor58" type="MeshInstance3D" parent="Flooring" index="127" unique_id=1903763614]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor59" type="MeshInstance3D" parent="Flooring" index="128" unique_id=744464375]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor60" type="MeshInstance3D" parent="Flooring" index="129" unique_id=447007552]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -0.17787552, 0, -128.6778)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor61" type="MeshInstance3D" parent="Flooring" index="130" unique_id=1391999009]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 13.822128, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor62" type="MeshInstance3D" parent="Flooring" index="131" unique_id=1303952430]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -128.6778)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor63" type="MeshInstance3D" parent="Flooring" index="132" unique_id=761053307]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -0.17787552, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor64" type="MeshInstance3D" parent="Flooring" index="133" unique_id=1050005821]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 13.822128, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor65" type="MeshInstance3D" parent="Flooring" index="134" unique_id=1639063803]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -0.17787552, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor66" type="MeshInstance3D" parent="Flooring" index="135" unique_id=2051770599]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 13.822121, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor67" type="MeshInstance3D" parent="Flooring" index="136" unique_id=138019544]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.822128, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor68" type="MeshInstance3D" parent="Flooring" index="137" unique_id=1430166217]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.822128, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor69" type="MeshInstance3D" parent="Flooring" index="138" unique_id=2057670526]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 27.82212, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor70" type="MeshInstance3D" parent="Flooring" index="139" unique_id=746196303]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor71" type="MeshInstance3D" parent="Flooring" index="140" unique_id=1759769472]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82213, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor72" type="MeshInstance3D" parent="Flooring" index="141" unique_id=1523575491]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 41.82212, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor73" type="MeshInstance3D" parent="Flooring" index="142" unique_id=125324941]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -128.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor74" type="MeshInstance3D" parent="Flooring" index="143" unique_id=721909847]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82213, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor75" type="MeshInstance3D" parent="Flooring" index="144" unique_id=1067097189]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 55.82212, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor76" type="MeshInstance3D" parent="Flooring" index="145" unique_id=42865016]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor77" type="MeshInstance3D" parent="Flooring" index="146" unique_id=247356690]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14.1778755, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor78" type="MeshInstance3D" parent="Flooring" index="147" unique_id=1532403309]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -128.6778)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor79" type="MeshInstance3D" parent="Flooring" index="148" unique_id=1776025459]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -156.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor80" type="MeshInstance3D" parent="Flooring" index="149" unique_id=973414550]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -142.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor81" type="MeshInstance3D" parent="Flooring" index="150" unique_id=600575769]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -86.677795)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor82" type="MeshInstance3D" parent="Flooring" index="151" unique_id=1591848148]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -114.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor83" type="MeshInstance3D" parent="Flooring" index="152" unique_id=1137318996]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177876, 0, -100.67781)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="road_1_straight2" parent="Flooring" index="153" unique_id=2082006070 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, -3.633603)
 
-[node name="road_1_straight3" parent="Flooring" index="33" unique_id=997177186 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight3" parent="Flooring" index="154" unique_id=997177186 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, -11.633603)
 
-[node name="road_1_straight10" parent="Flooring" index="34" unique_id=860621619 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight10" parent="Flooring" index="155" unique_id=860621619 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, -19.633602)
 
-[node name="road_1_straight11" parent="Flooring" index="35" unique_id=37990126 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight11" parent="Flooring" index="156" unique_id=37990126 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, -27.633602)
 
-[node name="road_1_straight12" parent="Flooring" index="36" unique_id=1001521601 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight12" parent="Flooring" index="157" unique_id=1001521601 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, -35.633602)
 
-[node name="road_1_straight13" parent="Flooring" index="37" unique_id=521906708 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight13" parent="Flooring" index="158" unique_id=521906708 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, -43.633602)
 
-[node name="road_1_straight8" parent="Flooring" index="38" unique_id=1904803980 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight14" parent="Flooring" index="159" unique_id=1068351442 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, -51.633602)
+
+[node name="road_1_straight16" parent="Flooring" index="160" unique_id=1811611652 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -67.633606)
+
+[node name="road_1_straight17" parent="Flooring" index="161" unique_id=2044895790 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -75.633606)
+
+[node name="road_1_straight18" parent="Flooring" index="162" unique_id=1378334391 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -83.633606)
+
+[node name="road_1_straight19" parent="Flooring" index="163" unique_id=1508747582 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -91.633606)
+
+[node name="road_1_straight20" parent="Flooring" index="164" unique_id=1578362684 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -99.633606)
+
+[node name="road_1_straight21" parent="Flooring" index="165" unique_id=1053833548 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -107.633606)
+
+[node name="road_1_straight22" parent="Flooring" index="166" unique_id=1281859536 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -115.633606)
+
+[node name="road_1_straight23" parent="Flooring" index="167" unique_id=598940043 instance=ExtResource("11_djm2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.822128, -0.011487007, -123.633606)
+
+[node name="road_1_straight15" parent="Flooring" index="168" unique_id=1392399906 instance=ExtResource("11_djm2l")]
+transform = Transform3D(6.556708e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.556708e-08, 3.8221283, -0.011487007, -55.633602)
+
+[node name="road_1_straight8" parent="Flooring" index="169" unique_id=1904803980 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, 12.366398)
 
-[node name="road_1_straight9" parent="Flooring" index="39" unique_id=1397880664 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight9" parent="Flooring" index="170" unique_id=1397880664 instance=ExtResource("11_djm2l")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.1778717, -0.011487007, 4.366398)
 
-[node name="road_1_straight4" parent="Flooring" index="40" unique_id=825448447 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight4" parent="Flooring" index="171" unique_id=825448447 instance=ExtResource("11_djm2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.17787, -0.011487007, -11.633601)
 
-[node name="road_1_straight5" parent="Flooring" index="41" unique_id=898954445 instance=ExtResource("11_djm2l")]
+[node name="ArenaFloor151" type="MeshInstance3D" parent="Flooring" index="172" unique_id=761779046]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -42.17787, 0, 11.322197)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor152" type="MeshInstance3D" parent="Flooring" index="173" unique_id=1692922032]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -28.177872, 0, 11.322195)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor153" type="MeshInstance3D" parent="Flooring" index="174" unique_id=1939517926]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -56.17787, 0, 11.322197)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="ArenaFloor154" type="MeshInstance3D" parent="Flooring" index="175" unique_id=16615854]
+transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -70.17787, 0, 11.322197)
+mesh = SubResource("PlaneMesh_npmus")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_stsnl")
+
+[node name="road_1_straight29" parent="Flooring" index="176" unique_id=1340917154 instance=ExtResource("11_djm2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.17787, -0.011487007, 4.366399)
+
+[node name="road_1_straight5" parent="Flooring" index="177" unique_id=898954445 instance=ExtResource("11_djm2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.17787, -0.011487007, -27.633602)
 
-[node name="road_1_straight6" parent="Flooring" index="42" unique_id=2075063117 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight6" parent="Flooring" index="178" unique_id=2075063117 instance=ExtResource("11_djm2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.177876, -0.011487007, -43.6336)
 
-[node name="road_1_straight7" parent="Flooring" index="43" unique_id=188744400 instance=ExtResource("11_djm2l")]
+[node name="road_1_straight7" parent="Flooring" index="179" unique_id=188744400 instance=ExtResource("11_djm2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.177876, -0.011487007, -59.633602)
 
-[node name="Collisions" type="StaticBody3D" parent="." index="6" unique_id=2009111390]
+[node name="road_1_straight28" parent="Flooring" index="180" unique_id=1349850349 instance=ExtResource("11_djm2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.177876, -0.011487007, -75.633606)
+
+[node name="road_1_straight24" parent="Flooring" index="181" unique_id=1284275501 instance=ExtResource("11_djm2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.17787, -0.011487007, -127.6336)
+
+[node name="road_1_straight25" parent="Flooring" index="182" unique_id=1849974377 instance=ExtResource("11_djm2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.17787, -0.011487007, -143.6336)
+
+[node name="road_1_straight26" parent="Flooring" index="183" unique_id=793006309 instance=ExtResource("11_djm2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.177876, -0.011487007, -159.6336)
+
+[node name="road_1_straight27" parent="Flooring" index="184" unique_id=1532069610 instance=ExtResource("11_djm2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.177876, -0.011487007, -175.6336)
+
+[node name="FogVolume" type="FogVolume" parent="." index="6" unique_id=1305860276]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000002, -38.859722, 7.6318464, -96.88815)
+size = Vector3(14.739571, 15.584473, 70.320435)
+material = SubResource("FogMaterial_2q53y")
+
+[node name="FogVolume2" type="FogVolume" parent="." index="7" unique_id=1946967189]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000002, -38.859722, 7.6318464, -171.88908)
+size = Vector3(14.739571, 15.584473, 37.10379)
+material = SubResource("FogMaterial_2q53y")
+
+[node name="Collisions" type="StaticBody3D" parent="." index="8" unique_id=2009111390]
 
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="Collisions" index="0" unique_id=1506563351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.914858, 1, 4.7718287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.914858, 1, 9.242072)
+shape = SubResource("BoxShape3D_npmus")
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="Collisions" index="1" unique_id=157506316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.937868, 1, -109.55285)
+shape = SubResource("BoxShape3D_stsnl")
+
+[node name="CollisionShape3D32" type="CollisionShape3D" parent="Collisions" index="2" unique_id=441973867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.937866, 1, -171.36852)
+shape = SubResource("BoxShape3D_m2fle")
+
+[node name="CollisionShape3D33" type="CollisionShape3D" parent="Collisions" index="3" unique_id=838438877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.13835, 1, -151.83405)
+shape = SubResource("BoxShape3D_prgaq")
+
+[node name="CollisionShape3D34" type="CollisionShape3D" parent="Collisions" index="4" unique_id=138857061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.397205, 1, -135.83405)
+shape = SubResource("BoxShape3D_46v0f")
+
+[node name="CollisionShape3D37" type="CollisionShape3D" parent="Collisions" index="5" unique_id=1353029752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.211836, 1, -58.391754)
+shape = SubResource("BoxShape3D_f07vn")
+
+[node name="CollisionShape3D35" type="CollisionShape3D" parent="Collisions" index="6" unique_id=1770330131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.96971, 1, -135.83405)
+shape = SubResource("BoxShape3D_46v0f")
+
+[node name="CollisionShape3D36" type="CollisionShape3D" parent="Collisions" index="7" unique_id=227550950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.96971, 1, -151.83405)
+shape = SubResource("BoxShape3D_46v0f")
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="Collisions" index="8" unique_id=815652727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0692697, 1, 9.853093)
+shape = SubResource("BoxShape3D_eudcu")
+
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="Collisions" index="9" unique_id=577097715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.247568, 1, -1.9762173)
+shape = SubResource("BoxShape3D_x5gos")
+
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="Collisions" index="10" unique_id=701349250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.247568, 1, -24.111088)
+shape = SubResource("BoxShape3D_8pg1b")
+
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="Collisions" index="11" unique_id=259664444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4946277, 1, -7.9684687)
+shape = SubResource("BoxShape3D_n2hr3")
+
+[node name="CollisionShape3D30" type="CollisionShape3D" parent="Collisions" index="12" unique_id=43415186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.454244, 1, -29.968468)
+shape = SubResource("BoxShape3D_n2hr3")
+
+[node name="CollisionShape3D31" type="CollisionShape3D" parent="Collisions" index="13" unique_id=649599701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4700816, 1, -49.968468)
+shape = SubResource("BoxShape3D_n2hr3")
+
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="Collisions" index="14" unique_id=516189461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.313267, 1, -12.018858)
+shape = SubResource("BoxShape3D_aq1u3")
+
+[node name="CollisionShape3D38" type="CollisionShape3D" parent="Collisions" index="15" unique_id=1314412625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.563118, 1.000001, -31.706112)
+shape = SubResource("BoxShape3D_1xb40")
+
+[node name="CollisionShape3D39" type="CollisionShape3D" parent="Collisions" index="16" unique_id=1303867164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.826696, 1.000001, -34.20867)
+shape = SubResource("BoxShape3D_5ulu5")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="Collisions" index="17" unique_id=1460810836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.085142, 1, -4.0809584)
 shape = SubResource("BoxShape3D_w4s4v")
 
-[node name="CollisionShape3D21" type="CollisionShape3D" parent="Collisions" index="1" unique_id=1460810836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.085142, 1, -4.368083)
-shape = SubResource("BoxShape3D_w4s4v")
-
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="Collisions" index="2" unique_id=2018782054]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="Collisions" index="18" unique_id=2018782054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.239422, 1, -28.26587)
 shape = SubResource("BoxShape3D_jtcyd")
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="Collisions" index="3" unique_id=177584849]
+[node name="CollisionShape3D28" type="CollisionShape3D" parent="Collisions" index="19" unique_id=1571872462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.379665, 1, -89.441986)
+shape = SubResource("BoxShape3D_in8h5")
+
+[node name="CollisionShape3D29" type="CollisionShape3D" parent="Collisions" index="20" unique_id=1777643431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.655281, 1, -50.007496)
+shape = SubResource("BoxShape3D_2q53y")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="Collisions" index="21" unique_id=177584849]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.91099, 1, -14.265869)
 shape = SubResource("BoxShape3D_1127y")
 
-[node name="Decorations" type="Node3D" parent="." index="7" unique_id=1513062672]
+[node name="Car6" parent="Collisions" index="22" unique_id=1985478119 instance=ExtResource("17_ebnum")]
+transform = Transform3D(0.9185016, 0, -0.39541727, 0, 1, 0, 0.39541727, 0, 0.9185016, -19.956682, -0.05402994, -122.01734)
 
-[node name="Root Scene" parent="Decorations" index="0" unique_id=235827026 instance=ExtResource("2_7x7hh")]
-transform = Transform3D(2.6226832e-07, 0, -2, 0, 2, 0, 2, 0, 2.6226832e-07, 6.5287676, 0, -0.94506025)
+[node name="Decorations" type="Node3D" parent="." index="9" unique_id=1513062672]
 
-[node name="Root Scene2" parent="Decorations" index="1" unique_id=2139869377 instance=ExtResource("2_7x7hh")]
-transform = Transform3D(-2, 0, -1.7484554e-07, 0, 2, 0, 1.7484554e-07, 0, -2, -15.60756, 0, -18.94506)
-
-[node name="Fence" parent="Decorations" index="2" unique_id=31093253 instance=ExtResource("23_qttjh")]
+[node name="Fence" parent="Decorations" index="0" unique_id=31093253 instance=ExtResource("23_qttjh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.169569, 0, -56.04311)
 
-[node name="Fence2" parent="Decorations" index="3" unique_id=1918651012 instance=ExtResource("23_qttjh")]
+[node name="Fence2" parent="Decorations" index="1" unique_id=1918651012 instance=ExtResource("23_qttjh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.169569, 0, -49.0557)
 
-[node name="Fence3" parent="Decorations" index="4" unique_id=697639212 instance=ExtResource("23_qttjh")]
+[node name="Fence3" parent="Decorations" index="2" unique_id=697639212 instance=ExtResource("23_qttjh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.169569, 0, -38.759357)
 
-[node name="Fence4" parent="Decorations" index="5" unique_id=1545841602 instance=ExtResource("23_qttjh")]
+[node name="Fence4" parent="Decorations" index="3" unique_id=1545841602 instance=ExtResource("23_qttjh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.169569, 0, -31.771944)
 
-[node name="Fence5" parent="Decorations" index="6" unique_id=435681603 instance=ExtResource("23_qttjh")]
+[node name="Fence5" parent="Decorations" index="4" unique_id=435681603 instance=ExtResource("23_qttjh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.169569, 0, -24.759357)
 
-[node name="Fence6" parent="Decorations" index="7" unique_id=754626453 instance=ExtResource("23_qttjh")]
+[node name="Fence6" parent="Decorations" index="5" unique_id=754626453 instance=ExtResource("23_qttjh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.169569, 0, -17.771944)
 
-[node name="Fence7" parent="Decorations" index="8" unique_id=191478533 instance=ExtResource("23_qttjh")]
+[node name="Fence7" parent="Decorations" index="6" unique_id=191478533 instance=ExtResource("23_qttjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.692333, 0, -14.284425)
 
-[node name="warehouse_mx_42" parent="Decorations" index="9" unique_id=1691175316 instance=ExtResource("3_ksl5d")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -72.95279, 32.719193, 15.868534)
+[node name="warehouse_mx_42" parent="Decorations" index="7" unique_id=1691175316 instance=ExtResource("3_ksl5d")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -72.95279, -121.166336, 137.86853)
 
-[node name="warehouse_mx_43" parent="Decorations" index="10" unique_id=1499668559 instance=ExtResource("3_ksl5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.124348, 32.719193, 15.381382)
+[node name="warehouse_mx_43" parent="Decorations" index="8" unique_id=1499668559 instance=ExtResource("3_ksl5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.124348, -121.166336, 137.38138)
 
-[node name="warehouse_mx_45" parent="Decorations" index="11" unique_id=1485767030 instance=ExtResource("3_ksl5d")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 22.22409, -0.12220526, -3.2767715)
+[node name="warehouse_mx_45" parent="Decorations" index="9" unique_id=1485767030 instance=ExtResource("3_ksl5d")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 22.385643, -0.12220526, -2.8803825)
 
-[node name="warehouse_mx_44" parent="Decorations" index="12" unique_id=2076423273 instance=ExtResource("3_ksl5d")]
+[node name="warehouse_mx_46" parent="Decorations" index="10" unique_id=657470499 instance=ExtResource("3_ksl5d")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -85.61436, -0.12220526, -114.88039)
+
+[node name="warehouse_mx_44" parent="Decorations" index="11" unique_id=2076423273 instance=ExtResource("3_ksl5d")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.935515, 0.04522419, 6.9548016)
 
+[node name="warehouse_mx_47" parent="Decorations" index="12" unique_id=1526670587 instance=ExtResource("3_ksl5d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -91.93552, 0.04522419, -151.0452)
+
 [node name="garage_hm_12" parent="Decorations" index="13" unique_id=165416991 instance=ExtResource("4_7x7hh")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -35.949993, 32.719193, 32.561596)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -35.949993, -121.166336, 154.5616)
 
 [node name="shed_ax_23" parent="Decorations" index="14" unique_id=710121326 instance=ExtResource("5_47o68")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -50.313946, 32.719193, 42.681843)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -50.313946, -121.166336, 164.68184)
 
 [node name="shipping_container_mx_1_hollow_12" parent="Decorations" index="15" unique_id=827495213 instance=ExtResource("8_ebnum")]
-transform = Transform3D(1.4488887, 0, 0.38822857, 0, 1.4999998, 0, -0.38822857, 0, 1.4488887, -60.607147, 32.719193, 14.525997)
+transform = Transform3D(1.4488887, 0, 0.38822857, 0, 1.4999998, 0, -0.38822857, 0, 1.4488887, -60.607147, -121.166336, 136.526)
 
-[node name="storage_tank_mx_12" parent="Decorations" index="16" unique_id=1229452760 instance=ExtResource("9_nnlh0")]
-transform = Transform3D(-1.2990379, 0, 0.7499998, 0, 1.4999999, 0, -0.7499998, 0, -1.2990379, -48.039566, 32.719193, 22.146854)
+[node name="shipping_container_mx_1_hollow_13" parent="Decorations" index="16" unique_id=438787772 instance=ExtResource("8_ebnum")]
+transform = Transform3D(-1.2051457e-07, 0, -2, 0, 2.757052, 0, 2.757052, 0, -8.742278e-08, -11.16444, 0, -72.02992)
 
-[node name="storage_tank_mx_13" parent="Decorations" index="17" unique_id=1225827127 instance=ExtResource("9_nnlh0")]
+[node name="shipping_container_mx_1_hollow_14" parent="Decorations" index="17" unique_id=1310846145 instance=ExtResource("8_ebnum")]
+transform = Transform3D(-2.899572, 0, -0.55830944, 0, 3, 0, 0.769728, 0, -2.1031563, -7.16444, 0, -139.88318)
+
+[node name="shipping_container_mx_1_hollow_16" parent="Decorations" index="18" unique_id=1152327566 instance=ExtResource("8_ebnum")]
+transform = Transform3D(-0.76972777, 0, 2.103156, 0, 2.9999998, 0, -2.8995714, 0, -0.5583092, -15.390534, 0, -156.38422)
+
+[node name="shipping_container_mx_1_hollow_15" parent="Decorations" index="19" unique_id=921062099 instance=ExtResource("8_ebnum")]
+transform = Transform3D(2.931359, 0, -0.4628119, 0, 2.9999998, 0, 0.6380679, 0, 2.1262121, -7.16444, 8, -139.88318)
+
+[node name="storage_tank_mx_12" parent="Decorations" index="20" unique_id=1229452760 instance=ExtResource("9_nnlh0")]
+transform = Transform3D(-1.2990379, 0, 0.7499998, 0, 1.4999999, 0, -0.7499998, 0, -1.2990379, -48.039566, -121.166336, 144.14685)
+
+[node name="storage_tank_mx_13" parent="Decorations" index="21" unique_id=1225827127 instance=ExtResource("9_nnlh0")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -8, 0, -64)
 
-[node name="warehouse_mx_22" parent="Decorations" index="18" unique_id=73135062 instance=ExtResource("10_fovtg")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -52.15883, 32.719193, -6.375538)
+[node name="storage_tank_mx_14" parent="Decorations" index="22" unique_id=1035634670 instance=ExtResource("9_nnlh0")]
+transform = Transform3D(5.2453663e-07, 0, 4, 0, 4, 0, -4, 0, 5.2453663e-07, -18, 0, -142)
 
-[node name="warehouse_mx_23" parent="Decorations" index="19" unique_id=328510944 instance=ExtResource("10_fovtg")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72.43622, 32.719193, 42.841957)
+[node name="warehouse_mx_22" parent="Decorations" index="23" unique_id=73135062 instance=ExtResource("10_fovtg")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -52.15883, -121.166336, 115.624466)
 
-[node name="Tunnel" type="MeshInstance3D" parent="Decorations" index="20" unique_id=1622899215]
+[node name="warehouse_mx_23" parent="Decorations" index="24" unique_id=328510944 instance=ExtResource("10_fovtg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72.43622, -121.166336, 164.84195)
+
+[node name="warehouse_mx_24" parent="Decorations" index="25" unique_id=1017748709 instance=ExtResource("10_fovtg")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -10.880948, 0, -100.22604)
+
+[node name="warehouse_mx_25" parent="Decorations" index="26" unique_id=476580702 instance=ExtResource("10_fovtg")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -62.88095, 0, -182.22604)
+
+[node name="Tunnel" type="MeshInstance3D" parent="Decorations" index="27" unique_id=1622899215]
 transform = Transform3D(-10, 0, 1.5099581e-06, 0, 10, 0, -1.5099581e-06, 0, -10, -38.177876, -0.05112648, -77.67799)
 material_override = SubResource("StandardMaterial3D_eudcu")
 mesh = ExtResource("13_w4s4v")
 skeleton = NodePath("../../Flooring/road_1_straight7")
 
-[node name="wooden_crate_hx_1_13" parent="Decorations" index="21" unique_id=1368712893 instance=ExtResource("14_jtcyd")]
-transform = Transform3D(0.43868977, 0, 0.78584427, 0, 0.89999986, 0, -0.78584427, 0, 0.43868977, -47.29405, 32.52742, 25.596973)
+[node name="Tunnel2" type="MeshInstance3D" parent="Decorations" index="28" unique_id=2015528306]
+transform = Transform3D(10, 0, -2.3841858e-06, 0, 10, 0, 2.3841858e-06, 0, 10, -38.177876, -0.05112648, -118.08501)
+material_override = SubResource("StandardMaterial3D_eudcu")
+mesh = ExtResource("13_w4s4v")
+skeleton = NodePath("../../Flooring/road_1_straight7")
 
-[node name="wooden_crate_hx_1_14" parent="Decorations" index="22" unique_id=877599149 instance=ExtResource("14_jtcyd")]
+[node name="Tunnel3" type="MeshInstance3D" parent="Decorations" index="29" unique_id=462033403]
+transform = Transform3D(-10, 0, 3.2584135e-06, 0, 10, 0, -3.2584135e-06, 0, -10, -38.177876, -0.05112648, -169.678)
+material_override = SubResource("StandardMaterial3D_eudcu")
+mesh = ExtResource("13_w4s4v")
+skeleton = NodePath("../../Flooring/road_1_straight7")
+
+[node name="wooden_crate_hx_1_13" parent="Decorations" index="30" unique_id=1368712893 instance=ExtResource("14_jtcyd")]
+transform = Transform3D(0.43868977, 0, 0.78584427, 0, 0.89999986, 0, -0.78584427, 0, 0.43868977, -47.29405, -121.35811, 147.59697)
+
+[node name="wooden_crate_hx_1_14" parent="Decorations" index="31" unique_id=877599149 instance=ExtResource("14_jtcyd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, -58)
 
-[node name="Car6" parent="Decorations" index="23" unique_id=1985478119 instance=ExtResource("17_ebnum")]
+[node name="wooden_crate_hx_1_15" parent="Decorations" index="32" unique_id=2004626019 instance=ExtResource("14_jtcyd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.464655, 0, -20)
+
+[node name="Car6" parent="Decorations" index="33" unique_id=1934959470 instance=ExtResource("17_ebnum")]
 transform = Transform3D(-5.196034e-08, -0.21129067, 0.9774233, -7.720011e-08, -0.97742325, -0.21129067, 1.0000001, -8.643592e-08, 3.447559e-08, 4.3103895, 1.9766827, 8.577246)
 skeleton = NodePath("../../..")
 
-[node name="Car2" parent="Decorations" index="24" unique_id=1415582698 instance=ExtResource("18_nnlh0")]
+[node name="Car2" parent="Decorations" index="34" unique_id=1415582698 instance=ExtResource("18_nnlh0")]
 transform = Transform3D(-2.1855698e-08, -0.5000001, -0.8660254, 1, -4.371139e-08, 0, -3.7855173e-08, -0.8660254, 0.5000001, -1.7467613, 1.0816951, 10.474995)
 skeleton = NodePath("../../..")
 
-[node name="Rubbish" parent="Decorations" index="25" unique_id=186815540 instance=ExtResource("19_ebnum")]
+[node name="Rubbish" parent="Decorations" index="35" unique_id=186815540 instance=ExtResource("19_ebnum")]
 transform = Transform3D(-0.020000001, 0, -0.034641016, 0, 0.04, 0, 0.034641016, 0, -0.020000001, 7.305143, 0, -4.7829266)
 
-[node name="Rubbish2" parent="Decorations" index="26" unique_id=1590011688 instance=ExtResource("19_ebnum")]
-transform = Transform3D(-0.037494197, 0, -0.013935024, 0, 0.04, 0, 0.013935024, 0, -0.037494197, -12.105006, 0, -20.807888)
+[node name="Rubbish2" parent="Decorations" index="36" unique_id=1590011688 instance=ExtResource("19_ebnum")]
+transform = Transform3D(-0.037494197, 0, -0.013935024, 0, 0.04, 0, 0.013935024, 0, -0.037494197, -11.34948, 0, -20.773485)
 
-[node name="Car7" parent="Decorations" index="27" unique_id=1374480356 instance=ExtResource("17_ebnum")]
+[node name="Car7" parent="Decorations" index="37" unique_id=1374480356 instance=ExtResource("17_ebnum")]
 transform = Transform3D(-0.2647652, 0, 0.9643129, 0, 1, 0, -0.9643129, 0, -0.2647652, -9.298239, 4.7683716e-07, -19.843172)
 skeleton = NodePath("../../..")
 
-[node name="Root Scene3" parent="Decorations" index="28" unique_id=1201693172 instance=ExtResource("20_djm2l")]
-transform = Transform3D(5.9604645e-08, 0, -2, 0, 2, 0, 2, 0, 5.9604645e-08, 7.739026, 0, -18.448626)
+[node name="Car8" parent="Decorations" index="38" unique_id=1640931421 instance=ExtResource("17_ebnum")]
+transform = Transform3D(-0.75247246, 0, 0.65862375, 0, 1, 0, -0.65862375, 0, -0.75247246, -19.794895, 9.536743e-07, -34.184994)
+skeleton = NodePath("../../..")
 
-[node name="Root Scene4" parent="Decorations" index="29" unique_id=1468076874 instance=ExtResource("21_qttjh")]
-transform = Transform3D(0.93034625, 0, -2.2123415, 0, 2.3999999, 0, 2.2123415, 0, 0.93034625, 5.9205036, 0, -17.01014)
-
-[node name="Root Scene5" parent="Decorations" index="30" unique_id=1117951118 instance=ExtResource("21_qttjh")]
+[node name="Root Scene5" parent="Decorations" index="39" unique_id=1117951118 instance=ExtResource("21_qttjh")]
 transform = Transform3D(2.2239048, 0, 0.9023561, 0, 2.3999999, 0, -0.9023561, 0, 2.2239048, -6.419572, 0, -18.616152)
 
-[node name="Trashcan" parent="Decorations" index="31" unique_id=169401877 instance=ExtResource("22_w4s4v")]
-transform = Transform3D(0.02231189, 0, -0.011277392, 0, 0.025, 0, 0.011277392, 0, 0.02231189, -4.334202, 0, -12.17421)
+[node name="OilBarrel" parent="Decorations" index="40" unique_id=383269077 instance=ExtResource("26_1127y")]
+transform = Transform3D(-6.119594e-08, 0, 1.4, 0, 1.4, 0, -1.4, 0, -6.119594e-08, -15.185849, 0, -21.467001)
+
+[node name="OilBarrel4" parent="Decorations" index="41" unique_id=2123828313 instance=ExtResource("26_1127y")]
+transform = Transform3D(-6.119594e-08, 0, 1.4, 0, 1.4, 0, -1.4, 0, -6.119594e-08, -15.940666, 0, -31.198677)
+
+[node name="OilBarrel3" parent="Decorations" index="42" unique_id=1455599469 instance=ExtResource("26_1127y")]
+transform = Transform3D(-6.119594e-08, 0, 1.4, 0, 1.4, 0, -1.4, 0, -6.119594e-08, -22.185528, 0, -18.23636)
+
+[node name="OilBarrel2" parent="Decorations" index="43" unique_id=1618466414 instance=ExtResource("26_1127y")]
+transform = Transform3D(1.3939581, 0.12992704, 0, -0.12937637, 1.3880501, -0.12875922, -0.011949503, 0.12820354, 1.3940663, 5.954347, 0.078302264, -21.579992)
+
+[node name="Root Scene8" parent="Decorations" index="44" unique_id=49031785 instance=ExtResource("26_npmus")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 8.393521, -4.7683716e-07, 1.8741732)
+
+[node name="Root Scene9" parent="Decorations" index="45" unique_id=1802309004 instance=ExtResource("26_npmus")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 8.948809, -4.7683716e-07, 1.0699742)
+
+[node name="Car3" parent="Decorations" index="46" unique_id=201527980 instance=ExtResource("18_nnlh0")]
+transform = Transform3D(-0.73297054, 0, 0.6802604, 0, 1, 0, -0.6802604, 0, -0.73297054, -19.357685, -0.1292764, -127.88615)
+
+[node name="trash_can2" parent="Decorations" index="47" unique_id=1691376380 instance=ExtResource("25_na5dl")]
+transform = Transform3D(-0.98994946, 0, -0.98994946, 0, 1.4, 0, 0.98994946, 0, -0.98994946, -20.078302, 0, -30.956398)
+
+[node name="trash_can3" parent="Decorations" index="48" unique_id=1795117955 instance=ExtResource("25_na5dl")]
+transform = Transform3D(-2.022009e-08, -0.46258178, -1.3213698, 1.4, -6.119595e-08, 0, -5.7758907e-08, -1.3213699, 0.46258175, -15.498043, 0.39413404, -34.94618)
+
+[node name="trashpile_22" parent="Decorations" index="49" unique_id=1988895907 instance=ExtResource("26_q212g")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -19.138704, -1.1920929e-07, -31.20036)
+
+[node name="trashpile_2_0062" parent="Decorations" index="50" unique_id=2014030831 instance=ExtResource("31_n2hr3")]
+transform = Transform3D(2.540113, 0, 1.5961914, 0, 3, 0, -1.5961914, 0, 2.540113, -21.01601, 0, -31.22891)
+
+[node name="trashpile_2_0063" parent="Decorations" index="51" unique_id=122661070 instance=ExtResource("31_n2hr3")]
+transform = Transform3D(0.19197702, 0, 2.9938514, 0, 3, 0, -2.9938514, 0, 0.19197702, -16.73976, 0, -31.406828)
+
+[node name="trashbag_1_white2" parent="Decorations" index="52" unique_id=281132128 instance=ExtResource("35_2q53y")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -21.9924, 0, -34.2032)
+
+[node name="trashbag_1_red2" parent="Decorations" index="53" unique_id=1902441751 instance=ExtResource("29_rvybe")]
+transform = Transform3D(1.3092066, -0.3966182, -0.29777858, 0.4959618, 1.0469661, 0.7860559, 0, -0.84056884, 1.1195731, -22.1032, -0.14527941, -36.387978)
+
+[node name="trashbag_1_blue2" parent="Decorations" index="54" unique_id=730946005 instance=ExtResource("30_5utxm")]
+transform = Transform3D(0.40579954, 0, 1.7536609, 0, 1.8, 0, -1.7536609, 0, 0.40579954, -20.356287, 0, -36.372074)
+
+[node name="trashbag_22" parent="Decorations" index="55" unique_id=1854074529 instance=ExtResource("31_7ntqj")]
+transform = Transform3D(0.73524594, 0, 0.6778004, 0, 1, 0, -0.6778004, 0, 0.73524594, -22.580805, 0, -34.850372)
+
+[node name="Lights" type="Node3D" parent="." index="10" unique_id=1744155949]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" index="0" unique_id=1311318902]
+transform = Transform3D(0.8782168, 0.37660882, -0.29478985, 8.167123e-09, 0.6163764, 0.78745174, 0.47826275, -0.69155335, 0.5413121, -23.800734, 17.055616, -24.49817)
+light_energy = 15.0
+spot_range = 40.06653
+spot_angle = 41.918976
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" index="1" unique_id=962246718]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20.937855, 10.255669, -55.17308)
+light_energy = 5.0
+spot_range = 13.0
+spot_angle = 30.523434
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" index="2" unique_id=1934374142]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.524597, 10.255669, -55.17308)
+light_energy = 5.0
+spot_range = 13.0
+spot_angle = 30.523434
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights" index="3" unique_id=1309347198]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -13.622904, 10.255669, -55.17308)
+light_energy = 5.0
+spot_range = 13.0
+spot_angle = 30.523434
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights" index="4" unique_id=267317800]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.771412, 10.255669, -55.17308)
+light_energy = 5.0
+spot_range = 13.0
+spot_angle = 30.523434
+
+[node name="road_1_corner2" parent="." index="11" unique_id=413911795 instance=ExtResource("28_stsnl")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.17606378, -0.012050271, -59.62485)
+
+[node name="road_1_corner3" parent="." index="12" unique_id=767763808 instance=ExtResource("28_stsnl")]
+transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 15.823936, -0.012050271, -51.62485)
+
+[node name="metaltrashcan_beaten_alt_overflowing2" parent="." index="13" unique_id=1132182303 instance=ExtResource("29_eudcu")]
+transform = Transform3D(1.2493998, 0, 0.6316647, 0, 1.4, 0, -0.6316647, 0, 1.2493998, -4.7951627, 0, -12.148555)
+
+[node name="BusStopAngle" type="Marker3D" parent="." index="14" unique_id=685723807]
+transform = Transform3D(0.82153434, 0.3438401, -0.45481414, -0.13511632, 0.8923814, 0.4305798, 0.5539181, -0.29228333, 0.77958024, -25.766619, 11.839751, -18.787401)
+
+[node name="Camera3D" type="Camera3D" parent="BusStopAngle" index="0" unique_id=1258478770]
+metadata/_edit_lock_ = true
+
+[node name="dumpster_diagonal_full_open2" parent="." index="15" unique_id=1347655027 instance=ExtResource("28_btr15")]
+transform = Transform3D(-1.4, 0, 2.1139412e-07, 0, 1.4, 0, -2.1139412e-07, 0, -1.4, 7.581009, 0.0002630949, -18.56878)
+
+[node name="dumpster_diagonal_full_open3" parent="." index="16" unique_id=319364966 instance=ExtResource("28_btr15")]
+transform = Transform3D(2.7259006e-07, 0, 1.4, 0, 1.4, 0, -1.4, 0, 2.7259006e-07, -15.909371, 0.0002630949, -19.601313)
+
+[node name="trashbag_12" parent="." index="17" unique_id=748067054 instance=ExtResource("29_ivn7y")]
+transform = Transform3D(0.8649842, 0, -1.1008189, 0, 1.4, 0, 1.1008189, 0, 0.8649842, 5.75705, 0, -16.15667)
+
+[node name="trashbag_13" parent="." index="18" unique_id=1649243910 instance=ExtResource("29_ivn7y")]
+transform = Transform3D(1.3740069, 0, 0.26852357, 0, 1.4, 0, -0.26852357, 0, 1.3740069, 5.7940965, 0, -17.190573)
+
+[node name="trashpile_12" parent="." index="19" unique_id=649586189 instance=ExtResource("30_2q53y")]
+transform = Transform3D(0.99999994, 0, -1.7320509, 0, 2, 0, 1.7320509, 0, 0.99999994, 5.3503537, 0, -16.828583)
+
+[node name="trashbag_14" parent="." index="20" unique_id=1267120831 instance=ExtResource("29_ivn7y")]
+transform = Transform3D(0.3488047, 0, -1.3558521, 0, 1.4, 0, 1.3558521, 0, 0.3488047, 5.9869757, 4.7683716e-07, -5.4659033)
+
+[node name="trashbag_15" parent="." index="21" unique_id=1945821302 instance=ExtResource("29_ivn7y")]
+transform = Transform3D(1.3658878, 0, -0.30716497, 0, 1.4, 0, 0.30716497, 0, 1.3658878, 6.4369926, 4.7683716e-07, -6.1249313)
+
+[node name="trashbag_16" parent="." index="22" unique_id=1318127182 instance=ExtResource("29_ivn7y")]
+transform = Transform3D(0.88050514, 0, -1.795748, 0, 2, 0, 1.795748, 0, 0.88050514, 8.433219, 4.7683716e-07, -4.960159)
+
+[node name="trashpile_14" parent="." index="23" unique_id=1223872820 instance=ExtResource("30_2q53y")]
+transform = Transform3D(0.21835822, 0, -1.9880443, 0, 2, 0, 1.9880443, 0, 0.21835822, 5.885088, 4.7683716e-07, -6.2446766)
+
+[node name="trashpile_13" parent="." index="24" unique_id=485552157 instance=ExtResource("30_2q53y")]
+transform = Transform3D(1.5609483, 0, 1.2503763, 0, 2, 0, -1.2503763, 0, 1.5609483, 5.990136, 0, -17.92174)
+
+[node name="trashpile_2_0062" parent="." index="25" unique_id=247836734 instance=ExtResource("31_n2hr3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.2117724, 0, -20.838745)
+
+[node name="trashpile_2_0063" parent="." index="26" unique_id=199619804 instance=ExtResource("31_n2hr3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.4051, 4.7683716e-07, -5.6163983)
+
+[node name="trashbag_17" parent="." index="27" unique_id=2041712428 instance=ExtResource("29_ivn7y")]
+transform = Transform3D(1.9995141, 0, -0.044083357, 0, 2, 0, 0.044083357, 0, 1.9995141, 8.852913, 4.7683716e-07, 8.234266)
+
+[node name="trashpile_2_0064" parent="." index="28" unique_id=1835158286 instance=ExtResource("31_n2hr3")]
+transform = Transform3D(0.91987264, 0, 1.7759039, 0, 2, 0, -1.7759039, 0, 0.91987264, 8.257271, 4.7683716e-07, 7.957407)
+
+[node name="metaltrashcan_open_filled2" parent="." index="29" unique_id=1523862714 instance=ExtResource("32_in8h5")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.537676, 0.03765726, -4.0366497)
+
+[node name="metaltrashcan_closed2" parent="." index="30" unique_id=1789819016 instance=ExtResource("33_m2fle")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 5.7870913, 0.007134676, 1.9821815)
+
+[node name="metaltrashcan_closed3" parent="." index="31" unique_id=1230384719 instance=ExtResource("33_m2fle")]
+transform = Transform3D(1.189658, 0, 0.52413136, 0, 1.3, 0, -0.52413136, 0, 1.189658, 6.953751, 0.007134676, 1.9821815)
+
+[node name="dumpster_diagonal_closed2" parent="." index="32" unique_id=167278641 instance=ExtResource("34_ivn7y")]
+transform = Transform3D(-1.4, 0, -2.1139412e-07, 0, 1.4, 0, 2.1139412e-07, 0, -1.4, 6.7996874, 0.06054151, -0.9025563)
+
+[node name="dumpster_diagonal_closed3" parent="." index="33" unique_id=1785491651 instance=ExtResource("34_ivn7y")]
+transform = Transform3D(1.0086701, 0, -0.9708679, 0, 1.4, 0, 0.9708679, 0, 1.0086701, -17.3018, 0.060541034, -32.68561)
+
+[node name="metaltrashcan_beaten_alt_overflowing3" parent="." index="34" unique_id=2013941359 instance=ExtResource("29_eudcu")]
+transform = Transform3D(0.43840733, 0, 1.4345031, 0, 1.5, 0, -1.4345031, 0, 0.43840733, -3.899006, 0.038615145, 2.2236378)
+
+[node name="metaltrashcan_closed4" parent="." index="35" unique_id=902704478 instance=ExtResource("33_m2fle")]
+transform = Transform3D(1.3740511, 0, 0.60165083, 0, 1.5, 0, -0.60165083, 0, 1.3740511, -4.630872, 0, 1.0617372)
+
+[node name="trashbag_1_white2" parent="." index="36" unique_id=284738865 instance=ExtResource("35_2q53y")]
+transform = Transform3D(-0.1627324, 0, 1.3905101, 0, 1.4, 0, -1.3905101, 0, -0.1627324, -3.8153257, 0.025502505, -11.658979)
+
+[node name="trashbag_1_white3" parent="." index="37" unique_id=753688475 instance=ExtResource("35_2q53y")]
+transform = Transform3D(-0.9962975, 0, 0.08597337, 0, 1, 0, -0.08597337, 0, -0.9962975, -4.0030184, 0.025502505, -12.370296)
+
+[node name="OilBarrel" parent="." index="38" unique_id=1360151786 instance=ExtResource("26_1127y")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -26.945395, 0, -57.255707)
+
+[node name="OilBarrel2" parent="." index="39" unique_id=180166255 instance=ExtResource("26_1127y")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -21.395473, 0.40966094, -69.57328)
+
+[node name="OilBarrel3" parent="." index="40" unique_id=923028777 instance=ExtResource("26_1127y")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -21.395473, 0.40966094, -74.67089)
+
+[node name="OilBarrel4" parent="." index="41" unique_id=940037237 instance=ExtResource("26_1127y")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -22.169376, 0.40966094, -104.67089)
+
+[node name="Frog" parent="." index="42" unique_id=1031118264 instance=ExtResource("36_in8h5")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -19.533876, 0.40981483, -72.178535)
+script = ExtResource("37_m2fle")
+
+[node name="ParkingSpace" parent="." index="43" unique_id=619317855 instance=ExtResource("37_46v0f")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16, 0, -28)
+
+[node name="ParkingSpace2" parent="." index="44" unique_id=1376517051 instance=ExtResource("37_46v0f")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16, 0, -32)
+
+[node name="ParkingSpace3" parent="." index="45" unique_id=1039127699 instance=ExtResource("38_prgaq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.99599, 0, -35.888077)
+
+[node name="ParkingSpace4" parent="." index="46" unique_id=739615147 instance=ExtResource("37_46v0f")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -15.997328, 0, -35.889305)
+
+[node name="ParkingSpace5" parent="." index="47" unique_id=1301424794 instance=ExtResource("37_46v0f")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -15.997328, 0, -31.889305)
+
+[node name="ParkingSpace6" parent="." index="48" unique_id=1197059519 instance=ExtResource("38_prgaq")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.001337, 0, -28.001228)
+
+[node name="Car2" parent="." index="49" unique_id=45657735 instance=ExtResource("18_nnlh0")]
+transform = Transform3D(-0.047089066, 0, -0.9988907, 0, 1, 0, 0.9988907, 0, -0.047089066, -12.100127, 0, -31.807446)
+
+[node name="trashpile_2_0065" parent="." index="50" unique_id=1386760872 instance=ExtResource("31_n2hr3")]
+transform = Transform3D(4, 0, 0, 0, 6.096, 0, 0, 0, 4, -21.558365, 0, -35.43873)
+
+[node name="trashpile_2_0066" parent="." index="51" unique_id=519579957 instance=ExtResource("31_n2hr3")]
+transform = Transform3D(3.5580075, 0, 1.0688438, 0, 4.020105, 0, -1.5815232, 0, 2.4046144, -15.996289, 0, -36.698963)
 
 [editable path="BaseLevel/Player"]

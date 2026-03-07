@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dr8oycytisvrm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0b2t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioigk"]
+transparency = 1
+albedo_color = Color(1, 0.69411767, 0, 0.3137255)
+
+[node name="ParkingSpace" type="Node3D" unique_id=619317855]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=135556475]
+transform = Transform3D(0.348, 0, 0, 0, 0.027, 0, 0, 0, 8, -2, 0, 4)
+mesh = SubResource("BoxMesh_j0b2t")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ioigk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1764383868]
+transform = Transform3D(-1.5211564e-08, 0, -3.6772058, 0, 0.027, 0, 0.348, 0, -1.6073577e-07, 0, 0, 0.17485893)
+mesh = SubResource("BoxMesh_j0b2t")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ioigk")
