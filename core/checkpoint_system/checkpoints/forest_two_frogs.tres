@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://cs6q3l4unmtj7"]
 
 [ext_resource type="Script" uid="uid://idmin1b44kw" path="res://core/checkpoint_system/CheckpointData.gd" id="1_07eqg"]
-[ext_resource type="Texture2D" uid="uid://cmfty7gnfvdii" path="res://between_two_frogs_checkpoint.png" id="1_38q32"]
+[ext_resource type="Texture2D" uid="uid://b8n3gp18606bh" path="res://between_two_frogs_checkpoint.png" id="1_38q32"]
 
 [resource]
 script = ExtResource("1_07eqg")

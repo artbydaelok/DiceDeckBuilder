@@ -29,12 +29,12 @@ Forest Demon: Turn back now, leave before you hurt someone else.
 => END
 
 ~ mother_nature_1
+do ProjectMusicController.fade_to_zero()
 Forest Demon: Ouch!
 Forest Demon: Y-you-... You hurt someone else! and that someone else was me! I literally just told you not to-
 Forest Demon: Ahem-....
 Forest Demon: You have demonstrated your strength. I suppose you can pass... for now.
 do GameEvents.current_level.hide_mother_nature()
-do ProjectMusicController.fade_to_zero()
 => END
 
 ~ orangutan_shop_initial

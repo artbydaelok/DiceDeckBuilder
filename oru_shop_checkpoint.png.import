@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfty7gnfvdii"
-path.s3tc="res://.godot/imported/first_encounter_checkpoint.png-ba3118232cc73ec208d559f469807801.s3tc.ctex"
+uid="uid://cxhtp6kgx45fg"
+path.s3tc="res://.godot/imported/oru_shop_checkpoint.png-8d86abdb9d74c260a8e58ba4ed83d378.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://first_encounter_checkpoint.png"
-dest_files=["res://.godot/imported/first_encounter_checkpoint.png-ba3118232cc73ec208d559f469807801.s3tc.ctex"]
+source_file="res://oru_shop_checkpoint.png"
+dest_files=["res://.godot/imported/oru_shop_checkpoint.png-8d86abdb9d74c260a8e58ba4ed83d378.s3tc.ctex"]
 
 [params]
 

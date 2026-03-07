@@ -133,6 +133,7 @@ font_size = 150
 outline_size = 100
 
 [node name="InteractionPromptBackgroundMesh" type="MeshInstance3D" parent="InteractionPromptLabel" unique_id=657105338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025117874, 0)
 mesh = SubResource("QuadMesh_i6h33")
 skeleton = NodePath("../..")
 

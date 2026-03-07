@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://ditb5nca4s77l"]
 
-[ext_resource type="Texture2D" uid="uid://bqjaanid7cutt" path="res://first_encounter_checkpoint.png" id="1_04wyg"]
+[ext_resource type="Texture2D" uid="uid://cmfty7gnfvdii" path="res://first_encounter_checkpoint.png" id="1_04wyg"]
 [ext_resource type="Script" uid="uid://idmin1b44kw" path="res://core/checkpoint_system/CheckpointData.gd" id="1_6vo2l"]
 
 [resource]

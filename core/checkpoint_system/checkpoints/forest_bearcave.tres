@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://cdsjqvimjoy4i"]
 
 [ext_resource type="Script" uid="uid://idmin1b44kw" path="res://core/checkpoint_system/CheckpointData.gd" id="1_4a7up"]
+[ext_resource type="Texture2D" uid="uid://cwey4sln4vkln" path="res://beyond_bear_cave_checkpoint.png" id="1_vuedo"]
 
 [resource]
 script = ExtResource("1_4a7up")
 checkpoint_name = "Beyond Bear Cave"
+image = ExtResource("1_vuedo")
 level_name = "Forest"
 level_path = "res://levels/forest_level/forest_level.tscn"
 spawn_point = Vector3(76, 0, -252)
