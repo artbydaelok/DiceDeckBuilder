@@ -12,10 +12,11 @@ var save_system: SaveSystem
 
 const FAST_TRAVEL_UI = preload("res://core/checkpoint_system/checkpoint_ui.tscn")
 
-
 var has_effects: bool = false
 var has_player: bool = false
 var ui: CheckpointUI
+
+var player : Player
 
 func _ready() -> void:
 	if fire_sound_effect && fire_visual_effect && smoke_visual_effect && fast_travel_ui_prompt && fire_light:
@@ -26,6 +27,8 @@ func _ready() -> void:
 	
 	if !save_system:
 		push_warning("save_system is missing or null")
+	
+	player = get_tree().get_first_node_in_group("player")
 	
 	player_detection.area_entered.connect(_on_player_entered)
 	player_detection.area_exited.connect(_on_player_exited)
@@ -53,6 +56,8 @@ func _on_player_entered(player_trigger_area: Area3D) -> void:
 		var checkpoints = save_system.player_data.unlocked_checkpoints[checkpoint_data.level_name]
 		if !checkpoints.has(checkpoint_data.resource_path):
 			checkpoints.append(checkpoint_data.resource_path)
+	
+	player.heal_player(player.max_health)
 	
 	save_system.json_save()
 	has_player = true

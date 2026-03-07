@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bv33fgeln6yrp"]
 
 [ext_resource type="PackedScene" uid="uid://c76drbuur0wwo" path="res://assets/3d_models/psx/trees/tree_stump_12.tscn" id="1_4eoa6"]
-[ext_resource type="Script" path="res://level_mechanics/tree_bridge_event.gd" id="1_wlik1"]
+[ext_resource type="Script" uid="uid://btapt2cjobti" path="res://level_mechanics/tree_bridge_event.gd" id="1_wlik1"]
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="2_wlik1"]
 [ext_resource type="AudioStream" uid="uid://u2dh0c3m805s" path="res://assets/sounds/EXPLDsgn_High End Thunder Strike_Ocular Sounds_Heavy Explosions_The Complete Impacts Collection.wav" id="4_kh7pt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kh7pt"]
-size = Vector3(2, 8.338257, 2)
+size = Vector3(1.25, 8.338257, 1.5097656)
 
 [sub_resource type="Animation" id="Animation_wlik1"]
 length = 0.001
@@ -121,7 +121,7 @@ initial_velocity_max = 25.0
 size = Vector3(5, 0.46, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neyof"]
-size = Vector3(1.8, 1.8, 1.8)
+size = Vector3(1.8, 1.8, 10.766024)
 
 [node name="TreeBridgeEvent" type="Node3D" unique_id=982082081]
 script = ExtResource("1_wlik1")
@@ -162,6 +162,6 @@ pitch_scale = 0.75
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=264856129]
 
 [node name="BridgeCollision" type="CollisionShape3D" parent="StaticBody3D" unique_id=2015307304]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -11.433479)
 shape = SubResource("BoxShape3D_neyof")
 debug_color = Color(0.9889342, 0, 0.301643, 0.41960785)
