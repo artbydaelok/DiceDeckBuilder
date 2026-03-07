@@ -12,6 +12,7 @@ var move_direction : Vector3 = Vector3.BACK
 
 # Triggers on ready / spawn
 func initialize():
+	move_timer.wait_time = 1 / move_speed
 	move_timer.timeout.connect(on_timer_timeout)
 	if reverse_direction:
 		move_direction = -move_direction

@@ -11,6 +11,8 @@ const BLEND_BUS_PREFIX : String = "Blend"
 const MAX_DEPTH = 16
 const MINIMUM_VOLUME_DB = -80
 
+const EMPTY_CLIP = preload("uid://se2ytt32p23n")
+
 ## Detect stream players with matching audio bus.
 @export var audio_bus : StringName = &"Music"
 
@@ -59,6 +61,9 @@ func blend_to(target_volume_db : float, duration : float = 0.0) -> Tween:
 		return tween
 	music_stream_player.volume_db = target_volume_db
 	return
+
+func fade_to_zero():
+	play_stream(EMPTY_CLIP)
 
 func stop() -> void:
 	if not is_instance_valid(music_stream_player):

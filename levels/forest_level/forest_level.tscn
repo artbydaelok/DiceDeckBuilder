@@ -483,7 +483,7 @@ spot_range = 65.0
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -260)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -84)
 
 [node name="DebugPlayerStart2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=371274248 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, -162)
@@ -499,14 +499,14 @@ shape = SubResource("BoxShape3D_b118p")
 debug_color = Color(0.9582438, 1.6364455e-06, 0.5308395, 0.41960785)
 
 [node name="FrogEnemy" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="4" unique_id=1733519135 instance=ExtResource("14_b118p")]
-transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -2, 0, -42)
-spaces_to_move = 2
-reverse_direction = false
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -2, 0, -36)
+spaces_to_move = 4
+reverse_direction = true
+move_speed = 1.0
 
 [node name="FrogEnemy2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="5" unique_id=1418250710 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 0, 0, -50)
-spaces_to_move = 2
-reverse_direction = false
+move_speed = 1.0
 
 [node name="FrogEnemy10" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=2087955057 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 18, 0, -250)
@@ -516,7 +516,6 @@ reverse_direction = true
 [node name="FrogEnemy11" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=1459673710 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 26, 0, -256)
 spaces_to_move = 4
-reverse_direction = false
 move_speed = 3.0
 
 [node name="FrogEnemy12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=328148922 instance=ExtResource("14_b118p")]
@@ -526,53 +525,43 @@ reverse_direction = true
 
 [node name="FrogEnemy3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=724514640 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -4, 0, -50)
-spaces_to_move = 2
-reverse_direction = false
+move_speed = 1.0
 
 [node name="FrogEnemy13" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1264935718 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -4, 0, -426)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy15" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=1532822894 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 0, 0, -426)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy14" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=927726902 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -8, 0, -426)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=580620857 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 46, 0, -134)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy6" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=943176713 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 50, 0, -134)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy7" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=1921116457 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 54, 0, -134)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy8" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=1965213003 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 52, 0, -140)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="17" unique_id=1619270346 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 48, 0, -140)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="FrogEnemy9" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="18" unique_id=1117715118 instance=ExtResource("14_b118p")]
 transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 58, 0, -224)
 spaces_to_move = 2
-reverse_direction = false
 
 [node name="Eyeball1" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1967730826 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.0516393, 0, -82)

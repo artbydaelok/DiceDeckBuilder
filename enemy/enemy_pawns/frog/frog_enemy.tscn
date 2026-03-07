@@ -48,6 +48,7 @@ _data = {
 [node name="FrogEnemy" unique_id=2087955057 instance=ExtResource("1_4u7y1")]
 script = ExtResource("2_7bili")
 spaces_to_move = 3
+reverse_direction = false
 
 [node name="Hitbox" parent="." index="0" unique_id=690327701 instance=ExtResource("3_7bili")]
 collision_layer = 0
