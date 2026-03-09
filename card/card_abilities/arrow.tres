@@ -7,7 +7,7 @@
 script = ExtResource("1_spfas")
 card_name = "Bow & Arrow"
 ability_id = "arrow"
-card_description = "Shoots an arrow at the boss."
+card_description = "Shoots an arrow forward."
 card_artwork = ExtResource("1_are7e")
 cost = 3
 commit_value = 1.0

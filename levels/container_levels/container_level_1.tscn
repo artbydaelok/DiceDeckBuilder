@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://86rnblol0q7t" path="res://level_mechanics/coin_pickup.tscn" id="10_4u5eu"]
 [ext_resource type="PackedScene" uid="uid://c1vkiu5hyt2wt" path="res://level_mechanics/metal_barrel_obstacle_2.tscn" id="10_6o10r"]
 [ext_resource type="PackedScene" uid="uid://pbebb1f7kf7v" path="res://level_mechanics/debug_player_start.tscn" id="11_6o10r"]
+[ext_resource type="PackedScene" uid="uid://ccluf7r5yvet3" path="res://assets/3d_models/floating_eyeball.tscn" id="15_odshm"]
 
 [sub_resource type="Curve" id="Curve_iwhj4"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.45933017, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -445,5 +446,10 @@ transform = Transform3D(0.009876024, -1.9180726e-08, 0.22978792, 5.2041402e-09, 
 [node name="DebugPlayerStart" parent="." index="84" unique_id=1975543459 instance=ExtResource("11_6o10r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, -8)
 disabled = true
+
+[node name="Floating_Eyeball" parent="." index="85" unique_id=1144661418 instance=ExtResource("15_odshm")]
+transform = Transform3D(-4.3301272, -0.6470477, -2.4148145, 3.725291e-08, 4.82963, -1.2940955, 2.5000002, -1.1207197, -4.1825824, -8.932854, -13.691322, -63.999043)
+script = ExtResource("6_jmihm")
+anim_amount = 1.25
 
 [editable path="BaseLevel/Player"]

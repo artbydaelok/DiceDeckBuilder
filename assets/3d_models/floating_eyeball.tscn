@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ccluf7r5yvet3"]
+
+[ext_resource type="PackedScene" uid="uid://cc46dx40a42w6" path="res://assets/3d_models/Floating_Eyeball.glb" id="1_gi6de"]
+
+[node name="Floating_Eyeball" unique_id=909447479 instance=ExtResource("1_gi6de")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1360157590) index="0" unique_id=1518950619]
+bones/1/rotation = Quaternion(-0.00029858304, -0.0021113665, 0.14004868, 0.99014235)
+bones/2/rotation = Quaternion(-5.1927163e-08, -3.3273114e-08, -0.22782008, 0.97370327)
+bones/3/rotation = Quaternion(-4.117161e-08, 5.7358207e-08, -0.21037963, 0.97761977)
+bones/4/rotation = Quaternion(0.0005464816, -0.002061, -0.25626436, 0.9666045)
+bones/5/rotation = Quaternion(-1.4528204e-08, 3.3653542e-08, 0.05614704, 0.99842256)
+bones/6/rotation = Quaternion(-1.29263045e-08, -5.848922e-08, 0.06554059, 0.99784994)
+bones/7/rotation = Quaternion(-0.050709397, 0.024230659, 0.00064972375, 0.99841934)
+bones/8/rotation = Quaternion(0.006116447, -0.026589556, 0.00022294745, 0.99962777)
+bones/9/rotation = Quaternion(-0.0037053374, 0.02261429, -0.0001252694, 0.9997374)
+bones/10/rotation = Quaternion(0.52326506, 0.019128472, 0.014406543, 0.85183346)
+bones/11/rotation = Quaternion(-0.40432724, -0.024813004, -0.013192149, 0.9141826)
+bones/12/rotation = Quaternion(-0.53169143, 0.018970646, -0.01429943, 0.8466049)
+bones/13/position = Vector3(-0.083428055, 1.7811219, 3.5131176e-08)
+bones/14/position = Vector3(0.583428, 1.781122, 3.5131173e-08)
+bones/15/position = Vector3(-0.004534616, 2.0055256, -0.33332506)
+bones/16/position = Vector3(0.004534637, 1.5567187, 0.33548903)
+
+[node name="AnimationPlayer" parent="." index="3" unique_id=622238234]
+autoplay = &"ArmatureAction"

@@ -9,7 +9,8 @@ func _ready() -> void:
 		$SpotLight3D.visible = false
 
 func turn_light_on():
-	audio_stream_player.play()
+	if audio_stream_player:
+		audio_stream_player.play()
 	$SpotLight3D.visible = true
 
 func turn_light_off():

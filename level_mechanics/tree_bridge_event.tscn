@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://btapt2cjobti" path="res://level_mechanics/tree_bridge_event.gd" id="1_wlik1"]
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="2_wlik1"]
 [ext_resource type="AudioStream" uid="uid://u2dh0c3m805s" path="res://assets/sounds/EXPLDsgn_High End Thunder Strike_Ocular Sounds_Heavy Explosions_The Complete Impacts Collection.wav" id="4_kh7pt"]
+[ext_resource type="Texture2D" uid="uid://ceit0lw3cxjql" path="res://assets/3d_models/psx/wooden_planks/wooden_plank_5_planks_hr_1.png" id="4_neyof"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kh7pt"]
 size = Vector3(1.25, 8.338257, 1.5097656)
@@ -106,9 +107,6 @@ _data = {
 &"break_down": SubResource("Animation_neyof")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh7pt"]
-vertex_color_use_as_albedo = true
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_neyof"]
 particle_flag_rotate_y = true
 angle_min = -720.0
@@ -117,7 +115,13 @@ direction = Vector3(0, 1, 0)
 initial_velocity_min = 15.0
 initial_velocity_max = 25.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kokfu"]
+albedo_texture = ExtResource("4_neyof")
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_k702i"]
+lightmap_size_hint = Vector2i(29, 35)
+material = SubResource("StandardMaterial3D_kokfu")
 size = Vector3(5, 0.46, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neyof"]
@@ -147,7 +151,6 @@ transform = Transform3D(0.7740813, 0.16238256, -1.8369622, -1.8396528, -0.070672
 libraries/ = SubResource("AnimationLibrary_k702i")
 
 [node name="BrokenParticles" type="GPUParticles3D" parent="." unique_id=1775701839]
-material_override = SubResource("StandardMaterial3D_kh7pt")
 emitting = false
 one_shot = true
 explosiveness = 1.0
