@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cqi7tscpgdfli"]
+
+[ext_resource type="Script" uid="uid://eiy8ijpgsu58" path="res://level_mechanics/item_pickup.gd" id="1_5j725"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r1gab"]
+
+[node name="ItemPickup" type="Node3D" unique_id=476560550]
+script = ExtResource("1_5j725")
+
+[node name="PlayerDetection" type="Area3D" parent="." unique_id=670368795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection" unique_id=904333106]
+shape = SubResource("BoxShape3D_r1gab")
+debug_color = Color(0.9411765, 1, 0.69803923, 0.41960785)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=910673391]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, 0)
+spot_range = 4.0
+
+[node name="PickupMesh" type="MeshInstance3D" parent="." unique_id=720625721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -13,6 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	global_position.y = start_pos.y + sin(Time.get_ticks_msec() * 0.00055 + rand_offset) * anim_amount
-	rotation += random_rotation_animation * delta
+	if random_rotation_animation != Vector3.ZERO:
+		rotation += random_rotation_animation * delta
 
 #TODO Need to add particles

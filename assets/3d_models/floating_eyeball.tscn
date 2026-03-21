@@ -4,7 +4,7 @@
 
 [node name="Floating_Eyeball" unique_id=909447479 instance=ExtResource("1_gi6de")]
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1360157590) index="0" unique_id=1518950619]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(656482543) index="0" unique_id=621477172]
 bones/1/rotation = Quaternion(-0.00029858304, -0.0021113665, 0.14004868, 0.99014235)
 bones/2/rotation = Quaternion(-5.1927163e-08, -3.3273114e-08, -0.22782008, 0.97370327)
 bones/3/rotation = Quaternion(-4.117161e-08, 5.7358207e-08, -0.21037963, 0.97761977)
@@ -22,5 +22,5 @@ bones/14/position = Vector3(0.583428, 1.781122, 3.5131173e-08)
 bones/15/position = Vector3(-0.004534616, 2.0055256, -0.33332506)
 bones/16/position = Vector3(0.004534637, 1.5567187, 0.33548903)
 
-[node name="AnimationPlayer" parent="." index="3" unique_id=622238234]
+[node name="AnimationPlayer" parent="." index="3" unique_id=2099901617]
 autoplay = &"ArmatureAction"

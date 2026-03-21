@@ -64,6 +64,12 @@ func _process(delta):
 		dice_mesh.rotation += falling_rotation_velocity * delta
 		
 
+func pivot_to_center():
+	var offset = dice_mesh.position
+	dice_mesh.position = Vector3.ZERO
+	pivot.position = offset
+	
+
 func reset_position():
 	global_position = Vector3.ZERO
 	rotation = Vector3.ZERO
