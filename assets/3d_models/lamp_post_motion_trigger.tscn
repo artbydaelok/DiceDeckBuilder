@@ -5,8 +5,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dc14x"]
 
-[node name="LampPost" unique_id=1788599744 instance=ExtResource("1_dc14x")]
+[node name="LampPost" unique_id=1788599744 node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("1_dc14x")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="SpotLight3D" parent="." index="1" unique_id=1725115159]
 transform = Transform3D(0.6666667, 0, 0, 0, -2.9140933e-08, 0.6666667, 0, -0.6666667, -2.9140933e-08, 2.3392186, 4.332752, 0)

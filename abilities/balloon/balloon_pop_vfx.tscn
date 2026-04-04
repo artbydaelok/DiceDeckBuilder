@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://de3mh5ktxwgxv"]
+
+[sub_resource type="Curve" id="Curve_0ln3p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.645963, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qm4a5"]
+curve = SubResource("Curve_0ln3p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rpxu5"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_curve = SubResource("CurveTexture_qm4a5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwi0e"]
+albedo_color = Color(1, 0.08, 0.08, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ew0mr"]
+material = SubResource("StandardMaterial3D_nwi0e")
+size = Vector3(0.2, 0.5, 0.01)
+
+[node name="BalloonPopVFX" type="GPUParticles3D" unique_id=2032468196]
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_rpxu5")
+draw_pass_1 = SubResource("BoxMesh_ew0mr")

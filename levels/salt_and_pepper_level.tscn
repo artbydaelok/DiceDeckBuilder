@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://doqfy3mapatxr"]
+[gd_scene format=3 uid="uid://doqfy3mapatxr"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_ijhq5"]
 [ext_resource type="PackedScene" uid="uid://cmmljkg2cm7ni" path="res://enemy/boss/salt_and_pepper/salt_and_pepper.tscn" id="2_tse10"]
@@ -125,25 +125,28 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83c1y"]
 albedo_texture = ExtResource("18_47hlg")
 
-[node name="SaltAndPepperLevel" instance=ExtResource("1_ijhq5")]
+[node name="SaltAndPepperLevel" unique_id=1444906055 instance=ExtResource("1_ijhq5")]
 
-[node name="EnemyHealthDisplay" parent="UI/ScreenMargin1" index="0" node_paths=PackedStringArray("boss")]
+[node name="CardSystem" parent="." index="0" unique_id=449221106]
+deck = Array[ExtResource("11_ehb7x")]([ExtResource("12_tg5fj"), ExtResource("13_xk5r6"), ExtResource("14_5t2ub"), ExtResource("15_3amgk"), ExtResource("16_d4v5l"), ExtResource("17_xawco"), ExtResource("12_tg5fj")])
+
+[node name="EnemyHealthDisplay" parent="UI/ScreenMargin1" parent_id_path=PackedInt32Array(2123927307) index="0" unique_id=1344741204 node_paths=PackedStringArray("boss")]
 boss = NodePath("../../../BaseLevel/SaltAndPepper")
 
-[node name="Camera3D" parent="BaseLevel" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 8, 8.5)
+[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1892705345]
+transform = Transform3D(1, 0, 0, 0, 0.7071066, 0.70710695, 0, -0.70710695, 0.7071066, 0, 10, 10)
 
-[node name="WorldEnvironment" parent="BaseLevel" index="2"]
+[node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1911982310]
 environment = SubResource("Environment_rtl24")
 
-[node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" index="0"]
+[node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" parent_id_path=PackedInt32Array(2089719623) index="0" unique_id=589886479]
 visible = true
 use_collision = true
 
-[node name="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" index="0"]
+[node name="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" index="0" unique_id=211734604]
 size = Vector3(14, 0.35, 14)
 
-[node name="SaltAndPepper" parent="BaseLevel" index="6" node_paths=PackedStringArray("traffic_light", "salt_trigger_area", "pepper_spray", "pepper_trigger_area", "user_interface") instance=ExtResource("2_tse10")]
+[node name="SaltAndPepper" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="6" unique_id=241597509 node_paths=PackedStringArray("traffic_light", "salt_trigger_area", "pepper_spray", "pepper_trigger_area", "user_interface") instance=ExtResource("2_tse10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 traffic_light = NodePath("../TrafficLight")
 salt_trigger_area = NodePath("../SaltTriggerArea")
@@ -151,49 +154,49 @@ pepper_spray = NodePath("../PepperSpray")
 pepper_trigger_area = NodePath("../PepperTriggerArea")
 user_interface = NodePath("../../UI")
 
-[node name="SaltTriggerArea" type="Area3D" parent="BaseLevel" index="7"]
+[node name="SaltTriggerArea" type="Area3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="7" unique_id=1087409180]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/SaltTriggerArea" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/SaltTriggerArea" index="0" unique_id=2136325269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)
 shape = SubResource("BoxShape3D_rtl24")
 
-[node name="PepperTriggerArea" type="Area3D" parent="BaseLevel" index="8"]
+[node name="PepperTriggerArea" type="Area3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=1670526324]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="BaseLevel/PepperTriggerArea" index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BaseLevel/PepperTriggerArea" index="0" unique_id=597755445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 1)
 shape = SubResource("BoxShape3D_126d3")
 
-[node name="SaltShakerSpawner" parent="BaseLevel" index="9" node_paths=PackedStringArray("trigger_area", "traffic_light", "boss") instance=ExtResource("3_4ccog")]
+[node name="SaltShakerSpawner" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=50176421 node_paths=PackedStringArray("trigger_area", "traffic_light", "boss") instance=ExtResource("3_4ccog")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 trigger_area = NodePath("../SaltTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 boss = NodePath("../SaltAndPepper")
 
-[node name="SaltGoon" parent="BaseLevel" index="10" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="SaltGoon" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="10" unique_id=1428538303 node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9991107, 0.25, -3.9970455)
 trigger_area = NodePath("../PepperTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost2")
 
-[node name="SaltGoon2" parent="BaseLevel" index="11" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="SaltGoon2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="11" unique_id=1559197544 node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.25, 2)
 trigger_area = NodePath("../PepperTriggerArea")
 shoot_time_offset = 0.5
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost")
 
-[node name="PepperGoon" parent="BaseLevel" index="12" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="PepperGoon" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="12" unique_id=1806030284 node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.25, -2)
 shoot_left = true
 trigger_area = NodePath("../SaltTriggerArea")
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost3")
 
-[node name="PepperGoon2" parent="BaseLevel" index="13" node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
+[node name="PepperGoon2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="13" unique_id=373157257 node_paths=PackedStringArray("trigger_area", "traffic_light", "lamp_post") instance=ExtResource("3_6t1ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.25, 4)
 shoot_left = true
 trigger_area = NodePath("../SaltTriggerArea")
@@ -201,11 +204,11 @@ shoot_time_offset = 0.5
 traffic_light = NodePath("../TrafficLight")
 lamp_post = NodePath("../LampPost4")
 
-[node name="ArenaGrid" parent="BaseLevel" index="14"]
+[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="14" unique_id=1670796615]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -0.00170422, -0.0689066, 0.0149431)
 visible = false
 
-[node name="Road" type="Sprite3D" parent="BaseLevel" index="15"]
+[node name="Road" type="Sprite3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="15" unique_id=1568020002]
 transform = Transform3D(6, 0, 0, 0, -2.62268e-07, 6, 0, -6, -2.62268e-07, 0, 0.015, 0)
 visible = false
 transparent = false
@@ -215,302 +218,297 @@ texture = ExtResource("6_o5pla")
 region_enabled = true
 region_rect = Rect2(0, -136, 32, 168)
 
-[node name="TrafficLight" parent="BaseLevel" index="16" instance=ExtResource("5_8art5")]
+[node name="TrafficLight" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="16" unique_id=848598923 instance=ExtResource("5_8art5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
-[node name="PepperSpray" parent="BaseLevel" index="17" instance=ExtResource("8_pc16s")]
+[node name="PepperSpray" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="17" unique_id=505198950 instance=ExtResource("8_pc16s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46657, 0)
 
-[node name="Tunnel" type="MeshInstance3D" parent="BaseLevel" index="18"]
+[node name="Tunnel" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="18" unique_id=1753546048]
 transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, -0.039639473, -7.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
-[node name="Tunnel2" type="MeshInstance3D" parent="BaseLevel" index="19"]
+[node name="Tunnel2" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="19" unique_id=1754644338]
 transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, 0, -12.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
-[node name="Tunnel3" type="MeshInstance3D" parent="BaseLevel" index="20"]
+[node name="Tunnel3" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="20" unique_id=508645393]
 transform = Transform3D(1.3, 0, -3.099446e-07, 0, 1.3, 0, 3.099446e-07, 0, 1.3, 0, 0, 13.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
-[node name="Tunnel5" type="MeshInstance3D" parent="BaseLevel" index="21"]
+[node name="Tunnel5" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="21" unique_id=1305193826]
 transform = Transform3D(1.3, 0, -3.099446e-07, 0, 1.3, 0, 3.099446e-07, 0, 1.3, 0, 0, 18.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
-[node name="Tunnel4" type="MeshInstance3D" parent="BaseLevel" index="22"]
+[node name="Tunnel4" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="22" unique_id=660816690]
 transform = Transform3D(-1.3, 0, 1.96295e-07, 0, 1.3, 0, -1.96295e-07, 0, -1.3, 0, 0, -22.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
-[node name="TunnelEnd" type="MeshInstance3D" parent="BaseLevel" index="23"]
+[node name="TunnelEnd" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="23" unique_id=2035921425]
 transform = Transform3D(1.3, 0, -8.26454e-08, 0, 1.3, 0, 8.26454e-08, 0, 1.3, 0, 0, 8.5)
 material_override = SubResource("StandardMaterial3D_po2fp")
 mesh = ExtResource("9_dbvqq")
 
-[node name="LampPost" parent="BaseLevel" index="24" instance=ExtResource("11_q2b0m")]
+[node name="LampPost" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="24" unique_id=708037094 instance=ExtResource("11_q2b0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.1, 2.2)
 
-[node name="LampPost2" parent="BaseLevel" index="25" instance=ExtResource("11_q2b0m")]
+[node name="LampPost2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="25" unique_id=849279161 instance=ExtResource("11_q2b0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.1, -3.8)
 
-[node name="LampPost3" parent="BaseLevel" index="26" instance=ExtResource("11_q2b0m")]
+[node name="LampPost3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="26" unique_id=536116421 instance=ExtResource("11_q2b0m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -0.1, -1.8)
 
-[node name="LampPost4" parent="BaseLevel" index="27" instance=ExtResource("11_q2b0m")]
+[node name="LampPost4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="27" unique_id=1015997716 instance=ExtResource("11_q2b0m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, -0.1, 4.2)
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" index="28"]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="28" unique_id=1994085737]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
 light_energy = 0.2
 
-[node name="barricade_b_32" parent="BaseLevel" index="29" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_32" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="29" unique_id=1299540055 instance=ExtResource("20_mdwms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7402735, 0, 7.03389)
 
-[node name="barricade_b_33" parent="BaseLevel" index="30" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_33" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="30" unique_id=506837028 instance=ExtResource("20_mdwms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7402735, 0, 7.03389)
 
-[node name="barricade_b_34" parent="BaseLevel" index="31" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_34" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="31" unique_id=15838294 instance=ExtResource("20_mdwms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.788225, 0, 7.03389)
 
-[node name="barricade_b_36" parent="BaseLevel" index="32" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_36" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="32" unique_id=2057980409 instance=ExtResource("20_mdwms")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.266649, 0, -0.39958167)
 
-[node name="barricade_b_41" parent="BaseLevel" index="33" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_41" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="33" unique_id=431773905 instance=ExtResource("20_mdwms")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.266649, 0, 4.600418)
 
-[node name="barricade_b_37" parent="BaseLevel" index="34" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_37" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="34" unique_id=1421330097 instance=ExtResource("20_mdwms")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2062883, 0, 0.6004183)
 
-[node name="barricade_b_38" parent="BaseLevel" index="35" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_38" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="35" unique_id=1463867957 instance=ExtResource("20_mdwms")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2062883, 0, -4.399582)
 
-[node name="barricade_b_39" parent="BaseLevel" index="36" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_39" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="36" unique_id=1467952421 instance=ExtResource("20_mdwms")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.266649, 0, -5.399582)
 
-[node name="barricade_b_35" parent="BaseLevel" index="37" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_35" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="37" unique_id=525088582 instance=ExtResource("20_mdwms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7882252, 0, 7.03389)
 
-[node name="warehouse_mx_42" parent="BaseLevel" index="38" instance=ExtResource("21_p762q")]
+[node name="warehouse_mx_42" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="38" unique_id=91182333 instance=ExtResource("21_p762q")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -19.4332, 0, -16.120531)
 
-[node name="warehouse_mx_43" parent="BaseLevel" index="39" instance=ExtResource("21_p762q")]
+[node name="warehouse_mx_43" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="39" unique_id=491487595 instance=ExtResource("21_p762q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.395247, 0, -16.607681)
 
-[node name="garage_hm_12" parent="BaseLevel" index="40" instance=ExtResource("22_qrnf8")]
+[node name="garage_hm_12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="40" unique_id=2058567567 instance=ExtResource("22_qrnf8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 17.569603, 0, 0.57252884)
 
-[node name="shed_ax_22" parent="BaseLevel" index="41" instance=ExtResource("23_bvmuu")]
+[node name="shed_ax_22" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="41" unique_id=1736106405 instance=ExtResource("23_bvmuu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.614982, 0, 3.555757)
 
-[node name="shed_ax_23" parent="BaseLevel" index="42" instance=ExtResource("23_bvmuu")]
+[node name="shed_ax_23" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="42" unique_id=265654400 instance=ExtResource("23_bvmuu")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.205648, 0, 10.692783)
 
-[node name="AnimatedLight" type="DirectionalLight3D" parent="BaseLevel" index="43"]
+[node name="AnimatedLight" type="DirectionalLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="43" unique_id=378685190]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseLevel/AnimatedLight" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_qrnf8")
-}
-autoplay = "rotate"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseLevel/AnimatedLight" index="0" unique_id=1526106645]
+libraries/ = SubResource("AnimationLibrary_qrnf8")
+autoplay = &"rotate"
 
-[node name="stand_mx_22" parent="BaseLevel" index="44" instance=ExtResource("15_n306r")]
+[node name="stand_mx_22" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="44" unique_id=495782360 instance=ExtResource("15_n306r")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.604301, 0, 6.679599)
 
-[node name="stand_mx_26" parent="BaseLevel" index="45" instance=ExtResource("15_n306r")]
+[node name="stand_mx_26" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="45" unique_id=1971946340 instance=ExtResource("15_n306r")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.604301, 0, 6.679599)
 
-[node name="stand_mx_24" parent="BaseLevel" index="46" instance=ExtResource("15_n306r")]
+[node name="stand_mx_24" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="46" unique_id=1535017707 instance=ExtResource("15_n306r")]
 transform = Transform3D(0.83545256, 0, -0.5495625, 0, 1, 0, 0.5495625, 0, 0.83545256, -5.777776, 0, -7.1483874)
 
-[node name="barricade_b_40" parent="BaseLevel" index="47" instance=ExtResource("20_mdwms")]
+[node name="barricade_b_40" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="47" unique_id=862676645 instance=ExtResource("20_mdwms")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.0887413, 0, -16.877708)
 
-[node name="stand_mx_25" parent="BaseLevel" index="48" instance=ExtResource("15_n306r")]
+[node name="stand_mx_25" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="48" unique_id=1370523719 instance=ExtResource("15_n306r")]
 transform = Transform3D(0.83545256, 0, -0.5495625, 0, 1, 0, 0.5495625, 0, 0.83545256, 7.9700203, 0, -19.346756)
 
-[node name="stand_mx_23" parent="BaseLevel" index="49" instance=ExtResource("15_n306r")]
+[node name="stand_mx_23" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="49" unique_id=930005698 instance=ExtResource("15_n306r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3883705, -0.19677508, 5.6118426)
 
-[node name="jerrycan_mx_12" parent="BaseLevel" index="50" instance=ExtResource("16_hgnvb")]
+[node name="jerrycan_mx_12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="50" unique_id=895927295 instance=ExtResource("16_hgnvb")]
 transform = Transform3D(0.91113013, -0.35751152, 0.20500575, 0, 0.4974434, 0.86749643, -0.41211873, -0.7904021, 0.4532357, -2.0231485, 0.92069566, 6.437405)
 
-[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" index="51"]
+[node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="51" unique_id=464790164]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="0" unique_id=1706761376]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 shape = SubResource("BoxShape3D_ehxsn")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="1"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="1" unique_id=1683181705]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
 shape = SubResource("BoxShape3D_hgnvb")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="2"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="2" unique_id=1761958882]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 1, 1)
 shape = SubResource("BoxShape3D_hgnvb")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="3"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="3" unique_id=972262388]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 1, 1)
 shape = SubResource("BoxShape3D_hgnvb")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="4"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BaseLevel/PlayerObstacles" index="4" unique_id=1064698766]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04473877, -6)
 shape = SubResource("BoxShape3D_3onku")
 
-[node name="ArenaFloor" type="MeshInstance3D" parent="BaseLevel" index="52"]
+[node name="ArenaFloor" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="52" unique_id=2009445030]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 0, -0.079787254, 0)
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_rtl24")
 
-[node name="ArenaFloor6" type="MeshInstance3D" parent="BaseLevel" index="53"]
+[node name="ArenaFloor6" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="53" unique_id=1229686615]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 0, -0.079787254, -14)
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor2" type="MeshInstance3D" parent="BaseLevel" index="54"]
+[node name="ArenaFloor2" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="54" unique_id=1480352042]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14, -0.079787254, 0)
 material_override = SubResource("StandardMaterial3D_83c1y")
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor3" type="MeshInstance3D" parent="BaseLevel" index="55"]
+[node name="ArenaFloor3" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="55" unique_id=1270682053]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14, -0.079787254, -14)
 material_override = SubResource("StandardMaterial3D_83c1y")
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor4" type="MeshInstance3D" parent="BaseLevel" index="56"]
+[node name="ArenaFloor4" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="56" unique_id=1901041363]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 14, -0.079787254, -14)
 material_override = SubResource("StandardMaterial3D_83c1y")
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor7" type="MeshInstance3D" parent="BaseLevel" index="57"]
+[node name="ArenaFloor7" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="57" unique_id=2085322118]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 0, -0.079787254, -28)
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor8" type="MeshInstance3D" parent="BaseLevel" index="58"]
+[node name="ArenaFloor8" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="58" unique_id=549592961]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14, -0.079787254, -28)
 material_override = SubResource("StandardMaterial3D_83c1y")
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor9" type="MeshInstance3D" parent="BaseLevel" index="59"]
+[node name="ArenaFloor9" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="59" unique_id=534327627]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 14, -0.079787254, -28)
 material_override = SubResource("StandardMaterial3D_83c1y")
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor5" type="MeshInstance3D" parent="BaseLevel" index="60"]
+[node name="ArenaFloor5" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="60" unique_id=76452834]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 14, -0.079787254, 0)
 material_override = SubResource("StandardMaterial3D_83c1y")
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor10" type="MeshInstance3D" parent="BaseLevel" index="61"]
+[node name="ArenaFloor10" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="61" unique_id=157224255]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 0, -0.079787254, 14)
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor11" type="MeshInstance3D" parent="BaseLevel" index="62"]
+[node name="ArenaFloor11" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="62" unique_id=728091256]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, -14, -0.079787254, 14)
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="ArenaFloor12" type="MeshInstance3D" parent="BaseLevel" index="63"]
+[node name="ArenaFloor12" type="MeshInstance3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="63" unique_id=1245280048]
 transform = Transform3D(7.05, 0, 0, 0, 1, 0, 0, 0, 7.05, 14, -0.079787254, 14)
 mesh = SubResource("PlaneMesh_47hlg")
 surface_material_override/0 = SubResource("StandardMaterial3D_h3alo")
 
-[node name="shipping_container_mx_1_hollow_12" parent="BaseLevel" index="64" instance=ExtResource("20_k05fi")]
+[node name="shipping_container_mx_1_hollow_12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="64" unique_id=56467683 instance=ExtResource("20_k05fi")]
 transform = Transform3D(1.4488888, 0, 0.38822857, 0, 1.5, 0, -0.38822857, 0, 1.4488888, -7.0875497, 0, -17.463064)
 
-[node name="storage_tank_mx_12" parent="BaseLevel" index="65" instance=ExtResource("21_3onku")]
+[node name="storage_tank_mx_12" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="65" unique_id=929336694 instance=ExtResource("21_3onku")]
 transform = Transform3D(-1.2990379, 0, 0.74999994, 0, 1.4999999, 0, -0.74999994, 0, -1.2990379, 5.480028, 0, -9.842207)
 
-[node name="warehouse_mx_22" parent="BaseLevel" index="66" instance=ExtResource("22_rtl24")]
+[node name="warehouse_mx_22" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="66" unique_id=1377504318 instance=ExtResource("22_rtl24")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 1.3607693, 0, -38.3646)
 
-[node name="warehouse_mx_23" parent="BaseLevel" index="67" instance=ExtResource("22_rtl24")]
+[node name="warehouse_mx_23" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="67" unique_id=1423873066 instance=ExtResource("22_rtl24")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.91662, 0, 10.852888)
 
-[node name="road_1_straight2" parent="BaseLevel" index="69" instance=ExtResource("23_yrm5y")]
+[node name="road_1_straight2" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="69" unique_id=1850088759 instance=ExtResource("23_yrm5y")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
-[node name="road_1_straight3" parent="BaseLevel" index="70" instance=ExtResource("23_yrm5y")]
+[node name="road_1_straight3" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="70" unique_id=1632927026 instance=ExtResource("23_yrm5y")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -4)
 
-[node name="road_1_straight4" parent="BaseLevel" index="71" instance=ExtResource("23_yrm5y")]
+[node name="road_1_straight4" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="71" unique_id=1612419644 instance=ExtResource("23_yrm5y")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, -8)
 
-[node name="road_1_straight5" parent="BaseLevel" index="72" instance=ExtResource("23_yrm5y")]
+[node name="road_1_straight5" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="72" unique_id=317279496 instance=ExtResource("23_yrm5y")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 4)
 
-[node name="CardSystem" parent="." index="2"]
-deck = Array[ExtResource("11_ehb7x")]([ExtResource("12_tg5fj"), ExtResource("13_xk5r6"), ExtResource("14_5t2ub"), ExtResource("15_3amgk"), ExtResource("16_d4v5l"), ExtResource("17_xawco"), ExtResource("12_tg5fj")])
-
-[node name="metal_barrel_hr_32" parent="." index="3" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_32" parent="." index="3" unique_id=1582282390 instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0700111, 0, 6.3900833)
 
-[node name="metal_barrel_hr_33" parent="." index="4" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_33" parent="." index="4" unique_id=1814928408 instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6388018, 0, 5.6498923)
 
-[node name="metal_barrel_hr_36" parent="." index="5" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_36" parent="." index="5" unique_id=820623138 instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9246993, 0, -5.7341514)
 
-[node name="metal_barrel_hr_34" parent="." index="6" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_34" parent="." index="6" unique_id=1395962938 instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6388018, 0, -5.6539874)
 
-[node name="metal_barrel_hr_35" parent="." index="7" instance=ExtResource("25_vlcso")]
+[node name="metal_barrel_hr_35" parent="." index="7" unique_id=1426090578 instance=ExtResource("25_vlcso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1309214, 0, -6.191024)
 
-[node name="wooden_crate_hx_1_12" parent="." index="8" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_12" parent="." index="8" unique_id=1897469062 instance=ExtResource("26_7eebo")]
 transform = Transform3D(0.8761384, 0, -0.2058675, 0, 0.9, 0, 0.2058675, 0, 0.8761384, 2.1466663, -0.19177184, 6.1074142)
 
-[node name="wooden_crate_hx_1_13" parent="." index="9" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_13" parent="." index="9" unique_id=259227673 instance=ExtResource("26_7eebo")]
 transform = Transform3D(0.43868977, 0, 0.7858444, 0, 0.9, 0, -0.7858444, 0, 0.43868977, 6.225547, -0.19177184, -6.392091)
 
-[node name="wooden_crate_hx_1_14" parent="." index="10" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_14" parent="." index="10" unique_id=2110206715 instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.33672968, 0, -0.09546261, 0, 0.35000002, 0, 0.09546261, 0, -0.33672968, 1.5805032, -0.19177184, -6.392091)
 
-[node name="wooden_crate_hx_1_15" parent="." index="11" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_15" parent="." index="11" unique_id=1254649101 instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.581739, 0, 0.14690027, 0, 0.59999996, 0, -0.14690027, 0, -0.581739, 2.4548638, -0.19177184, -6.2184715)
 
-[node name="metal_barrel_hr_12" parent="." index="12" instance=ExtResource("27_ehxsn")]
+[node name="metal_barrel_hr_12" parent="." index="12" unique_id=450833710 instance=ExtResource("27_ehxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4252722, -0.1967747, 5.816844)
 
-[node name="metal_barrel_hr_13" parent="." index="13" instance=ExtResource("27_ehxsn")]
+[node name="metal_barrel_hr_13" parent="." index="13" unique_id=180267261 instance=ExtResource("27_ehxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.021947, -0.1967747, 7.1306257)
 
-[node name="metal_barrel_hr_14" parent="." index="14" instance=ExtResource("27_ehxsn")]
+[node name="metal_barrel_hr_14" parent="." index="14" unique_id=1971575386 instance=ExtResource("27_ehxsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.36333, -0.1967747, 7.5360947)
 
-[node name="tire_22" parent="." index="15" instance=ExtResource("34_rtl24")]
+[node name="tire_22" parent="." index="15" unique_id=515875062 instance=ExtResource("34_rtl24")]
 transform = Transform3D(0.25338724, 0.12965678, -1.9796424, -0.016461316, 1.9957929, 0.12860759, 1.9838154, 0, 0.25392136, -2.9975867, -0.10266784, -5.967894)
 
-[node name="tire_23" parent="." index="16" instance=ExtResource("34_rtl24")]
+[node name="tire_23" parent="." index="16" unique_id=1025680041 instance=ExtResource("34_rtl24")]
 transform = Transform3D(1.998936, -0.065228835, 0, 0.065228835, 1.998936, 0, 0, 0, 2, -4.131819, -0.10266784, -6.1966505)
 
-[node name="tire_24" parent="." index="17" instance=ExtResource("34_rtl24")]
+[node name="tire_24" parent="." index="17" unique_id=620443854 instance=ExtResource("34_rtl24")]
 transform = Transform3D(1.3122498, 2.8806358e-08, 1.5093046, -0.07722835, 1.9973799, 0.06714541, -1.5073276, -0.10233626, 1.3105308, -3.6305048, 0.26101434, -6.144806)
 
-[node name="bucket_mx_22" parent="." index="18" instance=ExtResource("35_3onku")]
+[node name="bucket_mx_22" parent="." index="18" unique_id=938097344 instance=ExtResource("35_3onku")]
 transform = Transform3D(1.149346, -0.62394005, -0.7346444, 0.715646, 1.3182756, 0, 0.64564246, -0.3504969, 1.3077834, 3.4231024, -0.055506945, -6.067763)
 
-[node name="wooden_crate_hx_1_16" parent="." index="19" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_16" parent="." index="19" unique_id=527565359 instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.08569178, 0, -0.33934775, 0, 0.35000002, 0, 0.33934775, 0, -0.08569178, 7.1712055, -0.19177184, 7.6145144)
 
-[node name="wooden_crate_hx_1_17" parent="." index="20" instance=ExtResource("26_7eebo")]
+[node name="wooden_crate_hx_1_17" parent="." index="20" unique_id=287524563 instance=ExtResource("26_7eebo")]
 transform = Transform3D(-0.41808885, 0, -0.43035066, 0, 0.5999999, 0, 0.43035066, 0, -0.41808885, 7.889905, -0.19177184, 7.094325)
 
-[node name="bucket_mx_23" parent="." index="21" instance=ExtResource("35_3onku")]
+[node name="bucket_mx_23" parent="." index="21" unique_id=537336147 instance=ExtResource("35_3onku")]
 transform = Transform3D(1.1338158, -0.6155093, 0.7652515, 0.7156461, 1.3182756, -2.406619e-09, -0.6725416, 0.3650995, 1.2901125, 8.504541, -0.055506945, 6.3311596)
 
-[node name="shipping_container_mx_1_hollow_12" parent="." index="22" instance=ExtResource("20_k05fi")]
+[node name="shipping_container_mx_1_hollow_12" parent="." index="22" unique_id=379555945 instance=ExtResource("20_k05fi")]
 transform = Transform3D(0.9936468, 0, -0.11254425, 0, 1, 0, 0.11254425, 0, 0.9936468, -4.2565727, 0, 14.144203)
 
 [editable path="BaseLevel/Player"]

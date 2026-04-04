@@ -25,17 +25,19 @@ func _on_pepper_anim_animation_finished() -> void:
 	pass # Replace with function body.
 
 func shoot(left_side: bool = false):
-	var bullet = BULLET_PROJECTILE.instantiate()
+	var bullet : BulletProjectile = BULLET_PROJECTILE.instantiate()
 	entities_layer.add_child(bullet)
+	var direction : Vector3
+	var spawn_pos : Vector3
 	
 	if left_side:
-		bullet.global_position = left_gun.global_position
-		var direction = pepper_anim.global_position.direction_to(left_gun.global_position)
-		bullet.shoot(Vector3(direction.x, 0, direction.z), 12.0)
+		spawn_pos = left_gun.global_position
+		direction = pepper_anim.global_position.direction_to(left_gun.global_position)
 	else:
-		bullet.global_position = right_gun.global_position
-		var direction = pepper_anim.global_position.direction_to(right_gun.global_position)
-		bullet.shoot(Vector3(direction.x, 0, direction.z), 12.0)
+		spawn_pos = right_gun.global_position
+		direction = pepper_anim.global_position.direction_to(right_gun.global_position)
+		
+	bullet.setup(4, false,spawn_pos ,Vector3(direction.x, 0, direction.z), 12.0)
 	
 	$ShotSFX.pitch_scale = randf_range(1.2, 1.6)
 	$ShotSFX.play()

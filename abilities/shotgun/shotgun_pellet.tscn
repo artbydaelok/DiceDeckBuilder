@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcwhhsm30hjtg"]
+[gd_scene format=3 uid="uid://dcwhhsm30hjtg"]
 
 [ext_resource type="Script" uid="uid://cfdbwd7ev7el5" path="res://abilities/shotgun/shotgun_pellet.gd" id="1_u1m2e"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="2_evym4"]
@@ -10,33 +10,33 @@ albedo_color = Color(0.9, 0.78, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xy3er"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="ShotgunPellet" type="RigidBody3D"]
+[node name="ShotgunPellet" type="RigidBody3D" unique_id=1791489064]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_u1m2e")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1032427762]
 material_override = SubResource("StandardMaterial3D_3jj2p")
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=263673410]
 shape = SubResource("BoxShape3D_xy3er")
 
-[node name="Hitbox" parent="." instance=ExtResource("2_evym4")]
+[node name="Hitbox" parent="." unique_id=1193276927 instance=ExtResource("2_evym4")]
 damage = 2
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox" unique_id=561217939]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_xy3er")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2000537658]
 
-[node name="SelfDestructTimer" type="Timer" parent="."]
+[node name="SelfDestructTimer" type="Timer" parent="." unique_id=249730803]
 wait_time = 2.5
 one_shot = true
 autostart = true
 
-[node name="Trail" parent="." instance=ExtResource("3_yfw8i")]
+[node name="Trail" parent="." unique_id=737990865 instance=ExtResource("3_yfw8i")]
 lifetime = 0.1
 base_width = 0.15
 

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://cxkhpti5iqlnb"]
+
+[ext_resource type="Texture2D" uid="uid://dc6u7k3ujqaks" path="res://assets/card_artwork/YellowGem.png" id="1_3kyn0"]
+[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="1_qamhd"]
+
+[resource]
+script = ExtResource("1_qamhd")
+card_name = "Revolver"
+ability_id = "revolver"
+card_description = "Loads up six bullets that shoot the next six times you move. "
+card_artwork = ExtResource("1_3kyn0")
+metadata/_custom_type_script = "uid://dd4juc1880sbt"

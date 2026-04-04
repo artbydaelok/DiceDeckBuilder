@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://foikrmomlrtr"]
+
+[ext_resource type="PackedScene" uid="uid://cuy6rnusoiiok" path="res://assets/3d_models/Revolver.glb" id="1_goi8g"]
+[ext_resource type="Script" uid="uid://dmvh8ryrvxs02" path="res://abilities/revolver/revolver_mesh.gd" id="2_w0j3s"]
+
+[sub_resource type="Animation" id="Animation_goi8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RootNode:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.2831855, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w0j3s"]
+resource_name = "shoot"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RootNode:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666668, 0.26666665, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.2, 0.2666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.7453293, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(1.3089969, 0, 0), Vector3(-0.43633232, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bhdcb"]
+_data = {
+&"RESET": SubResource("Animation_goi8g"),
+&"shoot": SubResource("Animation_w0j3s")
+}
+
+[node name="RevolverMesh" unique_id=1782655775 instance=ExtResource("1_goi8g")]
+script = ExtResource("2_w0j3s")
+
+[node name="BulletSpawnMarker" type="Marker3D" parent="." index="0" unique_id=115299939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44043875, -1.3488641)
+
+[node name="RootNode" parent="." index="1" unique_id=712445128]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Revolver_1" parent="RootNode" index="0" unique_id=1403828466]
+transform = Transform3D(-4.371139e-06, -100, -4.371139e-06, 0, -4.371139e-06, 100, -100, 4.371139e-06, 1.9106854e-13, 0, 0, 0.4370851)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1694989174]
+libraries/ = SubResource("AnimationLibrary_bhdcb")

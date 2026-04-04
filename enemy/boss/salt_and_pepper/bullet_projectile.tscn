@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4w0fpalmk12o"]
+[gd_scene format=3 uid="uid://4w0fpalmk12o"]
 
 [ext_resource type="Script" uid="uid://bybrvx2033waw" path="res://enemy/boss/salt_and_pepper/bullet_projectile.gd" id="1_10idr"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="2_6y08p"]
@@ -9,8 +9,8 @@ shading_mode = 0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tgqrv"]
 material = SubResource("StandardMaterial3D_3o4d5")
-radius = 0.1
-height = 0.5
+radius = 0.125
+height = 0.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bttl"]
 radius = 0.1
@@ -29,34 +29,35 @@ shading_mode = 0
 _data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
 point_count = 2
 
-[node name="BulletProjectile" type="RigidBody3D" groups=["enemy_projectiles"]]
+[node name="BulletProjectile" type="RigidBody3D" unique_id=803010544 node_paths=PackedStringArray("hitbox") groups=["enemy_projectiles"]]
 collision_layer = 4
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_10idr")
+hitbox = NodePath("Hitbox")
 
-[node name="BulletMesh" type="MeshInstance3D" parent="."]
+[node name="BulletMesh" type="MeshInstance3D" parent="." unique_id=2119040736]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_tgqrv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=74620647]
 transform = Transform3D(-0.00426263, 0.999991, 0.000773302, -0.999991, -0.00426204, -0.000761044, -0.000757747, -0.000776534, 0.999999, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_0bttl")
 
-[node name="SelfDestroyTimer" type="Timer" parent="."]
+[node name="SelfDestroyTimer" type="Timer" parent="." unique_id=1704228944]
 wait_time = 5.0
 autostart = true
 
-[node name="Hitbox" parent="." instance=ExtResource("2_6y08p")]
-collision_layer = 4
-collision_mask = 8
+[node name="Hitbox" parent="." unique_id=1602645718 instance=ExtResource("2_6y08p")]
+collision_layer = 0
+collision_mask = 0
 damage = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=2090284371]
 transform = Transform3D(1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_fbyvg")
 
-[node name="Trail" parent="." instance=ExtResource("3_kowpn")]
+[node name="Trail" parent="." unique_id=1063635586 instance=ExtResource("3_kowpn")]
 material_override = SubResource("StandardMaterial3D_d0t5j")
 segments = 12
 lifetime = 0.35
@@ -64,7 +65,7 @@ base_width = 0.12
 width_profile = SubResource("Curve_ou103")
 smoothing_iterations = 1
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1536237117]
 omni_range = 6.827029
 
 [connection signal="timeout" from="SelfDestroyTimer" to="." method="_on_self_destroy_timer_timeout"]

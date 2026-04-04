@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var light_on : bool = false
-@onready var audio_stream_player = $AudioStreamPlayer
+@export var audio_stream_player : AudioStreamPlayer
 
 
 func _ready() -> void:

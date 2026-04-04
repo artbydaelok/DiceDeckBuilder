@@ -81,20 +81,25 @@ func shoot():
 	
 	shoot_warning.play("shoot_warning")
 	disable_warning_shot.call_deferred(1.)
-	var bullet = BULLET_PROJECTILE.instantiate()
+	var bullet : BulletProjectile = BULLET_PROJECTILE.instantiate()
 	entities_layer.add_child(bullet)
 	
-	var direction: Vector3 
+	var direction : Vector3
+	var spawn_pos : Vector3
+	
+	
 	if shoot_left:
 		direction = Vector3.LEFT
-		bullet.global_position = bullet_left_spawn.global_position
+		spawn_pos = bullet_left_spawn.global_position
 	else:
 		direction = Vector3.RIGHT
-		bullet.global_position = bullet_right_spawn.global_position
+		spawn_pos = bullet_right_spawn.global_position
 	
 	shot_sfx.play()
 	
-	bullet.shoot(direction, 12.0)
+	# Sets up Bullet Data (Damage, Player Owned?, Shoot Direction, Projectile Speed)
+	bullet.setup(4, false, spawn_pos, direction, 12.0) 
+	
 	if shoot_left:
 		animated_sprite_3d.play("pepper_shoot")
 	else:

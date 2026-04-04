@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://wddmnlowa6eo"]
+
+[ext_resource type="PackedScene" uid="uid://cpptjpqhuoyuj" path="res://abilities/ability_base/ability.tscn" id="1_ca7ln"]
+[ext_resource type="Script" uid="uid://7vnu4trt082n" path="res://abilities/revolver/revolver.gd" id="2_h3jyb"]
+[ext_resource type="PackedScene" uid="uid://foikrmomlrtr" path="res://abilities/revolver/revolver_mesh.tscn" id="3_o7fy3"]
+
+[node name="Revolver" unique_id=1823000410 instance=ExtResource("1_ca7ln")]
+script = ExtResource("2_h3jyb")
+
+[node name="RevolverMesh" parent="." index="1" unique_id=1782655775 instance=ExtResource("3_o7fy3")]
