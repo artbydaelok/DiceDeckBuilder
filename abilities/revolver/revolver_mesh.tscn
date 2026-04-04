@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cuy6rnusoiiok" path="res://assets/3d_models/Revolver.glb" id="1_goi8g"]
 [ext_resource type="Script" uid="uid://dmvh8ryrvxs02" path="res://abilities/revolver/revolver_mesh.gd" id="2_w0j3s"]
+[ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://assets/sounds/gunshot-1.wav" id="3_bhdcb"]
 
 [sub_resource type="Animation" id="Animation_goi8g"]
 length = 0.001
@@ -32,7 +33,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_w0j3s"]
 resource_name = "shoot"
-length = 0.4
+length = 0.1333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,10 +41,10 @@ tracks/0/path = NodePath("RootNode:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666668, 0.26666665, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(1.4901161e-08),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
+"values": [Vector3(1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -52,16 +53,73 @@ tracks/1/path = NodePath("RootNode:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.2, 0.2666667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1.4901161e-08, 0.06666672, 0.13333334),
+"transitions": PackedFloat32Array(1, 0.45062527, 1),
 "update": 0,
-"values": [Vector3(-1.7453293, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(1.3089969, 0, 0), Vector3(-0.43633232, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(1.3089969, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"anim_shot_frame"],
+"method": &"emit_signal"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bhdcb"]
+resource_name = "spawn"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RootNode:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RootNode:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-12.566371, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bhdcb"]
 _data = {
 &"RESET": SubResource("Animation_goi8g"),
-&"shoot": SubResource("Animation_w0j3s")
+&"shoot": SubResource("Animation_w0j3s"),
+&"spawn": SubResource("Animation_bhdcb")
 }
 
 [node name="RevolverMesh" unique_id=1782655775 instance=ExtResource("1_goi8g")]
@@ -78,3 +136,9 @@ transform = Transform3D(-4.371139e-06, -100, -4.371139e-06, 0, -4.371139e-06, 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1694989174]
 libraries/ = SubResource("AnimationLibrary_bhdcb")
+autoplay = &"spawn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3" unique_id=522061]
+stream = ExtResource("3_bhdcb")
+volume_db = -6.0
+bus = &"SFX"
