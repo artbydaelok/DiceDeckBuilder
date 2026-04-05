@@ -21,6 +21,7 @@
 - Torch  
 - Rug  
 - Mushroom (Laetiporus)
+- Revolver
 
 ---
 
