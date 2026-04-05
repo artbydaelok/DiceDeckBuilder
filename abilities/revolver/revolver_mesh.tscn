@@ -4,6 +4,46 @@
 [ext_resource type="Script" uid="uid://dmvh8ryrvxs02" path="res://abilities/revolver/revolver_mesh.gd" id="2_w0j3s"]
 [ext_resource type="AudioStream" uid="uid://dugve7us2kx7e" path="res://assets/sounds/gunshot-1.wav" id="3_bhdcb"]
 
+[sub_resource type="Curve" id="Curve_bhdcb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_smuwi"]
+curve = SubResource("Curve_bhdcb")
+
+[sub_resource type="Gradient" id="Gradient_qlwia"]
+offsets = PackedFloat32Array(0, 0.7653061, 0.77040815, 1)
+colors = PackedColorArray(0.16206557, 0.1620656, 0.16206557, 1, 0.04755766, 0.047557645, 0.047557645, 1, 1, 0.63529414, 0.043137256, 1, 0.8669814, 0.24331576, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jf2mp"]
+gradient = SubResource("Gradient_qlwia")
+
+[sub_resource type="Curve" id="Curve_1rvda"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.100478485, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n3yt1"]
+curve = SubResource("Curve_1rvda")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6k44a"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 5.0
+initial_velocity_max = 12.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_curve = SubResource("CurveTexture_n3yt1")
+color_initial_ramp = SubResource("GradientTexture1D_jf2mp")
+alpha_curve = SubResource("CurveTexture_smuwi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8nab"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_huf8o"]
+material = SubResource("StandardMaterial3D_a8nab")
+
 [sub_resource type="Animation" id="Animation_goi8g"]
 length = 0.001
 tracks/0/type = "value"
@@ -86,6 +126,20 @@ tracks/3/keys = {
 "method": &"play"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SmokeFX")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"restart"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_bhdcb"]
 resource_name = "spawn"
@@ -125,20 +179,30 @@ _data = {
 [node name="RevolverMesh" unique_id=1782655775 instance=ExtResource("1_goi8g")]
 script = ExtResource("2_w0j3s")
 
-[node name="BulletSpawnMarker" type="Marker3D" parent="." index="0" unique_id=115299939]
+[node name="SmokeFX" type="GPUParticles3D" parent="." index="0" unique_id=1282097750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44751695, -1.3500822)
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6k44a")
+draw_pass_1 = SubResource("BoxMesh_huf8o")
+
+[node name="BulletSpawnMarker" type="Marker3D" parent="." index="1" unique_id=115299939]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44043875, -1.3488641)
 
-[node name="RootNode" parent="." index="1" unique_id=712445128]
+[node name="RootNode" parent="." index="2" unique_id=712445128]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="Revolver_1" parent="RootNode" index="0" unique_id=1403828466]
 transform = Transform3D(-4.371139e-06, -100, -4.371139e-06, 0, -4.371139e-06, 100, -100, 4.371139e-06, 1.9106854e-13, 0, 0, 0.4370851)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1694989174]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1694989174]
 libraries/ = SubResource("AnimationLibrary_bhdcb")
 autoplay = &"spawn"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3" unique_id=522061]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4" unique_id=522061]
 stream = ExtResource("3_bhdcb")
 volume_db = -6.0
 bus = &"SFX"
