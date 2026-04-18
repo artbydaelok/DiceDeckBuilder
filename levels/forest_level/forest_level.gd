@@ -42,7 +42,6 @@ func obtain_axe():
 	card_system.set_slot_to_item(player.up_side, AXE_THROW)
 	axe_dialogue_trigger.queue_free()
 	
-
 func show_mother_nature():
 	# Music
 	forest_demon_music_player = BACKGROUND_MUSIC_PLAYER_SCENE.instantiate()

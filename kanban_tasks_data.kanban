@@ -1,0 +1,91 @@
+{
+	"categories": [
+		{
+			"uuid": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"title": "Task",
+			"color": "a94dc1"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "ecbd4911-f26e-40f1-b5ae-6d3eaa3e595a",
+			"title": "Todo",
+			"tasks": [
+				"df4978f9-f4f8-43c6-8aa8-7e28629b8e5f",
+				"c82100c0-983f-4e9a-a380-efebd20fde82",
+				"575d80ca-9f22-40bf-bc0a-31f96f371070",
+				"8eec2503-a4a7-47fb-a0a0-8ef98d6321aa",
+				"584ff745-1912-4ea2-9b07-c8381c88446b"
+			]
+		},
+		{
+			"uuid": "3c28ec9b-6632-4a84-892b-19883c2af6c0",
+			"title": "Doing",
+			"tasks": [
+				"f6849b02-bb0f-48c1-b0b4-d1544e050bd7"
+			]
+		},
+		{
+			"uuid": "9ef8056e-6378-4485-9d00-5dd6dfa9ccf2",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "df4978f9-f4f8-43c6-8aa8-7e28629b8e5f",
+			"title": "Add Leap/Jump collision detection",
+			"description": "",
+			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"steps": []
+		},
+		{
+			"uuid": "f6849b02-bb0f-48c1-b0b4-d1544e050bd7",
+			"title": "Add animations for eyeballs when player first encounters them",
+			"description": "",
+			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"steps": []
+		},
+		{
+			"uuid": "c82100c0-983f-4e9a-a380-efebd20fde82",
+			"title": "Add Sniper Rifle Gun",
+			"description": "",
+			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"steps": []
+		},
+		{
+			"uuid": "575d80ca-9f22-40bf-bc0a-31f96f371070",
+			"title": "Add Gun Shopkeeper in City level",
+			"description": "",
+			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"steps": []
+		},
+		{
+			"uuid": "8eec2503-a4a7-47fb-a0a0-8ef98d6321aa",
+			"title": "Pizza Making Level",
+			"description": "This level will be one of the ways in which the player can obtain money. The goal of the mini-game is to pick up ingredients from a specific spot in the level, putting that ingredient on the player's top side slot. \n\nPlayer needs to move somewhere inside the pizza and leave behind that ingredient wherever there is a free space. Each order will ask for a list of ingredients it wants with quantities. \n\nMechanics to make this more fun:\n\nSpicy Pepperoni - Wherever a pepperoni is placed, there is a high chance a fire will spawn on top (or maybe nearby), making it harder for the player to deal with the board unless they use balloon pop or fire extinguisher\n\n\n",
+			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"steps": []
+		},
+		{
+			"uuid": "584ff745-1912-4ea2-9b07-c8381c88446b",
+			"title": "Pause Menu",
+			"description": "",
+			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"ecbd4911-f26e-40f1-b5ae-6d3eaa3e595a"
+			],
+			[
+				"3c28ec9b-6632-4a84-892b-19883c2af6c0"
+			],
+			[
+				"9ef8056e-6378-4485-9d00-5dd6dfa9ccf2"
+			]
+		]
+	}
+}

@@ -106,6 +106,9 @@ tracks/2/keys = {
 "values": [Vector3(-0.67360985, -0.49977505, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_v2ink"]
+resource_name = "first_encounter_eyeballs"
+
 [sub_resource type="Animation" id="Animation_yj4mq"]
 resource_name = "first_time"
 length = 7.5
@@ -163,6 +166,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4uq1"]
 _data = {
 &"RESET": SubResource("Animation_u4uq1"),
+&"first_encounter_eyeballs": SubResource("Animation_v2ink"),
 &"first_time": SubResource("Animation_yj4mq")
 }
 
@@ -5147,7 +5151,7 @@ transform = Transform3D(0.23819405, 0.3853076, 1.9480252, -0.31235296, 1.9448355
 transform = Transform3D(-0.27778134, 0.16519071, -0.9463349, 0.31003284, 0.9478067, 0.07444259, 0.90923965, -0.2727161, -0.31449777, 59.611404, -1.9073486e-06, -107.65236)
 
 [node name="PineTree42" parent="BaseLevel/Trees" index="68" unique_id=677877864 instance=ExtResource("13_24wnm")]
-transform = Transform3D(-0.23819387, -0.38530767, -1.9480251, -0.31235293, 1.9448354, -0.34648395, 1.9610457, 0.26297054, -0.29179975, 60.753853, -0.80441856, -120.085335)
+transform = Transform3D(-0.23819387, -0.38530767, -1.9480251, -0.31235293, 1.9448354, -0.34648395, 1.9610457, 0.26297054, -0.29179975, 60.001278, -0.22194862, -120.30825)
 
 [node name="PineTree43" parent="BaseLevel/Trees" index="69" unique_id=158394928 instance=ExtResource("13_24wnm")]
 transform = Transform3D(-1.9752976, -0.30300823, 0.07991356, -0.31235287, 1.9448353, -0.34648392, -0.025215745, -0.35468504, -1.9681368, 61.759888, -0.80441856, -149.437)

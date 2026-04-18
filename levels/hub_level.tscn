@@ -498,7 +498,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 100, -42)
 gizmo_extents = 120.0
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1159506797]
-transform = Transform3D(0.9659235, -1.0593771e-08, -0.2588189, 0.00054658076, 0.9999955, 0.0020398286, 0.25881794, -0.0021117858, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.965923, -1.0593767e-08, -0.2588189, 0.0005465805, 0.9999951, 0.0020398286, 0.2588178, -0.0021117849, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=532374131]
