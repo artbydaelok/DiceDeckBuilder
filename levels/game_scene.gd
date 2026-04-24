@@ -13,6 +13,8 @@ var user_interface: CanvasLayer
 
 @export var current_map_data : LevelMapData
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#DialogueManager.show_dialogue_balloon(HUB_LEVEL_DIALOGUE, "start")
@@ -20,7 +22,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
 	GameEvents.current_level = self
-
+	
 	level_start()
 
 const DICE_INVENTORY_EDITOR = preload("uid://crbwh26bogcfr")
