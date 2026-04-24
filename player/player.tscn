@@ -345,6 +345,7 @@ light_energy = 0.35
 
 [node name="GridMesh" type="MeshInstance3D" parent="." unique_id=1599974890]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 mesh = SubResource("QuadMesh_8t03j")
 
 [node name="HealParticles" type="GPUParticles3D" parent="." unique_id=1129121784]

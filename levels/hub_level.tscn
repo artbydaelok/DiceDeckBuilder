@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c136bsglorr4v" path="res://vfx/hub_fog.gd" id="5_blouu"]
 [ext_resource type="Script" uid="uid://6rmwb7k30dvh" path="res://cutscenes/cutscene_camera.gd" id="5_wdw7n"]
 [ext_resource type="Shader" uid="uid://17r147pt2b4h" path="res://vfx/shaders/scrolling_noise.gdshader" id="6_6wf1f"]
+[ext_resource type="PackedScene" uid="uid://b5cd6sa8qq4vc" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/pause_menu.tscn" id="6_l2078"]
 [ext_resource type="PackedScene" uid="uid://bno4ca2m335hd" path="res://assets/3d_models/hell_rock/ChunkySpike.glb" id="7_11ood"]
 [ext_resource type="PackedScene" uid="uid://dh1xdwurvbl51" path="res://assets/3d_models/hell_rock/hell_rock_1.tscn" id="9_c5pd8"]
 [ext_resource type="PackedScene" uid="uid://c8bvxiyxtk4yr" path="res://assets/3d_models/psx/trees/tree_stump_1.glb" id="9_cisf0"]
@@ -493,12 +494,15 @@ unique_name_in_owner = true
 root_node = NodePath("../BaseLevel")
 libraries/ = SubResource("AnimationLibrary_tlfld")
 
+[node name="PauseController" parent="." index="2" unique_id=1497033385]
+pause_menu_packed = ExtResource("6_l2078")
+
 [node name="TopLeftMapCorner" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1257830045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 100, -42)
 gizmo_extents = 120.0
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1159506797]
-transform = Transform3D(0.965923, -1.0593767e-08, -0.2588189, 0.0005465805, 0.9999951, 0.0020398286, 0.2588178, -0.0021117849, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.9659227, -1.0593763e-08, -0.2588189, 0.0005465803, 0.9999948, 0.0020398286, 0.25881773, -0.0021117844, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=532374131]

@@ -13,11 +13,11 @@ func setup(new_damage : int, is_player_owner: bool, spawn_position: Vector3, dir
 	
 	# Sets Owner (Hitbox Collision Groups/Layers)
 	if is_player_owner:
-		hitbox.set_collision_mask_value(2, true) # Player Projectiles Layer
-		hitbox.set_collision_layer_value(5, true) # Detects Enemy Hurtbox
+		hitbox.set_collision_layer_value(2, true) # Player Projectiles Layer
+		hitbox.set_collision_mask_value(5, true) # Detects Enemy Hurtbox
 	else: # If projectile is an enemy attack
-		hitbox.set_collision_mask_value(4, true) # Enemy Projectiles Layer
-		hitbox.set_collision_layer_value(3, true) # Detects Player Hurtbox
+		hitbox.set_collision_mask_value(4, true) # Detects Player Hurtbox
+		hitbox.set_collision_layer_value(3, true) # Enemy Projectiles Layer
 	
 	# Sets Direction and Shoots
 	shoot(direction, speed)

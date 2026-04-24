@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
 [ext_resource type="PackedScene" uid="uid://ca3r7dgfvfj22" path="res://ui/ability_sides_display.tscn" id="1_lwuof"]
 [ext_resource type="Script" uid="uid://bx2gub05m3x4b" path="res://levels/game_scene.gd" id="1_qcm70"]
+[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="2_gj0fv"]
 [ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_sei10"]
 [ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="3_cubmp"]
 [ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="4_cosan"]
@@ -93,7 +94,7 @@ shader_parameter/distort_intensity = 0.0
 shader_parameter/noise_opacity = 0.0
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.010000047974999982
+shader_parameter/aberration = 0.01000004797499998
 shader_parameter/brightness = 1.1
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 1.0
@@ -116,6 +117,9 @@ shader_parameter/virtual_resolution = Vector2(320, 240)
 
 [node name="Game" type="CanvasLayer" unique_id=885135856]
 script = ExtResource("1_qcm70")
+
+[node name="PauseController" type="Node" parent="." unique_id=1497033385]
+script = ExtResource("2_gj0fv")
 
 [node name="CardSystem" parent="." unique_id=449221106 node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
 player = NodePath("../BaseLevel/Player")

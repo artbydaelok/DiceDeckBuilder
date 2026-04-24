@@ -2,31 +2,73 @@
 	"categories": [
 		{
 			"uuid": "babd24c5-1b43-498a-b581-b41a7d513474",
-			"title": "Task",
-			"color": "a94dc1"
+			"title": "System",
+			"color": "4dc1c1"
+		},
+		{
+			"uuid": "d1ec75ea-e255-4504-925b-e4f46ae2be0f",
+			"title": "Bug",
+			"color": "ba0000"
+		},
+		{
+			"uuid": "471f5549-33af-4f98-8d7b-239df9494dcf",
+			"title": "Gameplay",
+			"color": "df00ff"
+		},
+		{
+			"uuid": "e3ee2cd7-b3ab-44ed-94f5-afe7d1313d4e",
+			"title": "Misc",
+			"color": "531dc0"
+		},
+		{
+			"uuid": "d2a03b12-ad2e-4671-81d3-48a51ebecbed",
+			"title": "Idea",
+			"color": "fffb00"
+		},
+		{
+			"uuid": "3f3f4d76-287f-4cd5-a3b9-a443e148dbbd",
+			"title": "Level",
+			"color": "00ff2e"
+		},
+		{
+			"uuid": "719a615d-dcdd-4093-9f8d-21794fecf0e5",
+			"title": "UI",
+			"color": "007cff"
 		}
 	],
 	"stages": [
 		{
 			"uuid": "ecbd4911-f26e-40f1-b5ae-6d3eaa3e595a",
-			"title": "Todo",
+			"title": "Backlog",
 			"tasks": [
-				"df4978f9-f4f8-43c6-8aa8-7e28629b8e5f",
 				"c82100c0-983f-4e9a-a380-efebd20fde82",
 				"575d80ca-9f22-40bf-bc0a-31f96f371070",
 				"8eec2503-a4a7-47fb-a0a0-8ef98d6321aa",
-				"584ff745-1912-4ea2-9b07-c8381c88446b"
+				"3e1f9d87-74e9-409a-9282-ec37524cff1a",
+				"7cdfd42c-67c1-4e62-a962-693e0ab78362",
+				"cb3f0b8f-c252-49db-af67-db776dfee4c0",
+				"b9c9e0e8-a898-47b9-99db-235799211134",
+				"596f44d4-a20d-4b60-b55c-e93cea2923d6"
 			]
 		},
 		{
 			"uuid": "3c28ec9b-6632-4a84-892b-19883c2af6c0",
-			"title": "Doing",
+			"title": "To do",
 			"tasks": [
-				"f6849b02-bb0f-48c1-b0b4-d1544e050bd7"
+				"f6849b02-bb0f-48c1-b0b4-d1544e050bd7",
+				"584ff745-1912-4ea2-9b07-c8381c88446b",
+				"7a8ac56b-3da4-4348-847b-5a9f2a6fd0a4"
 			]
 		},
 		{
 			"uuid": "9ef8056e-6378-4485-9d00-5dd6dfa9ccf2",
+			"title": "Doing",
+			"tasks": [
+				"df4978f9-f4f8-43c6-8aa8-7e28629b8e5f"
+			]
+		},
+		{
+			"uuid": "98862edb-21f9-4bb2-adaf-268db6d52941",
 			"title": "Done",
 			"tasks": []
 		}
@@ -34,44 +76,86 @@
 	"tasks": [
 		{
 			"uuid": "df4978f9-f4f8-43c6-8aa8-7e28629b8e5f",
-			"title": "Add Leap/Jump collision detection",
+			"title": "GAMEPLAY: Add Leap/Jump collision detection",
 			"description": "",
-			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"category": "471f5549-33af-4f98-8d7b-239df9494dcf",
 			"steps": []
 		},
 		{
 			"uuid": "f6849b02-bb0f-48c1-b0b4-d1544e050bd7",
-			"title": "Add animations for eyeballs when player first encounters them",
-			"description": "",
-			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"title": "JUICE: Camera animation for first eyeball encounter",
+			"description": "Add animations for eyeballs when player first encounters them",
+			"category": "e3ee2cd7-b3ab-44ed-94f5-afe7d1313d4e",
 			"steps": []
 		},
 		{
 			"uuid": "c82100c0-983f-4e9a-a380-efebd20fde82",
-			"title": "Add Sniper Rifle Gun",
+			"title": "GAMEPLAY: Add Sniper Rifle Gun",
 			"description": "",
-			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"category": "471f5549-33af-4f98-8d7b-239df9494dcf",
 			"steps": []
 		},
 		{
 			"uuid": "575d80ca-9f22-40bf-bc0a-31f96f371070",
-			"title": "Add Gun Shopkeeper in City level",
+			"title": "GAMEPLAY: Add Gun Shopkeeper in City level",
 			"description": "",
-			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"category": "471f5549-33af-4f98-8d7b-239df9494dcf",
 			"steps": []
 		},
 		{
 			"uuid": "8eec2503-a4a7-47fb-a0a0-8ef98d6321aa",
-			"title": "Pizza Making Level",
+			"title": "GAMEPLAY: Pizza Making Minigame",
 			"description": "This level will be one of the ways in which the player can obtain money. The goal of the mini-game is to pick up ingredients from a specific spot in the level, putting that ingredient on the player's top side slot. \n\nPlayer needs to move somewhere inside the pizza and leave behind that ingredient wherever there is a free space. Each order will ask for a list of ingredients it wants with quantities. \n\nMechanics to make this more fun:\n\nSpicy Pepperoni - Wherever a pepperoni is placed, there is a high chance a fire will spawn on top (or maybe nearby), making it harder for the player to deal with the board unless they use balloon pop or fire extinguisher\n\n\n",
-			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"category": "471f5549-33af-4f98-8d7b-239df9494dcf",
 			"steps": []
 		},
 		{
 			"uuid": "584ff745-1912-4ea2-9b07-c8381c88446b",
-			"title": "Pause Menu",
+			"title": "UI: Pause Menu",
 			"description": "",
+			"category": "719a615d-dcdd-4093-9f8d-21794fecf0e5",
+			"steps": []
+		},
+		{
+			"uuid": "7cdfd42c-67c1-4e62-a962-693e0ab78362",
+			"title": "GAMEPLAY: Camera Item",
+			"description": "The Camera item will be able to take pictures that get stored in the game files, and gets loaded into a gallery that is available to the players.",
+			"category": "471f5549-33af-4f98-8d7b-239df9494dcf",
+			"steps": []
+		},
+		{
+			"uuid": "3e1f9d87-74e9-409a-9282-ec37524cff1a",
+			"title": "Camera Quest",
+			"description": "",
+			"category": "471f5549-33af-4f98-8d7b-239df9494dcf",
+			"steps": []
+		},
+		{
+			"uuid": "b9c9e0e8-a898-47b9-99db-235799211134",
+			"title": "SYSTEM & GAMEPLAY: Shoulder Button Items",
+			"description": "Create a way to use items using the shoulder buttons, even if they are not on the top side. \n\nPlayer can choose up to two items to place on their sides, this gives them the ability to use these even if they are not on the top side.\n\nThere should be a drawback for this, like increasing the cooldown, or energy used for it. \n\nThe reason for this is that some items might have utilities that are more crucial to the player, such as the healing flask item that recovers their health, some players might want to have this item ready to use in a pinch whenever, so they can tie it to one of those buttons, while other players might want to have a weapon like the shotgun or axe, which allows them to stay on the offensive.",
 			"category": "babd24c5-1b43-498a-b581-b41a7d513474",
+			"steps": []
+		},
+		{
+			"uuid": "cb3f0b8f-c252-49db-af67-db776dfee4c0",
+			"title": "LEVEL: Pizzeria",
+			"description": "",
+			"category": "3f3f4d76-287f-4cd5-a3b9-a443e148dbbd",
+			"steps": []
+		},
+		{
+			"uuid": "7a8ac56b-3da4-4348-847b-5a9f2a6fd0a4",
+			"title": "BUG: Camera needs reset in Forest Level",
+			"description": "In the Forest level, when the player goes through the tree log bridge and into Oru's shop the camera is changed but it needs to be reset back to normal. ",
+			"category": "d1ec75ea-e255-4504-925b-e4f46ae2be0f",
+			"steps": []
+		},
+		{
+			"uuid": "596f44d4-a20d-4b60-b55c-e93cea2923d6",
+			"title": "Camera System Rehaul",
+			"description": "The camera system needs to be more dynamic so that different camera angles can be added easily but have a way to detect when players are exiting the camera angle area. \n\nSome ideas include using a Global script, or at least one that gets instantiated with every level, and that camera handles the resetting of position, proper offsets, and all that.\n\nWhat currently happens:\nCamera change tile can only detetect player in a 1x1 tile, which forces level designers to have to force players into tight spaces to achieve the camera change. Also, to return the original camera position, a second detection area has to be placed next to the one we just added, making the previously mentioned tight space issue worse. Also we manually have to set up the offsets using a camera position value. \n\nThings we want to fix:\n1. Ideally, we can use a trigger of any size and the camera will adapt to the player position accordingly. \n2. \n\nSome ideas on how to fix it:\n- If there is an autoloaded camera manager script, it can also keep track of player elevation to keep the offset correct.\n- Add or edit a collision box for the player that the camera trigger detects. This collision box will ONLY be active when the player is NOT moving, forcing the camera changes to happen exactly on the frame they have landed and stopped moving. ",
+			"category": "d2a03b12-ad2e-4671-81d3-48a51ebecbed",
 			"steps": []
 		}
 	],
@@ -85,6 +169,9 @@
 			],
 			[
 				"9ef8056e-6378-4485-9d00-5dd6dfa9ccf2"
+			],
+			[
+				"98862edb-21f9-4bb2-adaf-268db6d52941"
 			]
 		]
 	}

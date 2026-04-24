@@ -9,5 +9,5 @@ checkpoint_name = "First Encounter"
 image = ExtResource("1_04wyg")
 level_name = "Forest"
 level_path = "res://levels/forest_level/forest_level.tscn"
-spawn_point = Vector3(0, 0, -86)
+spawn_point = Vector3(0, 0, -108)
 metadata/_custom_type_script = "uid://idmin1b44kw"

@@ -66,6 +66,7 @@ _data = {
 }
 
 [node name="MouseLayer" type="CanvasLayer" unique_id=311199417]
+process_mode = 3
 layer = 20
 
 [node name="CustomCursor" type="Sprite2D" parent="." unique_id=1756049054]

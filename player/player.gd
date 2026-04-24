@@ -178,10 +178,8 @@ func leap():
 		step_2, 1/speed).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 	await tween_position.finished
 	
-	rolling = false
 	#roll_finished.emit()
 	
-	_enable_input()
 	
 	# Step 3: Finalize the movement and reset the offset.
 	transform.origin += dir * cube_size * 2.0
@@ -189,7 +187,10 @@ func leap():
 	pivot.transform = Transform3D.IDENTITY
 	mesh.position = Vector3(0, cube_size / 2, 0)
 	mesh.global_transform.basis = b
+	
+	await get_tree().create_timer(1).timeout
 	rolling = false
+	_enable_input()
 	
 func roll(dir):
 	# Do nothing if we're currently rolling.
@@ -237,7 +238,6 @@ func roll(dir):
 	pivot.transform = Transform3D.IDENTITY
 	mesh.position = Vector3(0, cube_size / 2, 0)
 	mesh.global_transform.basis = b
-	rolling = false
 	
 	shape_cast.target_position = initial_target_pos
 	
@@ -254,7 +254,9 @@ func roll(dir):
 	energy = clamp(energy, 0, 6)
 	energy_gained.emit(1)
 	
+	await get_tree().process_frame
 	
+	rolling = false
 	
 	# This line offsets the grid UV so that it gives the illusion the player is moving with it.
 	var _uv_offset = grid_mesh.mesh.surface_get_material(0).get_shader_parameter("uv1_offset")
