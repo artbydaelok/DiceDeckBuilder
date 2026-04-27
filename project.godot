@@ -27,7 +27,7 @@ general/3d_panning_strength=1.0
 
 [autoload]
 
-GameEvents="*res://game_events/game_events.tscn"
+GameEvents="*res://core/game_events/game_events.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"
@@ -60,6 +60,7 @@ folder_colors={
 "res://addons/": "gray",
 "res://assets/": "yellow",
 "res://card/": "orange",
+"res://dialogue/": "green",
 "res://script_templates/": "gray"
 }
 

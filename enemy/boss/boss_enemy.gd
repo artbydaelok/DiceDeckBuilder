@@ -2,7 +2,6 @@ extends Node3D
 class_name Enemy
 
 const FLOOR_INDICATOR = preload("res://enemy/boss/floor_indicator.tscn")
-const END_SCREEN = preload("res://menus/end_screen.tscn")
 
 @export var user_interface : CanvasLayer
 const CENTER_WARNING_SIGN = preload("res://ui/center_warning_sign.tscn")

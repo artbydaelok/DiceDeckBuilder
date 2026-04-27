@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://corfm1b2wg3cn" path="res://assets/3d_models/palceholder_models/Scroll.glb" id="19_vhl1x"]
 [ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="22_87tfy"]
 [ext_resource type="PackedScene" uid="uid://kpya0i20ips2" path="res://assets/3d_models/Spear.glb" id="22_vmqiq"]
-[ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/SaveSystem/SaveSystem.tscn" id="23_ma4h5"]
+[ext_resource type="PackedScene" uid="uid://ewq4w7sq860i" path="res://core/save_system/SaveSystem.tscn" id="23_ma4h5"]
 [ext_resource type="PackedScene" uid="uid://bv33fgeln6yrp" path="res://level_mechanics/tree_bridge_event.tscn" id="23_vwtbs"]
 [ext_resource type="PackedScene" uid="uid://qt52gk332jso" path="res://assets/3d_models/Bush.glb" id="24_pcwe1"]
 [ext_resource type="PackedScene" uid="uid://bnnsasx1ltjo8" path="res://assets/3d_models/Vines.glb" id="25_hst7d"]

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bl6j4ua7rq4vu"]
+
+[ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_w308l"]
+[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="2_khgtn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_khgtn"]
+size = Vector3(17, 1, 1)
+
+[node name="PizzeriaLevel" unique_id=885135856 instance=ExtResource("1_w308l")]
+
+[node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("2_khgtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+relocation_node = NodePath("../CameraTarget1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/CameraChangeTrigger" index="1" unique_id=1240961834]
+shape = SubResource("BoxShape3D_khgtn")
+
+[node name="CameraTarget1" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1948783963]
+
+[editable path="BaseLevel/Player"]

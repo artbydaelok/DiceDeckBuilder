@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ewq4w7sq860i"]
 
-[ext_resource type="Script" uid="uid://bhwb0voo3173b" path="res://core/SaveSystem/save_system.gd" id="1_a4i56"]
+[ext_resource type="Script" uid="uid://bhwb0voo3173b" path="res://core/save_system/save_system.gd" id="1_a4i56"]
 
 [node name="SaveSystem" type="Node" unique_id=1059717826 groups=["save_system"]]
 script = ExtResource("1_a4i56")

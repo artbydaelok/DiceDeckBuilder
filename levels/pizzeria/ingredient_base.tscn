@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cl47vvc4raim0"]
+
+[node name="IngredientBase" type="Node3D" unique_id=1946585530]
+
+[node name="IngredientMesh" type="MeshInstance3D" parent="." unique_id=1461637009]
+
+[node name="PlayerPickupArea" type="Area3D" parent="." unique_id=707268034]

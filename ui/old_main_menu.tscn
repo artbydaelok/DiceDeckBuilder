@@ -1,23 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpcrrorybckw7"]
+[gd_scene format=3 uid="uid://doqle0oikp1vp"]
 
-[ext_resource type="Script" uid="uid://dsxnhye52v1h2" path="res://ui/old_main_menu.gd" id="1_xi7t0"]
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="2_gcvtk"]
 [ext_resource type="PackedScene" uid="uid://dpgklwmdgcka1" path="res://ui/level_select.tscn" id="3_ophkb"]
 [ext_resource type="AudioStream" uid="uid://bfda4jk3pw1w4" path="res://assets/music/drunk in space.wav" id="4_864wu"]
 
-[node name="MainMenu" type="Node"]
-script = ExtResource("1_xi7t0")
+[sub_resource type="GDScript" id="GDScript_0sukb"]
+script/source = "extends Node
 
-[node name="UI" type="CanvasLayer" parent="."]
+@onready var level_select_menu: Control = $UI/LevelSelectMenu
 
-[node name="Background" type="PanelContainer" parent="UI"]
+
+func _on_level_select_button_pressed() -> void:
+	level_select_menu.visible = true
+
+func _on_edit_deck_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_options_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_main_menu_music_finished() -> void:
+	$MainMenuMusic.play()
+"
+
+[node name="MainMenu" type="Node" unique_id=1434170536]
+script = SubResource("GDScript_0sukb")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1013153176]
+
+[node name="Background" type="PanelContainer" parent="UI" unique_id=2024329158]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1700225969]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,7 +50,7 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="Label" type="Label" parent="UI/MarginContainer"]
+[node name="Label" type="Label" parent="UI/MarginContainer" unique_id=1991189944]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -36,43 +58,43 @@ theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 175
 text = "DICE GAME"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" unique_id=989395861]
 custom_minimum_size = Vector2(500, 350)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 alignment = 2
 
-[node name="LevelSelectButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+[node name="LevelSelectButton" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=771323886]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 text = "Select Level"
 
-[node name="EditDeckButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+[node name="EditDeckButton" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=188188006]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Edit Deck"
 
-[node name="OptionsButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=396070467]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Options"
 
-[node name="ExitButton" type="Button" parent="UI/MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=773065321]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_gcvtk")
 theme_override_font_sizes/font_size = 30
 text = "Exit Game"
 
-[node name="LevelSelectMenu" parent="UI" instance=ExtResource("3_ophkb")]
+[node name="LevelSelectMenu" parent="UI" unique_id=1998923774 instance=ExtResource("3_ophkb")]
 visible = false
 
-[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="." unique_id=1621159557]
 stream = ExtResource("4_864wu")
 autoplay = true
 bus = &"Music"

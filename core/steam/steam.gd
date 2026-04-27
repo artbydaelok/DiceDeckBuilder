@@ -13,7 +13,6 @@ var ACHIEVEMENTS : Dictionary = {
 }
 
 var STATISTICS : Dictionary = {
-	"DEATH" = 0
 }
 
 var leaderboard_info = []

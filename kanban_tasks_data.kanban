@@ -47,7 +47,6 @@
 				"d7f3118b-df1e-4f82-99f1-c40f3dd516d1",
 				"3e1f9d87-74e9-409a-9282-ec37524cff1a",
 				"7cdfd42c-67c1-4e62-a962-693e0ab78362",
-				"afe6aa2d-a124-4f48-82b3-cd76132c8716",
 				"cb3f0b8f-c252-49db-af67-db776dfee4c0",
 				"b9c9e0e8-a898-47b9-99db-235799211134",
 				"91cffdf5-bd17-4e06-a863-58173c768675",
@@ -60,15 +59,17 @@
 			"title": "To do",
 			"tasks": [
 				"f6849b02-bb0f-48c1-b0b4-d1544e050bd7",
-				"584ff745-1912-4ea2-9b07-c8381c88446b",
-				"7a8ac56b-3da4-4348-847b-5a9f2a6fd0a4"
+				"7a8ac56b-3da4-4348-847b-5a9f2a6fd0a4",
+				"122ba2e8-b019-4eb9-940b-c84744f3735b",
+				"afe6aa2d-a124-4f48-82b3-cd76132c8716"
 			]
 		},
 		{
 			"uuid": "9ef8056e-6378-4485-9d00-5dd6dfa9ccf2",
 			"title": "Doing",
 			"tasks": [
-				"df4978f9-f4f8-43c6-8aa8-7e28629b8e5f"
+				"df4978f9-f4f8-43c6-8aa8-7e28629b8e5f",
+				"584ff745-1912-4ea2-9b07-c8381c88446b"
 			]
 		},
 		{
@@ -224,6 +225,13 @@
 					"done": false
 				}
 			]
+		},
+		{
+			"uuid": "122ba2e8-b019-4eb9-940b-c84744f3735b",
+			"title": "BUG: Fix multiple lanterns able to spawn.",
+			"description": "Player should only have one lantern at a time. If the player uses the ability, it should instantiate only if there isn't already a lantern in the game. ",
+			"category": "d1ec75ea-e255-4504-925b-e4f46ae2be0f",
+			"steps": []
 		}
 	],
 	"layout": {
