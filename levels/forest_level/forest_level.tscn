@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="14_f1v1w"]
 [ext_resource type="PackedScene" uid="uid://ckxt12la8rviu" path="res://assets/3d_models/AxeByQuaternius.glb" id="14_u4uq1"]
 [ext_resource type="PackedScene" uid="uid://cj8jh22a8suyc" path="res://assets/3d_models/psx/stone/stone_5.tscn" id="15_fyusi"]
+[ext_resource type="PackedScene" uid="uid://n8h15ynu2crs" path="res://level_mechanics/camera_angle_change/camera_angle_holder.tscn" id="15_v2ink"]
 [ext_resource type="PackedScene" uid="uid://dps5ghm8ptkps" path="res://assets/3d_models/psx/stone/stone_2.tscn" id="18_7n544"]
 [ext_resource type="Texture2D" uid="uid://dyrgsdra31ao6" path="res://assets/wood_floor_2.png" id="18_nldyw"]
 [ext_resource type="PackedScene" uid="uid://corfm1b2wg3cn" path="res://assets/3d_models/palceholder_models/Scroll.glb" id="19_vhl1x"]
@@ -54,7 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://86rnblol0q7t" path="res://level_mechanics/coin_pickup.tscn" id="41_bp51c"]
 [ext_resource type="Resource" uid="uid://certpn2jup3m8" path="res://core/checkpoint_system/checkpoints/forest_orus_trade.tres" id="44_nj8pe"]
 [ext_resource type="PackedScene" uid="uid://bk5rchiicic2n" path="res://vfx/fireflies_vfx_extended.tscn" id="45_3rej4"]
-[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="48_7u734"]
+[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_angle_change/camera_change_trigger.tscn" id="48_7u734"]
 [ext_resource type="PackedScene" uid="uid://mtywv7llweaw" path="res://assets/3d_models/palceholder_models/wooden_Barrel.glb" id="50_71n5h"]
 [ext_resource type="PackedScene" uid="uid://diftq8s2dp0i4" path="res://assets/3d_models/palceholder_models/Plants - Assorted shelf plants.glb" id="52_xjpk1"]
 [ext_resource type="PackedScene" uid="uid://0pumqcehup3b" path="res://assets/3d_models/palceholder_models/Shelf.glb" id="53_bsqew"]
@@ -511,7 +512,7 @@ metadata/_custom_type_script = "uid://cqxuuexdumeed"
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -66)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -272)
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
@@ -710,6 +711,8 @@ spot_angle = 22.0
 
 [node name="SpotLight3D" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="9" unique_id=1264099536]
 visible = false
+
+[node name="CameraAngleHolder" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="12" unique_id=692304646 instance=ExtResource("15_v2ink")]
 
 [node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="37" unique_id=1892705345]
 transform = Transform3D(0.9817104, -0.13461947, 0.13461944, -2.232958e-08, 0.70710665, 0.707107, -0.19038068, -0.69417423, 0.6941739, 1.5038791, 7.4299498, 5.019654)

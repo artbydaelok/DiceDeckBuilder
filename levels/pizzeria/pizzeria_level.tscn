@@ -1,20 +1,31 @@
 [gd_scene format=3 uid="uid://bl6j4ua7rq4vu"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_w308l"]
-[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="2_khgtn"]
+[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_angle_change/camera_change_trigger.tscn" id="2_khgtn"]
+[ext_resource type="PackedScene" uid="uid://n8h15ynu2crs" path="res://level_mechanics/camera_angle_change/camera_angle_holder.tscn" id="3_7i870"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khgtn"]
-size = Vector3(17, 1, 1)
+size = Vector3(17, 1, 12)
 
 [node name="PizzeriaLevel" unique_id=885135856 instance=ExtResource("1_w308l")]
 
 [node name="CameraChangeTrigger" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=1913142793 node_paths=PackedStringArray("relocation_node") instance=ExtResource("2_khgtn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
-relocation_node = NodePath("../CameraTarget1")
+relocation_node = NodePath("../Player/CameraAngleHolder")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/CameraChangeTrigger" index="1" unique_id=1240961834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
 shape = SubResource("BoxShape3D_khgtn")
+debug_color = Color(1, 1, 0, 0.41960785)
 
-[node name="CameraTarget1" type="Marker3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1948783963]
+[node name="CameraAngleHolder" parent="BaseLevel/Player" parent_id_path=PackedInt32Array(133383534) index="0" unique_id=692304646 instance=ExtResource("3_7i870")]
+transform = Transform3D(0.7798845, 0.31296173, -0.5420656, 0, 0.8660254, 0.5, 0.62592345, -0.38994226, 0.6753998, -2, 4, 3)
+
+[node name="Camera3D" parent="BaseLevel/Player/CameraAngleHolder" index="0" unique_id=162610759]
+transform = Transform3D(1, 1.4901161e-08, -2.9802322e-08, -1.4901161e-08, 1, 0, -2.9802322e-08, 0, 1, 0, 0, 0)
+
+[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1892705345]
+follow_target = true
 
 [editable path="BaseLevel/Player"]
+[editable path="BaseLevel/Player/CameraAngleHolder"]

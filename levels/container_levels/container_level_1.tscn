@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqpbx0iexgur2" path="res://assets/3d_models/Frog.glb" id="2_2ceik"]
 [ext_resource type="PackedScene" uid="uid://da1bpxmyhqky2" path="res://level_mechanics/container_level_obstacle.tscn" id="2_mt3fl"]
 [ext_resource type="Resource" uid="uid://ca1rr7ccxkre6" path="res://level_mechanics/level_map_data/container_level_map_data.tres" id="2_r6w5y"]
-[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_change_trigger.tscn" id="3_2ceik"]
+[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_angle_change/camera_change_trigger.tscn" id="3_2ceik"]
 [ext_resource type="Texture2D" uid="uid://dqlkqk2uuabi" path="res://assets/star_01.png" id="3_iwhj4"]
 [ext_resource type="Script" uid="uid://bnra6412osewt" path="res://level_mechanics/player_follow.gd" id="3_jeo5p"]
 [ext_resource type="PackedScene" uid="uid://b1ylt1qvb3t8g" path="res://assets/3d_models/psx/shipping_container_1/shipping_container_mx_1_hollow_1.glb" id="5_gn56b"]

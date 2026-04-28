@@ -1,6 +1,9 @@
 extends Camera3D
 class_name GameCamera
 
+const CAMERA_ANGLE_HOLDER = preload("uid://n8h15ynu2crs")
+var starting_cam_holder : Marker3D
+
 @export var random_strength : float = 0.35	
 @export var shake_fade : float = 2.5
 
@@ -15,14 +18,24 @@ var player : Player
 @export var target : Node3D
 @export var follow_target : bool = false
 
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	player.player_damaged.connect(apply_shake)
+	
+	create_starting_angle_holder()
 	
 	if GameEvents.current_checkpoint_data != null:
 		global_position = GameEvents.current_checkpoint_data.spawn_point + GameEvents.current_checkpoint_data.camera_offset
 	
 	update_target_offset()
+
+func create_starting_angle_holder():
+	starting_cam_holder = CAMERA_ANGLE_HOLDER.instantiate()
+	get_tree().get_first_node_in_group("player").add_child(starting_cam_holder)
+	starting_cam_holder.global_transform = global_transform
+	starting_cam_holder.set_player()
+	
 
 func update_target_offset(new_offset = null):
 	if target != null:
@@ -33,6 +46,8 @@ func update_target_offset(new_offset = null):
 		else:
 			offset = new_offset
 		print("New camera offset: " + str(offset))
+
+
 
 func stop_following_target():
 	follow_target = false
@@ -75,10 +90,11 @@ func relocate_to(node : Node3D, new_offset = null):
 		
 	await tween.finished
 	
-	#GameEvents.enable_player_input()
-	if new_offset != null:
-		update_target_offset(new_offset)
-	else:
-		update_target_offset(node.global_position - target_original_position)
+	update_target_offset()
+	
+	#if new_offset != null:
+		#update_target_offset(new_offset)
+	#else:
+		#update_target_offset(node.global_position - target_original_position)
 	
 	start_following_target()

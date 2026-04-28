@@ -57,6 +57,8 @@ signal insufficient_energy
 
 @onready var shape_cast: ShapeCast3D = %ShapeCast
 
+@onready var player_trigger_collision: CollisionShape3D = %PlayerTriggerCollision
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -231,7 +233,8 @@ func roll(dir):
 	tween.tween_property(pivot, "transform",
 			pivot.transform.rotated_local(axis, PI/2), 1 / speed)
 	await tween.finished
-
+	
+	
 	# Step 3: Finalize the movement and reset the offset.
 	transform.origin += dir * cube_size
 	var b = mesh.global_transform.basis
@@ -254,6 +257,8 @@ func roll(dir):
 	energy = clamp(energy, 0, 6)
 	energy_gained.emit(1)
 	
+	
+	
 	await get_tree().process_frame
 	
 	rolling = false
@@ -262,7 +267,6 @@ func roll(dir):
 	var _uv_offset = grid_mesh.mesh.surface_get_material(0).get_shader_parameter("uv1_offset")
 	_uv_offset.x += grid_offset_amount
 	grid_mesh.mesh.surface_get_material(0).set_shader_parameter("uv1_offset", _uv_offset)
-	
 	
 	
 	# This is a check for player death after a roll is finished

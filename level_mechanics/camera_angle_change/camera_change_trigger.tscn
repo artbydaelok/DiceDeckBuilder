@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m3u1t4h22h6n"]
 
-[ext_resource type="Script" uid="uid://b7nhcedt2s2nh" path="res://level_mechanics/camera_change_trigger.gd" id="1_2lh2q"]
+[ext_resource type="Script" uid="uid://b7nhcedt2s2nh" path="res://level_mechanics/camera_angle_change/camera_change_trigger.gd" id="1_2lh2q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2lh2q"]
 

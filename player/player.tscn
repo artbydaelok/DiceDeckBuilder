@@ -307,7 +307,8 @@ current = true
 collision_layer = 256
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/MeshInstance3D/PlayerTriggerBox" unique_id=1550319362]
+[node name="PlayerTriggerCollision" type="CollisionShape3D" parent="Pivot/MeshInstance3D/PlayerTriggerBox" unique_id=1550319362]
+unique_name_in_owner = true
 shape = SubResource("BoxShape3D_hg6s5")
 debug_color = Color(1, 1, 0.69803923, 0.41960785)
 

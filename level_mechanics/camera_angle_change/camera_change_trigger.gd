@@ -7,11 +7,17 @@ var camera : GameCamera
 ## This makes the camera stop following the target. 
 @export var static_cam : bool = false
 
+var player : Player
+
 func _ready() -> void:
 	camera = get_tree().get_first_node_in_group("game_camera")
+	player = get_tree().get_first_node_in_group("player")
 	area_entered.connect(_on_player_entered)
+	area_exited.connect(_on_player_exited)
 
-func _on_player_entered(body):
+#Only players can trigger this
+func _on_player_entered(area):
+	await player.roll_finished
 	var new_offset = relocation_node.global_position - global_position
 	camera.relocate_to(relocation_node, new_offset)
 	if static_cam:
@@ -19,4 +25,10 @@ func _on_player_entered(body):
 	else: 
 		camera.follow_target = true
 	if one_shot: queue_free()
-	
+
+#Only players can trigger this
+func _on_player_exited(area : Area3D):
+	await player.roll_finished
+	if not area.has_overlapping_areas():
+		await get_tree().process_frame
+		camera.relocate_to(camera.starting_cam_holder)
