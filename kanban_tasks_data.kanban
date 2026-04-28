@@ -50,7 +50,6 @@
 				"cb3f0b8f-c252-49db-af67-db776dfee4c0",
 				"b9c9e0e8-a898-47b9-99db-235799211134",
 				"91cffdf5-bd17-4e06-a863-58173c768675",
-				"596f44d4-a20d-4b60-b55c-e93cea2923d6",
 				"6ef61d25-9d82-400d-8ef4-b3673d803073"
 			]
 		},
@@ -59,7 +58,6 @@
 			"title": "To do",
 			"tasks": [
 				"f6849b02-bb0f-48c1-b0b4-d1544e050bd7",
-				"7a8ac56b-3da4-4348-847b-5a9f2a6fd0a4",
 				"122ba2e8-b019-4eb9-940b-c84744f3735b",
 				"afe6aa2d-a124-4f48-82b3-cd76132c8716"
 			]
@@ -69,7 +67,9 @@
 			"title": "Doing",
 			"tasks": [
 				"df4978f9-f4f8-43c6-8aa8-7e28629b8e5f",
-				"584ff745-1912-4ea2-9b07-c8381c88446b"
+				"584ff745-1912-4ea2-9b07-c8381c88446b",
+				"7a8ac56b-3da4-4348-847b-5a9f2a6fd0a4",
+				"596f44d4-a20d-4b60-b55c-e93cea2923d6"
 			]
 		},
 		{
@@ -181,7 +181,7 @@
 		{
 			"uuid": "596f44d4-a20d-4b60-b55c-e93cea2923d6",
 			"title": "Camera System Rehaul",
-			"description": "The camera system needs to be more dynamic so that different camera angles can be added easily but have a way to detect when players are exiting the camera angle area. \n\nSome ideas include using a Global script, or at least one that gets instantiated with every level, and that camera handles the resetting of position, proper offsets, and all that.\n\nWhat currently happens:\nCamera change tile can only detetect player in a 1x1 tile, which forces level designers to have to force players into tight spaces to achieve the camera change. Also, to return the original camera position, a second detection area has to be placed next to the one we just added, making the previously mentioned tight space issue worse. Also we manually have to set up the offsets using a camera position value. \n\nThings we want to fix:\n1. Ideally, we can use a trigger of any size and the camera will adapt to the player position accordingly. \n2. \n\nSome ideas on how to fix it:\n- If there is an autoloaded camera manager script, it can also keep track of player elevation to keep the offset correct.\n- Add or edit a collision box for the player that the camera trigger detects. This collision box will ONLY be active when the player is NOT moving, forcing the camera changes to happen exactly on the frame they have landed and stopped moving. ",
+			"description": "The camera system needs to be more dynamic so that different camera angles can be added easily but have a way to detect when players are exiting the camera angle area. \n\nSome ideas include using a Global script, or at least one that gets instantiated with every level, and that camera handles the resetting of position, proper offsets, and all that.\n\nWhat currently happens:\nCamera change tile can only detetect player in a 1x1 tile, which forces level designers to have to force players into tight spaces to achieve the camera change. Also, to return the original camera position, a second detection area has to be placed next to the one we just added, making the previously mentioned tight space issue worse. Also we manually have to set up the offsets using a camera position value. \n\nIdeally, we can use a trigger of any size and the camera will adapt to the player position accordingly. \n\nSome ideas on how to fix it:\n- If there is an autoloaded camera manager script, it can also keep track of player elevation to keep the offset correct.\n- Add or edit a collision box for the player that the camera trigger detects. This collision box will ONLY be active when the player is NOT moving, forcing the camera changes to happen exactly on the frame they have landed and stopped moving. ",
 			"category": "d2a03b12-ad2e-4671-81d3-48a51ebecbed",
 			"steps": []
 		},
