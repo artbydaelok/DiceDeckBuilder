@@ -7,6 +7,7 @@ extends Control
 
 @onready var background: Sprite2D = $Background
 
+# V1 references (soon to be deprecated)
 @onready var left: Sprite2D = $Background/Left
 @onready var extra_left: Sprite2D = $Background/ExtraLeft
 @onready var right: Sprite2D = $Background/Right
@@ -17,7 +18,21 @@ extends Control
 @onready var extra_top: Sprite2D = $Background/ExtraTop
 @onready var center: Sprite2D = $Background/Center
 
+# V2 references 
+@onready var v_extra_slot: Control = $VLine/VExtraSlot
+@onready var v_center_slot: Control = $VLine/VCenterSlot
+@onready var top_slot: Control = $VLine/TopSlot
+@onready var bottom_slot: Control = $VLine/BottomSlot
+@onready var h_extra_slot: Control = $HLine/HExtraSlot
+@onready var h_center_slot: Control = $HLine/HCenterSlot
+@onready var left_slot: Control = $HLine/LeftSlot
+@onready var right_slot: Control = $HLine/RightSlot
 
+
+@onready var v_line: Control = $VLine
+@onready var h_line: Control = $HLine
+
+var slot_size : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,25 +41,68 @@ func _ready() -> void:
 	card_system.card_drawn.connect(update_sprites)
 	card_system.inventory_updated.connect(update_sprites)
 	
+	slot_size = h_extra_slot.size
+	
 	await get_tree().create_timer(0.1).timeout
 	update_sprites()
 	
 func play_animation(dir : Vector3):
 	update_sprites()
 	var _d = Vector2(dir.x, dir.z)
-	match _d:
-		Vector2.LEFT:
-			animation_player.play("roll_left")
-		Vector2.UP:
-			animation_player.play("roll_forward")
-		Vector2.DOWN:
-			animation_player.play("roll_backward")
-		Vector2.RIGHT:
-			animation_player.play("roll_right")
-
+	
+	# Step 1: Dealing with center panel and choosing which line will move.
+	var line_to_move : Control
+	var starting_pos : Vector2
+	
+	if dir.z != 0:						# If direction is vertical
+		h_center_slot.visible = false	# hide center slot from Horizontal Line 
+		v_center_slot.visible = true	# make the center slot from Vertical line visible
+		line_to_move = v_line
+		if dir.z == 1:
+			v_extra_slot.position.y = top_slot.position.y - slot_size.y
+		elif dir.z == -1: 
+			v_extra_slot.position.y = bottom_slot.position.y + slot_size.y
+		
+	elif dir.x != 0:					# If direction is horizontal
+		v_center_slot.visible = false	# hide center slot from Vertical Line 
+		h_center_slot.visible = true	# make the center slot from Vertical line visible
+		line_to_move = h_line
+		if dir.x == 1: 
+			h_extra_slot.position.x = left_slot.position.x - slot_size.x
+		elif dir.x == -1: 
+			h_extra_slot.position.x = right_slot.position.x + slot_size.x
+	
+	starting_pos = line_to_move.position
+	# Step 2: Animating the row moving in the direction the player moved.
+	var position_tween := create_tween()
+	var move_vector := Vector2(dir.x * slot_size.x, dir.z * slot_size.y)
+	
+	position_tween.tween_property(line_to_move, "position", starting_pos + move_vector, 0.125)
+	
+	await position_tween.finished
+	
+	line_to_move.position = starting_pos
+	
+	#
+	#match _d:
+		#Vector2.LEFT:
+			#animation_player.play("roll_left")
+		#Vector2.UP:
+			#animation_player.play("roll_forward")
+		#Vector2.DOWN:
+			#animation_player.play("roll_backward")
+		#Vector2.RIGHT:
+			#animation_player.play("roll_right")
+#
 
 
 func update_sprites():
+	
+	
+	
+	
+	return
+	
 	for child in background.get_children():
 		child.offset = Vector2.ZERO
 	

@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca3r7dgfvfj22"]
+[gd_scene format=3 uid="uid://ca3r7dgfvfj22"]
 
 [ext_resource type="Script" uid="uid://bg5hjn6xh1tnl" path="res://ui/ability_sides_display.gd" id="1_hk5a5"]
 [ext_resource type="Texture2D" uid="uid://dln6eyq2dee81" path="res://assets/card_artwork/axe.png" id="1_iw1h7"]
 [ext_resource type="Texture2D" uid="uid://gifdeue4l0l2" path="res://player/dice_directions_clip_layer.png" id="2_a15yy"]
 [ext_resource type="Texture2D" uid="uid://bg5m3lg86cx1m" path="res://player/dice_grid.png" id="3_dm72h"]
+[ext_resource type="StyleBox" uid="uid://birivhkrunie7" path="res://ui/themes/ability_display_stylebox.tres" id="5_nddnn"]
+[ext_resource type="Texture2D" uid="uid://b7xppkavjut8u" path="res://assets/card_artwork/shotgun.png" id="6_84rq7"]
 
 [sub_resource type="Animation" id="Animation_tcuyl"]
 length = 0.001
@@ -537,81 +539,430 @@ _data = {
 &"roll_right": SubResource("Animation_0t0sr")
 }
 
-[node name="AbilitySidesDisplay" type="Control"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 3
-anchors_preset = 0
+[node name="AbilitySidesDisplay" type="Panel" unique_id=19993186]
+self_modulate = Color(1, 1, 1, 0)
+clip_contents = true
+custom_minimum_size = Vector2(120, 120)
+offset_right = 100.0
+offset_bottom = 100.0
 script = ExtResource("1_hk5a5")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=485470680]
+visible = false
 clip_children = 2
 position = Vector2(50, 50)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_a15yy")
 
-[node name="BackgroundGrid" type="Sprite2D" parent="Background"]
+[node name="BackgroundGrid" type="Sprite2D" parent="Background" unique_id=357739532]
 texture = ExtResource("3_dm72h")
 
-[node name="HorizontalGrid" type="Sprite2D" parent="Background"]
+[node name="HorizontalGrid" type="Sprite2D" parent="Background" unique_id=1854076456]
 visible = false
 texture_repeat = 2
 texture = ExtResource("3_dm72h")
 region_enabled = true
 region_rect = Rect2(0, 64, 192, 64)
 
-[node name="VerticalGrid" type="Sprite2D" parent="Background"]
+[node name="VerticalGrid" type="Sprite2D" parent="Background" unique_id=972617490]
 visible = false
 texture_repeat = 2
 texture = ExtResource("3_dm72h")
 region_enabled = true
 region_rect = Rect2(64, 0, 64, 192)
 
-[node name="Left" type="Sprite2D" parent="Background"]
+[node name="Left" type="Sprite2D" parent="Background" unique_id=1908024706]
 position = Vector2(-64, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="ExtraLeft" type="Sprite2D" parent="Background"]
+[node name="ExtraLeft" type="Sprite2D" parent="Background" unique_id=1066784842]
 position = Vector2(-128, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="Right" type="Sprite2D" parent="Background"]
+[node name="Right" type="Sprite2D" parent="Background" unique_id=1003008141]
 position = Vector2(64, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="ExtraRight" type="Sprite2D" parent="Background"]
+[node name="ExtraRight" type="Sprite2D" parent="Background" unique_id=1327100464]
 position = Vector2(128, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="Bottom" type="Sprite2D" parent="Background"]
+[node name="Bottom" type="Sprite2D" parent="Background" unique_id=137660134]
 position = Vector2(0, 64)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="ExtraBottom" type="Sprite2D" parent="Background"]
+[node name="ExtraBottom" type="Sprite2D" parent="Background" unique_id=634647010]
 position = Vector2(0, 128)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="Top" type="Sprite2D" parent="Background"]
+[node name="Top" type="Sprite2D" parent="Background" unique_id=884051356]
 position = Vector2(0, -64)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="ExtraTop" type="Sprite2D" parent="Background"]
+[node name="ExtraTop" type="Sprite2D" parent="Background" unique_id=977133623]
 position = Vector2(0, -128)
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="Center" type="Sprite2D" parent="Background"]
+[node name="Center" type="Sprite2D" parent="Background" unique_id=1552773435]
 scale = Vector2(2, 2)
 texture = ExtResource("1_iw1h7")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=942390748]
 root_node = NodePath("../Background")
-libraries = {
-&"": SubResource("AnimationLibrary_nrngb")
-}
+libraries/ = SubResource("AnimationLibrary_nrngb")
+
+[node name="VLine" type="Control" parent="." unique_id=1563109611]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraSlot" type="Control" parent="VLine" unique_id=376016582]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -100.0
+offset_right = 20.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="VLine/VExtraSlot" unique_id=842660601]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="VLine/VExtraSlot/VExtraPanel" unique_id=1116918328]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_84rq7")
+
+[node name="VCenterSlot" type="Control" parent="VLine" unique_id=38148021]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="VLine/VCenterSlot" unique_id=2039906660]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="VLine/VCenterSlot/VExtraPanel" unique_id=1163791098]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iw1h7")
+
+[node name="TopSlot" type="Control" parent="VLine" unique_id=2096699715]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="VLine/TopSlot" unique_id=1293685417]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="VLine/TopSlot/VExtraPanel" unique_id=1504542109]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iw1h7")
+
+[node name="BottomSlot" type="Control" parent="VLine" unique_id=5849373]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="VLine/BottomSlot" unique_id=868792880]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="VLine/BottomSlot/VExtraPanel" unique_id=1323589590]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iw1h7")
+
+[node name="HLine" type="Control" parent="." unique_id=645298989]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HExtraSlot" type="Control" parent="HLine" unique_id=1605150947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -20.0
+offset_right = -60.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="HLine/HExtraSlot" unique_id=1538426884]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="HLine/HExtraSlot/VExtraPanel" unique_id=493972443]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iw1h7")
+
+[node name="HCenterSlot" type="Control" parent="HLine" unique_id=193519750]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="HLine/HCenterSlot" unique_id=16143872]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="HLine/HCenterSlot/VExtraPanel" unique_id=1516900684]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iw1h7")
+
+[node name="LeftSlot" type="Control" parent="HLine" unique_id=1959895947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="HLine/LeftSlot" unique_id=594256535]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="HLine/LeftSlot/VExtraPanel" unique_id=827667027]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iw1h7")
+
+[node name="RightSlot" type="Control" parent="HLine" unique_id=1630190799]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VExtraPanel" type="Panel" parent="HLine/RightSlot" unique_id=1767589204]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = ExtResource("5_nddnn")
+
+[node name="ItemIcon" type="TextureRect" parent="HLine/RightSlot/VExtraPanel" unique_id=1337252491]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iw1h7")
