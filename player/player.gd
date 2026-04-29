@@ -18,7 +18,17 @@ var grid_offset_amount = 0.25
 
 @onready var sides = [side_one, side_two, side_three, side_four, side_five, side_six]
 enum SIDES_STATE {ONE, TWO, THREE, FOUR, FIVE, SIX}
+
 var up_side = SIDES_STATE.TWO
+
+var faces = {
+	"top": 2,
+	"bottom": 5,
+	"left": 6,
+	"right": 1,
+	"front": 3,
+	"back": 4
+}
 
 @onready var commit_lock_timer: Timer = $CommitLockTimer
 var commit_lock = false
@@ -65,8 +75,7 @@ func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
 	health = max_health
 	player_health_updated.emit(health)
-	#DialogueManager.dialogue_started.connect(_on_dialogue_started)
-	#DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
 	GameEvents.menu_entered.connect(_on_menu_entered)
@@ -76,11 +85,6 @@ func _ready():
 		global_position = GameEvents.current_checkpoint_data.spawn_point + Vector3(0, 0, 2)
 		GameEvents.set_deferred("is_checkpoint_transfer", false)
 
-#func _on_dialogue_started(resource):
-	#_on_cutscene_started(true)
-	#
-#func _on_dialogue_ended(resource : DialogueResource):
-	#_on_cutscene_ended()
 
 func _on_cutscene_started(_input_disabled: bool):
 	if _input_disabled:
@@ -121,8 +125,11 @@ func handle_input():
 	if Input.is_action_pressed("move_left"):
 		roll(-forward.cross(Vector3.UP))
 		
-	if Input.is_key_pressed(KEY_SPACE):
-		leap()
+	#if Input.is_key_pressed(KEY_SPACE):
+		#leap()
+
+func get_side_texture(side : int):
+	return sides[side - 1].get_child(0).texture
 
 func update_side_icon(side : int, new_icon : Texture2D):
 	match side:
@@ -198,10 +205,7 @@ func roll(dir):
 	# Do nothing if we're currently rolling.
 	if rolling or commit_lock or is_dead or input_disabled:
 		return
-	
-
-	var test_dir = grid_pos + Vector2(dir.x, dir.z)
-
+		
 	## CHECK FOR COLLISION
 	var collision_test_pos = dir * cube_size
 	var initial_target_pos = shape_cast.target_position
@@ -211,7 +215,6 @@ func roll(dir):
 	if shape_cast.is_colliding():
 		shape_cast.target_position = initial_target_pos
 		return
-	
 	
 	# This prevents the player from using items while not standing still, 
 	# and to allow for triggers to work before player can move out of them
@@ -234,6 +237,32 @@ func roll(dir):
 			pivot.transform.rotated_local(axis, PI/2), 1 / speed)
 	await tween.finished
 	
+	# Updates side references
+	match dir:
+		Vector3.FORWARD:
+			var temp = faces.top
+			faces.top = faces.back
+			faces.back = faces.bottom
+			faces.bottom = faces.front
+			faces.front = temp
+		Vector3.BACK:
+			var temp = faces.top
+			faces.top = faces.front
+			faces.front = faces.bottom
+			faces.bottom = faces.back
+			faces.back = temp
+		Vector3.LEFT:
+			var temp = faces.top
+			faces.top = faces.right
+			faces.right = faces.bottom
+			faces.bottom = faces.left
+			faces.left = temp
+		Vector3.RIGHT:
+			var temp = faces.top
+			faces.top = faces.left
+			faces.left = faces.bottom
+			faces.bottom = faces.right
+			faces.right = temp
 	
 	# Step 3: Finalize the movement and reset the offset.
 	transform.origin += dir * cube_size

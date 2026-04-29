@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cp6gwawuteplg"]
 
 [ext_resource type="Script" uid="uid://b0xdt3gcxclj1" path="res://player/player.gd" id="1_rgyib"]
-[ext_resource type="Texture2D" uid="uid://b7f38wjks3ocy" path="res://player/pixel_dice_tex_empty_face.png" id="2_7sfox"]
 [ext_resource type="PackedScene" uid="uid://dljf7lfr7eq8n" path="res://core/currency_system.tscn" id="2_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="2_knvy0"]
+[ext_resource type="Texture2D" uid="uid://ca24nlmt4o5bj" path="res://player/pixel_dice_tex.png" id="3_2ieo8"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
 [ext_resource type="Script" uid="uid://cqi1mqmkmli5s" path="res://player/SideSprite.gd" id="5_v808x"]
 [ext_resource type="AudioStream" uid="uid://t4j8pdmiqehu" path="res://assets/sounds/footstep_concrete_a_14.wav" id="6_j7ngl"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://1mr7tipssas2" path="res://assets/HealParticle.png" id="11_2ieo8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ru3w"]
-albedo_texture = ExtResource("2_7sfox")
+albedo_texture = ExtResource("3_2ieo8")
 texture_filter = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_boad6"]
