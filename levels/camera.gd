@@ -78,20 +78,36 @@ func random_offset() -> Vector2:
 		rng.randf_range(-shake_strength, shake_strength)) # y
 		
 func relocate_to(node : Node3D, new_offset = null):
-	var target_original_position 
-	if target:
-		target_original_position = target.global_position
-	
-	var tween : Tween = create_tween()
+	if player.rolling:
+		await player.roll_finished
+
 	stop_following_target()
-	tween.set_parallel(true)
-	tween.tween_property(self, "global_rotation", node.global_rotation, 0.15)
-	tween.tween_property(self, "global_position", node.global_position, 0.15)
-		
+
+	var duration := 0.15
+	var start_pos := global_position
+	var start_rot := global_basis.get_rotation_quaternion()
+
+	var tween := create_tween()
+
+	tween.tween_method(
+		func(t: float):
+			if not is_instance_valid(node):
+				return
+
+			# Re-read target every frame
+			var target_pos := node.global_position
+			var target_rot := node.global_basis.get_rotation_quaternion()
+
+			global_position = start_pos.lerp(target_pos, t)
+			global_basis = Basis(start_rot.slerp(target_rot, t)),
+		0.0,
+		1.0,
+		duration
+	)
+
 	await tween.finished
-	
+
 	update_target_offset()
-	
 	#if new_offset != null:
 		#update_target_offset(new_offset)
 	#else:

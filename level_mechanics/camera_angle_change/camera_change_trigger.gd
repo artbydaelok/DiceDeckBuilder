@@ -17,7 +17,6 @@ func _ready() -> void:
 
 #Only players can trigger this
 func _on_player_entered(area):
-	await player.roll_finished
 	var new_offset = relocation_node.global_position - global_position
 	camera.relocate_to(relocation_node, new_offset)
 	if static_cam:
@@ -28,7 +27,6 @@ func _on_player_entered(area):
 
 #Only players can trigger this
 func _on_player_exited(area : Area3D):
-	await player.roll_finished
 	if not area.has_overlapping_areas():
 		await get_tree().process_frame
 		camera.relocate_to(camera.starting_cam_holder)
