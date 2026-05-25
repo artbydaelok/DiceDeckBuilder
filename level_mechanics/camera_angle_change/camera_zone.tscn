@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://m3u1t4h22h6n"]
+
+[ext_resource type="Script" uid="uid://b7nhcedt2s2nh" path="res://level_mechanics/camera_angle_change/camera_zone.gd" id="1_h6ech"]
+
+[node name="CameraZone" type="Area3D" unique_id=1913142793]
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("1_h6ech")

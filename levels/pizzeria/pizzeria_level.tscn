@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bl6j4ua7rq4vu"]
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_w308l"]
-[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_angle_change/camera_change_trigger.tscn" id="2_khgtn"]
+[ext_resource type="PackedScene" uid="uid://m3u1t4h22h6n" path="res://level_mechanics/camera_angle_change/camera_zone.tscn" id="2_khgtn"]
 [ext_resource type="PackedScene" uid="uid://n8h15ynu2crs" path="res://level_mechanics/camera_angle_change/camera_angle_holder.tscn" id="3_7i870"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_khgtn"]

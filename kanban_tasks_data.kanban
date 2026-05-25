@@ -55,8 +55,10 @@
 			"uuid": "3c28ec9b-6632-4a84-892b-19883c2af6c0",
 			"title": "To do",
 			"tasks": [
+				"12884f97-1f63-4744-9081-9ac11e3efb52",
 				"f6849b02-bb0f-48c1-b0b4-d1544e050bd7",
 				"122ba2e8-b019-4eb9-940b-c84744f3735b",
+				"596f44d4-a20d-4b60-b55c-e93cea2923d6",
 				"afe6aa2d-a124-4f48-82b3-cd76132c8716"
 			]
 		},
@@ -74,8 +76,7 @@
 			"uuid": "98862edb-21f9-4bb2-adaf-268db6d52941",
 			"title": "Done",
 			"tasks": [
-				"6ef61d25-9d82-400d-8ef4-b3673d803073",
-				"596f44d4-a20d-4b60-b55c-e93cea2923d6"
+				"6ef61d25-9d82-400d-8ef4-b3673d803073"
 			]
 		}
 	],
@@ -89,8 +90,8 @@
 		},
 		{
 			"uuid": "f6849b02-bb0f-48c1-b0b4-d1544e050bd7",
-			"title": "JUICE: Camera animation for first eyeball encounter",
-			"description": "Add animations for eyeballs when player first encounters them",
+			"title": "JUICE: Side Editor Juice",
+			"description": "In the Dice Side Editor, the player 3d model should react when clicked on.\nAlso, replace input text with sprites of mouse buttons. ",
 			"category": "e3ee2cd7-b3ab-44ed-94f5-afe7d1313d4e",
 			"steps": []
 		},
@@ -232,6 +233,13 @@
 			"title": "BUG: Fix multiple lanterns able to spawn.",
 			"description": "Player should only have one lantern at a time. If the player uses the ability, it should instantiate only if there isn't already a lantern in the game. ",
 			"category": "d1ec75ea-e255-4504-925b-e4f46ae2be0f",
+			"steps": []
+		},
+		{
+			"uuid": "12884f97-1f63-4744-9081-9ac11e3efb52",
+			"title": "JUICE: Camera animation for first eyeball encounter",
+			"description": "Add animations for eyeballs when player first encounters them",
+			"category": "e3ee2cd7-b3ab-44ed-94f5-afe7d1313d4e",
 			"steps": []
 		}
 	],

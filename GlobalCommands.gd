@@ -8,6 +8,8 @@ func _ready() -> void:
 	Console.add_command("clear_save", clear_save, [], 0, "Deletes the save file and replaces it with a fresh new one.")
 	Console.add_command("clear_inventory", clear_inventory, [], 0, "Removes all items that player owns both equipped and in storage.")
 	Console.add_command("set_money", set_money, ["Amount"], 1, "Sets the currency to an amount.")
+	Console.add_command("set_camera", set_camera, ["Zone Name"], 1, "Switches to a CameraZone by node name.")
+	Console.add_command("list_cameras", list_cameras, [], 0, "Lists all CameraZone nodes in the current scene.")
 	
 func set_money(amount):
 	var cs : CurrencySystem= get_tree().get_first_node_in_group("currency_system")
@@ -40,3 +42,32 @@ func clear_save():
 func clear_inventory():
 	var card_system : CardSystem = get_tree().get_first_node_in_group("card_system")
 	card_system.clear_inventory()
+
+func _get_all_camera_zones() -> Array:
+	var zones: Array = []
+	_collect_camera_zones(get_tree().get_root(), zones)
+	return zones
+
+func _collect_camera_zones(node: Node, zones: Array) -> void:
+	if node is CameraZone:
+		zones.append(node)
+	for child in node.get_children():
+		_collect_camera_zones(child, zones)
+
+func set_camera(zone_name: String) -> void:
+	var zones := _get_all_camera_zones()
+	for zone in zones:
+		if zone.name == zone_name:
+			CameraZoneManager.enter_zone(zone)
+			Console.print_info("Switched to camera zone: %s" % zone_name)
+			return
+	Console.print_error("No CameraZone found with name: %s" % zone_name)
+
+func list_cameras() -> void:
+	var zones := _get_all_camera_zones()
+	if zones.is_empty():
+		Console.print_info("No CameraZone nodes found in the current scene.")
+		return
+	Console.print_info("Available camera zones:")
+	for zone in zones:
+		Console.print_line("  - %s" % zone.name)

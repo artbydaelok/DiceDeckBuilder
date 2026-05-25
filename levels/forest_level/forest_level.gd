@@ -21,13 +21,6 @@ var forest_demon_music_player : AudioStreamPlayer
 
 const ORU_SHOP_UI = preload("uid://cx74bd045dj7m")
 
-@export var first_time_cutscene : bool = false
-@onready var cutscene_player: AnimationPlayer = $CutscenePlayer
-
-func level_start():
-	if first_time_cutscene:
-		GameEvents.cutscene_started.emit(true)
-		cutscene_player.play("first_time")
 
 func play_spooky_sound():
 	forest_spooky_sound.play()

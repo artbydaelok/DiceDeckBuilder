@@ -145,7 +145,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.93176603, 0)
 
 [node name="tree_log_12" parent="TreePivotPoint" unique_id=1765040158 instance=ExtResource("2_wlik1")]
-transform = Transform3D(0.7740813, 0.16238256, -1.8369622, -1.8396528, -0.07067232, -0.78146225, -0.12835911, 1.9921439, 0.1220107, 0.19840777, 4.1967516, -0.49103588)
+transform = Transform3D(0.7740813, 0.16238256, -1.8369622, -1.8396528, -0.07067232, -0.78146225, -0.12835911, 1.9921439, 0.1220107, 0.19840777, 4.0722923, -0.49103588)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=312616478]
 libraries/ = SubResource("AnimationLibrary_k702i")

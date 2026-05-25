@@ -1,0 +1,1 @@
+This is the Godot project for Oddside.

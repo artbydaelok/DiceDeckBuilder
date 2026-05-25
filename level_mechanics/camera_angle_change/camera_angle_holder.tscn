@@ -4,5 +4,3 @@
 
 [node name="CameraAngleHolder" type="Marker3D" unique_id=692304646]
 script = ExtResource("1_dpu1m")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=162610759]

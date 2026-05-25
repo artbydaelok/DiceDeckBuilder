@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="DiceDeckbuilderGame"
+config/name="Oddside"
 config/version="0.1.2"
 run/main_scene="uid://c6k5nnpbypshi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
@@ -38,6 +38,8 @@ Console="*uid://ouiu5xh1cs8n"
 GlobalSteam="*uid://tl66yakrhwv3"
 MouseLayer="*uid://bmrw3l8b8wpxu"
 SaveSystem="*uid://ewq4w7sq860i"
+PhantomCameraManager="*uid://duq6jhf6unyis"
+CameraZoneManager="*uid://cofnlw0mnsruu"
 
 [dialogue_manager]
 
@@ -51,7 +53,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/TweenAnimation/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/TweenAnimation/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 

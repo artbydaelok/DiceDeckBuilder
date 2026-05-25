@@ -14,6 +14,9 @@
 [ext_resource type="Script" uid="uid://6ipxlq7gefoy" path="res://ui/coin_amount_label.gd" id="8_5evlq"]
 [ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_ftfgw"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_q4ywm"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="15_qcm70"]
 [ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="19_q4ywm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
@@ -51,18 +54,8 @@ height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_hjcl6"]
-sky_material = SubResource("ProceduralSkyMaterial_7uuse")
-
-[sub_resource type="Environment" id="Environment_bfiuj"]
-background_mode = 1
-sky = SubResource("Sky_hjcl6")
-tonemap_mode = 2
-volumetric_fog_enabled = true
+[sub_resource type="Resource" id="Resource_wkhn0"]
+script = ExtResource("13_q4ywm")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l525f"]
 albedo_color = Color(0.597176, 0.597176, 0.597176, 1)
@@ -75,8 +68,18 @@ albedo_color = Color(0.306923, 0.306923, 0.306923, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhd7d"]
 albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q4ywm"]
-size = Vector3(20, 1, 20)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7uuse"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hjcl6"]
+sky_material = SubResource("ProceduralSkyMaterial_7uuse")
+
+[sub_resource type="Environment" id="Environment_bfiuj"]
+background_mode = 1
+sky = SubResource("Sky_hjcl6")
+tonemap_mode = 2
+volumetric_fog_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qcm70"]
 shader = ExtResource("19_q4ywm")
@@ -115,8 +118,9 @@ shader = ExtResource("1_gj0fv")
 shader_parameter/viewport_size = Vector2(640, 480)
 shader_parameter/virtual_resolution = Vector2(320, 240)
 
-[node name="Game" type="CanvasLayer" unique_id=885135856]
+[node name="Game" type="Node3D" unique_id=774982313 node_paths=PackedStringArray("game_camera")]
 script = ExtResource("1_qcm70")
+game_camera = NodePath("BaseLevel/Cameras/GameCamera")
 
 [node name="PauseController" type="Node" parent="." unique_id=1497033385]
 script = ExtResource("2_gj0fv")
@@ -229,61 +233,94 @@ card_system = NodePath("../../../CardSystem")
 
 [node name="Player" parent="BaseLevel" unique_id=133383534 instance=ExtResource("3_cubmp")]
 
-[node name="GameCamera" type="Camera3D" parent="BaseLevel" unique_id=1892705345 node_paths=PackedStringArray("target") groups=["game_camera"]]
-transform = Transform3D(1, 0, 0, 0, 0.49999976, 0.86602557, 0, -0.86602557, 0.49999976, 0, 10, 6)
+[node name="AudioListener3D" parent="BaseLevel/Player/Pivot/MeshInstance3D" parent_id_path=PackedInt32Array(133383534, 1261321274) index="7" unique_id=499766062]
+current = false
+
+[node name="Cameras" type="Node3D" parent="BaseLevel" unique_id=242324165]
+
+[node name="PlayerCamera" type="Node3D" parent="BaseLevel/Cameras" unique_id=405626877 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3.5, 5.5)
+top_level = true
+script = ExtResource("12_ftfgw")
+priority = 1
+follow_mode = 2
+follow_target = NodePath("../../Player/Pivot/MeshInstance3D")
+tween_resource = SubResource("Resource_wkhn0")
+follow_offset = Vector3(0, 2.5, 5.5)
+follow_damping = true
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="GameCamera" type="Camera3D" parent="BaseLevel/Cameras" unique_id=1892705345 groups=["game_camera"]]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3.5, 5.5)
+top_level = true
+current = true
 script = ExtResource("8_mpvo7")
-target = NodePath("../Player/Pivot/MeshInstance3D")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel" unique_id=1911982310]
-environment = SubResource("Environment_bfiuj")
+[node name="PhantomCameraHost" type="Node" parent="BaseLevel/Cameras/GameCamera" unique_id=1947075302]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("15_qcm70")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BaseLevel" unique_id=1774783498]
-transform = Transform3D(0.435568, 0.704341, -0.560521, -0.5, 0.707107, 0.5, 0.748519, 0.0624771, 0.660164, 0, 7.85563, 0)
+[node name="Lights" type="Node3D" parent="BaseLevel" unique_id=418865068]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BaseLevel/Lights" unique_id=1774783498]
+transform = Transform3D(0.43556795, 0.70434093, -0.56052154, -0.49999994, 0.70710707, 0.49999958, 0.74851894, 0.06247697, 0.66016364, 0, 7.85563, 0)
 light_color = Color(0.92549, 1, 1, 1)
 light_energy = 0.15
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="BaseLevel" unique_id=407198073]
-transform = Transform3D(0.967752, 0.00623584, 0.251826, -0.25, 0.146447, 0.957107, -0.0309107, -0.989199, 0.143283, 3.03067, 7.31669, -1.80642e-07)
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="BaseLevel/Lights" unique_id=407198073]
+transform = Transform3D(0.96775234, 0.0062360065, 0.2518266, -0.2500001, 0.14644694, 0.95710677, -0.030910712, -0.98919886, 0.14328338, 3.03067, 7.31669, -1.80642e-07)
 light_color = Color(1, 0.874949, 0.999993, 1)
 light_energy = 0.1
 shadow_enabled = true
 
-[node name="CSGBoard" type="Node3D" parent="BaseLevel" unique_id=2089719623]
+[node name="Enemies" type="Node3D" parent="BaseLevel" unique_id=244920569]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" unique_id=589886479]
-visible = false
-material_override = SubResource("StandardMaterial3D_l525f")
+[node name="Environment" type="Node3D" parent="BaseLevel" unique_id=1226777056]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" unique_id=211734604]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371777, 0)
-size = Vector3(10, 0.35, 10)
-
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="BaseLevel/CSGBoard" unique_id=1390723685]
-visible = false
-material_override = SubResource("StandardMaterial3D_8v75t")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2" unique_id=339139768]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344601, 0)
-size = Vector3(11, 1, 11)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D2" unique_id=1320386998]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.537861, 0)
-material_override = SubResource("StandardMaterial3D_dhd7d")
-operation = 2
-size = Vector3(10, 2.38, 10)
-
-[node name="ArenaGrid" type="Sprite3D" parent="BaseLevel" unique_id=1670796615]
+[node name="ArenaGrid" type="Sprite3D" parent="BaseLevel/Environment" unique_id=1670796615]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, -0.05, 0)
 transparent = false
 shaded = true
 texture_filter = 0
 texture = ExtResource("11_nanwt")
 
-[node name="GroundStaticBody" type="StaticBody3D" parent="BaseLevel" unique_id=77432042]
+[node name="CSGBoard" type="Node3D" parent="BaseLevel/Environment" unique_id=2089719623]
 
-[node name="GroundCollisionShape" type="CollisionShape3D" parent="BaseLevel/GroundStaticBody" unique_id=2033871472]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -4)
-shape = SubResource("BoxShape3D_q4ywm")
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="BaseLevel/Environment/CSGBoard" unique_id=589886479]
+visible = false
+material_override = SubResource("StandardMaterial3D_l525f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BaseLevel/Environment/CSGBoard/CSGCombiner3D" unique_id=211734604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371777, 0)
+size = Vector3(10, 0.35, 10)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="BaseLevel/Environment/CSGBoard" unique_id=1390723685]
+visible = false
+material_override = SubResource("StandardMaterial3D_8v75t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="BaseLevel/Environment/CSGBoard/CSGCombiner3D2" unique_id=339139768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344601, 0)
+size = Vector3(11, 1, 11)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="BaseLevel/Environment/CSGBoard/CSGCombiner3D2" unique_id=1320386998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.537861, 0)
+material_override = SubResource("StandardMaterial3D_dhd7d")
+operation = 2
+size = Vector3(10, 2.38, 10)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BaseLevel/Environment" unique_id=1911982310]
+environment = SubResource("Environment_bfiuj")
+
+[node name="VisualEffects" type="Node3D" parent="BaseLevel" unique_id=143960948]
+
+[node name="Gameplay" type="Node3D" parent="BaseLevel" unique_id=1036706922]
+
+[node name="NPCs" type="Node3D" parent="BaseLevel" unique_id=361328828]
 
 [node name="CRTShaderLayer" type="CanvasLayer" parent="." unique_id=758635183]
 layer = 200
