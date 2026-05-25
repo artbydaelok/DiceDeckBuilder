@@ -187,8 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 0.89188445, 0.45226353, 0, -0.45226353, 0.89
 follow_offset = Vector3(0, 5.55, 7.775)
 
 [node name="GameCamera" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="1" unique_id=1892705345]
-physics_interpolation_mode = 0
-transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881898, 0, -0.25881898, 0.9659258, -40, 4, -19)
+transform = Transform3D(1, 0, 0, 0, 0.89188445, 0.45226353, 0, -0.45226353, 0.89188445, 0, 6.55, 7.775)
 follow_target = true
 
 [node name="TopDownCameraZone" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="2" unique_id=1913142793 node_paths=PackedStringArray("phantom_camera") instance=ExtResource("3_2ceik")]
@@ -205,7 +204,6 @@ debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 7, 1.8)
 top_level = true
 script = ExtResource("6_nno4k")
-priority_override = true
 follow_mode = 2
 follow_target = NodePath("../../Player/Pivot/MeshInstance3D")
 tween_resource = SubResource("Resource_y5rdt")
@@ -214,32 +212,31 @@ align_transform_with_view = Callable()
 align_position_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CameraChangeTrigger2" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="4" unique_id=877021953 instance=ExtResource("3_2ceik")]
+[node name="FinalCameraZone" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="4" unique_id=877021953 node_paths=PackedStringArray("phantom_camera") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1, -24)
+phantom_camera = NodePath("../FinalCamera")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/Cameras/CameraChangeTrigger2" index="0" unique_id=152448847]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/Cameras/FinalCameraZone" index="0" unique_id=152448847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("BoxShape3D_sn63j")
 
 [node name="FinalCamera" type="Node3D" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="5" unique_id=1607003032]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881898, 0, -0.25881898, 0.9659258, -40, 4, -19)
 script = ExtResource("6_nno4k")
-priority_override = true
 tween_resource = SubResource("Resource_afogc")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="CameraChangeTrigger4" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="6" unique_id=288081418 node_paths=PackedStringArray("phantom_camera") instance=ExtResource("3_2ceik")]
+[node name="LeftSideCoinsCameraZone" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="6" unique_id=288081418 node_paths=PackedStringArray("phantom_camera") instance=ExtResource("3_2ceik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 1, -8)
 phantom_camera = NodePath("../Camera3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/Cameras/CameraChangeTrigger4" index="0" unique_id=1755786442]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseLevel/Cameras/LeftSideCoinsCameraZone" index="0" unique_id=1755786442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 5.5)
 shape = SubResource("BoxShape3D_nno4k")
 
 [node name="Camera3D" type="Node3D" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="7" unique_id=1662512345]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881898, 0, -0.25881898, 0.9659258, -88, 4, 2.9999993)
 script = ExtResource("6_nno4k")
-priority_override = true
 tween_resource = SubResource("Resource_sn63j")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 

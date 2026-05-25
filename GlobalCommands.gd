@@ -10,6 +10,7 @@ func _ready() -> void:
 	Console.add_command("set_money", set_money, ["Amount"], 1, "Sets the currency to an amount.")
 	Console.add_command("set_camera", set_camera, ["Zone Name"], 1, "Switches to a CameraZone by node name.")
 	Console.add_command("list_cameras", list_cameras, [], 0, "Lists all CameraZone nodes in the current scene.")
+	Console.console_opened.connect(_refresh_camera_autocomplete)
 	
 func set_money(amount):
 	var cs : CurrencySystem= get_tree().get_first_node_in_group("currency_system")
@@ -42,6 +43,13 @@ func clear_save():
 func clear_inventory():
 	var card_system : CardSystem = get_tree().get_first_node_in_group("card_system")
 	card_system.clear_inventory()
+
+func _refresh_camera_autocomplete() -> void:
+	var zones := _get_all_camera_zones()
+	var names := PackedStringArray()
+	for zone in zones:
+		names.append(zone.name)
+	Console.add_command_autocomplete_list("set_camera", names)
 
 func _get_all_camera_zones() -> Array:
 	var zones: Array = []
