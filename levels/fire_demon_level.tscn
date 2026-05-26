@@ -69,7 +69,7 @@ size = Vector3(2, 1, 12)
 [node name="BackgroundMusicPlayer" parent="." index="0" unique_id=77264031 instance=ExtResource("2_wan88")]
 stream = ExtResource("12_us50b")
 
-[node name="CardSystem" parent="." index="1" unique_id=449221106]
+[node name="CardSystem" parent="." index="2" unique_id=449221106]
 deck = Array[ExtResource("4_eluih")]([ExtResource("5_7mayj"), ExtResource("6_t23ih"), ExtResource("7_ckf00"), ExtResource("8_kyeh5"), ExtResource("9_6aa4o"), ExtResource("10_62a5j")])
 
 [node name="EnemyHealthDisplay" parent="UI/ScreenMargin1" parent_id_path=PackedInt32Array(2123927307) index="0" unique_id=1344741204 node_paths=PackedStringArray("boss")]
@@ -84,17 +84,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -7.3)
 meteor_parent_node = NodePath("../MeteorSpawnLocations")
 user_interface = NodePath("../../UI")
 
-[node name="GameCamera" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1892705345]
-transform = Transform3D(1, 0, 0, 0, 0.7071066, 0.70710695, 0, -0.70710695, 0.7071066, 0, 8, 6)
+[node name="PlayerCamera" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="0" unique_id=405626877]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.81512755, 0.579281, 0, -0.579281, 0.81512755, 0, 7.6, 9.6)
+follow_offset = Vector3(0, 6.6, 9.6)
 
-[node name="WorldEnvironment" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="4" unique_id=1911982310]
-environment = SubResource("Environment_b37ao")
+[node name="GameCamera" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="1" unique_id=1892705345]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.81512755, 0.579281, 0, -0.579281, 0.81512755, 0, 7.6, 9.6)
 
-[node name="CSGCombiner3D" parent="BaseLevel/CSGBoard" parent_id_path=PackedInt32Array(2089719623) index="0" unique_id=589886479]
+[node name="ArenaGrid" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="0" unique_id=1670796615]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.011040401, 0)
+modulate = Color(1, 1, 1, 0.3137255)
+transparent = true
+
+[node name="CSGCombiner3D" parent="BaseLevel/Environment/CSGBoard" parent_id_path=PackedInt32Array(2089719623) index="0" unique_id=589886479]
 visible = true
 
-[node name="CSGBox3D" parent="BaseLevel/CSGBoard/CSGCombiner3D" index="0" unique_id=211734604]
+[node name="BaseLevel_CSGBoard_CSGCombiner3D#CSGBox3D" type="CSGBox3D" parent="BaseLevel/Environment/CSGBoard/CSGCombiner3D" index="0" unique_id=211734604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.371777, 0)
 flip_faces = true
+size = Vector3(10, 0.35, 10)
+
+[node name="WorldEnvironment" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="2" unique_id=1911982310]
+environment = SubResource("Environment_b37ao")
 
 [node name="MeteorSpawnLocations" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="8" unique_id=317454950]
 
@@ -242,11 +253,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 20, -1, 10)
 mesh = SubResource("PlaneMesh_m1xg1")
 surface_material_override/0 = SubResource("StandardMaterial3D_wan88")
-
-[node name="ArenaGrid" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="23" unique_id=1670796615]
-transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.011040401, 0)
-modulate = Color(1, 1, 1, 0.3137255)
-transparent = true
 
 [node name="PlayerObstacles" type="StaticBody3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="24" unique_id=1155084355]
 

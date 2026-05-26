@@ -35,6 +35,6 @@ func trigger_animation():
 	
 	var tween = create_tween()
 	tween.tween_property(custom_pivot, "global_position", initial_pos + Vector3(0, -25, -15), 3.0)
-	get_tree().get_first_node_in_group("game_camera").apply_shake(1.0)
+	#get_tree().get_first_node_in_group("game_camera").apply_shake(1.0)
 	sfx.play()
 	
