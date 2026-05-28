@@ -23,6 +23,13 @@ class_name PlayerData
 @export var unlocked_checkpoints: Dictionary
 #endregion
 
+#region Level State
+# Keyed by level scene name (e.g. "street_01")
+# Each value is a Dictionary of flags for that level
+# e.g. { "visited": true, "log_barrel_broken": true }
+@export var level_states: Dictionary = {}
+#endregion
+
 #region Demo
 @export var is_demo : bool = true
 @export var demo_completed : bool

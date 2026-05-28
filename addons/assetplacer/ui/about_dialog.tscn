@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://b7g0dh71q4uca"]
+
+[ext_resource type="Script" uid="uid://bya20c8hg4jy2" path="res://addons/assetplacer/ui/about_dialog.gd" id="1_faw6c"]
+[ext_resource type="Script" uid="uid://smgkiib4ox8l" path="res://addons/assetplacer/ui/components/tag_label.gd" id="2_gxdc7"]
+[ext_resource type="Texture2D" uid="uid://do2s48jpb2e63" path="res://addons/assetplacer/ui/icons/AboutBanner.jpg" id="2_ne6u1"]
+[ext_resource type="Script" uid="uid://ch26sn2w78b6i" path="res://addons/assetplacer/ui/components/link_button.gd" id="3_xkax2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne6u1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne6u1"]
+bg_color = Color(0.88235295, 0.13725491, 0.13725491, 0.8)
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_2yssg"]
+
+[node name="AboutDialog" type="AcceptDialog" unique_id=2061056637]
+oversampling_override = 1.0
+title = "About"
+position = Vector2i(0, 36)
+size = Vector2i(600, 733)
+script = ExtResource("1_faw6c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2132781635]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 592.0
+offset_bottom = 684.0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=205672349]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("2_ne6u1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TextureRect" unique_id=1562851683]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ne6u1")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TextureRect/PanelContainer" unique_id=451999711]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ne6u1")
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureRect/PanelContainer" unique_id=459033075]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderSmall"
+text = "  v##version## "
+label_settings = SubResource("LabelSettings_2yssg")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_gxdc7")
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1011839040]
+layout_mode = 2
+text = "AssetPlacer ##version## for Godot ##godotversion##
+© 2026-present CookieBadger"
+script = ExtResource("2_gxdc7")
+
+[node name="LinkList" type="HBoxContainer" parent="VBoxContainer" unique_id=762351385]
+layout_mode = 2
+
+[node name="Itch" type="Button" parent="VBoxContainer/LinkList" unique_id=26839813]
+layout_mode = 2
+text = "itch.io"
+script = ExtResource("3_xkax2")
+url = "https://cookiebadger.itch.io/"
+
+[node name="YTButton" type="Button" parent="VBoxContainer/LinkList" unique_id=2104865195]
+layout_mode = 2
+text = "YouTube"
+script = ExtResource("3_xkax2")
+url = "https://www.youtube.com/@cookieBadger"
+
+[node name="MastodonButton" type="Button" parent="VBoxContainer/LinkList" unique_id=2001496097]
+layout_mode = 2
+text = "Mastodon"
+script = ExtResource("3_xkax2")
+url = "https://mastodon.gamedev.place/@goodandemil"
+
+[node name="TwitterButton" type="Button" parent="VBoxContainer/LinkList" unique_id=1713483307]
+layout_mode = 2
+text = "Twitter"
+script = ExtResource("3_xkax2")
+url = "https://twitter.com/_cookieBadger"
+
+[node name="RedditButton" type="Button" parent="VBoxContainer/LinkList" unique_id=829869987]
+layout_mode = 2
+text = "Reddit"
+script = ExtResource("3_xkax2")
+url = "https://www.reddit.com/user/_cookieBadger"
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=301403854]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "End-User License Agreement:"
+
+[node name="License" type="TextEdit" parent="VBoxContainer" unique_id=36572495]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+editable = false
+wrap_mode = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1373359511]
+layout_mode = 2
+text = "Thank you for using AssetPlacer!"

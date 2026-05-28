@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6gjru3c4i6sl"]
+
+[ext_resource type="PackedScene" uid="uid://bjjgx5rg1xyvk" path="res://addons/editor_testrunner/tests/test_assets/cube.tscn" id="1_i7u6e"]
+[ext_resource type="PackedScene" uid="uid://bmqfybo0s4dh2" path="res://addons/editor_testrunner/tests/test_assets/sphere.tscn" id="2_02nsi"]
+[ext_resource type="CylinderMesh" uid="uid://8k2rta3145i5" path="res://addons/editor_testrunner/tests/test_assets/cylinder_mesh.res" id="3_y3vx8"]
+
+[sub_resource type="Gradient" id="Gradient_g7p5g"]
+offsets = PackedFloat32Array(0.497942, 0.514403)
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m8qgc"]
+gradient = SubResource("Gradient_g7p5g")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6733"]
+albedo_texture = SubResource("GradientTexture2D_m8qgc")
+
+[sub_resource type="BoxMesh" id="BoxMesh_g7p5g"]
+material = SubResource("StandardMaterial3D_a6733")
+
+[sub_resource type="SphereMesh" id="SphereMesh_v7dcn"]
+radial_segments = 16
+rings = 8
+
+[node name="library_zoo" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="." instance=ExtResource("1_i7u6e")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.831569, 0, -0.548513)
+mesh = SubResource("BoxMesh_g7p5g")
+
+[node name="Sphere" type="MeshInstance3D" parent="." instance=ExtResource("2_02nsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0583033, 0, -0.106109)
+mesh = SubResource("SphereMesh_v7dcn")
+
+[node name="@MeshInstance3D@64096" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381569, 0, 1.23376)
+mesh = ExtResource("3_y3vx8")

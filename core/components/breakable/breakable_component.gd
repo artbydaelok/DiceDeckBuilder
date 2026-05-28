@@ -22,10 +22,24 @@ signal broke
 ## How many axe hits it takes to break this object.
 @export var health: int = 1
 
+## Unique ID for this object within its level. Used to persist broken state.
+## Set this in the editor — must be unique per level (e.g. "log_01", "barrel_entrance").
+## Leave blank to skip state persistence for this object.
+@export var object_id: String = ""
+
 @onready var static_body: StaticBody3D = $StaticBody3D
-@onready var detection_area: Area3D = $Area3D
+@onready var detection_area: Area3D = $AxeDetectionArea
 
 var is_broken: bool = false
+
+
+func _ready() -> void:
+	if object_id == "":
+		return
+	var level_id := get_tree().current_scene.name
+	if SaveSystem.get_level_flag(level_id, object_id, false):
+		# Already broken in a previous session — break silently without emitting
+		_break_silent()
 
 
 ## Called by the axe projectile (axe_projectile.gd) when it enters the Area3D.
@@ -48,7 +62,28 @@ func _break() -> void:
 	if is_broken:
 		return
 	is_broken = true
+	_disable_collisions()
 
+	# Persist the broken state
+	if object_id != "":
+		var level_id := get_tree().current_scene.name
+		SaveSystem.set_level_flag(level_id, object_id, true)
+		SaveSystem.save_player_data()
+
+	emit_signal("broke")
+
+
+## Break without emitting the signal — used on _ready to restore already-broken state.
+## The parent should hide the mesh on its own _ready if needed, or connect to broke
+## and handle visibility there.
+func _break_silent() -> void:
+	if is_broken:
+		return
+	is_broken = true
+	_disable_collisions()
+
+
+func _disable_collisions() -> void:
 	# Disable all collision shapes on the static body so the player can walk through.
 	for child in static_body.get_children():
 		if child is CollisionShape3D:
@@ -58,5 +93,3 @@ func _break() -> void:
 	for child in detection_area.get_children():
 		if child is CollisionShape3D:
 			child.set_deferred("disabled", true)
-
-	emit_signal("broke")

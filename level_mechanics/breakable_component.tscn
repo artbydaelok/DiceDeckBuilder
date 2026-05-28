@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cfwenvd6y25or"]
+
+[ext_resource type="Script" uid="uid://bkb4mf5la64vi" path="res://core/components/breakable/breakable_component.gd" id="1_vdvi6"]
+
+[node name="BreakableComponent" type="Node3D" unique_id=701506968]
+script = ExtResource("1_vdvi6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=124107614]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1460947063]
+
+[node name="AxeDetectionArea" type="Area3D" parent="." unique_id=15913071]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AxeDetectionArea" unique_id=1243194048]

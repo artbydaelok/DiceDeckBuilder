@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj66tha8yadrt"]
+
+[ext_resource type="Script" uid="uid://bee7caevtasx3" path="res://addons/assetplacer/ui/components/node_path_selector/node_path_selector_glue.gd" id="1_7yhf7"]
+[ext_resource type="Script" uid="uid://1hs18j7r1o7i" path="res://addons/assetplacer/ui/components/node_path_selector/node_path_selector.gd" id="1_d7kfj"]
+[ext_resource type="Script" uid="uid://celfs34sbxnqp" path="res://addons/assetplacer/ui/components/node_path_selector/node_path_selection_button.gd" id="2_owr3c"]
+
+[node name="NodePathSelectorUi" type="HBoxContainer"]
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+script = ExtResource("1_d7kfj")
+
+[node name="Glue" type="Node" parent="." node_paths=PackedStringArray("select_node_button", "set_selected_button")]
+script = ExtResource("1_7yhf7")
+select_node_button = NodePath("../selectNodeButton")
+set_selected_button = NodePath("../setSelectededButton")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Node path: "
+
+[node name="selectNodeButton" type="Button" parent="."]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "<Node>"
+clip_text = true
+script = ExtResource("2_owr3c")
+
+[node name="setSelectededButton" type="Button" parent="."]
+layout_mode = 2
+tooltip_text = "Set the currently selected node"
+theme_override_colors/icon_disabled_color = Color(0.462745, 0.482353, 0.509804, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.87451, 0.87451, 0.87451, 1)
+text = "Selected Node"

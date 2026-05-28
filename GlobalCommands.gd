@@ -10,6 +10,7 @@ func _ready() -> void:
 	Console.add_command("set_money", set_money, ["Amount"], 1, "Sets the currency to an amount.")
 	Console.add_command("set_camera", set_camera, ["Zone Name"], 1, "Switches to a CameraZone by node name.")
 	Console.add_command("list_cameras", list_cameras, [], 0, "Lists all CameraZone nodes in the current scene.")
+	Console.add_command("reload_level", reload_level, [], 0, "Reloads the current scene from scratch.")
 	Console.console_opened.connect(_refresh_camera_autocomplete)
 	
 func set_money(amount):
@@ -39,6 +40,12 @@ func obtain_item(item_id : String, slot : String):
 
 func clear_save():
 	SaveSystem.clear_player_data()
+	Console.print_info("Save file erased. Player data reset to defaults.")
+
+func reload_level():
+	var scene_path := get_tree().current_scene.scene_file_path
+	Console.print_info("Reloading: %s" % scene_path)
+	get_tree().call_deferred("change_scene_to_file", scene_path)
 	
 func clear_inventory():
 	var card_system : CardSystem = get_tree().get_first_node_in_group("card_system")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceq36ojrna1id"]
+
+[ext_resource type="Environment" uid="uid://cek87x2wjei0u" path="res://addons/assetplacer/asset_palette/preview_generation/preview_environment.tres" id="1_k3yl2"]
+[ext_resource type="Script" uid="uid://83wendrehati" path="res://addons/assetplacer/asset_palette/preview_generation/preview_rendering_viewport.gd" id="1_kabtj"]
+[ext_resource type="Script" uid="uid://dtib6m3r4mffe" path="res://addons/assetplacer/asset_palette/preview_generation/preview_camera_3d.gd" id="3_ppe3m"]
+
+[sub_resource type="World3D" id="World3D_0rvpv"]
+environment = ExtResource("1_k3yl2")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ppe3m"]
+
+[node name="PreviewRenderingViewport" type="SubViewport" node_paths=PackedStringArray("camera", "light", "light_2", "light_3")]
+own_world_3d = true
+world_3d = SubResource("World3D_0rvpv")
+transparent_bg = true
+render_target_update_mode = 0
+script = ExtResource("1_kabtj")
+camera = NodePath("Camera3D")
+light = NodePath("DirectionalLight3D")
+light_2 = NodePath("DirectionalLight3D2")
+light_3 = NodePath("DirectionalLight3D3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_k3yl2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707106, -0.612373, 0.353554, 0, 0.5, 0.866026, -0.707106, -0.612373, 0.353554, 0, 0, 0)
+light_energy = 0.9
+sky_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707106, -0.612373, 0.353554, 0, 0.5, 0.866026, -0.707106, -0.612373, 0.353554, 0, 0, 0)
+light_energy = 0.45
+sky_mode = 1
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707106, -0.612373, 0.353554, 0, 0.5, 0.866026, -0.707106, -0.612373, 0.353554, 0, 0, 0)
+light_energy = 0.2
+sky_mode = 1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.988079, 0, -0.153948, 0, 1, 0, 0.153948, 0, 0.988079, 0, 0, 0)
+environment = ExtResource("1_k3yl2")
+attributes = SubResource("CameraAttributesPractical_ppe3m")
+current = true
+script = ExtResource("3_ppe3m")

@@ -75,7 +75,7 @@ shape = SubResource("BoxShape3D_7bili")
 debug_color = Color(0.9961845, 0, 0.20014524, 0.41960785)
 
 [node name="Frog" parent="Visuals" index="0" unique_id=102737788 instance=ExtResource("2_i20i7")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(-4.371139e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.371139e-09, 0, 0, 0)
 
 [node name="MoveTimer" type="Timer" parent="." index="4" unique_id=1851740300]
 autostart = true

@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1n3w7k47o3ot"]
+
+[ext_resource type="Script" uid="uid://brww2a2eushqj" path="res://addons/assetplacer/ui/components/surface_align_config_ui/surface_align_config_ui.gd" id="1_dic0t"]
+
+[node name="SurfaceAlignConfigUi" type="VBoxContainer" node_paths=PackedStringArray("_align_to_surface_normal_checkbox", "_alignment_direction_option_button")]
+script = ExtResource("1_dic0t")
+_align_to_surface_normal_checkbox = NodePath("HBoxContainer/AlignToSurfaceNormalCheckbox")
+_alignment_direction_option_button = NodePath("VBoxContainer/OptionButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AlignToSurfaceNormalCheckbox" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Align to Surface Normal"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Alignment Direction"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Specify which direction of the asset should be aligned to the surface normal. "
+theme_type_variation = &"RaisedButton"
+selected = 2
+item_count = 6
+popup/item_0/text = "+X (Right)"
+popup/item_0/id = 0
+popup/item_1/text = "-X (Left)"
+popup/item_1/id = 3
+popup/item_2/text = "+Y (Up)"
+popup/item_2/id = 1
+popup/item_3/text = "-Y (Down)"
+popup/item_3/id = 4
+popup/item_4/text = "+Z (Back)"
+popup/item_4/id = 2
+popup/item_5/text = "-Z (Forward)"
+popup/item_5/id = 5

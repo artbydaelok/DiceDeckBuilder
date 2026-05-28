@@ -3,8 +3,10 @@ class_name CameraZone
 
 @export var phantom_camera: PhantomCamera3D
 @export var is_default: bool = false
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 func _ready() -> void:
+	sprite_3d.visible = false
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 

@@ -92,9 +92,11 @@ func json_save():
 			"demo": {
 				"is_demo"= player_data.is_demo,
 				"demo_completed"= player_data.demo_completed
-			}
+			},
+
+			"level_states": player_data.level_states
 		}
-	
+
 	var json_string = JSON.stringify(data, "\t")
 	file.store_string(json_string)
 	file.close()
@@ -133,9 +135,11 @@ func make_empty_save():
 			"demo": {
 				"is_demo"= fresh_player_data.is_demo,
 				"demo_completed"= fresh_player_data.demo_completed
-			}
+			},
+
+			"level_states": {}
 		}
-	
+
 	return fresh_save_data
 	
 func check_missing_keys(data_to_compare : Dictionary):
@@ -161,7 +165,11 @@ func check_missing_keys(data_to_compare : Dictionary):
 		if key not in data_to_compare.demo.keys():
 			print(key + " not in Save File. Adding it now.")
 			data_to_compare.demo[key] = fresh_save_to_compare.demo[key]
-			
+
+	if not data_to_compare.has("level_states"):
+		print("level_states not in Save File. Adding it now.")
+		data_to_compare["level_states"] = {}
+
 	return data_to_compare
 
 func json_load():
@@ -212,6 +220,20 @@ func json_load():
 		player_data.level_five_completed = loaded_data.progression.level_five_completed
 		player_data.is_demo = loaded_data.demo.is_demo
 		player_data.demo_completed = loaded_data.demo.demo_completed
-		
+		player_data.level_states = loaded_data.level_states
+
 		update_player_data.emit(player_data)
-		
+
+
+# ── Level State Helpers ───────────────────────────────────────────────────────
+
+func get_level_flag(level_id: String, key: String, default = false):
+	if not player_data.level_states.has(level_id):
+		return default
+	return player_data.level_states[level_id].get(key, default)
+
+func set_level_flag(level_id: String, key: String, value) -> void:
+	if not player_data.level_states.has(level_id):
+		player_data.level_states[level_id] = {}
+	player_data.level_states[level_id][key] = value
+

@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://m3u1t4h22h6n"]
 
 [ext_resource type="Script" uid="uid://b7nhcedt2s2nh" path="res://level_mechanics/camera_angle_change/camera_zone.gd" id="1_h6ech"]
+[ext_resource type="Texture2D" uid="uid://bvf767ji16ncm" path="res://addons/assetplacer/ui/icons/dynamic_preview.svg" id="2_ilm5x"]
 
 [node name="CameraZone" type="Area3D" unique_id=1913142793]
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_h6ech")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=252665611]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_ilm5x")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dbiymdsbmjh0n"]
+
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_k5ucr"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_q04xx"]
+
+[sub_resource type="Resource" id="Resource_80p87"]
+script = ExtResource("2_q04xx")
+
+[node name="BasicPhantomCamera" type="Node3D" unique_id=434337113]
+script = ExtResource("1_k5ucr")
+tween_resource = SubResource("Resource_80p87")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

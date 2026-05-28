@@ -1,0 +1,212 @@
+[gd_scene load_steps=10 format=3 uid="uid://qmg4466g8kev"]
+
+[ext_resource type="Script" uid="uid://bp3ta5gv03q0i" path="res://addons/assetplacer/ui/asset_palette_view.gd" id="1_fijid"]
+[ext_resource type="PackedScene" uid="uid://bu8c30mhig5rs" path="res://addons/assetplacer/ui/assetplacer_button.tscn" id="4_swhud"]
+[ext_resource type="Script" uid="uid://dk0xukvlwoy14" path="res://addons/assetplacer/ui/asset_drop_panel.gd" id="5_nt1iq"]
+[ext_resource type="Script" uid="uid://diwnrrjm4x5o" path="res://addons/assetplacer/ui/components/editor_line_edit.gd" id="6_teamq"]
+[ext_resource type="Script" uid="uid://by8oqmfjl2ehq" path="res://addons/assetplacer/ui/save_asset_library_dialog.gd" id="7_01run"]
+[ext_resource type="Script" uid="uid://bus6mbek3yr3p" path="res://addons/assetplacer/ui/components/right_click_popup.gd" id="8_fvr8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdpag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f7uvq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kt431"]
+
+[node name="AssetPaletteView" type="PanelContainer" node_paths=PackedStringArray("asset_button_right_click_popup", "broken_asset_button_right_click_popup", "tab_right_click_popup", "library_tab_bar", "add_library_button", "save_button", "load_button", "load_asset_library_dialog", "save_asset_library_dialog", "match_selected_button", "asset_palette_scroll_container", "asset_palette_filter_line_edit", "drop_panel", "asset_grid", "asset_button_size_slider")]
+offset_right = 741.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sdpag")
+script = ExtResource("1_fijid")
+asset_button_right_click_popup = NodePath("AssetButtonRightClickPopup")
+broken_asset_button_right_click_popup = NodePath("BrokenAssetButtonRightClickPopup")
+tab_right_click_popup = NodePath("TabRightClickPopup")
+library_tab_bar = NodePath("PanelContainer/VBoxContainer/HBoxContainer/LibraryTabBar")
+add_library_button = NodePath("PanelContainer/VBoxContainer/HBoxContainer/AddLibraryButton")
+save_button = NodePath("PanelContainer/VBoxContainer/SaveLoadButtons/SaveButton")
+load_button = NodePath("PanelContainer/VBoxContainer/SaveLoadButtons/LoadButton")
+load_asset_library_dialog = NodePath("AssetLibraryLoadDialog")
+save_asset_library_dialog = NodePath("AssetLibrarySaveDialog")
+match_selected_button = NodePath("PanelContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer/MatchSelectedButton")
+assetplacer_button = ExtResource("4_swhud")
+asset_palette_scroll_container = NodePath("PanelContainer/VBoxContainer/Panel/VBoxContainer/Control/PanelContainer/ScrollContainer")
+asset_palette_filter_line_edit = NodePath("PanelContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer/FilterLineEdit")
+drop_panel = NodePath("PanelContainer/VBoxContainer/Panel")
+asset_grid = NodePath("PanelContainer/VBoxContainer/Panel/VBoxContainer/Control/PanelContainer/ScrollContainer/HFlowContainer")
+asset_button_size_slider = NodePath("PanelContainer/VBoxContainer/SaveLoadButtons/AssetButtonSizeSlider")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Assets"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LibraryTabBar" type="TabBar" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+current_tab = 0
+max_tab_width = 180
+drag_to_rearrange_enabled = true
+tab_count = 3
+tab_0/title = "MyLibrary1"
+tab_1/title = "MyLibrary2"
+tab_2/title = "MyLibrary3"
+
+[node name="AddLibraryButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "New Library"
+
+[node name="Panel" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CorneredBackgroundPanelContainer"
+script = ExtResource("5_nt1iq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="FilterLineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Filter Assets"
+script = ExtResource("6_teamq")
+
+[node name="PlaceHolder" type="Control" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MatchSelectedButton" type="Button" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Matches the selected Node from the scene to an asset, either by selecting the asset if it is part of the current library, or adding it as a new asset."
+text = "Match Selected"
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/Control"]
+modulate = Color(0.564706, 0.564706, 0.564706, 0.478431)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -16.0
+offset_right = 315.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Drag&Drop assets in the container to add"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/Control/PanelContainer"]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="PanelContainer/VBoxContainer/Panel/VBoxContainer/Control/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_f7uvq")
+
+[node name="SaveLoadButtons" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SaveButton" type="Button" parent="PanelContainer/VBoxContainer/SaveLoadButtons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"RaisedButton"
+text = "Save Library"
+
+[node name="LoadButton" type="Button" parent="PanelContainer/VBoxContainer/SaveLoadButtons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"RaisedButton"
+text = "Load Library"
+
+[node name="HSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer/SaveLoadButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kt431")
+
+[node name="AssetButtonSizeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SaveLoadButtons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+min_value = 0.3
+max_value = 1.0
+step = 0.02
+value = 0.6
+
+[node name="AssetLibraryLoadDialog" type="FileDialog" parent="."]
+title = "Open a File"
+size = Vector2i(600, 400)
+ok_button_text = "Open"
+file_mode = 0
+access = 1
+filters = PackedStringArray("*.tres")
+
+[node name="AssetLibrarySaveDialog" type="FileDialog" parent="."]
+size = Vector2i(600, 400)
+access = 1
+filters = PackedStringArray("*.tres")
+script = ExtResource("7_01run")
+
+[node name="AssetButtonRightClickPopup" type="PopupMenu" parent="."]
+size = Vector2i(100, 8)
+script = ExtResource("8_fvr8p")
+
+[node name="BrokenAssetButtonRightClickPopup" type="PopupMenu" parent="."]
+size = Vector2i(100, 8)
+script = ExtResource("8_fvr8p")
+
+[node name="TabRightClickPopup" type="PopupMenu" parent="."]
+size = Vector2i(100, 8)
+script = ExtResource("8_fvr8p")
