@@ -1,49 +1,24 @@
-extends "res://enemy/enemy_pawns/base_enemy_pawn.gd"
+extends Enemy
 
-@onready var move_timer: Timer = $MoveTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var grid_mover: GridMoverComponent = $GridMoverComponent
 
-@export var spaces_to_move : int = 3
-@export var reverse_direction : bool = false
-var spaces_moved : int = 0
-
-var move_direction : Vector3 = Vector3.BACK
+@export var spaces_to_move: int = 3
+@export var reverse_direction: bool = false
 
 
-# Triggers on ready / spawn
-func initialize():
-	move_timer.wait_time = 1 / move_speed
-	move_timer.timeout.connect(on_timer_timeout)
-	if reverse_direction:
-		move_direction = -move_direction
-	
-# Triggers when player begins moving
-func _on_player_moved(direction: Vector3): # OVERRIDABLE FUNCTION
-	# Remove the comment on the next line if you want this enemy to move towards the camera every time the player moves.
-	#grid_move_in_direction(Vector3.BACK)
-	pass
+func initialize() -> void:
+	# Build the ping-pong pattern from spaces_to_move.
+	# GridMoverComponent will reverse it automatically at the end of each pass.
+	var dir := Vector3.FORWARD if reverse_direction else Vector3.BACK
+	for i in spaces_to_move:
+		grid_mover.pattern.append(dir)
+	grid_mover.ping_pong_pattern = true
+	grid_mover.interval_time = 1.0 / move_speed
+	grid_mover.step_started.connect(func(_dir): animation_player.play("jump"))
+	grid_mover.start()
 
-# Triggers when player is done moving
-func _on_player_rolled(): # OVERRIDABLE FUNCTION
-	# TODO Should probably have the new active item be emitted here as well.
-	pass
 
-# Triggers on process / ever frame
-func tick(delta): # OVERRIDABLE FUNCTION
-	# Remove the comment (#) on the next line if you want this enemy to move towards the camera.
-	#free_move_in_direction(Vector3.BACK) 
-	pass
-
-func on_timer_timeout():
-	if spaces_moved < spaces_to_move:
-		spaces_moved += 1
-	else:
-		spaces_moved = 1
-		move_direction = -move_direction
-	
-	animation_player.play("jump")
-	grid_move_in_direction(move_direction)
-
-func apply_damage(damage):
+func apply_damage(damage: int) -> void:
 	GameEvents.current_level.has_player_killed_frog = true
-	queue_free()
+	super.apply_damage(damage)

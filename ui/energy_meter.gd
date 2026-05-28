@@ -13,7 +13,7 @@ func _ready() -> void:
 func update_energy_display(amount):
 	for child in get_children():
 		if not child is Control: return
-		if child.get_index() >= player.energy:
+		if child.get_index() >= player.energy_component.energy:
 			child.get_child(0).visible = false
 		else:
 			child.get_child(0).visible = true

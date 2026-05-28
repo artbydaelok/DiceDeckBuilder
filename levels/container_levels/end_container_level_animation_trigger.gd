@@ -17,24 +17,24 @@ func _on_player_entered(area):
 func trigger_animation():
 	GameEvents.cutscene_started.emit(true)
 	await player.roll_finished
-	# Makes player cutscene actor visible
+
+	# Position the actor first
 	player_cutscene_actor.visible = true
 	player_cutscene_actor.global_position = player.global_position
-	
+
+	# Borrow the player's real pivot/mesh — this is the new line
+	player_cutscene_actor.borrow_from_player()
+
 	custom_pivot.global_position = player_cutscene_actor.global_position + Vector3(0, 1.0, 0)
 	player_cutscene_actor.reparent(custom_pivot)
-		
-	# Makes player actor invisible
+
+	# Hide what's left of the player (GridMesh etc.)
 	player.visible = false
-	
-	var initial_pos = global_position
-	var initial_rot = global_rotation
-	
+
 	player_cutscene_actor.free_falling = true
-	player_cutscene_actor.falling_rotation_velocity = Vector3(-4, 0, 0)
-	
+	player_cutscene_actor.falling_rotation_velocity = Vector3(randf(), randf(), randf()) + Vector3.LEFT*2.0 # Not sure why left sends the player forward.
+
 	var tween = create_tween()
-	tween.tween_property(custom_pivot, "global_position", initial_pos + Vector3(0, -25, -15), 3.0)
-	#get_tree().get_first_node_in_group("game_camera").apply_shake(1.0)
+	tween.tween_property(custom_pivot, "global_position", global_position + Vector3(0, -25, -15), 3.0)
 	sfx.play()
 	

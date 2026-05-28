@@ -125,8 +125,9 @@ game_camera = NodePath("BaseLevel/Cameras/GameCamera")
 [node name="PauseController" type="Node" parent="." unique_id=1497033385]
 script = ExtResource("2_gj0fv")
 
-[node name="CardSystem" parent="." unique_id=449221106 node_paths=PackedStringArray("player") instance=ExtResource("4_cosan")]
+[node name="CardSystem" parent="." unique_id=449221106 node_paths=PackedStringArray("player", "energy_component") instance=ExtResource("4_cosan")]
 player = NodePath("../BaseLevel/Player")
+energy_component = NodePath("../BaseLevel/Player/EnergyComponent")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=762928472 groups=["user_interface"]]
 
@@ -248,8 +249,6 @@ follow_target = NodePath("../../Player/Pivot/MeshInstance3D")
 tween_resource = SubResource("Resource_wkhn0")
 follow_offset = Vector3(0, 2.5, 5.5)
 follow_damping = true
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="GameCamera" type="Camera3D" parent="BaseLevel/Cameras" unique_id=1892705345 groups=["game_camera"]]

@@ -621,7 +621,6 @@ transform = Transform3D(0.009876024, -1.9180726e-08, 0.22978792, 5.2041402e-09, 
 
 [node name="DebugPlayerStart" parent="." index="6" unique_id=1975543459 instance=ExtResource("11_6o10r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -8)
-disabled = true
 
 [node name="Floating_Eyeball" parent="." index="7" unique_id=1144661418 instance=ExtResource("15_odshm")]
 transform = Transform3D(-4.1175256, 2.2066612, 1.7823067, -2.660831, -1.9162095, -3.7746685, -0.98282856, -4.056944, 2.7523196, -13.739092, -15.019124, -33.72888)

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://6jpnibtpgsrf"]
 
-[ext_resource type="PackedScene" uid="uid://bd6ca8dxwmmv2" path="res://enemy/enemy_pawns/grid_mover_base.tscn" id="1_1w0ao"]
+[ext_resource type="PackedScene" uid="uid://b35gq4ouvj5bm" path="res://enemy/enemy_pawns/base_enemy_pawn.tscn" id="1_1w0ao"]
 [ext_resource type="Script" uid="uid://dbdotxeh7fipp" path="res://enemy/enemy_pawns/eyeball/eyeball.gd" id="2_870kv"]
 [ext_resource type="PackedScene" uid="uid://bypsdk6farnu3" path="res://assets/3d_models/psx/grass/fern_3.tscn" id="3_4h2lw"]
+[ext_resource type="Script" uid="uid://bosnq6i83hkcq" path="res://core/components/grid_mover/grid_mover_component.gd" id="3_6v547"]
 [ext_resource type="PackedScene" uid="uid://3w7lq881kqnh" path="res://assets/3d_models/psx/trees/tree_dead_1.tscn" id="3_ix2g7"]
 [ext_resource type="PackedScene" uid="uid://dkt3ibqmr80br" path="res://core/components/hitbox.tscn" id="3_rc53g"]
 
@@ -114,10 +115,13 @@ rings = 8
 
 [node name="Eyeball" unique_id=909435515 instance=ExtResource("1_1w0ao")]
 script = ExtResource("2_870kv")
-react_to_player_move = true
-ping_pong_pattern = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0" unique_id=416107141]
+[node name="GridMoverComponent" type="Node" parent="." index="0" unique_id=969771768]
+script = ExtResource("3_6v547")
+react_to_player_move = true
+autostart = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=416107141]
 libraries/ = SubResource("AnimationLibrary_6v547")
 autoplay = &"looking"
 
@@ -166,7 +170,7 @@ light_energy = 35.0
 spot_range = 20.22616
 spot_angle = 27.638577
 
-[node name="Hitbox" parent="." index="4" unique_id=760070920 instance=ExtResource("3_rc53g")]
+[node name="Hitbox" parent="." index="5" unique_id=760070920 instance=ExtResource("3_rc53g")]
 collision_layer = 0
 collision_mask = 8
 damage = 10

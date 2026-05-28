@@ -21,14 +21,12 @@ enum SIDES_STATE {ONE, TWO, THREE, FOUR, FIVE, SIX}
 
 var up_side = SIDES_STATE.TWO
 
-var faces = {
-	"top": 2,
-	"bottom": 5,
-	"left": 6,
-	"right": 1,
-	"front": 3,
-	"back": 4
-}
+# Face tracking and roll animation — owned by DiceRoller
+@onready var dice_roller: DiceRoller = $DiceRoller
+
+# Passthrough so external scripts (e.g. ability_sides_display) can still use player.faces
+var faces: Dictionary:
+	get: return dice_roller.faces
 
 @onready var commit_lock_timer: Timer = $CommitLockTimer
 var commit_lock = false
@@ -40,29 +38,29 @@ var rolling = false
 var x_grid_pos = 0
 var y_grid_pos = 0
 
-var disabled_pos = []
 
 var grid_pos : Vector2
 
 signal player_moved(direction : Vector2)
 signal roll_finished()
 
-# Health Variables
-var health : int
-var max_health : int = 100
-var is_dead : bool = false
-var invulnerable : bool = false
 var input_disabled : bool = false
 
+# Health — handled by HealthComponent child node
+@onready var health_component: HealthComponent = $HealthComponent
+
+# Passthrough signals so external scripts don't need to change
 signal player_damaged(damage_amount : float)
 signal player_healed(heal_amount : float)
 signal player_health_updated(new_health : float)
 signal player_died
 
-# Energy Variables
-var energy : int = 6
-signal energy_spent(amount : int)
-signal energy_gained(amount : int)
+# Energy — handled by EnergyComponent child node
+@onready var energy_component: EnergyComponent = $EnergyComponent
+
+# Passthrough signals so external scripts (UI etc.) don't need to change
+signal energy_spent(amount: int)
+signal energy_gained(amount: int)
 signal insufficient_energy
 
 @onready var shape_cast: ShapeCast3D = %ShapeCast
@@ -73,14 +71,23 @@ signal insufficient_energy
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
-	health = max_health
-	player_health_updated.emit(health)
+
+	# Wire HealthComponent signals — keep SFX/particles/animation here in the player
+	health_component.damaged.connect(_on_damaged)
+	health_component.healed.connect(_on_healed)
+	health_component.health_updated.connect(_on_health_updated)
+	health_component.died.connect(_on_died)
+
+	# Wire EnergyComponent passthrough signals
+	energy_component.spent.connect(energy_spent.emit)
+	energy_component.gained.connect(energy_gained.emit)
+	energy_component.insufficient.connect(insufficient_energy.emit)
 
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
 	GameEvents.menu_entered.connect(_on_menu_entered)
 	GameEvents.menu_exited.connect(_on_menu_exited)
-	
+
 	if GameEvents.is_checkpoint_transfer:
 		global_position = GameEvents.current_checkpoint_data.spawn_point + Vector3(0, 0, 2)
 		GameEvents.set_deferred("is_checkpoint_transfer", false)
@@ -145,10 +152,11 @@ func update_side_icon(side : int, new_icon : Texture2D):
 			side_five.get_child(0).set_sprite(new_icon)
 		6:
 			side_six.get_child(0).set_sprite(new_icon)
+	DiceState.update_icon(side, new_icon)
 
 func leap():
 	# Do nothing if we're currently rolling.
-	if rolling or commit_lock or is_dead or input_disabled:
+	if rolling or commit_lock or health_component.is_dead or input_disabled:
 		return
 	
 	var dir := Vector3.FORWARD
@@ -203,7 +211,7 @@ func leap():
 	
 func roll(dir):
 	# Do nothing if we're currently rolling.
-	if rolling or commit_lock or is_dead or input_disabled:
+	if rolling or commit_lock or health_component.is_dead or input_disabled:
 		return
 		
 	## CHECK FOR COLLISION
@@ -216,75 +224,31 @@ func roll(dir):
 		shape_cast.target_position = initial_target_pos
 		return
 	
-	# This prevents the player from using items while not standing still, 
+	# This prevents the player from using items while not standing still,
 	# and to allow for triggers to work before player can move out of them
 	_disable_input()
-	
-	rolling = true
-	
-	
-	player_moved.emit(dir)
-			
-	# Step 1: Offset the pivot.
-	pivot.translate(dir * cube_size / 2)
-	mesh.global_translate(-dir * cube_size / 2)
 
-	# Step 2: Animate the rotation.
-	var axis = dir.cross(Vector3.DOWN)
-	var tween = create_tween()
-	# TODO: Use this same tween to smoothly tween the position of the player collision box from start position to end position.
-	tween.tween_property(pivot, "transform",
-			pivot.transform.rotated_local(axis, PI/2), 1 / speed)
-	await tween.finished
-	
-	# Updates side references
-	match dir:
-		Vector3.FORWARD:
-			var temp = faces.top
-			faces.top = faces.back
-			faces.back = faces.bottom
-			faces.bottom = faces.front
-			faces.front = temp
-		Vector3.BACK:
-			var temp = faces.top
-			faces.top = faces.front
-			faces.front = faces.bottom
-			faces.bottom = faces.back
-			faces.back = temp
-		Vector3.LEFT:
-			var temp = faces.top
-			faces.top = faces.right
-			faces.right = faces.bottom
-			faces.bottom = faces.left
-			faces.left = temp
-		Vector3.RIGHT:
-			var temp = faces.top
-			faces.top = faces.left
-			faces.left = faces.bottom
-			faces.bottom = faces.right
-			faces.right = temp
-	
-	# Step 3: Finalize the movement and reset the offset.
+	rolling = true
+	player_moved.emit(dir)
+
+	# Delegate animation + face tracking to DiceRoller
+	await dice_roller.roll(dir)
+
+	# Move the CharacterBody3D after the tween
 	transform.origin += dir * cube_size
-	var b = mesh.global_transform.basis
-	pivot.transform = Transform3D.IDENTITY
-	mesh.position = Vector3(0, cube_size / 2, 0)
-	mesh.global_transform.basis = b
-	
 	shape_cast.target_position = initial_target_pos
-	
+
 	x_grid_pos += dir.x
 	y_grid_pos += dir.z
 	grid_pos = Vector2(x_grid_pos, y_grid_pos)
-	
+
 	detect_side_up()
+	DiceState.update_after_roll(mesh.global_transform.basis, dice_roller.faces)
 	$MoveSFX.play()
 	
 	roll_finished.emit()
 	
-	energy += 1
-	energy = clamp(energy, 0, 6)
-	energy_gained.emit(1)
+	energy_component.gain(1)
 	
 	
 	
@@ -299,19 +263,11 @@ func roll(dir):
 	
 	
 	# This is a check for player death after a roll is finished
-	if is_dead: 
+	if health_component.is_dead:
 		$DeathAnimation.play("death")
 	
 	if not GameEvents.is_in_menu and not GameEvents.is_in_cutscene:
 		_enable_input.call_deferred()
-
-func add_blocked_pos(blocked_pos: Vector2):
-	disabled_pos.append(blocked_pos)
-	print("Adding " + str(blocked_pos))
-	
-func remove_blocked_pos(blocked_pos: Vector2):
-	disabled_pos.erase(blocked_pos)
-	print("Removing " + str(blocked_pos))
 
 func detect_side_up():
 	for s in sides:
@@ -334,35 +290,31 @@ func detect_side_up():
 			# Send the signal to Game Events
 			GameEvents.emit_signal("dice_moved", up_side + 1)
 
-func heal_player(amount : float):
-	if health == max_health: return
-	health += amount
-	health = clampf(health, 0, max_health)
+## Public API — called by enemies, traps, pickups, etc.
+func heal_player(amount: float) -> void:
+	health_component.heal(amount)
+
+func apply_damage(amount: float) -> void:
+	health_component.apply_damage(amount)
+
+## HealthComponent signal handlers
+func _on_damaged(amount: float) -> void:
+	player_damaged.emit(amount)
+	$HurtSFX.play()
+
+func _on_healed(amount: float) -> void:
 	player_healed.emit(amount)
-	player_health_updated.emit(health)
 	$HealSFX.play()
 	$HealParticles.emitting = true
-	
-func apply_damage(amount : float):
-	if invulnerable: return
-	invulnerable = true
-	health -= amount
-	health = clampf(health, 0, 100)
-	player_damaged.emit(amount)
-	player_health_updated.emit(health)
-	
-	$HurtSFX.play()
-	
-	if health == 0:
-		## CHANGING SCENE TO RESTART LEVEL/MAIN MENU IS BEING TAKEN CARE OF IN THE HEALTH BAR SCRIPT ##
-		is_dead = true
-		player_died.emit()
-		if not rolling:
-			$DeathAnimation.play("death")
-	
-	await get_tree().create_timer(1.0).timeout
-	
-	invulnerable = false
+
+func _on_health_updated(new_health: float) -> void:
+	player_health_updated.emit(new_health)
+
+func _on_died() -> void:
+	## CHANGING SCENE TO RESTART LEVEL/MAIN MENU IS BEING TAKEN CARE OF IN THE HEALTH BAR SCRIPT ##
+	player_died.emit()
+	if not rolling:
+		$DeathAnimation.play("death")
 	
 func begin_attack_commit(commit_time : float):
 	commit_lock_timer.wait_time = commit_time

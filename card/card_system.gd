@@ -11,6 +11,7 @@ class_name CardSystem
 @export var hand_display : Control
 
 @export var player : Node
+@export var energy_component: EnergyComponent
 
 @export var global_cooldown : float = 0.8
 var system_disabled = false
@@ -142,8 +143,8 @@ func play_ability():
 	if player.input_disabled: return
 	if system_disabled == true: return
 	if hand[player.up_side] == null: return 
-	if hand[player.up_side].cost > player.energy: 
-		player.insufficient_energy.emit()
+	if not energy_component.has_enough(hand[player.up_side].cost):
+		energy_component.insufficient.emit()
 		return
 	
 	system_disabled = true
@@ -159,9 +160,7 @@ func play_ability():
 	player.begin_attack_commit(hand[player.up_side].commit_value)
 	
 	var _cost = hand[player.up_side].cost
-	player.energy -= _cost
-	player.energy = clamp(player.energy, 0, 6)
-	player.energy_spent.emit(_cost)
+	energy_component.spend(_cost)
 	
 	item_used.emit(item)
 	

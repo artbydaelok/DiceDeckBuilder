@@ -1,4 +1,4 @@
-extends Enemy
+extends BossEnemy
 
 const COLUMN_SHATTER_VFX = preload("res://enemy/boss/jim_and_jam/column_shatter_vfx.tscn")
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D

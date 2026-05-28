@@ -1,5 +1,5 @@
 extends Node3D
-class_name Enemy
+class_name BossEnemy
 
 const FLOOR_INDICATOR = preload("res://enemy/boss/floor_indicator.tscn")
 

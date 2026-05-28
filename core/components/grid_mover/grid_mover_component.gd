@@ -1,0 +1,130 @@
+extends Node
+class_name GridMoverComponent
+
+## GridMoverComponent
+##
+## Handles grid-based movement for any Node3D — enemies, props, platforms, anything.
+## Add as a child node and assign target in the inspector (defaults to parent if left empty).
+##
+## Connect step_started / step_finished signals to drive animations externally:
+##   grid_mover.step_started.connect(func(dir): animation_player.play("walk"))
+##   grid_mover.step_finished.connect(func(dir): animation_player.play("idle"))
+##
+## Call move(direction) directly to trigger a single step from code.
+
+## The Node3D to move. If left empty, defaults to the parent node.
+@export var target: Node3D
+
+@export_category("Movement")
+@export var cell_size: float = 2.0
+@export var move_speed: float = 4.0
+
+@export_category("Pattern")
+## Sequence of normalized direction vectors the mover cycles through.
+@export var pattern: Array[Vector3] = []
+@export var ping_pong_pattern: bool = false
+## If true, follows the player's movement direction instead of the pattern.
+@export var chase_player: bool = false
+
+@export_category("Trigger")
+## If true, moves once each time the player moves. If false, uses the interval timer.
+@export var react_to_player_move: bool = false
+@export var interval_time: float = 0.75
+## If false, the timer won't start until start() is called. Useful when you need to
+## configure the pattern from code in initialize() before movement begins.
+@export var autostart: bool = true
+
+@export_category("Rotation")
+## Rotate the target to face the direction of each step.
+@export var rotate_to_face_direction: bool = false
+
+## Emitted the moment a step begins. Useful for starting walk/jump animations.
+signal step_started(direction: Vector3)
+## Emitted when the tween finishes and the target has reached the new cell.
+signal step_finished(direction: Vector3)
+
+var moving: bool = false
+var _step: int = 0
+var _pattern_reversed: bool = false
+var _player: Node3D
+var _timer: Timer
+
+
+func _ready() -> void:
+	if target == null:
+		target = get_parent() as Node3D
+
+	_player = get_tree().get_first_node_in_group("player")
+
+	if react_to_player_move:
+		if _player and _player.has_signal("player_moved"):
+			_player.player_moved.connect(_on_player_moved)
+	else:
+		_timer = Timer.new()
+		_timer.wait_time = interval_time
+		_timer.one_shot = false
+		_timer.timeout.connect(_on_timer_timeout)
+		add_child(_timer)
+		if autostart:
+			_timer.start()
+
+
+## Start the interval timer. Call this from initialize() when autostart is false.
+## Also re-applies interval_time in case it was changed after _ready().
+func start() -> void:
+	if _timer:
+		_timer.wait_time = interval_time
+		_timer.start()
+
+
+## Trigger a single move step in the given direction.
+## Safe to call externally — does nothing if already moving.
+func move(direction: Vector3) -> void:
+	if moving or target == null:
+		return
+
+	moving = true
+	step_started.emit(direction)
+
+	var destination := Vector3(
+		target.global_position.x + direction.x * cell_size,
+		target.global_position.y,
+		target.global_position.z + direction.z * cell_size
+	)
+
+	if rotate_to_face_direction and Vector3(direction.x, 0.0, direction.z) != Vector3.ZERO:
+		var target_angle := atan2(direction.x, direction.z)
+		var rot_tween := create_tween()
+		rot_tween.tween_property(target, "rotation:y", target_angle, 1.0 / move_speed)
+
+	var tween := create_tween()
+	tween.tween_property(target, "global_position", destination, 1.0 / move_speed)
+	await tween.finished
+
+	moving = false
+	step_finished.emit(direction)
+
+
+## Advance one step through the configured pattern.
+func pattern_move() -> void:
+	if pattern.is_empty():
+		return
+	move(pattern[_step])
+	_step += 1
+	if _step >= pattern.size():
+		if ping_pong_pattern:
+			for i in range(pattern.size()):
+				pattern[i] *= -1
+			pattern.reverse()
+		_step = 0
+
+
+func _on_player_moved(direction: Vector3) -> void:
+	if chase_player:
+		move(direction)
+	else:
+		pattern_move()
+
+
+func _on_timer_timeout() -> void:
+	pattern_move()

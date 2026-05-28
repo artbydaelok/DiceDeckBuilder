@@ -1,1 +1,1 @@
-extends Enemy
+extends BossEnemy

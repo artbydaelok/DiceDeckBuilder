@@ -11,7 +11,8 @@ const BULLET_PROJECTILE = preload("res://enemy/boss/salt_and_pepper/bullet_proje
 var entities_layer
 signal finished_shooting
 
-var player 
+var player
+var _blocker: StaticBody3D = null
 
 func _ready() -> void:
 	entities_layer = get_tree().get_first_node_in_group("entities_layer")
@@ -49,7 +50,7 @@ func begin_rotation():
 
 func appear():
 	animation_player.play("spawn")
-	player.add_blocked_pos(Vector2(0, 0))
+	_spawn_blocker()
 	if player.grid_pos == Vector2(0,0):
 		var rnd_dir = [Vector3.LEFT, Vector3.FORWARD, Vector3.BACK, Vector3.RIGHT].pick_random()
 		player.roll(rnd_dir)
@@ -57,8 +58,23 @@ func appear():
 func disappear():
 	animation_player.play("despawn")
 	await animation_player.animation_finished
+	_remove_blocker()
 	finished_shooting.emit()
-	player.remove_blocked_pos(Vector2(0, 0))
+
+func _spawn_blocker() -> void:
+	_blocker = StaticBody3D.new()
+	var shape = CollisionShape3D.new()
+	var box = BoxShape3D.new()
+	box.size = Vector3(2.0, 2.0, 2.0)
+	shape.shape = box
+	_blocker.add_child(shape)
+	get_parent().add_child(_blocker)
+	_blocker.global_position = global_position
+
+func _remove_blocker() -> void:
+	if _blocker != null:
+		_blocker.queue_free()
+		_blocker = null
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:

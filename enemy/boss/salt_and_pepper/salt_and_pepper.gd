@@ -1,4 +1,4 @@
-extends Enemy
+extends BossEnemy
 
 @export var traffic_light : Node3D
 

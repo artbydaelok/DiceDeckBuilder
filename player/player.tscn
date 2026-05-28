@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://b0xdt3gcxclj1" path="res://player/player.gd" id="1_rgyib"]
 [ext_resource type="PackedScene" uid="uid://dljf7lfr7eq8n" path="res://core/currency_system.tscn" id="2_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://bp68tp5gv0xm2" path="res://core/components/hurtbox.tscn" id="2_knvy0"]
+[ext_resource type="Script" uid="uid://rjdb16etottp" path="res://core/components/health/health_component.gd" id="2_yllr7"]
 [ext_resource type="Texture2D" uid="uid://ca24nlmt4o5bj" path="res://player/pixel_dice_tex.png" id="3_2ieo8"]
 [ext_resource type="ArrayMesh" uid="uid://cya23tnkwqnv1" path="res://player/dice.obj" id="3_fgjie"]
+[ext_resource type="Script" uid="uid://odug7o3p8akm" path="res://core/components/dice_roller/dice_roller.gd" id="4_kb6p2"]
+[ext_resource type="Script" uid="uid://buqn5j8jlrbr7" path="res://core/components/energy/energy_component.gd" id="4_wodsf"]
 [ext_resource type="Script" uid="uid://cqi1mqmkmli5s" path="res://player/SideSprite.gd" id="5_v808x"]
 [ext_resource type="AudioStream" uid="uid://t4j8pdmiqehu" path="res://assets/sounds/footstep_concrete_a_14.wav" id="6_j7ngl"]
 [ext_resource type="AudioStream" uid="uid://uwo0eav3gehd" path="res://assets/sounds/PUNCH_ELECTRIC_HEAVY_02.wav" id="7_2b10p"]
@@ -222,7 +225,20 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_rgyib")
 
+[node name="HealthComponent" type="Node" parent="." unique_id=1150777547]
+script = ExtResource("2_yllr7")
+
 [node name="CurrencySystem" parent="." unique_id=156427133 instance=ExtResource("2_hg6s5")]
+
+[node name="EnergyComponent" type="Node" parent="." unique_id=1095175766]
+script = ExtResource("4_wodsf")
+metadata/_custom_type_script = "uid://buqn5j8jlrbr7"
+
+[node name="DiceRoller" type="Node" parent="." unique_id=113366099 node_paths=PackedStringArray("pivot", "mesh")]
+script = ExtResource("4_kb6p2")
+pivot = NodePath("../Pivot")
+mesh = NodePath("../Pivot/MeshInstance3D")
+metadata/_custom_type_script = "uid://odug7o3p8akm"
 
 [node name="Pivot" type="Node3D" parent="." unique_id=17712324]
 

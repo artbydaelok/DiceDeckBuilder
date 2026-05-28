@@ -501,7 +501,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 100, -42)
 gizmo_extents = 120.0
 
 [node name="CutsceneCamera1" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="1" unique_id=1159506797]
-transform = Transform3D(0.9659225, -1.05937605e-08, -0.2588189, 0.0005465802, 0.9999946, 0.0020398286, 0.25881764, -0.0021117837, 0.9659228, -54.661007, 3.5606902, -14)
+transform = Transform3D(0.96592236, -1.059376e-08, -0.2588189, 0.0005465801, 0.99999446, 0.0020398286, 0.2588176, -0.0021117835, 0.9659228, -54.661007, 3.5606902, -14)
 script = ExtResource("5_wdw7n")
 
 [node name="CutsceneCamera2" type="Camera3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=532374131]
@@ -520,7 +520,7 @@ transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -40, 6.5
 follow_offset = Vector3(0, 5.5, 5.5)
 
 [node name="GameCamera" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="1" unique_id=1892705345]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -40, 6.5, 5.5)
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.50000006, 0, -0.50000006, 0.8660254, -40, 6.5, 5.5)
 follow_target = true
 
 [node name="ArenaGrid" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="0" unique_id=1670796615]

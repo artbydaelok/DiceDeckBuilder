@@ -98,6 +98,7 @@ MouseLayer="*uid://bmrw3l8b8wpxu"
 SaveSystem="*uid://ewq4w7sq860i"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 CameraZoneManager="*uid://cofnlw0mnsruu"
+DiceState="*uid://dyw1h3ouyiipp"
 
 [dialogue_manager]
 

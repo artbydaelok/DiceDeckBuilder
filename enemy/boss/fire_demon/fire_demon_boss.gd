@@ -1,4 +1,4 @@
-extends Enemy
+extends BossEnemy
 
 # Meteors
 const FLAMING_METEOR = preload("res://enemy/boss/fire_demon/flaming_meteor.tscn")

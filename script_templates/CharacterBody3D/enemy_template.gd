@@ -1,22 +1,20 @@
-extends "res://enemy/enemy_pawns/base_enemy_pawn.gd"
+extends Enemy
 
-# Triggers on ready / spawn
-func initialize():
+# For movement, add a GridMoverComponent child node and configure it in the inspector.
+# Connect its step_started / step_finished signals here for animations.
+
+# Called once on spawn
+func initialize() -> void:
 	pass
 
-# Triggers when player begins moving
-func _on_player_moved(direction: Vector3): # OVERRIDABLE FUNCTION
-	# Remove the comment on the next line if you want this enemy to move towards the camera every time the player moves.
-	#grid_move_in_direction(Vector3.BACK)
+# Called when the player starts a move
+func _on_player_moved(direction: Vector3) -> void:
 	pass
 
-# Triggers when player is done moving
-func _on_player_rolled(): # OVERRIDABLE FUNCTION
-	# TODO Should probably have the new active item be emitted here as well.
+# Called when the player finishes a roll
+func _on_player_rolled() -> void:
 	pass
 
-# Triggers on process / ever frame
-func tick(delta): # OVERRIDABLE FUNCTION
-	# Remove the comment (#) on the next line if you want this enemy to move towards the camera.
-	#free_move_in_direction(Vector3.BACK) 
+# Called every physics frame
+func tick(delta: float) -> void:
 	pass
