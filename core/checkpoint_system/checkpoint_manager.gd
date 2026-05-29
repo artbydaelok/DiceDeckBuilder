@@ -57,7 +57,7 @@ func _on_player_entered(player_trigger_area: Area3D) -> void:
 		if !checkpoints.has(checkpoint_data.resource_path):
 			checkpoints.append(checkpoint_data.resource_path)
 	
-	player.heal_player(player.max_health)
+	player.heal_player(player.health_component.max_health)
 	
 	save_system.json_save()
 	has_player = true

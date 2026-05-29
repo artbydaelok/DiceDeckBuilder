@@ -8,12 +8,8 @@ extends Enemy
 
 
 func initialize() -> void:
-	# Build the ping-pong pattern from spaces_to_move.
-	# GridMoverComponent will reverse it automatically at the end of each pass.
-	var dir := Vector3.FORWARD if reverse_direction else Vector3.BACK
-	for i in spaces_to_move:
-		grid_mover.pattern.append(dir)
-	grid_mover.ping_pong_pattern = true
+	var dir := GridMoverComponent.Direction.FORWARD if reverse_direction else GridMoverComponent.Direction.BACK
+	grid_mover.set_linear_pattern(dir, spaces_to_move, true)
 	grid_mover.interval_time = 1.0 / move_speed
 	grid_mover.step_started.connect(func(_dir): animation_player.play("jump"))
 	grid_mover.start()

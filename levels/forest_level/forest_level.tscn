@@ -70,7 +70,7 @@
 [ext_resource type="PackedScene" uid="uid://bn1y6s1fsr7o4" path="res://ui/picture_taker.tscn" id="65_yj4mq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
-size = Vector3(10, 1, 1)
+size = Vector3(10, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwmjj"]
 
@@ -438,7 +438,7 @@ metadata/_custom_type_script = "uid://cqxuuexdumeed"
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -86)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -70)
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
@@ -543,7 +543,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -94)
 phantom_camera = NodePath("../DemonPhantomCamera")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="BaseLevel/Cameras/DemonCameraZone" index="0" unique_id=1448333850]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 shape = SubResource("BoxShape3D_b118p")
 debug_color = Color(0.9582438, 1.6364455e-06, 0.5308395, 0.41960785)
 
@@ -906,7 +906,9 @@ spaces_to_move = 2
 [node name="Eyeball1" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="26" unique_id=1967730826 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, -82)
 player_reposition_location_node = NodePath("../EyeballMarker1")
-pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(1, 0, 0), Vector3(1, 0, 0)])
+
+[node name="GridMoverComponent" parent="BaseLevel/Enemies/Eyeball1" index="0" unique_id=969771768]
+pattern = Array[int]([1, 1, 2, 2, 0, 0, 3, 3])
 
 [node name="Mesh2" parent="BaseLevel/Enemies/Eyeball1/Visuals" index="6" unique_id=960191284]
 transform = Transform3D(-0.006944418, -0.75011235, 0.6612738, 0.93384105, 0.23163193, 0.27255735, -0.35762084, 0.61941725, 0.69887733, -0.63640356, 7.4511976, -1.693012)
@@ -918,7 +920,6 @@ shape = SubResource("CylinderShape3D_ma4h5")
 [node name="Eyeball2" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="27" unique_id=909435515 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.94836, 0, -248)
 player_reposition_location_node = NodePath("../EyeballMarker2")
-pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0)])
 
 [node name="Mesh2" parent="BaseLevel/Enemies/Eyeball2/Visuals" index="6" unique_id=960191284]
 transform = Transform3D(-0.006944418, -0.75011235, 0.6612738, 0.93384105, 0.23163193, 0.27255735, -0.35762084, 0.61941725, 0.69887733, -0.63640356, 7.4511976, -1.693012)
@@ -930,7 +931,6 @@ shape = SubResource("CylinderShape3D_ma4h5")
 [node name="Eyeball3" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="28" unique_id=30267086 node_paths=PackedStringArray("player_reposition_location_node") instance=ExtResource("6_uwb2w")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.9483604, 0, -244)
 player_reposition_location_node = NodePath("../EyeballMarker2")
-pattern = Array[Vector3]([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(1, 0, 0), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0), Vector3(-1, 0, 0)])
 
 [node name="Mesh2" parent="BaseLevel/Enemies/Eyeball3/Visuals" index="6" unique_id=960191284]
 transform = Transform3D(-0.006944418, -0.75011235, 0.6612738, 0.93384105, 0.23163193, 0.27255735, -0.35762084, 0.61941725, 0.69887733, -0.63640356, 7.4511976, -1.693012)

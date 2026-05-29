@@ -12,6 +12,22 @@ class_name GridMoverComponent
 ##
 ## Call move(direction) directly to trigger a single step from code.
 
+enum Direction { FORWARD, BACK, LEFT, RIGHT }
+
+const DIRECTION_MAP = {
+	Direction.FORWARD: Vector3.FORWARD,
+	Direction.BACK:    Vector3.BACK,
+	Direction.LEFT:    Vector3.LEFT,
+	Direction.RIGHT:   Vector3.RIGHT,
+}
+
+const DIRECTION_OPPOSITE = {
+	Direction.FORWARD: Direction.BACK,
+	Direction.BACK:    Direction.FORWARD,
+	Direction.LEFT:    Direction.RIGHT,
+	Direction.RIGHT:   Direction.LEFT,
+}
+
 ## The Node3D to move. If left empty, defaults to the parent node.
 @export var target: Node3D
 
@@ -20,8 +36,8 @@ class_name GridMoverComponent
 @export var move_speed: float = 4.0
 
 @export_category("Pattern")
-## Sequence of normalized direction vectors the mover cycles through.
-@export var pattern: Array[Vector3] = []
+## Sequence of directions the mover cycles through. Each entry is a compass direction.
+@export var pattern: Array[Direction] = []
 @export var ping_pong_pattern: bool = false
 ## If true, follows the player's movement direction instead of the pattern.
 @export var chase_player: bool = false
@@ -45,7 +61,6 @@ signal step_finished(direction: Vector3)
 
 var moving: bool = false
 var _step: int = 0
-var _pattern_reversed: bool = false
 var _player: Node3D
 var _timer: Timer
 
@@ -75,6 +90,16 @@ func start() -> void:
 	if _timer:
 		_timer.wait_time = interval_time
 		_timer.start()
+
+
+## Convenience method: fill the pattern with `steps` repetitions of `dir`.
+## Optionally enables ping_pong. Resets the step counter.
+func set_linear_pattern(dir: Direction, steps: int, ping_pong: bool = false) -> void:
+	pattern.clear()
+	for i in steps:
+		pattern.append(dir)
+	ping_pong_pattern = ping_pong
+	_step = 0
 
 
 ## Trigger a single move step in the given direction.
@@ -109,13 +134,15 @@ func move(direction: Vector3) -> void:
 func pattern_move() -> void:
 	if pattern.is_empty():
 		return
-	move(pattern[_step])
+	move(DIRECTION_MAP[pattern[_step]])
 	_step += 1
 	if _step >= pattern.size():
 		if ping_pong_pattern:
-			for i in range(pattern.size()):
-				pattern[i] *= -1
-			pattern.reverse()
+			var flipped: Array[Direction] = []
+			for d in pattern:
+				flipped.append(DIRECTION_OPPOSITE[d])
+			flipped.reverse()
+			pattern = flipped
 		_step = 0
 
 
