@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://bp78spw5xmmx0" path="res://assets/3d_models/psx/stone/stone_2.glb" id="26_vwtbs"]
 [ext_resource type="PackedScene" uid="uid://sac5ha1kfkws" path="res://assets/3d_models/psx/trees/tree_log_1.glb" id="27_3a1fd"]
 [ext_resource type="PackedScene" uid="uid://brpe3av8rjbv2" path="res://assets/3d_models/psx/grass/grass_2.glb" id="29_eoa1n"]
-[ext_resource type="Resource" uid="uid://ditb5nca4s77l" path="res://core/checkpoint_system/checkpoints/forest_first_encounter.tres" id="30_jptjf"]
+[ext_resource type="Resource" path="res://core/checkpoint_system/checkpoints/forest_first_encounter.tres" id="30_jptjf"]
 [ext_resource type="PackedScene" uid="uid://bj64c47ks7pp7" path="res://assets/3d_models/palceholder_models/sign_placeholder.tscn" id="30_lfkt6"]
 [ext_resource type="Resource" uid="uid://cs6q3l4unmtj7" path="res://core/checkpoint_system/checkpoints/forest_two_frogs.tres" id="31_jptjf"]
 [ext_resource type="AudioStream" uid="uid://cnypr4v67w6dk" path="res://assets/sounds/ForestSoundDesign.wav" id="31_si0dx"]

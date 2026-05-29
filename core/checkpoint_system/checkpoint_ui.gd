@@ -55,8 +55,13 @@ func close():
 
 func on_checkpoint_button_pressed(checkpoint: CheckpointData):
 	if checkpoint.level_name == GameEvents.current_level.level_name:
+		# Same-level teleport: move player and let the matching checkpoint_manager
+		# restore the correct camera zone via the checkpoint_fast_traveled signal.
 		get_tree().get_first_node_in_group("player").global_position = checkpoint.spawn_point + Vector3(0, 0, 2)
+		GameEvents.checkpoint_fast_traveled.emit(checkpoint)
 	else:
+		# Cross-level teleport: the checkpoint_manager in the new scene handles
+		# camera restore in its _ready() by checking current_checkpoint_data.
 		GameEvents.current_checkpoint_data = checkpoint
 		GameEvents.is_checkpoint_transfer = true
 		SceneLoader.load_scene(checkpoint.level_path)

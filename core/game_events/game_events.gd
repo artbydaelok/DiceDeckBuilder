@@ -24,6 +24,10 @@ var current_level : Level
 var is_checkpoint_transfer : bool = false
 var current_checkpoint_data : CheckpointData
 
+## Emitted when the player fast-travels to a checkpoint within the same level.
+## checkpoint_managers listen to this to activate the right camera zone.
+signal checkpoint_fast_traveled(data: CheckpointData)
+
 func _ready():
 	dice_moved.connect(on_dice_moved)
 	SceneLoader.scene_loaded.connect(_on_scene_loaded)
