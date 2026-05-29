@@ -1,65 +1,90 @@
 [gd_scene format=3 uid="uid://bvgep14qk14it"]
 
 [ext_resource type="Script" uid="uid://iqfrss5rga1t" path="res://ui/map_display.gd" id="1_eqflx"]
-[ext_resource type="Texture2D" uid="uid://ima1fkxlwdup" path="res://assets/map_screenshot_test.png" id="3_0yrjh"]
-[ext_resource type="Texture2D" uid="uid://c376ui24m433h" path="res://assets/ui/PlayerMapMarker.png" id="3_auorb"]
-[ext_resource type="AudioStream" uid="uid://dk71doj84udd3" path="res://assets/sounds/Receipt_Handled_02.wav" id="4_auorb"]
+[ext_resource type="Texture2D" uid="uid://c376ui24m433h" path="res://assets/ui/PlayerMapMarker.png" id="2_auorb"]
+[ext_resource type="AudioStream" uid="uid://dk71doj84udd3" path="res://assets/sounds/Receipt_Handled_02.wav" id="3_auorb"]
 
-[node name="MapDisplay" type="Control" unique_id=1542442927]
+[node name="MapDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 script = ExtResource("1_eqflx")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=966182554]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.78)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer" unique_id=871155140]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/SubViewportContainer" unique_id=1902986684]
+[node name="MapCanvas" type="Control" parent="."]
 unique_name_in_owner = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(400, 300)
-render_target_update_mode = 4
+layout_mode = 0
+clip_contents = false
+mouse_filter = 2
 
-[node name="Map" type="TextureRect" parent="MarginContainer/SubViewportContainer/SubViewport" unique_id=1873372313]
+[node name="MapImage" type="TextureRect" parent="MapCanvas"]
 unique_name_in_owner = true
-offset_left = -1.0
-offset_top = -3.0
-offset_right = 570.0
-offset_bottom = 534.0
-texture = ExtResource("3_0yrjh")
-stretch_mode = 2
+layout_mode = 0
+expand_mode = 0
+stretch_mode = 0
+mouse_filter = 2
 
-[node name="PlayerMarkerPivot" type="Control" parent="MarginContainer/SubViewportContainer/SubViewport" unique_id=963765571]
+[node name="PlayerMarker" type="Control" parent="MapCanvas"]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
 
-[node name="PlayerMarker" type="TextureRect" parent="MarginContainer/SubViewportContainer/SubViewport/PlayerMarkerPivot" unique_id=2105827675]
+[node name="MarkerSprite" type="TextureRect" parent="MapCanvas/PlayerMarker"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+texture = ExtResource("2_auorb")
+
+[node name="HintLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -40.0
+offset_right = 200.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Drag to pan  •  Scroll to zoom  •  [E] to close"
+horizontal_alignment = 1
+
+[node name="Tooltip" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = -12.0
-offset_top = -24.0
-offset_right = 12.0
-texture = ExtResource("3_auorb")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 300.0
+offset_bottom = -12.0
+grow_vertical = 0
+text = ""
 
-[node name="MapOpenSFX" type="AudioStreamPlayer" parent="." unique_id=2020405928]
-stream = ExtResource("4_auorb")
+[node name="MapOpenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_auorb")
 pitch_scale = 0.75
-autoplay = true
 bus = &"SFX"

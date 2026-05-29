@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dnwqepfla1hj6" path="res://cutscenes/opening_cutscene.gd" id="1_45fey"]
 [ext_resource type="Script" uid="uid://6rmwb7k30dvh" path="res://cutscenes/cutscene_camera.gd" id="1_bceoc"]
 [ext_resource type="PackedScene" uid="uid://ovxqjd7ffdic" path="res://cutscenes/player_cutscene_actor.tscn" id="1_syggq"]
-[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="2_6sfnl"]
+[ext_resource type="PackedScene" path="res://core/music_players/background_music_player.tscn" id="2_6sfnl"]
 [ext_resource type="Shader" uid="uid://dior726k56cu" path="res://vfx/shaders/opening_cutscene_vortex.gdshader" id="2_yjtbj"]
 [ext_resource type="PackedScene" uid="uid://deyf4ddfnk8p4" path="res://assets/3d_models/opening_cutscene_props/dice_couch.tscn" id="3_ai8dr"]
 [ext_resource type="AudioStream" uid="uid://cbmhhwmpkrs3m" path="res://assets/sounds/DSGNWhsh_Short Whip, Short Whoosh 20_Ocular Sounds_Quick Whips_The Complete Whooshes Collection.wav" id="4_d8kg1"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bnfwqwcrmw1ei" path="res://assets/3d_models/dice_tv.tscn" id="21_tl3cp"]
 [ext_resource type="PackedScene" uid="uid://dfg08vyui724v" path="res://assets/3d_models/tv-stand_by_daelok.glb" id="22_tl3cp"]
 [ext_resource type="Texture2D" uid="uid://dxawekciu0o8q" path="res://assets/SluggerpunkLogoIntroOnTV-ver2.png" id="23_sditm"]
-[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="23_tl3cp"]
+[ext_resource type="Shader" path="res://vfx/shaders/CRT_main_menu.gdshader" id="23_tl3cp"]
 [ext_resource type="PackedScene" uid="uid://snprlumtc6av" path="res://assets/3d_models/dice_tv_cable.tscn" id="24_rigpm"]
 
 [sub_resource type="Gradient" id="Gradient_6sfnl"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2t64vc61c8vd" path="res://levels/game_scene.tscn" id="1_fnn83"]
 [ext_resource type="Script" uid="uid://h6bmtlsgdg6" path="res://levels/forest_level/forest_level.gd" id="2_cpv81"]
-[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="3_itb2r"]
+[ext_resource type="PackedScene" path="res://core/music_players/background_music_player.tscn" id="3_itb2r"]
 [ext_resource type="PackedScene" uid="uid://pbebb1f7kf7v" path="res://level_mechanics/debug_player_start.tscn" id="3_ma4h5"]
 [ext_resource type="AudioStream" uid="uid://blgoit4r2nrlj" path="res://assets/sounds/forest_demon.wav" id="3_u4uq1"]
 [ext_resource type="PackedScene" uid="uid://dm15p2uiefpje" path="res://core/components/cutscene/dialogue_trigger_area.tscn" id="4_fyusi"]

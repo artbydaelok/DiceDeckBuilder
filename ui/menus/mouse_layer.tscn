@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bmrw3l8b8wpxu"]
 
 [ext_resource type="Texture2D" uid="uid://dedstl6w8lrtp" path="res://assets/ui/custom_cursor.png" id="1_ogrvj"]
-[ext_resource type="Script" uid="uid://dhcfkunxc3quj" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/custom_cursor.gd" id="2_g0gq6"]
+[ext_resource type="Script" path="res://ui/menus/custom_cursor.gd" id="2_g0gq6"]
 [ext_resource type="Texture2D" uid="uid://deigrilj6ewlj" path="res://assets/ui/Crosshair.png" id="3_g0gq6"]
 
 [sub_resource type="Animation" id="Animation_g0gq6"]

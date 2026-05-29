@@ -5,11 +5,9 @@ extends Control
 
 var menu_return: bool = false
 
-const MAIN_MENU = preload("res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn")
-
 func resolve_warning():
 	if menu_return:
-		get_tree().change_scene_to_packed(MAIN_MENU)
+		SceneLoader.load_scene("res://ui/menus/main_menu/main_menu.tscn")
 	else:
 		queue_free()
 

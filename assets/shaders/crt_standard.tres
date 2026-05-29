@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bd52i823xefur"]
 
-[ext_resource type="Shader" uid="uid://1rhpa8a0sx34" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/CRT_main_menu.gdshader" id="1_4gcws"]
+[ext_resource type="Shader" path="res://vfx/shaders/CRT_main_menu.gdshader" id="1_4gcws"]
 
 [resource]
 shader = ExtResource("1_4gcws")

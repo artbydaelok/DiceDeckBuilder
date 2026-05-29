@@ -13,7 +13,7 @@ const AXE_THROW : Card = preload("res://card/card_abilities/axe_throw.tres")
 
 # Music
 @onready var level_music_player: AudioStreamPlayer = $BackgroundMusicPlayer
-const BACKGROUND_MUSIC_PLAYER_SCENE = preload("uid://bkcsjsk2ciff")
+const BACKGROUND_MUSIC_PLAYER_SCENE = preload("res://core/music_players/background_music_player.tscn")
 const MONEY_PROBLEMS_TRACK = preload("uid://f1buplcjvh7g")
 var forest_demon_music_player : AudioStreamPlayer
 
