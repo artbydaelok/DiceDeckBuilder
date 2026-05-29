@@ -19,6 +19,8 @@ var system_disabled = false
 signal card_drawn
 signal item_used(card: Card)
 signal card_slotted(card:Card, slot:int)
+## Emitted when the player picks up a new card (hand slot or deck).
+signal item_obtained(card: Card)
 
 # This is just for the Ability Sides Display UI element
 signal inventory_updated
@@ -70,14 +72,16 @@ const CARD_DISPLAY = preload("res://card/card_display.tscn")
 func _ready() -> void:
 	# Test Draw At Start
 	shuffle_deck()
-	
+
 	## THIS DRAWS 6 items
 	#for i in range(6):
 		#draw_card(i)
-	
+
 	_save_system_load_player_data()
-	
+
 	load_hand.call_deferred()
+
+	player.roll_finished.connect(_on_roll_finished)
 	
 func load_hand():
 	for i in range(hand.size()):
@@ -130,50 +134,96 @@ func get_slot_from_item(item: Card) -> int:
 	return result
 
 func obtain_new_item(item: Card):
-	if hand.has(null):
-		for slot in range(hand.size()):
-			if hand[slot] == null:
-				set_slot_to_item(slot, item)
-				return
-	else:
-		deck.append(item)
+	item_obtained.emit(item)
+
+	# Prefer the current top face if it's empty.
+	var top: int = player.up_side
+	if hand[top] == null:
+		set_slot_to_item(top, item)
+		return
+
+	# Otherwise pick a random empty slot.
+	var empty_slots: Array[int] = []
+	for i in range(hand.size()):
+		if hand[i] == null:
+			empty_slots.append(i)
+
+	if not empty_slots.is_empty():
+		set_slot_to_item(empty_slots[randi() % empty_slots.size()], item)
+		return
+
+	# Hand is full — overflow to deck.
+	deck.append(item)
 	
 
-func play_ability():
+func play_ability() -> void:
 	if player.input_disabled: return
-	if system_disabled == true: return
-	if hand[player.up_side] == null: return 
-	if not energy_component.has_enough(hand[player.up_side].cost):
+	if system_disabled: return
+	var slot: int = player.up_side
+	if hand[slot] == null: return
+	var item: Card = hand[slot]
+	# Only ACTIVATE and BOTH cards respond to manual button press.
+	if item.trigger_type == Card.TriggerType.ON_FACE_UP: return
+	if item.trigger_type == Card.TriggerType.LINKED: return
+	if not energy_component.has_enough(item.cost):
 		energy_component.insufficient.emit()
 		return
-	
-	system_disabled = true
-	
-	# Gets the ability ID and instantiates it.
-	var item : Card = hand[player.up_side]
-	var id = item.ability_id
-	if id == "empty":
+	energy_component.spend(item.cost)
+	_fire_ability(slot, item.ability_id, true)
+
+
+func _on_roll_finished() -> void:
+	var slot: int = player.up_side
+	if hand[slot] == null: return
+	var item: Card = hand[slot]
+	# ON_FACE_UP and BOTH cards trigger automatically after a roll.
+	if item.trigger_type != Card.TriggerType.ON_FACE_UP and item.trigger_type != Card.TriggerType.BOTH:
 		return
-	var ability_instance = CARD_ABILITIES_SCENES[id].instantiate()
+	if system_disabled: return
+	if item.passive_ability_id.is_empty(): return
+	_fire_ability(slot, item.passive_ability_id, false)
+
+
+## Fires an ability by ID on behalf of the given slot.
+## use_commit: whether to lock the player during the ability (passive triggers skip this).
+func _fire_ability(slot: int, ability_id: String, use_commit: bool) -> void:
+	var item: Card = hand[slot]
+	if item == null: return
+	if ability_id.is_empty() or ability_id == "empty": return
+	if not CARD_ABILITIES_SCENES.has(ability_id): return
+
+	system_disabled = true
+
+	var ability_instance = CARD_ABILITIES_SCENES[ability_id].instantiate()
+	# Inject self so abilities can call fire_linked_slot() for synergy chains.
+	if "card_system" in ability_instance:
+		ability_instance.card_system = self
 	player.add_child(ability_instance)
-	
-	player.begin_attack_commit(hand[player.up_side].commit_value)
-	
-	var _cost = hand[player.up_side].cost
-	energy_component.spend(_cost)
-	
+
+	if use_commit:
+		player.begin_attack_commit(item.commit_value)
+
 	item_used.emit(item)
-	
+
 	if hand_display != null:
-		# This triggers the animations for the Card UI Element
-		hand_display.on_played_card(player.up_side)
-	
+		hand_display.on_played_card(slot)
+
 	if shuffle_deck_mode:
-		# Using the index, we determine which card to discard in the arrays.
-		discard_card(player.up_side)
-	
+		discard_card(slot)
+
 	await get_tree().create_timer(global_cooldown).timeout
 	system_disabled = false
+
+## Activates a LINKED card in the given hand slot without energy cost.
+## Call this from an ability script that has a card_system reference.
+func fire_linked_slot(slot: int) -> void:
+	if slot < 0 or slot >= hand.size(): return
+	if hand[slot] == null: return
+	var item: Card = hand[slot]
+	if item.trigger_type != Card.TriggerType.LINKED: return
+	if item.ability_id.is_empty(): return
+	_fire_ability(slot, item.ability_id, false)
+
 
 func shuffle_deck():
 	deck.shuffle()

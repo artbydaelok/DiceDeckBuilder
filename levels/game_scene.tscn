@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://6ipxlq7gefoy" path="res://ui/coin_amount_label.gd" id="8_5evlq"]
 [ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
+[ext_resource type="Script" uid="uid://bqca1gie4n3v6" path="res://ui/item_pickup_popup/item_pickup_popup.gd" id="11_q4ywm"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_ftfgw"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_q4ywm"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="15_qcm70"]
@@ -229,6 +230,11 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 player = NodePath("../../../BaseLevel/Player")
 card_system = NodePath("../../../CardSystem")
+
+[node name="ItemPickupPopup" type="CanvasLayer" parent="." unique_id=2100496742 node_paths=PackedStringArray("card_system")]
+layer = 2
+script = ExtResource("11_q4ywm")
+card_system = NodePath("../CardSystem")
 
 [node name="BaseLevel" type="Node3D" parent="." unique_id=2067204523 groups=["entities_layer"]]
 

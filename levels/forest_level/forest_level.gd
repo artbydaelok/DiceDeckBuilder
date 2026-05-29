@@ -4,7 +4,7 @@ extends Level
 var has_player_killed_frog : bool = false # This variable gets changed from within the frog scripts.
 
 @onready var axe_mesh: Node3D = %AxeMesh
-const AXE_THROW = preload("uid://cwh8hm762xo3n")
+const AXE_THROW : Card = preload("res://card/card_abilities/axe_throw.tres")
 @onready var axe_dialogue_trigger: Node3D = $BaseLevel/AxeObtainLocation/AxeDialogueTrigger
 
 @onready var mother_nature_trigger_area_0: Node3D = $BaseLevel/MotherNatureTriggerArea0
@@ -32,7 +32,7 @@ func end_cutscene():
 # IDEALLY THIS WOULD ONLY HAPPEN IF THE PLAYER DOESN'T HAVE THE AXE
 func obtain_axe():
 	axe_mesh.queue_free()
-	card_system.set_slot_to_item(player.up_side, AXE_THROW)
+	card_system.obtain_new_item(AXE_THROW)
 	axe_dialogue_trigger.queue_free()
 	
 func show_mother_nature():

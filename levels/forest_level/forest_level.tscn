@@ -416,6 +416,14 @@ spot_range = 65.0
 
 [node name="BackgroundMusicPlayer" parent="." index="4" unique_id=1991235100 instance=ExtResource("3_itb2r")]
 
+[node name="SaveSystem" parent="." index="8" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
+
+[node name="AmbianceSFXPlayer" type="AudioStreamPlayer" parent="." index="9" unique_id=1429146577]
+stream = ExtResource("31_si0dx")
+volume_db = -8.0
+autoplay = true
+bus = &"SFX"
+
 [node name="MotherNatureLight" type="SpotLight3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="0" unique_id=614971548]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.0663977, 0)
@@ -439,6 +447,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1, 0, -97.5)
 
 [node name="DebugPlayerStart" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="2" unique_id=1641471254 instance=ExtResource("3_ma4h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -70)
+disabled = true
 
 [node name="MotherNatureTriggerArea0" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="3" unique_id=1545155587 instance=ExtResource("4_fyusi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.5)
@@ -7444,14 +7453,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, -152)
 [node name="CoinPickup10" parent="BaseLevel/Gameplay" parent_id_path=PackedInt32Array(1036706922) index="35" unique_id=961126469 instance=ExtResource("41_bp51c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, -164)
 
-[node name="SaveSystem" parent="." index="8" unique_id=1059717826 instance=ExtResource("23_ma4h5")]
-
-[node name="AmbianceSFXPlayer" type="AudioStreamPlayer" parent="." index="9" unique_id=1429146577]
-stream = ExtResource("31_si0dx")
-volume_db = -8.0
-autoplay = true
-bus = &"SFX"
-
 [node name="Root Scene" parent="." index="11" unique_id=815366632 instance=ExtResource("50_71n5h")]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -21.10215, -0.14807361, -273.8017)
 
@@ -7557,7 +7558,6 @@ transform = Transform3D(1.4653866, 0, 0.8617668, 0, 1.7, 0, -0.8617668, 0, 1.465
 [node name="Root Scene6" parent="." index="38" unique_id=2034024899 instance=ExtResource("61_2quou")]
 transform = Transform3D(1.4653866, 0, 0.8617668, 0, 1.7, 0, -0.8617668, 0, 1.4653866, 10.251496, 6.8543005, -347.73254)
 
-[connection signal="card_slotted" from="CardSystem" to="SaveSystem" method="_on_card_system_card_slotted"]
 [connection signal="update_player_data" from="SaveSystem" to="CardSystem" method="_on_save_system_update_player_data"]
 
 [editable path="PictureTaker"]

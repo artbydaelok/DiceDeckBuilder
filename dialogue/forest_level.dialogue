@@ -27,6 +27,7 @@ else:
 	Forest Demon: We who call the forest our home do not allow such shapely creatures as you.
 	Forest Demon: These forests belong to me, and the creatures therein.
 Forest Demon: Turn back now, leave before you hurt someone else.
+do CameraZoneManager.release_active_zone()
 => END
 
 ~ mother_nature_1
