@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://core/vehicles/moving_platform.gd" id="1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_platform"]
+size = Vector3(4, 0.4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_surface"]
+size = Vector3(4, 0.4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_boarding"]
+size = Vector3(4, 1.2, 4)
+
+[node name="MovingPlatform" type="Node3D"]
+script = ExtResource("1")
+
+[node name="PlatformMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_platform")
+
+[node name="PlatformBody" type="StaticBody3D" parent="."]
+
+[node name="SurfaceCollision" type="CollisionShape3D" parent="PlatformBody"]
+shape = SubResource("BoxShape3D_surface")
+
+[node name="BoardingArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="BoardingCollision" type="CollisionShape3D" parent="BoardingArea"]
+position = Vector3(0, 0.8, 0)
+shape = SubResource("BoxShape3D_boarding")
