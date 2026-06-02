@@ -1,7 +1,7 @@
 extends Control
 ## Standalone main menu — no Maaacks / AppConfig dependency.
 
-@export_file("*.tscn") var game_scene_path: String = "res://levels/game_scene.tscn"
+@export_file("*.tscn") var game_scene_path: String = "res://cutscenes/opening_cutscene.tscn"
 
 @onready var crt_shader_layer: CanvasLayer = $CRTShaderLayer
 @onready var menu_layer: CanvasLayer = $MenuLayer

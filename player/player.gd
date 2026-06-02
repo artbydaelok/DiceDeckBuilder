@@ -46,6 +46,10 @@ signal roll_finished()
 
 var input_disabled : bool = false
 
+## Flip ability — granted by story event, not an item.
+var has_flip: bool = false
+const FLIP_ENERGY_COST := 1
+
 # Health — handled by HealthComponent child node
 @onready var health_component: HealthComponent = $HealthComponent
 
@@ -92,6 +96,7 @@ func _ready():
 		global_position = GameEvents.current_checkpoint_data.spawn_point + Vector3(0, 0, 2)
 		GameEvents.set_deferred("is_checkpoint_transfer", false)
 
+	has_flip = true
 
 func _on_cutscene_started(_input_disabled: bool):
 	if _input_disabled:
@@ -120,7 +125,7 @@ func _physics_process(delta):
 	handle_input()
 
 func handle_input():
-	#if input_disabled: 
+	#if input_disabled:
 		#return
 	var forward = Vector3.FORWARD
 	if Input.is_action_pressed("move_forward"):
@@ -131,6 +136,8 @@ func handle_input():
 		roll(forward.cross(Vector3.UP))
 	if Input.is_action_pressed("move_left"):
 		roll(-forward.cross(Vector3.UP))
+	if Input.is_action_just_pressed("flip") and has_flip:
+		_perform_flip()
 		
 	#if Input.is_key_pressed(KEY_SPACE):
 		#leap()
@@ -269,26 +276,12 @@ func roll(dir):
 	if not GameEvents.is_in_menu and not GameEvents.is_in_cutscene:
 		_enable_input.call_deferred()
 
-func detect_side_up():
-	for s in sides:
-		var s_pos = s.global_position
-		if s_pos.y == 2:
-			match s:
-				side_one:
-					up_side = SIDES_STATE.ONE
-				side_two:
-					up_side = SIDES_STATE.TWO
-				side_three:
-					up_side = SIDES_STATE.THREE
-				side_four:
-					up_side = SIDES_STATE.FOUR
-				side_five:
-					up_side = SIDES_STATE.FIVE
-				side_six:
-					up_side = SIDES_STATE.SIX
-			
-			# Send the signal to Game Events
-			GameEvents.emit_signal("dice_moved", up_side + 1)
+func detect_side_up() -> void:
+	# Read directly from DiceRoller's face tracking — discrete logic, no float comparison.
+	# faces["top"] is always correct after every roll and flip.
+	var top_face: int = dice_roller.faces["top"]  # 1–6
+	up_side = (top_face - 1) as SIDES_STATE       # ONE=0 … SIX=5
+	GameEvents.emit_signal("dice_moved", top_face)
 
 ## Public API — called by enemies, traps, pickups, etc.
 func heal_player(amount: float) -> void:
@@ -323,3 +316,40 @@ func begin_attack_commit(commit_time : float):
 
 func _on_commit_lock_timer_timeout() -> void:
 	commit_lock = false
+
+
+# ── Flip ability ──────────────────────────────────────────────────────────────
+
+func _perform_flip() -> void:
+	if rolling or commit_lock or health_component.is_dead or input_disabled:
+		return
+	if not energy_component.has_enough(FLIP_ENERGY_COST):
+		energy_component.insufficient.emit()
+		return
+
+	rolling = true
+	_disable_input()
+	energy_component.spend(FLIP_ENERGY_COST)
+
+	var origin_y := position.y
+
+	# Jump up
+	var t_up := create_tween()
+	t_up.tween_property(self, "position:y", origin_y + cube_size, 0.2) \
+		.set_ease(Tween.EASE_OUT)
+	await t_up.finished
+
+	# Spin the dice 180° at the peak
+	await dice_roller.flip()
+
+	# Land back down with a small bounce
+	var t_down := create_tween()
+	t_down.tween_property(self, "position:y", origin_y, 0.25) \
+		.set_ease(Tween.EASE_IN)
+	await t_down.finished
+
+	detect_side_up()
+	DiceState.update_after_roll(mesh.global_transform.basis, dice_roller.faces)
+
+	rolling = false
+	_enable_input()

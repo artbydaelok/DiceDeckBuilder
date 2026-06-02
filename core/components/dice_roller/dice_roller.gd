@@ -31,6 +31,7 @@ var faces: Dictionary = {
 }
 
 signal roll_completed
+signal flip_completed
 
 
 ## Animate a roll in the given direction and update face tracking.
@@ -57,6 +58,44 @@ func roll(dir: Vector3) -> void:
 	mesh.global_transform.basis = b
 
 	roll_completed.emit()
+
+
+## Rotate the dice 180° in place around its own center.
+## The jump arc is handled by the caller (player.gd) — this only does the spin.
+## Awaitable — caller resumes after the tween finishes.
+func flip() -> void:
+	# Move pivot up to dice center so the rotation happens around the die's midpoint,
+	# not around the ground. Mesh moves to compensate (stays in same world position).
+	pivot.position.y += cube_size / 2.0
+	mesh.position.y   -= cube_size / 2.0
+
+	# Spin 180° around the pivot's local right axis (top ↔ bottom, front ↔ back).
+	var target := pivot.transform.rotated_local(Vector3.RIGHT, PI)
+	var tween := create_tween()
+	tween.tween_property(pivot, "transform", target, 0.18) \
+		.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	await tween.finished
+
+	_flip_faces()
+
+	# Normalise — same pattern as roll().
+	var b := mesh.global_transform.basis
+	pivot.transform   = Transform3D.IDENTITY
+	pivot.position    = Vector3.ZERO
+	mesh.position     = Vector3(0, cube_size / 2.0, 0)
+	mesh.global_transform.basis = b
+
+	flip_completed.emit()
+
+
+func _flip_faces() -> void:
+	# 180° around right axis: top ↔ bottom, front ↔ back, left/right unchanged.
+	var temp: int = faces.top
+	faces.top    = faces.bottom
+	faces.bottom = temp
+	temp         = faces.front
+	faces.front  = faces.back
+	faces.back   = temp
 
 
 func _update_faces(dir: Vector3) -> void:

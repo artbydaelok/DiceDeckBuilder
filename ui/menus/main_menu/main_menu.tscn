@@ -1,12 +1,11 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b3p7cw5tvndgy"]
 
-[ext_resource type="Script" path="res://ui/menus/main_menu/main_menu.gd" id="1"]
-[ext_resource type="Script" path="res://ui/menus/main_menu/capture_focus.gd" id="4_l1ebe"]
+[ext_resource type="Script" uid="uid://bd7tmqu0d3eri" path="res://ui/menus/main_menu/main_menu.gd" id="1"]
+[ext_resource type="Script" uid="uid://bo2xy83rxkdka" path="res://ui/menus/main_menu/capture_focus.gd" id="4_l1ebe"]
 [ext_resource type="PackedScene" path="res://core/music_players/background_music_player.tscn" id="4_w8sbm"]
-[ext_resource type="AudioStream" uid="uid://cws5sjjt1mubu" path="res://assets/sounds/BUTTON_12.wav" id="5_xwi4j"]
 [ext_resource type="Shader" uid="uid://y12oskxwjill" path="res://vfx/shaders/main_menu_distorsion.gdshader" id="6_g46cd"]
-[ext_resource type="Script" path="res://ui/menus/main_menu/config_version_label.gd" id="6_pdiij"]
-[ext_resource type="Script" path="res://ui/menus/main_menu/config_name_label.gd" id="7_j7612"]
+[ext_resource type="Script" uid="uid://xfmtfpijsjg6" path="res://ui/menus/main_menu/config_version_label.gd" id="6_pdiij"]
+[ext_resource type="Script" uid="uid://c3nx0kopgi7n6" path="res://ui/menus/main_menu/config_name_label.gd" id="7_j7612"]
 [ext_resource type="Gradient" uid="uid://dlfl2sxnq6dqi" path="res://vfx/gradients/ramps/blue_ghost.tres" id="8_jhnug"]
 [ext_resource type="AudioStream" uid="uid://b1qvkmioipbfs" path="res://assets/music/guitar solos from space.wav" id="8_xwi4j"]
 [ext_resource type="Script" uid="uid://b6fj2wwwrohfi" path="res://levels/floating_mesh.gd" id="9_1lt1u"]
@@ -69,7 +68,7 @@ colors = PackedColorArray(0.28485027, 0.28485027, 0.28485027, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_jhnug")
 fill_to = Vector2(0, 1)
 
-[node name="MainMenu" type="Control" unique_id=186619597 node_paths=PackedStringArray("menu_layer")]
+[node name="MainMenu" type="Control" unique_id=186619597]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,7 +76,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
-game_scene_path = "res://levels/game_scene.tscn"
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=855203863 instance=ExtResource("4_w8sbm")]
 stream = ExtResource("8_xwi4j")
