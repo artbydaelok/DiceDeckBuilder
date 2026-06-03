@@ -4,6 +4,12 @@ signal dice_moved(number: int)
 signal cutscene_started(disable_input : bool)
 signal cutscene_ended
 
+## Emitted by Enemy when it dies. enemy_id identifies the type (see Enemy._resolve_enemy_id()).
+## QuestManager listens to this for kill-based quests.
+signal enemy_killed(enemy_id: String)
+## Emitted by CardSystem when a card is placed in a hand slot (card may be null when clearing).
+signal card_equipped(card: Card, slot: int)
+
 
 signal menu_entered
 signal menu_exited

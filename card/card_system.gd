@@ -125,7 +125,8 @@ func set_slot_to_item(slot: int, card: Card):
 		
 	card_slotted.emit(card, slot)
 	inventory_updated.emit()
-	
+	GameEvents.card_equipped.emit(card, slot)
+
 	update_save_file()
 
 func get_slot_from_item(item: Card) -> int:

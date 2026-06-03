@@ -94,7 +94,12 @@ func json_save():
 				"demo_completed"= player_data.demo_completed
 			},
 
-			"level_states": player_data.level_states
+			"level_states": player_data.level_states,
+
+			"quests": {
+				"quest_progress": player_data.quest_progress,
+				"kills_by_type": player_data.kills_by_type,
+			}
 		}
 
 	var json_string = JSON.stringify(data, "\t")
@@ -137,7 +142,12 @@ func make_empty_save():
 				"demo_completed"= fresh_player_data.demo_completed
 			},
 
-			"level_states": {}
+			"level_states": {},
+
+			"quests": {
+				"quest_progress": {},
+				"kills_by_type": {},
+			}
 		}
 
 	return fresh_save_data
@@ -169,6 +179,15 @@ func check_missing_keys(data_to_compare : Dictionary):
 	if not data_to_compare.has("level_states"):
 		print("level_states not in Save File. Adding it now.")
 		data_to_compare["level_states"] = {}
+
+	if not data_to_compare.has("quests"):
+		print("quests not in Save File. Adding it now.")
+		data_to_compare["quests"] = {"quest_progress": {}, "kills_by_type": {}}
+	else:
+		if not data_to_compare["quests"].has("quest_progress"):
+			data_to_compare["quests"]["quest_progress"] = {}
+		if not data_to_compare["quests"].has("kills_by_type"):
+			data_to_compare["quests"]["kills_by_type"] = {}
 
 	return data_to_compare
 
@@ -221,6 +240,8 @@ func json_load():
 		player_data.is_demo = loaded_data.demo.is_demo
 		player_data.demo_completed = loaded_data.demo.demo_completed
 		player_data.level_states = loaded_data.level_states
+		player_data.quest_progress = loaded_data.quests.quest_progress
+		player_data.kills_by_type = loaded_data.quests.kills_by_type
 
 		update_player_data.emit(player_data)
 

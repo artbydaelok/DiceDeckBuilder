@@ -97,6 +97,9 @@ SaveSystem="*uid://ewq4w7sq860i"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 CameraZoneManager="*uid://cofnlw0mnsruu"
 DiceState="*uid://dyw1h3ouyiipp"
+QuestDatabase="*res://core/quest_system/quest_database.gd"
+QuestTextParser="*res://core/quest_system/quest_text_parser.gd"
+QuestManager="*res://core/quest_system/quest_manager.gd"
 
 [dialogue_manager]
 
@@ -212,6 +215,12 @@ interact={
 flip={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+]
+}
+open_quest_log={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":106,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 

@@ -4,6 +4,10 @@ class_name Enemy
 @export var max_health: int = 1
 var current_health: int
 
+## Identifies this enemy's type for kill tracking / quests. If left blank,
+## it is auto-derived from the scene filename (see _resolve_enemy_id()).
+@export var enemy_id: String = ""
+
 signal died
 
 ## How fast the enemy will move per second or per player move. By default 2.0 is one "tile".
@@ -43,8 +47,18 @@ func on_died() -> void:
 func apply_damage(amount: int) -> void:
 	current_health -= amount
 	if current_health <= 0:
+		GameEvents.enemy_killed.emit(_resolve_enemy_id())
 		died.emit()
 		on_died()
+
+## Returns the type id used for kill tracking. Prefers the exported enemy_id,
+## then the scene filename (e.g. "frog_enemy"), then the node name.
+func _resolve_enemy_id() -> String:
+	if enemy_id != "":
+		return enemy_id
+	if scene_file_path != "":
+		return scene_file_path.get_file().get_basename()
+	return name.to_lower()
 
 func _physics_process(delta: float) -> void:
 	tick(delta)

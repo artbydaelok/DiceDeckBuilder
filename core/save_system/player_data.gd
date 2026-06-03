@@ -30,6 +30,17 @@ class_name PlayerData
 @export var level_states: Dictionary = {}
 #endregion
 
+#region Quests
+# Per-quest progress, keyed by quest id (see QuestDatabase).
+# Each value: { "progress": int, "completed": bool, "claimed": bool }
+# Quest *definitions* live in QuestDatabase and are never saved — only progress.
+@export var quest_progress: Dictionary = {}
+
+# Lifetime kills keyed by enemy id (see Enemy._resolve_enemy_id()).
+# e.g. { "frog_enemy": 3, "eyeball": 1 }
+@export var kills_by_type: Dictionary = {}
+#endregion
+
 #region Demo
 @export var is_demo : bool = true
 @export var demo_completed : bool
