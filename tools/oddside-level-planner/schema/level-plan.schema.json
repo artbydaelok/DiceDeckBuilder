@@ -1,0 +1,21 @@
+{
+  "title": "OddsideLevelPlan",
+  "type": "object",
+  "required": ["version", "level_name", "scene_path", "grid", "entities"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "level_name": { "type": "string", "minLength": 1 },
+    "scene_path": { "type": "string" },
+    "grid": {
+      "type": "object",
+      "required": ["width", "depth"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "depth": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "tiles": { "type": "array" },
+    "entities": { "type": "array" },
+    "map_data": { "type": "object" }
+  }
+}

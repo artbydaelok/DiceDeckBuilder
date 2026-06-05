@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" format=3]
+
+[ext_resource type="Script" path="res://card/card_data.gd" id="1_2ladv"]
+
+[resource]
+script = ExtResource("1_2ladv")
+card_name = "Clubs"
+face_value = "clubs"
+card_description = "The clubs suit."

@@ -21,6 +21,8 @@ func _ready() -> void:
 	QuestManager.quest_completed.connect(_on_quest_changed)
 	QuestManager.check_all()
 	_rebuild()
+	# Focus something so the log is navigable by keyboard/gamepad on open.
+	_back_button.grab_focus.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -48,6 +50,11 @@ func _rebuild() -> void:
 		var category: String = def.get("category", "main")
 		var list: VBoxContainer = _lists.get(category, _lists["main"])
 		list.add_child(_build_entry(quest_id, def))
+
+	# A rebuild (e.g. after claiming) frees the focused button; restore focus so
+	# keyboard/gamepad navigation isn't left dead.
+	if is_inside_tree() and get_viewport().gui_get_focus_owner() == null:
+		_back_button.grab_focus.call_deferred()
 
 
 func _build_entry(quest_id: String, def: Dictionary) -> Control:

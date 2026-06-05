@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Deck" format=3]
+
+[ext_resource type="Script" path="res://card/decks/deck.gd" id="1_4xg5d"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="2_pgpce"]
+[ext_resource type="Resource" path="res://card/color_hunt/gem_blue.tres" id="3_ljqo7"]
+[ext_resource type="Resource" path="res://card/color_hunt/gem_red.tres" id="4_h1o7y"]
+[ext_resource type="Resource" path="res://card/color_hunt/gem_green.tres" id="5_gl0ld"]
+
+[resource]
+script = ExtResource("1_4xg5d")
+deck_name = "Color Deck (3)"
+sides = Array[ExtResource("2_pgpce")]([ExtResource("3_ljqo7"), ExtResource("3_ljqo7"), ExtResource("4_h1o7y"), ExtResource("4_h1o7y"), ExtResource("5_gl0ld"), ExtResource("5_gl0ld")])

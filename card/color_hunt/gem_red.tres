@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://5tknsxey7rk6"]
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://5tknsxey7rk6"]
 
-[ext_resource type="Texture2D" uid="uid://chjo7ewu0ukbd" path="res://assets/card_artwork/RedColorIcon.png" id="1_x6up6"]
-[ext_resource type="Script" uid="uid://dd4juc1880sbt" path="res://card/card_data.gd" id="2_wjlbi"]
+[ext_resource type="Texture2D" path="res://assets/card_artwork/RedColorIcon.png" id="1_x6up6"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="2_wjlbi"]
 
 [resource]
 script = ExtResource("2_wjlbi")
 card_name = "Red Gem"
 ability_id = "gem_red"
+face_value = "red"
 card_description = "Red-colored gem."
 card_artwork = ExtResource("1_x6up6")
 metadata/_custom_type_script = "uid://dd4juc1880sbt"

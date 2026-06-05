@@ -33,6 +33,11 @@ func _ready() -> void:
 	_confirm_main_menu.confirmed.connect(_on_confirm_main_menu_confirmed)
 	_confirm_exit.confirmed.connect(_on_confirm_exit_confirmed)
 
+	# Grab focus on the first button so the menu is navigable by keyboard/gamepad.
+	# Without this, nothing is focused on open and the D-pad/stick does nothing.
+	if _menu_buttons.get_child_count() > 0:
+		(_menu_buttons.get_child(0) as Control).grab_focus.call_deferred()
+
 
 # ── Input ────────────────────────────────────────────────────────────────────
 

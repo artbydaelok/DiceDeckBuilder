@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Deck" format=3]
+
+[ext_resource type="Script" path="res://card/decks/deck.gd" id="1_egoe3"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="2_50qlw"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_up.tres" id="3_rtf51"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_down.tres" id="4_0s1cw"]
+
+[resource]
+script = ExtResource("1_egoe3")
+deck_name = "Directions (UD)"
+sides = Array[ExtResource("2_50qlw")]([ExtResource("3_rtf51"), ExtResource("3_rtf51"), ExtResource("3_rtf51"), ExtResource("4_0s1cw"), ExtResource("4_0s1cw"), ExtResource("4_0s1cw")])

@@ -11,6 +11,9 @@ enum TriggerType {
 @export var card_name : String = "Card Name"
 ## Ability fired when the player manually activates this card (ACTIVATE or BOTH).
 @export var ability_id : String = ""
+## Puzzle-semantic value for deck sides (e.g. "blue", "hearts", "up"). Empty for
+## normal ability cards. Read by puzzles via CardSystem.get_top_face_value().
+@export var face_value : String = ""
 ## Ability fired automatically when this face rolls to the top (ON_FACE_UP or BOTH).
 @export var passive_ability_id : String = ""
 @export_multiline var card_description : String = "This is where the card description goes."

@@ -1,0 +1,536 @@
+{
+  "generatedAt": "2026-06-05T08:13:49.183Z",
+  "gameRoot": "C:\\Users\\aaron\\Documents\\DiceDeckBuilder",
+  "tileWorldUnits": 2,
+  "palette": [
+    {
+      "kind": "player_start",
+      "label": "Player start",
+      "icon": "/icons/player_start.svg",
+      "container": "BaseLevel",
+      "placement": "point",
+      "scene": "res://level_mechanics/debug_player_start.tscn",
+      "defaultProps": {
+        "disabled": false
+      }
+    },
+    {
+      "kind": "enemy",
+      "label": "Enemy (pawn)",
+      "icon": "/icons/enemy.svg",
+      "container": "Enemies",
+      "placement": "point",
+      "pickSceneFrom": "enemies",
+      "defaultProps": {
+        "max_health": 2,
+        "move_speed": 2
+      }
+    },
+    {
+      "kind": "boss",
+      "label": "Boss",
+      "icon": "/icons/boss.svg",
+      "container": "Enemies",
+      "placement": "point",
+      "pickSceneFrom": "bosses",
+      "defaultProps": {
+        "max_health": 100
+      }
+    },
+    {
+      "kind": "deck_zone",
+      "label": "Deck zone",
+      "icon": "/icons/deck_zone.svg",
+      "container": "Gameplay",
+      "placement": "rectangle",
+      "scene": "res://level_mechanics/deck_zone.tscn",
+      "pickDeckFrom": "decks",
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {}
+    },
+    {
+      "kind": "breakable",
+      "label": "Breakable",
+      "icon": "/icons/breakable.svg",
+      "container": "Gameplay",
+      "placement": "rectangle",
+      "pickSceneFrom": "breakables",
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {
+        "health": 1
+      }
+    },
+    {
+      "kind": "static_body",
+      "label": "Static body (blocker)",
+      "icon": "/icons/static_body.svg",
+      "container": "Environment",
+      "placement": "rectangle",
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {
+        "block_player": true
+      }
+    },
+    {
+      "kind": "moving_platform",
+      "label": "Moving platform",
+      "icon": "/icons/moving_platform.svg",
+      "container": "Gameplay",
+      "placement": "path",
+      "scene": "res://core/vehicles/moving_platform.tscn",
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {
+        "travel_duration": 2,
+        "stop_duration": 1.5,
+        "ease_type": "Sine",
+        "autostart": true
+      }
+    },
+    {
+      "kind": "checkpoint",
+      "label": "Checkpoint",
+      "icon": "/icons/checkpoint.svg",
+      "container": "Gameplay",
+      "placement": "point",
+      "scene": "res://core/checkpoint_system/checkpoint.tscn",
+      "pickCheckpointFrom": "checkpoints",
+      "defaultProps": {}
+    },
+    {
+      "kind": "camera",
+      "label": "Phantom camera",
+      "icon": "/icons/camera.svg",
+      "container": "BaseLevel/Cameras",
+      "placement": "point",
+      "scene": "res://core/cameras/basic_phantom_camera.tscn",
+      "defaultProps": {
+        "rotation_y_deg": 0,
+        "follow_mode": 2,
+        "look_at_mode": 0,
+        "priority": 10
+      }
+    },
+    {
+      "kind": "camera_zone",
+      "label": "Camera zone",
+      "icon": "/icons/camera_zone.svg",
+      "container": "BaseLevel/Cameras",
+      "placement": "rectangle",
+      "scene": "res://level_mechanics/camera_angle_change/camera_zone.tscn",
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {
+        "is_default": false
+      }
+    },
+    {
+      "kind": "dialogue_zone",
+      "label": "Dialogue zone",
+      "icon": "/icons/dialogue_zone.svg",
+      "container": "Gameplay",
+      "placement": "rectangle",
+      "scene": "res://core/components/cutscene/dialogue_trigger_area.tscn",
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {
+        "title_to_play": "start",
+        "one_shot": false
+      }
+    },
+    {
+      "kind": "custom",
+      "label": "Custom element",
+      "icon": "/icons/custom.svg",
+      "container": "Gameplay",
+      "placement": "point",
+      "defaultProps": {
+        "label": "Custom",
+        "notes": ""
+      }
+    },
+    {
+      "kind": "editor_region",
+      "label": "Editor region (not exported)",
+      "icon": "/icons/editor_region.svg",
+      "container": "—",
+      "placement": "rectangle",
+      "editorOnly": true,
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {
+        "label": "Section",
+        "color": "#6c5ce7",
+        "notes": ""
+      }
+    },
+    {
+      "kind": "item_pickup",
+      "label": "Item pickup",
+      "icon": "/icons/item_pickup.svg",
+      "container": "Gameplay",
+      "placement": "point",
+      "scene": "res://level_mechanics/item_pickup.tscn",
+      "defaultProps": {
+        "item_data": ""
+      }
+    },
+    {
+      "kind": "coin_pickup",
+      "label": "Coin pickup",
+      "icon": "/icons/coin.svg",
+      "container": "Gameplay",
+      "placement": "point",
+      "scene": "res://level_mechanics/coin_pickup.tscn",
+      "defaultProps": {}
+    },
+    {
+      "kind": "water_block",
+      "label": "Water block",
+      "icon": "/icons/water.svg",
+      "container": "Environment",
+      "placement": "rectangle",
+      "scene": "res://level_mechanics/water_block.tscn",
+      "defaultSize": {
+        "width": 1,
+        "depth": 1
+      },
+      "defaultProps": {}
+    }
+  ],
+  "enemies": [
+    {
+      "id": "eyeball",
+      "label": "eyeball",
+      "scene": "res://enemy/enemy_pawns/eyeball/eyeball.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/eyeball.svg"
+    },
+    {
+      "id": "flying_imp",
+      "label": "flying imp",
+      "scene": "res://enemy/enemy_pawns/flying_imp/flying_imp.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/flying_imp.svg"
+    },
+    {
+      "id": "frog",
+      "label": "frog",
+      "scene": "res://enemy/enemy_pawns/frog/frog_enemy.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/frog.svg"
+    },
+    {
+      "id": "shooting_goon",
+      "label": "shooting goon",
+      "scene": "res://enemy/enemy_pawns/shooting_goon/shooting_goon.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/shooting_goon.svg"
+    }
+  ],
+  "bosses": [
+    {
+      "id": "bear",
+      "label": "Boss: bear",
+      "scene": "res://enemy/boss/bear/bear_boss.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/bear.svg"
+    },
+    {
+      "id": "fire_demon",
+      "label": "Boss: fire_demon",
+      "scene": "res://enemy/boss/fire_demon/fire_demon_boss.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/fire_demon.svg"
+    },
+    {
+      "id": "forest_demon",
+      "label": "Boss: forest_demon",
+      "scene": "res://enemy/boss/forest_demon/forest_demon.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/forest_demon.svg"
+    },
+    {
+      "id": "jim_and_jam",
+      "label": "Boss: jim_and_jam",
+      "scene": "res://enemy/boss/jim_and_jam/anvil_projectile.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/jim_and_jam.svg"
+    },
+    {
+      "id": "salt_and_pepper",
+      "label": "Boss: salt_and_pepper",
+      "scene": "res://enemy/boss/salt_and_pepper/barrel_spawner.tscn",
+      "container": "Enemies",
+      "icon": "/icons/enemies/salt_and_pepper.svg"
+    }
+  ],
+  "decks": [
+    {
+      "id": "color_deck_2",
+      "label": "color_deck_2.tres",
+      "path": "res://card/decks/color_deck_2.tres"
+    },
+    {
+      "id": "color_deck_3",
+      "label": "color_deck_3.tres",
+      "path": "res://card/decks/color_deck_3.tres"
+    },
+    {
+      "id": "color_deck_6",
+      "label": "color_deck_6.tres",
+      "path": "res://card/decks/color_deck_6.tres"
+    },
+    {
+      "id": "directions_deck_6",
+      "label": "directions_deck_6.tres",
+      "path": "res://card/decks/directions_deck_6.tres"
+    },
+    {
+      "id": "directions_deck_lr",
+      "label": "directions_deck_lr.tres",
+      "path": "res://card/decks/directions_deck_lr.tres"
+    },
+    {
+      "id": "directions_deck_ud",
+      "label": "directions_deck_ud.tres",
+      "path": "res://card/decks/directions_deck_ud.tres"
+    },
+    {
+      "id": "poker_deck",
+      "label": "poker_deck.tres",
+      "path": "res://card/decks/poker_deck.tres"
+    }
+  ],
+  "breakables": [
+    {
+      "id": "log",
+      "label": "Breakable log",
+      "scene": "res://level_mechanics/breakable_log.tscn",
+      "container": "Gameplay",
+      "defaultHealth": 1
+    },
+    {
+      "id": "component",
+      "label": "Breakable (component scene)",
+      "scene": "res://level_mechanics/breakable_component.tscn",
+      "container": "Gameplay",
+      "defaultHealth": 1
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "daelok_chk1",
+      "label": "Chk 1",
+      "path": "res://core/checkpoint_system/checkpoints/daelok_chk1.tres",
+      "checkpoint_name": "Chk 1"
+    },
+    {
+      "id": "daelok_chk2",
+      "label": "Chk 2",
+      "path": "res://core/checkpoint_system/checkpoints/daelok_chk2.tres",
+      "checkpoint_name": "Chk 2"
+    },
+    {
+      "id": "daelok_chk3",
+      "label": "Chk3 - Next to Frog",
+      "path": "res://core/checkpoint_system/checkpoints/daelok_chk3.tres",
+      "checkpoint_name": "Chk3 - Next to Frog"
+    },
+    {
+      "id": "forest_bearcave",
+      "label": "Beyond Bear Cave",
+      "path": "res://core/checkpoint_system/checkpoints/forest_bearcave.tres",
+      "checkpoint_name": "Beyond Bear Cave"
+    },
+    {
+      "id": "forest_first_encounter",
+      "label": "First Encounter",
+      "path": "res://core/checkpoint_system/checkpoints/forest_first_encounter.tres",
+      "checkpoint_name": "First Encounter"
+    },
+    {
+      "id": "forest_orus_trade",
+      "label": "Oru's Trade",
+      "path": "res://core/checkpoint_system/checkpoints/forest_orus_trade.tres",
+      "checkpoint_name": "Oru's Trade"
+    },
+    {
+      "id": "forest_two_frogs",
+      "label": "Between Two Frogs",
+      "path": "res://core/checkpoint_system/checkpoints/forest_two_frogs.tres",
+      "checkpoint_name": "Between Two Frogs"
+    },
+    {
+      "id": "gaus_roth_test_one",
+      "label": "gaus_roth_test_one",
+      "path": "res://core/checkpoint_system/checkpoints/gaus_roth_test_one.tres",
+      "checkpoint_name": "gaus_roth_test_one"
+    },
+    {
+      "id": "gaus_roth_test_two",
+      "label": "gaus_roth_test_two",
+      "path": "res://core/checkpoint_system/checkpoints/gaus_roth_test_two.tres",
+      "checkpoint_name": "gaus_roth_test_two"
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "example",
+      "label": "example.dialogue",
+      "path": "res://dialogue/example.dialogue"
+    },
+    {
+      "id": "forest_level",
+      "label": "forest_level.dialogue",
+      "path": "res://dialogue/forest_level.dialogue"
+    },
+    {
+      "id": "hell_level_intro",
+      "label": "hell_level_intro.dialogue",
+      "path": "res://dialogue/hell_level_intro.dialogue"
+    },
+    {
+      "id": "hub_level",
+      "label": "hub_level.dialogue",
+      "path": "res://dialogue/hub_level.dialogue"
+    },
+    {
+      "id": "opening_custcene",
+      "label": "opening_custcene.dialogue",
+      "path": "res://dialogue/opening_custcene.dialogue"
+    }
+  ],
+  "phantomFollowModes": [
+    {
+      "value": 0,
+      "label": "NONE"
+    },
+    {
+      "value": 1,
+      "label": "GLUED"
+    },
+    {
+      "value": 2,
+      "label": "SIMPLE"
+    },
+    {
+      "value": 3,
+      "label": "GROUP"
+    },
+    {
+      "value": 4,
+      "label": "PATH"
+    },
+    {
+      "value": 5,
+      "label": "FRAMED"
+    },
+    {
+      "value": 6,
+      "label": "THIRD_PERSON"
+    }
+  ],
+  "phantomLookAtModes": [
+    {
+      "value": 0,
+      "label": "NONE"
+    },
+    {
+      "value": 1,
+      "label": "MIMIC"
+    },
+    {
+      "value": 2,
+      "label": "SIMPLE"
+    },
+    {
+      "value": 3,
+      "label": "GROUP"
+    }
+  ],
+  "gridMoverPresets": [
+    {
+      "id": "none",
+      "label": "No pattern (manual / default scene)",
+      "config": {
+        "pattern": [],
+        "autostart": false
+      }
+    },
+    {
+      "id": "patrol_back_3",
+      "label": "Patrol 3 back",
+      "config": {
+        "pattern": [
+          "BACK",
+          "BACK",
+          "BACK"
+        ],
+        "interval_time": 0.75,
+        "autostart": true
+      }
+    },
+    {
+      "id": "square",
+      "label": "Square loop",
+      "config": {
+        "pattern": [
+          "BACK",
+          "RIGHT",
+          "FORWARD",
+          "LEFT"
+        ],
+        "interval_time": 0.75,
+        "autostart": true
+      }
+    },
+    {
+      "id": "ping_pong",
+      "label": "Ping-pong line",
+      "config": {
+        "pattern": [
+          "BACK",
+          "BACK",
+          "BACK"
+        ],
+        "ping_pong_pattern": true,
+        "interval_time": 0.75,
+        "autostart": true
+      }
+    },
+    {
+      "id": "chase",
+      "label": "Chase player",
+      "config": {
+        "pattern": [],
+        "chase_player": true,
+        "interval_time": 0.75,
+        "autostart": true
+      }
+    }
+  ],
+  "tileTypes": [
+    "floor",
+    "water",
+    "pit",
+    "deck_floor"
+  ]
+}

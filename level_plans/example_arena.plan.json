@@ -1,0 +1,92 @@
+{
+  "version": 2,
+  "level_name": "Example Arena",
+  "scene_path": "res://levels/example_arena/example_arena.tscn",
+  "grid": { "width": 14, "depth": 12 },
+  "tiles": [
+    { "x": 4, "z": 4, "type": "water" },
+    { "x": 5, "z": 4, "type": "water" }
+  ],
+  "entities": [
+    {
+      "id": "ent_demo01",
+      "kind": "player_start",
+      "x": 2,
+      "z": 2,
+      "size": { "width": 1, "depth": 1 },
+      "scene": "res://level_mechanics/debug_player_start.tscn",
+      "props": { "disabled": false }
+    },
+    {
+      "id": "ent_region01",
+      "kind": "editor_region",
+      "x": 0,
+      "z": 0,
+      "size": { "width": 6, "depth": 5 },
+      "editor_only": true,
+      "props": { "label": "Intro", "color": "#6c5ce7", "notes": "Tutorial beats" }
+    },
+    {
+      "id": "ent_demo02",
+      "kind": "enemy",
+      "x": 8,
+      "z": 6,
+      "size": { "width": 1, "depth": 1 },
+      "scene": "res://enemy/enemy_pawns/frog/frog_enemy.tscn",
+      "props": { "max_health": 2, "move_speed": 2 },
+      "grid_mover": {
+        "pattern": ["BACK", "BACK", "BACK"],
+        "ping_pong_pattern": true,
+        "interval_time": 0.75,
+        "autostart": true
+      }
+    },
+    {
+      "id": "ent_demo03",
+      "kind": "deck_zone",
+      "x": 6,
+      "z": 2,
+      "size": { "width": 2, "depth": 2 },
+      "scene": "res://level_mechanics/deck_zone.tscn",
+      "props": { "deck": "res://card/decks/color_deck_6.tres" }
+    },
+    {
+      "id": "ent_wall01",
+      "kind": "static_body",
+      "x": 10,
+      "z": 0,
+      "size": { "width": 2, "depth": 8 },
+      "props": { "block_player": true, "note": "East wall" }
+    },
+    {
+      "id": "ent_plat01",
+      "kind": "moving_platform",
+      "x": 4,
+      "z": 8,
+      "size": { "width": 2, "depth": 2 },
+      "scene": "res://core/vehicles/moving_platform.tscn",
+      "path": [
+        { "x": 4, "z": 8 },
+        { "x": 4, "z": 11 }
+      ],
+      "props": {
+        "travel_duration": 2,
+        "stop_duration": 1.5,
+        "ease_type": "Sine",
+        "autostart": true
+      }
+    },
+    {
+      "id": "ent_log01",
+      "kind": "breakable",
+      "x": 3,
+      "z": 5,
+      "size": { "width": 1, "depth": 1 },
+      "scene": "res://level_mechanics/breakable_log.tscn",
+      "props": { "object_id": "log_01", "health": 1 }
+    }
+  ],
+  "map_data": {
+    "dimensions": [28, 24]
+  }
+}

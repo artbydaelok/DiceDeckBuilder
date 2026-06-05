@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Deck" format=3]
+
+[ext_resource type="Script" path="res://card/decks/deck.gd" id="1_s50jt"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="2_6bm8n"]
+[ext_resource type="Resource" path="res://card/decks/poker/hearts.tres" id="3_o5ony"]
+[ext_resource type="Resource" path="res://card/decks/poker/diamonds.tres" id="4_3gdkx"]
+[ext_resource type="Resource" path="res://card/decks/poker/clubs.tres" id="5_nrw0t"]
+[ext_resource type="Resource" path="res://card/decks/poker/spades.tres" id="6_af0jd"]
+[ext_resource type="Resource" path="res://card/decks/poker/joker_red.tres" id="7_a2yf0"]
+[ext_resource type="Resource" path="res://card/decks/poker/joker_black.tres" id="8_xlqow"]
+
+[resource]
+script = ExtResource("1_s50jt")
+deck_name = "Poker Deck"
+sides = Array[ExtResource("2_6bm8n")]([ExtResource("3_o5ony"), ExtResource("4_3gdkx"), ExtResource("5_nrw0t"), ExtResource("6_af0jd"), ExtResource("7_a2yf0"), ExtResource("8_xlqow")])

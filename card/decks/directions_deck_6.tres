@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Deck" format=3]
+
+[ext_resource type="Script" path="res://card/decks/deck.gd" id="1_8t252"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="2_3wub7"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_forward.tres" id="3_5uta2"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_back.tres" id="4_lqlph"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_left.tres" id="5_f8ewh"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_right.tres" id="6_aaqey"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_up.tres" id="7_bsneh"]
+[ext_resource type="Resource" path="res://card/decks/directions/dir_down.tres" id="8_xq1vi"]
+
+[resource]
+script = ExtResource("1_8t252")
+deck_name = "Directions (6)"
+sides = Array[ExtResource("2_3wub7")]([ExtResource("3_5uta2"), ExtResource("4_lqlph"), ExtResource("5_f8ewh"), ExtResource("6_aaqey"), ExtResource("7_bsneh"), ExtResource("8_xq1vi")])

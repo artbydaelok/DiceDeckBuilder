@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Deck" format=3]
+
+[ext_resource type="Script" path="res://card/decks/deck.gd" id="1_1phyn"]
+[ext_resource type="Script" path="res://card/card_data.gd" id="2_4xucb"]
+[ext_resource type="Resource" path="res://card/color_hunt/gem_blue.tres" id="3_fw2cj"]
+[ext_resource type="Resource" path="res://card/color_hunt/gem_red.tres" id="4_wi67l"]
+
+[resource]
+script = ExtResource("1_1phyn")
+deck_name = "Color Deck (2)"
+sides = Array[ExtResource("2_4xucb")]([ExtResource("3_fw2cj"), ExtResource("3_fw2cj"), ExtResource("3_fw2cj"), ExtResource("4_wi67l"), ExtResource("4_wi67l"), ExtResource("4_wi67l")])

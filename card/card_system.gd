@@ -25,9 +25,19 @@ signal item_obtained(card: Card)
 # This is just for the Ability Sides Display UI element
 signal inventory_updated
 
+## Emitted while a puzzle Deck is active — fires after every roll with the new
+## top face's value (see get_top_face_value). Puzzle scripts connect to this.
+signal deck_top_changed(value: String)
+
 @export var shuffle_deck_mode : bool = false
 
-var held_hand : Array[Card] = []
+# ── Deck mode (temporary puzzle loadouts) ──
+## True while a Deck has replaced the player's faces. While active, the live hand
+## is decoupled from the save so nothing the deck does persists.
+var deck_mode_active : bool = false
+var _active_deck : Deck = null
+## The player's real hand, stashed in memory while a deck is equipped.
+var _stored_hand : Array[Card] = []
 
 const EMPTY_CARD = preload("uid://csjbw5er3lqoq")
 
@@ -58,15 +68,6 @@ const CARD_ABILITIES_RESOURCES = {
 	"lantern" : preload("uid://m6x4ffngkvk4")
 }
 
-const COLOR_CARDS = [
-	preload("uid://c7ffy6x5xuo0g"), # BLUE
-	preload("uid://u5x4au7pxbto"), # GREEN
-	preload("uid://o4dmv07j8qu2"), # PINK
-	preload("uid://5tknsxey7rk6"), # RED
-	preload("uid://b1d1pyfoo5cm6"), # WHITE
-	preload("uid://cgiirlpt7ksns") # YELLOW
-]
-
 const CARD_DISPLAY = preload("res://card/card_display.tscn")
 
 func _ready() -> void:
@@ -90,8 +91,14 @@ func load_hand():
 			player.update_side_icon(i + 1, card.card_artwork)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("use_ability") and not player.rolling:
+	if player.rolling:
+		return
+	if Input.is_action_just_pressed("use_ability"):
 		play_ability()
+	elif Input.is_action_just_pressed("use_left_side"):
+		play_ability_for_side("left")
+	elif Input.is_action_just_pressed("use_right_side"):
+		play_ability_for_side("right")
 		
 func draw_card(index: int):
 	# If deck is empty, shuffle the discard pile into the deck.
@@ -135,6 +142,16 @@ func get_slot_from_item(item: Card) -> int:
 	return result
 
 func obtain_new_item(item: Card):
+	# During a puzzle deck, route pickups into the real (preserved) hand/inventory
+	# so they aren't lost and never appear on the puzzle faces.
+	if deck_mode_active:
+		for i in range(_stored_hand.size()):
+			if _stored_hand[i] == null:
+				_stored_hand[i] = item
+				return
+		deck.append(item)
+		return
+
 	item_obtained.emit(item)
 
 	# Prefer the current top face if it's empty.
@@ -157,10 +174,17 @@ func obtain_new_item(item: Card):
 	deck.append(item)
 	
 
+## Fires the top face's manually-activatable ability (the main action button).
 func play_ability() -> void:
+	play_ability_for_slot(player.up_side)
+
+## Fires the manually-activatable ability in a specific hand slot (0–5).
+## Shared by the top-face button and the side-face shoulder buttons.
+func play_ability_for_slot(slot: int) -> void:
+	if deck_mode_active: return  # deck sides are puzzle inputs, not abilities
 	if player.input_disabled: return
 	if system_disabled: return
-	var slot: int = player.up_side
+	if slot < 0 or slot >= hand.size(): return
 	if hand[slot] == null: return
 	var item: Card = hand[slot]
 	# Only ACTIVATE and BOTH cards respond to manual button press.
@@ -172,8 +196,19 @@ func play_ability() -> void:
 	energy_component.spend(item.cost)
 	_fire_ability(slot, item.ability_id, true)
 
+## Fires the ability on a named dice face — "left", "right", "front", "back",
+## "top", or "bottom" — by resolving the face to its hand slot. Used by the
+## shoulder buttons to activate side faces without rolling them to the top.
+func play_ability_for_side(side_key: String) -> void:
+	var face_num: int = int(player.faces.get(side_key, 0))  # 1–6, 0 = unknown
+	if face_num <= 0: return
+	play_ability_for_slot(face_num - 1)
+
 
 func _on_roll_finished() -> void:
+	if deck_mode_active:
+		deck_top_changed.emit(get_top_face_value())
+		return
 	var slot: int = player.up_side
 	if hand[slot] == null: return
 	var item: Card = hand[slot]
@@ -241,17 +276,61 @@ func shuffle_discard_into_deck():
 	shuffle_deck()
 	discard_pile = []
 
-func replace_hand(new_hand: Array[Card]):
-	hold_hand()
-	for i in range(6):
-		set_slot_to_item(i, new_hand[i])
+# ── Deck mode API ──────────────────────────────────────────────────────────────
 
-func hold_hand() -> Array[Card]:
-	held_hand = hand
-	return held_hand
-	
-func start_color_mode():
-	replace_hand(COLOR_CARDS)
+## Swap the player's six faces for a temporary puzzle Deck. The real hand is
+## stashed in memory and the save is decoupled, so nothing the deck does persists.
+## Call clear_deck() to restore. Safe to call again to swap deck-for-deck.
+func equip_deck(deck_resource: Deck) -> void:
+	if deck_resource == null or deck_resource.sides.size() < 6:
+		push_warning("equip_deck: deck is null or has fewer than 6 sides")
+		return
+
+	# Only stash the real hand the first time (re-equipping swaps deck-for-deck).
+	if not deck_mode_active:
+		_stored_hand = hand.duplicate()
+		# Point the save at the preserved real hand so a mid-puzzle save (e.g. a
+		# coin pickup) can never serialise the puzzle deck.
+		SaveSystem.player_data.equipped_cards = _stored_hand
+
+	deck_mode_active = true
+	_active_deck = deck_resource
+	# Give the live hand its OWN array of the deck's sides (never mutate the resource).
+	hand = deck_resource.sides.duplicate()
+	_apply_face_icons()
+	deck_top_changed.emit(get_top_face_value())
+
+## Restore the player's real hand and leave deck mode.
+func clear_deck() -> void:
+	if not deck_mode_active:
+		return
+	deck_mode_active = false
+	_active_deck = null
+	hand = _stored_hand
+	SaveSystem.player_data.equipped_cards = hand
+	_stored_hand = []
+	_apply_face_icons()
+
+## The puzzle-meaning of the current top face ("blue", "hearts", "up", …).
+## Falls back to the card's ability_id, then "" for an empty/unknown face.
+func get_top_face_value() -> String:
+	var slot: int = player.up_side
+	if slot < 0 or slot >= hand.size() or hand[slot] == null:
+		return ""
+	var card: Card = hand[slot]
+	return card.face_value if card.face_value != "" else card.ability_id
+
+## Repaints the six dice-face sprites from the current hand. Save-free and
+## signal-free (does NOT go through set_slot_to_item), so deck swaps never persist
+## or fire card_equipped / quest progress.
+func _apply_face_icons() -> void:
+	for i in range(6):
+		var card: Card = hand[i] if i < hand.size() else null
+		if card == null:
+			player.update_side_icon(i + 1, EMPTY_CARD.card_artwork)
+		else:
+			player.update_side_icon(i + 1, card.card_artwork)
+	inventory_updated.emit()
 
 func clear_inventory():
 	for i in range(hand.size()):
@@ -261,6 +340,8 @@ func clear_inventory():
 	update_save_file()
 
 func update_save_file():
+	if deck_mode_active:
+		return  # never persist a temporary puzzle deck
 	_save_system_save_player_data()
 	
 #IDEA Gem Matching Levels 
