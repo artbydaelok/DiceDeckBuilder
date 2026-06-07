@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Created if Godot scans this folder before tools/.gdignore exists
+*.import
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
