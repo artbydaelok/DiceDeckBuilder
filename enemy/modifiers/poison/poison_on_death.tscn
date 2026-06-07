@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://enemy/modifiers/poison/poison_on_death.gd" id="1"]
+
+[node name="PoisonOnDeath" type="Node"]
+script = ExtResource("1")

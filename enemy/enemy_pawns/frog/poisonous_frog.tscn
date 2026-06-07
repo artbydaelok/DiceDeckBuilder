@@ -1,0 +1,8 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://enemy/enemy_pawns/frog/frog_enemy.tscn" id="1"]
+[ext_resource type="Script" path="res://enemy/modifiers/enemy_modifier.gd" id="2"]
+[ext_resource type="Resource" path="res://enemy/modifiers/poison.tres" id="3"]
+
+[node name="PoisonousFrog" instance=ExtResource("1")]
+modifiers = Array[ExtResource("2")]([ExtResource("3")])

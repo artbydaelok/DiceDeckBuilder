@@ -13,16 +13,8 @@ size = Vector3(0.2, 0.2, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lopeh"]
 size = Vector3(1.3052979, 1.1622009, 0.119140625)
 
-[node name="AxeProjectile" type="RigidBody3D" unique_id=1030801190]
-collision_layer = 0
-collision_mask = 0
+[node name="AxeProjectile" type="Node3D"]
 script = ExtResource("1_lfw1k")
-
-[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=135644770]
-unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.129959e-09, 0.11998868, -0.07347855)
-shape = SubResource("BoxShape3D_saxv3")
-disabled = true
 
 [node name="SelfDestroyTimer" parent="." unique_id=129492139 instance=ExtResource("3_fw626")]
 duration = 5.0

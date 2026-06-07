@@ -24,5 +24,22 @@ enum TriggerType {
 @export var cost : int = 0
 ## How long the player commits after activating. Applies to manual activation only.
 @export var commit_value : float = 0.1
+
+#region Secondary input (alternate use)
+## Ability fired by the SECONDARY input (RMB / controller B). Empty = this item has
+## only one input. Resolved through CardSystem.CARD_ABILITIES_SCENES like ability_id.
+@export var secondary_ability_id : String = ""
+## Tooltip text for the secondary use. Menus show this alongside card_description.
+@export_multiline var secondary_description : String = ""
+## Energy cost of the secondary use.
+@export var secondary_cost : int = 0
+## Commit time of the secondary use.
+@export var secondary_commit_value : float = 0.1
+
+## If true, this input charges while held and fires on release; the held time (in
+## seconds) is passed to the ability as `charge`. False = fires instantly on press.
+@export var chargeable : bool = false
+@export var secondary_chargeable : bool = false
+#endregion
 ## How much this card is sold for.
 @export var value : int = 0

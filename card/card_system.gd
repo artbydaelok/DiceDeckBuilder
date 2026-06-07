@@ -39,6 +39,19 @@ var _active_deck : Deck = null
 ## The player's real hand, stashed in memory while a deck is equipped.
 var _stored_hand : Array[Card] = []
 
+# ── Charge (hold-to-charge inputs) ──
+## Emitted while a chargeable input is held — for UI such as a charge bar.
+signal charge_started(secondary: bool)
+signal charge_changed(seconds: float)
+signal charge_ended
+## Max seconds of charge tracked (safety cap).
+const MAX_CHARGE_TIME := 1.5
+var _charging : bool = false
+var _charge_secondary : bool = false
+var _charge_time : float = 0.0
+## The ability spawned on press (held), loosed on release.
+var _charging_instance : Node = null
+
 const EMPTY_CARD = preload("uid://csjbw5er3lqoq")
 
 # Match the Ability ID.
@@ -91,13 +104,40 @@ func load_hand():
 			player.update_side_icon(i + 1, card.card_artwork)
 
 func _process(delta: float) -> void:
-	if player.rolling:
+	if player.rolling or player.input_disabled or deck_mode_active:
+		_cancel_charge()
 		return
+
+	# Accumulate charge while a chargeable input is held.
+	if _charging:
+		_charge_time = min(_charge_time + delta, MAX_CHARGE_TIME)
+		charge_changed.emit(_charge_time)
+		# Drive the held ability's charge visual (e.g. the bow draw) from the charge.
+		if is_instance_valid(_charging_instance) and _charging_instance.has_method("set_charge_progress"):
+			_charging_instance.set_charge_progress(_charge_time)
+
+	# Primary (top face): charge on hold if chargeable, else fire on press.
 	if Input.is_action_just_pressed("use_ability"):
-		play_ability()
-	elif Input.is_action_just_pressed("use_left_side"):
+		if _input_is_chargeable(false):
+			_begin_charge(false)
+		else:
+			play_ability()
+	elif Input.is_action_just_released("use_ability") and _charging and not _charge_secondary:
+		_fire_charged()
+
+	# Secondary (top face).
+	if Input.is_action_just_pressed("use_ability_secondary"):
+		if _input_is_chargeable(true):
+			_begin_charge(true)
+		else:
+			play_ability_secondary()
+	elif Input.is_action_just_released("use_ability_secondary") and _charging and _charge_secondary:
+		_fire_charged()
+
+	# Side faces always fire instantly (shoulder buttons).
+	if Input.is_action_just_pressed("use_left_side"):
 		play_ability_for_side("left")
-	elif Input.is_action_just_pressed("use_right_side"):
+	if Input.is_action_just_pressed("use_right_side"):
 		play_ability_for_side("right")
 		
 func draw_card(index: int):
@@ -174,27 +214,42 @@ func obtain_new_item(item: Card):
 	deck.append(item)
 	
 
-## Fires the top face's manually-activatable ability (the main action button).
+## Fires the top face's PRIMARY ability (main action button — LMB / A).
 func play_ability() -> void:
-	play_ability_for_slot(player.up_side)
+	play_ability_for_slot(player.up_side, false)
 
-## Fires the manually-activatable ability in a specific hand slot (0–5).
-## Shared by the top-face button and the side-face shoulder buttons.
-func play_ability_for_slot(slot: int) -> void:
+## Fires the top face's SECONDARY ability (secondary button — RMB / B).
+func play_ability_secondary() -> void:
+	play_ability_for_slot(player.up_side, true)
+
+## Fires a manually-activatable ability in a specific hand slot (0–5).
+## secondary=false uses the card's primary ability_id; secondary=true uses its
+## secondary_ability_id. Shared by the action button, the secondary button, and
+## the side-face shoulder buttons (which fire the primary).
+func play_ability_for_slot(slot: int, secondary: bool = false, charge: float = 0.0) -> void:
 	if deck_mode_active: return  # deck sides are puzzle inputs, not abilities
 	if player.input_disabled: return
 	if system_disabled: return
 	if slot < 0 or slot >= hand.size(): return
 	if hand[slot] == null: return
 	var item: Card = hand[slot]
-	# Only ACTIVATE and BOTH cards respond to manual button press.
-	if item.trigger_type == Card.TriggerType.ON_FACE_UP: return
-	if item.trigger_type == Card.TriggerType.LINKED: return
-	if not energy_component.has_enough(item.cost):
+
+	var ability_id: String = item.secondary_ability_id if secondary else item.ability_id
+	if ability_id.is_empty():
+		return  # no secondary defined (or empty primary)
+
+	if not secondary:
+		# Primary press: only ACTIVATE and BOTH cards respond.
+		if item.trigger_type == Card.TriggerType.ON_FACE_UP: return
+		if item.trigger_type == Card.TriggerType.LINKED: return
+
+	var ability_cost: int = item.secondary_cost if secondary else item.cost
+	var commit: float = item.secondary_commit_value if secondary else item.commit_value
+	if not energy_component.has_enough(ability_cost):
 		energy_component.insufficient.emit()
 		return
-	energy_component.spend(item.cost)
-	_fire_ability(slot, item.ability_id, true)
+	energy_component.spend(ability_cost)
+	_fire_ability(slot, ability_id, true, commit, secondary, charge)
 
 ## Fires the ability on a named dice face — "left", "right", "front", "back",
 ## "top", or "bottom" — by resolving the face to its hand slot. Used by the
@@ -203,6 +258,98 @@ func play_ability_for_side(side_key: String) -> void:
 	var face_num: int = int(player.faces.get(side_key, 0))  # 1–6, 0 = unknown
 	if face_num <= 0: return
 	play_ability_for_slot(face_num - 1)
+
+
+# ── Charge helpers ────────────────────────────────────────────────────────────
+
+## True if the top card's chosen input charges on hold instead of firing on press.
+func _input_is_chargeable(secondary: bool) -> bool:
+	var slot: int = player.up_side
+	if slot < 0 or slot >= hand.size() or hand[slot] == null:
+		return false
+	var item: Card = hand[slot]
+	return item.secondary_chargeable if secondary else item.chargeable
+
+## Press: spawn the ability now, in a held/charging state. It loosens on release.
+func _begin_charge(secondary: bool) -> void:
+	if _charging:
+		return
+	var slot: int = player.up_side
+	if slot < 0 or slot >= hand.size() or hand[slot] == null:
+		return
+	var item: Card = hand[slot]
+	var ability_id: String = item.secondary_ability_id if secondary else item.ability_id
+	if ability_id.is_empty() or not CARD_ABILITIES_SCENES.has(ability_id):
+		return
+	if not secondary:
+		if item.trigger_type == Card.TriggerType.ON_FACE_UP: return
+		if item.trigger_type == Card.TriggerType.LINKED: return
+
+	_charging = true
+	_charge_secondary = secondary
+	_charge_time = 0.0
+
+	var inst = CARD_ABILITIES_SCENES[ability_id].instantiate()
+	if "card_system" in inst:
+		inst.card_system = self
+	if "is_secondary" in inst:
+		inst.is_secondary = secondary
+	if "is_charging" in inst:
+		inst.is_charging = true
+	_charging_instance = inst
+	player.add_child(inst)
+	charge_started.emit(secondary)
+
+func _cancel_charge() -> void:
+	if not _charging:
+		return
+	_charging = false
+	charge_ended.emit()
+	_discard_charging_instance()
+
+## Release: spend energy + commit, then tell the held ability to fire with the charge time.
+func _fire_charged() -> void:
+	var secondary: bool = _charge_secondary
+	var charge_seconds: float = _charge_time
+	_charging = false
+	charge_ended.emit()
+
+	var inst = _charging_instance
+	_charging_instance = null
+	if not is_instance_valid(inst):
+		return
+
+	var slot: int = player.up_side
+	if slot < 0 or slot >= hand.size() or hand[slot] == null:
+		_kill_instance(inst)
+		return
+	var item: Card = hand[slot]
+	var ability_cost: int = item.secondary_cost if secondary else item.cost
+	if not energy_component.has_enough(ability_cost):
+		energy_component.insufficient.emit()
+		_kill_instance(inst)
+		return
+	energy_component.spend(ability_cost)
+	player.begin_attack_commit(item.secondary_commit_value if secondary else item.commit_value)
+
+	if "charge" in inst:
+		inst.charge = charge_seconds
+	if inst.has_method("on_charge_release"):
+		inst.on_charge_release()
+	else:
+		_kill_instance(inst)
+
+func _discard_charging_instance() -> void:
+	var inst = _charging_instance
+	_charging_instance = null
+	_kill_instance(inst)
+
+func _kill_instance(inst) -> void:
+	if is_instance_valid(inst):
+		if inst.has_method("on_charge_cancel"):
+			inst.on_charge_cancel()
+		else:
+			inst.queue_free()
 
 
 func _on_roll_finished() -> void:
@@ -222,7 +369,7 @@ func _on_roll_finished() -> void:
 
 ## Fires an ability by ID on behalf of the given slot.
 ## use_commit: whether to lock the player during the ability (passive triggers skip this).
-func _fire_ability(slot: int, ability_id: String, use_commit: bool) -> void:
+func _fire_ability(slot: int, ability_id: String, use_commit: bool, commit_override: float = -1.0, is_secondary: bool = false, charge: float = 0.0) -> void:
 	var item: Card = hand[slot]
 	if item == null: return
 	if ability_id.is_empty() or ability_id == "empty": return
@@ -234,10 +381,16 @@ func _fire_ability(slot: int, ability_id: String, use_commit: bool) -> void:
 	# Inject self so abilities can call fire_linked_slot() for synergy chains.
 	if "card_system" in ability_instance:
 		ability_instance.card_system = self
+	# Tell the ability which input fired it (set before _ready so initialize() sees it).
+	if "is_secondary" in ability_instance:
+		ability_instance.is_secondary = is_secondary
+	if "charge" in ability_instance:
+		ability_instance.charge = charge
 	player.add_child(ability_instance)
 
 	if use_commit:
-		player.begin_attack_commit(item.commit_value)
+		var commit_time: float = commit_override if commit_override >= 0.0 else item.commit_value
+		player.begin_attack_commit(commit_time)
 
 	item_used.emit(item)
 

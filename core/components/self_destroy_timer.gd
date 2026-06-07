@@ -10,3 +10,8 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	get_parent().queue_free()
+
+
+## Stop the auto-free (e.g. while an ability is held/charging and manages its own lifetime).
+func cancel() -> void:
+	timer.stop()

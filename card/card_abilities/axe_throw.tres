@@ -5,9 +5,13 @@
 
 [resource]
 script = ExtResource("1_bd04v")
-card_name = "Axe Throw"
+card_name = "Axe"
 ability_id = "axe"
-card_description = "Throws an axe  forward that damages enemies and breaks obstacles."
+card_description = "Chops the tile directly in front — deals melee damage and breaks obstacles."
+secondary_ability_id = "axe"
+secondary_description = "Throws the axe in an arc, hitting 2–3 tiles ahead (passes over the tile right in front)."
+secondary_cost = 2
+secondary_commit_value = 0.25
 card_artwork = ExtResource("1_o2a5u")
 cost = 2
 commit_value = 0.25

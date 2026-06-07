@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://enemy/modifiers/poison/poison_overlay.gdshader" id="1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/poison_color = Color(0.4, 1, 0.35, 1)
+shader_parameter/rim_power = 2.5
+shader_parameter/strength = 0.7
+shader_parameter/pulse_speed = 3.0

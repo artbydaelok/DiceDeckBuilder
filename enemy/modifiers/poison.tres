@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyModifier" format=3]
+
+[ext_resource type="Script" path="res://enemy/modifiers/enemy_modifier.gd" id="1"]
+[ext_resource type="Material" path="res://enemy/modifiers/poison/poison_overlay.tres" id="2"]
+[ext_resource type="PackedScene" path="res://enemy/modifiers/poison/poison_on_death.tscn" id="3"]
+
+[resource]
+script = ExtResource("1")
+mod_name = "Poisonous"
+overlay_material = ExtResource("2")
+behavior_scene = ExtResource("3")
+health_mult = 1.0
+speed_mult = 1.0

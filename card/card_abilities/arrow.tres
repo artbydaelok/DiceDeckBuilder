@@ -7,7 +7,13 @@
 script = ExtResource("1_spfas")
 card_name = "Bow & Arrow"
 ability_id = "arrow"
-card_description = "Shoots an arrow forward."
+card_description = "Hold to draw, release to fire. A fully-drawn shot deals a critical hit."
+chargeable = true
+secondary_ability_id = "arrow"
+secondary_chargeable = true
+secondary_description = "Hold to draw three arrows, release to loose a volley onto the tiles ahead."
+secondary_cost = 3
+secondary_commit_value = 0.4
 card_artwork = ExtResource("1_are7e")
 cost = 3
 commit_value = 1.0
