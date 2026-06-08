@@ -54,6 +54,12 @@ const DIRECTION_OPPOSITE = {
 ## Rotate the target to face the direction of each step.
 @export var rotate_to_face_direction: bool = false
 
+@export_category("Audio")
+## Optional. If assigned, this player is played at the START of each step (e.g. a
+## footstep / slide sound). Leave empty to stay silent. For anything more involved
+## (per-direction sounds, pitch variation), connect step_started / step_finished instead.
+@export var move_sfx: AudioStreamPlayer3D
+
 ## Emitted the moment a step begins. Useful for starting walk/jump animations.
 signal step_started(direction: Vector3)
 ## Emitted when the tween finishes and the target has reached the new cell.
@@ -110,6 +116,9 @@ func move(direction: Vector3) -> void:
 
 	moving = true
 	step_started.emit(direction)
+
+	if move_sfx != null:
+		move_sfx.play()
 
 	var destination := Vector3(
 		target.global_position.x + direction.x * cell_size,

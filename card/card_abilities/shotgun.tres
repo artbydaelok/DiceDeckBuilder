@@ -6,8 +6,14 @@
 [resource]
 script = ExtResource("1_0bbsv")
 card_name = "Shotgun Blast"
+primary_action_name = "Shotgun Blast"
+secondary_action_name = "Reload"
 ability_id = "shotgun"
-card_description = "Shoots two pellets at the enemy. "
+card_description = "Shoots two pellets forward and recoils you back one tile. Spends the shell — reload (or move) to fire again."
+secondary_ability_id = "shotgun"
+secondary_description = "Reload — load a fresh shell so you can fire again. (Moving reloads it too.)"
+secondary_cost = 1
+secondary_commit_value = 0.7
 card_artwork = ExtResource("1_2dyou")
 cost = 3
 commit_value = 0.75

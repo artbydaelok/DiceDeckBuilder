@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_spfas")
 card_name = "Bow & Arrow"
+primary_action_name = "Charged Shot"
+secondary_action_name = "Arc Volley"
 ability_id = "arrow"
 card_description = "Hold to draw, release to fire. A fully-drawn shot deals a critical hit."
 chargeable = true

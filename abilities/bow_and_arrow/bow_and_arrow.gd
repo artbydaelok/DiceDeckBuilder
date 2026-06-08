@@ -41,14 +41,22 @@ const ARROW_LOAD_FRACTION := 0.15  # charge fraction it scales in over (loads on
 
 # ── Secondary volley (3 arrows lobbed onto a target tile ahead) ──
 const ARC_ARROW := preload("res://abilities/bow_and_arrow/arc_arrow.gd")
-const VOLLEY_DISTANCE := 6.0      # how far ahead (-Z) the center arrow lands (~3 tiles)
+
+# Where it lands / damage:
+const VOLLEY_DISTANCE := 8.0      # how far ahead (-Z) the center arrow lands (~4 tiles)s
 const VOLLEY_SPREAD := 2.0        # left/right tile offset for the two side arrows
-const VOLLEY_FROM_HEIGHT := 2.0   # launch height above the player
 const VOLLEY_DAMAGE := 5
-const VOLLEY_BOW_PITCH := 45.0    # tilt the bow up for the volley (flip sign if it tilts down)
-const VOLLEY_DRAW_TIME := 0.35    # arrows load/draw for this long before loosing
-const VOLLEY_NOCK_UP := 1.5       # upward angle bias of the three nocked arrows
-const VOLLEY_BACK_OFFSET := 1.5   # pull the bow + nocked arrows back (+Z) so they don't overlap the player
+
+# Placement — the bow and the 3 arrows move INDEPENDENTLY:
+const VOLLEY_BOW_POS := Vector3(0, 2.5, 1.5)   # ① where the bow sits  (moves the bow ONLY)
+const VOLLEY_NOCK_POS := Vector3(0, 2.5, 1.5)  # ② line the arrows up with the grip (left/up/back)
+const VOLLEY_NOCK_SLIDE := 2.0            # ③ slide arrows along their LENGTH so the nock sits on the string — RAISE if tails sit past it
+const VOLLEY_DRAW_BACK := 0.6                  # ④ how far the arrows pull back as you draw
+const VOLLEY_NOCK_UP := 1.5                    # ⑤ how steeply the trio angles up
+const VOLLEY_BOW_PITCH := 45.0                 # ⑥ how far the bow tilts up
+
+# Timing:
+const VOLLEY_DRAW_TIME := 0.35    # auto-draw time when the card isn't chargeable
 
 var _model: Node3D = null
 var _holder: Node3D = null
@@ -71,7 +79,7 @@ func initialize() -> void:
 	var pos := player.global_position + MODEL_OFFSET
 	if is_secondary:
 		orient = Basis(Vector3.RIGHT, deg_to_rad(VOLLEY_BOW_PITCH)) * orient  # tilt up for the volley
-		pos += Vector3(0, 0, VOLLEY_BACK_OFFSET)                              # pull back off the player
+		pos = player.global_position + VOLLEY_BOW_POS                         # bow placement (arrows are separate)
 	var b := orient.scaled(Vector3.ONE * MODEL_SCALE)
 	_holder.global_transform = Transform3D(b, pos)
 
@@ -206,7 +214,7 @@ func _setup_volley_nocks() -> void:
 
 ## [direction, nock-position] for each of the three volley arrows (angled up + spread).
 func _volley_nock_data() -> Array:
-	var from := player.global_position + Vector3(0, VOLLEY_FROM_HEIGHT, VOLLEY_BACK_OFFSET)
+	var from := player.global_position + VOLLEY_NOCK_POS
 	var target := player.global_position + Vector3(0, 0, -VOLLEY_DISTANCE)
 	var data := []
 	for off in [Vector3.ZERO, Vector3(-VOLLEY_SPREAD, 0, 0), Vector3(VOLLEY_SPREAD, 0, 0)]:
@@ -225,7 +233,11 @@ func _update_volley_draw(seconds: float) -> void:
 	for n in _nocks:
 		var node = n["node"]
 		if is_instance_valid(node):
-			node.global_transform = Transform3D(_aim_basis(n["dir"]).scaled(Vector3.ONE * ARROW_SCALE * s), n["pos"])
+			var dir: Vector3 = n["dir"]
+			# Rest at VOLLEY_NOCK_POS (n["pos"]), then pull back
+			# along −dir as it draws. Keep the _aim_basis(dir) rotation so it stays on-axis.
+			var pos: Vector3 = n["pos"] + dir * (VOLLEY_NOCK_SLIDE - VOLLEY_DRAW_BACK * t)
+			node.global_transform = Transform3D(_aim_basis(dir).scaled(Vector3.ONE * ARROW_SCALE * s), pos)
 
 
 ## Orient an arrow so its head leads along `dir`. Arrow.glb's head points down its
@@ -247,7 +259,7 @@ func _loose_volley() -> void:
 	if _anim:
 		_anim.speed_scale = 1.0   # release
 
-	var from := player.global_position + Vector3(0, VOLLEY_FROM_HEIGHT, VOLLEY_BACK_OFFSET)
+	var from := player.global_position + VOLLEY_NOCK_POS
 	var target := player.global_position + Vector3(0, 0, -VOLLEY_DISTANCE)
 	for off in [Vector3.ZERO, Vector3(-VOLLEY_SPREAD, 0, 0), Vector3(VOLLEY_SPREAD, 0, 0)]:
 		var a = ARC_ARROW.new()

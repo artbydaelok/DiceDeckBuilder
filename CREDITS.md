@@ -66,6 +66,9 @@ Assets sourced via **Poly Pizza** under **Creative Commons Attribution (CC-BY)**
 - **Low Poly Grenade**  
   https://sketchfab.com/3d-models/grenade-low-poly-65386b62b82e41b09e277c960ed7439d
 
+- **Rigged Bow & Arrow** – vw249 (CC-BY 4.0)  
+  https://sketchfab.com/3d-models/rigged-bow-arrow-88a6a146bdda4540b89cb14c6ff2a2a8
+
 - **PSX Cars** – ggbot  
   https://ggbot.itch.io/psx-style-cars
 

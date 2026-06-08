@@ -6,9 +6,15 @@
 [resource]
 script = ExtResource("1_a6t5g")
 card_name = "Bear Swipe"
+primary_action_name = "Bear Swipe"
+secondary_action_name = "Growl"
 ability_id = "swipe"
 card_description = "Close-range frontal swipe that deals great damage."
 card_artwork = ExtResource("1_7yriy")
 cost = 2
 commit_value = 1.2
+secondary_ability_id = "swipe"
+secondary_description = "Growl — a fierce roar that charges you up. Your next attack deals 50% more damage."
+secondary_cost = 2
+secondary_commit_value = 0.8
 value = 80

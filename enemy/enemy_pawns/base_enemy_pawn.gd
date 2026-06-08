@@ -8,6 +8,10 @@ var current_health: int
 ## it is auto-derived from the scene filename (see _resolve_enemy_id()).
 @export var enemy_id: String = ""
 
+## If true (default), the Bear Trap can capture this enemy and re-summon it as a
+## one-shot charging ally. Set false on bosses / enemies that shouldn't be trappable.
+@export var capturable: bool = true
+
 ## Modifiers applied to this enemy at spawn — visual sheen + behavior + stat tweaks.
 ## Drop e.g. the Poison modifier here to make a Poisonous variant.
 @export var modifiers: Array[EnemyModifier] = []
@@ -20,7 +24,20 @@ signal died
 var player : Player
 var initial_height: float
 
+## Set true BEFORE adding to the tree to spawn this enemy as a friendly one-shot
+## charging ally (Bear Trap's release) instead of a hostile enemy.
+var is_ally: bool = false
+
+# Ally charge tunables (Bear Trap release).
+const ALLY_HITBOX := preload("res://core/components/hitbox.tscn")
+const ALLY_CHARGE_TILES := 4
+const ALLY_CHARGE_TIME := 0.6
+const ALLY_DAMAGE := 6
+
 func _ready() -> void:
+	if is_ally:
+		_setup_ally()  # friendly puppet — skip all the hostile enemy setup below
+		return
 	_apply_modifiers()  # may change max_health before we read it
 	current_health = max_health
 	player = get_tree().get_first_node_in_group("player")
@@ -80,8 +97,38 @@ func _resolve_enemy_id() -> String:
 	return name.to_lower()
 
 func _physics_process(delta: float) -> void:
+	if is_ally:
+		return  # ally movement is tween-driven (see release_charge)
 	tick(delta)
 	move_and_slide()
+
+
+## Friendly setup: strip the hostile combat parts and add a hitbox that hurts ENEMIES.
+## The captured creature's model/visuals carry over, so it looks like what you trapped.
+func _setup_ally() -> void:
+	for n in find_children("*", "Hitbox", true, false):
+		n.queue_free()   # remove the player-damaging hitbox
+	for n in find_children("*", "Hurtbox", true, false):
+		n.queue_free()   # no friendly fire / no being targeted
+
+	var hb: Hitbox = ALLY_HITBOX.instantiate()
+	hb.damage = ALLY_DAMAGE
+	hb.collision_mask = 48  # EnemyHurtbox (layer 5) + Breakable (layer 6)
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(1.8, 2.0, 1.8)
+	shape.shape = box
+	hb.add_child(shape)
+	add_child(hb)
+
+
+## Charge forward a few tiles (damaging enemies in the path), then vanish.
+## Call this AFTER positioning the ally at its spawn spot.
+func release_charge() -> void:
+	var to := global_position + Vector3(0, 0, -2.0 * ALLY_CHARGE_TILES)  # forward is −Z
+	var tw := create_tween()
+	tw.tween_property(self, "global_position", to, ALLY_CHARGE_TIME).set_trans(Tween.TRANS_QUAD)
+	tw.tween_callback(queue_free)
 
 # Movement should be restricted to a grid.
 

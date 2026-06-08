@@ -243,8 +243,21 @@ func play_ability_for_slot(slot: int, secondary: bool = false, charge: float = 0
 		if item.trigger_type == Card.TriggerType.ON_FACE_UP: return
 		if item.trigger_type == Card.TriggerType.LINKED: return
 
+	# Shotgun is a stateful weapon: it can't fire while spent (no spammed pellets),
+	# and reloading does nothing while already loaded. Bail BEFORE spending energy.
+	if ability_id == "shotgun":
+		if not secondary and not player.shotgun_loaded: return
+		if secondary and player.shotgun_loaded: return
+
+	# Bear Trap release does nothing (and costs nothing) with an empty trap.
+	if ability_id == "bear_trap" and secondary and player.captured_creature.is_empty():
+		return
+
 	var ability_cost: int = item.secondary_cost if secondary else item.cost
 	var commit: float = item.secondary_commit_value if secondary else item.commit_value
+	# Grenade C4: detonating an already-planted charge is free (you paid to plant it).
+	if ability_id == "grenade" and secondary and is_instance_valid(player.active_c4):
+		ability_cost = 0
 	if not energy_component.has_enough(ability_cost):
 		energy_component.insufficient.emit()
 		return
@@ -353,6 +366,7 @@ func _kill_instance(inst) -> void:
 
 
 func _on_roll_finished() -> void:
+	player.shotgun_loaded = true  # moving reloads the shotgun
 	if deck_mode_active:
 		deck_top_changed.emit(get_top_face_value())
 		return

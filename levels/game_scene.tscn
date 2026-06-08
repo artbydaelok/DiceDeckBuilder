@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://ggrfl0nl2kwf" path="res://assets/shaders/psx_style.gdshader" id="1_gj0fv"]
 [ext_resource type="PackedScene" uid="uid://ca3r7dgfvfj22" path="res://ui/ability_sides_display.tscn" id="1_lwuof"]
 [ext_resource type="Script" uid="uid://bx2gub05m3x4b" path="res://levels/game_scene.gd" id="1_qcm70"]
-[ext_resource type="Script" path="res://core/pause_menu_controller.gd" id="2_gj0fv"]
+[ext_resource type="Script" uid="uid://b56v1mv0r1kbl" path="res://core/pause_menu_controller.gd" id="2_gj0fv"]
 [ext_resource type="PackedScene" uid="uid://glmod5s7viyk" path="res://health_system/player_health_display.tscn" id="2_sei10"]
 [ext_resource type="PackedScene" uid="uid://cp6gwawuteplg" path="res://player/player.tscn" id="3_cubmp"]
 [ext_resource type="PackedScene" uid="uid://bj4u3mjqxbyl" path="res://card/card_system.tscn" id="4_cosan"]
@@ -13,12 +13,13 @@
 [ext_resource type="FontFile" uid="uid://dukadcynlsp6f" path="res://assets/fonts/BebasNeue-Regular.ttf" id="4_xdqa1"]
 [ext_resource type="Script" uid="uid://6ipxlq7gefoy" path="res://ui/coin_amount_label.gd" id="8_5evlq"]
 [ext_resource type="Script" uid="uid://bowy7dpfjl4og" path="res://levels/camera.gd" id="8_mpvo7"]
+[ext_resource type="PackedScene" uid="uid://cp2bcqgpy35el" path="res://ui/ability_input_display.tscn" id="10_qcm70"]
 [ext_resource type="Texture2D" uid="uid://cq8b21a0q6867" path="res://assets/DiceGameFloor.png" id="11_nanwt"]
 [ext_resource type="Script" uid="uid://bqca1gie4n3v6" path="res://ui/item_pickup_popup/item_pickup_popup.gd" id="11_q4ywm"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_ftfgw"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_q4ywm"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="15_qcm70"]
-[ext_resource type="Shader" path="res://vfx/shaders/CRT_main_menu.gdshader" id="19_q4ywm"]
+[ext_resource type="Shader" uid="uid://mrkyltaoil8w" path="res://vfx/shaders/CRT_main_menu.gdshader" id="19_q4ywm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lul2y"]
 bg_color = Color(0.13, 0, 0, 1)
@@ -214,6 +215,11 @@ text = "100"
 horizontal_alignment = 2
 script = ExtResource("8_5evlq")
 
+[node name="AbilityInputDisplay" parent="UI/ScreenMargin1" unique_id=1230731239 instance=ExtResource("10_qcm70")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
 [node name="ScreenMargin2" type="MarginContainer" parent="UI" unique_id=14212891]
 anchors_preset = 2
 anchor_top = 1.0
@@ -255,6 +261,8 @@ follow_target = NodePath("../../Player/Pivot/MeshInstance3D")
 tween_resource = SubResource("Resource_wkhn0")
 follow_offset = Vector3(0, 2.5, 5.5)
 follow_damping = true
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="GameCamera" type="Camera3D" parent="BaseLevel/Cameras" unique_id=1892705345 groups=["game_camera"]]

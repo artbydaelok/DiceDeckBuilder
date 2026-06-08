@@ -41,6 +41,22 @@ var y_grid_pos = 0
 
 var grid_pos : Vector2
 
+## One-shot damage buff (e.g. Bear Swipe's Growl). Multiplies the next player
+## attack that lands on an enemy, then resets to 1.0. See Hitbox._on_area_entered.
+var next_attack_damage_mult := 1.0
+
+## Shotgun ammo: true = a shell is loaded. Firing spends it; moving or the shotgun's
+## reload secondary re-loads it. Only the shotgun ability reads this.
+var shotgun_loaded := true
+
+## The currently planted C4 charge (Grenade's secondary), or null. While one exists,
+## the grenade secondary detonates it instead of planting another.
+var active_c4: Node = null
+
+## The creature currently held in the Bear Trap, as {scene_path, enemy_id}. Empty = none.
+## The trap fills this on a capture; the trap's release secondary consumes it.
+var captured_creature: Dictionary = {}
+
 signal player_moved(direction : Vector2)
 signal roll_finished()
 
@@ -276,6 +292,27 @@ func roll(dir):
 	if not GameEvents.is_in_menu and not GameEvents.is_in_cutscene:
 		_enable_input.call_deferred()
 
+## Recoil-slide the die one tile WITHOUT rolling it (keeps the up-face). Used by
+## the shotgun's knockback. Respects obstacles via the same shape_cast as roll().
+func knockback(dir: Vector3) -> void:
+	if health_component.is_dead:
+		return
+	# Obstacle check in the slide direction (same probe roll() uses).
+	var initial = shape_cast.target_position
+	shape_cast.target_position = dir * cube_size
+	shape_cast.force_shapecast_update()
+	var blocked := shape_cast.is_colliding()
+	shape_cast.target_position = initial
+	if blocked:
+		return
+	# Slide the body over one tile; the mesh (child) follows. No dice roll.
+	var tw := create_tween()
+	tw.tween_property(self, "position", position + dir * cube_size, 0.15) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	x_grid_pos += dir.x
+	y_grid_pos += dir.z
+	grid_pos = Vector2(x_grid_pos, y_grid_pos)
+
 func detect_side_up() -> void:
 	# Read directly from DiceRoller's face tracking — discrete logic, no float comparison.
 	# faces["top"] is always correct after every roll and flip.
@@ -294,6 +331,7 @@ func apply_damage(amount: float) -> void:
 func _on_damaged(amount: float) -> void:
 	player_damaged.emit(amount)
 	$HurtSFX.play()
+	CameraShake.shake()
 
 func _on_healed(amount: float) -> void:
 	player_healed.emit(amount)

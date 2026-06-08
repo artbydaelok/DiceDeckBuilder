@@ -18,6 +18,7 @@ var _to := Vector3.ZERO
 var _stuck := false
 var _tween: Tween
 var _visual: Node3D
+var _hitbox: Hitbox
 var _prev := Vector3.ZERO
 
 
@@ -35,16 +36,16 @@ func _ready() -> void:
 	_visual = ARROW_MODEL.instantiate()
 	add_child(_visual)
 
-	var hitbox: Hitbox = HITBOX_SCENE.instantiate()
-	hitbox.damage = damage
-	hitbox.collision_mask = 48  # EnemyHurtbox (layer 5) + Breakable (layer 6)
+	_hitbox = HITBOX_SCENE.instantiate()
+	_hitbox.damage = damage
+	_hitbox.collision_mask = 48  # EnemyHurtbox (layer 5) + Breakable (layer 6)
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
 	box.size = Vector3(1, 1, 1)
 	shape.shape = box
-	hitbox.add_child(shape)
-	hitbox.area_entered.connect(_on_hit)
-	add_child(hitbox)
+	_hitbox.add_child(shape)
+	_hitbox.area_entered.connect(_on_hit)
+	add_child(_hitbox)
 
 	_tween = create_tween()
 	_tween.tween_method(_fly, 0.0, 1.0, FLIGHT_TIME)
@@ -86,5 +87,7 @@ func _stick() -> void:
 	_stuck = true
 	if _tween and _tween.is_valid():
 		_tween.kill()
+	if is_instance_valid(_hitbox):
+		_hitbox.set_deferred("monitoring", false)   # landed → stop dealing damage
 	await get_tree().create_timer(STUCK_TIME).timeout
 	queue_free()

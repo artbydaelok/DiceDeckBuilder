@@ -157,5 +157,5 @@ disabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ol05h")
-autoplay = true
+autoplay = false
 bus = &"SFX"

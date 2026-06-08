@@ -6,8 +6,14 @@
 [resource]
 script = ExtResource("1_tpgan")
 card_name = "Grenade"
+primary_action_name = "Grenade"
+secondary_action_name = "C4"
 ability_id = "grenade"
 card_description = "Throws a grenade upwards that blows up after a while. Deals massive damage to enemies but can also hurt the player."
+secondary_ability_id = "grenade"
+secondary_description = "C4 — plant a charge at your feet (it arms once you step away). Press again to detonate it."
+secondary_cost = 3
+secondary_commit_value = 0.25
 card_artwork = ExtResource("1_df2k0")
 cost = 4
 commit_value = 0.25

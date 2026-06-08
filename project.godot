@@ -100,6 +100,7 @@ DiceState="*uid://dyw1h3ouyiipp"
 QuestDatabase="*res://core/quest_system/quest_database.gd"
 QuestTextParser="*res://core/quest_system/quest_text_parser.gd"
 QuestManager="*res://core/quest_system/quest_manager.gd"
+CameraShake="*res://core/camera_shake.gd"
 
 [dialogue_manager]
 

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cp2bcqgpy35el"]
+
+[ext_resource type="Texture2D" uid="uid://cgc2f1ssvruyf" path="res://assets/ui/Mouse/mouse_left.png" id="1_cbjj3"]
+[ext_resource type="Texture2D" uid="uid://gaefl45o5rn7" path="res://assets/ui/Mouse/mouse_right.png" id="2_qhy6c"]
+[ext_resource type="Script" uid="uid://bs7p4twyi4akm" path="res://ui/ability_input_display.gd" id="3_disp"]
+
+[node name="AbilityInputDisplay" type="Control" unique_id=1230731239]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("3_disp")
+
+[node name="AbilitiesInputContainer" type="VBoxContainer" parent="." unique_id=2140187593]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -132.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PrimaryContainer" type="HBoxContainer" parent="AbilitiesInputContainer" unique_id=1023640000]
+layout_mode = 2
+alignment = 2
+
+[node name="PrimaryLabel" type="Label" parent="AbilitiesInputContainer/PrimaryContainer" unique_id=509246060]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Axe Chop"
+
+[node name="LMouseIcon" type="TextureRect" parent="AbilitiesInputContainer/PrimaryContainer" unique_id=1830984774]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_cbjj3")
+
+[node name="AltContainer" type="HBoxContainer" parent="AbilitiesInputContainer" unique_id=725263016]
+layout_mode = 2
+alignment = 2
+
+[node name="SecondaryLabel" type="Label" parent="AbilitiesInputContainer/AltContainer" unique_id=1833713218]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Axe Throw"
+
+[node name="RMouseIcon" type="TextureRect" parent="AbilitiesInputContainer/AltContainer" unique_id=1964955849]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_qhy6c")

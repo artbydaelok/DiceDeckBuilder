@@ -9,6 +9,8 @@ enum TriggerType {
 }
 
 @export var card_name : String = "Card Name"
+## Short HUD label for the PRIMARY action (e.g. "Axe Chop"). Falls back to card_name.
+@export var primary_action_name : String = ""
 ## Ability fired when the player manually activates this card (ACTIVATE or BOTH).
 @export var ability_id : String = ""
 ## Puzzle-semantic value for deck sides (e.g. "blue", "hearts", "up"). Empty for
@@ -31,6 +33,8 @@ enum TriggerType {
 @export var secondary_ability_id : String = ""
 ## Tooltip text for the secondary use. Menus show this alongside card_description.
 @export_multiline var secondary_description : String = ""
+## Short HUD label for the SECONDARY action (e.g. "Axe Throw"). Falls back to card_name.
+@export var secondary_action_name : String = ""
 ## Energy cost of the secondary use.
 @export var secondary_cost : int = 0
 ## Commit time of the secondary use.

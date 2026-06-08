@@ -6,8 +6,14 @@
 [resource]
 script = ExtResource("1_7j8uh")
 card_name = "Bear Trap"
+primary_action_name = "Bear Trap"
+secondary_action_name = "Release"
 ability_id = "bear_trap"
-card_description = "Prepare a trap that you leave behind when you move. It will damage enemies or the player if triggered."
+card_description = "Prepare a trap that you leave behind when you move. It captures the creature that triggers it (or damages bosses / you)."
+secondary_ability_id = "bear_trap"
+secondary_description = "Trap Release — re-summon the creature your trap caught; it charges forward and tears into enemies, then vanishes."
+secondary_cost = 2
+secondary_commit_value = 0.25
 card_artwork = ExtResource("1_jisdb")
 cost = 6
 value = 150
