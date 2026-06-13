@@ -32,7 +32,10 @@ var faces: Dictionary:
 var commit_lock = false
 
 var cube_size = 2.0
-var speed = 4.0
+var base_speed := 4.0           # move speed without buffs
+var speed = 4.0                 # effective speed (recomputed by _update_speed)
+const LANTERN_SPEED_BONUS := 1.0
+var _lantern_sources := 0       # active lanterns granting speed (bonus does NOT stack)
 var rolling = false
 
 var x_grid_pos = 0
@@ -56,6 +59,17 @@ var active_c4: Node = null
 ## The creature currently held in the Bear Trap, as {scene_path, enemy_id}. Empty = none.
 ## The trap fills this on a capture; the trap's release secondary consumes it.
 var captured_creature: Dictionary = {}
+
+## The placed (leave-behind) Lantern, or null. Placing another replaces it.
+var placed_lantern: Node = null
+
+## The active loaded Revolver (primary), or null. The "Fan the Hammer" secondary
+## reads its remaining shots to dump them all at once.
+var active_revolver: Node = null
+
+## The Map's dropped recall marker, as {position, x_grid, y_grid, zone, marker}.
+## Empty = none. Dropping records it; using the secondary again warps back + consumes it.
+var recall_marker: Dictionary = {}
 
 signal player_moved(direction : Vector2)
 signal roll_finished()
@@ -319,6 +333,19 @@ func detect_side_up() -> void:
 	var top_face: int = dice_roller.faces["top"]  # 1–6
 	up_side = (top_face - 1) as SIDES_STATE       # ONE=0 … SIX=5
 	GameEvents.emit_signal("dice_moved", top_face)
+
+## Lantern speed: any number of active lanterns grants a single (non-stacking) bonus.
+func add_lantern_speed() -> void:
+	_lantern_sources += 1
+	_update_speed()
+
+func remove_lantern_speed() -> void:
+	_lantern_sources = max(0, _lantern_sources - 1)
+	_update_speed()
+
+func _update_speed() -> void:
+	speed = base_speed + (LANTERN_SPEED_BONUS if _lantern_sources > 0 else 0.0)
+
 
 ## Public API — called by enemies, traps, pickups, etc.
 func heal_player(amount: float) -> void:

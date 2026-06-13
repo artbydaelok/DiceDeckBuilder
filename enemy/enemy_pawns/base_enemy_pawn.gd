@@ -17,6 +17,8 @@ var current_health: int
 @export var modifiers: Array[EnemyModifier] = []
 
 signal died
+## Emitted when the enemy takes damage but survives (drives hit-react juice, etc).
+signal damaged(amount: int)
 
 ## How fast the enemy will move per second or per player move. By default 2.0 is one "tile".
 @export var move_speed = 2.0
@@ -77,7 +79,25 @@ func tick(delta): # OVERRIDABLE FUNCTION
 	pass
 
 func on_died() -> void:
-	queue_free()
+	# If a CreatureAnimator is attached, play its death splat first, then free.
+	# Duck-typed so the base doesn't hard-depend on the component.
+	var anim = _creature_animator()
+	if anim != null:
+		set_physics_process(false)  # stop moving while it plays out
+		for hb in find_children("*", "Hitbox", true, false):
+			hb.set_deferred("monitoring", false)
+		for hb in find_children("*", "Hurtbox", true, false):
+			hb.set_deferred("monitoring", false)
+		anim.death_finished.connect(queue_free)
+		anim.play_death()
+	else:
+		queue_free()
+
+func _creature_animator() -> Node:
+	for c in get_children():
+		if c.has_method("play_death") and c.has_signal("death_finished"):
+			return c
+	return null
 #endregion # OVERRIDABLE FUNCTIONS
 
 func apply_damage(amount: int) -> void:
@@ -86,6 +106,8 @@ func apply_damage(amount: int) -> void:
 		GameEvents.enemy_killed.emit(_resolve_enemy_id())
 		died.emit()
 		on_died()
+	else:
+		damaged.emit(amount)
 
 ## Returns the type id used for kill tracking. Prefers the exported enemy_id,
 ## then the scene filename (e.g. "frog_enemy"), then the node name.

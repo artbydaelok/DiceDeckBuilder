@@ -6,8 +6,14 @@
 [resource]
 script = ExtResource("1_dwn62")
 card_name = "Map"
+primary_action_name = "Map"
+secondary_action_name = "Recall Marker"
 ability_id = "map"
 card_description = "Opens a map of the current area, if the player has it. "
+secondary_ability_id = "map"
+secondary_description = "Recall Marker — drop a marker where you stand; use again to warp back to it (restoring the camera angle)."
+secondary_cost = 2
+secondary_commit_value = 0.2
 card_artwork = ExtResource("1_fu4fj")
 value = 100
 metadata/_custom_type_script = "uid://dd4juc1880sbt"

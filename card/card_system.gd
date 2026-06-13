@@ -253,6 +253,10 @@ func play_ability_for_slot(slot: int, secondary: bool = false, charge: float = 0
 	if ability_id == "bear_trap" and secondary and player.captured_creature.is_empty():
 		return
 
+	# Fan the Hammer needs a loaded revolver.
+	if ability_id == "revolver" and secondary and not is_instance_valid(player.active_revolver):
+		return
+
 	var ability_cost: int = item.secondary_cost if secondary else item.cost
 	var commit: float = item.secondary_commit_value if secondary else item.commit_value
 	# Grenade C4: detonating an already-planted charge is free (you paid to plant it).

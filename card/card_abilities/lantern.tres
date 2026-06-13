@@ -6,8 +6,14 @@
 [resource]
 script = ExtResource("1_y7lhv")
 card_name = "Lantern"
+primary_action_name = "Lantern"
+secondary_action_name = "Drop Lantern"
 ability_id = "lantern"
-card_description = "Spawns a floating lantern above the player."
+card_description = "Spawns a floating lantern above the player. Grants a small movement-speed boost (does not stack)."
+secondary_ability_id = "lantern"
+secondary_description = "Leave a lantern behind — it stays put until you place another. Also grants a small movement-speed boost (does not stack)."
+secondary_cost = 1
+secondary_commit_value = 0.1
 card_artwork = ExtResource("1_di7oi")
 cost = 1
 value = 100

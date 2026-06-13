@@ -6,7 +6,13 @@
 [resource]
 script = ExtResource("1_qamhd")
 card_name = "Revolver"
+primary_action_name = "Revolver"
+secondary_action_name = "Fan the Hammer"
 ability_id = "revolver"
 card_description = "Loads up six bullets that shoot the next six times you move. "
+secondary_ability_id = "revolver"
+secondary_description = "Fan the Hammer — dump all remaining loaded bullets at once in a wide fan in front of you."
+secondary_cost = 1
+secondary_commit_value = 0.3
 card_artwork = ExtResource("1_3kyn0")
 metadata/_custom_type_script = "uid://dd4juc1880sbt"

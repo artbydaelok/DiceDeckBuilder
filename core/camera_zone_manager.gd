@@ -35,3 +35,10 @@ func _refresh() -> void:
 
 func set_default_zone(zone):
 	_default_zone = zone
+
+## The zone whose camera is currently active (top of the stack, else the default).
+## Used by the Map's recall marker to remember and later restore the camera angle.
+func get_active_zone():
+	if not _zone_stack.is_empty():
+		return _zone_stack.back()
+	return _default_zone

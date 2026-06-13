@@ -68,6 +68,7 @@
 [ext_resource type="PackedScene" uid="uid://c88pophtpsiw1" path="res://assets/3d_models/Lantern.glb" id="61_2quou"]
 [ext_resource type="PackedScene" uid="uid://bn1y6s1fsr7o4" path="res://ui/picture_taker.tscn" id="65_yj4mq"]
 [ext_resource type="Shader" uid="uid://dil2r1npt6l4v" path="res://assets/shaders/ground_tiling.gdshader" id="ground_shader"]
+[ext_resource type="PackedScene" path="res://enemy/enemy_pawns/frog/poisonous_frog.tscn" id="poison_frog"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b118p"]
 size = Vector3(10, 1, 4)
@@ -488,7 +489,7 @@ transform = Transform3D(0.9402859, -0.14760865, 0.30670798, 0, 0.90107673, 0.433
 follow_offset = Vector3(1.824, 2.785, 3.87)
 
 [node name="GameCamera" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="1" unique_id=1892705345]
-transform = Transform3D(0.9402859, -0.14760865, 0.30670798, 0, 0.90107673, 0.43365878, -0.34037876, -0.40776438, 0.8472714, 1.824, 3.785, 3.87)
+transform = Transform3D(0.9402881, -0.1476087, 0.3067082, 0, 0.90107703, 0.4336591, -0.34037957, -0.40776452, 0.84727204, 1.824, 3.785, 3.87)
 
 [node name="OruShopCameraZone" parent="BaseLevel/Cameras" parent_id_path=PackedInt32Array(242324165) index="2" unique_id=1913142793 node_paths=PackedStringArray("phantom_camera") instance=ExtResource("45_u4uq1")]
 transform = Transform3D(5, 0, 0, 0, 5.0000005, 0, 0, 0, 5.0000005, -14, 2, -354)
@@ -796,11 +797,11 @@ spaces_to_move = 4
 reverse_direction = true
 move_speed = 1.0
 
-[node name="FrogEnemy2" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="1" unique_id=1418250710 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy2" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="1" unique_id=1418250710 instance=ExtResource("poison_frog")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, -50.000015)
 move_speed = 1.0
 
-[node name="FrogEnemy10" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="2" unique_id=2087955057 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy10" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="2" unique_id=2087955057 instance=ExtResource("poison_frog")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 18.000004, 0, -250)
 spaces_to_move = 4
 reverse_direction = true
@@ -825,12 +826,12 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 32, 0, -258)
 spaces_to_move = 4
 move_speed = 1.5
 
-[node name="FrogEnemy18" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="7" unique_id=252890027 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy18" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="7" unique_id=252890027 instance=ExtResource("poison_frog")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -4, 0, -238)
 spaces_to_move = 4
 reverse_direction = true
 
-[node name="FrogEnemy21" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="8" unique_id=1061062752 instance=ExtResource("14_b118p")]
+[node name="FrogEnemy21" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="8" unique_id=1061062752 instance=ExtResource("poison_frog")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 8, 0, -112)
 spaces_to_move = 4
 
@@ -950,6 +951,25 @@ gizmo_extents = 5.0
 [node name="EyeballMarker2" type="Marker3D" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="30" unique_id=999757196]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -220)
 gizmo_extents = 5.0
+
+[node name="PoisonFrogA" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="31" unique_id=1934962836 instance=ExtResource("poison_frog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -258)
+spaces_to_move = 4
+move_speed = 1.5
+
+[node name="PoisonFrogB" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="32" unique_id=2004881122 instance=ExtResource("poison_frog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -258)
+spaces_to_move = 4
+move_speed = 1.5
+
+[node name="FrogEnemyA" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="33" unique_id=1551824651 instance=ExtResource("14_b118p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -250)
+spaces_to_move = 4
+
+[node name="FrogEnemyB" parent="BaseLevel/Enemies" parent_id_path=PackedInt32Array(244920569) index="34" unique_id=1428818480 instance=ExtResource("14_b118p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -44)
+spaces_to_move = 4
+reverse_direction = true
 
 [node name="GrassFloor" type="Node3D" parent="BaseLevel" parent_id_path=PackedInt32Array(2067204523) index="9" unique_id=79060206]
 
@@ -3253,7 +3273,19 @@ toptext = "East >"
 maintext = "BEAR's"
 bottomtext = "Cave"
 
-[node name="WaterBlock" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="48" unique_id=1705796086 instance=ExtResource("32_004l2")]
+[node name="placeholder_sign10" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="48" unique_id=32120872 instance=ExtResource("30_lfkt6")]
+transform = Transform3D(3.4592319, -0.43590635, -0.8901256, 0.5134178, 3.6098878, 0.15357035, 1.0487701, -0.32941407, 2.860787, 19.760368, 0.73809195, -259.29715)
+toptext = "DANGER"
+maintext = "Poisonous"
+bottomtext = "Frogs"
+
+[node name="placeholder_sign11" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="49" unique_id=293428776 instance=ExtResource("30_lfkt6")]
+transform = Transform3D(3.6018643, -0.5268146, 0.23072192, 0.51341784, 3.6098878, 0.15357035, -0.30459327, -0.14489439, 2.9871712, 26.753494, 0.73809195, -259.91202)
+toptext = "Poisonous"
+maintext = "Freaking"
+bottomtext = "Frogs"
+
+[node name="WaterBlock" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="50" unique_id=1705796086 instance=ExtResource("32_004l2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.73181, -10.534599, -181.3128)
 
 [node name="MeshInstance3D" parent="BaseLevel/Environment/WaterBlock" index="1"]
@@ -3304,61 +3336,61 @@ mesh = SubResource("QuadMesh_bsqew")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.48828, 6.591608, 0)
 mesh = SubResource("QuadMesh_bsqew")
 
-[node name="Root Scene" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="49" unique_id=1622995756 instance=ExtResource("40_yj4mq")]
+[node name="Root Scene" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="51" unique_id=1622995756 instance=ExtResource("40_yj4mq")]
 transform = Transform3D(2.0308011e-08, 0.6814238, 0.7318891, -1, 2.9802322e-08, 0, -2.1811996e-08, -0.7318891, 0.6814238, 11.14856, 4.098648, -329.6392)
 
-[node name="Red Mushrooms" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="50" unique_id=1156678054 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="52" unique_id=1156678054 instance=ExtResource("34_t7kac")]
 transform = Transform3D(6.767604, 0, 7.362034, 0, 10, 0, -7.362034, 0, 6.767604, 45.374535, 0.10649246, -245.92831)
 
-[node name="Red Mushrooms16" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="51" unique_id=843006328 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms16" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="53" unique_id=843006328 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-8.127152, 0, 4.7232814, 0, 9.4, 0, -4.7232814, 0, -8.127152, 31.122864, 0.10649341, -245.9612)
 
-[node name="Red Mushrooms17" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="52" unique_id=965153464 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms17" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="54" unique_id=965153464 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-8.127152, 0, 4.7232814, 0, 9.4, 0, -4.7232814, 0, -8.127152, 36.477966, 0.10649341, -250.51228)
 
-[node name="Red Mushrooms18" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="53" unique_id=1909609647 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms18" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="55" unique_id=1909609647 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-2.9110005, 0, 8.9379, 0, 9.399999, 0, -8.9379, 0, -2.9110005, 55.31146, 0.10649341, -255.55325)
 
-[node name="Red Mushrooms14" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="54" unique_id=1524496609 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms14" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="56" unique_id=1524496609 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.763716, 0, 2.160988, 0, 9.999999, 0, -2.160988, 0, 9.763716, 7.9934893, 0.10649198, -228.38858)
 
-[node name="Red Mushrooms2" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="55" unique_id=1673849218 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms2" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="57" unique_id=1673849218 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-0.3958308, 1.1235346, 9.928796, -1.7204112, 9.78053, -1.1753446, -9.842941, -1.754685, -0.1938493, 50.123013, 0.10649246, -236.63062)
 
-[node name="Red Mushrooms5" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="56" unique_id=381886164 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms5" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="58" unique_id=381886164 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.602268, 1.3986406, -2.4166594, -1.7204111, 9.780529, -1.1753446, 2.1992319, 1.544362, 9.63215, 59.08901, 0.10649246, -239.21812)
 
-[node name="Red Mushrooms6" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="57" unique_id=114748493 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms6" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="59" unique_id=114748493 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.643219, -0.03437519, 11.489438, 3.7880387, 14.170753, -3.1369474, -10.847076, 4.918181, 9.118795, 73.93762, 0.10649246, -238.21025)
 
-[node name="Red Mushrooms7" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="58" unique_id=1980058009 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms7" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="60" unique_id=1980058009 instance=ExtResource("34_t7kac")]
 transform = Transform3D(9.643219, -0.03437519, 11.489438, 3.7880387, 14.170753, -3.1369474, -10.847076, 4.918181, 9.118795, 33.706257, 0.10649246, -129.83522)
 
-[node name="Red Mushrooms8" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="59" unique_id=1052207303 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms8" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="61" unique_id=1052207303 instance=ExtResource("34_t7kac")]
 transform = Transform3D(2.5205128, -2.7290277, -9.284365, 2.5253596, 9.44717, -2.0912998, 9.34182, -1.8175216, 3.070348, 37.816982, 0.10649246, -114.30434)
 
-[node name="Red Mushrooms15" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="60" unique_id=1857002248 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms15" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="62" unique_id=1857002248 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-6.790867, 3.270111, 6.571949, 2.5253599, 9.447171, -2.0913002, -6.8925114, 0.23947978, -7.241267, 6.221814, 0.10649246, -101.69978)
 
-[node name="Red Mushrooms11" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="61" unique_id=1750219353 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms11" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="63" unique_id=1750219353 instance=ExtResource("34_t7kac")]
 transform = Transform3D(4.022617, -1.6254544, -2.4852464, 1.2626797, 4.723585, -1.0456498, 2.6877866, 0.21363568, 4.210721, -2.1806724, 1.0360068, -48.095436)
 
-[node name="Red Mushrooms12" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="62" unique_id=2106583486 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms12" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="64" unique_id=2106583486 instance=ExtResource("34_t7kac")]
 transform = Transform3D(4.022617, -1.6254544, -2.4852464, 1.2626797, 4.723585, -1.0456498, 2.6877866, 0.21363568, 4.210721, 2.1999915, 1.0360068, -43.34586)
 
-[node name="Red Mushrooms3" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="63" unique_id=21382193 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms3" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="65" unique_id=21382193 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-6.35717, -2.0137486, -7.4519258, -1.7204111, 9.780529, -1.1753446, 7.5250616, 0.5348514, -6.564096, 49.665054, 0.10649246, -190.4847)
 
-[node name="Red Mushrooms4" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="64" unique_id=1241330459 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms4" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="66" unique_id=1241330459 instance=ExtResource("34_t7kac")]
 transform = Transform3D(11.954642, -0.97528195, 0.36787692, 1.0110565, 11.87955, -1.3616225, -0.25351995, 1.3874713, 11.9168215, 8.950585, 0.10649246, -268.79163)
 
-[node name="Red Mushrooms9" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="65" unique_id=1863235182 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms9" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="67" unique_id=1863235182 instance=ExtResource("34_t7kac")]
 transform = Transform3D(2.3282802, 1.1447388, 11.716171, 1.0110565, 11.87955, -1.3616226, -11.728465, 1.2513294, 2.2084606, -1.3336802, 0.10649246, -293.41025)
 
-[node name="Red Mushrooms13" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="66" unique_id=624438116 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms13" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="68" unique_id=624438116 instance=ExtResource("34_t7kac")]
 transform = Transform3D(10.786037, -4.445629, 2.8103018, 3.6646442, 10.951892, 3.2598188, -3.772505, -2.0718126, 11.201595, 4.9388323, -0.014038384, -413.35696)
 
-[node name="Red Mushrooms10" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="67" unique_id=1028285467 instance=ExtResource("34_t7kac")]
+[node name="Red Mushrooms10" parent="BaseLevel/Environment" parent_id_path=PackedInt32Array(1226777056) index="69" unique_id=1028285467 instance=ExtResource("34_t7kac")]
 transform = Transform3D(-6.2209716, 1.0922222, 4.909843, 0.6740377, 7.9197006, -0.90774864, -4.984494, -0.2922075, -6.250554, 0.5668441, 4.1016197, -296.1778)
 
 [node name="FirefliesVFX" parent="BaseLevel/VisualEffects" parent_id_path=PackedInt32Array(143960948) index="0" unique_id=690104754 instance=ExtResource("11_14s10")]

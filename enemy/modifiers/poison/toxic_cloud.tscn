@@ -1,29 +1,90 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://c8jvv50geqmnj"]
 
-[ext_resource type="Script" path="res://enemy/modifiers/poison/toxic_cloud.gd" id="1"]
+[ext_resource type="Script" uid="uid://df6v51aq30d7g" path="res://enemy/modifiers/poison/toxic_cloud.gd" id="1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1"]
 radius = 2.0
+
+[sub_resource type="Curve" id="Curve_m6q6d"]
+_data = [Vector2(0, 0.5617978), 0.0, 0.0, 0, 0, Vector2(0.3269231, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p7jdg"]
+curve = SubResource("Curve_m6q6d")
+
+[sub_resource type="Gradient" id="Gradient_22clx"]
+offsets = PackedFloat32Array(0, 0.5494506, 1)
+colors = PackedColorArray(0.19920912, 0.12084431, 0.51478636, 1, 0.6392157, 0.09411765, 0.44705883, 1, 0.39500532, 0.064816445, 0.9001751, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4rowg"]
+gradient = SubResource("Gradient_22clx")
+
+[sub_resource type="Curve" id="Curve_8pb4e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.33173078, 0.19101131), 0.0, 0.0, 0, 0, Vector2(0.6490385, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kibet"]
+curve = SubResource("Curve_8pb4e")
+
+[sub_resource type="Curve" id="Curve_22clx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.16826925, 0.5842697), 0.0, 0.0, 0, 0, Vector2(0.29807693, 0.79775286), -1.446763, -1.446763, 0, 0, Vector2(0.53846157, 0.6292135), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_4rowg"]
+curve = SubResource("Curve_22clx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8pb4e"]
+lifetime_randomness = 0.25
+emission_shape_scale = Vector3(1.5, 1.5, 1.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_4rowg")
+color_initial_ramp = SubResource("GradientTexture1D_4rowg")
+alpha_curve = SubResource("CurveTexture_p7jdg")
+emission_curve = SubResource("CurveTexture_kibet")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kibet"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ojsbv"]
+material = SubResource("StandardMaterial3D_kibet")
+radial_segments = 6
+rings = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+transparency = 1
+albedo_color = Color(0.62, 0.2, 0.9, 0.32)
+emission_enabled = true
+emission = Color(0.5, 0.15, 0.8, 1)
+emission_energy_multiplier = 0.6
 
 [sub_resource type="SphereMesh" id="SphereMesh_1"]
 radius = 2.0
 height = 4.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
-transparency = 1
-albedo_color = Color(0.3, 0.9, 0.3, 0.32)
-emission_enabled = true
-emission = Color(0.2, 0.7, 0.2, 1)
-emission_energy_multiplier = 0.6
-
-[node name="ToxicCloud" type="Area3D"]
+[node name="ToxicCloud" type="Area3D" unique_id=33848919]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=201752645]
 shape = SubResource("SphereShape3D_1")
 
-[node name="Visual" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_1")
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1700017265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+amount = 46
+lifetime = 1.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8pb4e")
+draw_pass_1 = SubResource("SphereMesh_ojsbv")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=493569512]
+visible = false
 material_override = SubResource("StandardMaterial3D_1")
+mesh = SubResource("SphereMesh_1")
